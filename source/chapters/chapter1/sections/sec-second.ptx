@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-what-is-de" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>What is a Differential Equation?</title>
+
+  <p><em>Modelling situations that are changing</em></p>
+
+  <p>
+    Derivatives are used to model changing situations. Things are changing all around us.
+  </p>
+
+  <p>
+    <strong>Guided Question.</strong>
+    Come up with an equation that models the following situation:
+    The rate of change of a population P(t) is proportional to the current population.
+  </p>
+
+  <!-- DEFINITION -->
+  <definition xml:id="def-de">
+    <title>Differential Equation</title>
+
+    <p>
+      A differential equation is an equation involving a function, its derivatives, and the independent variable.
+    </p>
+
+    <p>
+      The order of a differential equation is the highest derivative appearing.
+    </p>
+  </definition>
+
+  <!-- EXAMPLE 1 -->
+  <exercise xml:id="ex-pop-model">
+    
+
+    <p>
+      A simple model assumes:
+    </p>
+
+    <p><me>dP/dt = kP</me></p>
+
+    <p><strong>Find the general solution.</strong></p>
+
+    <solution>
+
+      <p><strong>Step 1: Separate variables</strong></p>
+      <hint>
+        <p>Divide both sides by P to isolate variables.</p>
+      </hint>
+
+      <p><me>dP/P = k dt</me></p>
+
+      <p><strong>Step 2: Integrate both sides</strong></p>
+      <hint>
+        <p>Use that ∫1/P dP = ln|P|.</p>
+      </hint>
+
+      <p><me>\ln|P| = kt + C</me></p>
+
+      <p><strong>Step 3: Solve for P</strong></p>
+      <hint>
+        <p>Exponentiate both sides and absorb constants.</p>
+      </hint>
+
+      <p><me>P(t) = Ce^{kt}</me></p>
+
+    </solution>
+  </exercise>
+
+  <!-- EXAMPLE 2 -->
+  <example xml:id="ex-ivp">
+    <title>Initial Conditions</title>
+
+    <p>
+      Solve:
+    </p>
+
+    <p><me>dP/dt = 2P, \quad P(0)=200</me></p>
+
+    <solution>
+
+      <p><strong>Step 1: Solve differential equation</strong></p>
+      <hint>
+        <p>This is the same form as exponential growth.</p>
+      </hint>
+
+      <p><me>P(t) = Ce^{2t}</me></p>
+
+      <p><strong>Step 2: Apply initial condition</strong></p>
+      <hint>
+        <p>Substitute t = 0 and P(0) = 200.</p>
+      </hint>
+
+      <p><me>200 = C</me></p>
+
+      <p><strong>Final answer</strong></p>
+      <p><me>P(t) = 200e^{2t}</me></p>
+
+    </solution>
+  </example>
+
+  <!-- SETUP MODELS -->
+  <example xml:id="ex-setup">
+    <title>Setting up Differential Equations</title>
+
+    <ol>
+      <li>
+        Velocity v changes at a rate proportional to v³.
+        <solution>
+          <p><me>dv/dt = kv^3</me></p>
+        </solution>
+      </li>
+
+      <li>
+        Newton’s Law of Cooling.
+        <solution>
+          <p><me>dT/dt = k(T - A)</me></p>
+        </solution>
+      </li>
+
+      <li>
+        Slope equals sqrt(xy).
+        <solution>
+          <p><me>dy/dx = \sqrt{xy}</me></p>
+        </solution>
+      </li>
+    </ol>
+  </example>
+
+  <!-- VERIFYING -->
+  <example xml:id="ex-verify">
+    <title>Verifying Solutions</title>
+
+    <p>
+      Verify:
+    </p>
+
+    <p><me>y(x) = Ce^{-x^3}, \quad y' + 3x^2 y = 0</me></p>
+
+    <solution>
+
+      <p><strong>Step 1: Differentiate</strong></p>
+      <hint>
+        <p>Use chain rule on exponential function.</p>
+      </hint>
+
+      <p><me>y' = -3x^2 Ce^{-x^3}</me></p>
+
+      <p><strong>Step 2: Substitute into equation</strong></p>
+      <hint>
+        <p>Replace y and y' into LHS.</p>
+      </hint>
+
+      <p>
+        <me>y' + 3x^2 y = -3x^2 Ce^{-x^3} + 3x^2 Ce^{-x^3}</me>
+      </p>
+
+      <p><strong>Step 3: Simplify</strong></p>
+      <p><me>= 0</me></p>
+
+    </solution>
+  </example>
+
+  <!-- PRACTICE -->
+  <exercise xml:id="ex-practice">
+    <title>Practice</title>
+
+    <ol>
+
+      <li>
+        Verify y(x)=tan(x^3+C) solves y' = 3x^2(y^2+1).
+
+        <solution>
+
+          <p><strong>Step 1: Differentiate</strong></p>
+          <hint>
+            <p>Use chain rule with tan(u).</p>
+          </hint>
+
+          <p><me>y' = sec^2(x^3+C)\cdot 3x^2</me></p>
+
+          <p><strong>Step 2: Use identity</strong></p>
+          <hint>
+            <p>sec^2(u) = 1 + tan^2(u)</p>
+          </hint>
+
+          <p><me>y' = 3x^2(1 + y^2)</me></p>
+
+        </solution>
+      </li>
+
+      <li>
+        Is e^x a solution to y'' = -4y?
+
+        <solution>
+
+          <p><strong>Step 1: Compute derivatives</strong></p>
+          <p><me>y = e^x, \quad y'' = e^x</me></p>
+
+          <p><strong>Step 2: Substitute</strong></p>
+          <p><me>e^x \neq -4e^x</me></p>
+
+          <p><strong>Conclusion:</strong> No</p>
+
+        </solution>
+      </li>
+
+      <li>
+        Find r such that e^{rt} solves y'' + 5y' + 6y = 0.
+
+        <solution>
+
+          <p><strong>Step 1: Substitute</strong></p>
+          <p><me>r^2 e^{rt} + 5r e^{rt} + 6 e^{rt} = 0</me></p>
+
+          <p><strong>Step 2: Factor</strong></p>
+          <p><me>r^2 + 5r + 6 = 0</me></p>
+
+          <p><strong>Step 3: Solve</strong></p>
+          <p><me>(r+2)(r+3)=0</me></p>
+
+          <p><strong>Final answer:</strong> r = -2, -3</p>
+
+        </solution>
+      </li>
+
+    </ol>
+
+  </exercise>
+
+</section>

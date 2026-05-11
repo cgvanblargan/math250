@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<section xml:id="sec-third" xmlns:xi="http://www.w3.org/2001/XInclude">
+
+  <title>What is a Differential Equation?</title>
+
+  <p>
+    <em>Derivatives are used to model changing situations!</em>
+  </p>
+
+  <p>
+    <em>And things are changing all around us!</em>
+  </p>
+<example xml:id="ex1">
+
+  <statement>
+    <p class="example-title">
+      Example 1. Come up with an equation that models the following situation:
+    </p>
+
+    <p>
+      The rate of change of a population <m>P(t)</m> (where <m>t</m> is time in years)
+      is proportional to current population. The constant of proportionality is 3.
+    </p>
+  </statement>
+
+  <solution>
+    <p>hey</p>
+  </solution>
+
+</example>
+  <p>
+    The equation above representing how the population is changing is an
+    example of a <term>differential equation</term>. We say the
+    <term>order</term> is 1 because the highest-order derivative appearing
+    is a first derivative.
+  </p>
+
+  <definition xml:id="def-differential-equation">
+    <statement>
+      <p>
+        A <term>differential equation</term> is an equation involving a
+        function, its derivatives, and independent variable.
+      </p>
+
+      <p>
+        The <term>order</term> of a differential equation is the highest
+        derivative appearing.
+      </p>
+    </statement>
+  </definition>
+
+  <remark xml:id="remark-general-solution">
+    <statement>
+      <p>
+        A simple model of a population <m>P(t)</m> is that the rate of
+        change is proportional to the population. So,
+        <m>P(t)</m> satisfies
+      </p>
+
+      <me>
+        \frac{dP}{dt} = kP
+      </me>
+
+      <p>
+        The <term>general solution</term> to this differential equation is
+      </p>
+
+      <me>
+        P(t) = Ce^{kt}
+      </me>
+
+      <p>
+        where varying over any real number for <m>C</m> gives all possible
+        solutions.
+      </p>
+    </statement>
+  </remark>
+
+  <p>
+    With the proper <term>initial conditions</term> we obtain a
+    <term>specific solution</term> to a differential equation.
+  </p>
+
+  <example xml:id="example-initial-value-problem">
+    <statement>
+      <p>
+        Suppose a population <m>P</m> satisfies
+        <m>\frac{dP}{dt} = 2P</m>, and the initial population at
+        <m>t = 0</m> is <m>P(0) = 200</m>. Find the solution
+        <m>P(t)</m> to this <em>initial value problem</em>.
+      </p>
+    </statement>
+
+    <solution>
+      <p>
+        Placeholder solution text goes here.
+      </p>
+
+      <p>
+        Start with the general solution and use the initial condition to
+        determine the constant.
+      </p>
+    </solution>
+  </example>
+
+</section>
