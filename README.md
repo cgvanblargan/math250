@@ -67,3 +67,7 @@ Open the file `.devcontainer/devcontainer.json` and edit the line that contains
 ```
 
 VS Code should prompt you to rebuild your codespace, which you should do (you do not need to do a "full rebuild" though).  This docker image contains sagemath and you should be able to add sageplots and generate them successfully now.
+
+
+
+read me update
