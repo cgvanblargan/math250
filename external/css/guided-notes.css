@@ -1,0 +1,27 @@
+.guided-example {
+  border: 1px solid #999;
+  padding: 12px;
+  margin: 20px 0;
+}
+
+.example-title {
+  font-weight: bold;
+}
+
+.solution .solution-title {
+  cursor: pointer;
+}
+
+/* Hide the default “Activity” label */
+.activity .codenumber {
+  visibility: hidden;
+  position: relative;
+}
+
+/* Replace it with “Example” */
+.activity .codenumber::after {
+  content: "Example";
+  visibility: visible;
+  position: absolute;
+  left: 0;
+}
