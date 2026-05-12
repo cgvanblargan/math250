@@ -88,77 +88,122 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "1.3",
   "title": "What is a Differential Equation?",
-  "body": " What is a Differential Equation?   Derivatives are used to model changing situations!    And things are changing all around us!     Example 1. Come up with an equation that models the following situation:  The rate of change of a population (where is time in years) is proportional to current population. The constant of proportionality is 3.    hey    The equation above representing how the population is changing is an example of a differential equation . We say the order is 1 because the highest-order derivative appearing is a first derivative.    A differential equation is an equation involving a function, its derivatives, and independent variable.  The order of a differential equation is the highest derivative appearing.      A simple model of a population is that the rate of change is proportional to the population. So, satisfies   The general solution to this differential equation is   where varying over any real number for gives all possible solutions.    With the proper initial conditions we obtain a specific solution to a differential equation.    Suppose a population satisfies , and the initial population at is . Find the solution to this initial value problem .    Placeholder solution text goes here.  Start with the general solution and use the initial condition to determine the constant.    "
+  "body": " What is a Differential Equation?  Derivatives are used to model changing situations! And things are changing all around us!   What is a Differential Equation?     What is a Differential Equation?     Setting Up a Differential Equation  Come up with an equation that models the following situation: The rate of change of a population (where is time in years) is proportional to the current population. The constant of proportionality is 3.    The rate of change of is the derivative with respect to time, which is .  \"The rate of change of is...\" translates to What can you put on the right-hand side of the equation to represent that it is proportional to the current population, where the constant of proportionality is 3?    The answer is . The left-hand side denotes the rate of change of the population . The right-hand side, , expresses a quantity that is proportional to , with a proportionality constant of 3.    In the previous example, you just set up a differential equation . We often want to take this a step further and find a solution. In this case, that would be a population function that satisfies the conditions of the previous example (where the rate of change of the population is proportional to itself, with proportionality constant equaling 3).   Solving a Differential Equation  Can you think of a function that solves the previous differential equation?   We are looking for a function whose derivative equals .  First try solving the simpler question: Find a function whose derivative is itself. That is, it satisfies .    We want to solve the differential equation . Let's first consider the simpler equation . A solution is one whose derivative is itself. Recall that the famous exponential function has this property!  Let's modify this to solve . How do we modify so that a 3 comes in front when differentiating ? The chain rule should come to mind! Indeed, if we set , we find , which equals .  So solves . Can you think of any others?     Differential Equation   A differential equation is an equation involving a function , its derivatives , and an independent variable .  The order of a differential equation is the highest derivative appearing.    A differential equation involving only derivative with respect to only one variable (as opposed to partial derivatives) is called an ordinary differential equation (ODE) .  Here are three examples of ODEs, along with their orders:    Notation  We adopt both the prime notation and Leibniz notation to denote the derivative of with respect to . These are equivalent and will be used interchangeably throughout.  In , is the independent variable and is the dependent variable. The actual letters we use for the variable will vary. In the last example, , it is implied that is the dependent variable and is the independent variable.    Solution to the Population Growth Model   A simple model of a population is that the rate of change is proportional to the population. So satisfies: The general solution to this differential equation is: where varying over any real number for gives all possible solutions.    Try verifying this by differentiating :   Verification  By the chain rule, .    Some examples of specific solutions:   With the proper initial conditions we obtain a specific solution to a differential equation.   Applying an Initial Condition  Suppose a population satisfies , and the initial population at is . Find the solution .   The general solution with is: Applying the initial condition : So the specific solution is:      Setting Up Differential Equations  Set up the differential equations that model the following situations.  (1) The rate of change of a velocity of a car is proportional to the cube of .     (2) Newton's law of cooling states that the time rate of change of a temperature of an object is proportional to the difference between and the surrounding temperature .     (3) The slope of the tangent line of a graph of at the point is equal to the square root of the product of and .      To verify that is a solution to a differential equation, you must plug in and its relevant derivatives into both sides of the equation and verify they equal each other.   Verifying a Solution  Verify that is a solution to .   Compute . Then plug the expressions for and into the equation and check if the left and right sides are equal.    We compute:      Explanation: Computing  We find by using the chain rule on , which is a composition of (outside function) with (the inside function). The derivative of the inside function equals , which is why this expression is multiplied out in front when differentiating.      Plugging into : Therefore is a solution.    "
 },
 {
-  "id": "ex1",
+  "id": "video-what-is-de",
   "level": "2",
-  "url": "sec-third.html#ex1",
-  "type": "Example",
+  "url": "sec-third.html#video-what-is-de",
+  "type": "Figure",
   "number": "1.3.1",
   "title": "",
-  "body": "  Example 1. Come up with an equation that models the following situation:  The rate of change of a population (where is time in years) is proportional to current population. The constant of proportionality is 3.    hey   "
+  "body": " What is a Differential Equation?   "
 },
 {
-  "id": "sec-third-5",
+  "id": "ex-setup-population-de",
   "level": "2",
-  "url": "sec-third.html#sec-third-5",
-  "type": "Paragraph (with a defined term)",
-  "number": "",
-  "title": "",
-  "body": "differential equation order "
+  "url": "sec-third.html#ex-setup-population-de",
+  "type": "Example",
+  "number": "1.3.2",
+  "title": "Setting Up a Differential Equation.",
+  "body": " Setting Up a Differential Equation  Come up with an equation that models the following situation: The rate of change of a population (where is time in years) is proportional to the current population. The constant of proportionality is 3.    The rate of change of is the derivative with respect to time, which is .  \"The rate of change of is...\" translates to What can you put on the right-hand side of the equation to represent that it is proportional to the current population, where the constant of proportionality is 3?    The answer is . The left-hand side denotes the rate of change of the population . The right-hand side, , expresses a quantity that is proportional to , with a proportionality constant of 3.   "
+},
+{
+  "id": "ex-solve-population-de",
+  "level": "2",
+  "url": "sec-third.html#ex-solve-population-de",
+  "type": "Example",
+  "number": "1.3.3",
+  "title": "Solving a Differential Equation.",
+  "body": " Solving a Differential Equation  Can you think of a function that solves the previous differential equation?   We are looking for a function whose derivative equals .  First try solving the simpler question: Find a function whose derivative is itself. That is, it satisfies .    We want to solve the differential equation . Let's first consider the simpler equation . A solution is one whose derivative is itself. Recall that the famous exponential function has this property!  Let's modify this to solve . How do we modify so that a 3 comes in front when differentiating ? The chain rule should come to mind! Indeed, if we set , we find , which equals .  So solves . Can you think of any others?   "
 },
 {
   "id": "def-differential-equation",
   "level": "2",
   "url": "sec-third.html#def-differential-equation",
   "type": "Definition",
-  "number": "1.3.2",
-  "title": "",
-  "body": "  A differential equation is an equation involving a function, its derivatives, and independent variable.  The order of a differential equation is the highest derivative appearing.   "
+  "number": "1.3.4",
+  "title": "Differential Equation.",
+  "body": " Differential Equation   A differential equation is an equation involving a function , its derivatives , and an independent variable .  The order of a differential equation is the highest derivative appearing.   "
 },
 {
-  "id": "remark-general-solution",
+  "id": "sec-third-10",
   "level": "2",
-  "url": "sec-third.html#remark-general-solution",
+  "url": "sec-third.html#sec-third-10",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "ordinary differential equation (ODE) "
+},
+{
+  "id": "rem-notation",
+  "level": "2",
+  "url": "sec-third.html#rem-notation",
   "type": "Remark",
-  "number": "1.3.3",
-  "title": "",
-  "body": "  A simple model of a population is that the rate of change is proportional to the population. So, satisfies   The general solution to this differential equation is   where varying over any real number for gives all possible solutions.   "
+  "number": "1.3.5",
+  "title": "Notation.",
+  "body": " Notation  We adopt both the prime notation and Leibniz notation to denote the derivative of with respect to . These are equivalent and will be used interchangeably throughout.  In , is the independent variable and is the dependent variable. The actual letters we use for the variable will vary. In the last example, , it is implied that is the dependent variable and is the independent variable.  "
 },
 {
-  "id": "sec-third-8",
+  "id": "def-general-solution-population",
   "level": "2",
-  "url": "sec-third.html#sec-third-8",
+  "url": "sec-third.html#def-general-solution-population",
+  "type": "Definition",
+  "number": "1.3.6",
+  "title": "Solution to the Population Growth Model.",
+  "body": " Solution to the Population Growth Model   A simple model of a population is that the rate of change is proportional to the population. So satisfies: The general solution to this differential equation is: where varying over any real number for gives all possible solutions.   "
+},
+{
+  "id": "sec-third-17",
+  "level": "2",
+  "url": "sec-third.html#sec-third-17",
   "type": "Paragraph (with a defined term)",
   "number": "",
   "title": "",
   "body": "initial conditions specific solution "
 },
 {
-  "id": "example-initial-value-problem",
+  "id": "ex-initial-condition",
   "level": "2",
-  "url": "sec-third.html#example-initial-value-problem",
+  "url": "sec-third.html#ex-initial-condition",
   "type": "Example",
-  "number": "1.3.4",
-  "title": "",
-  "body": "  Suppose a population satisfies , and the initial population at is . Find the solution to this initial value problem .    Placeholder solution text goes here.  Start with the general solution and use the initial condition to determine the constant.   "
+  "number": "1.3.7",
+  "title": "Applying an Initial Condition.",
+  "body": " Applying an Initial Condition  Suppose a population satisfies , and the initial population at is . Find the solution .   The general solution with is: Applying the initial condition : So the specific solution is:    "
 },
 {
-  "id": "ch-chapter-two",
+  "id": "ex-setup-des",
+  "level": "2",
+  "url": "sec-third.html#ex-setup-des",
+  "type": "Example",
+  "number": "1.3.8",
+  "title": "Setting Up Differential Equations.",
+  "body": " Setting Up Differential Equations  Set up the differential equations that model the following situations.  (1) The rate of change of a velocity of a car is proportional to the cube of .     (2) Newton's law of cooling states that the time rate of change of a temperature of an object is proportional to the difference between and the surrounding temperature .     (3) The slope of the tangent line of a graph of at the point is equal to the square root of the product of and .     "
+},
+{
+  "id": "ex-verify-solution",
+  "level": "2",
+  "url": "sec-third.html#ex-verify-solution",
+  "type": "Example",
+  "number": "1.3.9",
+  "title": "Verifying a Solution.",
+  "body": " Verifying a Solution  Verify that is a solution to .   Compute . Then plug the expressions for and into the equation and check if the left and right sides are equal.    We compute:      Explanation: Computing  We find by using the chain rule on , which is a composition of (outside function) with (the inside function). The derivative of the inside function equals , which is why this expression is multiplied out in front when differentiating.      Plugging into : Therefore is a solution.   "
+},
+{
+  "id": "basics-reading-questions",
   "level": "1",
-  "url": "ch-chapter-two.html",
-  "type": "Chapter",
-  "number": "2",
-  "title": "Name for chapter 2",
-  "body": " Name for chapter 2   Text before the first section.     Check your understanding!   Here is a spot to explain the purpose of these questions. It's optional, like most introductions.     Here is a question.    A little hint.    Just the answer.    All the glorious details about an answer.      A second comprehension question. We don't bother with answers or solutions.      Here is a question.    A little hint.    Just the answer.    All the glorious details about an answer.      A second comprehension question. We don't bother with answers or solutions.     A little wrap up, perhaps giving guidance or encouragement if the student struggled with the questions. Optional like most conclusions.       Here's where you put the common instructions.     First exercise. <statement> of an <exercise>  <exercise> <statement> You can add all the usual bells and whistles after, but we'll keep it short here. (The <statement> may be omitted if none of <hint> , <answer> , or <solution> are present as a child of the <exercise> .)      Second exercise.    The <statement> for this exercise is necessary because we have included at least one of <hint> , <answer> , or <solution> (namely, <hint> ).     Third exercise. (No <statement> necessary here because no <hint> , <answer> , or <solution> .)     This <exercise> is not inside the <exercisegroup> .    "
+  "url": "basics-reading-questions.html",
+  "type": "Reading Questions",
+  "number": "2.1",
+  "title": "Check your understanding!",
+  "body": " Check your understanding!   Here is a spot to explain the purpose of these questions. It's optional, like most introductions.     Here is a question.    A little hint.    Just the answer.    All the glorious details about an answer.      A second comprehension question. We don't bother with answers or solutions.      Here is a question.    A little hint.    Just the answer.    All the glorious details about an answer.      A second comprehension question. We don't bother with answers or solutions.     A little wrap up, perhaps giving guidance or encouragement if the student struggled with the questions. Optional like most conclusions.   "
 },
 {
   "id": "basics-reading-questions-3",
   "level": "2",
   "url": "basics-reading-questions.html#basics-reading-questions-3",
   "type": "Reading Question",
-  "number": "2.1",
+  "number": "2.1.1",
   "title": "",
   "body": "  Here is a question.    A little hint.    Just the answer.    All the glorious details about an answer.   "
 },
@@ -167,7 +212,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "basics-reading-questions.html#basics-reading-questions-4",
   "type": "Reading Question",
-  "number": "2.2",
+  "number": "2.1.2",
   "title": "",
   "body": "  A second comprehension question. We don't bother with answers or solutions.   "
 },
@@ -176,7 +221,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "basics-reading-questions.html#basics-reading-questions-5",
   "type": "Reading Question",
-  "number": "2.3",
+  "number": "2.1.3",
   "title": "",
   "body": "  Here is a question.    A little hint.    Just the answer.    All the glorious details about an answer.   "
 },
@@ -185,45 +230,27 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "basics-reading-questions.html#basics-reading-questions-6",
   "type": "Reading Question",
-  "number": "2.4",
+  "number": "2.1.4",
   "title": "",
   "body": "  A second comprehension question. We don't bother with answers or solutions.   "
 },
 {
-  "id": "basics-s-sample-exercises-1-2",
-  "level": "2",
-  "url": "basics-s-sample-exercises.html#basics-s-sample-exercises-1-2",
-  "type": "Exercise",
-  "number": "2.1",
-  "title": "",
-  "body": "  First exercise. <statement> of an <exercise>  <exercise> <statement> You can add all the usual bells and whistles after, but we'll keep it short here. (The <statement> may be omitted if none of <hint> , <answer> , or <solution> are present as a child of the <exercise> .)   "
-},
-{
-  "id": "basics-s-sample-exercises-1-3",
-  "level": "2",
-  "url": "basics-s-sample-exercises.html#basics-s-sample-exercises-1-3",
-  "type": "Exercise",
+  "id": "ch2-sec2",
+  "level": "1",
+  "url": "ch2-sec2.html",
+  "type": "Section",
   "number": "2.2",
-  "title": "",
-  "body": "  Second exercise.    The <statement> for this exercise is necessary because we have included at least one of <hint> , <answer> , or <solution> (namely, <hint> ).   "
+  "title": "blahblahblah",
+  "body": " blahblahblah   Population Growth   Suppose a population satisfies...    ...    "
 },
 {
-  "id": "basics-s-sample-exercises-1-4",
+  "id": "ex-population-growth",
   "level": "2",
-  "url": "basics-s-sample-exercises.html#basics-s-sample-exercises-1-4",
-  "type": "Exercise",
-  "number": "2.3",
-  "title": "",
-  "body": " Third exercise. (No <statement> necessary here because no <hint> , <answer> , or <solution> .)  "
-},
-{
-  "id": "basics-s-sample-exercises-2",
-  "level": "2",
-  "url": "basics-s-sample-exercises.html#basics-s-sample-exercises-2",
-  "type": "Exercise",
-  "number": "2.4",
-  "title": "",
-  "body": " This <exercise> is not inside the <exercisegroup> .  "
+  "url": "ch2-sec2.html#ex-population-growth",
+  "type": "Checkpoint",
+  "number": "2.2.1",
+  "title": "Population Growth.",
+  "body": " Population Growth   Suppose a population satisfies...    ...   "
 },
 {
   "id": "backmatter-2",
