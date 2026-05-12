@@ -1,0 +1,210 @@
+
+
+<section xml:id="sec-verifying-solutions" xmlns:xi="http://www.w3.org/2001/XInclude">
+ <title>Verifying Solutions</title>
+
+ <figure xml:id="video-verifying-solns">
+        <caption>This video goes through the content of this page.</caption>
+        <video youtube="1-_O7BVDqX8" width="100%" preview="default"/>
+    </figure>
+
+ <p>
+    To verify that <m>y(x)</m> is a solution to a differential equation, you must plug in <m>y</m> and its relevant derivatives into both sides of the equation and verify they equal each other.
+  </p>
+
+  <example xml:id="ex-verify-solution">
+    <title>Verifying a Solution</title>
+    <p>
+      Verify that <m>y(x) = Ce^{-x^3}</m> is a solution to <m>y' + 3x^2 y = 0</m>.
+    </p>
+    <hint>
+      <p>
+        Compute <m>y'</m>. Then plug the expressions for <m>y</m> and <m>y'</m> into the equation and check if the left and right sides are equal.
+      </p>
+    </hint>
+    <solution>
+      <p>
+        We compute:
+        <ul>
+          <li><m>y(x) = Ce^{-x^3}</m></li>
+          <li>
+            <p><m>y'(x) = -3x^2 Ce^{-x^3}</m></p>
+            <solution>
+              <title>Explanation: Computing <m>y'</m></title>
+              <p>
+                We find <m>y'</m> by using the chain rule on <m>e^{-x^3}</m>, which is a composition of <m>e^x</m> (outside function) with <m>-x^3</m> (the inside function). The derivative of the inside function equals <m>-3x^2</m>, which is why this expression is multiplied out in front when differentiating.
+              </p>
+            </solution>
+          </li>
+        </ul>
+      </p>
+      <p>
+        Plugging into <m>y' + 3x^2 y = 0</m>:
+        <me>y' + 3x^2 y = -3x^2 Ce^{-x^3} + 3x^2 \cdot Ce^{-x^3} = 0 = \text{RHS.} \checkmark</me>
+        Therefore <m>y(x) = Ce^{-x^3}</m> is a solution.
+      </p>
+    </solution>
+  </example>
+
+ <p>
+    To verify that <m>y(x)</m> is a solution to a differential equation, you must plug in <m>y</m> and its relevant derivatives into both sides of the equation and verify they equal each other.
+  </p>
+
+  <activity xml:id="act-verifying-solutions">
+    <title>Practice: Verifying Solutions</title>
+    <introduction>
+      <p>
+        Try each of the following on your own before checking the solution — seriously, give it a shot first! Use the hints if you get stuck.
+      </p>
+    </introduction>
+
+    <task xml:id="task-verify-tan">
+      <statement>
+        <p>
+          Can you verify that <m>y(x) = \tan(x^3 + C)</m> is a solution to <m>y' = 3x^2(y^2 + 1)</m>? Then find the specific solution given the initial condition <m>y(0) = 1</m>.
+        </p>
+      </statement>
+      <hint>
+        <p>
+          To ensure <m>y(0) = 1</m> in <m>y(x) = \tan(x^3 + C)</m>: plug in <m>0</m> wherever you see an <m>x</m> and a <m>1</m> wherever you see a <m>y</m>.
+        </p>
+      </hint>
+      <solution>
+        <p>
+          First note:
+          <me>y'(x) = 3x^2 \sec^2(x^3 + C)</me>
+        </p>
+        <solution>
+          <title>Explanation: Computing <m>y'</m></title>
+          <p>
+            Recall that <m>\tan(x) = \frac{\sin(x)}{\cos(x)}</m>, and its derivative is <m>\sec^2(x)</m>. Here we apply the chain rule to <m>\tan(x^3 + C)</m>, where the outside function is <m>\tan</m> and the inside function is <m>x^3 + C</m>. The derivative of the inside is <m>3x^2</m>, which is why this appears out front.
+          </p>
+        </solution>
+        <p>
+          Now we compare both sides of <m>y' = 3x^2(y^2+1)</m>:
+        </p>
+        <p>
+          <alert>LHS:</alert> <m>y' = 3x^2\sec^2(x^3+C)</m>
+        </p>
+        <p>
+          <alert>RHS:</alert> simplifies to <m>3x^2\sec^2(x^3+C)</m>
+        </p>
+        <solution>
+          <title>Explanation: Simplifying the RHS</title>
+          <p>
+            Starting from the RHS:
+            <md>
+              <mrow>3x^2(y^2+1) \amp= 3x^2(\tan^2(x^3+C)+1)</mrow>
+              <mrow>\amp= 3x^2\sec^2(x^3+C)</mrow>
+            </md>
+            where we used the Pythagorean trig identity <m>\tan^2(\theta) + 1 = \sec^2(\theta)</m>.
+          </p>
+        </solution>
+        <p>
+          Since LHS <m>=</m> RHS, <m>y(x) = \tan(x^3+C)</m> is a solution. <m>\checkmark</m>
+        </p>
+        <p>
+          For the specific solution, apply <m>y(0) = 1</m> to find <m>C = \dfrac{\pi}{4}</m>.
+        </p>
+        <solution>
+          <title>Explanation: Finding <m>C</m></title>
+          <p>
+            Plugging <m>x = 0</m> and <m>y = 1</m> into <m>y(x) = \tan(x^3 + C)</m>:
+            <me>1 = \tan(0^3 + C) = \tan(C) \implies C = \frac{\pi}{4}</me>
+          </p>
+        </solution>
+        <p>
+          So the specific solution is <m>y(x) = \tan\!\left(x^3 + \dfrac{\pi}{4}\right)</m>.
+        </p>
+        <p>
+          <em>Note: technically there are other values of <m>C</m> (namely <m>\frac{\pi}{4} + n\pi</m>), but they ultimately give the same function <m>y</m>, as the tangent function is <m>\pi</m>-periodic.</em>
+        </p>
+      </solution>
+    </task>
+
+    <task xml:id="task-verify-cos">
+      <statement>
+        <p>
+          Is <m>e^x</m> a solution to <m>y'' = -4y</m>? For what values of <m>m</m> is <m>\cos(mx)</m> a solution?
+        </p>
+      </statement>
+      <solution>
+        <p>
+          <alert>Is <m>e^x</m> a solution? NO!</alert>
+        </p>
+        <solution>
+          <title>Explanation</title>
+          <p>
+            If <m>y = e^x</m>, then <m>y' = e^x</m> and <m>y'' = e^x</m>. Plugging into <m>y'' = -4y</m>:
+            <me>e^x = -4e^x?</me>
+            This is never true, so <m>y = e^x</m> is not a solution.
+          </p>
+        </solution>
+        <p>
+          <alert>Is <m>\cos(mx)</m> a solution?</alert> If <m>y = \cos(mx)</m>, then <m>y'' = -m^2\cos(mx)</m>.
+        </p>
+        <solution>
+          <title>Explanation: Computing <m>y''</m></title>
+          <p>
+            Differentiating <m>y = \cos(mx)</m> once via the chain rule:
+            <me>y' = -m\sin(mx)</me>
+            Differentiating again:
+            <me>y'' = -m^2\cos(mx)</me>
+          </p>
+        </solution>
+        <p>
+          Plugging <m>y = \cos(mx)</m> and <m>y'' = -m^2\cos(mx)</m> into <m>y'' = -4y</m>, we get <m>m = \pm 2</m>.
+        </p>
+        <solution>
+          <title>Explanation: Solving for <m>m</m></title>
+          <p>
+            <md>
+              <mrow>-m^2\cos(mx) \amp= -4\cos(mx)</mrow>
+              <mrow>-m^2 \amp= -4</mrow>
+              <mrow>m \amp= \pm 2</mrow>
+            </md>
+          </p>
+        </solution>
+        <p>
+          So <m>\cos(2x)</m> is a solution. (Note: <m>\cos(-2x) = \cos(2x)</m> since cosine is an even function, so these are the same solution.)
+        </p>
+      </solution>
+    </task>
+
+    <task xml:id="task-verify-ert">
+      <statement>
+        <p>
+          Find all <m>r</m> so that <m>e^{rt}</m> is a solution to <m>y'' + 5y' + 6y = 0</m>.
+        </p>
+      </statement>
+      <hint>
+        <p>
+          After substituting <m>y</m>, <m>y'</m>, and <m>y''</m> into the equation, what can you divide by to simplify?
+        </p>
+      </hint>
+      <solution>
+        <p>
+          Let <m>y(t) = e^{rt}</m>. Then by the chain rule:
+          <me>y'(t) = re^{rt}, \quad y''(t) = r^2e^{rt}</me>
+          Plugging into <m>y'' + 5y' + 6y = 0</m>:
+          <me>r^2e^{rt} + 5re^{rt} + 6e^{rt} = 0</me>
+          Dividing both sides by <m>e^{rt}</m> (which we can do since <m>e^{rt}</m> is never zero):
+          <me>r^2 + 5r + 6 = 0</me>
+          Notice there is no more <m>t</m> variable — we just have a quadratic in <m>r</m>! Factoring:
+          <me>(r+3)(r+2) = 0 \implies r = -3, \; r = -2</me>
+          So <m>y = e^{-3t}</m> and <m>y = e^{-2t}</m> are both solutions.
+        </p>
+      </solution>
+    </task>
+
+  </activity>
+
+  <remark xml:id="rem-other-solutions">
+    <title>Other Solutions to <m>y'' = -4y</m></title>
+    <p>
+      In the previous example we found that <m>\cos(2x)</m> is a solution to <m>y'' = -4y</m>. But there are others! In fact, <m>y = \sin(2x)</m> is also a solution:
+      <me>y' = 2\cos(2x), \quad y'' = -4\sin(2x) = -4y \checkmark</me>
+      More generally, <m>y(x) = a\sin(2x) + b\cos(2x)</m> is a solution for any constants <m>a, b</m>. This is called a <term>two-parameter family of solutions</term>, and is a fundamental idea that will come up throughout the course.
+    </p>
+  </remark>
+</section>

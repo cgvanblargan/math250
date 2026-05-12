@@ -1,0 +1,37 @@
+
+
+<section xml:id="sec-setting-up-des" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Setting Up Differential Equations</title>
+  
+   <figure xml:id="video-setting-up-des">
+        <caption>This video goes through the content of this page.</caption>
+        <video youtube="HltaPMv4SkU" width="100%" preview="default"/>
+    </figure>
+
+<example xml:id="ex-setup-des">
+    <title>Setting Up Differential Equations</title>
+    <p>
+      Set up the differential equations that model the following situations.
+    </p>
+    <p>
+      (1) The rate of change of a velocity <m>v</m> of a car is proportional to the cube of <m>v</m>.
+    </p>
+    <solution>
+      <p><me>\frac{dv}{dt} = kv^3</me></p>
+    </solution>
+    <p>
+      (2) <em>Newton's law of cooling</em> states that the time rate of change of a temperature <m>T</m> of an object is proportional to the difference between <m>T</m> and the surrounding temperature <m>A</m>.
+    </p>
+    <solution>
+      <p><me>\frac{dT}{dt} = k(T - A)</me></p>
+    </solution>
+    <p>
+      (3) The slope of the tangent line of a graph of <m>y(x)</m> at the point <m>(x, y)</m> is equal to the square root of the product of <m>x</m> and <m>y</m>.
+    </p>
+    <solution>
+      <p><me>\frac{dy}{dx} = \sqrt{xy}</me></p>
+    </solution>
+  </example>
+
+  
+</section>

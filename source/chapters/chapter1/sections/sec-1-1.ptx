@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-intro-to-des" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Introduction to Differential Equations</title>
+
+  <introduction>
+    <p>
+      In this section we introduce the concept of a differential equation and explore some of the fundamental ideas that will carry throughout the course. We will learn how to set up, verify, and solve basic differential equations, and discuss what it means for a solution to be general or specific.
+    </p>
+  </introduction>
+
+  <xi:include href="./1-1/sec1-what-is-de.ptx"/>
+  <xi:include href="./1-1/sec2-general-solutions-ivp.ptx"/>
+  <xi:include href="./1-1/sec3-setting-up-des.ptx"/>
+  <xi:include href="./1-1/sec4-verifying-solutions.ptx"/>
+  <xi:include href="./1-1/sec5-equilibrium-solutions.ptx"/>
+  <xi:include href="./1-1/sec6-extra-practice.ptx"/>
+
+</section>
