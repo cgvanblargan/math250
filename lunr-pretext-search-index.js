@@ -196,7 +196,70 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "1.1.5",
   "title": "Equilibrium Solutions",
-  "body": " Equilibrium Solutions  enter more text  "
+  "body": " Equilibrium Solutions   This video goes through the content of this page.    We now take a brief detour to discuss equilibrium solutions — a simple but important concept that will come up throughout the course.   Equilibrium Solution   An equilibrium solution to a differential equation is a constant solution. That is, for all , where is a solution to the ODE.     A function is constant if and only if for all . We will use this fact frequently when finding equilibrium solutions.   As a quick example, consider the differential equation , whose general solution is . Below are some specific solutions for varying values of .   Solutions for . The dashed green line corresponds to and is the only equilibrium solution.    Notice that these solutions are not constant in general. However, setting gives , which is constant — and therefore the only equilibrium solution.  Understanding equilibrium solutions gives us useful insight into the overall behavior of solutions to an ODE. Later in the course we will explore this in more depth. For now, let's see how equilibrium solutions arise naturally in the context of Newton's law of cooling.   Newton's Law of Cooling   Recall that Newton's law of cooling states that , where is the temperature of an object and is the temperature of the surrounding environment. What is the equilibrium solution? Justify this both intuitively and algebraically.    Intuitive Justification   What value of ensures the object never changes temperature?    If the surrounding temperature is , what does the temperature of the object need to be so that it stops changing?    An object stops changing temperature once it matches the temperature of its surroundings. So is the equilibrium solution.     Algebraic Justification   Verify algebraically that is the equilibrium solution.    We want to find for what value of the constant function is a solution. What must equal for a constant function? Substitute into the ODE and solve for .    For a constant solution , we have . Substituting into the ODE: Therefore is the equilibrium solution.     Let's practice finding equilibrium solutions for more complicated differential equations. Notice that finding the general solution in the following examples would be quite difficult, but substituting and often reduces the problem to a simple algebraic equation in .   Practice: Finding Equilibrium Solutions   Try each of the following on your own before checking the solution. Try it on your own first!      Find all equilibrium solutions, , to the differential equation     Since we are looking for a constant solution, we set , which gives: Substituting into the differential equation: So or , giving two equilibrium solutions:       Find all equilibrium solutions to the differential equation     Setting , so and , and substituting: But must be a constant, and is not constant. Therefore there are no equilibrium solutions .      Equilibrium solutions do not always exist, as the last example shows. Recall that we are looking for a constant such that satisfies the ODE. If the algebra forces to equal a non-constant expression, then no equilibrium solution exists.   "
+},
+{
+  "id": "video-equilibrium-solutions",
+  "level": "2",
+  "url": "sec-equilibrium-solutions.html#video-equilibrium-solutions",
+  "type": "Figure",
+  "number": "1.1.1",
+  "title": "",
+  "body": " This video goes through the content of this page.   "
+},
+{
+  "id": "def-equilibrium-solution",
+  "level": "2",
+  "url": "sec-equilibrium-solutions.html#def-equilibrium-solution",
+  "type": "Definition",
+  "number": "1.1.2",
+  "title": "Equilibrium Solution.",
+  "body": " Equilibrium Solution   An equilibrium solution to a differential equation is a constant solution. That is, for all , where is a solution to the ODE.   "
+},
+{
+  "id": "note-equilibrium-derivative",
+  "level": "2",
+  "url": "sec-equilibrium-solutions.html#note-equilibrium-derivative",
+  "type": "Note",
+  "number": "1.1.3",
+  "title": "",
+  "body": " A function is constant if and only if for all . We will use this fact frequently when finding equilibrium solutions.  "
+},
+{
+  "id": "fig-population-solutions",
+  "level": "2",
+  "url": "sec-equilibrium-solutions.html#fig-population-solutions",
+  "type": "Figure",
+  "number": "1.1.4",
+  "title": "",
+  "body": " Solutions for . The dashed green line corresponds to and is the only equilibrium solution.   "
+},
+{
+  "id": "ex-newtons-cooling-equilibrium",
+  "level": "2",
+  "url": "sec-equilibrium-solutions.html#ex-newtons-cooling-equilibrium",
+  "type": "Example",
+  "number": "1.1.5",
+  "title": "Newton’s Law of Cooling.",
+  "body": " Newton's Law of Cooling   Recall that Newton's law of cooling states that , where is the temperature of an object and is the temperature of the surrounding environment. What is the equilibrium solution? Justify this both intuitively and algebraically.    Intuitive Justification   What value of ensures the object never changes temperature?    If the surrounding temperature is , what does the temperature of the object need to be so that it stops changing?    An object stops changing temperature once it matches the temperature of its surroundings. So is the equilibrium solution.     Algebraic Justification   Verify algebraically that is the equilibrium solution.    We want to find for what value of the constant function is a solution. What must equal for a constant function? Substitute into the ODE and solve for .    For a constant solution , we have . Substituting into the ODE: Therefore is the equilibrium solution.    "
+},
+{
+  "id": "act-equilibrium-practice",
+  "level": "2",
+  "url": "sec-equilibrium-solutions.html#act-equilibrium-practice",
+  "type": "Activity",
+  "number": "1.1.1",
+  "title": "Practice: Finding Equilibrium Solutions.",
+  "body": " Practice: Finding Equilibrium Solutions   Try each of the following on your own before checking the solution. Try it on your own first!      Find all equilibrium solutions, , to the differential equation     Since we are looking for a constant solution, we set , which gives: Substituting into the differential equation: So or , giving two equilibrium solutions:       Find all equilibrium solutions to the differential equation     Setting , so and , and substituting: But must be a constant, and is not constant. Therefore there are no equilibrium solutions .    "
+},
+{
+  "id": "note-no-equilibrium",
+  "level": "2",
+  "url": "sec-equilibrium-solutions.html#note-no-equilibrium",
+  "type": "Note",
+  "number": "1.1.6",
+  "title": "",
+  "body": " Equilibrium solutions do not always exist, as the last example shows. Recall that we are looking for a constant such that satisfies the ODE. If the algebra forces to equal a non-constant expression, then no equilibrium solution exists.  "
 },
 {
   "id": "extra-practice",
