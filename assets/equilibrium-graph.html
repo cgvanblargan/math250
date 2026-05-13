@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Solutions to dP/dt = 2P</title>
+<style>
+  body { margin: 0; overflow: hidden; display: flex; justify-content: center; align-items: center; background: transparent; }
+  canvas { width: 100%; height: auto; }
+</style>
+</head>
+<body>
+<canvas id="graph" width="680" height="420"
+  aria-label="Graph of solutions P(t) = Ce^(2t) for C = -1, 0, 1, 2. Each curve is labeled directly. The curve for C=0 is the horizontal dashed line P=0, which is the equilibrium solution. Curves for C=1 and C=2 grow exponentially upward, while C=-1 grows exponentially downward.">
+</canvas>
+<script>
+const canvas = document.getElementById('graph');
+const ctx = canvas.getContext('2d');
+const W = canvas.width, H = canvas.height;
+
+const xMin = -1.2, xMax = 2.3;
+const yMin = -9, yMax = 13;
+
+function toCanvasX(x) { return (x - xMin) / (xMax - xMin) * W; }
+function toCanvasY(y) { return H - (y - yMin) / (yMax - yMin) * H; }
+
+ctx.fillStyle = '#fff';
+ctx.fillRect(0, 0, W, H);
+
+ctx.strokeStyle = '#eee';
+ctx.lineWidth = 1;
+for (let y = Math.ceil(yMin); y <= yMax; y++) {
+  ctx.beginPath(); ctx.moveTo(0, toCanvasY(y)); ctx.lineTo(W, toCanvasY(y)); ctx.stroke();
+}
+for (let x = Math.ceil(xMin); x <= xMax; x++) {
+  ctx.beginPath(); ctx.moveTo(toCanvasX(x), 0); ctx.lineTo(toCanvasX(x), H); ctx.stroke();
+}
+
+ctx.strokeStyle = '#333'; ctx.lineWidth = 2;
+ctx.beginPath(); ctx.moveTo(0, toCanvasY(0)); ctx.lineTo(W, toCanvasY(0)); ctx.stroke();
+ctx.beginPath(); ctx.moveTo(toCanvasX(0), 0); ctx.lineTo(toCanvasX(0), H); ctx.stroke();
+
+ctx.fillStyle = '#333'; ctx.font = '14px serif';
+ctx.fillText('t', W - 18, toCanvasY(0) - 8);
+ctx.fillText('P', toCanvasX(0) + 8, 18);
+
+ctx.font = '12px serif';
+for (let x = -1; x <= 2; x++) {
+  if (x === 0) continue;
+  ctx.beginPath(); ctx.moveTo(toCanvasX(x), toCanvasY(0)-4); ctx.lineTo(toCanvasX(x), toCanvasY(0)+4); ctx.stroke();
+  ctx.fillStyle = '#333'; ctx.fillText(x, toCanvasX(x)-5, toCanvasY(0)+18);
+}
+for (let y = -8; y <= 12; y += 2) {
+  if (y === 0) continue;
+  ctx.beginPath(); ctx.moveTo(toCanvasX(0)-4, toCanvasY(y)); ctx.lineTo(toCanvasX(0)+4, toCanvasY(y)); ctx.stroke();
+  ctx.fillStyle = '#333'; ctx.fillText(y, toCanvasX(0)+8, toCanvasY(y)+4);
+}
+
+const curves = [
+  // labelT = t position of label, offsetX/Y = pixel nudge from curve point
+  { C: -1, color: '#e74c3c', label: 'C = -1',              labelT: 0.75,  offsetX: 10, offsetY: 14  },
+  { C: 0,  color: '#27ae60', label: 'C = 0 (equilibrium)', labelT: 0.6,  offsetX: 10, offsetY: -12 },
+  { C: 1,  color: '#2980b9', label: 'C = 1',               labelT: 1.05, offsetX: 10, offsetY: -14 },
+  { C: 2,  color: '#8e44ad', label: 'C = 2',               labelT: 0.6,  offsetX: 10, offsetY: -14 },
+];
+
+const steps = 600;
+const dt = (xMax - xMin) / steps;
+
+curves.forEach(({ C, color }) => {
+  ctx.strokeStyle = color;
+  ctx.lineWidth = C === 0 ? 3 : 2;
+  ctx.setLineDash(C === 0 ? [6, 4] : []);
+  ctx.beginPath();
+  let started = false;
+  for (let i = 0; i <= steps; i++) {
+    const t = xMin + i * dt;
+    const P = C * Math.exp(2 * t);
+    if (P < yMin-1 || P > yMax+1) { started = false; continue; }
+    const cx = toCanvasX(t), cy = toCanvasY(P);
+    if (!started) { ctx.moveTo(cx, cy); started = true; }
+    else ctx.lineTo(cx, cy);
+  }
+  ctx.stroke();
+  ctx.setLineDash([]);
+});
+
+curves.forEach(({ C, color, label, labelT, offsetX, offsetY }) => {
+  const P_label = C * Math.exp(2 * labelT);
+  if (P_label >= yMin && P_label <= yMax) {
+    ctx.fillStyle = color;
+    ctx.font = 'bold 12px serif';
+    ctx.fillText(label, toCanvasX(labelT) + offsetX, toCanvasY(P_label) + offsetY);
+  }
+});
+</script>
+</body>
+</html>
