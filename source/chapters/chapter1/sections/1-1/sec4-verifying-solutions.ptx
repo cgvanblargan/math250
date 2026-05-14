@@ -9,7 +9,7 @@
     </figure>
 
  <p>
-    To verify that <m>y(x)</m> is a solution to a differential equation, you must plug in <m>y</m> and its relevant derivatives into both sides of the equation and verify they equal each other.
+    Sometimes we are given proposed solutions to ODEs, and we must check whether they actually solve the ODE. To verify that <m>y(x)</m> is a solution to a differential equation, you must plug in <m>y</m> and its relevant derivatives into both sides of the equation and verify they equal each other.
   </p>
 
   <example xml:id="ex-verify-solution">
@@ -47,14 +47,14 @@
   </example>
 
  <p>
-    To verify that <m>y(x)</m> is a solution to a differential equation, you must plug in <m>y</m> and its relevant derivatives into both sides of the equation and verify they equal each other.
+     It's now try to practice this a bit more! Try each of the following examples on your own, and then check with the notes or video.
   </p>
 
   <activity xml:id="act-verifying-solutions">
     <title>Practice: Verifying Solutions</title>
     <introduction>
       <p>
-        Try each of the following on your own before checking the solution — seriously, give it a shot first! Use the hints if you get stuck.
+        Try each of the following on your own before checking the solution. Use the hints if you get stuck.
       </p>
     </introduction>
 

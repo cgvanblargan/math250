@@ -27,24 +27,22 @@
   </note>
 
   <p>
-    As a quick example, consider the differential equation <m>\frac{dP}{dt} = 2P</m>, whose general solution is <m>P(t) = Ce^{2t}</m>. Below are some specific solutions for varying values of <m>C</m>.
-  </p>
+  As a quick example, consider the differential equation <m>\frac{dP}{dt} = 2P</m>, whose general solution is <m>P(t) = Ce^{2t}</m>. Use the slider below to explore how different values of <m>C</m> give different specific solutions. Can you find the value of <m>C</m> that makes <m>P(t)</m> a constant function?
+</p>
 
-  <figure xml:id="fig-population-solutions">
-    <caption>
-      Solutions <m>P(t) = Ce^{2t}</m> for <m>C = -1, 0, 1, 2</m>. The dashed green line <m>P = 0</m> corresponds to <m>C = 0</m> and is the only equilibrium solution.
-    </caption>
-    <interactive xml:id="interactive-population-graph" iframe="equilibrium-graph.html" width="100%" aspect="3:2">
-      <static>
-        <p>
-          Graph of solutions <m>P(t) = Ce^{2t}</m> for <m>C = -1</m> (red), <m>C = 0</m> (green, dashed), <m>C = 1</m> (blue), and <m>C = 2</m> (purple). The curve for <m>C = 0</m> is the horizontal line <m>P = 0</m>, the equilibrium solution. Curves for <m>C = 1</m> and <m>C = 2</m> grow exponentially upward, while <m>C = -1</m> grows exponentially downward.
-        </p>
-      </static>
-    </interactive>
-  </figure>
+<figure xml:id="fig-equilibrium-slider">
+  <caption>Solutions <m>P(t) = Ce^{2t}</m> for varying values of <m>C</m>. Try to find the equilibrium solution!</caption>
+  <interactive xml:id="interactive-equilibrium-slider" iframe="interactive-equilibrium-slider.html" width="80%" aspect="3:2">
+    <static>
+      <p>
+        An interactive graph showing the solution curve <m>P(t) = Ce^{2t}</m> with a slider to vary <m>C</m> from <m>-5</m> to <m>5</m> in steps of <m>0.5</m>. Setting <m>C = 0</m> gives the equilibrium solution <m>P(t) = 0</m>.
+      </p>
+    </static>
+  </interactive>
+</figure>
 
   <p>
-    Notice that these solutions are not constant in general. However, setting <m>C = 0</m> gives <m>P(t) = 0</m>, which is constant — and therefore the only equilibrium solution.
+    Notice that these solutions are not constant in general. However, setting <m>C = 0</m> gives <m>P(t) = 0</m>, which is constant, and therefore the only equilibrium solution.
   </p>
 
   <p>

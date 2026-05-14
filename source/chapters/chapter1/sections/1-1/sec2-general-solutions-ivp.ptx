@@ -7,7 +7,12 @@
         <caption>This video goes through the content of this page.</caption>
         <video youtube="u8cZ98PIR1s" width="100%" preview="default"/>
     </figure>
-
+<p>
+  We just found that one solution to <m>\frac{dP}{dt} = 3P</m> is <m>P(t) = e^{3t}</m>. In fact, all possible solutions — the <term>general solution</term> — are of the form <m>P(t) = Ce^{3t}</m>, where <m>C</m> is any real number. I encourage you to verify that this is always a solution; we will justify why it captures all solutions later when we study separable ODEs.
+</p>
+<p>
+  This idea generalizes naturally to the family of ODEs <m>\frac{dP}{dt} = kP</m>.
+</p>
  <definition xml:id="def-general-solution-population">
     <title>Solution to the Population Growth Model</title>
     <statement>
@@ -26,23 +31,41 @@
   </p>
 
   <solution>
-    <title>Verification</title>
+  <title>Verification</title>
+  <p>
+    By the chain rule:
+    <me>\frac{dP}{dt} = k\underbrace{Ce^{kt}}_{=\, P} = kP. \checkmark</me>
+  </p>
+</solution>
     <p>
-      By the chain rule, <m>\frac{dP}{dt} = kCe^{kt} = kP</m>. <m>\checkmark</m>
-    </p>
-     </solution>
-    <p>
-      Some examples of specific solutions:
-      <md>
-        <mrow>C = 2\text{:} \amp\quad P(t) = 2e^{kt}</mrow>
-        <mrow>C = -3\text{:} \amp\quad P(t) = -3e^{kt}</mrow>
-        <mrow>C = 0\text{:} \amp\quad P(t) = 0 \quad \Rightarrow \quad \frac{dP}{dt} = kP \checkmark</mrow>
-      </md>
-    </p>
- 
+  So for example, to solve <m>\frac{dP}{dt} = 2P</m>, we find the general solution <m>P(t) = Ce^{2t}</m>. Each value of <m>C</m> gives a different specific solution — together they form a whole family of curves. For instance:
+</p>
+
+<md>
+  <mrow>C = 2: \amp P(t) = 2e^{2t}</mrow>
+  <mrow>C = -1: \amp P(t) = -e^{2t}</mrow>
+  <mrow>C = 0: \amp P(t) = 0e^{2t}=0</mrow>
+</md>
+
+<p>
+  Use the slider below to explore how the value of <m>C</m> affects the solution curve. 
+</p>
+
+<figure xml:id="fig-population-slider">
+  <caption>Solutions <m>P(t) = Ce^{2t}</m> for varying values of <m>C</m>.</caption>
+  <interactive xml:id="interactive-population-slider" iframe="interactive-population-slider.html" width="80%" aspect="3:2">
+    <static>
+      <p>
+        An interactive graph showing the solution curve <m>P(t) = Ce^{2t}</m> with a slider to vary <m>C</m> from <m>-5</m> to <m>5</m>. As <m>C</m> increases the curve grows more steeply, and when <m>C = 0</m> the solution is the equilibrium <m>P(t) = 0</m>.
+      </p>
+    </static>
+  </interactive>
+</figure>
 
   <p>
-    With the proper <term>initial conditions</term> we obtain a <term>specific solution</term> to a differential equation.
+   In the graph above, notice how <m>P(0)</m> changes as you vary the values for <m>C</m>. 
+    With the proper <term>initial conditions</term> we obtain a <term>specific solution</term> to a differential 
+    equation.  
   </p>
 
   <example xml:id="ex-initial-condition">

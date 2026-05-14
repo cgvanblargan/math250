@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Population Growth Model</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jsxgraph/1.6.0/jsxgraphcore.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jsxgraph/1.6.0/jsxgraph.css">
+<style>
+  body {
+    margin: 0;
+    padding: 10px;
+    font-family: serif;
+    background: transparent;
+    overflow: hidden;
+  }
+  #controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    margin-bottom: 8px;
+    font-size: 16px;
+    font-family: serif;
+    color: #2c3e50;
+  }
+  #controls label {
+    font-weight: bold;
+  }
+  #cslider {
+    width: 200px;
+    accent-color: #2980b9;
+  }
+  #cvalue {
+    min-width: 40px;
+    font-weight: bold;
+    color: #2980b9;
+  }
+  #expression {
+    text-align: center;
+    font-size: 20px;
+    font-family: serif;
+    margin-bottom: 8px;
+    color: #2c3e50;
+    min-height: 28px;
+  }
+  #jxgbox {
+    width: 100%;
+    aspect-ratio: 3/2;
+  }
+</style>
+</head>
+<body>
+
+<div id="expression">P(t) = e<sup>2t</sup></div>
+
+<div id="controls">
+  <label for="cslider">C =</label>
+  <input type="range" id="cslider" min="-5" max="5" step="0.1" value="1">
+  <span id="cvalue">1</span>
+</div>
+
+<div id="jxgbox" class="jxgbox"></div>
+
+<script>
+  var board = JXG.JSXGraph.initBoard('jxgbox', {
+    boundingbox: [-1, 10, 2, -10],
+    axis: true,
+    showCopyright: false,
+    showNavigation: false,
+    defaultAxes: {
+      x: {
+        name: 't',
+        withLabel: true,
+        label: { position: 'rt', offset: [-15, 15], fontSize: 16 }
+      },
+      y: {
+        name: 'P',
+        withLabel: true,
+        label: { position: 'rt', offset: [15, 0], fontSize: 16 }
+      }
+    }
+  });
+
+  var C = 1;
+
+  var curve = board.create('functiongraph', [
+    function(t) { return C * Math.exp(2 * t); },
+    -1, 2
+  ], {
+    strokeColor: '#2980b9',
+    strokeWidth: 2.5
+  });
+
+  // Dot at (0, C) = (0, P(0))
+  var dot = board.create('point', [0, C], {
+    size: 5,
+    color: '#e74c3c',
+    fixed: true,
+    name: '',
+    label: { visible: false }
+  });
+
+  // Label for P(0)
+  var dotLabel = board.create('text', [0.08, C, function() {
+    var val = Math.round(C * 10) / 10;
+    var display = Number.isInteger(val) ? val : val.toFixed(1);
+    return 'P(0) = ' + display;
+  }], {
+    fontSize: 14,
+    fontFamily: 'serif',
+    color: '#e74c3c',
+    fixed: true
+  });
+
+  function updateExpression(val) {
+    var expr = document.getElementById('expression');
+    var absC = Math.abs(val);
+    var absCstr = Number.isInteger(absC) ? absC : absC.toFixed(1);
+
+    if (val === 0) {
+      expr.innerHTML = 'P(t) = 0';
+    } else if (val === 1) {
+      expr.innerHTML = 'P(t) = e<sup>2t</sup>';
+    } else if (val === -1) {
+      expr.innerHTML = 'P(t) = &minus;e<sup>2t</sup>';
+    } else if (val > 0) {
+      expr.innerHTML = 'P(t) = ' + absCstr + 'e<sup>2t</sup>';
+    } else {
+      expr.innerHTML = 'P(t) = &minus;' + absCstr + 'e<sup>2t</sup>';
+    }
+  }
+
+  document.getElementById('cslider').addEventListener('input', function() {
+    C = parseFloat(this.value);
+    var display = Number.isInteger(C) ? C : C.toFixed(1);
+    document.getElementById('cvalue').textContent = display;
+    updateExpression(C);
+    dot.setPosition(JXG.COORDS_BY_USER, [0, C]);
+    board.update();
+  });
+
+  updateExpression(1);
+</script>
+</body>
+</html>

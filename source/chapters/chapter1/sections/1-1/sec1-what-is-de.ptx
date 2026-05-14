@@ -37,31 +37,46 @@
     In the previous example, you just set up a <em>differential equation</em>. We often want to take this a step further and find a solution. In this case, that would be a population function <m>P(t)</m> that satisfies the conditions of the previous example (where the rate of change of the population is proportional to itself, with proportionality constant equaling 3).
   </p>
 
-  <example xml:id="ex-solve-population-de">
-    <title>Solving a Differential Equation</title>
+<example xml:id="ex-solve-population-de">
+  <title>Solving a Differential Equation</title>
+  <p>
+    Can you think of a function <m>P(t)</m> that solves <m>\frac{dP}{dt} = 3P</m>?
+  </p>
+  <hint>
     <p>
-      Can you think of a function <m>P(t)</m> that solves the previous differential equation?
+      First try solving the simpler question: find a function <m>P(t)</m> whose derivative is itself, that is, satisfying <m>\frac{dP}{dt} = P</m>.
     </p>
-    <hint>
-      <p>
-        We are looking for a function <m>P(t)</m> whose derivative equals <m>3P</m>.
-      </p>
-      <p>
-        First try solving the simpler question: Find a function <m>P(t)</m> whose derivative is itself. That is, it satisfies <m>\frac{dP}{dt} = P</m>.
-      </p>
-    </hint>
+  </hint>
+  <solution>
+    <p>
+      Let's start with the simpler equation <m>\frac{dP}{dt} = P</m>. Can you think of a function whose derivative is itself?
+    </p>
     <solution>
+      <title>Reveal</title>
       <p>
-        We want to solve the differential equation <m>\frac{dP}{dt} = 3P</m>. Let's first consider the simpler equation <m>\frac{dP}{dt} = P</m>. A solution <m>P(t)</m> is one whose derivative is itself. Recall that the famous exponential function <m>P(t) = e^t</m> has this property!
-      </p>
-      <p>
-        Let's modify this to solve <m>\frac{dP}{dt} = 3P</m>. How do we modify <m>e^t</m> so that a 3 comes in front when differentiating <m>P(t)</m>? The chain rule should come to mind! Indeed, if we set <m>P(t) = e^{3t}</m>, we find <m>\frac{dP}{dt} = 3e^{3t}</m>, which equals <m>3P</m>.
-      </p>
-      <p>
-        So <m>P(t) = e^{3t}</m> solves <m>\frac{dP}{dt} = 3P</m>. Can you think of any others?
+        Recall that <m>P(t) = e^t</m> has this property — its derivative is itself! So <m>P(t) = e^t</m> satisfies <m>\frac{dP}{dt} = P</m>.
       </p>
     </solution>
-  </example>
+    <p>
+      Now, how can we modify this to solve <m>\frac{dP}{dt} = 3P</m>? We need a function whose derivative produces a factor of 3 out front. Think about the chain rule!
+    </p>
+    <solution>
+  <title>Reveal</title>
+  <p>
+    Let's check <m>P(t) = e^{3t}</m>.  By the chain rule:
+    <me>\frac{d}{dt}e^{3t} = 3\underbrace{e^{3t}}_{=\,P} = 3P.</me>
+    So <m>P(t) = e^{3t}</m> solves <m>\frac{dP}{dt} = 3P</m>. Can you think of any other solutions?
+  </p>
+</solution>
+<p>
+  Note that there are other solutions besides the ones we just stated! We discuss this in the next section.
+   </p>
+  </solution>
+</example>
+ 
+<p>
+  The population example illustrates a key idea: when modelling situations that change over time, we naturally arrive at equations involving derivatives. This is the essence of a differential equation, which we now define formally.
+</p>
 
   <definition xml:id="def-differential-equation">
     <title>Differential Equation</title>

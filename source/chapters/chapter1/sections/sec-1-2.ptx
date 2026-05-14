@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-integral-solutions" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Integrals as Solutions</title>
+
+  <introduction>
+<p>
+  Differential equations in the form <m>\frac{dy}{dx} = f(t)</m> can be solved simply by integrating.
+  One particular application of this is to acceleration and velocity questions.
+</p>
+  </introduction>
+
+  <xi:include href="./1-2/sec1-integralsolns.ptx"/>
+  <xi:include href="./1-2/sec2-positionvelocity.ptx"/>
+
+</section>

@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-integrating-to-get-solutions" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Integrating to solve <m>\frac{dy}{dx} = f(x)</m></title>
+
+ <p>
+    A simple but important special case of a first-order ODE is when the right-hand side does not involve the dependent variable. That is, the equation is in the form:
+    <me>\frac{dy}{dx} = f(x).</me>
+  </p>
+<p>
+  Let's explore this with the following example.
+</p>
+
+<example xml:id="ex-integrate-2x">
+  <title>A Simple First-Order ODE</title>
+  <p>
+    Suppose <m>\frac{dy}{dx} = 2x</m>.  What does <m>y(x)</m> equal?
+  </p>
+  <hint>
+    <p>
+      Think about what operation undoes differentiation. What function has derivative equal to <m>2x</m>?
+    </p>
+  </hint>
+  <solution>
+    <p>
+      Notice that <m>y(x) = x^2</m> is a solution since its derivative is <m>2x</m>. That is, we found an <em>antiderivative</em> of <m>2x</m>.
+    </p>
+    <p>
+      Recall that adding any constant <m>C</m> gives the general antiderivative <m>y(x) = x^2 + C</m>, which is the general solution to <m>\frac{dy}{dx} = 2x</m>. So we simply took the indefinite integral of <m>2x</m>!
+    </p>
+  </solution>
+</example>
+
+  <observation xml:id="obs-integrate-both-sides">
+    <p>
+      For a differential equation in the form
+      <me>\frac{dy}{dx} = f(x),</me>
+      the <term>general solution</term> is simply:
+      <me>y(x) = \int f(x)\, dx + C.</me>
+    </p>
+  </observation>
+
+ <p>
+  Let's use this principle in the following examples. Try them on your own first!
+</p>
+
+<activity xml:id="act-integrating-odes">
+  <title>Practice: Integrating to Find Solutions</title>
+  <introduction>
+    <p>
+      Try each of the following on your own before checking the solution. <alert>Give it a shot first!</alert>
+    </p>
+  </introduction>
+
+  <task xml:id="task-integrate-3x2">
+    <statement>
+      <p>
+        Solve <m>\dfrac{dy}{dx} = 3x^2</m> with initial condition <m>y(1) = 3</m>.
+      </p>
+    </statement>
+    <solution>
+      <p>
+        Integrating both sides:
+        <me>y = \int 3x^2\, dx = x^3 + C.</me>
+        Applying the initial condition <m>y(1) = 3</m>:
+        <me>3 = 1^3 + C \implies C = 2.</me>
+        So the specific solution is:
+        <me>y(x) = x^3 + 2.</me>
+        We can verify: <m>\frac{dy}{dx} = 3x^2</m> <m>\checkmark</m> and <m>y(1) = 1 + 2 = 3</m> <m>\checkmark</m>.
+      </p>
+    </solution>
+  </task>
+
+  <task xml:id="task-second-order-integrate">
+    <statement>
+      <p>
+        Find the general solution to <m>\dfrac{d^2p}{dt^2} = 3</m>.
+      </p>
+    </statement>
+    <hint>
+      <p>
+        Notice the left-hand side involves a second derivative, which we can write as <m>\frac{d}{dt}\!\left(\frac{dp}{dt}\right) = 3</m>. Apply the same integration principle to get <m>\frac{dp}{dt} = \int 3\, dt</m>, then integrate again.
+      </p>
+    </hint>
+    <solution>
+      <p>
+        Since <m>\frac{d^2p}{dt^2} = \frac{d}{dt}\!\left(\frac{dp}{dt}\right)</m>, we integrate twice.
+      </p>
+      <p>
+        <alert>First integration:</alert> Starting from <m>p'(t) = \int 3\, dt</m>:
+      </p>
+      <solution>
+        <title>Reveal</title>
+        <p>
+          <me>p'(t) = 3t + C_1.</me>
+        </p>
+      </solution>
+      <p>
+        Now that we have <m>p'(t) = 3t + C_1</m>, we integrate again.
+      </p>
+      <p>
+        <alert>Second integration:</alert> Starting from <m>p(t) = \int (3t + C_1)\, dt</m>:
+      </p>
+      <solution>
+        <title>Reveal</title>
+        <p>
+          <me>p(t) = \frac{3}{2}t^2 + C_1 t + C_2.</me>
+        </p>
+      </solution>
+     <p> You can verify that the general solution satisfies <m>p''(t) = 3</m>.
+     </p>
+    </solution>
+  </task>
+
+</activity>
+
+<note xml:id="note-two-constants">
+  <p>
+   Notice in the last example we obtained two constants of integration <m>C_1</m> and <m>C_2</m> 
+   from integrating twice. 
+  </p>
+</note>
+
+ 
+
+  
+
+</section>
