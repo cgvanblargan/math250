@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Equilibrium Solutions</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jsxgraph/1.6.0/jsxgraphcore.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jsxgraph/1.6.0/jsxgraph.css">
+<style>
+  body {
+    margin: 0;
+    padding: 10px;
+    font-family: serif;
+    background: transparent;
+    overflow: hidden;
+  }
+  #controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    margin-bottom: 8px;
+    font-size: 16px;
+    font-family: serif;
+    color: #2c3e50;
+  }
+  #controls label { font-weight: bold; }
+  #cslider { width: 200px; accent-color: #2980b9; }
+  #cvalue { min-width: 40px; font-weight: bold; color: #2980b9; }
+  #expression {
+    text-align: center;
+    font-size: 20px;
+    font-family: serif;
+    margin-bottom: 8px;
+    color: #2c3e50;
+    min-height: 28px;
+  }
+  #jxgbox {
+    width: 100%;
+    aspect-ratio: 3/2;
+    position: relative;
+  }
+  #confetti-canvas {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    pointer-events: none;
+  }
+  #eq-label {
+    display: none;
+    text-align: center;
+    font-size: 22px;
+    font-weight: bold;
+    color: #27ae60;
+    margin-top: 6px;
+    animation: pop 0.3s ease;
+  }
+  @keyframes pop {
+    0% { transform: scale(0.5); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+  }
+</style>
+</head>
+<body>
+
+<div id="expression" style="line-height:1.4;">P(t) = e<sup>2t</sup></div>
+
+<div id="controls">
+  <label for="cslider" style="font-size:20px;">C =</label>
+  <input type="range" id="cslider" min="-5" max="5" step="0.5" value="1">
+  <span id="cvalue" style="font-size:20px;">1</span>
+</div>
+
+<div style="position:relative;">
+  <div id="jxgbox" class="jxgbox"></div>
+  <canvas id="confetti-canvas"></canvas>
+</div>
+
+<div id="eq-label">🎉 Equilibrium Solution!! 🎉</div>
+
+<script>
+  var board = JXG.JSXGraph.initBoard('jxgbox', {
+    boundingbox: [-1, 10, 2, -10],
+    axis: true,
+    showCopyright: false,
+    showNavigation: false,
+    defaultAxes: {
+      x: {
+        name: 't',
+        withLabel: true,
+        label: { position: 'rt', offset: [-15, 15], fontSize: 16 }
+      },
+      y: {
+        name: 'P',
+        withLabel: true,
+        label: { position: 'rt', offset: [15, 0], fontSize: 16 }
+      }
+    }
+  });
+
+  var C = 1;
+
+  var curve = board.create('functiongraph', [
+    function(t) { return C * Math.exp(2 * t); },
+    -1, 2
+  ], {
+    strokeColor: '#2980b9',
+    strokeWidth: 2.5
+  });
+
+  // --- Confetti ---
+  var confettiCanvas = document.getElementById('confetti-canvas');
+  var ctx = confettiCanvas.getContext('2d');
+  var particles = [];
+  var animating = false;
+
+  function resizeConfetti() {
+    var box = document.getElementById('jxgbox');
+    confettiCanvas.width = box.offsetWidth;
+    confettiCanvas.height = box.offsetHeight;
+  }
+  resizeConfetti();
+  window.addEventListener('resize', resizeConfetti);
+
+  function launchConfetti() {
+    resizeConfetti();
+    particles = [];
+    var colors = ['#e74c3c','#f39c12','#27ae60','#2980b9','#9b59b6','#f1c40f'];
+    for (var i = 0; i < 80; i++) {
+      particles.push({
+        x: Math.random() * confettiCanvas.width,
+        y: Math.random() * confettiCanvas.height * 0.3,
+        r: Math.random() * 6 + 3,
+        color: colors[Math.floor(Math.random() * colors.length)],
+        vx: (Math.random() - 0.5) * 4,
+        vy: Math.random() * 3 + 1,
+        alpha: 1,
+        rotation: Math.random() * 360
+      });
+    }
+    if (!animating) animateConfetti();
+  }
+
+  function animateConfetti() {
+    animating = true;
+    ctx.clearRect(0, 0, confettiCanvas.width, confettiCanvas.height);
+    particles.forEach(function(p) {
+      ctx.save();
+      ctx.globalAlpha = p.alpha;
+      ctx.fillStyle = p.color;
+      ctx.translate(p.x, p.y);
+      ctx.rotate(p.rotation * Math.PI / 180);
+      ctx.fillRect(-p.r/2, -p.r/2, p.r, p.r * 1.5);
+      ctx.restore();
+      p.x += p.vx;
+      p.y += p.vy;
+      p.alpha -= 0.012;
+      p.rotation += 3;
+    });
+    particles = particles.filter(function(p) { return p.alpha > 0; });
+    if (particles.length > 0) {
+      requestAnimationFrame(animateConfetti);
+    } else {
+      animating = false;
+      ctx.clearRect(0, 0, confettiCanvas.width, confettiCanvas.height);
+    }
+  }
+
+  // --- Expression update ---
+  function updateExpression(val) {
+    var expr = document.getElementById('expression');
+    var eqLabel = document.getElementById('eq-label');
+    var absC = Math.abs(val);
+    var absCstr = Number.isInteger(absC) ? absC : absC.toFixed(1);
+
+    if (val === 0) {
+      expr.innerHTML = 'P(t) = 0';
+      curve.setAttribute({ strokeColor: '#27ae60', strokeWidth: 4 });
+      eqLabel.style.display = 'block';
+      eqLabel.style.animation = 'none';
+      void eqLabel.offsetWidth;
+      eqLabel.style.animation = 'pop 0.3s ease';
+      launchConfetti();
+    } else {
+      curve.setAttribute({ strokeColor: '#2980b9', strokeWidth: 2.5 });
+      eqLabel.style.display = 'none';
+      if (val === 1) {
+        expr.innerHTML = 'P(t) = e<sup>2t</sup>';
+      } else if (val === -1) {
+        expr.innerHTML = 'P(t) = &minus;e<sup>2t</sup>';
+      } else if (val > 0) {
+        expr.innerHTML = 'P(t) = ' + absCstr + 'e<sup>2t</sup>';
+      } else {
+        expr.innerHTML = 'P(t) = &minus;' + absCstr + 'e<sup>2t</sup>';
+      }
+    }
+  }
+
+  document.getElementById('cslider').addEventListener('input', function() {
+    C = parseFloat(this.value);
+    var display = Number.isInteger(C) ? C : C.toFixed(1);
+    document.getElementById('cvalue').textContent = display;
+    updateExpression(C);
+    board.update();
+  });
+
+  updateExpression(1);
+</script>
+</body>
+</html>
