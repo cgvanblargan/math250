@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-separabble" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Separable Differential Equations</title>
+
+  <introduction>
+<p>
+  This section is on solving first order separable ODEs. 
+</p>
+  </introduction>
+
+  <xi:include href="./1-4/sec1-intro-separable.ptx"/>
+  <xi:include href="./1-4/sec2-sepofvar.ptx"/>
+  <xi:include href="./1-4/sec3-sep-exp.ptx"/>
+  <xi:include href="./1-4/sec4-sep-plusorminus.ptx"/>
+  <xi:include href="./1-4/sec5-sep-completesq.ptx"/>
+ 
+
+</section>

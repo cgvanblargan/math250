@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="subsec-sep-completingsquare" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Separation of Variables: Solving Explicitly Tricks</title>
+<p>
+  The following example is a little harder to solve for <m>y</m> explicitly, but it's certainly doable!
+   It's designed to give you practice executing some things that can come up during separation of variables, so try each step on your own before revealing 
+   the solution. And as always, the video at the end is there if you get stuck!
+</p>
+
+<example xml:id="ex-explicit-complete-square">
+  <title>Solving a Separable ODE Explicitly</title>
+  <introduction>
+    <p>
+      Solve the following ODE explicitly: <m>\frac{dy}{dx} = \frac{xe^{x^2}}{2y+4}</m>.
+    </p>
+  </introduction>
+
+  <task xml:id="task-equilibrium-complete-square">
+    <title>Step 1: Find equilibrium solutions</title>
+    <statement>
+      <p>
+        There are no equilibrium solutions.
+      </p>
+    </statement>
+    <solution>
+      <title>Why?</title>
+      <p>
+        Rewrite the ODE as <m>\frac{dy}{dx} = \frac{1}{2y+4} \cdot xe^{x^2}</m>, so <m>f(y) = \frac{1}{2y+4}</m>. 
+        Setting <m>f(y) = 0</m> gives <m>\frac{1}{2y+4} = 0</m>, which has no solution.
+         So there are no equilibrium solutions.
+      </p>
+
+    </solution>
+  </task>
+
+  <task xml:id="task-separate-complete-square">
+    <title>Step 2: Separate the variables</title>
+    <statement>
+      <p>
+        Multiplying both sides by <m>(2y+4)</m> and separating:
+        <me>\int (2y + 4)\, dy = \int xe^{x^2}\, dx.</me>
+      </p>
+    </statement>
+  </task>
+
+  <task xml:id="task-integrate-complete-square">
+    <title>Step 3: Integrate both sides</title>
+    <statement>
+      <p>
+        Integrating the left-hand side:
+        <me>y^2 + 4y = \int xe^{x^2}\, dx.</me>
+        What technique should you use to evaluate <m>\int xe^{x^2}\, dx</m>?
+      </p>
+    </statement>
+    <hint>
+  <p>
+    This integral can be solved with a <m>u</m>-substitution. What do you think you should set <m>u</m> equal to?
+  </p>
+</hint>
+    
+    <solution>
+      <title>Work: evaluating the integral</title>
+      <p>
+        Let <m>u = x^2</m>, so <m>du = 2x\, dx</m> and <m>x\, dx = \frac{1}{2}du</m>:
+        <md>
+          <mrow>\int xe^{x^2}\, dx \amp= \int e^u \cdot \frac{1}{2}\, du</mrow>
+          <mrow>\amp= \frac{1}{2}e^u + C</mrow>
+          <mrow>\amp= \frac{1}{2}e^{x^2} + C.</mrow>
+        </md>
+        So we now have:
+        <me>y^2 + 4y = \frac{1}{2}e^{x^2} + C.</me>
+      </p>
+    </solution>
+  </task>
+
+  <task xml:id="task-complete-square">
+    <title>Step 4: Solve for <m>y</m> — recognizing the technique</title>
+    <statement>
+      <p>
+        We have <m>y^2 + 4y = \frac{1}{2}e^{x^2} + C</m>. What technique lets us solve explicitly for <m>y</m>?
+      </p>
+    </statement>
+    <choices randomize="no">
+      <choice correct="yes">
+        <statement><p>Complete the square on the left-hand side.</p></statement>
+        <feedback><p>Exactly! Adding 4 to both sides gives <m>(y+2)^2 = \frac{1}{2}e^{x^2} + C</m>, after which we can take a square root.</p></feedback>
+      </choice>
+      <choice>
+        <statement><p>Divide both sides by <m>y</m>.</p></statement>
+        <feedback><p>Dividing by <m>y</m> gives <m>y + 4 = \frac{1}{y}\left(\frac{1}{2}e^{x^2} + C\right)</m>, which doesn't isolate <m>y</m>.</p></feedback>
+      </choice>
+      <choice>
+        <statement><p>Take the square root of both sides directly.</p></statement>
+        <feedback><p>Not quite — the left-hand side <m>y^2 + 4y</m> is not a perfect square yet, so we can't take the square root directly. We need one more step first!</p></feedback>
+      </choice>
+      <choice>
+        <statement><p>This cannot be solved explicitly for <m>y</m>.</p></statement>
+        <feedback><p>It can be solved explicitly! Think about what algebraic technique turns <m>y^2 + 4y</m> into a perfect square.</p></feedback>
+      </choice>
+    </choices>
+    <solution>
+      <title>Working: completing the square</title>
+      <p>
+        To complete the square on <m>y^2 + 4y</m>, we add <m>4</m> to both sides (since <m>\left(\frac{4}{2}\right)^2 = 4</m>):
+        <md>
+          <mrow>y^2 + 4y + 4 \amp= \frac{1}{2}e^{x^2} + C + 4</mrow>
+          <mrow>(y+2)^2 \amp= \frac{1}{2}e^{x^2} + C</mrow>
+        </md>
+        where we absorbed the <m>+4</m> into <m>C</m> on the right-hand side.
+      </p>
+    </solution>
+  </task>
+
+  <task xml:id="task-final-solution">
+    <title>Step 5: Write the explicit solution</title>
+    <statement>
+      <p>
+        Starting from <m>(y+2)^2 = \frac{1}{2}e^{x^2} + C</m>, which of the following is the correct explicit solution?
+      </p>
+    </statement>
+    <choices randomize="no">
+      <choice correct="yes">
+        <statement><p><m>y = \pm\sqrt{\frac{1}{2}e^{x^2} + C} - 2</m></p></statement>
+        <feedback><p>Correct! Taking the square root of both sides gives <m>y + 2 = \pm\sqrt{\frac{1}{2}e^{x^2} + C}</m>, and subtracting 2 gives the answer.</p></feedback>
+      </choice>
+      <choice>
+        <statement><p><m>y = \sqrt{\frac{1}{2}e^{x^2} + C} - 2</m></p></statement>
+        <feedback><p>Almost — but don't forget the <m>\pm</m>! When taking the square root of both sides of <m>(y+2)^2 = \ldots</m>, we get <m>y+2 = \pm\sqrt{\ldots}</m>.</p></feedback>
+      </choice>
+      <choice>
+        <statement><p><m>y = \pm\sqrt{\frac{1}{2}e^{x^2} + C} + 2</m></p></statement>
+        <feedback><p>Check the sign! From <m>y + 2 = \pm\sqrt{\ldots}</m>, subtracting 2 from both sides gives <m>y = \pm\sqrt{\ldots} - 2</m>, not <m>+2</m>.</p></feedback>
+      </choice>
+      <choice>
+        <statement><p><m>y = \pm\sqrt{\frac{1}{2}e^{x^2}} + C - 2</m></p></statement>
+        <feedback><p>Not quite — <m>C</m> should be inside the square root, not outside. We are taking the square root of the entire right-hand side <m>\frac{1}{2}e^{x^2} + C</m>.</p></feedback>
+      </choice>
+    </choices>
+    <solution>
+      <title>Working: taking the square root</title>
+      <p>
+        Taking the square root of both sides of <m>(y+2)^2 = \frac{1}{2}e^{x^2} + C</m>:
+        <me>y + 2 = \pm\sqrt{\frac{1}{2}e^{x^2} + C}.</me>
+        Subtracting 2 from both sides:
+        <me>y = \pm\sqrt{\frac{1}{2}e^{x^2} + C} - 2.</me>
+      </p>
+    </solution>
+  </task>
+
+</example>
+
+<figure xml:id="video-sep-completesquare">
+  <caption>This video goes through the content of this page.</caption>
+  <video youtube="WHRj9SeSu1Y" width="100%" preview="default"/>
+</figure>
+
+ </section>

@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="subsec-sep-exp" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Separation of Variables: Important Example with Exponentials</title>
+
+ <p>
+  Recall the following population modelling ODE: <m>\frac{dP}{dt} = 2P</m>, which says the population grows at a rate twice the current population.
+   We were previously able to guess and check some solutions to this. With separation of variables we will know, without a doubt, what <em>all</em> the solutions are.
+</p>
+
+<p>
+  First, why is this ODE separable? Recall that a separable ODE is one that can be written in the form:
+  <me>\frac{dy}{dx} = f(y)g(x),</me>
+  or with our current variables:
+  <me>\frac{dP}{dt} = f(P)g(t).</me>
+  But looking at <m>\frac{dP}{dt} = 2P</m>, there doesn't seem to be any <m>g(t)</m> function! Think about what you could set <m>f(P)</m> and <m>g(t)</m> to be.
+</p>
+
+<solution>
+  <title>Why is this separable?</title>
+  <p>
+    Functions can be constant! So <m>f</m> and <m>g</m> may end up being constant functions, where there is no explicit mention of the independent variable. In this case there are two natural choices:
+    <ol>
+      <li><m>f(P) = 2P</m> and <m>g(t) = 1</m></li>
+      <li><m>f(P) = P</m> and <m>g(t) = 2</m></li>
+    </ol>
+  Both choices work and will ultimately give the same general solution. In the example below, we will use choice (1): <m>f(P) = 2P</m> and <m>g(t) = 1</m>.
+  </p>
+</solution>
+
+<p> Now that we have established it is separable, let's use separation of variables to solve it!
+  Try as much as you can on your own, and check with the solution as you go. 
+  In this problem, there are some subtle things we take note of in step 4 when solving for <m>y</m>.
+</p>
+
+
+
+<example xml:id="ex-separable-exp">
+  <title> An important observation with exponentials</title>
+      <p>
+        Find the general solution to <m>\frac{dy}{dx} = 2y</m>.
+      </p>
+    <hint>
+      <p>
+        Follow the same five steps as in the previous example:
+        <ol>
+          <li>Find equilibrium solutions.</li>
+          <li>Separate the variables.</li>
+          <li>Integrate both sides.</li>
+          <li>Solve for <m>y</m>.</li>
+          <li>Write the general solution.</li>
+        </ol>
+      </p>
+    </hint>
+    <solution>
+
+      <p>
+        <alert>Step 1: Find equilibrium solutions.</alert>
+      </p>
+      <p>
+        The only equilibrium solution is <m>y = 0</m>.
+      </p>
+      <solution>
+        <title>Work to solve for the equilibrium solution</title>
+        <p>
+          In separable ODEs, we can always find the equilibrium solution by 
+          solving <m>f(y) = 0</m>. 
+          Setting <m>y = C</m>, we need <m>\frac{dy}{dx} = 0</m>:
+          <me>0 = e^{2y} \implies y = 0.</me>
+        </p>
+      </solution>
+
+      <p>
+        <alert>Steps 2 and 3: Separate the variables and integrate.</alert>
+      </p>
+      <p>
+        You should arrive at <m>\ln|y| = 2x + C</m>. Nothing is too interesting in these two steps, but you can see 
+        the work below if you are unsure. 
+       
+      </p>
+<solution> <title>Work for steps 2 and 3</title>
+  <p>
+     Assuming <m>y \neq 0</m>, divide both sides by <m>y</m> and multiply by <m>dx</m>:
+        <me>\frac{1}{y}\, dy = 2\, dx.</me>
+  </p>
+   <p>
+    Then we integrate:
+        <me>\int \frac{1}{y}\, dy = \int 2\, dx \implies \ln|y| = 2x + C.</me>
+      </p>
+      <note xml:id="note-abs-value-ln">
+        <p>
+          Don't forget the absolute value in <m>\ln|y|</m>!       
+        </p>
+      </note>
+</solution>
+  
+     
+
+      <p>
+        <alert>Step 4: Solve for <m>y</m>.</alert>
+      </p>
+      <p>
+        Starting from <m>\ln|y| = 2x + C</m>, we find:
+         <me>|y| = e^C e^{2x}.</me>
+         This step just involves standard exponential rules, so make sure you are 
+         comfortable with it! You can read the solution below if you are stuck.
+      </p>
+      <solution>
+        <title>Step 4a: Algebra to get <m>|y| = e^C e^{2x}</m>.</title>
+        <p>
+          Exponentiating both sides
+           <me>e^{\ln|y|} = e^{2x+C}</me>
+           <me>|y| = e^{2x+C}</me>
+           and applying <m>e^{a+b} = e^a e^b</m>:
+          <me>|y| = e^{2x+C} = e^C e^{2x}.</me>
+        </p>
+      </solution>
+      <p>
+        Finally, we get to the interesting part of this question! Solving for 
+        <m>y</m> here in a nice form takes some work. But the result of this will be a 
+        big takeaway for solving similar questions with exponentials.
+        Do your best to solve for <m>y</m> here, and then <em>definitely read solution below</em>!! 
+         
+    
+      </p>
+      <solution>
+        <title>Step 4b: Removing the absolute value and simplifying the constant</title>
+        <p>
+           The steps involved here involve careful reasoning about the constant
+          and exponential function. Do not fret, we wil summarize this all at the end of the page
+          and make sure you are confident with similar questions going forward!
+          </p>
+          <p>
+          We are starting from: <m>|y| = e^C e^{2x}</m>. 
+          Removing the absolute value introduces a <m>\pm</m>:
+          <me>y = \pm e^C e^{2x}.</me>
+          As <m>C</m> varies over all real numbers, <m>e^C</m> ranges over all positive numbers. That is, every positive number 
+          can be written as <m>e^C</m> for some <m>C</m>. Therefore <m>-e^C</m> attains all negative numbers. 
+          Together, <m>\pm e^C</m> ranges over all nonzero real numbers. So we replace <m>\pm e^C</m> with a new constant 
+          <m>C</m> varying over all nonzero reals:
+          <me>y = Ce^{2x}, \quad C \neq 0.</me>
+        </p>
+        <figure xml:id="fig-exp-positive">
+          <caption>The graph of <m>e^x</m> is always positive and ranges of all positive numbers as <m>x</m> varies over all reals.</caption>
+          <interactive xml:id="interactive-exp-graph" iframe="exp-graph.html" width="70%" aspect="3:2">
+            <static>
+              <p>
+                A graph of <m>y = e^x</m> showing that the function is always strictly positive and ranges over all positive real numbers. As <m>x \to -\infty</m>, <m>e^x \to 0</m> but never reaches zero. As <m>x \to \infty</m>, <m>e^x \to \infty</m>.
+              </p>
+            </static>
+          </interactive>
+        </figure>
+      </solution>
+
+      <p>
+        <alert>Step 5: Write the general solution.</alert>
+      </p>
+      <p>
+        From Steps 1 and 4, we have found:
+        <me>y = 0 \quad \text{or} \quad y = Ce^{2x}, \quad C \neq 0.</me>
+        Notice that setting <m>C = 0</m> in <m>y = Ce^{2x}</m> gives <m>y = 0</m>, recovering the equilibrium solution. So the general solution can be written compactly as:
+        <me>y = Ce^{2x}, \quad C \text{ any real number.}</me>
+      </p>
+
+    </solution>
+  
+
+</example>
+<p>
+    Step 4 involved some subtle reasoning, but this pattern comes up often in problems involving exponentials.
+    So going forward we can skip many of the details, as discussed in the remark below.
+  </p>
+<remark xml:id="rem-exponential-shortcut">
+  <title>A Useful Shortcut for Exponential Solutions</title>
+
+  <p>
+    In particular, whenever you arrive at an expression of the form
+    <me>\ln|y| = h(x) + C, \quad C \text{ any real number,}</me>
+    it always results in
+    <me>y = Ce^{h(x)}, \quad C \text{ any nonzero real number.}</me>
+  </p>
+  <p>
+    Even more, this typically arises after applying separation of variables to an ODE of the form <m>\frac{dy}{dx} = yg(x)</m>, where the only equilibrium solution is <m>y = 0</m>. So the general solution — combining the equilibrium solution with the explicit solution — can always be written compactly as:
+    <me>y = Ce^{h(x)}, \quad C \text{ any real number.}</me>
+  </p>
+</remark>
+
+<p>
+  The reasoning in Step 4 will come up again and again whenever you solve an ODE with an exponential solution. 
+  Getting comfortable with it now will save you a lot of trouble going forward! Let's quickly drive this point home with the following question.
+</p>
+
+<exercise xml:id="ex-mc-general-solution">
+  <statement>
+    <p>
+      Your friend is solving the ODE <m>\frac{dy}{dt} = yx</m> and has correctly found:
+      <ol>
+        <li><m>y = 0</m> is the only equilibrium solution.</li>
+        <li>Separation of variables yields <m>|y| = e^C e^{x^2/2}</m>.</li>
+      </ol>
+      They need your help finishing! Which of the following is the correct general solution?
+    </p>
+  </statement>
+  <choices randomize="no">
+    <choice correct="yes">
+      <statement><p><m>y = Ce^{x^2/2}</m>, where <m>C</m> is any real number.</p></statement>
+      <feedback><p>Exactly! <m>\pm e^C</m> ranges over all nonzero reals, and combining with the equilibrium solution <m>y = 0</m> means <m>C</m> can be any real number.</p></feedback>
+    </choice>
+    <choice>
+      <statement><p><m>y = Ce^{x^2/2}</m>, where <m>C</m> is any nonzero real number.</p></statement>
+      <feedback><p>Close — but don't forget the equilibrium solution <m>y = 0</m>! Setting <m>C = 0</m> recovers it, so <m>C</m> can be any real number.</p></feedback>
+    </choice>
+    <choice>
+      <statement><p><m>y = e^C e^{x^2/2}</m>.</p></statement>
+      <feedback><p>Not quite — <m>e^C</m> is always positive, so this misses all the negative solutions. Don't forget the <m>\pm</m> when removing the absolute value!</p></feedback>
+    </choice>
+    <choice>
+      <statement><p><m>y = e^C e^{x^2/2}</m> or <m>y = 0</m>.</p></statement>
+      <feedback><p>You remembered the equilibrium solution, but <m>e^C</m> is always positive — this still misses all the negative solutions. The <m>\pm</m> is needed when removing the absolute value!</p></feedback>
+    </choice>
+  </choices>
+</exercise>
+
+<figure xml:id="video-sep-exp">
+  <caption>This video goes through the content of this page.</caption>
+  <video youtube="GSwiAoWfFTE" width="100%" preview="default"/>
+</figure>
+</section>

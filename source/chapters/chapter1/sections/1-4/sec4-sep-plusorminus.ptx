@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="subsec-sep-minussign" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Separation of Variables: Some Subtle Points</title>
+
+ <p>
+    Now we look at two more examples solving separable ODEs. This first example illustrates a subtle point
+     when dealing with square roots. See if you can find the mistake in the work below!
+ </p>
+
+
+<exploration xml:id="explore-ivp-sqrt">
+  <title>A Subtle Moment in Solving an IVP</title>
+  <introduction>
+    <p>
+      Let's solve the following initial value problem explicitly: <m>x\frac{dx}{dt} = t</m>, <m>x(0) = -2</m>.
+    </p>
+    <p>
+      After separating variables and integrating, we arrive at:
+      <me>x^2 = t^2 + C.</me>
+    </p>
+    <solution>
+      <title>Work for separation of variables</title>
+      <p>
+        First, why is this separable? Notice that <m>x</m> is already on the left with <m>dx</m>, so no dividing by <m>f(x)</m> is necessary — we can separate immediately by writing <m>x\, dx = t\, dt</m>. There are no equilibrium solutions since setting <m>x = C</m> gives <m>0 = t</m>, which can't hold for all <m>t</m>.
+      </p>
+      <p>
+        Separating variables:
+        <me>x\, dx = t\, dt.</me>
+        Integrating both sides:
+        <md>
+          <mrow>\int x\, dx \amp= \int t\, dt</mrow>
+          <mrow>\frac{1}{2}x^2 \amp= \frac{1}{2}t^2 + C</mrow>
+          <mrow>x^2 \amp= t^2 + C.</mrow>
+        </md>
+      </p>
+    </solution>
+    <p>
+      Now something interesting happens when we solve for <m>x</m> explicitly. Let's take the square root of both sides:
+      <me>x(t) = \sqrt{t^2 + C}.</me>
+      Applying the initial condition <m>x(0) = -2</m>:
+      <me>-2 = \sqrt{0 + C} = \sqrt{C}.</me>
+      But the square root of a number is always non-negative — so <m>\sqrt{C} = -2</m> is impossible! We seem to have reached a contradiction. What went wrong?
+    </p>
+  </introduction>
+
+  <task xml:id="task-find-mistake-sqrt">
+    <title>What went wrong?</title>
+    <statement>
+      <p>
+        Identify the error in the working above.
+      </p>
+    </statement>
+    <choices randomize="no">
+      <choice>
+        <statement><p>We integrated incorrectly — the antiderivative of <m>x</m> is not <m>\frac{1}{2}x^2</m>.</p></statement>
+        <feedback><p>Not quite — <m>\int x\, dx = \frac{1}{2}x^2 + C</m> is correct!</p></feedback>
+      </choice>
+      <choice correct="yes">
+        <statement><p>We forgot the <m>\pm</m> when taking the square root.</p></statement>
+        <feedback><p>Exactly! When solving <m>x^2 = t^2 + C</m>, we should have written <m>x = \pm\sqrt{t^2 + C}</m>. The negative branch is what allows <m>x(0) = -2</m>.</p></feedback>
+      </choice>
+      <choice>
+        <statement><p>The initial condition <m>x(0) = -2</m> is inconsistent with this ODE — no solution exists.</p></statement>
+        <feedback><p>Not quite — a solution does exist! The issue is earlier in the working.</p></feedback>
+      </choice>
+    </choices>
+  </task>
+
+  <task xml:id="task-correct-solution-sqrt">
+    <statement>
+      <p>
+        Now that you've identified the mistake, see if you can finish solving the problem correctly! Check with the solution below.
+      </p>
+    </statement>
+    <solution>
+      <title>Corrected solution</title>
+      <p>
+        The fix is to include the <m>\pm</m> when taking the square root:
+        <me>x = \pm\sqrt{t^2 + C}.</me>
+        Now applying <m>x(0) = -2</m>: since <m>x(0)</m> is negative, we choose the negative branch:
+        <me>-2 = -\sqrt{C} \implies \sqrt{C} = 2 \implies C = 4.</me>
+        So the specific solution is:
+        <me>x(t) = -\sqrt{t^2 + 4}.</me>
+      </p>
+    </solution>
+  </task>
+
+</exploration>
+
+<p>
+  So far, when solving a separable ODE we have always ended by solving explicitly for the dependent 
+  variable, arriving at something like <m>y = Ce^{2x}</m> or <m>x = -\sqrt{t^2 + 4}</m>. But sometimes it is difficult or 
+  even impossible to isolate the dependent variable, and that's okay! 
+  An equation relating <m>y</m> and <m>x</m> that implicitly defines <m>y</m> as a function of <m>x</m>,
+   without explicitly writing <m>y = \ldots</m>, is called an <term>implicit solution</term>. 
+   For example, <m>y^2 + x^2 = C</m> could be an implicit solution to an ODE even though we haven't written <m>y</m> by itself. In these cases,
+    we simply stop once we have a clean implicit relation and call that the general solution.
+</p>
+
+<example xml:id="ex-implicit-solution">
+  <title>Finding a General Implicit Solution</title>
+  <introduction>
+    <p>
+      Find a general implicit solution to <m>v'(t) = \frac{1}{v} - \frac{t^2}{v}</m>.
+    </p>
+  </introduction>
+  <task xml:id="task-separate-implicit">
+    <title>Separating the variables</title>
+    <statement>
+      <p>
+         We are trying to solve <m>v'(t) = \frac{1}{v} - \frac{t^2}{v}</m>.
+        Which of the following correctly separates the variables?
+      </p>
+    </statement>
+    <choices randomize="yes">
+      <choice correct="yes">
+        <statement>
+          <p><m>\displaystyle\int v\, dv = \int (1 - t^2)\, dt</m></p>
+        </statement>
+        <feedback>
+          <p>Correct! Multiplying both sides by <m>v</m> gives <m>v\frac{dv}{dt} = 1 - t^2</m>, and then separating gives <m>v\, dv = (1-t^2)\, dt</m>.</p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p><m>\displaystyle\int \frac{1}{v}\, dv = \int (1 - t^2)\, dt</m></p>
+        </statement>
+        <feedback>
+          <p>Not quite — check your separation step. You need to multiply both sides by <m>v</m> first, not divide.</p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p><m>\displaystyle\int v\, dv = \int \left(-\frac{t^2}{v}\right) dt</m></p>
+        </statement>
+        <feedback>
+          <p>Not quite — the right-hand side still contains <m>v</m>, which means the variables are not fully separated!</p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>This ODE is not separable.</p>
+        </statement>
+        <feedback>
+          <p>It is separable! Try rewriting the right-hand side by factoring out <m>\frac{1}{v}</m>: <m>v' = \frac{1-t^2}{v}</m>. Now can you see how to separate?</p>
+        </feedback>
+      </choice>
+    </choices>
+    <solution>
+      <title>How to separate the variables</title>
+      <p>
+        First rewrite the right-hand side by combining the fractions:
+        <me>v' = \frac{1}{v} - \frac{t^2}{v} = \frac{1 - t^2}{v}.</me>
+        Now multiply both sides by <m>v</m>:
+        <me>v \cdot v' = 1 - t^2 \implies v\, dv = (1 - t^2)\, dt.</me>
+        Integrating both sides:
+        <me>\int v\, dv = \int (1 - t^2)\, dt.</me>
+      </p>
+    </solution>
+  </task>
+
+  <task xml:id="task-implicit-integrate">
+    <title>Integrating and writing the implicit solution</title>
+    <statement>
+      <p>
+        After integrating both sides, we arrive at:
+        <me>\frac{1}{2}v^2 = t - \frac{1}{3}t^3 + C.</me>
+        This is the general implicit solution. See the dropdown for all the details.
+      </p>
+    </statement>
+    <solution>
+      <title>Full working</title>
+      <p>
+        <alert>Equilibrium solutions:</alert> None. To see why, rewrite the ODE as:
+        <me>\frac{dv}{dt} = \frac{1}{v}(1 - t^2).</me>
+        In this form, <m>f(v) = \frac{1}{v}</m> and <m>g(t) = 1 - t^2</m>. Equilibrium solutions are found by setting <m>f(v) = 0</m>, that is <m>\frac{1}{v} = 0</m> — but this has no solution. So there are no equilibrium solutions.
+      </p>
+      <p>
+        <alert>Separating and integrating:</alert>
+        <md>
+          <mrow>v\, dv \amp= (1 - t^2)\, dt</mrow>
+          <mrow>\int v\, dv \amp= \int (1 - t^2)\, dt</mrow>
+          <mrow>\frac{1}{2}v^2 \amp= t - \frac{1}{3}t^3 + C.</mrow>
+        </md>
+        Since solving explicitly for <m>v</m> would require taking a square root (introducing a <m>\pm</m>) and the problem only asks for an implicit solution, we stop here. The general implicit solution is:
+        <me>\frac{1}{2}v^2 = t - \frac{1}{3}t^3 + C.</me>
+      </p>
+    </solution>
+  </task>
+
+</example>
+
+<figure xml:id="video-sep-twomoreexamples">
+  <caption>This video goes through the content of this page.</caption>
+  <video youtube="XPujtIscAlM" width="100%" preview="default"/>
+</figure>
+
+
+
+</section>

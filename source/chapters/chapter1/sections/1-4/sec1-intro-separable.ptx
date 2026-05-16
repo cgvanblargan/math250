@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="subsec-intr-separable" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Introduction to Separable ODEs</title>
+
+  <p>
+    We now introduce a method for solving a broad class of first-order ODEs called <term>separable differential equations</term>. Let's first get a feel for the idea through an example before formalizing things.
+  </p>
+
+ <p>
+  Let's get a feel for the idea through an example before formalizing things. Consider the differential equation <m>\frac{dy}{dx} = e^y x^2</m>. Notice that the right-hand side factors into a part involving only <m>y</m> and a part involving only <m>x</m>. This suggests we try to "separate" the variables, moving all the <m>y</m> terms to one side and all the <m>x</m> terms to the other.
+</p>
+<p>
+  We write:
+  <me>\frac{1}{e^y}\, dy = x^2\, dx.</me>
+  We are treating <m>\frac{dy}{dx}</m> as if it were a fraction and "multiplying both sides by <m>dx</m>." Strictly speaking, <m>\frac{dy}{dx}</m> is not a fraction. We will justify why this manipulation is mathematically valid shortly. For now, think of it as a useful shorthand that consistently gives the right answer.
+</p>
+<p>
+  Integrating both sides:
+  <me>\int \frac{1}{e^y}\, dy = \int x^2\, dx.</me>
+  Each side produces its own constant of integration:
+  <me>-e^{-y} + C_1 = \frac{1}{3}x^3 + C_2 \implies -e^{-y} = \frac{1}{3}x^3 + \underbrace{C_2 - C_1}_{=\, C},</me>
+  so we write:
+  <me>-e^{-y} = \frac{1}{3}x^3 + C.</me>
+
+</p>
+<p>
+      So the general solution is <m>y = -\ln\!\left(-\frac{1}{3}x^3 - C\right)</m>.
+</p>
+<solution>
+  <title>Algebra to solve for <m>y</m></title>
+  <p>
+    Starting from <m>-e^{-y} = \frac{1}{3}x^3 + C</m>:
+    <md>
+      <mrow>e^{-y} \amp= -\frac{1}{3}x^3 - C \amp\amp \text{(multiply both sides by } -1\text{)}</mrow>
+      <mrow>-y \amp= \ln\!\left(-\frac{1}{3}x^3 - C\right) \amp\amp \text{(take ln of both sides)}</mrow>
+      <mrow>y \amp= -\ln\!\left(-\frac{1}{3}x^3 - C\right) \amp\amp \text{(multiply both sides by } -1\text{)}</mrow>
+    </md>
+    So the general solution is <m>y = -\ln\!\left(-\frac{1}{3}x^3 - C\right)</m>.
+  </p>
+</solution>
+ <p>
+  This will outlined more clearly on the next page. But for now, let's make sure you 
+  understand what a first order separable ODE is. 
+ </p>
+<exercise xml:id="ex-mc-separable">
+  <statement>
+    <p>
+      Recall that a separable ODE is one that can be written in the form <m>\frac{dy}{dx} = f(y)g(x)</m>, where the right-hand side factors into a part involving only the dependent variable and a part involving only the independent variable. Which of the following ODEs are separable? Select all that apply.
+    </p>
+  </statement>
+  <choices randomize="yes">
+    <choice correct="yes">
+      <statement><p><m>\frac{dP}{dt} = 3P</m></p></statement>
+      <feedback>
+        <p>
+          Separable! We can write this as <m>f(P) = P</m> and <m>g(t) = 3</m> (or <m>f(P) = 3P</m> and <m>g(t) = 1</m>). The right-hand side factors cleanly into a part in <m>P</m> and a constant.
+        </p>
+      </feedback>
+    </choice>
+    <choice correct="yes">
+      <statement><p><m>\frac{dv}{dt} = v - vt^2</m></p></statement>
+      <feedback>
+        <p>
+          Separable! Factor out <m>v</m> from the right-hand side: <m>v - vt^2 = v(1 - t^2)</m>. So <m>f(v) = v</m> and <m>g(t) = 1 - t^2</m>.
+        </p>
+      </feedback>
+    </choice>
+    <choice correct="yes">
+      <statement><p><m>\frac{dy}{dx} = y^2\sin(x)</m></p></statement>
+      <feedback>
+        <p>
+          Separable! The right-hand side already factors as <m>f(y) = y^2</m> and <m>g(x) = \sin(x)</m>.
+        </p>
+      </feedback>
+    </choice>
+    <choice correct="yes">
+      <statement><p><m>\frac{dy}{dx} = y^2 + 1</m></p></statement>
+      <feedback>
+        <p>
+          Separable — but sneaky! There is no explicit <m>x</m> on the right-hand side, so <m>g(x) = 1</m> (a constant function). We have <m>f(y) = y^2 + 1</m> and <m>g(x) = 1</m>.
+        </p>
+      </feedback>
+    </choice>
+    <choice>
+      <statement><p><m>\frac{dy}{dx} = y^2 + x</m></p></statement>
+      <feedback>
+        <p>
+          Not separable! There is no way to write <m>y^2 + x</m> as a product <m>f(y) \cdot g(x)</m> — the two variables are added together, not multiplied.
+        </p>
+      </feedback>
+    </choice>
+    <choice>
+      <statement><p><m>\frac{dv}{dt} = v + t</m></p></statement>
+      <feedback>
+        <p>
+          Not separable! Like the previous option, <m>v + t</m> cannot be factored into a part in <m>v</m> only and a part in <m>t</m> only. Addition is the giveaway here.
+        </p>
+      </feedback>
+    </choice>
+    <choice>
+      <statement><p><m>\frac{dy}{dx} = \sin(x + y)</m></p></statement>
+      <feedback>
+        <p>
+          Not separable! Even though it involves a trig function, <m>\sin(x+y)</m> cannot be written as <m>f(y)g(x)</m> — the variables are tangled together inside the sine.
+        </p>
+      </feedback>
+    </choice>
+  </choices>
+</exercise>
+
+
+<figure xml:id="video-sep-intro">
+  <caption>This video goes through the content of this page.</caption>
+  <video youtube="zeCys2r-Xyk" width="100%" preview="default"/>
+</figure>
+</section>

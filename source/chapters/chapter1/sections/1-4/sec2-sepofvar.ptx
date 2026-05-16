@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="subsec-sepofvar" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Separation of Variables </title>
+
+  <p>
+    The method we started exploring on the previous page
+     used is called <term>separation of variables</term>. 
+     Let's now state it formally.
+  </p>
+
+  <definition xml:id="def-separable-de">
+    <title>Separable Differential Equation</title>
+    <statement>
+      <p>
+        A <term>separable differential equation</term> is one that can be written in the form
+        <me>\frac{dy}{dx} = f(y)\,g(x).</me>
+        It can be solved using <term>separation of variables</term>:
+        <me>\int \frac{1}{f(y)}\, dy = \int g(x)\, dx.</me>
+      </p>
+      <p>
+  This method captures all solutions that are not <term>singular</term>. When <m>f(y) = 0</m>, we cannot divide by <m>f(y)</m>, so separation of variables may miss some solutions, but any solution missed this way is precisely an equilibrium (constant) solution.
+</p>
+    </statement>
+    
+  </definition>
+
+  <p>
+    A helpful (if informal) way to remember this is the following "fake proof":
+  </p>
+
+  <p>
+    Starting from <m>\frac{dy}{dx} = f(y)g(x)</m>, treat <m>\frac{dy}{dx}</m> as a fraction and divide both sides by <m>f(y)</m>:
+    <me>\frac{1}{f(y)}\,\frac{dy}{dx} = g(x).</me>
+    Then "multiply both sides by <m>dx</m>" and integrate:
+    <me>\int \frac{1}{f(y)}\, dy = \int g(x)\, dx.</me>
+    While this is not a rigorous proof, it is a reliable way to remember how to apply the method.
+  </p>
+
+  <proof>
+    <title>Precise Justification (optional — for the curious!)</title>
+    <p>
+      We want to rigorously justify why <m>\int \frac{1}{f(y)}\, dy = \int g(x)\, dx</m> follows from <m>\frac{dy}{dx} = f(y)g(x)</m>.
+    </p>
+    <p>
+      Let <m>H(y)</m> be an antiderivative of <m>\frac{1}{f(y)}</m>, so that <m>H'(y) = \frac{1}{f(y)}</m>. Consider the function <m>H(y(x))</m>, viewed as a function of <m>x</m>. By the chain rule:
+      <me>\frac{d}{dx}H(y(x)) = H'(y(x))\cdot \frac{dy}{dx} = \frac{1}{f(y)}\cdot f(y)g(x) = g(x).</me>
+      So <m>H(y(x))</m> is an antiderivative of <m>g(x)</m> with respect to <m>x</m>. That is:
+      <me>H(y(x)) = \int g(x)\, dx + C.</me>
+      But <m>H(y(x)) = \int \frac{1}{f(y)}\, dy</m> by definition of <m>H</m>. So we arrive at:
+      <me>\int \frac{1}{f(y)}\, dy = \int g(x)\, dx + C,</me>
+      which is exactly what the method produces. The "fake proof" manipulation, while informal, gives the correct result.
+    </p>
+  </proof>
+
+  <p>
+    In the following example, we go through each step in applying separation of variables.
+    </p>
+
+  <example xml:id="ex-separable-3y2x3">
+    <title>Solving a Separable ODE</title>
+    <p>
+      Find all equilibrium solutions to <m>\frac{dy}{dx} = 3y^2 x^3</m>, then find the general explicit solution.
+    </p>
+    <solution>
+      <p>
+        <alert>Step 1: Find equilibrium solutions.</alert>
+      </p>
+      <p>
+        Setting <m>y = C</m> (constant), we need <m>\frac{dy}{dx} = 0</m>:
+        <me>0 = 3C^2 x^3 \implies C = 0.</me>
+        So <m>y = 0</m> is the only equilibrium solution.
+      </p>
+
+      <p>
+        <alert>Step 2: Separate the variables.</alert>
+      </p>
+      <p>
+        Assuming <m>y \neq 0</m>, divide both sides by <m>y^2</m> and "multiply by <m>dx</m>":
+        <me>\frac{1}{y^2}\, dy = 3x^3\, dx.</me>
+      </p>
+      <solution>
+        <title>Explanation: separating variables</title>
+        <p>
+          We start from <m>\frac{dy}{dx} = 3y^2 x^3</m>. Here <m>f(y) = y^2</m> and <m>g(x) = 3x^3</m>. Dividing both sides by <m>f(y) = y^2</m> and treating <m>dx</m> as we described:
+          <me>\frac{1}{y^2}\,\frac{dy}{dx} = 3x^3 \implies \frac{1}{y^2}\,dy = 3x^3\,dx.</me>
+        </p>
+      </solution>
+
+      <p>
+        <alert>Step 3: Integrate both sides.</alert>
+      </p>
+      <p>
+        <md>
+          <mrow>\int \frac{1}{y^2}\, dy \amp= \int 3x^3\, dx</mrow>
+          <mrow>-y^{-1} \amp= \frac{3}{4}x^4 + C</mrow>
+        </md>
+        (We place the constant <m>C</m> only on the right-hand side, since combining two constants of integration still gives a single arbitrary constant.)
+      </p>
+
+      <p>
+        <alert>Step 4: Solve for <m>y</m>.</alert>
+      </p>
+      <p>
+        From <m>-\frac{1}{y} = \frac{3}{4}x^4 + C</m>, taking reciprocals:
+        <me>y = \frac{-1}{\frac{3}{4}x^4 + C}.</me>
+      </p>
+      <solution>
+        <title>Full working</title>
+        <p>
+          <md>
+            <mrow>-\frac{1}{y} \amp= \frac{3}{4}x^4 + C</mrow>
+            <mrow>\frac{1}{y} \amp= -\frac{3}{4}x^4 - C</mrow>
+            <mrow>\frac{1}{y} \amp= -\frac{3}{4}x^4 + C</mrow>
+            <mrow>y \amp= \frac{-1}{\frac{3}{4}x^4 + C}</mrow>
+          </md>
+          Note: in the third line, <m>-C</m> was replaced with <m>C</m>. Since <m>C</m> ranges over all real numbers, so does <m>-C</m> — so this is just a relabeling. See the remark below.
+        </p>
+      </solution>
+      <p>
+        Note: we replaced <m>-C</m> with <m>C</m> above, since both vary over all real numbers. See the remark below for more on this.
+      </p>
+
+      <p>
+        <alert>Step 5: Write the general solution.</alert>
+      </p>
+      <p>
+        Combining the equilibrium solution from Step 1 and the explicit solution from Step 4, the general solution is:
+        <me>y = \frac{-1}{\frac{3}{4}x^4 + C} \quad \text{and} \quad y = 0.</me>
+      </p>
+    </solution>
+  </example>
+<p>And we just successfully used separation of variables! All the problems with separation of variables
+     follow this basic format (with steps 1-5). Some of the details will vary in each problem, which we explore in the following sections.</p>
+  <remark xml:id="rem-absorbing-constants">
+    <title>Absorbing Constants</title>
+    <p>
+      In solving the previous example, we changed <m>\frac{1}{y} = -\frac{3}{4}x^4 - C</m> to <m>\frac{1}{y} = -\frac{3}{4}x^4 + C</m>. This is valid because <m>-C</m> and <m>C</m> both vary over all real numbers 
+      (they represent the same family of values, just relabeled).
+    </p>
+    <p>
+      We often <term>absorb constants</term> into <m>C</m> like this, and it is generally preferred to write the simpler expression. For example, it is much neater to write <m>y = \sin(x) + C</m> than <m>y = \sin(x) + 2C</m>, even though they represent the same family of functions.
+       It is standard practice to reuse the name <m>C</m> from line to line, even when absorbing constants into it.
+    </p>
+  </remark>
+
+  <note xml:id="note-c-placement">
+    <title>Be Careful with <m>C</m> Placement</title>
+    <p>
+      Be careful when changing expressions with <m>C</m>. For example
+      <ul>
+        <li><m>y = \tan(x) + C</m> and <m>y = \tan(x + C)</m> are <alert>not</alert> the same.</li>
+        <li><m>y = 2 + Ce^x</m> and <m>y = Ce^x</m> are <alert>not</alert> the same (the constant <m>2</m> cannot be absorbed into <m>Ce^x</m> due to the order of operations).</li>
+      </ul>
+    </p>
+  </note>
+<p>
+    Let's do a quick check to make sure you are 
+    confident simplifying expressions with <m>C</m>.
+</p>
+  <exercise xml:id="ex-mc-absorbing-constants">
+  <statement>
+    <p>
+      In each of the following, two expressions involving <m>C</m> (where <m>C</m> varies over all real numbers) are given. Select all pairs that represent the same family of functions.
+    </p>
+  </statement>
+  <choices randomize="yes">
+    <choice correct="yes">
+      <statement><p><m>\frac{1}{y} = -x^2 - C</m> and <m>\frac{1}{y} = -x^2 + C</m></p></statement>
+      <feedback>
+        <p>
+          These are equivalent! Since <m>C</m> varies over all real numbers, so does <m>-C</m> — they represent the same family of values, just relabeled.
+        </p>
+      </feedback>
+    </choice>
+    <choice correct="yes">
+      <statement><p><m>y = e^x + C - 3</m> and <m>y = e^x + C</m></p></statement>
+      <feedback>
+        <p>
+          These are equivalent! The <m>-3</m> is just a fixed number that gets absorbed into <m>C</m>. As <m>C</m> varies over all reals, so does <m>C - 3</m>.
+        </p>
+      </feedback>
+    </choice>
+    <choice>
+      <statement><p><m>y = 1 + Ce^x</m> and <m>y = Ce^x</m></p></statement>
+      <feedback>
+        <p>
+          Not equivalent! The <m>1</m> cannot be absorbed into <m>Ce^x</m> — adding 1 to <m>Ce^x</m> shifts every solution up by 1, which is a genuinely different family of functions.
+        </p>
+      </feedback>
+    </choice>
+    <choice correct="yes">
+      <statement><p><m>y = \cos(x) + 2C</m> and <m>y = \cos(x) + C</m></p></statement>
+      <feedback>
+        <p>
+          These are equivalent! As <m>C</m> varies over all real numbers, so does <m>2C</m> — it's just a relabeling of the constant.
+        </p>
+      </feedback>
+    </choice>
+    <choice>
+      <statement><p><m>y = \sqrt{x} + C</m> and <m>y = \sqrt{x + C}</m></p></statement>
+      <feedback>
+        <p>
+          Not equivalent! In the first, <m>C</m> shifts the graph vertically. In the second, <m>C</m> shifts the graph horizontally inside the square root. These are genuinely different families of functions.
+        </p>
+      </feedback>
+    </choice>
+  </choices>
+</exercise>
+
+
+
+<figure xml:id="video-sep-of-var">
+  <caption>This video goes through the content of this page.</caption>
+  <video youtube="OcfSNX41wuU" width="100%" preview="default"/>
+</figure>
+
+</section>
