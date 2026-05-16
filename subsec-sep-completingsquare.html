@@ -77,8 +77,8 @@ window.MathJax = {
 </script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta property="og:type" content="book">
-<meta property="book:title" content="My Great Book">
-<meta property="book:author" content="You">
+<meta property="book:title" content="Differential Equations: Interactive Notes for Math 250">
+<meta property="book:author" content="Caroline VanBlargan">
 <script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><!--** eBookCongig is necessary to configure interactive       **-->
 <!--** Runestone components to run locally in reader's browser **-->
 <!--** No external communication:                              **-->
@@ -113,10 +113,10 @@ eBookConfig.enable_chatcodes =  false;
 <script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script>
 </head>
-<body id="changeme" class="pretext book ignore-math">
+<body id="vanblargan-de-math250" class="pretext book ignore-math">
 <a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
-<h1 class="heading"><a href="my-great-book.html"><span class="title">My Great Book</span> <span class="subtitle">An example to get you started</span></a></h1>
-<p class="byline">You</p>
+<h1 class="heading"><a href="my-great-book.html"><span class="title">Differential Equations: Interactive Notes for Math 250</span> <span class="subtitle">Penn State University</span></a></h1>
+<p class="byline">Caroline VanBlargan</p>
 </div></div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
 <button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="searchbox">
 <div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
@@ -139,9 +139,15 @@ eBookConfig.enable_chatcodes =  false;
 \)</span></div>
 <div class="ptx-page">
 <div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth3 focused" data-preexpanded-levels="0" data-max-levels="3"><ul class="structural toc-item-list contains-active">
-<li class="toc-item toc-frontmatter"><div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div></li>
+<li class="toc-item toc-frontmatter">
+<div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-colophon"><div class="toc-title-box"><a href="front-colophon.html" class="internal"><span class="title">Colophon</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="preface.html" class="internal"><span class="title">Preface</span></a></div></li>
+</ul>
+</li>
 <li class="toc-item toc-chapter contains-active">
-<div class="toc-title-box"><a href="ch-chapter-title.html" class="internal"><span class="codenumber">1</span> <span class="title">Differential Equations</span></a></div>
+<div class="toc-title-box"><a href="ch-chapter-title.html" class="internal"><span class="codenumber">1</span> <span class="title">The Fundamentals of Differential Equations</span></a></div>
 <ul class="structural toc-item-list contains-active">
 <li class="toc-item toc-section">
 <div class="toc-title-box"><a href="sec-intro-to-des.html" class="internal"><span class="codenumber">1.1</span> <span class="title">Introduction to Differential Equations</span></a></div>
@@ -151,7 +157,6 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-setting-up-des.html" class="internal"><span class="codenumber">1.1.3</span> <span class="title">Setting Up Differential Equations</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-verifying-solutions.html" class="internal"><span class="codenumber">1.1.4</span> <span class="title">Verifying Solutions</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-equilibrium-solutions.html" class="internal"><span class="codenumber">1.1.5</span> <span class="title">Equilibrium Solutions</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="extra-practice.html" class="internal"><span class="codenumber">1.1.6</span> <span class="title">Extra Practice</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-section">
@@ -161,34 +166,29 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-positionvelocity.html" class="internal"><span class="codenumber">1.2.2</span> <span class="title">Velocity and Acceleration</span></a></div></li>
 </ul>
 </li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-slopefields.html" class="internal"><span class="codenumber">1.3</span> <span class="title">Section 1.3: To be added</span></a></div></li>
 <li class="toc-item toc-section contains-active">
-<div class="toc-title-box"><a href="sec-separabble.html" class="internal"><span class="codenumber">1.3</span> <span class="title">Separable Differential Equations</span></a></div>
+<div class="toc-title-box"><a href="sec-separabble.html" class="internal"><span class="codenumber">1.4</span> <span class="title">Separable Differential Equations</span></a></div>
 <ul class="structural toc-item-list contains-active">
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="subsec-intr-separable.html" class="internal"><span class="codenumber">1.3.1</span> <span class="title">Introduction to Separable ODEs</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="subsec-sepofvar.html" class="internal"><span class="codenumber">1.3.2</span> <span class="title">Separation of Variables</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="subsec-sep-exp.html" class="internal"><span class="codenumber">1.3.3</span> <span class="title">Separation of Variables: Important Example with Exponentials</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="subsec-sep-minussign.html" class="internal"><span class="codenumber">1.3.4</span> <span class="title">Separation of Variables: Some Subtle Points</span></a></div></li>
-<li class="toc-item toc-section active"><div class="toc-title-box"><a href="subsec-sep-completingsquare.html" class="internal"><span class="codenumber">1.3.5</span> <span class="title">Separation of Variables: Solving Explicitly Tricks</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="subsec-intr-separable.html" class="internal"><span class="codenumber">1.4.1</span> <span class="title">Introduction to Separable ODEs</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="subsec-sepofvar.html" class="internal"><span class="codenumber">1.4.2</span> <span class="title">Separation of Variables</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="subsec-sep-exp.html" class="internal"><span class="codenumber">1.4.3</span> <span class="title">Separation of Variables: Important Example with Exponentials</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="subsec-sep-minussign.html" class="internal"><span class="codenumber">1.4.4</span> <span class="title">Separation of Variables: Some Subtle Points</span></a></div></li>
+<li class="toc-item toc-section active"><div class="toc-title-box"><a href="subsec-sep-completingsquare.html" class="internal"><span class="codenumber">1.4.5</span> <span class="title">Separation of Variables: Solving Explicitly Tricks</span></a></div></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toc-item toc-chapter">
-<div class="toc-title-box"><a href="ch-chapter-two.html" class="internal"><span class="codenumber">2</span> <span class="title">Name for chapter 2</span></a></div>
-<ul class="structural toc-item-list">
-<li class="toc-item toc-reading-questions"><div class="toc-title-box"><a href="basics-reading-questions.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Check your understanding!</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch2-sec2.html" class="internal"><span class="codenumber">2.2</span> <span class="title">blahblahblah</span></a></div></li>
-</ul>
-</li>
+<li class="toc-item toc-chapter"><div class="toc-title-box"><a href="ch-chapter-two.html" class="internal"><span class="codenumber">2</span> <span class="title">Chapter 2: Coming soon</span></a></div></li>
 <li class="toc-item toc-backmatter"><div class="toc-title-box"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div></li>
 </ul></nav></div>
 <main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="subsec-sep-completingsquare"><h2 class="heading hide-type">
-<span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.3.5</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Separation of Variables: Solving Explicitly Tricks</span>
+<span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.4.5</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Separation of Variables: Solving Explicitly Tricks</span>
 </h2>
 <div class="para" id="subsec-sep-completingsquare-2">The following example is a little harder to solve for <span class="process-math">\(y\)</span> explicitly, but it’s certainly doable! It’s designed to give you practice executing some things that can come up during separation of variables, so try each step on your own before revealing the solution. And as always, the video at the end is there if you get stuck!<div class="autopermalink" data-description="Paragraph"><a href="#subsec-sep-completingsquare-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="example example-like" id="ex-explicit-complete-square"><h3 class="heading">
-<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.3.1</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Solving a Separable ODE Explicitly.</span>
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.4.1</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Solving a Separable ODE Explicitly.</span>
 </h3>
 <div class="introduction" id="ex-explicit-complete-square-2"><div class="para" id="ex-explicit-complete-square-2-1">Solve the following ODE explicitly: <span class="process-math">\(\frac{dy}{dx} = \frac{xe^{x^2}}{2y+4}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex-explicit-complete-square-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div></div>
@@ -200,9 +200,9 @@ eBookConfig.enable_chatcodes =  false;
 <div class="solutions"><details id="task-equilibrium-complete-square-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Why?</span></summary><div class="solution solution-like knowl__content">
 <div class="para" id="task-equilibrium-complete-square-3-2">Rewrite the ODE as <span class="process-math">\(\frac{dy}{dx} = \frac{1}{2y+4} \cdot xe^{x^2}\text{,}\)</span> so <span class="process-math">\(f(y) = \frac{1}{2y+4}\text{.}\)</span> Setting <span class="process-math">\(f(y) = 0\)</span> gives <span class="process-math">\(\frac{1}{2y+4} = 0\text{,}\)</span> which has no solution. So there are no equilibrium solutions.<div class="autopermalink" data-description="Paragraph"><a href="#task-equilibrium-complete-square-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Solution 1.3.1.a.1: Why?"><a href="#task-equilibrium-complete-square-3" title="Copy heading and permalink for Solution 1.3.1.a.1: Why?" aria-label="Copy heading and permalink for Solution 1.3.1.a.1: Why?">🔗</a></div>
+<div class="autopermalink" data-description="Solution 1.4.1.a.1: Why?"><a href="#task-equilibrium-complete-square-3" title="Copy heading and permalink for Solution 1.4.1.a.1: Why?" aria-label="Copy heading and permalink for Solution 1.4.1.a.1: Why?">🔗</a></div>
 </div></details></div>
-<div class="autopermalink" data-description="Task 1.3.1.a: Step 1: Find equilibrium solutions"><a href="#task-equilibrium-complete-square" title="Copy heading and permalink for Task 1.3.1.a: Step 1: Find equilibrium solutions" aria-label="Copy heading and permalink for Task 1.3.1.a: Step 1: Find equilibrium solutions">🔗</a></div></article><article class="task exercise-like" id="task-separate-complete-square"><h4 class="heading">
+<div class="autopermalink" data-description="Task 1.4.1.a: Step 1: Find equilibrium solutions"><a href="#task-equilibrium-complete-square" title="Copy heading and permalink for Task 1.4.1.a: Step 1: Find equilibrium solutions" aria-label="Copy heading and permalink for Task 1.4.1.a: Step 1: Find equilibrium solutions">🔗</a></div></article><article class="task exercise-like" id="task-separate-complete-square"><h4 class="heading">
 <span class="codenumber">(b)</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Step 2: Separate the variables.</span>
 </h4>
 <div class="para logical" id="task-separate-complete-square-2-1">
@@ -214,7 +214,7 @@ eBookConfig.enable_chatcodes =  false;
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#task-separate-complete-square-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Task 1.3.1.b: Step 2: Separate the variables"><a href="#task-separate-complete-square" title="Copy heading and permalink for Task 1.3.1.b: Step 2: Separate the variables" aria-label="Copy heading and permalink for Task 1.3.1.b: Step 2: Separate the variables">🔗</a></div></article><article class="task exercise-like" id="task-integrate-complete-square"><h4 class="heading">
+<div class="autopermalink" data-description="Task 1.4.1.b: Step 2: Separate the variables"><a href="#task-separate-complete-square" title="Copy heading and permalink for Task 1.4.1.b: Step 2: Separate the variables" aria-label="Copy heading and permalink for Task 1.4.1.b: Step 2: Separate the variables">🔗</a></div></article><article class="task exercise-like" id="task-integrate-complete-square"><h4 class="heading">
 <span class="codenumber">(c)</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Step 3: Integrate both sides.</span>
 </h4>
 <div class="para logical" id="task-integrate-complete-square-2-1">
@@ -232,7 +232,7 @@ y^2 + 4y = \int xe^{x^2}\, dx.
 <details id="task-integrate-complete-square-3" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="hint solution-like knowl__content">
 <div class="para" id="task-integrate-complete-square-3-1">This integral can be solved with a <span class="process-math">\(u\)</span>-substitution. What do you think you should set <span class="process-math">\(u\)</span> equal to?<div class="autopermalink" data-description="Paragraph"><a href="#task-integrate-complete-square-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Hint 1.3.1.c.1"><a href="#task-integrate-complete-square-3" title="Copy heading and permalink for Hint 1.3.1.c.1" aria-label="Copy heading and permalink for Hint 1.3.1.c.1">🔗</a></div>
+<div class="autopermalink" data-description="Hint 1.4.1.c.1"><a href="#task-integrate-complete-square-3" title="Copy heading and permalink for Hint 1.4.1.c.1" aria-label="Copy heading and permalink for Hint 1.4.1.c.1">🔗</a></div>
 </div></details><details id="task-integrate-complete-square-4" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Work: evaluating the integral</span></summary><div class="solution solution-like knowl__content">
 <div class="para logical" id="task-integrate-complete-square-4-2">
 <div class="para">Let <span class="process-math">\(u = x^2\text{,}\)</span> so <span class="process-math">\(du = 2x\, dx\)</span> and <span class="process-math">\(x\, dx = \frac{1}{2}du\text{:}\)</span>
@@ -252,10 +252,10 @@ y^2 + 4y = \frac{1}{2}e^{x^2} + C.
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#task-integrate-complete-square-4-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Solution 1.3.1.c.1: Work: evaluating the integral"><a href="#task-integrate-complete-square-4" title="Copy heading and permalink for Solution 1.3.1.c.1: Work: evaluating the integral" aria-label="Copy heading and permalink for Solution 1.3.1.c.1: Work: evaluating the integral">🔗</a></div>
+<div class="autopermalink" data-description="Solution 1.4.1.c.1: Work: evaluating the integral"><a href="#task-integrate-complete-square-4" title="Copy heading and permalink for Solution 1.4.1.c.1: Work: evaluating the integral" aria-label="Copy heading and permalink for Solution 1.4.1.c.1: Work: evaluating the integral">🔗</a></div>
 </div></details>
 </div>
-<div class="autopermalink" data-description="Task 1.3.1.c: Step 3: Integrate both sides"><a href="#task-integrate-complete-square" title="Copy heading and permalink for Task 1.3.1.c: Step 3: Integrate both sides" aria-label="Copy heading and permalink for Task 1.3.1.c: Step 3: Integrate both sides">🔗</a></div></article><article class="task exercise-like" id="task-complete-square"><h4 class="heading">
+<div class="autopermalink" data-description="Task 1.4.1.c: Step 3: Integrate both sides"><a href="#task-integrate-complete-square" title="Copy heading and permalink for Task 1.4.1.c: Step 3: Integrate both sides" aria-label="Copy heading and permalink for Task 1.4.1.c: Step 3: Integrate both sides">🔗</a></div></article><article class="task exercise-like" id="task-complete-square"><h4 class="heading">
 <span class="codenumber">(d)</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Step 4: Solve for <span class="process-math">\(y\)</span> — recognizing the technique.</span>
 </h4>
 <div class="ptx-runestone-container"><div class="runestone multiplechoice_section">
@@ -287,9 +287,9 @@ y^2 + 4y + 4 \amp= \frac{1}{2}e^{x^2} + C + 4\\
 <div class="para">where we absorbed the <span class="process-math">\(+4\)</span> into <span class="process-math">\(C\)</span> on the right-hand side.</div>
 <div class="autopermalink" data-description="Paragraph"><a href="#task-complete-square-4-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Solution 1.3.1.d.1: Working: completing the square"><a href="#task-complete-square-4" title="Copy heading and permalink for Solution 1.3.1.d.1: Working: completing the square" aria-label="Copy heading and permalink for Solution 1.3.1.d.1: Working: completing the square">🔗</a></div>
+<div class="autopermalink" data-description="Solution 1.4.1.d.1: Working: completing the square"><a href="#task-complete-square-4" title="Copy heading and permalink for Solution 1.4.1.d.1: Working: completing the square" aria-label="Copy heading and permalink for Solution 1.4.1.d.1: Working: completing the square">🔗</a></div>
 </div></details></div>
-<div class="autopermalink" data-description="Task 1.3.1.d: Step 4: Solve for y — recognizing the technique"><a href="#task-complete-square" title="Copy heading and permalink for Task 1.3.1.d: Step 4: Solve for y — recognizing the technique" aria-label="Copy heading and permalink for Task 1.3.1.d: Step 4: Solve for y — recognizing the technique">🔗</a></div></article><article class="task exercise-like" id="task-final-solution"><h4 class="heading">
+<div class="autopermalink" data-description="Task 1.4.1.d: Step 4: Solve for y — recognizing the technique"><a href="#task-complete-square" title="Copy heading and permalink for Task 1.4.1.d: Step 4: Solve for y — recognizing the technique" aria-label="Copy heading and permalink for Task 1.4.1.d: Step 4: Solve for y — recognizing the technique">🔗</a></div></article><article class="task exercise-like" id="task-final-solution"><h4 class="heading">
 <span class="codenumber">(e)</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Step 5: Write the explicit solution.</span>
 </h4>
 <div class="ptx-runestone-container"><div class="runestone multiplechoice_section">
@@ -326,10 +326,10 @@ y = \pm\sqrt{\frac{1}{2}e^{x^2} + C} - 2.
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#task-final-solution-4-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Solution 1.3.1.e.1: Working: taking the square root"><a href="#task-final-solution-4" title="Copy heading and permalink for Solution 1.3.1.e.1: Working: taking the square root" aria-label="Copy heading and permalink for Solution 1.3.1.e.1: Working: taking the square root">🔗</a></div>
+<div class="autopermalink" data-description="Solution 1.4.1.e.1: Working: taking the square root"><a href="#task-final-solution-4" title="Copy heading and permalink for Solution 1.4.1.e.1: Working: taking the square root" aria-label="Copy heading and permalink for Solution 1.4.1.e.1: Working: taking the square root">🔗</a></div>
 </div></details></div>
-<div class="autopermalink" data-description="Task 1.3.1.e: Step 5: Write the explicit solution"><a href="#task-final-solution" title="Copy heading and permalink for Task 1.3.1.e: Step 5: Write the explicit solution" aria-label="Copy heading and permalink for Task 1.3.1.e: Step 5: Write the explicit solution">🔗</a></div></article><div class="autopermalink" data-description="Example 1.3.1: Solving a Separable ODE Explicitly"><a href="#ex-explicit-complete-square" title="Copy heading and permalink for Example 1.3.1: Solving a Separable ODE Explicitly" aria-label="Copy heading and permalink for Example 1.3.1: Solving a Separable ODE Explicitly">🔗</a></div></article><figure class="figure figure-like" id="video-sep-completesquare"><div class="video-box" style="width: 100%;padding-top: 56.25%; margin-left: 0%; margin-right: 0%;"><iframe class="video" allowfullscreen="" src="https://www.youtube-nocookie.com/embed/WHRj9SeSu1Y?&amp;modestbranding=1&amp;rel=0" id="video-sep-completesquare-2"></iframe></div>
-<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.3.2<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>This video goes through the content of this page.<div class="autopermalink" data-description="Figure 1.3.2"><a href="#video-sep-completesquare" title="Copy heading and permalink for Figure 1.3.2" aria-label="Copy heading and permalink for Figure 1.3.2">🔗</a></div></figcaption></figure><div class="autopermalink" data-description="Section 1.3.5: Separation of Variables: Solving Explicitly Tricks"><a href="#subsec-sep-completingsquare" title="Copy heading and permalink for Section 1.3.5: Separation of Variables: Solving Explicitly Tricks" aria-label="Copy heading and permalink for Section 1.3.5: Separation of Variables: Solving Explicitly Tricks">🔗</a></div></section></div>
+<div class="autopermalink" data-description="Task 1.4.1.e: Step 5: Write the explicit solution"><a href="#task-final-solution" title="Copy heading and permalink for Task 1.4.1.e: Step 5: Write the explicit solution" aria-label="Copy heading and permalink for Task 1.4.1.e: Step 5: Write the explicit solution">🔗</a></div></article><div class="autopermalink" data-description="Example 1.4.1: Solving a Separable ODE Explicitly"><a href="#ex-explicit-complete-square" title="Copy heading and permalink for Example 1.4.1: Solving a Separable ODE Explicitly" aria-label="Copy heading and permalink for Example 1.4.1: Solving a Separable ODE Explicitly">🔗</a></div></article><figure class="figure figure-like" id="video-sep-completesquare"><div class="video-box" style="width: 100%;padding-top: 56.25%; margin-left: 0%; margin-right: 0%;"><iframe class="video" allowfullscreen="" src="https://www.youtube-nocookie.com/embed/WHRj9SeSu1Y?&amp;modestbranding=1&amp;rel=0" id="video-sep-completesquare-2"></iframe></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.4.2<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>This video goes through the content of this page.<div class="autopermalink" data-description="Figure 1.4.2"><a href="#video-sep-completesquare" title="Copy heading and permalink for Figure 1.4.2" aria-label="Copy heading and permalink for Figure 1.4.2">🔗</a></div></figcaption></figure><div class="autopermalink" data-description="Section 1.4.5: Separation of Variables: Solving Explicitly Tricks"><a href="#subsec-sep-completingsquare" title="Copy heading and permalink for Section 1.4.5: Separation of Variables: Solving Explicitly Tricks" aria-label="Copy heading and permalink for Section 1.4.5: Separation of Variables: Solving Explicitly Tricks">🔗</a></div></section></div>
 <div id="ptx-content-footer" class="ptx-content-footer">
 <a class="previous-button button" href="subsec-sep-minussign.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="ch-chapter-two.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
 </div></main>

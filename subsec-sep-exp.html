@@ -77,8 +77,8 @@ window.MathJax = {
 </script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta property="og:type" content="book">
-<meta property="book:title" content="My Great Book">
-<meta property="book:author" content="You">
+<meta property="book:title" content="Differential Equations: Interactive Notes for Math 250">
+<meta property="book:author" content="Caroline VanBlargan">
 <script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><!--** eBookCongig is necessary to configure interactive       **-->
 <!--** Runestone components to run locally in reader's browser **-->
 <!--** No external communication:                              **-->
@@ -113,10 +113,10 @@ eBookConfig.enable_chatcodes =  false;
 <script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script>
 </head>
-<body id="changeme" class="pretext book ignore-math">
+<body id="vanblargan-de-math250" class="pretext book ignore-math">
 <a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
-<h1 class="heading"><a href="my-great-book.html"><span class="title">My Great Book</span> <span class="subtitle">An example to get you started</span></a></h1>
-<p class="byline">You</p>
+<h1 class="heading"><a href="my-great-book.html"><span class="title">Differential Equations: Interactive Notes for Math 250</span> <span class="subtitle">Penn State University</span></a></h1>
+<p class="byline">Caroline VanBlargan</p>
 </div></div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
 <button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="searchbox">
 <div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
@@ -139,9 +139,15 @@ eBookConfig.enable_chatcodes =  false;
 \)</span></div>
 <div class="ptx-page">
 <div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth3 focused" data-preexpanded-levels="0" data-max-levels="3"><ul class="structural toc-item-list contains-active">
-<li class="toc-item toc-frontmatter"><div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div></li>
+<li class="toc-item toc-frontmatter">
+<div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-colophon"><div class="toc-title-box"><a href="front-colophon.html" class="internal"><span class="title">Colophon</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="preface.html" class="internal"><span class="title">Preface</span></a></div></li>
+</ul>
+</li>
 <li class="toc-item toc-chapter contains-active">
-<div class="toc-title-box"><a href="ch-chapter-title.html" class="internal"><span class="codenumber">1</span> <span class="title">Differential Equations</span></a></div>
+<div class="toc-title-box"><a href="ch-chapter-title.html" class="internal"><span class="codenumber">1</span> <span class="title">The Fundamentals of Differential Equations</span></a></div>
 <ul class="structural toc-item-list contains-active">
 <li class="toc-item toc-section">
 <div class="toc-title-box"><a href="sec-intro-to-des.html" class="internal"><span class="codenumber">1.1</span> <span class="title">Introduction to Differential Equations</span></a></div>
@@ -151,7 +157,6 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-setting-up-des.html" class="internal"><span class="codenumber">1.1.3</span> <span class="title">Setting Up Differential Equations</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-verifying-solutions.html" class="internal"><span class="codenumber">1.1.4</span> <span class="title">Verifying Solutions</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-equilibrium-solutions.html" class="internal"><span class="codenumber">1.1.5</span> <span class="title">Equilibrium Solutions</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="extra-practice.html" class="internal"><span class="codenumber">1.1.6</span> <span class="title">Extra Practice</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-section">
@@ -161,29 +166,24 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-positionvelocity.html" class="internal"><span class="codenumber">1.2.2</span> <span class="title">Velocity and Acceleration</span></a></div></li>
 </ul>
 </li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-slopefields.html" class="internal"><span class="codenumber">1.3</span> <span class="title">Section 1.3: To be added</span></a></div></li>
 <li class="toc-item toc-section contains-active">
-<div class="toc-title-box"><a href="sec-separabble.html" class="internal"><span class="codenumber">1.3</span> <span class="title">Separable Differential Equations</span></a></div>
+<div class="toc-title-box"><a href="sec-separabble.html" class="internal"><span class="codenumber">1.4</span> <span class="title">Separable Differential Equations</span></a></div>
 <ul class="structural toc-item-list contains-active">
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="subsec-intr-separable.html" class="internal"><span class="codenumber">1.3.1</span> <span class="title">Introduction to Separable ODEs</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="subsec-sepofvar.html" class="internal"><span class="codenumber">1.3.2</span> <span class="title">Separation of Variables</span></a></div></li>
-<li class="toc-item toc-section active"><div class="toc-title-box"><a href="subsec-sep-exp.html" class="internal"><span class="codenumber">1.3.3</span> <span class="title">Separation of Variables: Important Example with Exponentials</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="subsec-sep-minussign.html" class="internal"><span class="codenumber">1.3.4</span> <span class="title">Separation of Variables: Some Subtle Points</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="subsec-sep-completingsquare.html" class="internal"><span class="codenumber">1.3.5</span> <span class="title">Separation of Variables: Solving Explicitly Tricks</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="subsec-intr-separable.html" class="internal"><span class="codenumber">1.4.1</span> <span class="title">Introduction to Separable ODEs</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="subsec-sepofvar.html" class="internal"><span class="codenumber">1.4.2</span> <span class="title">Separation of Variables</span></a></div></li>
+<li class="toc-item toc-section active"><div class="toc-title-box"><a href="subsec-sep-exp.html" class="internal"><span class="codenumber">1.4.3</span> <span class="title">Separation of Variables: Important Example with Exponentials</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="subsec-sep-minussign.html" class="internal"><span class="codenumber">1.4.4</span> <span class="title">Separation of Variables: Some Subtle Points</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="subsec-sep-completingsquare.html" class="internal"><span class="codenumber">1.4.5</span> <span class="title">Separation of Variables: Solving Explicitly Tricks</span></a></div></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toc-item toc-chapter">
-<div class="toc-title-box"><a href="ch-chapter-two.html" class="internal"><span class="codenumber">2</span> <span class="title">Name for chapter 2</span></a></div>
-<ul class="structural toc-item-list">
-<li class="toc-item toc-reading-questions"><div class="toc-title-box"><a href="basics-reading-questions.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Check your understanding!</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch2-sec2.html" class="internal"><span class="codenumber">2.2</span> <span class="title">blahblahblah</span></a></div></li>
-</ul>
-</li>
+<li class="toc-item toc-chapter"><div class="toc-title-box"><a href="ch-chapter-two.html" class="internal"><span class="codenumber">2</span> <span class="title">Chapter 2: Coming soon</span></a></div></li>
 <li class="toc-item toc-backmatter"><div class="toc-title-box"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div></li>
 </ul></nav></div>
 <main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="subsec-sep-exp"><h2 class="heading hide-type">
-<span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.3.3</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Separation of Variables: Important Example with Exponentials</span>
+<span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.4.3</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Separation of Variables: Important Example with Exponentials</span>
 </h2>
 <div class="para" id="subsec-sep-exp-2">Recall the following population modelling ODE: <span class="process-math">\(\frac{dP}{dt} = 2P\text{,}\)</span> which says the population grows at a rate twice the current population. We were previously able to guess and check some solutions to this. With separation of variables we will know, without a doubt, what <em class="emphasis">all</em> the solutions are.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-sep-exp-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -224,11 +224,11 @@ eBookConfig.enable_chatcodes =  false;
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#subsec-sep-exp-4-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Solution 1.3.3.1: Why is this separable?"><a href="#subsec-sep-exp-4" title="Copy heading and permalink for Solution 1.3.3.1: Why is this separable?" aria-label="Copy heading and permalink for Solution 1.3.3.1: Why is this separable?">🔗</a></div>
+<div class="autopermalink" data-description="Solution 1.4.3.1: Why is this separable?"><a href="#subsec-sep-exp-4" title="Copy heading and permalink for Solution 1.4.3.1: Why is this separable?" aria-label="Copy heading and permalink for Solution 1.4.3.1: Why is this separable?">🔗</a></div>
 </div></details><div class="para" id="subsec-sep-exp-5">Now that we have established it is separable, let’s use separation of variables to solve it! Try as much as you can on your own, and check with the solution as you go. In this problem, there are some subtle things we take note of in step 4 when solving for <span class="process-math">\(y\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#subsec-sep-exp-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="example example-like" id="ex-separable-exp"><h3 class="heading">
-<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.3.1</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">An important observation with exponentials.</span>
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.4.1</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">An important observation with exponentials.</span>
 </h3>
 <div class="para" id="ex-separable-exp-2">Find the general solution to <span class="process-math">\(\frac{dy}{dx} = 2y\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex-separable-exp-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -260,7 +260,7 @@ eBookConfig.enable_chatcodes =  false;
 </ol>
 <div class="autopermalink" data-description="Paragraph"><a href="#ex-separable-exp-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Hint 1.3.1.1"><a href="#ex-separable-exp-3" title="Copy heading and permalink for Hint 1.3.1.1" aria-label="Copy heading and permalink for Hint 1.3.1.1">🔗</a></div>
+<div class="autopermalink" data-description="Hint 1.4.1.1"><a href="#ex-separable-exp-3" title="Copy heading and permalink for Hint 1.4.1.1" aria-label="Copy heading and permalink for Hint 1.4.1.1">🔗</a></div>
 </div></details><details id="ex-separable-exp-4" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
 <div class="para" id="ex-separable-exp-4-1">
 <em class="alert">Step 1: Find equilibrium solutions.</em><div class="autopermalink" data-description="Paragraph"><a href="#ex-separable-exp-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
@@ -278,7 +278,7 @@ eBookConfig.enable_chatcodes =  false;
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#ex-separable-exp-4-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Solution 1.3.1.1.1: Work to solve for the equilibrium solution"><a href="#ex-separable-exp-4-3" title="Copy heading and permalink for Solution 1.3.1.1.1: Work to solve for the equilibrium solution" aria-label="Copy heading and permalink for Solution 1.3.1.1.1: Work to solve for the equilibrium solution">🔗</a></div>
+<div class="autopermalink" data-description="Solution 1.4.1.1.1: Work to solve for the equilibrium solution"><a href="#ex-separable-exp-4-3" title="Copy heading and permalink for Solution 1.4.1.1.1: Work to solve for the equilibrium solution" aria-label="Copy heading and permalink for Solution 1.4.1.1.1: Work to solve for the equilibrium solution">🔗</a></div>
 </div></details><div class="para" id="ex-separable-exp-4-4">
 <em class="alert">Steps 2 and 3: Separate the variables and integrate.</em><div class="autopermalink" data-description="Paragraph"><a href="#ex-separable-exp-4-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -305,11 +305,11 @@ eBookConfig.enable_chatcodes =  false;
 <div class="autopermalink" data-description="Paragraph"><a href="#ex-separable-exp-4-6-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="note remark-like" id="note-abs-value-ln"><h4 class="heading">
-<span class="type">Note</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.3.2</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+<span class="type">Note</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.4.2</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h4>
 <div class="para" id="note-abs-value-ln-1">Don’t forget the absolute value in <span class="process-math">\(\ln|y|\text{!}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#note-abs-value-ln-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Note 1.3.2"><a href="#note-abs-value-ln" title="Copy heading and permalink for Note 1.3.2" aria-label="Copy heading and permalink for Note 1.3.2">🔗</a></div></article><div class="autopermalink" data-description="Solution 1.3.1.1.2: Work for steps 2 and 3"><a href="#ex-separable-exp-4-6" title="Copy heading and permalink for Solution 1.3.1.1.2: Work for steps 2 and 3" aria-label="Copy heading and permalink for Solution 1.3.1.1.2: Work for steps 2 and 3">🔗</a></div>
+<div class="autopermalink" data-description="Note 1.4.2"><a href="#note-abs-value-ln" title="Copy heading and permalink for Note 1.4.2" aria-label="Copy heading and permalink for Note 1.4.2">🔗</a></div></article><div class="autopermalink" data-description="Solution 1.4.1.1.2: Work for steps 2 and 3"><a href="#ex-separable-exp-4-6" title="Copy heading and permalink for Solution 1.4.1.1.2: Work for steps 2 and 3" aria-label="Copy heading and permalink for Solution 1.4.1.1.2: Work for steps 2 and 3">🔗</a></div>
 </div></details><div class="para" id="ex-separable-exp-4-7">
 <em class="alert">Step 4: Solve for <span class="process-math">\(y\text{.}\)</span></em><div class="autopermalink" data-description="Paragraph"><a href="#ex-separable-exp-4-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -345,7 +345,7 @@ e^{\ln|y|} = e^{2x+C}
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#ex-separable-exp-4-9-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Solution 1.3.1.1.3: Step 4a: Algebra to get |y| = e^C e^{2x}"><a href="#ex-separable-exp-4-9" title="Copy heading and permalink for Solution 1.3.1.1.3: Step 4a: Algebra to get |y| = e^C e^{2x}" aria-label="Copy heading and permalink for Solution 1.3.1.1.3: Step 4a: Algebra to get |y| = e^C e^{2x}">🔗</a></div>
+<div class="autopermalink" data-description="Solution 1.4.1.1.3: Step 4a: Algebra to get |y| = e^C e^{2x}"><a href="#ex-separable-exp-4-9" title="Copy heading and permalink for Solution 1.4.1.1.3: Step 4a: Algebra to get |y| = e^C e^{2x}" aria-label="Copy heading and permalink for Solution 1.4.1.1.3: Step 4a: Algebra to get |y| = e^C e^{2x}">🔗</a></div>
 </div></details><div class="para" id="ex-separable-exp-4-10">Finally, we get to the interesting part of this question! Solving for <span class="process-math">\(y\)</span> here in a nice form takes some work. But the result of this will be a big takeaway for solving similar questions with exponentials. Do your best to solve for <span class="process-math">\(y\)</span> here, and then <em class="emphasis">definitely read solution below</em>!!<div class="autopermalink" data-description="Paragraph"><a href="#ex-separable-exp-4-10" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <details id="ex-separable-exp-4-11" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Step 4b: Removing the absolute value and simplifying the constant</span></summary><div class="solution solution-like knowl__content">
@@ -368,7 +368,7 @@ y = Ce^{2x}, \quad C \neq 0.
 <div class="autopermalink" data-description="Paragraph"><a href="#ex-separable-exp-4-11-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <figure class="figure figure-like" id="fig-exp-positive"><div class="interactive-iframe-container"><iframe src="external/exp-graph.html" id="interactive-exp-graph" style="width:420px; height:280px; display: block; "></iframe></div>
-<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.3.3<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The graph of <span class="process-math">\(e^x\)</span> is always positive and ranges of all positive numbers as <span class="process-math">\(x\)</span> varies over all reals.<div class="autopermalink" data-description="Figure 1.3.3"><a href="#fig-exp-positive" title="Copy heading and permalink for Figure 1.3.3" aria-label="Copy heading and permalink for Figure 1.3.3">🔗</a></div></figcaption></figure><div class="autopermalink" data-description="Solution 1.3.1.1.4: Step 4b: Removing the absolute value and simplifying the constant"><a href="#ex-separable-exp-4-11" title="Copy heading and permalink for Solution 1.3.1.1.4: Step 4b: Removing the absolute value and simplifying the constant" aria-label="Copy heading and permalink for Solution 1.3.1.1.4: Step 4b: Removing the absolute value and simplifying the constant">🔗</a></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.4.3<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The graph of <span class="process-math">\(e^x\)</span> is always positive and ranges of all positive numbers as <span class="process-math">\(x\)</span> varies over all reals.<div class="autopermalink" data-description="Figure 1.4.3"><a href="#fig-exp-positive" title="Copy heading and permalink for Figure 1.4.3" aria-label="Copy heading and permalink for Figure 1.4.3">🔗</a></div></figcaption></figure><div class="autopermalink" data-description="Solution 1.4.1.1.4: Step 4b: Removing the absolute value and simplifying the constant"><a href="#ex-separable-exp-4-11" title="Copy heading and permalink for Solution 1.4.1.1.4: Step 4b: Removing the absolute value and simplifying the constant" aria-label="Copy heading and permalink for Solution 1.4.1.1.4: Step 4b: Removing the absolute value and simplifying the constant">🔗</a></div>
 </div></details><div class="para" id="ex-separable-exp-4-12">
 <em class="alert">Step 5: Write the general solution.</em><div class="autopermalink" data-description="Paragraph"><a href="#ex-separable-exp-4-12" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -387,11 +387,11 @@ y = Ce^{2x}, \quad C \text{ any real number.}
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#ex-separable-exp-4-13" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Solution 1.3.1.1"><a href="#ex-separable-exp-4" title="Copy heading and permalink for Solution 1.3.1.1" aria-label="Copy heading and permalink for Solution 1.3.1.1">🔗</a></div>
-</div></details><div class="autopermalink" data-description="Example 1.3.1: An important observation with exponentials"><a href="#ex-separable-exp" title="Copy heading and permalink for Example 1.3.1: An important observation with exponentials" aria-label="Copy heading and permalink for Example 1.3.1: An important observation with exponentials">🔗</a></div></article><div class="para" id="subsec-sep-exp-7">Step 4 involved some subtle reasoning, but this pattern comes up often in problems involving exponentials. So going forward we can skip many of the details, as discussed in the remark below.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-sep-exp-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Solution 1.4.1.1"><a href="#ex-separable-exp-4" title="Copy heading and permalink for Solution 1.4.1.1" aria-label="Copy heading and permalink for Solution 1.4.1.1">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Example 1.4.1: An important observation with exponentials"><a href="#ex-separable-exp" title="Copy heading and permalink for Example 1.4.1: An important observation with exponentials" aria-label="Copy heading and permalink for Example 1.4.1: An important observation with exponentials">🔗</a></div></article><div class="para" id="subsec-sep-exp-7">Step 4 involved some subtle reasoning, but this pattern comes up often in problems involving exponentials. So going forward we can skip many of the details, as discussed in the remark below.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-sep-exp-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="remark remark-like" id="rem-exponential-shortcut"><h3 class="heading">
-<span class="type">Remark</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.3.4</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">A Useful Shortcut for Exponential Solutions.</span>
+<span class="type">Remark</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.4.4</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">A Useful Shortcut for Exponential Solutions.</span>
 </h3>
 <div class="para logical" id="rem-exponential-shortcut-2">
 <div class="para">In particular, whenever you arrive at an expression of the form</div>
@@ -417,10 +417,10 @@ y = Ce^{h(x)}, \quad C \text{ any real number.}
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#rem-exponential-shortcut-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Remark 1.3.4: A Useful Shortcut for Exponential Solutions"><a href="#rem-exponential-shortcut" title="Copy heading and permalink for Remark 1.3.4: A Useful Shortcut for Exponential Solutions" aria-label="Copy heading and permalink for Remark 1.3.4: A Useful Shortcut for Exponential Solutions">🔗</a></div></article><div class="para" id="subsec-sep-exp-9">The reasoning in Step 4 will come up again and again whenever you solve an ODE with an exponential solution. Getting comfortable with it now will save you a lot of trouble going forward! Let’s quickly drive this point home with the following question.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-sep-exp-9" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Remark 1.4.4: A Useful Shortcut for Exponential Solutions"><a href="#rem-exponential-shortcut" title="Copy heading and permalink for Remark 1.4.4: A Useful Shortcut for Exponential Solutions" aria-label="Copy heading and permalink for Remark 1.4.4: A Useful Shortcut for Exponential Solutions">🔗</a></div></article><div class="para" id="subsec-sep-exp-9">The reasoning in Step 4 will come up again and again whenever you solve an ODE with an exponential solution. Getting comfortable with it now will save you a lot of trouble going forward! Let’s quickly drive this point home with the following question.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-sep-exp-9" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="exercise exercise-like" id="ex-mc-general-solution"><h3 class="heading">
-<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.3.5</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.4.5</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h3>
 <div class="ptx-runestone-container"><div class="runestone multiplechoice_section">
 <div class="exercise-statement"><div class="para logical" id="ex-mc-general-solution-1-1">
@@ -429,12 +429,12 @@ y = Ce^{h(x)}, \quad C \text{ any real number.}
 <li id="ex-mc-general-solution-1-1-2-1">
 <div class="para" id="p-derived-ex-mc-general-solution-1-1-2-1">
 <span class="process-math">\(y = 0\)</span> is the only equilibrium solution.</div>
-<div class="autopermalink" data-description="Item 1.3.5.1"><a href="#ex-mc-general-solution-1-1-2-1" title="Copy heading and permalink for Item 1.3.5.1" aria-label="Copy heading and permalink for Item 1.3.5.1">🔗</a></div>
+<div class="autopermalink" data-description="Item 1.4.5.1"><a href="#ex-mc-general-solution-1-1-2-1" title="Copy heading and permalink for Item 1.4.5.1" aria-label="Copy heading and permalink for Item 1.4.5.1">🔗</a></div>
 </li>
 <li id="ex-mc-general-solution-1-1-2-2">
 <div class="para" id="p-derived-ex-mc-general-solution-1-1-2-2">Separation of variables yields <span class="process-math">\(|y| = e^C e^{x^2/2}\text{.}\)</span>
 </div>
-<div class="autopermalink" data-description="Item 1.3.5.2"><a href="#ex-mc-general-solution-1-1-2-2" title="Copy heading and permalink for Item 1.3.5.2" aria-label="Copy heading and permalink for Item 1.3.5.2">🔗</a></div>
+<div class="autopermalink" data-description="Item 1.4.5.2"><a href="#ex-mc-general-solution-1-1-2-2" title="Copy heading and permalink for Item 1.4.5.2" aria-label="Copy heading and permalink for Item 1.4.5.2">🔗</a></div>
 </li>
 </ol>
 <div class="para">They need your help finishing! Which of the following is the correct general solution?</div>
@@ -455,8 +455,8 @@ y = Ce^{h(x)}, \quad C \text{ any real number.}
 <li data-component="feedback" id="rs-ex-mc-general-solution_opt_d"><div class="para" id="ex-mc-general-solution-2-4-2-1">You remembered the equilibrium solution, but <span class="process-math">\(e^C\)</span> is always positive — this still misses all the negative solutions. The <span class="process-math">\(\pm\)</span> is needed when removing the absolute value!</div></li>
 </ul>
 </div></div>
-<div class="autopermalink" data-description="Checkpoint 1.3.5"><a href="#ex-mc-general-solution" title="Copy heading and permalink for Checkpoint 1.3.5" aria-label="Copy heading and permalink for Checkpoint 1.3.5">🔗</a></div></article><figure class="figure figure-like" id="video-sep-exp"><div class="video-box" style="width: 100%;padding-top: 56.25%; margin-left: 0%; margin-right: 0%;"><iframe class="video" allowfullscreen="" src="https://www.youtube-nocookie.com/embed/GSwiAoWfFTE?&amp;modestbranding=1&amp;rel=0" id="video-sep-exp-2"></iframe></div>
-<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.3.6<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>This video goes through the content of this page.<div class="autopermalink" data-description="Figure 1.3.6"><a href="#video-sep-exp" title="Copy heading and permalink for Figure 1.3.6" aria-label="Copy heading and permalink for Figure 1.3.6">🔗</a></div></figcaption></figure><div class="autopermalink" data-description="Section 1.3.3: Separation of Variables: Important Example with Exponentials"><a href="#subsec-sep-exp" title="Copy heading and permalink for Section 1.3.3: Separation of Variables: Important Example with Exponentials" aria-label="Copy heading and permalink for Section 1.3.3: Separation of Variables: Important Example with Exponentials">🔗</a></div></section></div>
+<div class="autopermalink" data-description="Checkpoint 1.4.5"><a href="#ex-mc-general-solution" title="Copy heading and permalink for Checkpoint 1.4.5" aria-label="Copy heading and permalink for Checkpoint 1.4.5">🔗</a></div></article><figure class="figure figure-like" id="video-sep-exp"><div class="video-box" style="width: 100%;padding-top: 56.25%; margin-left: 0%; margin-right: 0%;"><iframe class="video" allowfullscreen="" src="https://www.youtube-nocookie.com/embed/GSwiAoWfFTE?&amp;modestbranding=1&amp;rel=0" id="video-sep-exp-2"></iframe></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.4.6<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>This video goes through the content of this page.<div class="autopermalink" data-description="Figure 1.4.6"><a href="#video-sep-exp" title="Copy heading and permalink for Figure 1.4.6" aria-label="Copy heading and permalink for Figure 1.4.6">🔗</a></div></figcaption></figure><div class="autopermalink" data-description="Section 1.4.3: Separation of Variables: Important Example with Exponentials"><a href="#subsec-sep-exp" title="Copy heading and permalink for Section 1.4.3: Separation of Variables: Important Example with Exponentials" aria-label="Copy heading and permalink for Section 1.4.3: Separation of Variables: Important Example with Exponentials">🔗</a></div></section></div>
 <div id="ptx-content-footer" class="ptx-content-footer">
 <a class="previous-button button" href="subsec-sepofvar.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="subsec-sep-minussign.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
 </div></main>
