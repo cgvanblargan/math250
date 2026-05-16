@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Separation of Variables: Solving Explicitly Tricks</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+<link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
+<script>
+var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  "tex": {
+    "inlineMath": [
+      [
+        "\\(",
+        "\\)"
+      ]
+    ],
+    "tags": "none",
+    "tagSide": "right",
+    "tagIndent": ".8em",
+    "packages": {
+      "[+]": [
+        "base",
+        "extpfeil",
+        "ams",
+        "amscd",
+        "color",
+        "newcommand",
+        "knowl"
+      ]
+    }
+  },
+  "options": {
+    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
+    "processHtmlClass": "process-math"
+  },
+  "chtml": {
+    "scale": 0.98,
+    "mtextInheritFont": true
+  },
+  "loader": {
+    "load": [
+      "input/asciimath",
+      "[tex]/extpfeil",
+      "[tex]/amscd",
+      "[tex]/color",
+      "[tex]/newcommand",
+      "[pretext]/mathjaxknowl3.js"
+    ],
+    "paths": {
+      "pretext": "_static/pretext/js"
+    }
+  },
+  "startup": {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  }
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="My Great Book">
+<meta property="book:author" content="You">
+<script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<!--** Runestone components to run locally in reader's browser **-->
+<!--** No external communication:                              **-->
+<!--**     log level is 0, Runestone Services are disabled     **-->
+<script type="text/javascript">
+eBookConfig = {};
+eBookConfig.useRunestoneServices = false;
+eBookConfig.host = 'http://127.0.0.1:8000';
+eBookConfig.course = 'PTX_Course_Title_Here';
+eBookConfig.basecourse = 'PTX_Base_Course';
+eBookConfig.isLoggedIn = false;
+eBookConfig.email = '';
+eBookConfig.isInstructor = false;
+eBookConfig.logLevel = 0;
+eBookConfig.username = '';
+eBookConfig.readings = null;
+eBookConfig.activities = null;
+eBookConfig.downloadsEnabled = false;
+eBookConfig.allow_pairs = false;
+eBookConfig.enableScratchAC = false;
+eBookConfig.build_info = "";
+eBookConfig.python3 = null;
+eBookConfig.runestone_version = '8.0.0';
+eBookConfig.jobehost = '';
+eBookConfig.proxyuri_runs = '';
+eBookConfig.proxyuri_files = '';
+eBookConfig.enable_chatcodes =  false;
+</script>
+<!--*** Runestone Services ***-->
+<script src="_static/prefix-runtime.ce7e0a2163cb330f.bundle.js"></script><script src="_static/prefix-713.de0ab26248766350.bundle.js"></script><script src="_static/prefix-runestone.f4a2ffb04bb978bb.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-713.f43ced6a6134ea74.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.87414d180ebeebd6.css">
+<script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script>
+</head>
+<body id="changeme" class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
+<h1 class="heading"><a href="my-great-book.html"><span class="title">My Great Book</span> <span class="subtitle">An example to get you started</span></a></h1>
+<p class="byline">You</p>
+</div></div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
+<button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="searchbox">
+<div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
+<div class="search-results-controls">
+<input aria-label="Search term" id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search term"><button title="Close search" id="closesearchresults" class="closesearchresults"><span class="material-symbols-outlined">close</span></button>
+</div>
+<h2 class="search-results-heading">Search Results: </h2>
+<div id="searchempty" class="searchempty"><span>No results.</span></div>
+<ol id="searchresults" class="searchresults"></ol>
+</div>
+</div>
+<span class="nav-other-controls"><button id="light-dark-button" class="light-dark-button button" title="Dark Mode"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span class="name">Dark Mode</span></button></span><span class="treebuttons"><a class="previous-button button" href="subsec-sep-minussign.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="sec-separabble.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="ch-chapter-two.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
+</div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\N}{\mathbb N} \newcommand{\Z}{\mathbb Z} \newcommand{\Q}{\mathbb Q} \newcommand{\R}{\mathbb R}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth3 focused" data-preexpanded-levels="0" data-max-levels="3"><ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-frontmatter"><div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div></li>
+<li class="toc-item toc-chapter contains-active">
+<div class="toc-title-box"><a href="ch-chapter-title.html" class="internal"><span class="codenumber">1</span> <span class="title">Differential Equations</span></a></div>
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-intro-to-des.html" class="internal"><span class="codenumber">1.1</span> <span class="title">Introduction to Differential Equations</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-what-is-de.html" class="internal"><span class="codenumber">1.1.1</span> <span class="title">What is a Differential Equation?</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-gensolns-initialvalues.html" class="internal"><span class="codenumber">1.1.2</span> <span class="title">General Solutions and Initial Value Problems</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-setting-up-des.html" class="internal"><span class="codenumber">1.1.3</span> <span class="title">Setting Up Differential Equations</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-verifying-solutions.html" class="internal"><span class="codenumber">1.1.4</span> <span class="title">Verifying Solutions</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-equilibrium-solutions.html" class="internal"><span class="codenumber">1.1.5</span> <span class="title">Equilibrium Solutions</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="extra-practice.html" class="internal"><span class="codenumber">1.1.6</span> <span class="title">Extra Practice</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-integral-solutions.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Integrals as Solutions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-integrating-to-get-solutions.html" class="internal"><span class="codenumber">1.2.1</span> <span class="title">Integrating to solve <span class="process-math">\(\frac{dy}{dx} = f(x)\)</span></span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-positionvelocity.html" class="internal"><span class="codenumber">1.2.2</span> <span class="title">Velocity and Acceleration</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section contains-active">
+<div class="toc-title-box"><a href="sec-separabble.html" class="internal"><span class="codenumber">1.3</span> <span class="title">Separable Differential Equations</span></a></div>
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="subsec-intr-separable.html" class="internal"><span class="codenumber">1.3.1</span> <span class="title">Introduction to Separable ODEs</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="subsec-sepofvar.html" class="internal"><span class="codenumber">1.3.2</span> <span class="title">Separation of Variables</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="subsec-sep-exp.html" class="internal"><span class="codenumber">1.3.3</span> <span class="title">Separation of Variables: Important Example with Exponentials</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="subsec-sep-minussign.html" class="internal"><span class="codenumber">1.3.4</span> <span class="title">Separation of Variables: Some Subtle Points</span></a></div></li>
+<li class="toc-item toc-section active"><div class="toc-title-box"><a href="subsec-sep-completingsquare.html" class="internal"><span class="codenumber">1.3.5</span> <span class="title">Separation of Variables: Solving Explicitly Tricks</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-chapter-two.html" class="internal"><span class="codenumber">2</span> <span class="title">Name for chapter 2</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-reading-questions"><div class="toc-title-box"><a href="basics-reading-questions.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Check your understanding!</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch2-sec2.html" class="internal"><span class="codenumber">2.2</span> <span class="title">blahblahblah</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-backmatter"><div class="toc-title-box"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div></li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="subsec-sep-completingsquare"><h2 class="heading hide-type">
+<span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.3.5</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Separation of Variables: Solving Explicitly Tricks</span>
+</h2>
+<div class="para" id="subsec-sep-completingsquare-2">The following example is a little harder to solve for <span class="process-math">\(y\)</span> explicitly, but it’s certainly doable! It’s designed to give you practice executing some things that can come up during separation of variables, so try each step on your own before revealing the solution. And as always, the video at the end is there if you get stuck!<div class="autopermalink" data-description="Paragraph"><a href="#subsec-sep-completingsquare-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="example example-like" id="ex-explicit-complete-square"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.3.1</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Solving a Separable ODE Explicitly.</span>
+</h3>
+<div class="introduction" id="ex-explicit-complete-square-2"><div class="para" id="ex-explicit-complete-square-2-1">Solve the following ODE explicitly: <span class="process-math">\(\frac{dy}{dx} = \frac{xe^{x^2}}{2y+4}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex-explicit-complete-square-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></div>
+<article class="task exercise-like" id="task-equilibrium-complete-square"><h4 class="heading">
+<span class="codenumber">(a)</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Step 1: Find equilibrium solutions.</span>
+</h4>
+<div class="para" id="task-equilibrium-complete-square-2-1">There are no equilibrium solutions.<div class="autopermalink" data-description="Paragraph"><a href="#task-equilibrium-complete-square-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="task-equilibrium-complete-square-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Why?</span></summary><div class="solution solution-like knowl__content">
+<div class="para" id="task-equilibrium-complete-square-3-2">Rewrite the ODE as <span class="process-math">\(\frac{dy}{dx} = \frac{1}{2y+4} \cdot xe^{x^2}\text{,}\)</span> so <span class="process-math">\(f(y) = \frac{1}{2y+4}\text{.}\)</span> Setting <span class="process-math">\(f(y) = 0\)</span> gives <span class="process-math">\(\frac{1}{2y+4} = 0\text{,}\)</span> which has no solution. So there are no equilibrium solutions.<div class="autopermalink" data-description="Paragraph"><a href="#task-equilibrium-complete-square-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 1.3.1.a.1: Why?"><a href="#task-equilibrium-complete-square-3" title="Copy heading and permalink for Solution 1.3.1.a.1: Why?" aria-label="Copy heading and permalink for Solution 1.3.1.a.1: Why?">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Task 1.3.1.a: Step 1: Find equilibrium solutions"><a href="#task-equilibrium-complete-square" title="Copy heading and permalink for Task 1.3.1.a: Step 1: Find equilibrium solutions" aria-label="Copy heading and permalink for Task 1.3.1.a: Step 1: Find equilibrium solutions">🔗</a></div></article><article class="task exercise-like" id="task-separate-complete-square"><h4 class="heading">
+<span class="codenumber">(b)</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Step 2: Separate the variables.</span>
+</h4>
+<div class="para logical" id="task-separate-complete-square-2-1">
+<div class="para">Multiplying both sides by <span class="process-math">\((2y+4)\)</span> and separating:</div>
+<div class="displaymath process-math" id="task-separate-complete-square-2-1-2">
+\begin{equation*}
+\int (2y + 4)\, dy = \int xe^{x^2}\, dx.
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#task-separate-complete-square-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Task 1.3.1.b: Step 2: Separate the variables"><a href="#task-separate-complete-square" title="Copy heading and permalink for Task 1.3.1.b: Step 2: Separate the variables" aria-label="Copy heading and permalink for Task 1.3.1.b: Step 2: Separate the variables">🔗</a></div></article><article class="task exercise-like" id="task-integrate-complete-square"><h4 class="heading">
+<span class="codenumber">(c)</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Step 3: Integrate both sides.</span>
+</h4>
+<div class="para logical" id="task-integrate-complete-square-2-1">
+<div class="para">Integrating the left-hand side:</div>
+<div class="displaymath process-math" id="task-integrate-complete-square-2-1-1">
+\begin{equation*}
+y^2 + 4y = \int xe^{x^2}\, dx.
+\end{equation*}
+</div>
+<div class="para">What technique should you use to evaluate <span class="process-math">\(\int xe^{x^2}\, dx\text{?}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#task-integrate-complete-square-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="task-integrate-complete-square-3" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="hint solution-like knowl__content">
+<div class="para" id="task-integrate-complete-square-3-1">This integral can be solved with a <span class="process-math">\(u\)</span>-substitution. What do you think you should set <span class="process-math">\(u\)</span> equal to?<div class="autopermalink" data-description="Paragraph"><a href="#task-integrate-complete-square-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Hint 1.3.1.c.1"><a href="#task-integrate-complete-square-3" title="Copy heading and permalink for Hint 1.3.1.c.1" aria-label="Copy heading and permalink for Hint 1.3.1.c.1">🔗</a></div>
+</div></details><details id="task-integrate-complete-square-4" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Work: evaluating the integral</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="task-integrate-complete-square-4-2">
+<div class="para">Let <span class="process-math">\(u = x^2\text{,}\)</span> so <span class="process-math">\(du = 2x\, dx\)</span> and <span class="process-math">\(x\, dx = \frac{1}{2}du\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="task-integrate-complete-square-4-2-4">
+\begin{align*}
+\int xe^{x^2}\, dx \amp= \int e^u \cdot \frac{1}{2}\, du\\
+\amp= \frac{1}{2}e^u + C\\
+\amp= \frac{1}{2}e^{x^2} + C.
+\end{align*}
+</div>
+<div class="para">So we now have:</div>
+<div class="displaymath process-math" id="task-integrate-complete-square-4-2-5">
+\begin{equation*}
+y^2 + 4y = \frac{1}{2}e^{x^2} + C.
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#task-integrate-complete-square-4-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 1.3.1.c.1: Work: evaluating the integral"><a href="#task-integrate-complete-square-4" title="Copy heading and permalink for Solution 1.3.1.c.1: Work: evaluating the integral" aria-label="Copy heading and permalink for Solution 1.3.1.c.1: Work: evaluating the integral">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Task 1.3.1.c: Step 3: Integrate both sides"><a href="#task-integrate-complete-square" title="Copy heading and permalink for Task 1.3.1.c: Step 3: Integrate both sides" aria-label="Copy heading and permalink for Task 1.3.1.c: Step 3: Integrate both sides">🔗</a></div></article><article class="task exercise-like" id="task-complete-square"><h4 class="heading">
+<span class="codenumber">(d)</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Step 4: Solve for <span class="process-math">\(y\)</span> — recognizing the technique.</span>
+</h4>
+<div class="ptx-runestone-container"><div class="runestone multiplechoice_section">
+<div class="exercise-statement"><div class="para" id="task-complete-square-2-1">We have <span class="process-math">\(y^2 + 4y = \frac{1}{2}e^{x^2} + C\text{.}\)</span> What technique lets us solve explicitly for <span class="process-math">\(y\text{?}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#task-complete-square-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></div>
+<ul data-component="multiplechoice" class="exercise-interactives" id="rs-task-complete-square" data-multipleanswers="false">
+<li data-component="answer" id="rs-task-complete-square_opt_a" data-correct=""><div class="para" id="task-complete-square-3-1-1-1">Complete the square on the left-hand side.</div></li>
+<li data-component="feedback" id="rs-task-complete-square_opt_a"><div class="para" id="task-complete-square-3-1-2-1">Exactly! Adding 4 to both sides gives <span class="process-math">\((y+2)^2 = \frac{1}{2}e^{x^2} + C\text{,}\)</span> after which we can take a square root.</div></li>
+<li data-component="answer" id="rs-task-complete-square_opt_b"><div class="para" id="task-complete-square-3-2-1-1">Divide both sides by <span class="process-math">\(y\text{.}\)</span>
+</div></li>
+<li data-component="feedback" id="rs-task-complete-square_opt_b"><div class="para" id="task-complete-square-3-2-2-1">Dividing by <span class="process-math">\(y\)</span> gives <span class="process-math">\(y + 4 = \frac{1}{y}\left(\frac{1}{2}e^{x^2} + C\right)\text{,}\)</span> which doesn’t isolate <span class="process-math">\(y\text{.}\)</span>
+</div></li>
+<li data-component="answer" id="rs-task-complete-square_opt_c"><div class="para" id="task-complete-square-3-3-1-1">Take the square root of both sides directly.</div></li>
+<li data-component="feedback" id="rs-task-complete-square_opt_c"><div class="para" id="task-complete-square-3-3-2-1">Not quite — the left-hand side <span class="process-math">\(y^2 + 4y\)</span> is not a perfect square yet, so we can’t take the square root directly. We need one more step first!</div></li>
+<li data-component="answer" id="rs-task-complete-square_opt_d"><div class="para" id="task-complete-square-3-4-1-1">This cannot be solved explicitly for <span class="process-math">\(y\text{.}\)</span>
+</div></li>
+<li data-component="feedback" id="rs-task-complete-square_opt_d"><div class="para" id="task-complete-square-3-4-2-1">It can be solved explicitly! Think about what algebraic technique turns <span class="process-math">\(y^2 + 4y\)</span> into a perfect square.</div></li>
+</ul>
+</div></div>
+<div class="solutions"><details id="task-complete-square-4" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Working: completing the square</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="task-complete-square-4-2">
+<div class="para">To complete the square on <span class="process-math">\(y^2 + 4y\text{,}\)</span> we add <span class="process-math">\(4\)</span> to both sides (since <span class="process-math">\(\left(\frac{4}{2}\right)^2 = 4\)</span>):</div>
+<div class="displaymath process-math" id="task-complete-square-4-2-4">
+\begin{align*}
+y^2 + 4y + 4 \amp= \frac{1}{2}e^{x^2} + C + 4\\
+(y+2)^2 \amp= \frac{1}{2}e^{x^2} + C
+\end{align*}
+</div>
+<div class="para">where we absorbed the <span class="process-math">\(+4\)</span> into <span class="process-math">\(C\)</span> on the right-hand side.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#task-complete-square-4-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 1.3.1.d.1: Working: completing the square"><a href="#task-complete-square-4" title="Copy heading and permalink for Solution 1.3.1.d.1: Working: completing the square" aria-label="Copy heading and permalink for Solution 1.3.1.d.1: Working: completing the square">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Task 1.3.1.d: Step 4: Solve for y — recognizing the technique"><a href="#task-complete-square" title="Copy heading and permalink for Task 1.3.1.d: Step 4: Solve for y — recognizing the technique" aria-label="Copy heading and permalink for Task 1.3.1.d: Step 4: Solve for y — recognizing the technique">🔗</a></div></article><article class="task exercise-like" id="task-final-solution"><h4 class="heading">
+<span class="codenumber">(e)</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Step 5: Write the explicit solution.</span>
+</h4>
+<div class="ptx-runestone-container"><div class="runestone multiplechoice_section">
+<div class="exercise-statement"><div class="para" id="task-final-solution-2-1">Starting from <span class="process-math">\((y+2)^2 = \frac{1}{2}e^{x^2} + C\text{,}\)</span> which of the following is the correct explicit solution?<div class="autopermalink" data-description="Paragraph"><a href="#task-final-solution-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></div>
+<ul data-component="multiplechoice" class="exercise-interactives" id="rs-task-final-solution" data-multipleanswers="false">
+<li data-component="answer" id="rs-task-final-solution_opt_a" data-correct=""><div class="para" id="task-final-solution-3-1-1-1"><span class="process-math">\(y = \pm\sqrt{\frac{1}{2}e^{x^2} + C} - 2\)</span></div></li>
+<li data-component="feedback" id="rs-task-final-solution_opt_a"><div class="para" id="task-final-solution-3-1-2-1">Correct! Taking the square root of both sides gives <span class="process-math">\(y + 2 = \pm\sqrt{\frac{1}{2}e^{x^2} + C}\text{,}\)</span> and subtracting 2 gives the answer.</div></li>
+<li data-component="answer" id="rs-task-final-solution_opt_b"><div class="para" id="task-final-solution-3-2-1-1"><span class="process-math">\(y = \sqrt{\frac{1}{2}e^{x^2} + C} - 2\)</span></div></li>
+<li data-component="feedback" id="rs-task-final-solution_opt_b"><div class="para" id="task-final-solution-3-2-2-1">Almost — but don’t forget the <span class="process-math">\(\pm\text{!}\)</span> When taking the square root of both sides of <span class="process-math">\((y+2)^2 = \ldots\text{,}\)</span> we get <span class="process-math">\(y+2 = \pm\sqrt{\ldots}\text{.}\)</span>
+</div></li>
+<li data-component="answer" id="rs-task-final-solution_opt_c"><div class="para" id="task-final-solution-3-3-1-1"><span class="process-math">\(y = \pm\sqrt{\frac{1}{2}e^{x^2} + C} + 2\)</span></div></li>
+<li data-component="feedback" id="rs-task-final-solution_opt_c"><div class="para" id="task-final-solution-3-3-2-1">Check the sign! From <span class="process-math">\(y + 2 = \pm\sqrt{\ldots}\text{,}\)</span> subtracting 2 from both sides gives <span class="process-math">\(y = \pm\sqrt{\ldots} - 2\text{,}\)</span> not <span class="process-math">\(+2\text{.}\)</span>
+</div></li>
+<li data-component="answer" id="rs-task-final-solution_opt_d"><div class="para" id="task-final-solution-3-4-1-1"><span class="process-math">\(y = \pm\sqrt{\frac{1}{2}e^{x^2}} + C - 2\)</span></div></li>
+<li data-component="feedback" id="rs-task-final-solution_opt_d"><div class="para" id="task-final-solution-3-4-2-1">Not quite — <span class="process-math">\(C\)</span> should be inside the square root, not outside. We are taking the square root of the entire right-hand side <span class="process-math">\(\frac{1}{2}e^{x^2} + C\text{.}\)</span>
+</div></li>
+</ul>
+</div></div>
+<div class="solutions"><details id="task-final-solution-4" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Working: taking the square root</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="task-final-solution-4-2">
+<div class="para">Taking the square root of both sides of <span class="process-math">\((y+2)^2 = \frac{1}{2}e^{x^2} + C\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="task-final-solution-4-2-2">
+\begin{equation*}
+y + 2 = \pm\sqrt{\frac{1}{2}e^{x^2} + C}.
+\end{equation*}
+</div>
+<div class="para">Subtracting 2 from both sides:</div>
+<div class="displaymath process-math" id="task-final-solution-4-2-3">
+\begin{equation*}
+y = \pm\sqrt{\frac{1}{2}e^{x^2} + C} - 2.
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#task-final-solution-4-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 1.3.1.e.1: Working: taking the square root"><a href="#task-final-solution-4" title="Copy heading and permalink for Solution 1.3.1.e.1: Working: taking the square root" aria-label="Copy heading and permalink for Solution 1.3.1.e.1: Working: taking the square root">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Task 1.3.1.e: Step 5: Write the explicit solution"><a href="#task-final-solution" title="Copy heading and permalink for Task 1.3.1.e: Step 5: Write the explicit solution" aria-label="Copy heading and permalink for Task 1.3.1.e: Step 5: Write the explicit solution">🔗</a></div></article><div class="autopermalink" data-description="Example 1.3.1: Solving a Separable ODE Explicitly"><a href="#ex-explicit-complete-square" title="Copy heading and permalink for Example 1.3.1: Solving a Separable ODE Explicitly" aria-label="Copy heading and permalink for Example 1.3.1: Solving a Separable ODE Explicitly">🔗</a></div></article><figure class="figure figure-like" id="video-sep-completesquare"><div class="video-box" style="width: 100%;padding-top: 56.25%; margin-left: 0%; margin-right: 0%;"><iframe class="video" allowfullscreen="" src="https://www.youtube-nocookie.com/embed/WHRj9SeSu1Y?&amp;modestbranding=1&amp;rel=0" id="video-sep-completesquare-2"></iframe></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.3.2<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>This video goes through the content of this page.<div class="autopermalink" data-description="Figure 1.3.2"><a href="#video-sep-completesquare" title="Copy heading and permalink for Figure 1.3.2" aria-label="Copy heading and permalink for Figure 1.3.2">🔗</a></div></figcaption></figure><div class="autopermalink" data-description="Section 1.3.5: Separation of Variables: Solving Explicitly Tricks"><a href="#subsec-sep-completingsquare" title="Copy heading and permalink for Section 1.3.5: Separation of Variables: Solving Explicitly Tricks" aria-label="Copy heading and permalink for Section 1.3.5: Separation of Variables: Solving Explicitly Tricks">🔗</a></div></section></div>
+<div id="ptx-content-footer" class="ptx-content-footer">
+<a class="previous-button button" href="subsec-sep-minussign.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="ch-chapter-two.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="338 3000 8772 6866" role="img"><title>PreTeXt logo</title><g style="stroke-width:.025in; stroke:currentColor; fill:none"><polyline points="472,3590 472,9732 " style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png" alt="Runstone Academy logo"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png" alt="MathJax logo"></a>
+</div>
+</body>
+</html>

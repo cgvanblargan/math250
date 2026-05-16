@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Separation of Variables</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+<link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
+<script>
+var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  "tex": {
+    "inlineMath": [
+      [
+        "\\(",
+        "\\)"
+      ]
+    ],
+    "tags": "none",
+    "tagSide": "right",
+    "tagIndent": ".8em",
+    "packages": {
+      "[+]": [
+        "base",
+        "extpfeil",
+        "ams",
+        "amscd",
+        "color",
+        "newcommand",
+        "knowl"
+      ]
+    }
+  },
+  "options": {
+    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
+    "processHtmlClass": "process-math"
+  },
+  "chtml": {
+    "scale": 0.98,
+    "mtextInheritFont": true
+  },
+  "loader": {
+    "load": [
+      "input/asciimath",
+      "[tex]/extpfeil",
+      "[tex]/amscd",
+      "[tex]/color",
+      "[tex]/newcommand",
+      "[pretext]/mathjaxknowl3.js"
+    ],
+    "paths": {
+      "pretext": "_static/pretext/js"
+    }
+  },
+  "startup": {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  }
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="My Great Book">
+<meta property="book:author" content="You">
+<script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<!--** Runestone components to run locally in reader's browser **-->
+<!--** No external communication:                              **-->
+<!--**     log level is 0, Runestone Services are disabled     **-->
+<script type="text/javascript">
+eBookConfig = {};
+eBookConfig.useRunestoneServices = false;
+eBookConfig.host = 'http://127.0.0.1:8000';
+eBookConfig.course = 'PTX_Course_Title_Here';
+eBookConfig.basecourse = 'PTX_Base_Course';
+eBookConfig.isLoggedIn = false;
+eBookConfig.email = '';
+eBookConfig.isInstructor = false;
+eBookConfig.logLevel = 0;
+eBookConfig.username = '';
+eBookConfig.readings = null;
+eBookConfig.activities = null;
+eBookConfig.downloadsEnabled = false;
+eBookConfig.allow_pairs = false;
+eBookConfig.enableScratchAC = false;
+eBookConfig.build_info = "";
+eBookConfig.python3 = null;
+eBookConfig.runestone_version = '8.0.0';
+eBookConfig.jobehost = '';
+eBookConfig.proxyuri_runs = '';
+eBookConfig.proxyuri_files = '';
+eBookConfig.enable_chatcodes =  false;
+</script>
+<!--*** Runestone Services ***-->
+<script src="_static/prefix-runtime.ce7e0a2163cb330f.bundle.js"></script><script src="_static/prefix-713.de0ab26248766350.bundle.js"></script><script src="_static/prefix-runestone.f4a2ffb04bb978bb.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-713.f43ced6a6134ea74.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.87414d180ebeebd6.css">
+<script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script>
+</head>
+<body id="changeme" class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
+<h1 class="heading"><a href="my-great-book.html"><span class="title">My Great Book</span> <span class="subtitle">An example to get you started</span></a></h1>
+<p class="byline">You</p>
+</div></div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
+<button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="searchbox">
+<div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
+<div class="search-results-controls">
+<input aria-label="Search term" id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search term"><button title="Close search" id="closesearchresults" class="closesearchresults"><span class="material-symbols-outlined">close</span></button>
+</div>
+<h2 class="search-results-heading">Search Results: </h2>
+<div id="searchempty" class="searchempty"><span>No results.</span></div>
+<ol id="searchresults" class="searchresults"></ol>
+</div>
+</div>
+<span class="nav-other-controls"><button id="light-dark-button" class="light-dark-button button" title="Dark Mode"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span class="name">Dark Mode</span></button></span><span class="treebuttons"><a class="previous-button button" href="subsec-intr-separable.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="sec-separabble.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="subsec-sep-exp.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
+</div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\N}{\mathbb N} \newcommand{\Z}{\mathbb Z} \newcommand{\Q}{\mathbb Q} \newcommand{\R}{\mathbb R}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth3 focused" data-preexpanded-levels="0" data-max-levels="3"><ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-frontmatter"><div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div></li>
+<li class="toc-item toc-chapter contains-active">
+<div class="toc-title-box"><a href="ch-chapter-title.html" class="internal"><span class="codenumber">1</span> <span class="title">Differential Equations</span></a></div>
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-intro-to-des.html" class="internal"><span class="codenumber">1.1</span> <span class="title">Introduction to Differential Equations</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-what-is-de.html" class="internal"><span class="codenumber">1.1.1</span> <span class="title">What is a Differential Equation?</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-gensolns-initialvalues.html" class="internal"><span class="codenumber">1.1.2</span> <span class="title">General Solutions and Initial Value Problems</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-setting-up-des.html" class="internal"><span class="codenumber">1.1.3</span> <span class="title">Setting Up Differential Equations</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-verifying-solutions.html" class="internal"><span class="codenumber">1.1.4</span> <span class="title">Verifying Solutions</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-equilibrium-solutions.html" class="internal"><span class="codenumber">1.1.5</span> <span class="title">Equilibrium Solutions</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="extra-practice.html" class="internal"><span class="codenumber">1.1.6</span> <span class="title">Extra Practice</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-integral-solutions.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Integrals as Solutions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-integrating-to-get-solutions.html" class="internal"><span class="codenumber">1.2.1</span> <span class="title">Integrating to solve <span class="process-math">\(\frac{dy}{dx} = f(x)\)</span></span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-positionvelocity.html" class="internal"><span class="codenumber">1.2.2</span> <span class="title">Velocity and Acceleration</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section contains-active">
+<div class="toc-title-box"><a href="sec-separabble.html" class="internal"><span class="codenumber">1.3</span> <span class="title">Separable Differential Equations</span></a></div>
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="subsec-intr-separable.html" class="internal"><span class="codenumber">1.3.1</span> <span class="title">Introduction to Separable ODEs</span></a></div></li>
+<li class="toc-item toc-section active"><div class="toc-title-box"><a href="subsec-sepofvar.html" class="internal"><span class="codenumber">1.3.2</span> <span class="title">Separation of Variables</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="subsec-sep-exp.html" class="internal"><span class="codenumber">1.3.3</span> <span class="title">Separation of Variables: Important Example with Exponentials</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="subsec-sep-minussign.html" class="internal"><span class="codenumber">1.3.4</span> <span class="title">Separation of Variables: Some Subtle Points</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="subsec-sep-completingsquare.html" class="internal"><span class="codenumber">1.3.5</span> <span class="title">Separation of Variables: Solving Explicitly Tricks</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-chapter-two.html" class="internal"><span class="codenumber">2</span> <span class="title">Name for chapter 2</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-reading-questions"><div class="toc-title-box"><a href="basics-reading-questions.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Check your understanding!</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch2-sec2.html" class="internal"><span class="codenumber">2.2</span> <span class="title">blahblahblah</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-backmatter"><div class="toc-title-box"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div></li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="subsec-sepofvar"><h2 class="heading hide-type">
+<span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.3.2</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Separation of Variables</span>
+</h2>
+<div class="para" id="subsec-sepofvar-2">The method we started exploring on the previous page used is called <dfn class="terminology">separation of variables</dfn>. Let’s now state it formally.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-sepofvar-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="definition definition-like" id="def-separable-de"><h3 class="heading">
+<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.3.1</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Separable Differential Equation.</span>
+</h3>
+<div class="para logical" id="def-separable-de-2-1">
+<div class="para">A <dfn class="terminology">separable differential equation</dfn> is one that can be written in the form</div>
+<div class="displaymath process-math" id="def-separable-de-2-1-2">
+\begin{equation*}
+\frac{dy}{dx} = f(y)\,g(x).
+\end{equation*}
+</div>
+<div class="para">It can be solved using <dfn class="terminology">separation of variables</dfn>:</div>
+<div class="displaymath process-math" id="def-separable-de-2-1-4">
+\begin{equation*}
+\int \frac{1}{f(y)}\, dy = \int g(x)\, dx.
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#def-separable-de-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="def-separable-de-2-2">This method captures all solutions that are not <dfn class="terminology">singular</dfn>. When <span class="process-math">\(f(y) = 0\text{,}\)</span> we cannot divide by <span class="process-math">\(f(y)\text{,}\)</span> so separation of variables may miss some solutions, but any solution missed this way is precisely an equilibrium (constant) solution.<div class="autopermalink" data-description="Paragraph"><a href="#def-separable-de-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Definition 1.3.1: Separable Differential Equation"><a href="#def-separable-de" title="Copy heading and permalink for Definition 1.3.1: Separable Differential Equation" aria-label="Copy heading and permalink for Definition 1.3.1: Separable Differential Equation">🔗</a></div></article><div class="para" id="subsec-sepofvar-4">A helpful (if informal) way to remember this is the following "fake proof":<div class="autopermalink" data-description="Paragraph"><a href="#subsec-sepofvar-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="subsec-sepofvar-5">
+<div class="para">Starting from <span class="process-math">\(\frac{dy}{dx} = f(y)g(x)\text{,}\)</span> treat <span class="process-math">\(\frac{dy}{dx}\)</span> as a fraction and divide both sides by <span class="process-math">\(f(y)\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="subsec-sepofvar-5-4">
+\begin{equation*}
+\frac{1}{f(y)}\,\frac{dy}{dx} = g(x).
+\end{equation*}
+</div>
+<div class="para">Then "multiply both sides by <span class="process-math">\(dx\)</span>" and integrate:</div>
+<div class="displaymath process-math" id="subsec-sepofvar-5-6">
+\begin{equation*}
+\int \frac{1}{f(y)}\, dy = \int g(x)\, dx.
+\end{equation*}
+</div>
+<div class="para">While this is not a rigorous proof, it is a reliable way to remember how to apply the method.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-sepofvar-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="subsec-sepofvar-6" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h3 class="heading"><span class="title">Precise Justification (optional — for the curious!).</span></h3></summary><article class="hiddenproof knowl__content"><div class="para" id="subsec-sepofvar-6-2">We want to rigorously justify why <span class="process-math">\(\int \frac{1}{f(y)}\, dy = \int g(x)\, dx\)</span> follows from <span class="process-math">\(\frac{dy}{dx} = f(y)g(x)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#subsec-sepofvar-6-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="subsec-sepofvar-6-3">
+<div class="para">Let <span class="process-math">\(H(y)\)</span> be an antiderivative of <span class="process-math">\(\frac{1}{f(y)}\text{,}\)</span> so that <span class="process-math">\(H'(y) = \frac{1}{f(y)}\text{.}\)</span> Consider the function <span class="process-math">\(H(y(x))\text{,}\)</span> viewed as a function of <span class="process-math">\(x\text{.}\)</span> By the chain rule:</div>
+<div class="displaymath process-math" id="subsec-sepofvar-6-3-6">
+\begin{equation*}
+\frac{d}{dx}H(y(x)) = H'(y(x))\cdot \frac{dy}{dx} = \frac{1}{f(y)}\cdot f(y)g(x) = g(x).
+\end{equation*}
+</div>
+<div class="para">So <span class="process-math">\(H(y(x))\)</span> is an antiderivative of <span class="process-math">\(g(x)\)</span> with respect to <span class="process-math">\(x\text{.}\)</span> That is:</div>
+<div class="displaymath process-math" id="subsec-sepofvar-6-3-10">
+\begin{equation*}
+H(y(x)) = \int g(x)\, dx + C.
+\end{equation*}
+</div>
+<div class="para">But <span class="process-math">\(H(y(x)) = \int \frac{1}{f(y)}\, dy\)</span> by definition of <span class="process-math">\(H\text{.}\)</span> So we arrive at:</div>
+<div class="displaymath process-math" id="subsec-sepofvar-6-3-13">
+\begin{equation*}
+\int \frac{1}{f(y)}\, dy = \int g(x)\, dx + C,
+\end{equation*}
+</div>
+<div class="para">which is exactly what the method produces. The "fake proof" manipulation, while informal, gives the correct result.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-sepofvar-6-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Proof 1.3.2.1: Precise Justification (optional — for the curious!)"><a href="#subsec-sepofvar-6" title="Copy heading and permalink for Proof 1.3.2.1: Precise Justification (optional — for the curious!)" aria-label="Copy heading and permalink for Proof 1.3.2.1: Precise Justification (optional — for the curious!)">🔗</a></div></article></details><div class="para" id="subsec-sepofvar-7">In the following example, we go through each step in applying separation of variables.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-sepofvar-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="example example-like" id="ex-separable-3y2x3"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.3.2</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Solving a Separable ODE.</span>
+</h3>
+<div class="para" id="ex-separable-3y2x3-2">Find all equilibrium solutions to <span class="process-math">\(\frac{dy}{dx} = 3y^2 x^3\text{,}\)</span> then find the general explicit solution.<div class="autopermalink" data-description="Paragraph"><a href="#ex-separable-3y2x3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="ex-separable-3y2x3-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para" id="ex-separable-3y2x3-3-1">
+<em class="alert">Step 1: Find equilibrium solutions.</em><div class="autopermalink" data-description="Paragraph"><a href="#ex-separable-3y2x3-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ex-separable-3y2x3-3-2">
+<div class="para">Setting <span class="process-math">\(y = C\)</span> (constant), we need <span class="process-math">\(\frac{dy}{dx} = 0\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="ex-separable-3y2x3-3-2-3">
+\begin{equation*}
+0 = 3C^2 x^3 \implies C = 0.
+\end{equation*}
+</div>
+<div class="para">So <span class="process-math">\(y = 0\)</span> is the only equilibrium solution.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-separable-3y2x3-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="ex-separable-3y2x3-3-3">
+<em class="alert">Step 2: Separate the variables.</em><div class="autopermalink" data-description="Paragraph"><a href="#ex-separable-3y2x3-3-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ex-separable-3y2x3-3-4">
+<div class="para">Assuming <span class="process-math">\(y \neq 0\text{,}\)</span> divide both sides by <span class="process-math">\(y^2\)</span> and "multiply by <span class="process-math">\(dx\)</span>":</div>
+<div class="displaymath process-math" id="ex-separable-3y2x3-3-4-4">
+\begin{equation*}
+\frac{1}{y^2}\, dy = 3x^3\, dx.
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-separable-3y2x3-3-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="ex-separable-3y2x3-3-5" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Explanation: separating variables</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="ex-separable-3y2x3-3-5-2">
+<div class="para">We start from <span class="process-math">\(\frac{dy}{dx} = 3y^2 x^3\text{.}\)</span> Here <span class="process-math">\(f(y) = y^2\)</span> and <span class="process-math">\(g(x) = 3x^3\text{.}\)</span> Dividing both sides by <span class="process-math">\(f(y) = y^2\)</span> and treating <span class="process-math">\(dx\)</span> as we described:</div>
+<div class="displaymath process-math" id="ex-separable-3y2x3-3-5-2-6">
+\begin{equation*}
+\frac{1}{y^2}\,\frac{dy}{dx} = 3x^3 \implies \frac{1}{y^2}\,dy = 3x^3\,dx.
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-separable-3y2x3-3-5-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 1.3.2.1.1: Explanation: separating variables"><a href="#ex-separable-3y2x3-3-5" title="Copy heading and permalink for Solution 1.3.2.1.1: Explanation: separating variables" aria-label="Copy heading and permalink for Solution 1.3.2.1.1: Explanation: separating variables">🔗</a></div>
+</div></details><div class="para" id="ex-separable-3y2x3-3-6">
+<em class="alert">Step 3: Integrate both sides.</em><div class="autopermalink" data-description="Paragraph"><a href="#ex-separable-3y2x3-3-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ex-separable-3y2x3-3-7">
+<div class="displaymath process-math" id="ex-separable-3y2x3-3-7-1">
+\begin{align*}
+\int \frac{1}{y^2}\, dy \amp= \int 3x^3\, dx\\
+-y^{-1} \amp= \frac{3}{4}x^4 + C
+\end{align*}
+</div>
+<div class="para">(We place the constant <span class="process-math">\(C\)</span> only on the right-hand side, since combining two constants of integration still gives a single arbitrary constant.)</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-separable-3y2x3-3-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="ex-separable-3y2x3-3-8">
+<em class="alert">Step 4: Solve for <span class="process-math">\(y\text{.}\)</span></em><div class="autopermalink" data-description="Paragraph"><a href="#ex-separable-3y2x3-3-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ex-separable-3y2x3-3-9">
+<div class="para">From <span class="process-math">\(-\frac{1}{y} = \frac{3}{4}x^4 + C\text{,}\)</span> taking reciprocals:</div>
+<div class="displaymath process-math" id="ex-separable-3y2x3-3-9-2">
+\begin{equation*}
+y = \frac{-1}{\frac{3}{4}x^4 + C}.
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-separable-3y2x3-3-9" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="ex-separable-3y2x3-3-10" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Full working</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="ex-separable-3y2x3-3-10-2">
+<div class="displaymath process-math" id="ex-separable-3y2x3-3-10-2-1">
+\begin{align*}
+-\frac{1}{y} \amp= \frac{3}{4}x^4 + C\\
+\frac{1}{y} \amp= -\frac{3}{4}x^4 - C\\
+\frac{1}{y} \amp= -\frac{3}{4}x^4 + C\\
+y \amp= \frac{-1}{\frac{3}{4}x^4 + C}
+\end{align*}
+</div>
+<div class="para">Note: in the third line, <span class="process-math">\(-C\)</span> was replaced with <span class="process-math">\(C\text{.}\)</span> Since <span class="process-math">\(C\)</span> ranges over all real numbers, so does <span class="process-math">\(-C\)</span> — so this is just a relabeling. See the remark below.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-separable-3y2x3-3-10-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 1.3.2.1.2: Full working"><a href="#ex-separable-3y2x3-3-10" title="Copy heading and permalink for Solution 1.3.2.1.2: Full working" aria-label="Copy heading and permalink for Solution 1.3.2.1.2: Full working">🔗</a></div>
+</div></details><div class="para" id="ex-separable-3y2x3-3-11">Note: we replaced <span class="process-math">\(-C\)</span> with <span class="process-math">\(C\)</span> above, since both vary over all real numbers. See the remark below for more on this.<div class="autopermalink" data-description="Paragraph"><a href="#ex-separable-3y2x3-3-11" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="ex-separable-3y2x3-3-12">
+<em class="alert">Step 5: Write the general solution.</em><div class="autopermalink" data-description="Paragraph"><a href="#ex-separable-3y2x3-3-12" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ex-separable-3y2x3-3-13">
+<div class="para">Combining the equilibrium solution from Step 1 and the explicit solution from Step 4, the general solution is:</div>
+<div class="displaymath process-math" id="ex-separable-3y2x3-3-13-1">
+\begin{equation*}
+y = \frac{-1}{\frac{3}{4}x^4 + C} \quad \text{and} \quad y = 0.
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-separable-3y2x3-3-13" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 1.3.2.1"><a href="#ex-separable-3y2x3-3" title="Copy heading and permalink for Solution 1.3.2.1" aria-label="Copy heading and permalink for Solution 1.3.2.1">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Example 1.3.2: Solving a Separable ODE"><a href="#ex-separable-3y2x3" title="Copy heading and permalink for Example 1.3.2: Solving a Separable ODE" aria-label="Copy heading and permalink for Example 1.3.2: Solving a Separable ODE">🔗</a></div></article><div class="para" id="subsec-sepofvar-9">And we just successfully used separation of variables! All the problems with separation of variables follow this basic format (with steps 1-5). Some of the details will vary in each problem, which we explore in the following sections.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-sepofvar-9" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="remark remark-like" id="rem-absorbing-constants"><h3 class="heading">
+<span class="type">Remark</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.3.3</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Absorbing Constants.</span>
+</h3>
+<div class="para" id="rem-absorbing-constants-2">In solving the previous example, we changed <span class="process-math">\(\frac{1}{y} = -\frac{3}{4}x^4 - C\)</span> to <span class="process-math">\(\frac{1}{y} = -\frac{3}{4}x^4 + C\text{.}\)</span> This is valid because <span class="process-math">\(-C\)</span> and <span class="process-math">\(C\)</span> both vary over all real numbers (they represent the same family of values, just relabeled).<div class="autopermalink" data-description="Paragraph"><a href="#rem-absorbing-constants-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="rem-absorbing-constants-3">We often <dfn class="terminology">absorb constants</dfn> into <span class="process-math">\(C\)</span> like this, and it is generally preferred to write the simpler expression. For example, it is much neater to write <span class="process-math">\(y = \sin(x) + C\)</span> than <span class="process-math">\(y = \sin(x) + 2C\text{,}\)</span> even though they represent the same family of functions. It is standard practice to reuse the name <span class="process-math">\(C\)</span> from line to line, even when absorbing constants into it.<div class="autopermalink" data-description="Paragraph"><a href="#rem-absorbing-constants-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Remark 1.3.3: Absorbing Constants"><a href="#rem-absorbing-constants" title="Copy heading and permalink for Remark 1.3.3: Absorbing Constants" aria-label="Copy heading and permalink for Remark 1.3.3: Absorbing Constants">🔗</a></div></article><article class="note remark-like" id="note-c-placement"><h3 class="heading">
+<span class="type">Note</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.3.4</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Be Careful with <span class="process-math">\(C\)</span> Placement.</span>
+</h3>
+<div class="para logical" id="note-c-placement-2">
+<div class="para">Be careful when changing expressions with <span class="process-math">\(C\text{.}\)</span> For example</div>
+<ul class="disc" id="note-c-placement-2-2">
+<li id="note-c-placement-2-2-1">
+<div class="para" id="p-derived-note-c-placement-2-2-1">
+<span class="process-math">\(y = \tan(x) + C\)</span> and <span class="process-math">\(y = \tan(x + C)\)</span> are <em class="alert">not</em> the same.</div>
+<div class="autopermalink" data-description="Item"><a href="#note-c-placement-2-2-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="note-c-placement-2-2-2">
+<div class="para" id="p-derived-note-c-placement-2-2-2">
+<span class="process-math">\(y = 2 + Ce^x\)</span> and <span class="process-math">\(y = Ce^x\)</span> are <em class="alert">not</em> the same (the constant <span class="process-math">\(2\)</span> cannot be absorbed into <span class="process-math">\(Ce^x\)</span> due to the order of operations).</div>
+<div class="autopermalink" data-description="Item"><a href="#note-c-placement-2-2-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+</ul>
+<div class="autopermalink" data-description="Paragraph"><a href="#note-c-placement-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Note 1.3.4: Be Careful with C Placement"><a href="#note-c-placement" title="Copy heading and permalink for Note 1.3.4: Be Careful with C Placement" aria-label="Copy heading and permalink for Note 1.3.4: Be Careful with C Placement">🔗</a></div></article><div class="para" id="subsec-sepofvar-12">Let’s do a quick check to make sure you are confident simplifying expressions with <span class="process-math">\(C\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#subsec-sepofvar-12" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="exercise exercise-like" id="ex-mc-absorbing-constants"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.3.5</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3>
+<div class="ptx-runestone-container"><div class="runestone multiplechoice_section">
+<div class="exercise-statement"><div class="para" id="ex-mc-absorbing-constants-1-1">In each of the following, two expressions involving <span class="process-math">\(C\)</span> (where <span class="process-math">\(C\)</span> varies over all real numbers) are given. Select all pairs that represent the same family of functions.<div class="autopermalink" data-description="Paragraph"><a href="#ex-mc-absorbing-constants-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></div>
+<ul data-component="multiplechoice" class="exercise-interactives" id="rs-ex-mc-absorbing-constants" data-multipleanswers="true" data-random="">
+<li data-component="answer" id="rs-ex-mc-absorbing-constants_opt_a" data-correct=""><div class="para" id="ex-mc-absorbing-constants-2-1-1-1">
+<span class="process-math">\(\frac{1}{y} = -x^2 - C\)</span> and <span class="process-math">\(\frac{1}{y} = -x^2 + C\)</span>
+</div></li>
+<li data-component="feedback" id="rs-ex-mc-absorbing-constants_opt_a"><div class="para" id="ex-mc-absorbing-constants-2-1-2-1">These are equivalent! Since <span class="process-math">\(C\)</span> varies over all real numbers, so does <span class="process-math">\(-C\)</span> — they represent the same family of values, just relabeled.</div></li>
+<li data-component="answer" id="rs-ex-mc-absorbing-constants_opt_b" data-correct=""><div class="para" id="ex-mc-absorbing-constants-2-2-1-1">
+<span class="process-math">\(y = e^x + C - 3\)</span> and <span class="process-math">\(y = e^x + C\)</span>
+</div></li>
+<li data-component="feedback" id="rs-ex-mc-absorbing-constants_opt_b"><div class="para" id="ex-mc-absorbing-constants-2-2-2-1">These are equivalent! The <span class="process-math">\(-3\)</span> is just a fixed number that gets absorbed into <span class="process-math">\(C\text{.}\)</span> As <span class="process-math">\(C\)</span> varies over all reals, so does <span class="process-math">\(C - 3\text{.}\)</span>
+</div></li>
+<li data-component="answer" id="rs-ex-mc-absorbing-constants_opt_c"><div class="para" id="ex-mc-absorbing-constants-2-3-1-1">
+<span class="process-math">\(y = 1 + Ce^x\)</span> and <span class="process-math">\(y = Ce^x\)</span>
+</div></li>
+<li data-component="feedback" id="rs-ex-mc-absorbing-constants_opt_c"><div class="para" id="ex-mc-absorbing-constants-2-3-2-1">Not equivalent! The <span class="process-math">\(1\)</span> cannot be absorbed into <span class="process-math">\(Ce^x\)</span> — adding 1 to <span class="process-math">\(Ce^x\)</span> shifts every solution up by 1, which is a genuinely different family of functions.</div></li>
+<li data-component="answer" id="rs-ex-mc-absorbing-constants_opt_d" data-correct=""><div class="para" id="ex-mc-absorbing-constants-2-4-1-1">
+<span class="process-math">\(y = \cos(x) + 2C\)</span> and <span class="process-math">\(y = \cos(x) + C\)</span>
+</div></li>
+<li data-component="feedback" id="rs-ex-mc-absorbing-constants_opt_d"><div class="para" id="ex-mc-absorbing-constants-2-4-2-1">These are equivalent! As <span class="process-math">\(C\)</span> varies over all real numbers, so does <span class="process-math">\(2C\)</span> — it’s just a relabeling of the constant.</div></li>
+<li data-component="answer" id="rs-ex-mc-absorbing-constants_opt_e"><div class="para" id="ex-mc-absorbing-constants-2-5-1-1">
+<span class="process-math">\(y = \sqrt{x} + C\)</span> and <span class="process-math">\(y = \sqrt{x + C}\)</span>
+</div></li>
+<li data-component="feedback" id="rs-ex-mc-absorbing-constants_opt_e"><div class="para" id="ex-mc-absorbing-constants-2-5-2-1">Not equivalent! In the first, <span class="process-math">\(C\)</span> shifts the graph vertically. In the second, <span class="process-math">\(C\)</span> shifts the graph horizontally inside the square root. These are genuinely different families of functions.</div></li>
+</ul>
+</div></div>
+<div class="autopermalink" data-description="Checkpoint 1.3.5"><a href="#ex-mc-absorbing-constants" title="Copy heading and permalink for Checkpoint 1.3.5" aria-label="Copy heading and permalink for Checkpoint 1.3.5">🔗</a></div></article><figure class="figure figure-like" id="video-sep-of-var"><div class="video-box" style="width: 100%;padding-top: 56.25%; margin-left: 0%; margin-right: 0%;"><iframe class="video" allowfullscreen="" src="https://www.youtube-nocookie.com/embed/OcfSNX41wuU?&amp;modestbranding=1&amp;rel=0" id="video-sep-of-var-2"></iframe></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.3.6<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>This video goes through the content of this page.<div class="autopermalink" data-description="Figure 1.3.6"><a href="#video-sep-of-var" title="Copy heading and permalink for Figure 1.3.6" aria-label="Copy heading and permalink for Figure 1.3.6">🔗</a></div></figcaption></figure><div class="autopermalink" data-description="Section 1.3.2: Separation of Variables"><a href="#subsec-sepofvar" title="Copy heading and permalink for Section 1.3.2: Separation of Variables" aria-label="Copy heading and permalink for Section 1.3.2: Separation of Variables">🔗</a></div></section></div>
+<div id="ptx-content-footer" class="ptx-content-footer">
+<a class="previous-button button" href="subsec-intr-separable.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="subsec-sep-exp.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="338 3000 8772 6866" role="img"><title>PreTeXt logo</title><g style="stroke-width:.025in; stroke:currentColor; fill:none"><polyline points="472,3590 472,9732 " style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png" alt="Runstone Academy logo"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png" alt="MathJax logo"></a>
+</div>
+</body>
+</html>

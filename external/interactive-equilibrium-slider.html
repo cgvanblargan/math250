@@ -25,8 +25,8 @@
     color: #2c3e50;
   }
   #controls label { font-weight: bold; }
-  #cslider { width: 200px; accent-color: #2980b9; }
-  #cvalue { min-width: 40px; font-weight: bold; color: #2980b9; }
+  #cslider { width: 200px; accent-color: #1a5276; }
+  #cvalue { min-width: 40px; font-weight: bold; color: #1a5276; }
   #expression {
     text-align: center;
     font-size: 20px;
@@ -51,7 +51,7 @@
     text-align: center;
     font-size: 22px;
     font-weight: bold;
-    color: #27ae60;
+    color: #1e8449;
     margin-top: 6px;
     animation: pop 0.3s ease;
   }
@@ -104,7 +104,7 @@
     function(t) { return C * Math.exp(2 * t); },
     -1, 2
   ], {
-    strokeColor: '#2980b9',
+    strokeColor: '#1a5276',
     strokeWidth: 2.5
   });
 
@@ -125,7 +125,7 @@
   function launchConfetti() {
     resizeConfetti();
     particles = [];
-    var colors = ['#e74c3c','#f39c12','#27ae60','#2980b9','#9b59b6','#f1c40f'];
+    var colors = ['#922b21','#b7770d','#1e8449','#1a5276','#6c3483','#b7860d'];
     for (var i = 0; i < 80; i++) {
       particles.push({
         x: Math.random() * confettiCanvas.width,
@@ -175,14 +175,14 @@
 
     if (val === 0) {
       expr.innerHTML = 'P(t) = 0';
-      curve.setAttribute({ strokeColor: '#27ae60', strokeWidth: 4 });
+      curve.setAttribute({ strokeColor: '#1e8449', strokeWidth: 4 });
       eqLabel.style.display = 'block';
       eqLabel.style.animation = 'none';
       void eqLabel.offsetWidth;
       eqLabel.style.animation = 'pop 0.3s ease';
       launchConfetti();
     } else {
-      curve.setAttribute({ strokeColor: '#2980b9', strokeWidth: 2.5 });
+      curve.setAttribute({ strokeColor: '#1a5276', strokeWidth: 2.5 });
       eqLabel.style.display = 'none';
       if (val === 1) {
         expr.innerHTML = 'P(t) = e<sup>2t</sup>';
