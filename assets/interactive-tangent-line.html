@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tangent Line to y = x²</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jsxgraph/1.6.0/jsxgraphcore.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jsxgraph/1.6.0/jsxgraph.css">
+<style>
+  body { margin: 0; padding: 10px; font-family: serif; background: transparent; overflow: hidden; }
+  #display {
+    text-align: center;
+    font-size: 17px;
+    font-family: serif;
+    margin-bottom: 6px;
+    line-height: 1.8;
+    color: #2c3e50;
+  }
+  #display .val-x { color: #1a5276; font-weight: bold; }
+  #display .val-y { color: #922b21; font-weight: bold; }
+  #display .val-slope { color: #b7770d; font-weight: bold; }
+  #controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    margin-bottom: 8px;
+    font-size: 16px;
+    font-family: serif;
+    color: #2c3e50;
+  }
+  #controls label { font-weight: bold; font-size: 20px; color: #1a5276; }
+  #xslider { width: 200px; accent-color: #1a5276; }
+  #xvalue { min-width: 40px; font-weight: bold; font-size: 20px; color: #1a5276; }
+  #jxgbox { width: 100%; height: 320px; }
+</style>
+</head>
+<body>
+
+<div id="display"
+  role="region"
+  aria-label="Interactive display showing a point on the parabola y equals x squared, with the tangent line and slope updating as x changes.">
+  <span class="val-x">x = 1</span> &nbsp;|&nbsp;
+  <span class="val-y">y = x² = 1</span> &nbsp;|&nbsp;
+  <span class="val-slope">slope = dy/dx = 2x = 2</span>
+</div>
+
+<div id="controls">
+  <label for="xslider">x =</label>
+  <input type="range" id="xslider" min="-3" max="3" step="0.1" value="1"
+    aria-label="Slider for x value, ranging from negative 3 to 3">
+  <span id="xvalue">1</span>
+</div>
+
+<div id="jxgbox" class="jxgbox"
+  aria-label="Graph of y equals x squared in blue, with a maroon point at (x, x squared) and an amber tangent line at that point. As x changes, the point moves along the parabola and the tangent line updates to show the slope dy/dx equals 2x.">
+</div>
+
+<script>
+  var board = JXG.JSXGraph.initBoard('jxgbox', {
+    boundingbox: [-3, 10, 3, -1],
+    axis: true,
+    showCopyright: false,
+    showNavigation: false,
+    defaultAxes: {
+      x: {
+        name: 'x',
+        withLabel: true,
+        label: { position: 'rt', offset: [-15, 15], fontSize: 14 }
+      },
+      y: {
+        name: 'y',
+        withLabel: true,
+        label: { position: 'rt', offset: [15, 0], fontSize: 14 }
+      }
+    }
+  });
+
+  var xVal = 1;
+
+  // Parabola
+  board.create('functiongraph', [
+    function(x) { return x * x; },
+    -3, 3
+  ], {
+    strokeColor: '#1a5276',
+    strokeWidth: 2.5,
+    name: 'y = x²'
+  });
+
+  // Curve label
+  board.create('text', [1.6, 7, 'y = x²'], {
+    fontSize: 14,
+    fontFamily: 'serif',
+    color: '#1a5276',
+    fixed: true
+  });
+
+  // Point on curve
+  var pt = board.create('point', [xVal, xVal * xVal], {
+    size: 6,
+    color: '#922b21',
+    fixed: true,
+    name: '',
+    label: { visible: false }
+  });
+
+  // Point label (x, x²)
+  var ptLabel = board.create('text', [
+    function() { return xVal + 0.15; },
+    function() { return xVal * xVal + 0.5; },
+    function() {
+      var xd = Math.round(xVal * 10) / 10;
+      var yd = Math.round(xVal * xVal * 10) / 10;
+      var xdsp = Number.isInteger(xd) ? xd : xd.toFixed(1);
+      var ydsp = Number.isInteger(yd) ? yd : yd.toFixed(1);
+      return '(' + xdsp + ', ' + ydsp + ')';
+    }
+  ], {
+    fontSize: 13,
+    fontFamily: 'serif',
+    color: '#922b21',
+    fixed: true
+  });
+
+  // Tangent line: y = 2x·(X - xVal) + xVal²
+  var tangent = board.create('functiongraph', [
+    function(x) { return 2 * xVal * (x - xVal) + xVal * xVal; },
+    -3, 3
+  ], {
+    strokeColor: '#b7770d',
+    strokeWidth: 2,
+    dash: 0
+  });
+
+  // Tangent label
+  var tangentLabel = board.create('text', [
+    function() {
+      // Place label to the right or left depending on x
+      return xVal > 0 ? -2.8 : 1.5;
+    },
+    function() {
+      var slope = 2 * xVal;
+      var y0 = xVal * xVal;
+      var x0 = xVal > 0 ? -2.8 : 1.5;
+      return slope * (x0 - xVal) + y0 + 0.4;
+    },
+    function() {
+      var slope = Math.round(2 * xVal * 10) / 10;
+      var sdsp = Number.isInteger(slope) ? slope : slope.toFixed(1);
+      return 'slope = ' + sdsp;
+    }
+  ], {
+    fontSize: 13,
+    fontFamily: 'serif',
+    color: '#b7770d',
+    fixed: true
+  });
+
+  function updateDisplay(x) {
+    var xd = Math.round(x * 10) / 10;
+    var yd = Math.round(x * x * 10) / 10;
+    var slope = Math.round(2 * x * 10) / 10;
+    var xdsp = Number.isInteger(xd) ? xd : xd.toFixed(1);
+    var ydsp = Number.isInteger(yd) ? yd : yd.toFixed(1);
+    var sdsp = Number.isInteger(slope) ? slope : slope.toFixed(1);
+
+    document.getElementById('display').innerHTML =
+      '<span class="val-x">x = ' + xdsp + '</span> &nbsp;|&nbsp; ' +
+      '<span class="val-y">y = x\u00B2 = ' + ydsp + '</span> &nbsp;|&nbsp; ' +
+      '<span class="val-slope">slope = dy/dx = 2x = ' + sdsp + '</span>';
+  }
+
+  document.getElementById('xslider').addEventListener('input', function() {
+    xVal = parseFloat(this.value);
+    var xd = Math.round(xVal * 10) / 10;
+    var xdsp = Number.isInteger(xd) ? xd : xd.toFixed(1);
+    document.getElementById('xvalue').textContent = xdsp;
+    pt.setPosition(JXG.COORDS_BY_USER, [xVal, xVal * xVal]);
+    updateDisplay(xVal);
+    board.update();
+  });
+
+  updateDisplay(1);
+</script>
+</body>
+</html>

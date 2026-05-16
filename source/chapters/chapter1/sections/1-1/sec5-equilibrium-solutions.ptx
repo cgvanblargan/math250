@@ -2,31 +2,27 @@
  <title>Equilibrium Solutions</title>
 
 
-<figure xml:id="video-equilibrium-solutions">
-        <caption>This video goes through the content of this page.</caption>
-        <video youtube="fFj_8hSDIIM" width="100%" preview="default"/>
-    </figure>
 
- <p>
-    We now take a brief detour to discuss equilibrium solutions — a simple but important concept that will come up throughout the course.
-  </p>
+<p>
+  We now take a brief detour to discuss equilibrium solutions. This is a simple but important concept that will come up throughout the course.
+</p>
 
-  <definition xml:id="def-equilibrium-solution">
-    <title>Equilibrium Solution</title>
-    <statement>
-      <p>
-        An <term>equilibrium solution</term> to a differential equation is a constant solution. That is, <m>y(t) = C</m> for all <m>t</m>, where <m>y(t)</m> is a solution to the ODE.
-      </p>
-    </statement>
-  </definition>
-
-  <note xml:id="note-equilibrium-derivative">
+<definition xml:id="def-equilibrium-solution">
+  <title>Equilibrium Solution</title>
+  <statement>
     <p>
-      A function <m>y(t)</m> is constant if and only if <m>y'(t) = 0</m> for all <m>t</m>. We will use this fact frequently when finding equilibrium solutions.
+      An <term>equilibrium solution</term> to a differential equation is a constant solution. That is, <m>y(t) = C</m> for all <m>t</m>, where <m>y(t)</m> is a solution to the ODE.
     </p>
-  </note>
+  </statement>
+</definition>
 
+<note xml:id="note-equilibrium-derivative">
   <p>
+    A function <m>y(t)</m> is constant if and only if <m>y'(t) = 0</m> for all <m>t</m>. We will use this fact frequently when finding equilibrium solutions.
+  </p>
+</note>
+
+<p>
   As a quick example, consider the differential equation <m>\frac{dP}{dt} = 2P</m>, whose general solution is <m>P(t) = Ce^{2t}</m>. Use the slider below to explore how different values of <m>C</m> give different specific solutions. Can you find the value of <m>C</m> that makes <m>P(t)</m> a constant function?
 </p>
 
@@ -41,121 +37,238 @@
   </interactive>
 </figure>
 
-  <p>
-    Notice that these solutions are not constant in general. However, setting <m>C = 0</m> gives <m>P(t) = 0</m>, which is constant, and therefore the only equilibrium solution.
-  </p>
+<p>
+  Notice that these solutions are not constant in general. However, setting <m>C = 0</m> gives <m>P(t) = 0</m>, which is constant, and therefore the only equilibrium solution.
+</p>
 
-  <p>
-    Understanding equilibrium solutions gives us useful insight into the overall behavior of solutions to an ODE. Later in the course we will explore this in more depth. For now, let's see how equilibrium solutions arise naturally in the context of Newton's law of cooling.
-  </p>
+<p>
+  Understanding equilibrium solutions gives us useful insight into the overall behavior of solutions to an ODE. Later in the course we will explore this in more depth. For now, let's see how equilibrium solutions arise naturally in the context of Newton's law of cooling.
+</p>
 
-  <example xml:id="ex-newtons-cooling-equilibrium">
-    <title>Newton's Law of Cooling</title>
-    <introduction>
+<example xml:id="ex-newtons-cooling-equilibrium">
+  <title>Newton's Law of Cooling</title>
+  <introduction>
     <p>
-      Recall that Newton's law of cooling states that <m>\frac{dT}{dt} = -k(T - A)</m>, where <m>T</m> is the temperature of an object and <m>A</m> is the temperature of the surrounding environment. What is the equilibrium solution? Justify this both intuitively and algebraically.
+      Recall that Newton's law of cooling states that <m>\frac{dT}{dt} = -k(T - A)</m>, where <m>T</m> is the temperature of an object, <m>A</m> is the surrounding temperature, and <m>k</m> is a positive constant. Suppose the surrounding temperature is <m>A = 72^{\circ}</m>F, so the ODE becomes:
+      <me>\frac{dT}{dt} = -k(T - 72).</me>
+      What is the equilibrium solution? Justify this both intuitively and algebraically.
     </p>
-</introduction>
-    <task xml:id="task-cooling-intuitive">
-      <title>Intuitive Justification</title>
-      <statement>
-        <p>
-          What value of <m>T</m> ensures the object never changes temperature?
-        </p>
-      </statement>
-      <hint>
-        <p>
-          If the surrounding temperature is <m>A</m>, what does the temperature of the object need to be so that it stops changing?
-        </p>
-      </hint>
-      <solution>
-        <p>
-          An object stops changing temperature once it matches the temperature of its surroundings. So <m>T(t) = A</m> is the equilibrium solution.
-        </p>
-      </solution>
-    </task>
-    <task xml:id="task-cooling-algebraic">
-      <title>Algebraic Justification</title>
-      <statement>
-        <p>
-          Verify algebraically that <m>T(t) = A</m> is the equilibrium solution.
-        </p>
-      </statement>
-      <hint>
-        <p>
-          We want to find for what value of <m>C</m> the constant function <m>T(t) = C</m> is a solution. What must <m>\frac{dT}{dt}</m> equal for a constant function? Substitute into the ODE and solve for <m>C</m>.
-        </p>
-      </hint>
-      <solution>
-        <p>
-          For a constant solution <m>T(t) = C</m>, we have <m>\frac{dT}{dt} = 0</m>. Substituting into the ODE:
-          <me>0 = -k(C - A) \implies C - A = 0 \implies C = A.</me>
-          Therefore <m>T(t) = A</m> is the equilibrium solution.
-        </p>
-      </solution>
-    </task>
-  </example>
-
-  <p>
-    Let's practice finding equilibrium solutions for more complicated differential equations. Notice that finding the general solution in the following examples would be quite difficult, but substituting <m>y(t) = C</m> and <m>y' = y'' = \cdots = 0</m> often reduces the problem to a simple algebraic equation in <m>C</m>.
-  </p>
-
-  <activity xml:id="act-equilibrium-practice">
-    <title>Practice: Finding Equilibrium Solutions</title>
-    <introduction>
+  </introduction>
+  <task xml:id="task-cooling-intuitive">
+    <title>Intuitive Justification</title>
+    <statement>
       <p>
-        Try each of the following on your own before checking the solution. <alert>Try it on your own first!</alert>
+        What value of <m>T</m> ensures the object never changes temperature?
       </p>
-    </introduction>
+    </statement>
+    <hint>
+      <p>
+        If the surrounding temperature is <m>72^{\circ}</m>F, what does the temperature of the object need to be so that it doesn't change?
+      </p>
+    </hint>
+    <solution>
+      <p>
+        An object stops changing temperature once it matches the temperature of its surroundings. If the surrounding temperature is <m>72^{\circ}</m>F and the
+        temperature of the object, <m>T</m>, is <m>72^{\circ}</m>F, then the temperature of the object remains at <m>72^{\circ}</m>F.
+        So <m>T(t) = 72</m> is the equilibrium solution.
+       
+      </p>
+    </solution>
+  </task>
+  <task xml:id="task-cooling-algebraic">
+    <title>Algebraic Justification</title>
+    <statement>
+      <p>
+        Verify algebraically that <m>T(t) = 72</m> is the equilibrium solution.
+      </p>
+    </statement>
+    <hint>
+      <p>
+        We want to find for what value of <m>C</m> the constant function <m>T(t) = C</m> is a solution. Notice that this implies <m>\frac{dT}{dt} = 0</m>.
+      </p>
+      <p>
+        Substitute both expressions into the ODE <m>\frac{dT}{dt} = -k(T - 72)</m> and solve for <m>C</m>.
+      </p>
+    </hint>
+    <solution>
+      <p>
+        For a constant solution <m>T(t) = C</m>, we have <m>\frac{dT}{dt} = 0</m>. Substituting into the ODE:
+        <md>
+          <mrow>\frac{dT}{dt} \amp= -k(T - 72)</mrow>
+          <mrow>0 \amp= -k(C - 72)</mrow>
+          <mrow>0 \amp= C - 72</mrow>
+          <mrow>C \amp= 72.</mrow>
+        </md>
+        Therefore <m>T(t) = 72</m> is the equilibrium solution.
+      </p>
+    </solution>
+  </task>
+</example>
 
-    <task xml:id="task-equilibrium-v1">
-      <statement>
-        <p>
-          Find all equilibrium solutions, <m>v(t) = C</m>, to the differential equation
-          <me>v'' + v' \cdot (1 + t^2 + v) + v^2 = 2v.</me>
-        </p>
-      </statement>
-      <solution>
-        <p>
-          Since we are looking for a constant solution, we set <m>v(t) = C</m>, which gives:
-          <me>v = C, \quad v' = 0, \quad v'' = 0.</me>
-          Substituting into the differential equation:
-          <md>
-            <mrow>0 + 0 \cdot (1 + t^2 + C) + C^2 \amp= 2C</mrow>
-            <mrow>C^2 - 2C \amp= 0</mrow>
-            <mrow>C(C - 2) \amp= 0</mrow>
-          </md>
-          So <m>C = 0</m> or <m>C = 2</m>, giving two equilibrium solutions:
-          <me>v(t) = 0 \quad \text{and} \quad v(t) = 2.</me>
-        </p>
-      </solution>
-    </task>
-
-    <task xml:id="task-equilibrium-v2">
-      <statement>
-        <p>
-          Find all equilibrium solutions to the differential equation
-          <me>v''t^2 + vv' + v = t^3.</me>
-        </p>
-      </statement>
-      <solution>
-        <p>
-          Setting <m>v(t) = C</m>, so <m>v' = 0</m> and <m>v'' = 0</m>, and substituting:
-          <me>0 \cdot t^2 + C \cdot 0 + C = t^3 \implies C = t^3.</me>
-          But <m>C</m> must be a constant, and <m>t^3</m> is not constant. Therefore there are <alert>no equilibrium solutions</alert>.
-        </p>
-      </solution>
-    </task>
-
-  </activity>
-
-  <note xml:id="note-no-equilibrium">
+<exercise xml:id="ex-mc-equilibrium-checkpoint">
+  <statement>
     <p>
-      Equilibrium solutions do not always exist, as the last example shows. Recall that we are looking for a constant <m>C</m> such that <m>y(t) = C</m> satisfies the ODE. If the algebra forces <m>C</m> to equal a non-constant expression, then no equilibrium solution exists.
+      Find equilibrium solutions to <m>\frac{dy}{dt} = (y-2)^2</m>?
+      </p>
+      <p>
+      Use the same method as the algebraic solution to the Newton's law of Cooling problem above.
     </p>
+  </statement>
+  <choices randomize="no">
+    <choice correct="yes">
+      <statement><p><m>y = 2</m></p></statement>
+      <feedback>
+        <p>
+          Correct! Setting <m>y = C</m> gives <m>\frac{dy}{x}=0</m>. Plug into the ODE and solve:
+
+            <md>
+          <mrow>\frac{dy}{dx} \amp= (y-2)^2</mrow>
+          <mrow>0 \amp= (C - 2)^2</mrow>
+          <mrow>0 \amp= C - 2</mrow>
+          <mrow>C \amp= 2.</mrow>
+        </md>
+        </p>
+      </feedback>
+    </choice>
+    <choice>
+      <statement><p><m>y = 0</m></p></statement>
+      <feedback>
+        <p>
+          Not quite. Try setting <m>y = C</m> and <m>\frac{dy}{dt} = 0</m>, then substitute into the ODE and solve for <m>C</m>.
+        </p>
+      </feedback>
+    </choice>
+    <choice>
+      <statement><p><m>y = -2</m></p></statement>
+      <feedback>
+        <p>
+          Not quite. Try setting <m>y = C</m> and <m>\frac{dy}{dt} = 0</m>, then substitute into the ODE and solve for <m>C</m>.
+        </p>
+      </feedback>
+    </choice>
+    <choice>
+      <statement><p>There are no equilibrium solutions.</p></statement>
+      <feedback>
+        <p>
+          There is one! Try setting <m>y = C</m> and <m>\frac{dy}{dt} = 0</m>, then substitute into the ODE and solve for <m>C</m>.
+        </p>
+      </feedback>
+    </choice>
+  </choices>
+</exercise>
+
+<p>
+  Let's now practice finding equilibrium solutions for more complicated differential equations. Notice that finding the general solution in the following examples would be quite difficult, but substituting <m>y(t) = C</m> and <m>y' = y'' = \cdots = 0</m> often reduces the problem to a simple algebraic equation in <m>C</m>.
+</p>
+
+<activity xml:id="act-equilibrium-practice">
+  <title>Practice: Finding Equilibrium Solutions</title>
+  <introduction>
+    <p>
+      Try each of the following on your own before checking the solution. <alert>Try it on your own first!</alert>
+    </p>
+  </introduction>
+
+  <task xml:id="task-equilibrium-v1">
+    <statement>
+      <p>
+        Find all equilibrium solutions, <m>v(t) = C</m>, to the differential equation
+        <me>v'' + v' \cdot (1 + t^2 + v) + v^2 = 2v.</me>
+      </p>
+    </statement>
+    <solution>
+      <p>
+        Since we are looking for a constant solution, we set <m>v(t) = C</m>, which gives:
+        <me>v = C, \quad v' = 0, \quad v'' = 0.</me>
+        Substituting into the differential equation:
+        <md>
+          <mrow>0 + 0 \cdot (1 + t^2 + C) + C^2 \amp= 2C</mrow>
+          <mrow>C^2 - 2C \amp= 0</mrow>
+          <mrow>C(C - 2) \amp= 0</mrow>
+        </md>
+        So <m>C = 0</m> or <m>C = 2</m>, giving two equilibrium solutions:
+        <me>v(t) = 0 \quad \text{and} \quad v(t) = 2.</me>
+      </p>
+    </solution>
+  </task>
+
+  <task xml:id="task-equilibrium-v2">
+    <statement>
+      <p>
+        Find all equilibrium solutions to the differential equation
+        <me>v''t^2 + vv' + v = t^3.</me>
+      </p>
+    </statement>
+    <solution>
+      <p>
+        Setting <m>v(t) = C</m>, so <m>v' = 0</m> and <m>v'' = 0</m>, and substituting:
+        <me>0 \cdot t^2 + C \cdot 0 + C = t^3 \implies C = t^3.</me>
+        But <m>C</m> must be a constant, and <m>t^3</m> is not constant. Therefore there are <alert>no equilibrium solutions</alert>.
+      </p>
+    </solution>
+  </task>
+
+</activity>
+
+<note xml:id="note-no-equilibrium">
+  <p>
+    Equilibrium solutions do not always exist, as the last example shows. Recall that we are looking for a constant <m>C</m> such that <m>y(t) = C</m> satisfies the ODE. If the algebra forces <m>C</m> to equal a non-constant expression, then no equilibrium solution exists.
+  </p>
 </note>
 
+<p>
+  Let's drive this point home with a quick checkpoint!
+</p>
+<exercise xml:id="ex-mc-no-equilibrium">
+  <statement>
+    <p>
+      Consider the ODE <m>\frac{dy}{dt} = -y + t - 1</m>. Setting <m>y = C</m> and <m>\frac{dy}{dt} = 0</m> and substituting:
+      <md>
+        <mrow>0 \amp= -C + t - 1</mrow>
+        <mrow>C \amp= t - 1.</mrow>
+      </md>
+      What, if any, are the equilibrium solutions?
+    </p>
+  </statement>
+  <choices randomize="no">
+    <choice>
+      <statement><p><m>y = t - 1</m></p></statement>
+      <feedback>
+        <p>
+          Close, but <m>y = t - 1</m> is not a constant function! An equilibrium solution must be constant for all values of <m>t</m>.
+        </p>
+      </feedback>
+    </choice>
+    <choice>
+      <statement><p><m>y = 0</m></p></statement>
+      <feedback>
+        <p>
+          Not quite. Try plugging <m>y = 0</m> into the ODE: <m>0 = 0 + t - 1 = t - 1</m>, which is not true for all <m>t</m>.
+        </p>
+      </feedback>
+    </choice>
+    <choice>
+      <statement><p><m>t = C + 1</m></p></statement>
+      <feedback>
+        <p>
+          This is a common mistake! We solved for <m>t</m> instead of <m>C</m>. We need <m>C</m> to be a constant — solving for <m>t</m> doesn't give us an equilibrium solution.
+        </p>
+      </feedback>
+    </choice>
+    <choice correct="yes">
+      <statement><p>There are no equilibrium solutions.</p></statement>
+      <feedback>
+        <p>
+          Correct! We need <m>C</m> to be a constant, but <m>C = t - 1</m> depends on <m>t</m>. So no constant function satisfies this ODE.
+        </p>
+      </feedback>
+    </choice>
+  </choices>
+</exercise>
 
 
-
+<figure xml:id="video-equilibrium-solutions">
+  <caption>This video goes through the content of this page.</caption>
+  <video youtube="fFj_8hSDIIM" width="100%" preview="default"/>
+</figure>
 </section>

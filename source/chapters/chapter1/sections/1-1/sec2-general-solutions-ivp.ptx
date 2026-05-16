@@ -1,54 +1,75 @@
-
-
 <section xml:id="sec-gensolns-initialvalues" xmlns:xi="http://www.w3.org/2001/XInclude">
   <title>General Solutions and Initial Value Problems</title>
 
-    <figure xml:id="video-general-solutions-ivp">
-        <caption>This video goes through the content of this page.</caption>
-        <video youtube="u8cZ98PIR1s" width="100%" preview="default"/>
-    </figure>
 <p>
-  We just found that one solution to <m>\frac{dP}{dt} = 3P</m> is <m>P(t) = e^{3t}</m>. In fact, all possible solutions — the <term>general solution</term> — are of the form <m>P(t) = Ce^{3t}</m>, where <m>C</m> is any real number. I encourage you to verify that this is always a solution; we will justify why it captures all solutions later when we study separable ODEs.
+  On the previous page, we found that one solution to <m>\frac{dP}{dt} = 3P</m> is <m>P(t) = e^{3t}</m>. In fact, all possible solutions, called the <term>general solution</term>, are of the form <m>P(t) = Ce^{3t}</m>, where <m>C</m> is any real number. Can you see why this is always a solution? Give it a think before revealing below!
 </p>
-<p>
-  This idea generalizes naturally to the family of ODEs <m>\frac{dP}{dt} = kP</m>.
-</p>
- <definition xml:id="def-general-solution-population">
-    <title>Solution to the Population Growth Model</title>
-    <statement>
-      <p>
-        A simple model of a population <m>P(t)</m> is that the rate of change is proportional to the population. So <m>P(t)</m> satisfies:
-        <me>\frac{dP}{dt} = kP.</me>
-        The <term>general solution</term> to this differential equation is:
-        <me>P(t) = Ce^{kt},</me>
-        where varying over any real number for <m>C</m> gives all possible solutions.
-      </p>
-    </statement>
-  </definition>
 
+<solution>
+  <title>Why is <m>P(t) = Ce^{3t}</m> always a solution?</title>
   <p>
-    Try verifying this by differentiating <m>P(t) = Ce^{kt}</m>:
-  </p>
-
-  <solution>
-  <title>Verification</title>
-  <p>
-    By the chain rule:
-    <me>\frac{dP}{dt} = k\underbrace{Ce^{kt}}_{=\, P} = kP. \checkmark</me>
+    On the previous page we already showed that <m>e^{3t}</m> is a solution using the chain rule. It turns out the same argument works with any constant in front. Let's check with <m>C = 4</m> as an example:
+    <me>\frac{d}{dt}(4e^{3t}) = 3 \cdot \underbrace{4e^{3t}}_{=\,P} = 3P. \checkmark</me>
+    The constant <m>4</m> just comes along for the ride, it doesn't affect the chain rule calculation at all. So by the same reasoning, for any real number <m>C</m>:
+    <me>\frac{d}{dt}(Ce^{3t}) = 3\underbrace{Ce^{3t}}_{=\,P} = 3P. \checkmark</me>
+    Therefore <m>P(t) = Ce^{3t}</m> is a solution for any real number <m>C</m>.
   </p>
 </solution>
+<p>
+  We will justify why this captures <em>all</em> solutions later when we study separable ODEs. For now, this idea generalizes naturally to the family of ODEs <m>\frac{dP}{dt} = kP</m>.
+</p>
+
+<observation xml:id="obs-general-solution-population">
+  <title>Solution to the Population Growth Model</title>
+  <p>
+    A simple model of a population <m>P(t)</m> is that the rate of change is proportional to the population. So <m>P(t)</m> satisfies:
+    <me>\frac{dP}{dt} = kP.</me>
+    The <term>general solution</term> to this differential equation is:
+    <me>P(t) = Ce^{kt},</me>
+    where varying over any real number for <m>C</m> gives all possible solutions.
+  </p>
+</observation>
+
+<exercise xml:id="ex-mc-general-soln-population">
+  <statement>
     <p>
-  So for example, to solve <m>\frac{dP}{dt} = 2P</m>, we find the general solution <m>P(t) = Ce^{2t}</m>. Each value of <m>C</m> gives a different specific solution — together they form a whole family of curves. For instance:
+      What is the general solution to <m>\frac{dP}{dt} = 2P</m>?
+    </p>
+  </statement>
+  <choices randomize="no">
+    <choice correct="yes">
+      <statement><p><m>P(t) = Ce^{2t}</m>, where <m>C</m> is any real number.</p></statement>
+      <feedback><p>Correct! This matches the general solution <m>P(t) = Ce^{kt}</m> with <m>k = 2</m>.</p></feedback>
+    </choice>
+    <choice>
+      <statement><p><m>P(t) = Ce^{t}</m>, where <m>C</m> is any real number.</p></statement>
+      <feedback><p>Not quite — check the exponent. The ODE is <m>\frac{dP}{dt} = 2P</m>, so <m>k = 2</m>, giving <m>e^{2t}</m> not <m>e^t</m>.</p></feedback>
+    </choice>
+    <choice>
+      <statement><p><m>P(t) = 2e^{t}</m></p></statement>
+      <feedback><p>Not quite — this is a specific solution, not the general one. The general solution has an arbitrary constant <m>C</m>.</p></feedback>
+    </choice>
+    <choice>
+      <statement><p><m>P(t) = Ce^{2}</m></p></statement>
+      <feedback><p>Not quite — the <m>t</m> belongs in the exponent! The general solution is <m>P(t) = Ce^{2t}</m>.</p></feedback>
+    </choice>
+  </choices>
+</exercise>
+
+
+
+<p>
+  In the general solution <m>P(t) = Ce^{2t}</m>, each value of <m>C</m> gives a different <term>specific solution</term> — together they form a whole family of curves. For instance:
 </p>
 
 <md>
-  <mrow>C = 2: \amp P(t) = 2e^{2t}</mrow>
-  <mrow>C = -1: \amp P(t) = -e^{2t}</mrow>
-  <mrow>C = 0: \amp P(t) = 0e^{2t}=0</mrow>
+  <mrow>C = 2: \amp\quad P(t) = 2e^{2t}</mrow>
+  <mrow>C = -1: \amp\quad P(t) = -e^{2t}</mrow>
+  <mrow>C = 0: \amp\quad P(t) = 0e^{2t} = 0</mrow>
 </md>
 
 <p>
-  Use the slider below to explore how the value of <m>C</m> affects the solution curve. 
+  Use the slider below to explore how the value of <m>C</m> affects the solution curve.
 </p>
 
 <figure xml:id="fig-population-slider">
@@ -62,29 +83,53 @@
   </interactive>
 </figure>
 
-  <p>
-   In the graph above, notice how <m>P(0)</m> changes as you vary the values for <m>C</m>. 
-    With the proper <term>initial conditions</term> we obtain a <term>specific solution</term> to a differential 
-    equation.  
-  </p>
+<p>
+  Notice how the red dot representing <m>P(0)</m> moves as you vary <m>C</m>. This is no coincidence: since <m>P(0) = Ce^{2 \cdot 0} = C</m>, the initial value of the population is exactly <m>C</m>. Specifying an <term>initial condition</term> like <m>P(0) = 200</m> pins down exactly which curve we are on, giving us a <term>specific solution</term>.
+</p>
 
-  <example xml:id="ex-initial-condition">
-    <title>Applying an Initial Condition</title>
+<definition xml:id="def-initial-value-problem">
+  <title>Initial Value Problem</title>
+  <statement>
     <p>
-      Suppose a population <m>P</m> satisfies <m>\frac{dP}{dt} = 2P</m>, and the initial population at <m>t = 0</m> is <m>P(0) = 200</m>. Find the solution <m>P(t)</m>.
+      An <term>initial value problem (IVP)</term> consists of a differential equation together with one or more initial conditions. The goal is to find a <term>specific solution</term> that satisfies both the ODE and the initial condition(s).
     </p>
-    <solution>
-      <p>
-        The general solution with <m>k = 2</m> is:
-        <me>P(t) = Ce^{2t}.</me>
-        Applying the initial condition <m>P(0) = 200</m>:
-        <me>200 = Ce^{2 \cdot 0} = C \cdot 1 \implies C = 200.</me>
-        So the specific solution is:
-        <me>P(t) = 200e^{2t}.</me>
-      </p>
-    </solution>
-  </example>
+  </statement>
+</definition>
 
-  
+<p>
+  Now we will get some practice finding a specific solution to an initial value problem!
+</p>
+<example xml:id="ex-initial-condition">
+  <title>Applying an Initial Condition</title>
+  <p>
+    We have seen that the general solution to <m>\frac{dP}{dt} = 2P</m> is <m>P(t) = Ce^{2t}</m>. What is the specific solution such that the initial population at <m>t = 0</m> is <m>P(0) = 200</m>?
+  </p>
+  <hint>
+    <p>
+      <ul>
+        <li>For <m>P(0) = 200</m>, substitute <m>0</m> wherever you see <m>t</m> and <m>200</m> wherever you see <m>P(t)</m> in <m>P(t) = Ce^{2t}</m>. Then solve for <m>C</m>.</li>
+        <li>You will need to use the fact that <m>e^0 = 1</m>.</li>
+      </ul>
+    </p>
+  </hint>
+  <solution>
+    <p>
+      We substitute <m>P(0) = 200</m> into the general solution:
+      <md>
+        <mrow>P(t) \amp= Ce^{2t}</mrow>
+        <mrow>200 \amp= Ce^{2 \cdot 0}</mrow>
+        <mrow>200 \amp= Ce^{0}</mrow>
+        <mrow>200 \amp= C.</mrow>
+      </md>
+      So <m>C = 200</m>, and the specific solution is:
+      <me>P(t) = 200e^{2t}.</me>
+    </p>
+  </solution>
+</example>
+
+<figure xml:id="video-general-solutions-ivp">
+  <caption>This video goes through the content of this page.</caption>
+  <video youtube="u8cZ98PIR1s" width="100%" preview="default"/>
+</figure>
 
 </section>

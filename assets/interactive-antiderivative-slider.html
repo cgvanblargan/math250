@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>y = x² + C</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jsxgraph/1.6.0/jsxgraphcore.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jsxgraph/1.6.0/jsxgraph.css">
+<style>
+  body { margin: 0; padding: 10px; font-family: serif; background: transparent; overflow: hidden; }
+  #expressions {
+    text-align: center;
+    font-size: 18px;
+    font-family: serif;
+    margin-bottom: 6px;
+    color: #2c3e50;
+    line-height: 1.6;
+  }
+  #expr-y { color: #1a5276; font-weight: bold; }
+  #expr-dy { color: #555; }
+  #controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    margin-bottom: 8px;
+    font-size: 16px;
+    font-family: serif;
+    color: #2c3e50;
+  }
+  #controls label { font-weight: bold; font-size: 20px; }
+  #cslider { width: 200px; accent-color: #1a5276; }
+  #cvalue { min-width: 40px; font-weight: bold; font-size: 20px; color: #1a5276; }
+  #jxgbox { width: 100%; height: 300px; }
+</style>
+</head>
+<body>
+
+<div id="expressions">
+  <div id="expr-y">y = x²</div>
+  <div id="expr-dy">dy/dx = 2x &nbsp; (unchanged regardless of C!)</div>
+</div>
+
+<div id="controls">
+  <label for="cslider">C =</label>
+  <input type="range" id="cslider" min="-5" max="5" step="0.5" value="0">
+  <span id="cvalue">0</span>
+</div>
+
+<div id="jxgbox" class="jxgbox"></div>
+
+<script>
+  var board = JXG.JSXGraph.initBoard('jxgbox', {
+    boundingbox: [-4, 12, 4, -6],
+    axis: true,
+    showCopyright: false,
+    showNavigation: false,
+    defaultAxes: {
+      x: {
+        name: 'x',
+        withLabel: true,
+        label: { position: 'rt', offset: [-15, 15], fontSize: 14 }
+      },
+      y: {
+        name: 'y',
+        withLabel: true,
+        label: { position: 'rt', offset: [15, 0], fontSize: 14 }
+      }
+    }
+  });
+
+  var C = 0;
+
+  var curve = board.create('functiongraph', [
+    function(x) { return x * x + C; },
+    -4, 4
+  ], {
+    strokeColor: '#1a5276',
+    strokeWidth: 2.5
+  });
+
+  var dot = board.create('point', [0, C], {
+    size: 5,
+    color: '#922b21',
+    fixed: true,
+    name: '',
+    label: { visible: false }
+  });
+
+  var dotLabel = board.create('text', [0.15, function() { return C - 0.8; }, function() {
+    var val = Math.round(C * 10) / 10;
+    var display = Number.isInteger(val) ? val : val.toFixed(1);
+    return 'y(0) = ' + display;
+  }], {
+    fontSize: 14,
+    fontFamily: 'serif',
+    color: '#922b21',
+    fixed: true
+  });
+
+  function updateExpression(val) {
+    var exprY = document.getElementById('expr-y');
+    var absVal = Math.abs(val);
+    var absDsp = Number.isInteger(absVal) ? absVal : absVal.toFixed(1);
+
+    if (val === 0) {
+      exprY.innerHTML = 'y = x\u00B2';
+    } else if (val > 0) {
+      exprY.innerHTML = 'y = x\u00B2 + ' + absDsp;
+    } else {
+      exprY.innerHTML = 'y = x\u00B2 \u2212 ' + absDsp;
+    }
+  }
+
+  document.getElementById('cslider').addEventListener('input', function() {
+    C = parseFloat(this.value);
+    var display = Number.isInteger(C) ? C : C.toFixed(1);
+    document.getElementById('cvalue').textContent = display;
+    updateExpression(C);
+    dot.setPosition(JXG.COORDS_BY_USER, [0, C]);
+    board.update();
+  });
+
+  updateExpression(0);
+</script>
+</body>
+</html>

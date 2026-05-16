@@ -5,7 +5,9 @@
 
   <introduction>
 <p>
-  This section is on solving first order separable ODEs. 
+  Separable ODEs are a common family of differential equations, showing up in many applications!
+  It turns out they are well understood, so we will learn how to solve them in this section. 
+  We also will examine some applications where separable ODEs naturally arise.
 </p>
   </introduction>
 

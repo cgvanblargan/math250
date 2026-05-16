@@ -31,6 +31,27 @@
   </solution>
 </example>
 
+<p>The graph with an interactive slider below demonstrates what is happening in this example.  </p>
+<figure xml:id="fig-antiderivative-slider">
+  <caption>
+    Solutions to <m>\frac{dy}{dx} = 2x</m> of the form <m>y = x^2 + C</m>. Notice that changing <m>C</m> shifts the curve vertically, but the derivative <m>\frac{dy}{dx} = 2x</m> stays the same!
+  </caption>
+  <interactive xml:id="interactive-antiderivative-slider" iframe="interactive-antiderivative-slider.html" width="80%" aspect="3:2">
+    <static>
+      <p>
+        An interactive graph showing <m>y = x^2 + C</m> with a slider for <m>C</m> from <m>-5</m> to <m>5</m>. The red dot shows <m>y(0) = C</m>. As <m>C</m> changes, the curve shifts vertically but the derivative <m>\frac{dy}{dx} = 2x</m> remains unchanged.
+      </p>
+    </static>
+  </interactive>
+</figure>
+
+
+<p>
+ Alright, well that turned out to be pretty easy once we understood
+ what the differential equation was saying!
+  We generalize this idea in the following observation. 
+</p>
+
   <observation xml:id="obs-integrate-both-sides">
     <p>
       For a differential equation in the form
@@ -113,16 +134,82 @@
   </task>
 
 </activity>
-
 <note xml:id="note-two-constants">
   <p>
    Notice in the last example we obtained two constants of integration <m>C_1</m> and <m>C_2</m> 
    from integrating twice. 
   </p>
 </note>
+<p>
+  We now have a solid understanding of solving ODEs in the form <m>\frac{dy}{dx} = f(x)</m>. 
+  Does this mean we've solved the entire course? Not quite, ODEs are rarely this simple! 
+  The key feature of <m>\frac{dy}{dx} = f(x)</m> is that the right-hand side depends only 
+  on the independent variable. In general, we won't be so lucky!
 
- 
+  Try the following checkpoint to determine when this method applies.
+</p>
+<exercise xml:id="ex-mc-integration-method">
+  <statement>
+    <p>
+      Which of the following ODEs have been solved correctly using the integration method <m>y = \int f(x)\, dx + C</m>? Select all that apply.
+    </p>
+  </statement>
+  <choices randomize="yes">
+    <choice correct="yes">
+      <statement>
+        <p>
+          <m>\frac{dy}{dt} = e^t</m>, solved as <m>y = \int e^t\, dt = e^t + C</m>.
+        </p>
+      </statement>
+      <feedback>
+        <p>
+          Correct! The right-hand side depends only on <m>t</m>, so we can integrate directly. <m>\int e^t\, dt = e^t + C</m>.
+        </p>
+      </feedback>
+    </choice>
+    <choice correct="yes">
+      <statement>
+        <p>
+          <m>\frac{dy}{dx} = x^2 + 1</m>, solved as <m>y = \int (x^2 + 1)\, dx = \frac{x^3}{3} + x + C</m>.
+        </p>
+      </statement>
+      <feedback>
+        <p>
+          Correct! The right-hand side depends only on <m>x</m>, so we integrate directly to get <m>\frac{x^3}{3} + x + C</m>.
+        </p>
+      </feedback>
+    </choice>
+    <choice>
+      <statement>
+        <p>
+          <m>\frac{dy}{dx} = 2y</m>, solved as <m>y = \int 2y\, dx = y^2 + C</m>.
+        </p>
+      </statement>
+      <feedback>
+        <p>
+          Incorrect! The right-hand side depends on <m>y</m>, not just <m>x</m>, so we cannot simply integrate both sides this way. We will learn how to solve ODEs like this later in the course!
+        </p>
+      </feedback>
+    </choice>
+    <choice>
+      <statement>
+        <p>
+          <m>\frac{dP}{dt} = tP</m>, solved as <m>P = \int tP\, dt = \frac{t^2}{2} P + C</m>.
+        </p>
+      </statement>
+      <feedback>
+        <p>
+          Incorrect! The right-hand side depends on both <m>t</m> and <m>P</m>, so direct integration doesn't work here. We will learn how to solve ODEs like this later in the course!
+        </p>
+      </feedback>
+    </choice>
+  </choices>
+</exercise>
 
+<figure xml:id="video-integralsolutions">
+  <caption>This video goes through the content of this page.</caption>
+  <video youtube="ydlP4Dl9x1g" width="100%" preview="default"/>
+</figure>
   
 
 </section>

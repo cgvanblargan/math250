@@ -3,99 +3,137 @@
 <section xml:id="sec-positionvelocity" xmlns:xi="http://www.w3.org/2001/XInclude">
   <title>Velocity and Acceleration</title>
 
-  
- <p>
-      Let's review some ideas regarding position, velocity, and acceleration.
-    </p>
+  <p>
+    One of the most natural applications of ODEs is to motion. If you know how an object is accelerating, can you figure out the position?
+     Let's review the key relationships between position, velocity, and acceleration before diving in.
+  </p>
 
-    <definition xml:id="def-position-velocity-acceleration">
-      <title>Position, Velocity, and Acceleration</title>
-      <statement>
-        <p>
-          Suppose the position of an object with respect to time is given by <m>p(t)</m>.
-          <ul>
-            <li>The <term>velocity</term> <m>v(t)</m> is the rate of change of position: <m>v(t) = p'(t)</m>.</li>
-            <li>The <term>acceleration</term> <m>a(t)</m> is the rate of change of velocity: <m>a(t) = v'(t) = p''(t)</m>.</li>
-          </ul>
-        </p>
-      </statement>
-    </definition>
-
-    <p>
-      These ideas should be familiar. However, we can now view these as ODEs. For example, if the velocity is 3 mph, then <m>v(t) = 3</m> can be written as the ODE <m>p'(t) = 3</m>, which is easily solved by integrating the right-hand side.
-    </p>
-
-    <p>
-        See if you can solve the following example.
-        </p>
-
-    <example xml:id="ex-position-from-acceleration">
-      <title>Finding Position from Acceleration</title>
+  <definition xml:id="def-position-velocity-acceleration">
+    <title>Position, Velocity, and Acceleration</title>
+    <statement>
       <p>
-        Find the position function <m>p(t)</m> of a moving object given:
-        <me>a(t) = 2t + 1, \quad v(0) = -7, \quad p(0) = 5.</me>
+        Suppose the position of an object with respect to time is given by <m>p(t)</m>.
+        <ul>
+          <li>The <term>velocity</term> <m>v(t)</m> is the rate of change of position: <m>v(t) = p'(t)</m>.</li>
+          <li>The <term>acceleration</term> <m>a(t)</m> is the rate of change of velocity: <m>a(t) = v'(t) = p''(t)</m>.</li>
+        </ul>
+      </p>
+    </statement>
+  </definition>
+
+  <p>
+    These relationships should look familiar from calculus. What's new here is that we can view them as ODEs. For instance, knowing the velocity <m>v(t) = p'(t)</m> gives us a first-order ODE for position, and knowing the acceleration <m>a(t) = p''(t)</m> gives us a second-order ODE. In both cases, we solve by integrating and applying initial conditions.
+  </p>
+
+  <p>
+    See if you can solve the following example.
+  </p>
+
+  <example xml:id="ex-position-from-acceleration">
+    <title>Finding Position from Acceleration</title>
+    <p>
+      Find the position function <m>p(t)</m> of a moving object given:
+      <me>a(t) = 2t + 1, \quad v(0) = -7, \quad p(0) = 5.</me>
+    </p>
+    <solution>
+      <p>
+        Since <m>a = v'</m>, we integrate <m>a(t)</m> to find <m>v(t)</m>.
+      </p>
+      <p>
+        <alert>First integration:</alert> Starting from <m>v(t) = \int (2t+1)\, dt</m>:
       </p>
       <solution>
+        <title>Reveal</title>
         <p>
-          Since <m>a = v'</m>, we integrate <m>a(t)</m> to find <m>v(t)</m>.
+          <me>v(t) = t^2 + t + C.</me>
+          Applying <m>v(0) = -7</m>:
+          <me>-7 = 0 + 0 + C \implies C = -7,</me>
+          so <m>v(t) = t^2 + t - 7</m>.
         </p>
-        <p>
-          <alert>First integration:</alert> Starting from <m>v(t) = \int (2t+1)\, dt</m>:
-        </p>
-        <solution>
-          <title>Reveal</title>
-          <p>
-            <me>v(t) = t^2 + t + C.</me>
-            Applying <m>v(0) = -7</m>:
-            <me>-7 = 0 + 0 + C \implies C = -7,</me>
-            so <m>v(t) = t^2 + t - 7</m>.
-          </p>
-        </solution>
-        <p>
-          Since <m>v = p'</m>, we integrate <m>v(t)</m> to find <m>p(t)</m>.
-        </p>
-        <p>
-          <alert>Second integration:</alert> Starting from <m>p(t) = \int (t^2 + t - 7)\, dt</m>:
-        </p>
-        <solution>
-          <title>Reveal</title>
-          <p>
-            <me>p(t) = \frac{1}{3}t^3 + \frac{1}{2}t^2 - 7t + C.</me>
-            Applying <m>p(0) = 5</m>:
-            <me>5 = C \implies C = 5,</me>
-            so the specific solution is:
-            <me>p(t) = \frac{1}{3}t^3 + \frac{1}{2}t^2 - 7t + 5.</me>
-          </p>
-        </solution>
       </solution>
-    </example>
- 
-    Next, we explore these concepts in a slightly more involved word problem involving acceleration. 
-    <example xml:id="ex-braking-car">
-      <title>Braking Distance</title>
       <p>
-        The brakes of a car travelling at <m>70</m> mph give a constant deceleration of <m>10</m> mi/h<m>^2</m>. How long, in hours, until the car comes to a full stop?
+        Since <m>v = p'</m>, we integrate <m>v(t)</m> to find <m>p(t)</m>.
       </p>
-       <hint>
-    <p>
-     If there is a constant deceleration of <m>10</m>, then <m>a(t)=-10</m>. Solve for the velocity to answer the question.
-    </p>
-</hint>
+      <p>
+        <alert>Second integration:</alert> Starting from <m>p(t) = \int (t^2 + t - 7)\, dt</m>:
+      </p>
       <solution>
+        <title>Reveal</title>
         <p>
-          We are given <m>a(t) = -10</m> and <m>v(0) = 70</m>. Integrating:
-          <me>v(t) = \int -10\, dt = -10t + C.</me>
-          Applying <m>v(0) = 70</m>:
-          <me>C = 70 \implies v(t) = -10t + 70.</me>
-          The car stops when <m>v(t) = 0</m>:
-          <me>0 = -10t + 70 \implies t = 7 \text{ hours.}</me>
-        </p>
-        <p>
-          <em>Note: be careful about units! The deceleration is given in mi/h<m>^2</m>, so the answer is in hours.</em>
+          <me>p(t) = \frac{1}{3}t^3 + \frac{1}{2}t^2 - 7t + C.</me>
+          Applying <m>p(0) = 5</m>:
+          <me>5 = C \implies C = 5,</me>
+          so the specific solution is:
+          <me>p(t) = \frac{1}{3}t^3 + \frac{1}{2}t^2 - 7t + 5.</me>
         </p>
       </solution>
-    </example>
+    </solution>
+  </example>
 
-  
+  <p>
+    Let's now take these ideas a step further and apply it to a word problem. While the question doesn't
+     explicitly ask us to solve any ODE,
+    finding the velocity function is necessary to answer the question.
+  </p>
+
+  <example xml:id="ex-braking-car">
+    <title>Braking Distance</title>
+    <p>
+      The brakes of a car travelling at <m>70</m> mph give a constant deceleration of <m>10</m> mi/h<m>^2</m>. How long, in hours, until the car comes to a full stop?
+    </p>
+    <hint>
+      <p>
+        A constant deceleration of <m>10</m> means <m>a(t) = -10</m>. Solve for the velocity function and determine when it equals zero.
+      </p>
+    </hint>
+    <solution>
+      <p>
+        We are given <m>a(t) = -10</m> and <m>v(0) = 70</m>. Integrating:
+        <me>v(t) = \int -10\, dt = -10t + C.</me>
+        Applying <m>v(0) = 70</m>:
+        <me>C = 70 \implies v(t) = -10t + 70.</me>
+        The car stops when <m>v(t) = 0</m>:
+        <me>0 = -10t + 70 \implies t = 7 \text{ hours.}</me>
+      </p>
+      <p>
+        <em>Note: be careful about units! The deceleration is given in mi/h<m>^2</m>, so the answer is in hours.</em>
+      </p>
+    </solution>
+  </example>
+
+<p> 
+  Time for a quick check to make sure you are able to set-up position-velocity-acceleration ODEs!
+</p>
+
+<exercise xml:id="ex-mc-braking-ode">
+  <statement>
+    <p>
+      Suppose a car has a constant deceleration of <m>20</m> mi/h<m>^2</m>. Which of the following correctly sets up an ODE for the position function <m>p(t)</m>?
+    </p>
+  </statement>
+  <choices randomize="yes">
+    <choice correct="yes">
+      <statement><p><m>\frac{d^2p}{dt^2} = -20</m></p></statement>
+      <feedback><p>Correct! Acceleration is the second derivative of position, and deceleration means the acceleration is negative.</p></feedback>
+    </choice>
+    <choice>
+      <statement><p><m>\frac{d^2p}{dt^2} = 20</m></p></statement>
+      <feedback><p>Almost — but deceleration means the acceleration is negative, so the right-hand side should be <m>-20</m>.</p></feedback>
+    </choice>
+    <choice>
+      <statement><p><m>\frac{d^2p}{dt^2} = -20p</m></p></statement>
+      <feedback><p>Not quite — the deceleration is constant, so the right-hand side should just be <m>-20</m>, not <m>-20p</m>.</p></feedback>
+    </choice>
+    <choice>
+      <statement><p><m>\frac{dp}{dt} = -20</m></p></statement>
+      <feedback><p>Not quite — acceleration is the <em>second</em> derivative of position, so the left-hand side should be <m>\frac{d^2p}{dt^2}</m>, not <m>\frac{dp}{dt}</m>. That would be saying the velocity is constant, not the acceleration!</p></feedback>
+    </choice>
+  </choices>
+</exercise>
+
+  <figure xml:id="video-position-velocity">
+    <caption>This video goes through the content of this page.</caption>
+    <video youtube="0_2aSGE8fl4" width="100%" preview="default"/>
+  </figure>
 
 </section>

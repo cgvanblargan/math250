@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <chapter xml:id="ch-chapter-two" xmlns:xi="http://www.w3.org/2001/XInclude">
-  <title>Name for chapter 2</title>
+  <title>Chapter 2: Coming soon</title>
 
   <introduction>
-    <p> Text before the first section. </p>
+    <p> Chapter 2 has not been added yet </p>
   </introduction>
 
   <!-- include sections -->
-   <xi:include href="./sections/ch2-sec1.ptx" />
-   <xi:include href="./sections/ch2-sec2.ptx" />
+   
 
 </chapter>

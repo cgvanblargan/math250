@@ -1,37 +1,137 @@
-
-
 <section xml:id="sec-setting-up-des" xmlns:xi="http://www.w3.org/2001/XInclude">
   <title>Setting Up Differential Equations</title>
-  
-   <figure xml:id="video-setting-up-des">
-        <caption>This video goes through the content of this page.</caption>
-        <video youtube="HltaPMv4SkU" width="100%" preview="default"/>
-    </figure>
 
-<example xml:id="ex-setup-des">
+  <p>
+    Recall that in our very first example, we set up the ODE <m>\frac{dP}{dt} = 3P</m> by:
+    <ul>
+      <li>Interpreting "the rate of change of the population" as the derivative <m>\frac{dP}{dt}</m>.</li>
+      <li>Writing <m>3P</m> as being proportional to the population <m>P</m> with <em>proportionality constant</em> of 3.</li>
+    </ul>
+    <me>\underbrace{\frac{dP}{dt}}_{\text{rate of change of population}} = \underbrace{3P}_{\text{proportional to } P \text{ with constant 3}}</me>
+    Translating a verbal description into a derivative expression is the key to setting up any ODE.
+  </p>
+
+  <p>
+    Note that when a proportionality constant is not specified, we introduce a constant, such as <m>k</m>, to represent the unspecified constant of proportionality (as opposed to a specific number like 3 in the population example above).
+  </p>
+
+  <activity xml:id="act-setup-des">
     <title>Setting Up Differential Equations</title>
+    <introduction>
+      <p>
+        For each of the following, translate the verbal description into a differential equation. Try each one on your own before checking the solution!
+      </p>
+    </introduction>
+
+    <task xml:id="task-setup-velocity">
+      <statement>
+        <p>
+          The rate of change of a velocity <m>v</m> of a car is proportional to the cube of <m>v</m>. Which of the following correctly models this situation?
+        </p>
+      </statement>
+      <choices randomize="yes">
+        <choice correct="yes">
+          <statement><p><m>\frac{dv}{dt} = kv^3</m></p></statement>
+          <feedback>
+            <p>
+              Correct! The rate of change of <m>v</m> is <m>\frac{dv}{dt}</m>, and proportional to the cube of <m>v</m> means the RHS is <m>kv^3</m>.
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement><p><m>v = 3v^3</m></p></statement>
+          <feedback>
+            <p>
+              Not quite — "the rate of change of <m>v</m>" means we need a derivative on the left-hand side, not just <m>v</m> itself.
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement><p><m>\frac{dv}{dt} = v^3</m></p></statement>
+          <feedback>
+            <p>
+              Almost — but since the proportionality constant is unspecified, we need a <m>k</m> out front. So <m>\frac{dv}{dt} = kv^3</m>.
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement><p><m>\frac{dv}{dt} = k\sqrt[3]{v}</m></p></statement>
+          <feedback>
+            <p>
+              Not quite — be careful with the wording! "The cube of <m>v</m>" means <m>v^3</m>, not the cube root <m>\sqrt[3]{v}</m>.
+            </p>
+          </feedback>
+        </choice>
+      </choices>
+    </task>
+
+    <task xml:id="task-setup-newton">
+      <statement>
+        <p>
+          <em>Newton's law of cooling</em> states that the time rate of change of a temperature <m>T</m> of an object is proportional to the difference between <m>T</m> and the surrounding temperature <m>A</m>. Set up the ODE.
+        </p>
+      </statement>
+      <hint>
+        <p>
+          Two key quantities appear in this problem:
+          <ul>
+            <li>The rate of change of the temperature of the object is <m>\frac{dT}{dt}</m>.</li>
+            <li>The difference between the temperature of the object and the surrounding temperature is <m>T - A</m>.</li>
+          </ul>
+          These two quantities must be proportional to each other!
+        </p>
+      </hint>
+      <solution>
+        <p>
+          The ODE is:
+          <me>\underbrace{\frac{dT}{dt}}_{\text{rate of change of } T} = \underbrace{k(T - A)}_{\text{proportional to the difference } (T-A)}</me>
+        </p>
+      </solution>
+    </task>
+
+  </activity>
+
+  <p>
+    The derivative <m>\frac{dy}{dx}</m> of a function <m>y = y(x)</m> can also be understood visually: it gives the slope of the graph of the function at each point <m>(x, y)</m> on the curve. More precisely, the <em>tangent line</em> at a point <m>(x, y)</m> is the line passing through <m>(x, y)</m> with slope <m>\frac{dy}{dx}</m>. As we move along the curve, the slope of the tangent line changes, and <m>\frac{dy}{dx}</m> captures exactly how it changes.
+  </p>
+
+ <figure xml:id="fig-tangent-line">
+  <caption>
+    The tangent line to <m>y = x^2</m> at the point <m>(x, x^2)</m>. As you move the slider, notice how the slope <m>\frac{dy}{dx} = 2x</m> changes at each point on the curve.
+  </caption>
+  <interactive xml:id="interactive-tangent-line" iframe="interactive-tangent-line.html" width="100%" aspect="3:2">
+    <static>
+      <p>
+        An interactive graph showing the parabola <m>y = x^2</m> in blue, with a maroon point at <m>(x, x^2)</m> and an amber tangent line at that point. A slider controls the value of <m>x</m> from <m>-3</m> to <m>3</m>. As <m>x</m> changes, the point moves along the curve and the tangent line updates, showing the slope <m>\frac{dy}{dx} = 2x</m>.
+      </p>
+    </static>
+  </interactive>
+</figure>
+
+<p>
+  Now use this idea about tangent lines to set-up the ODE in the following example!
+</p>
+  <example xml:id="ex-setup-slope">
+    <title>Setting Up an ODE from a Geometric Description</title>
     <p>
-      Set up the differential equations that model the following situations.
+      The slope of the tangent line of a graph of <m>y(x)</m> at the point <m>(x, y)</m> is equal to the square root of the product of <m>x</m> and <m>y</m>. Set up the ODE.
     </p>
-    <p>
-      (1) The rate of change of a velocity <m>v</m> of a car is proportional to the cube of <m>v</m>.
-    </p>
+    <hint>
+      <p>
+        The slope of the tangent line to <m>y(x)</m> at the point <m>(x, y)</m> is <m>\frac{dy}{dx}</m>. This is your left-hand side!
+      </p>
+    </hint>
     <solution>
-      <p><me>\frac{dv}{dt} = kv^3</me></p>
-    </solution>
-    <p>
-      (2) <em>Newton's law of cooling</em> states that the time rate of change of a temperature <m>T</m> of an object is proportional to the difference between <m>T</m> and the surrounding temperature <m>A</m>.
-    </p>
-    <solution>
-      <p><me>\frac{dT}{dt} = k(T - A)</me></p>
-    </solution>
-    <p>
-      (3) The slope of the tangent line of a graph of <m>y(x)</m> at the point <m>(x, y)</m> is equal to the square root of the product of <m>x</m> and <m>y</m>.
-    </p>
-    <solution>
-      <p><me>\frac{dy}{dx} = \sqrt{xy}</me></p>
+      <p>
+        <me>\frac{dy}{dx} = \sqrt{xy}.</me>
+        The left-hand side <m>\frac{dy}{dx}</m> is the slope of the tangent line, and the right-hand side <m>\sqrt{xy}</m> is the square root of the product of <m>x</m> and <m>y</m>.
+      </p>
     </solution>
   </example>
 
-  
+  <figure xml:id="video-setting-up-des">
+    <caption>This video goes through the content of this page.</caption>
+    <video youtube="HltaPMv4SkU" width="100%" preview="default"/>
+  </figure>
+
 </section>

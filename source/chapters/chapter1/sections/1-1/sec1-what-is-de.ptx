@@ -1,17 +1,9 @@
-
 <section xml:id="sec-what-is-de" xmlns:xi="http://www.w3.org/2001/XInclude">
   <title>What is a Differential Equation?</title>
 
   <p>
     Derivatives are used to model changing situations! And things are changing all around us!
   </p>
-
- <figure xml:id="video-what-is-de">
-  <caption>This video goes through the content of this page.</caption>
-  <video youtube="hjelg90Tv7Q" width="100%" preview="default"/>
-</figure>
-
-
 
   <example xml:id="ex-setup-population-de">
     <title>Setting Up a Differential Equation</title>
@@ -34,65 +26,102 @@
   </example>
 
   <p>
-    In the previous example, you just set up a <em>differential equation</em>. We often want to take this a step further and find a solution. In this case, that would be a population function <m>P(t)</m> that satisfies the conditions of the previous example (where the rate of change of the population is proportional to itself, with proportionality constant equaling 3).
+    In the previous example, you just set up a <em>differential equation</em>. We often want to take this a step further and find a solution. In this case, that would be a population function <m>P(t)</m> that satisfies the conditions of the previous example. But first, let's warm up with a simpler question!
   </p>
 
-<example xml:id="ex-solve-population-de">
-  <title>Solving a Differential Equation</title>
-  <p>
-    Can you think of a function <m>P(t)</m> that solves <m>\frac{dP}{dt} = 3P</m>?
-  </p>
-  <hint>
-    <p>
-      First try solving the simpler question: find a function <m>P(t)</m> whose derivative is itself, that is, satisfying <m>\frac{dP}{dt} = P</m>.
-    </p>
-  </hint>
-  <solution>
-    <p>
-      Let's start with the simpler equation <m>\frac{dP}{dt} = P</m>. Can you think of a function whose derivative is itself?
-    </p>
-    <solution>
-      <title>Reveal</title>
+  <exercise xml:id="ex-mc-solve-dPdt-P">
+    <statement>
       <p>
-        Recall that <m>P(t) = e^t</m> has this property — its derivative is itself! So <m>P(t) = e^t</m> satisfies <m>\frac{dP}{dt} = P</m>.
+        Which of the following is a solution to <m>\frac{dP}{dt} = P</m>?
       </p>
-    </solution>
-    <p>
-      Now, how can we modify this to solve <m>\frac{dP}{dt} = 3P</m>? We need a function whose derivative produces a factor of 3 out front. Think about the chain rule!
-    </p>
-    <solution>
-  <title>Reveal</title>
+        <p>
+        Notice this says the derivative of <m>P(t)</m> is itself. What famous 
+        function has this property?
+      </p>
+    </statement>
+    <choices randomize="yes">
+      <choice correct="yes">
+        <statement><p><m>P(t) = e^t</m></p></statement>
+        <feedback>
+          <p>
+            Correct! The derivative of <m>e^t</m> is itself, so <m>\frac{dP}{dt} = e^t = P</m>. <m>\checkmark</m>
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement><p><m>P(t) = t^2</m></p></statement>
+        <feedback>
+          <p>
+            Not quite — the derivative of <m>t^2</m> is <m>2t</m>, not <m>t^2</m> itself.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement><p><m>P(t) = \sin(t)</m></p></statement>
+        <feedback>
+          <p>
+            Not quite — the derivative of <m>\sin(t)</m> is <m>\cos(t)</m>, not <m>\sin(t)</m>.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement><p><m>P(t) = t</m></p></statement>
+        <feedback>
+          <p>
+            Not quite — the derivative of <m>t</m> is <m>1</m>, not <m>t</m> itself.
+          </p>
+        </feedback>
+      </choice>
+    </choices>
+  </exercise>
+
   <p>
-    Let's check <m>P(t) = e^{3t}</m>.  By the chain rule:
-    <me>\frac{d}{dt}e^{3t} = 3\underbrace{e^{3t}}_{=\,P} = 3P.</me>
-    So <m>P(t) = e^{3t}</m> solves <m>\frac{dP}{dt} = 3P</m>. Can you think of any other solutions?
+    Now let's try the original question. If it feels tricky, that's okay, we will learn systematic methods for solving ODEs later in the course. For now, it's fun to play around on your own for a minute before revealing the solution!
   </p>
-</solution>
-<p>
-  Note that there are other solutions besides the ones we just stated! We discuss this in the next section.
-   </p>
-  </solution>
-</example>
- 
-<p>
-  The population example illustrates a key idea: when modelling situations that change over time, we naturally arrive at equations involving derivatives. This is the essence of a differential equation, which we now define formally.
-</p>
+
+  <example xml:id="ex-solve-population-de">
+    <title>Solving a Differential Equation</title>
+    <p>
+      Can you think of a function <m>P(t)</m> that solves <m>\frac{dP}{dt} = 3P</m>?
+    </p>
+    <hint>
+      <p>
+        Recall from the previous checkpoint that <m>P(t) = e^t</m> solves <m>\frac{dP}{dt} = P</m>. How can we modify this function to solve <m>\frac{dP}{dt} = 3P</m>? Think about the chain rule!
+      </p>
+    </hint>
+    <solution>
+        <p>
+          Let's check <m>P(t) = e^{3t}</m>. By the chain rule:
+          <me>\frac{d}{dt}e^{3t} = 3\underbrace{e^{3t}}_{=\,P} = 3P.</me>
+          So <m>P(t) = e^{3t}</m> solves <m>\frac{dP}{dt} = 3P</m>!
+        </p>
+    </solution>
+  </example>
+
+  <p>
+    This is not the only solution to <m>\frac{dP}{dt} = 3P</m>. Can you think of any others? We will reveal the answer on the next page!
+  </p>
+
+  <p>
+    The population example illustrates a key idea: when modelling situations that change over time, we naturally arrive at equations involving derivatives. This is the essence of a differential equation, which we now define formally.
+  </p>
 
   <definition xml:id="def-differential-equation">
     <title>Differential Equation</title>
     <statement>
       <p>
-        A <term>differential equation</term> is an equation involving a function <m>y(x)</m>, its derivatives <m>y', y'', y''', \ldots</m>, and an independent variable <m>x</m>. 
+        A <term>differential equation</term> is an equation involving a function <m>y(x)</m>, its derivatives <m>y', y'', y''', \ldots</m>, and an independent variable <m>x</m>.
       </p>
       <p>
         The <term>order</term> of a differential equation is the highest derivative appearing.
       </p>
     </statement>
   </definition>
-<p>
-  A differential equation involving only derivative with respect to only one variable (as opposed to partial derivatives) is 
-called an <term>ordinary differential equation (ODE)</term>.
-</p>
+
+  <p>
+    A differential equation involving only derivatives with respect to one variable (as opposed to partial derivatives) is called an <term>ordinary differential equation (ODE)</term>.
+  </p>
+
   <p>
     Here are three examples of ODEs, along with their orders:
     <md>
@@ -108,9 +137,14 @@ called an <term>ordinary differential equation (ODE)</term>.
       We adopt both the prime notation <m>y'</m> and Leibniz notation <m>\frac{dy}{dt}</m> to denote the derivative of <m>y</m> with respect to <m>t</m>. These are equivalent and will be used interchangeably throughout.
     </p>
     <p>
-      In <m>\frac{dP}{dt} = 3P</m>, <m>t</m> is the independent variable and <m>P</m> is the dependent variable. The actual letters we use for the variable will vary. In the last example, <m>y''' + y''y + \sin(y') = x</m>, it is implied that <m>y</m> is the dependent variable and <m>x</m> is the independent variable.
+      In <m>\frac{dP}{dt} = 3P</m>, <m>t</m> is the <em>independent variable</em> and <m>P</m> is the <em>dependent variable</em>. The actual letters we use for the variables will vary. In the last example, <m>y''' + y''y + \sin(y') = x</m>,
+       it is implied that <m>y</m> is the dependent variable and <m>x</m> is the independent variable.
     </p>
   </remark>
 
- 
+  <figure xml:id="video-what-is-de">
+    <caption>This video goes through the content of this page.</caption>
+    <video youtube="hjelg90Tv7Q" width="100%" preview="default"/>
+  </figure>
+
 </section>
