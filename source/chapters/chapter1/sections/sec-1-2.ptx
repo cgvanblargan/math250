@@ -5,7 +5,7 @@
 
   <introduction>
 <p>
-  Differential equations in the form <m>\frac{dy}{dx} = f(t)</m> can be solved simply by integrating.
+  Differential equations in the form <m>\frac{dy}{dx} = f(x)</m> can be solved simply by integrating.
   One particular application of this is to acceleration and velocity questions.
 </p>
   </introduction>

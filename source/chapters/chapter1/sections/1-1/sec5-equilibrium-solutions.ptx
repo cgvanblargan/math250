@@ -119,10 +119,10 @@
       <statement><p><m>y = 2</m></p></statement>
       <feedback>
         <p>
-          Correct! Setting <m>y = C</m> gives <m>\frac{dy}{x}=0</m>. Plug into the ODE and solve:
+          Correct! Setting <m>y = C</m> gives <m>\frac{dy}{dt}=0</m>. Plug into the ODE and solve:
 
             <md>
-          <mrow>\frac{dy}{dx} \amp= (y-2)^2</mrow>
+          <mrow>\frac{dy}{dt} \amp= (y-2)^2</mrow>
           <mrow>0 \amp= (C - 2)^2</mrow>
           <mrow>0 \amp= C - 2</mrow>
           <mrow>C \amp= 2.</mrow>
