@@ -1,13 +1,22 @@
 var ptx_lunr_search_style = "textbook";
 var ptx_lunr_docs = [
 {
+  "id": "front-colophon",
+  "level": "1",
+  "url": "front-colophon.html",
+  "type": "Colophon",
+  "number": "",
+  "title": "Colophon",
+  "body": "  "
+},
+{
   "id": "preface",
   "level": "1",
   "url": "preface.html",
   "type": "Preface",
   "number": "",
   "title": "Preface",
-  "body": " Preface         "
+  "body": " Preface  I have designed these notes to get you thinking and working through the material as actively as possible.  Within each section, there is a separate page for each subsection. Each page is intentionally sized so you can complete it in one short sitting, take a break, and then move on to the next subsection page when you are ready!  Here is how you should work through each page:  Read through the content and work through the examples, revealing hints and solutions as you go.  Engage with the interactive graphs and checkpoint questions. Don't skip these!  Once you have worked through the page, watch the video (generally 5-8 minutes long) at the bottom to reinforce the ideas and deepen your understanding.     The order matters. Please read through each page before watching the corresponding lecture video. Learning mathematics requires active thinking, and watching me explain something on a video is a passive experience. Even if the video makes perfect sense while you're watching, you will retain far less than if you had wrestled with the ideas yourself first.  "
 },
 {
   "id": "sec-what-is-de",
