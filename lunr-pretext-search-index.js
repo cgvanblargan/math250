@@ -1,15 +1,6 @@
 var ptx_lunr_search_style = "textbook";
 var ptx_lunr_docs = [
 {
-  "id": "front-colophon",
-  "level": "1",
-  "url": "front-colophon.html",
-  "type": "Colophon",
-  "number": "",
-  "title": "Colophon",
-  "body": "  "
-},
-{
   "id": "preface",
   "level": "1",
   "url": "preface.html",
@@ -370,6 +361,114 @@ var ptx_lunr_docs = [
   "body": " This video goes through the content of this page.   "
 },
 {
+  "id": "exercises-1-1",
+  "level": "1",
+  "url": "exercises-1-1.html",
+  "type": "Exercises",
+  "number": "1.1.6",
+  "title": "Exercises for Section 1.1",
+  "body": " Exercises for Section 1.1    Write a differential equation of the form whose solution has the property that the slope of its graph at any point equals the sum of and .      Write a differential equation of the form whose solution has the property that the tangent line to its graph at any point passes through the point .    Compute the slope of the tangent line at , knowing that it passes through both and the point . Then refer to the setting up ODEs example in the notes.      Write a differential equation of the form that models the following: The temperature of a cup of coffee changes at a rate proportional to the difference between the ambient air temperature and the coffee's current temperature. Write a differential equation (with proportionality constant ) modeling .      Complete parts (a) and (b).     Verify that is a solution of .      Find the value of satisfying the initial condition .       Verify by substitution that and are both solutions of:       Verify by substitution that is a solution of:       Find all integer values of for which is a solution to:       Find all integer values of for which is a solution to:       Find all values of the constant for which is a solution of:       Find all equilibrium (constant) solutions to the equation below. That is, find all values of for which is a solution.       Find all equilibrium (constant) solutions to the equation below. That is, find all values of for which is a solution.     "
+},
+{
+  "id": "ex-1-1-1",
+  "level": "2",
+  "url": "exercises-1-1.html#ex-1-1-1",
+  "type": "Exercise",
+  "number": "1.1.6.1",
+  "title": "",
+  "body": "  Write a differential equation of the form whose solution has the property that the slope of its graph at any point equals the sum of and .   "
+},
+{
+  "id": "ex-1-1-2",
+  "level": "2",
+  "url": "exercises-1-1.html#ex-1-1-2",
+  "type": "Exercise",
+  "number": "1.1.6.2",
+  "title": "",
+  "body": "  Write a differential equation of the form whose solution has the property that the tangent line to its graph at any point passes through the point .    Compute the slope of the tangent line at , knowing that it passes through both and the point . Then refer to the setting up ODEs example in the notes.   "
+},
+{
+  "id": "ex-1-1-3",
+  "level": "2",
+  "url": "exercises-1-1.html#ex-1-1-3",
+  "type": "Exercise",
+  "number": "1.1.6.3",
+  "title": "",
+  "body": "  Write a differential equation of the form that models the following: The temperature of a cup of coffee changes at a rate proportional to the difference between the ambient air temperature and the coffee's current temperature. Write a differential equation (with proportionality constant ) modeling .   "
+},
+{
+  "id": "ex-1-1-4",
+  "level": "2",
+  "url": "exercises-1-1.html#ex-1-1-4",
+  "type": "Exercise",
+  "number": "1.1.6.4",
+  "title": "",
+  "body": "  Complete parts (a) and (b).     Verify that is a solution of .      Find the value of satisfying the initial condition .    "
+},
+{
+  "id": "ex-1-1-5",
+  "level": "2",
+  "url": "exercises-1-1.html#ex-1-1-5",
+  "type": "Exercise",
+  "number": "1.1.6.5",
+  "title": "",
+  "body": "  Verify by substitution that and are both solutions of:    "
+},
+{
+  "id": "ex-1-1-6",
+  "level": "2",
+  "url": "exercises-1-1.html#ex-1-1-6",
+  "type": "Exercise",
+  "number": "1.1.6.6",
+  "title": "",
+  "body": "  Verify by substitution that is a solution of:    "
+},
+{
+  "id": "ex-1-1-7",
+  "level": "2",
+  "url": "exercises-1-1.html#ex-1-1-7",
+  "type": "Exercise",
+  "number": "1.1.6.7",
+  "title": "",
+  "body": "  Find all integer values of for which is a solution to:    "
+},
+{
+  "id": "ex-1-1-8",
+  "level": "2",
+  "url": "exercises-1-1.html#ex-1-1-8",
+  "type": "Exercise",
+  "number": "1.1.6.8",
+  "title": "",
+  "body": "  Find all integer values of for which is a solution to:    "
+},
+{
+  "id": "ex-1-1-9",
+  "level": "2",
+  "url": "exercises-1-1.html#ex-1-1-9",
+  "type": "Exercise",
+  "number": "1.1.6.9",
+  "title": "",
+  "body": "  Find all values of the constant for which is a solution of:    "
+},
+{
+  "id": "ex-1-1-10",
+  "level": "2",
+  "url": "exercises-1-1.html#ex-1-1-10",
+  "type": "Exercise",
+  "number": "1.1.6.10",
+  "title": "",
+  "body": "  Find all equilibrium (constant) solutions to the equation below. That is, find all values of for which is a solution.    "
+},
+{
+  "id": "ex-1-1-11",
+  "level": "2",
+  "url": "exercises-1-1.html#ex-1-1-11",
+  "type": "Exercise",
+  "number": "1.1.6.11",
+  "title": "",
+  "body": "  Find all equilibrium (constant) solutions to the equation below. That is, find all values of for which is a solution.    "
+},
+{
   "id": "sec-integrating-to-get-solutions",
   "level": "1",
   "url": "sec-integrating-to-get-solutions.html",
@@ -494,6 +593,60 @@ var ptx_lunr_docs = [
   "number": "1.2.5",
   "title": "",
   "body": " This video goes through the content of this page.   "
+},
+{
+  "id": "exercises-1-2",
+  "level": "1",
+  "url": "exercises-1-2.html",
+  "type": "Exercises",
+  "number": "1.2.3",
+  "title": "Exercises for Section 1.2",
+  "body": " Exercises for Section 1.2    Find a function satisfying the differential equation and initial condition :       Find a function satisfying the differential equation and initial condition :       Find a function satisfying the differential equation and initial condition :       Find the position function of a moving particle with acceleration , initial velocity , and initial position .      The brakes of a car are applied when it is moving at km\/h and provide a constant deceleration of m\/s . How far does the car travel before coming to a stop?    "
+},
+{
+  "id": "ex-1-2-1",
+  "level": "2",
+  "url": "exercises-1-2.html#ex-1-2-1",
+  "type": "Exercise",
+  "number": "1.2.3.1",
+  "title": "",
+  "body": "  Find a function satisfying the differential equation and initial condition :    "
+},
+{
+  "id": "ex-1-2-2",
+  "level": "2",
+  "url": "exercises-1-2.html#ex-1-2-2",
+  "type": "Exercise",
+  "number": "1.2.3.2",
+  "title": "",
+  "body": "  Find a function satisfying the differential equation and initial condition :    "
+},
+{
+  "id": "ex-1-2-3",
+  "level": "2",
+  "url": "exercises-1-2.html#ex-1-2-3",
+  "type": "Exercise",
+  "number": "1.2.3.3",
+  "title": "",
+  "body": "  Find a function satisfying the differential equation and initial condition :    "
+},
+{
+  "id": "ex-1-2-4",
+  "level": "2",
+  "url": "exercises-1-2.html#ex-1-2-4",
+  "type": "Exercise",
+  "number": "1.2.3.4",
+  "title": "",
+  "body": "  Find the position function of a moving particle with acceleration , initial velocity , and initial position .   "
+},
+{
+  "id": "ex-1-2-5",
+  "level": "2",
+  "url": "exercises-1-2.html#ex-1-2-5",
+  "type": "Exercise",
+  "number": "1.2.3.5",
+  "title": "",
+  "body": "  The brakes of a car are applied when it is moving at km\/h and provide a constant deceleration of m\/s . How far does the car travel before coming to a stop?   "
 },
 {
   "id": "sec-slopefields",
@@ -737,6 +890,69 @@ var ptx_lunr_docs = [
   "number": "1.4.2",
   "title": "",
   "body": " This video goes through the content of this page.   "
+},
+{
+  "id": "exercises-1-4",
+  "level": "1",
+  "url": "exercises-1-4.html",
+  "type": "Exercises",
+  "number": "1.4.6",
+  "title": "Exercises for Section 1.4",
+  "body": " Exercises for Section 1.4    First find all constant solutions, then find an explicit solution to the separable ODE:      What is the specific solution satisfying the initial condition ?      What is the specific solution satisfying the initial condition ?       Find a function satisfying the differential equation and initial condition :       Find a function satisfying the differential equation and initial condition :       Find a function satisfying the differential equation and initial condition :       Find the position function of a moving particle with acceleration , initial velocity , and initial position .      The brakes of a car are applied when it is moving at km\/h and provide a constant deceleration of m\/s . How far does the car travel before coming to a stop?    "
+},
+{
+  "id": "ex-1-4-1",
+  "level": "2",
+  "url": "exercises-1-4.html#ex-1-4-1",
+  "type": "Exercise",
+  "number": "1.4.6.1",
+  "title": "",
+  "body": "  First find all constant solutions, then find an explicit solution to the separable ODE:      What is the specific solution satisfying the initial condition ?      What is the specific solution satisfying the initial condition ?    "
+},
+{
+  "id": "ex-1-4-2",
+  "level": "2",
+  "url": "exercises-1-4.html#ex-1-4-2",
+  "type": "Exercise",
+  "number": "1.4.6.2",
+  "title": "",
+  "body": "  Find a function satisfying the differential equation and initial condition :    "
+},
+{
+  "id": "ex-1-4-3",
+  "level": "2",
+  "url": "exercises-1-4.html#ex-1-4-3",
+  "type": "Exercise",
+  "number": "1.4.6.3",
+  "title": "",
+  "body": "  Find a function satisfying the differential equation and initial condition :    "
+},
+{
+  "id": "ex-1-4-4",
+  "level": "2",
+  "url": "exercises-1-4.html#ex-1-4-4",
+  "type": "Exercise",
+  "number": "1.4.6.4",
+  "title": "",
+  "body": "  Find a function satisfying the differential equation and initial condition :    "
+},
+{
+  "id": "ex-1-4-5",
+  "level": "2",
+  "url": "exercises-1-4.html#ex-1-4-5",
+  "type": "Exercise",
+  "number": "1.4.6.5",
+  "title": "",
+  "body": "  Find the position function of a moving particle with acceleration , initial velocity , and initial position .   "
+},
+{
+  "id": "ex-1-4-6",
+  "level": "2",
+  "url": "exercises-1-4.html#ex-1-4-6",
+  "type": "Exercise",
+  "number": "1.4.6.6",
+  "title": "",
+  "body": "  The brakes of a car are applied when it is moving at km\/h and provide a constant deceleration of m\/s . How far does the car travel before coming to a stop?   "
 },
 {
   "id": "ch-chapter-two",
