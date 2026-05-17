@@ -907,7 +907,7 @@ var ptx_lunr_docs = [
   "type": "Exercises",
   "number": "1.4.6",
   "title": "Exercises for Section 1.4",
-  "body": " Exercises for Section 1.4    First find all constant solutions, then find an explicit solution to the separable ODE:      What is the specific solution satisfying the initial condition ?      What is the specific solution satisfying the initial condition ?       Find a function satisfying the differential equation and initial condition :       Find a function satisfying the differential equation and initial condition :       Find a function satisfying the differential equation and initial condition :       Find the position function of a moving particle with acceleration , initial velocity , and initial position .      The brakes of a car are applied when it is moving at km\/h and provide a constant deceleration of m\/s . How far does the car travel before coming to a stop?    "
+  "body": " Exercises for Section 1.4    Find the explicit general solution to the following differential equation:       Find the explicit particular solution of the initial value problem:       Find the explicit general solution of the given differential equation:       Find the explicit general solution to the following differential equation:       Consider the separable ODE:      Find the explicit general solution.      Find the specific solution satisfying the initial condition .      Find the specific solution satisfying the initial condition .       Solve the IVP explicitly:       More to be added for week 2 part of this section (the previous exercise also goes with week 2 homework)    "
 },
 {
   "id": "ex-1-4-1",
@@ -916,7 +916,7 @@ var ptx_lunr_docs = [
   "type": "Exercise",
   "number": "1.4.6.1",
   "title": "",
-  "body": "  First find all constant solutions, then find an explicit solution to the separable ODE:      What is the specific solution satisfying the initial condition ?      What is the specific solution satisfying the initial condition ?    "
+  "body": "  Find the explicit general solution to the following differential equation:    "
 },
 {
   "id": "ex-1-4-2",
@@ -925,43 +925,52 @@ var ptx_lunr_docs = [
   "type": "Exercise",
   "number": "1.4.6.2",
   "title": "",
-  "body": "  Find a function satisfying the differential equation and initial condition :    "
-},
-{
-  "id": "ex-1-4-3",
-  "level": "2",
-  "url": "exercises-1-4.html#ex-1-4-3",
-  "type": "Exercise",
-  "number": "1.4.6.3",
-  "title": "",
-  "body": "  Find a function satisfying the differential equation and initial condition :    "
-},
-{
-  "id": "ex-1-4-4",
-  "level": "2",
-  "url": "exercises-1-4.html#ex-1-4-4",
-  "type": "Exercise",
-  "number": "1.4.6.4",
-  "title": "",
-  "body": "  Find a function satisfying the differential equation and initial condition :    "
+  "body": "  Find the explicit particular solution of the initial value problem:    "
 },
 {
   "id": "ex-1-4-5",
   "level": "2",
   "url": "exercises-1-4.html#ex-1-4-5",
   "type": "Exercise",
-  "number": "1.4.6.5",
+  "number": "1.4.6.3",
   "title": "",
-  "body": "  Find the position function of a moving particle with acceleration , initial velocity , and initial position .   "
+  "body": "  Find the explicit general solution of the given differential equation:    "
 },
 {
   "id": "ex-1-4-6",
   "level": "2",
   "url": "exercises-1-4.html#ex-1-4-6",
   "type": "Exercise",
+  "number": "1.4.6.4",
+  "title": "",
+  "body": "  Find the explicit general solution to the following differential equation:    "
+},
+{
+  "id": "ex-1-4-7",
+  "level": "2",
+  "url": "exercises-1-4.html#ex-1-4-7",
+  "type": "Exercise",
+  "number": "1.4.6.5",
+  "title": "",
+  "body": "  Consider the separable ODE:      Find the explicit general solution.      Find the specific solution satisfying the initial condition .      Find the specific solution satisfying the initial condition .    "
+},
+{
+  "id": "ex-1-4-8",
+  "level": "2",
+  "url": "exercises-1-4.html#ex-1-4-8",
+  "type": "Exercise",
   "number": "1.4.6.6",
   "title": "",
-  "body": "  The brakes of a car are applied when it is moving at km\/h and provide a constant deceleration of m\/s . How far does the car travel before coming to a stop?   "
+  "body": "  Solve the IVP explicitly:    "
+},
+{
+  "id": "exercises-1-4-8",
+  "level": "2",
+  "url": "exercises-1-4.html#exercises-1-4-8",
+  "type": "Exercise",
+  "number": "1.4.6.7",
+  "title": "",
+  "body": "  More to be added for week 2 part of this section (the previous exercise also goes with week 2 homework)   "
 },
 {
   "id": "ch-chapter-two",
