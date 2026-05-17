@@ -69,6 +69,15 @@
   </task>
 </exercise>
 
+<exercise xml:id="ex-1-4-implicit">
+  <statement>
+    <p>
+      Find a general <alert>implicit solution</alert> to the following ODE:
+      <me>p'(t) = \frac{1}{p} + \frac{\cos(t)}{p}.</me>
+    </p>
+  </statement>
+</exercise>
+
   <exercise xml:id="ex-1-4-8">
     <statement>
       <p>
