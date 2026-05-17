@@ -1,0 +1,118 @@
+<exercises xml:id="exercises-1-1">
+  <title>Exercises for Section 1.1</title>
+
+  <exercise xml:id="ex-1-1-1">
+    <statement>
+      <p>
+        Write a differential equation of the form <m>\dfrac{dy}{dx} = f(x,y)</m> whose solution <m>y = g(x)</m> has the property that the slope of its graph at any point <m>(x, y)</m> equals the sum of <m>x</m> and <m>y</m>.
+      </p>
+    </statement>
+  </exercise>
+
+  <exercise xml:id="ex-1-1-2">
+    <statement>
+      <p>
+        Write a differential equation of the form <m>\dfrac{dy}{dx} = f(x,y)</m> whose solution <m>y = g(x)</m> has the property that the tangent line to its graph at any point <m>(x, y)</m> passes through the point <m>(-y,\, x)</m>.
+      </p>
+    </statement>
+    <hint>
+      <p>
+        Compute the slope of the tangent line at <m>(x, y)</m>, knowing that it passes through both <m>(x, y)</m> and the point <m>(-y,\, x)</m>. Then refer to the setting up ODEs example in the notes.
+      </p>
+    </hint>
+  </exercise>
+
+  <exercise xml:id="ex-1-1-3">
+    <statement>
+      <p>
+      Write a differential equation of the form <m>\dfrac{dT}{dt} = f(T,t)</m> that models the following:   The temperature <m>T</m> of a cup of coffee changes at a rate proportional to the difference between the ambient air temperature <m>M</m> and the coffee's current temperature. Write a differential equation (with proportionality constant <m>k</m>) modeling <m>T(t)</m>.
+      </p>
+    </statement>
+  </exercise>
+
+  <exercise xml:id="ex-1-1-4">
+    <statement>
+      <p>
+        Complete parts (a) and (b).
+      </p>
+    </statement>
+    <task xml:id="ex-1-1-4a">
+      <statement>
+        <p>
+          Verify that <m>y(x) = Ce^{-2x}</m> is a solution of <m>y' + 2y = 0</m>.
+        </p>
+      </statement>
+    </task>
+    <task xml:id="ex-1-1-4b">
+      <statement>
+        <p>
+          Find the value of <m>C</m> satisfying the initial condition <m>y(0) = 4</m>.
+        </p>
+      </statement>
+    </task>
+  </exercise>
+
+  <exercise xml:id="ex-1-1-5">
+    <statement>
+      <p>
+        Verify by substitution that <m>y_1 = \cos(5x)</m> and <m>y_2 = \sin(5x)</m> are both solutions of:
+        <me>y'' + 25y = 0.</me>
+      </p>
+    </statement>
+  </exercise>
+
+  <exercise xml:id="ex-1-1-6">
+    <statement>
+      <p>
+        Verify by substitution that <m>y = 10e^x - 6e^{-x}</m> is a solution of:
+        <me>y' = y + 12e^{-x}.</me>
+      </p>
+    </statement>
+  </exercise>
+
+  <exercise xml:id="ex-1-1-7">
+    <statement>
+      <p>
+        Find all integer values of <m>n</m> for which <m>y(x) = x^n</m> is a solution to:
+        <me>xy'' - y' - \frac{3y}{x} = 0.</me>
+      </p>
+    </statement>
+  </exercise>
+
+  <exercise xml:id="ex-1-1-8">
+    <statement>
+      <p>
+        Find all integer values of <m>n</m> for which <m>f(t) = t^n</m> is a solution to:
+        <me>\frac{d^2f}{dt^2} + \frac{1}{t}\frac{df}{dt} = 0.</me>
+      </p>
+    </statement>
+  </exercise>
+
+  <exercise xml:id="ex-1-1-9">
+    <statement>
+      <p>
+        Find all values of the constant <m>r</m> for which <m>y = e^{rx}</m> is a solution of:
+        <me>y'' - y' - 6y = 0.</me>
+      </p>
+    </statement>
+  </exercise>
+
+  <exercise xml:id="ex-1-1-10">
+    <statement>
+      <p>
+        Find all equilibrium (constant) solutions to the equation below. That is, find all values of <m>C</m> for which <m>y(t) = C</m> is a solution.
+        <me>y'' = e^{\cos t}\, y' - \sqrt{2t}\, y' + y^2 - t^2.</me>
+      </p>
+    </statement>
+  </exercise>
+
+  <exercise xml:id="ex-1-1-11">
+    <statement>
+      <p>
+        Find all equilibrium (constant) solutions to the equation below. That is, find all values of <m>C</m> for which <m>\phi(q) = C</m> is a solution.
+        <me>\frac{d\phi}{dq} + 9 = \phi^2 - q\frac{d\phi}{dq}.</me>
+      </p>
+    </statement>
+  </exercise>
+
+</exercises>

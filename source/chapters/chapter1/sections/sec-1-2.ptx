@@ -12,5 +12,6 @@
 
   <xi:include href="./1-2/sec1-integralsolns.ptx"/>
   <xi:include href="./1-2/sec2-positionvelocity.ptx"/>
+  <xi:include href="./1-2/exercises-1-2.ptx"/>
 
 </section>

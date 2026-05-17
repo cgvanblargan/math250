@@ -1,0 +1,70 @@
+<exercises xml:id="exercises-1-4">
+  <title>Exercises for Section 1.4</title>
+
+  <exercise xml:id="ex-1-4-1">
+    <statement>
+      <p>
+        First find all constant solutions, then find an explicit solution to the separable ODE:
+        <me>y'(t) = \frac{y^2}{t^2}.</me>
+      </p>
+    </statement>
+    <task xml:id="ex-1-4-1a">
+      <statement>
+        <p>
+          What is the specific solution satisfying the initial condition <m>y(0) = 3</m>?
+        </p>
+      </statement>
+    </task>
+    <task xml:id="ex-1-4-1b">
+      <statement>
+        <p>
+          What is the specific solution satisfying the initial condition <m>y(0) = 0</m>?
+        </p>
+      </statement>
+    </task>
+  </exercise>
+
+  <exercise xml:id="ex-1-4-2">
+    <statement>
+      <p>
+        Find a function <m>y = f(x)</m> satisfying the differential equation and initial condition <m>y(1) = 2</m>:
+        <me>\frac{dy}{dx} = \frac{9}{x^4}.</me>
+      </p>
+    </statement>
+  </exercise>
+
+  <exercise xml:id="ex-1-4-3">
+    <statement>
+      <p>
+        Find a function <m>y = f(x)</m> satisfying the differential equation and initial condition <m>y(1) = -3</m>:
+        <me>\frac{dy}{dx} = \frac{1}{x+3}.</me>
+      </p>
+    </statement>
+  </exercise>
+
+  <exercise xml:id="ex-1-4-4">
+    <statement>
+      <p>
+        Find a function <m>y = f(x)</m> satisfying the differential equation and initial condition <m>y(0) = 0</m>:
+        <me>\frac{dy}{dx} = \frac{2}{x^2+4}.</me>
+      </p>
+    </statement>
+  </exercise>
+
+  <exercise xml:id="ex-1-4-5">
+    <statement>
+      <p>
+        Find the position function <m>x(t)</m> of a moving particle with acceleration <m>a(t) = 3t</m>, initial velocity <m>v(0) = 2</m>, and initial position <m>x(0) = 0</m>.
+      </p>
+    </statement>
+  </exercise>
+
+  <exercise xml:id="ex-1-4-6">
+    <statement>
+      <p>
+        The brakes of a car are applied when it is moving at <m>110</m> km/h and provide a constant deceleration of <m>10</m> m/s<m>^2</m>. How far does the car travel before coming to a stop?
+      </p>
+    </statement>
+  </exercise>
+
+</exercises>
