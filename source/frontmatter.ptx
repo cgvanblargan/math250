@@ -13,9 +13,12 @@
       <today />
     </date>
 
-  <copyright>
+<copyright>
   <year>2026</year>
   <holder>Caroline VanBlargan</holder>
+  <shortlicense>
+    Authored in <pretext />. Interactive graphs built with JSXGraph.
+  </shortlicense>
 </copyright>
 
   </bibinfo>
