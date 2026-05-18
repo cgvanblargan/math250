@@ -34,12 +34,12 @@
 <p>The graph with an interactive slider below demonstrates what is happening in this example.  </p>
 <figure xml:id="fig-antiderivative-slider">
   <caption>
-    Solutions to <m>\frac{dy}{dx} = 2x</m> of the form <m>y = x^2 + C</m>. Notice that changing <m>C</m> shifts the curve vertically, but the derivative <m>\frac{dy}{dx} = 2x</m> stays the same!
+    Solutions to <m>\frac{dy}{dx} = 2x</m> of the form <m>y = x^2 + C</m>. As you drag the slider, notice that changing <m>C</m> shifts the curve vertically, but the tangent line at <m>x = 1</m> always has slope <m>2</m>, demonstrating that the derivative <m>\frac{dy}{dx} = 2x</m> is the same for every solution in the family!
   </caption>
   <interactive xml:id="interactive-antiderivative-slider" iframe="interactive-antiderivative-slider.html" width="80%" aspect="3:2">
     <static>
       <p>
-        An interactive graph showing <m>y = x^2 + C</m> with a slider for <m>C</m> from <m>-5</m> to <m>5</m>. The red dot shows <m>y(0) = C</m>. As <m>C</m> changes, the curve shifts vertically but the derivative <m>\frac{dy}{dx} = 2x</m> remains unchanged.
+        An interactive graph showing <m>y = x^2 + C</m> with a slider for <m>C</m> from <m>-5</m> to <m>5</m>. An amber dashed tangent line at <m>x = 1</m> moves up and down as <m>C</m> changes, but always has slope <m>2</m>, demonstrating that <m>\frac{dy}{dx} = 2x</m> is unchanged by <m>C</m>.
       </p>
     </static>
   </interactive>
@@ -69,7 +69,7 @@
   <title>Practice: Integrating to Find Solutions</title>
   <introduction>
     <p>
-      Try each of the following on your own before checking the solution. <alert>Give it a shot first!</alert>
+      Try each of the following on your own before checking the solution. <alert>Try it on your own first!</alert>
     </p>
   </introduction>
 

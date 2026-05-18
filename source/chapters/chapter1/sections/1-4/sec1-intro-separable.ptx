@@ -8,7 +8,9 @@
   </p>
 
  <p>
-  Let's get a feel for the idea through an example before formalizing things. Consider the differential equation <m>\frac{dy}{dx} = e^y x^2</m>. Notice that the right-hand side factors into a part involving only <m>y</m> and a part involving only <m>x</m>. This suggests we try to "separate" the variables, moving all the <m>y</m> terms to one side and all the <m>x</m> terms to the other.
+  Let's get a feel for the idea through an example before formalizing things. Consider the differential equation <m>\frac{dy}{dx} = e^y x^2</m>. Notice that the right-hand side factors into a part involving only <m>y</m> and a part involving only <m>x</m>. 
+  We call ODEs in this form <alert>separable</alert>. That is, it can be written the form <m>\frac{dy}{dx} = f(y)g(x)</m>.
+  We are going to try to "separate" the variables, moving all the <m>y</m> terms to one side and all the <m>x</m> terms to the other.
 </p>
 <p>
   We write:
