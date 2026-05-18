@@ -610,7 +610,7 @@ var ptx_lunr_docs = [
   "type": "Exercises",
   "number": "1.2.3",
   "title": "Exercises for Section 1.2",
-  "body": " Exercises for Section 1.2    Find a function satisfying the differential equation and initial condition :       Find a function satisfying the differential equation and initial condition :       Find a function satisfying the differential equation and initial condition :       Find the position function of a moving particle with acceleration , initial velocity , and initial position .      The brakes of a car are applied when it is moving at km\/h and provide a constant deceleration of m\/s . How far does the car travel before coming to a stop?    "
+  "body": " Exercises for Section 1.2    Find the general solution to the ODE:       Find the general solution to the ODE:       Find a function satisfying the differential equation and initial condition :       Find the position function of a moving particle with acceleration , initial velocity , and initial position .      The brakes of a car are applied when it is moving at km\/h and provide a constant deceleration of m\/s . How far does the car travel before coming to a stop?    "
 },
 {
   "id": "ex-1-2-1",
@@ -619,7 +619,7 @@ var ptx_lunr_docs = [
   "type": "Exercise",
   "number": "1.2.3.1",
   "title": "",
-  "body": "  Find a function satisfying the differential equation and initial condition :    "
+  "body": "  Find the general solution to the ODE:    "
 },
 {
   "id": "ex-1-2-2",
@@ -628,7 +628,7 @@ var ptx_lunr_docs = [
   "type": "Exercise",
   "number": "1.2.3.2",
   "title": "",
-  "body": "  Find a function satisfying the differential equation and initial condition :    "
+  "body": "  Find the general solution to the ODE:    "
 },
 {
   "id": "ex-1-2-3",
