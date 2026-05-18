@@ -36,22 +36,27 @@
 </head>
 <body>
 
-<div id="expressions">
+<div id="expressions"
+  role="region"
+  aria-label="Interactive display showing y equals x squared plus C with a slider for C. A tangent line at x equals 1 moves with the curve but always has slope 2, showing dy/dx equals 2x is unchanged by C.">
   <div id="expr-y">y = x²</div>
   <div id="expr-dy">dy/dx = 2x &nbsp; (unchanged regardless of C!)</div>
 </div>
 
 <div id="controls">
   <label for="cslider">C =</label>
-  <input type="range" id="cslider" min="-5" max="5" step="0.5" value="0">
+  <input type="range" id="cslider" min="-5" max="5" step="0.5" value="0"
+    aria-label="Slider for constant C, ranging from negative 5 to 5">
   <span id="cvalue">0</span>
 </div>
 
-<div id="jxgbox" class="jxgbox"></div>
+<div id="jxgbox" class="jxgbox"
+  aria-label="Graph of y equals x squared plus C in blue. An amber dashed tangent line at x equals 1 moves up and down as C changes, but always has slope 2. This demonstrates that the derivative dy/dx equals 2x is the same for all values of C.">
+</div>
 
 <script>
   var board = JXG.JSXGraph.initBoard('jxgbox', {
-    boundingbox: [-4, 12, 4, -6],
+    boundingbox: [-3, 12, 3, -6],
     axis: true,
     showCopyright: false,
     showNavigation: false,
@@ -71,30 +76,41 @@
 
   var C = 0;
 
+  // Parabola
   var curve = board.create('functiongraph', [
     function(x) { return x * x + C; },
-    -4, 4
+    -3, 3
   ], {
     strokeColor: '#1a5276',
     strokeWidth: 2.5
   });
 
-  var dot = board.create('point', [0, C], {
+
+
+  // Tangent point at x=1: y = 1 + C, slope = 2
+  var tanPoint = board.create('point', [1, 1 + C], {
     size: 5,
-    color: '#922b21',
+    color: '#b7770d',
     fixed: true,
     name: '',
     label: { visible: false }
   });
 
-  var dotLabel = board.create('text', [0.15, function() { return C - 0.8; }, function() {
-    var val = Math.round(C * 10) / 10;
-    var display = Number.isInteger(val) ? val : val.toFixed(1);
-    return 'y(0) = ' + display;
-  }], {
-    fontSize: 14,
+  // Tangent line at x=1: y = 2(x-1) + (1+C) = 2x - 1 + C
+  var tangent = board.create('functiongraph', [
+    function(x) { return 2 * x - 1 + C; },
+    -3, 3
+  ], {
+    strokeColor: '#b7770d',
+    strokeWidth: 2,
+    dash: 2
+  });
+
+  // Tangent label
+  var tangentLabel = board.create('text', [1.15, function() { return 1 + C - 0.4; }, 'slope = 2'], {
+    fontSize: 13,
     fontFamily: 'serif',
-    color: '#922b21',
+    color: '#b7770d',
     fixed: true
   });
 
@@ -117,7 +133,7 @@
     var display = Number.isInteger(C) ? C : C.toFixed(1);
     document.getElementById('cvalue').textContent = display;
     updateExpression(C);
-    dot.setPosition(JXG.COORDS_BY_USER, [0, C]);
+    tanPoint.setPosition(JXG.COORDS_BY_USER, [1, 1 + C]);
     board.update();
   });
 
