@@ -8,93 +8,134 @@
         <me>(1 + x)\frac{dy}{dx} = 6y.</me>
       </p>
     </statement>
+    <answer>
+      <p>
+        <me>y = C(1+x)^6</me>
+      </p>
+    </answer>
   </exercise>
 
   <exercise xml:id="ex-1-4-2">
     <statement>
       <p>
-        Find the explicit particular solution of the initial value problem:
-        <me>\frac{dy}{dx} = ye^{7x}, \quad y(0) = 5e.</me>
+        Find the explicit general solution to the following differential equation:
+        <me>\frac{dy}{dx} = ye^{7x}.</me>
       </p>
     </statement>
+    <answer>
+      <p>
+        <me>y = Ce^{e^{7x}/7}</me>
+      </p>
+    </answer>
   </exercise>
 
-
-
-  <exercise xml:id="ex-1-4-5">
+  <exercise xml:id="ex-1-4-3">
     <statement>
       <p>
         Find the explicit general solution of the given differential equation:
         <me>\frac{dy}{dx} + 6xy = 0.</me>
       </p>
     </statement>
+    <answer>
+      <p>
+        <me>y = Ce^{-3x^2}</me>
+      </p>
+    </answer>
+  </exercise>
+
+  <exercise xml:id="ex-1-4-4">
+    <statement>
+      <p>
+        Find the explicit general solution to the following differential equation:
+        <me>y' = 9xy^3.</me>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <me>y = \pm\frac{1}{\sqrt{-(9x^2 + C)}}</me>
+      </p>
+    </answer>
+  </exercise>
+
+  <exercise xml:id="ex-1-4-5">
+    <introduction>
+      <p>
+        Consider the separable ODE:
+        <me>y' = (y-3)^2 x.</me>
+      </p>
+    </introduction>
+    <task xml:id="ex-1-4-5a">
+      <statement>
+        <p>
+          Find all equilibrium solutions, then find the explicit general solution.
+        </p>
+      </statement>
+      <answer>
+        <p>
+          Equilibrium: <m>y = 3</m>. General solution: <m>y = 3 - \dfrac{1}{x^2/2 + C}</m>.
+        </p>
+      </answer>
+    </task>
+    <task xml:id="ex-1-4-5b">
+      <statement>
+        <p>
+          Find the specific solution satisfying <m>y(0) = 3</m>.
+        </p>
+      </statement>
+      <answer>
+        <p>
+          <m>y = 3</m> (the equilibrium solution).
+        </p>
+      </answer>
+    </task>
+    <task xml:id="ex-1-4-5c">
+      <statement>
+        <p>
+          Find the specific solution satisfying <m>y(0) = 1</m>.
+        </p>
+      </statement>
+      <answer>
+        <p>
+          <me>y = 3 - \frac{2}{x^2 - 1}</me>
+        </p>
+      </answer>
+    </task>
   </exercise>
 
   <exercise xml:id="ex-1-4-6">
     <statement>
       <p>
-        Find the explicit general solution to the following differential equation:
-        <me>y' = 9xy^{10}.</me>
+        Find a general <alert>implicit solution</alert> to the following ODE:
+        <me>p'(t) = \frac{1}{p} + \frac{\cos(t)}{p}.</me>
       </p>
     </statement>
+    <answer>
+      <p>
+        <me>\frac{p^2}{2} = t + \sin(t) + C</me>
+      </p>
+    </answer>
   </exercise>
 
   <exercise xml:id="ex-1-4-7">
-  <introduction>
-    <p>
-      Consider the separable ODE:
-      <me>y'(t) = \frac{y^2}{t^2}.</me>
-    </p>
-  </introduction>
-  <task xml:id="ex-1-4-7a">
-    <statement>
-      <p>
-        Find the explicit general solution.
-      </p>
-    </statement>
-  </task>
-  <task xml:id="ex-1-4-7b">
-    <statement>
-      <p>
-        Find the specific solution satisfying the initial condition <m>y(0) = 3</m>.
-      </p>
-    </statement>
-  </task>
-  <task xml:id="ex-1-4-7c">
-    <statement>
-      <p>
-        Find the specific solution satisfying the initial condition <m>y(0) = 0</m>.
-      </p>
-    </statement>
-  </task>
-</exercise>
-
-<exercise xml:id="ex-1-4-implicit">
-  <statement>
-    <p>
-      Find a general <alert>implicit solution</alert> to the following ODE:
-      <me>p'(t) = \frac{1}{p} + \frac{\cos(t)}{p}.</me>
-    </p>
-  </statement>
-</exercise>
-
-  <exercise xml:id="ex-1-4-8">
     <statement>
       <p>
         Solve the IVP explicitly:
         <me>(2x + 6)\frac{dx}{dt} = -t\sin(t^2), \quad x(0) = -4.</me>
       </p>
     </statement>
+    <answer>
+      <p>
+        <me>x = -3 - \sqrt{\frac{\cos(t^2) - 17}{2} + 9}</me>
+      </p>
+    </answer>
   </exercise>
 
   <exercise>
     <statement>
       <p>
-        More to be added for week 2 part of this section (the previous exercise also goes with week 2 homework)
+        More to be added for week 2 part of this section.
       </p>
     </statement>
   </exercise>
-
-  
 
 </exercises>

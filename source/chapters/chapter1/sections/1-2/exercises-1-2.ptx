@@ -8,6 +8,11 @@
         <me>\frac{dy}{dx} = \frac{9}{x^4}.</me>
       </p>
     </statement>
+    <answer>
+      <p>
+        <me>y = -\frac{3}{x^3} + C</me>
+      </p>
+    </answer>
   </exercise>
 
   <exercise xml:id="ex-1-2-2">
@@ -17,6 +22,11 @@
         <me>\frac{dy}{dx} = \frac{1}{x+3}.</me>
       </p>
     </statement>
+    <answer>
+      <p>
+        <me>y = \ln|x+3| + C</me>
+      </p>
+    </answer>
   </exercise>
 
   <exercise xml:id="ex-1-2-3">
@@ -26,6 +36,11 @@
         <me>\frac{dy}{dx} = \frac{2}{x^2+4}.</me>
       </p>
     </statement>
+    <answer>
+      <p>
+        <me>y = \arctan\!\left(\frac{x}{2}\right)</me>
+      </p>
+    </answer>
   </exercise>
 
   <exercise xml:id="ex-1-2-4">
@@ -34,14 +49,32 @@
         Find the position function <m>x(t)</m> of a moving particle with acceleration <m>a(t) = 3t</m>, initial velocity <m>v(0) = 2</m>, and initial position <m>x(0) = 0</m>.
       </p>
     </statement>
+    <answer>
+      <p>
+        <me>x(t) = \frac{t^3}{2} + 2t</me>
+      </p>
+    </answer>
   </exercise>
 
   <exercise xml:id="ex-1-2-5">
     <statement>
       <p>
-        The brakes of a car are applied when it is moving at <m>110</m> km/h and provide a constant deceleration of <m>10</m> m/s<m>^2</m>. How far does the car travel before coming to a stop?
-      </p>
+      The brakes of a car are applied when it is moving at <m>30</m> m/s and provide a constant deceleration of <m>10</m> m/s<m>^2</m>. 
+      How far does the car travel before coming to a stop?</p>
     </statement>
+    <hint>
+      <p>
+        Start the problem similar to the example in the notes by first computing
+        how much time passes before coming to a stop. Find the position function.
+        How can you combine these two things to answer the question?
+      </p>
+    </hint>
+    <answer>
+      <p>
+        It takes 3 seconds to come to a stop, and at this point it will have traveled
+        <m>45</m> m.
+      </p>
+    </answer>
   </exercise>
 
 </exercises>
