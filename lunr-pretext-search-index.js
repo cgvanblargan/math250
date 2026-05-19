@@ -376,7 +376,7 @@ var ptx_lunr_docs = [
   "type": "Exercises",
   "number": "1.1.6",
   "title": "Exercises for Section 1.1",
-  "body": " Exercises for Section 1.1    Write a differential equation of the form whose solution has the property that the slope of its graph at any point equals the sum of and .      Write a differential equation of the form whose solution has the property that the tangent line to its graph at any point passes through the point .    Compute the slope of the tangent line at , knowing that it passes through both and the point . Then refer to the setting up ODEs example in the notes.      Write a differential equation of the form that models the following: The temperature of a cup of coffee changes at a rate proportional to the difference between the ambient air temperature and the coffee's current temperature. Write a differential equation (with proportionality constant ) modeling .      Complete parts (a) and (b).     Verify that is a solution of .      Find the value of satisfying the initial condition .       Verify by substitution that and are both solutions of:       Verify by substitution that is a solution of:       Find all integer values of for which is a solution to:       Find all integer values of for which is a solution to:       Find all values of the constant for which is a solution of:       Find all equilibrium (constant) solutions to the equation below. That is, find all values of for which is a solution.       Find all equilibrium (constant) solutions to the equation below. That is, find all values of for which is a solution.     "
+  "body": " Exercises for Section 1.1  Below are the exercises to complete for this section. You can check many of the answers in the \"backmatter\" of these notes. The necessary calculus pre-reqs for these exercises are listed at the bottom of this page.    Write a differential equation of the form whose solution has the property that the slope of its graph at any point equals the sum of and .         Write a differential equation of the form whose solution has the property that the tangent line to its graph at any point passes through the point .    You will need to use the fact that the slope of any line is .  Compute the slope of the tangent line: one of the points it passes through is , what other point does the tangent line always pass through? Refer to the setting up ODEs example in the notes.         The temperature of a cup of coffee changes at a rate proportional to the difference between the ambient air temperature and the coffee's current temperature. Suppose the ambient air temperature is F. Write a differential equation modeling .     Or equivalently: (because is not specified as a positive or negative constant, either is fine.)      Complete parts (a) and (b).     Verify that is a solution of .           Find the value of satisfying the initial condition .    .       Verify by substitution that and are both solutions of:     For :    For :        Verify by substitution that is a solution of:      and        Find all integer values of for which is a solution to:     and .      Find all integer values of for which is a solution to:     .      Find all values of the constant for which is a solution of:     and .      Find all equilibrium (constant) solutions to the equation below. That is, find all values of for which is a solution.     No equilibrium solutions.      Find all equilibrium (constant) solutions to the equation below. That is, find all values of for which is a solution.     and .    The following calculus facts will be useful throughout these exercises. Feel free to use them as a quick reference!   Calculus Prerequisites       Power Rule:     Example   . We multiply by the exponent and reduce the power by 1.      Exponential Rule:  , and more generally by the chain rule:    Example   . The chain rule brings down the inner derivative as a factor.      Chain Rule:     Example   . Here and , so and .      Product Rule:     Example   .      Trig Derivatives:  and      "
 },
 {
   "id": "ex-1-1-1",
@@ -385,7 +385,7 @@ var ptx_lunr_docs = [
   "type": "Exercise",
   "number": "1.1.6.1",
   "title": "",
-  "body": "  Write a differential equation of the form whose solution has the property that the slope of its graph at any point equals the sum of and .   "
+  "body": "  Write a differential equation of the form whose solution has the property that the slope of its graph at any point equals the sum of and .      "
 },
 {
   "id": "ex-1-1-2",
@@ -394,7 +394,7 @@ var ptx_lunr_docs = [
   "type": "Exercise",
   "number": "1.1.6.2",
   "title": "",
-  "body": "  Write a differential equation of the form whose solution has the property that the tangent line to its graph at any point passes through the point .    Compute the slope of the tangent line at , knowing that it passes through both and the point . Then refer to the setting up ODEs example in the notes.   "
+  "body": "  Write a differential equation of the form whose solution has the property that the tangent line to its graph at any point passes through the point .    You will need to use the fact that the slope of any line is .  Compute the slope of the tangent line: one of the points it passes through is , what other point does the tangent line always pass through? Refer to the setting up ODEs example in the notes.      "
 },
 {
   "id": "ex-1-1-3",
@@ -403,7 +403,7 @@ var ptx_lunr_docs = [
   "type": "Exercise",
   "number": "1.1.6.3",
   "title": "",
-  "body": "  Write a differential equation of the form that models the following: The temperature of a cup of coffee changes at a rate proportional to the difference between the ambient air temperature and the coffee's current temperature. Write a differential equation (with proportionality constant ) modeling .   "
+  "body": "  The temperature of a cup of coffee changes at a rate proportional to the difference between the ambient air temperature and the coffee's current temperature. Suppose the ambient air temperature is F. Write a differential equation modeling .     Or equivalently: (because is not specified as a positive or negative constant, either is fine.)   "
 },
 {
   "id": "ex-1-1-4",
@@ -412,7 +412,7 @@ var ptx_lunr_docs = [
   "type": "Exercise",
   "number": "1.1.6.4",
   "title": "",
-  "body": "  Complete parts (a) and (b).     Verify that is a solution of .      Find the value of satisfying the initial condition .    "
+  "body": "  Complete parts (a) and (b).     Verify that is a solution of .           Find the value of satisfying the initial condition .    .    "
 },
 {
   "id": "ex-1-1-5",
@@ -421,7 +421,7 @@ var ptx_lunr_docs = [
   "type": "Exercise",
   "number": "1.1.6.5",
   "title": "",
-  "body": "  Verify by substitution that and are both solutions of:    "
+  "body": "  Verify by substitution that and are both solutions of:     For :    For :     "
 },
 {
   "id": "ex-1-1-6",
@@ -430,7 +430,7 @@ var ptx_lunr_docs = [
   "type": "Exercise",
   "number": "1.1.6.6",
   "title": "",
-  "body": "  Verify by substitution that is a solution of:    "
+  "body": "  Verify by substitution that is a solution of:      and     "
 },
 {
   "id": "ex-1-1-7",
@@ -439,7 +439,7 @@ var ptx_lunr_docs = [
   "type": "Exercise",
   "number": "1.1.6.7",
   "title": "",
-  "body": "  Find all integer values of for which is a solution to:    "
+  "body": "  Find all integer values of for which is a solution to:     and .   "
 },
 {
   "id": "ex-1-1-8",
@@ -448,7 +448,7 @@ var ptx_lunr_docs = [
   "type": "Exercise",
   "number": "1.1.6.8",
   "title": "",
-  "body": "  Find all integer values of for which is a solution to:    "
+  "body": "  Find all integer values of for which is a solution to:     .   "
 },
 {
   "id": "ex-1-1-9",
@@ -457,7 +457,7 @@ var ptx_lunr_docs = [
   "type": "Exercise",
   "number": "1.1.6.9",
   "title": "",
-  "body": "  Find all values of the constant for which is a solution of:    "
+  "body": "  Find all values of the constant for which is a solution of:     and .   "
 },
 {
   "id": "ex-1-1-10",
@@ -466,7 +466,7 @@ var ptx_lunr_docs = [
   "type": "Exercise",
   "number": "1.1.6.10",
   "title": "",
-  "body": "  Find all equilibrium (constant) solutions to the equation below. That is, find all values of for which is a solution.    "
+  "body": "  Find all equilibrium (constant) solutions to the equation below. That is, find all values of for which is a solution.     No equilibrium solutions.   "
 },
 {
   "id": "ex-1-1-11",
@@ -475,7 +475,7 @@ var ptx_lunr_docs = [
   "type": "Exercise",
   "number": "1.1.6.11",
   "title": "",
-  "body": "  Find all equilibrium (constant) solutions to the equation below. That is, find all values of for which is a solution.    "
+  "body": "  Find all equilibrium (constant) solutions to the equation below. That is, find all values of for which is a solution.     and .   "
 },
 {
   "id": "sec-integrating-to-get-solutions",
@@ -673,7 +673,7 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "1.4.1",
   "title": "Introduction to Separable ODEs",
-  "body": " Introduction to Separable ODEs  We now introduce a method for solving a broad class of first-order ODEs called separable differential equations . Let's first get a feel for the idea through an example before formalizing things.  Let's get a feel for the idea through an example before formalizing things. Consider the differential equation . Notice that the right-hand side factors into a part involving only and a part involving only . We call ODEs in this form separable . That is, it can be written the form . We are going to try to \"separate\" the variables, moving all the terms to one side and all the terms to the other.  We write: We are treating as if it were a fraction and \"multiplying both sides by .\" Strictly speaking, is not a fraction. We will justify why this manipulation is mathematically valid shortly. For now, think of it as a useful shorthand that consistently gives the right answer.  Integrating both sides: Each side produces its own constant of integration: so we write:   So the general solution is .   Algebra to solve for  Starting from : So the general solution is .   This will outlined more clearly on the next page. But for now, let's make sure you understand what a first order separable ODE is.    Recall that a separable ODE is one that can be written in the form , where the right-hand side factors into a part involving only the dependent variable and a part involving only the independent variable. Which of the following ODEs are separable? Select all that apply.       Separable! We can write this as and (or and ). The right-hand side factors cleanly into a part in and a constant.       Separable! Factor out from the right-hand side: . So and .       Separable! The right-hand side already factors as and .       Separable — but sneaky! There is no explicit on the right-hand side, so (a constant function). We have and .       Not separable! There is no way to write as a product — the two variables are added together, not multiplied.       Not separable! Like the previous option, cannot be factored into a part in only and a part in only. Addition is the giveaway here.       Not separable! Even though it involves a trig function, cannot be written as — the variables are tangled together inside the sine.       This video goes through the content of this page.    "
+  "body": " Introduction to Separable ODEs  We now introduce a method for solving a broad class of first-order ODEs called separable differential equations . Let's first get a feel for the idea through an example before formalizing things.  Let's get a feel for the idea through an example before formalizing things. Consider the differential equation . Notice that the right-hand side factors into a part involving only and a part involving only . We call ODEs in this form separable . That is, it can be written the form . We are going to try to \"separate\" the variables, moving all the terms to one side and all the terms to the other.  We write: We are treating as if it were a fraction and \"multiplying both sides by .\" Strictly speaking, is not a fraction. We will justify why this manipulation is mathematically valid shortly. For now, think of it as a useful shorthand that consistently gives the right answer.  Integrating both sides: Each side produces its own constant of integration: so we write:   So the general solution is .   Algebra to solve for  Starting from : So the general solution is .   This will outlined more clearly on the next page. But for now, let's make sure you understand what a first order separable ODE is.    Recall that a separable ODE is one that can be written in the form , where the right-hand side factors into a part involving only the dependent variable and a part involving only the independent variable. Which of the following ODEs are separable? Select all that apply.   Note that an ODE is separable as long as it can be written in the form . It does not need to appear that way initially.        Separable! We can write this as and (or and ). The right-hand side factors cleanly into a part in and a constant.       Separable! Factor out from the right-hand side: . So and .       Separable! The right-hand side already factors as and .       Separable — but sneaky! There is no explicit on the right-hand side, so (a constant function). We have and .       Not separable! There is no way to write as a product — the two variables are added together, not multiplied.       Not separable! Like the previous option, cannot be factored into a part in only and a part in only. Addition is the giveaway here.       Not separable! Even though it involves a trig function, cannot be written as — the variables are tangled together inside the sine.       This video goes through the content of this page.    "
 },
 {
   "id": "subsec-intr-separable-2",
@@ -691,7 +691,7 @@ var ptx_lunr_docs = [
   "type": "Checkpoint",
   "number": "1.4.1",
   "title": "",
-  "body": "  Recall that a separable ODE is one that can be written in the form , where the right-hand side factors into a part involving only the dependent variable and a part involving only the independent variable. Which of the following ODEs are separable? Select all that apply.       Separable! We can write this as and (or and ). The right-hand side factors cleanly into a part in and a constant.       Separable! Factor out from the right-hand side: . So and .       Separable! The right-hand side already factors as and .       Separable — but sneaky! There is no explicit on the right-hand side, so (a constant function). We have and .       Not separable! There is no way to write as a product — the two variables are added together, not multiplied.       Not separable! Like the previous option, cannot be factored into a part in only and a part in only. Addition is the giveaway here.       Not separable! Even though it involves a trig function, cannot be written as — the variables are tangled together inside the sine.     "
+  "body": "  Recall that a separable ODE is one that can be written in the form , where the right-hand side factors into a part involving only the dependent variable and a part involving only the independent variable. Which of the following ODEs are separable? Select all that apply.   Note that an ODE is separable as long as it can be written in the form . It does not need to appear that way initially.        Separable! We can write this as and (or and ). The right-hand side factors cleanly into a part in and a constant.       Separable! Factor out from the right-hand side: . So and .       Separable! The right-hand side already factors as and .       Separable — but sneaky! There is no explicit on the right-hand side, so (a constant function). We have and .       Not separable! There is no way to write as a product — the two variables are added together, not multiplied.       Not separable! Like the previous option, cannot be factored into a part in only and a part in only. Addition is the giveaway here.       Not separable! Even though it involves a trig function, cannot be written as — the variables are tangled together inside the sine.     "
 },
 {
   "id": "video-sep-intro",
@@ -835,7 +835,7 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "1.4.4",
   "title": "Separation of Variables: Some Subtle Points",
-  "body": " Separation of Variables: Some Subtle Points  Now we look at two more examples solving separable ODEs. This first example illustrates a subtle point when dealing with square roots. See if you can find the mistake in the work below!   A Subtle Moment in Solving an IVP   Let's solve the following initial value problem explicitly: , .  After separating variables and integrating, we arrive at:    Work for separation of variables  First, why is this separable? Notice that is already on the left with , so no dividing by is necessary — we can separate immediately by writing . There are no equilibrium solutions since setting gives , which can't hold for all .  Separating variables: Integrating both sides:    Now something interesting happens when we solve for explicitly. Let's take the square root of both sides: Applying the initial condition : But the square root of a number is always non-negative — so is impossible! We seem to have reached a contradiction. What went wrong?    What went wrong?   Identify the error in the working above.     We integrated incorrectly — the antiderivative of is not .  Not quite — is correct!    We forgot the when taking the square root.  Exactly! When solving , we should have written . The negative branch is what allows .    The initial condition is inconsistent with this ODE — no solution exists.  Not quite — a solution does exist! The issue is earlier in the working.       Now that you've identified the mistake, see if you can finish solving the problem correctly! Check with the solution below.    Corrected solution  The fix is to include the when taking the square root: Now applying : since is negative, we choose the negative branch: So the specific solution is:      So far, when solving a separable ODE we have always ended by solving explicitly for the dependent variable, arriving at something like or . But sometimes it is difficult or even impossible to isolate the dependent variable, and that's okay! An equation relating and that implicitly defines as a function of , without explicitly writing , is called an implicit solution . For example, could be an implicit solution to an ODE even though we haven't written by itself. In these cases, we simply stop once we have a clean implicit relation and call that the general solution.   Finding a General Implicit Solution   Find a general implicit solution to .    Separating the variables   We are trying to solve . Which of the following correctly separates the variables?         Correct! Multiplying both sides by gives , and then separating gives .         Not quite — check your separation step. You need to multiply both sides by first, not divide.         Not quite — the right-hand side still contains , which means the variables are not fully separated!      This ODE is not separable.    It is separable! Try rewriting the right-hand side by factoring out : . Now can you see how to separate?      How to separate the variables  First rewrite the right-hand side by combining the fractions: Now multiply both sides by : Integrating both sides:      Integrating and writing the implicit solution   After integrating both sides, we arrive at: This is the general implicit solution. See the dropdown for all the details.    Full working   Equilibrium solutions: None. To see why, rewrite the ODE as: In this form, and . Equilibrium solutions are found by setting , that is — but this has no solution. So there are no equilibrium solutions.   Separating and integrating:  Since solving explicitly for would require taking a square root (introducing a ) and the problem only asks for an implicit solution, we stop here. The general implicit solution is:       This video goes through the content of this page.    "
+  "body": " Separation of Variables: Some Subtle Points  Now we look at two more examples solving separable ODEs. This first example illustrates a subtle point when dealing with square roots. See if you can find the mistake in the work below!   A Subtle Moment in Solving an IVP   Let's solve the following initial value problem explicitly: , .  After separating variables and integrating, we arrive at:    Work for separation of variables  First, why is this separable? Notice that is already on the left with , so no dividing by is necessary — we can separate immediately by writing . There are no equilibrium solutions since setting gives , which can't hold for all .  Separating variables: Integrating both sides:    Now something interesting happens when we solve for explicitly. Let's take the square root of both sides: Applying the initial condition : But the square root of a number is always non-negative — so is impossible! We seem to have reached a contradiction. What went wrong?    What went wrong?   Identify the error in the working above.     We integrated incorrectly. The antiderivative of is not .  Not quite — is correct!    We forgot the when taking the square root.  Exactly! When solving , we should have written . The negative branch is what allows .    The initial condition is inconsistent with this ODE, so no solution exists.  Not quite — a solution does exist! The issue is earlier in the working.       Now that you've identified the mistake, see if you can finish solving the problem correctly! Check with the solution below.    Corrected solution  The fix is to include the when taking the square root: Now applying : since is negative, we choose the negative branch: So the specific solution is:      So far, when solving a separable ODE we have always ended by solving explicitly for the dependent variable, arriving at something like or . But sometimes it is difficult or even impossible to isolate the dependent variable, and that's okay! An equation relating and that implicitly defines as a function of , without explicitly writing , is called an implicit solution . For example, could be an implicit solution to an ODE even though we haven't written by itself. In these cases, we simply stop once we have a clean implicit relation and call that the general solution.   Finding a General Implicit Solution   Find a general implicit solution to .    Separating the variables   We are trying to solve . Which of the following correctly separates the variables?         Correct! Multiplying both sides by gives , and then separating gives .         Not quite — check your separation step. You need to multiply both sides by first, not divide.         Not quite — the right-hand side still contains , which means the variables are not fully separated!      This ODE is not separable.    It is separable! Try rewriting the right-hand side by factoring out : . Now can you see how to separate?      How to separate the variables  First notice is the same thing as , and we can rewrite the right-hand side by combining the fractions: Now multiply both sides by : Integrating both sides:      Integrating and writing the implicit solution   After integrating both sides, we arrive at: This is the general implicit solution. See the dropdown for all the details.    Full working   Equilibrium solutions: None. To see why, rewrite the ODE as: In this form, and . Equilibrium solutions are found by setting , that is — but this has no solution. So there are no equilibrium solutions.   Separating and integrating:  Since solving explicitly for would require taking a square root (introducing a ) and the problem only asks for an implicit solution, we stop here. The general implicit solution is:       This video goes through the content of this page.    "
 },
 {
   "id": "explore-ivp-sqrt",
@@ -844,7 +844,7 @@ var ptx_lunr_docs = [
   "type": "Exploration",
   "number": "1.4.1",
   "title": "A Subtle Moment in Solving an IVP.",
-  "body": " A Subtle Moment in Solving an IVP   Let's solve the following initial value problem explicitly: , .  After separating variables and integrating, we arrive at:    Work for separation of variables  First, why is this separable? Notice that is already on the left with , so no dividing by is necessary — we can separate immediately by writing . There are no equilibrium solutions since setting gives , which can't hold for all .  Separating variables: Integrating both sides:    Now something interesting happens when we solve for explicitly. Let's take the square root of both sides: Applying the initial condition : But the square root of a number is always non-negative — so is impossible! We seem to have reached a contradiction. What went wrong?    What went wrong?   Identify the error in the working above.     We integrated incorrectly — the antiderivative of is not .  Not quite — is correct!    We forgot the when taking the square root.  Exactly! When solving , we should have written . The negative branch is what allows .    The initial condition is inconsistent with this ODE — no solution exists.  Not quite — a solution does exist! The issue is earlier in the working.       Now that you've identified the mistake, see if you can finish solving the problem correctly! Check with the solution below.    Corrected solution  The fix is to include the when taking the square root: Now applying : since is negative, we choose the negative branch: So the specific solution is:     "
+  "body": " A Subtle Moment in Solving an IVP   Let's solve the following initial value problem explicitly: , .  After separating variables and integrating, we arrive at:    Work for separation of variables  First, why is this separable? Notice that is already on the left with , so no dividing by is necessary — we can separate immediately by writing . There are no equilibrium solutions since setting gives , which can't hold for all .  Separating variables: Integrating both sides:    Now something interesting happens when we solve for explicitly. Let's take the square root of both sides: Applying the initial condition : But the square root of a number is always non-negative — so is impossible! We seem to have reached a contradiction. What went wrong?    What went wrong?   Identify the error in the working above.     We integrated incorrectly. The antiderivative of is not .  Not quite — is correct!    We forgot the when taking the square root.  Exactly! When solving , we should have written . The negative branch is what allows .    The initial condition is inconsistent with this ODE, so no solution exists.  Not quite — a solution does exist! The issue is earlier in the working.       Now that you've identified the mistake, see if you can finish solving the problem correctly! Check with the solution below.    Corrected solution  The fix is to include the when taking the square root: Now applying : since is negative, we choose the negative branch: So the specific solution is:     "
 },
 {
   "id": "subsec-sep-minussign-4",
@@ -862,7 +862,7 @@ var ptx_lunr_docs = [
   "type": "Example",
   "number": "1.4.1",
   "title": "Finding a General Implicit Solution.",
-  "body": " Finding a General Implicit Solution   Find a general implicit solution to .    Separating the variables   We are trying to solve . Which of the following correctly separates the variables?         Correct! Multiplying both sides by gives , and then separating gives .         Not quite — check your separation step. You need to multiply both sides by first, not divide.         Not quite — the right-hand side still contains , which means the variables are not fully separated!      This ODE is not separable.    It is separable! Try rewriting the right-hand side by factoring out : . Now can you see how to separate?      How to separate the variables  First rewrite the right-hand side by combining the fractions: Now multiply both sides by : Integrating both sides:      Integrating and writing the implicit solution   After integrating both sides, we arrive at: This is the general implicit solution. See the dropdown for all the details.    Full working   Equilibrium solutions: None. To see why, rewrite the ODE as: In this form, and . Equilibrium solutions are found by setting , that is — but this has no solution. So there are no equilibrium solutions.   Separating and integrating:  Since solving explicitly for would require taking a square root (introducing a ) and the problem only asks for an implicit solution, we stop here. The general implicit solution is:     "
+  "body": " Finding a General Implicit Solution   Find a general implicit solution to .    Separating the variables   We are trying to solve . Which of the following correctly separates the variables?         Correct! Multiplying both sides by gives , and then separating gives .         Not quite — check your separation step. You need to multiply both sides by first, not divide.         Not quite — the right-hand side still contains , which means the variables are not fully separated!      This ODE is not separable.    It is separable! Try rewriting the right-hand side by factoring out : . Now can you see how to separate?      How to separate the variables  First notice is the same thing as , and we can rewrite the right-hand side by combining the fractions: Now multiply both sides by : Integrating both sides:      Integrating and writing the implicit solution   After integrating both sides, we arrive at: This is the general implicit solution. See the dropdown for all the details.    Full working   Equilibrium solutions: None. To see why, rewrite the ODE as: In this form, and . Equilibrium solutions are found by setting , that is — but this has no solution. So there are no equilibrium solutions.   Separating and integrating:  Since solving explicitly for would require taking a square root (introducing a ) and the problem only asks for an implicit solution, we stop here. The general implicit solution is:     "
 },
 {
   "id": "video-sep-twomoreexamples",
@@ -989,6 +989,15 @@ var ptx_lunr_docs = [
   "number": "2",
   "title": "Chapter 2: Coming soon",
   "body": " Chapter 2: Coming soon   Chapter 2 has not been added yet    "
+},
+{
+  "id": "backmatter-2",
+  "level": "1",
+  "url": "backmatter-2.html",
+  "type": "Appendix",
+  "number": "A",
+  "title": "Answers to Exercises",
+  "body": " Answers to Exercises  "
 },
 {
   "id": "back-colophon",

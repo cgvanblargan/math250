@@ -183,7 +183,13 @@ eBookConfig.enable_chatcodes =  false;
 </ul>
 </li>
 <li class="toc-item toc-chapter"><div class="toc-title-box"><a href="ch-chapter-two.html" class="internal"><span class="codenumber">2</span> <span class="title">Chapter 2: Coming soon</span></a></div></li>
-<li class="toc-item toc-backmatter"><div class="toc-title-box"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div></li>
+<li class="toc-item toc-backmatter">
+<div class="toc-title-box"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-solutions"><div class="toc-title-box"><a href="backmatter-2.html" class="internal"><span class="codenumber">A</span> <span class="title">Answers to Exercises</span></a></div></li>
+<li class="toc-item toc-colophon"><div class="toc-title-box"><a href="back-colophon.html" class="internal"><span class="title">Colophon</span></a></div></li>
+</ul>
+</li>
 </ul></nav></div>
 <main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="subsec-sep-minussign"><h2 class="heading hide-type">
 <span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.4.4</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Separation of Variables: Some Subtle Points</span>
@@ -251,13 +257,13 @@ x(t) = \sqrt{t^2 + C}.
 <div class="exercise-statement"><div class="para" id="task-find-mistake-sqrt-2-1">Identify the error in the working above.<div class="autopermalink" data-description="Paragraph"><a href="#task-find-mistake-sqrt-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div></div>
 <ul data-component="multiplechoice" class="exercise-interactives" id="rs-task-find-mistake-sqrt" data-multipleanswers="false">
-<li data-component="answer" id="rs-task-find-mistake-sqrt_opt_a"><div class="para" id="task-find-mistake-sqrt-3-1-1-1">We integrated incorrectly — the antiderivative of <span class="process-math">\(x\)</span> is not <span class="process-math">\(\frac{1}{2}x^2\text{.}\)</span>
+<li data-component="answer" id="rs-task-find-mistake-sqrt_opt_a"><div class="para" id="task-find-mistake-sqrt-3-1-1-1">We integrated incorrectly. The antiderivative of <span class="process-math">\(x\)</span> is not <span class="process-math">\(\frac{1}{2}x^2\text{.}\)</span>
 </div></li>
 <li data-component="feedback" id="rs-task-find-mistake-sqrt_opt_a"><div class="para" id="task-find-mistake-sqrt-3-1-2-1">Not quite — <span class="process-math">\(\int x\, dx = \frac{1}{2}x^2 + C\)</span> is correct!</div></li>
 <li data-component="answer" id="rs-task-find-mistake-sqrt_opt_b" data-correct=""><div class="para" id="task-find-mistake-sqrt-3-2-1-1">We forgot the <span class="process-math">\(\pm\)</span> when taking the square root.</div></li>
 <li data-component="feedback" id="rs-task-find-mistake-sqrt_opt_b"><div class="para" id="task-find-mistake-sqrt-3-2-2-1">Exactly! When solving <span class="process-math">\(x^2 = t^2 + C\text{,}\)</span> we should have written <span class="process-math">\(x = \pm\sqrt{t^2 + C}\text{.}\)</span> The negative branch is what allows <span class="process-math">\(x(0) = -2\text{.}\)</span>
 </div></li>
-<li data-component="answer" id="rs-task-find-mistake-sqrt_opt_c"><div class="para" id="task-find-mistake-sqrt-3-3-1-1">The initial condition <span class="process-math">\(x(0) = -2\)</span> is inconsistent with this ODE — no solution exists.</div></li>
+<li data-component="answer" id="rs-task-find-mistake-sqrt_opt_c"><div class="para" id="task-find-mistake-sqrt-3-3-1-1">The initial condition <span class="process-math">\(x(0) = -2\)</span> is inconsistent with this ODE, so no solution exists.</div></li>
 <li data-component="feedback" id="rs-task-find-mistake-sqrt_opt_c"><div class="para" id="task-find-mistake-sqrt-3-3-2-1">Not quite — a solution does exist! The issue is earlier in the working.</div></li>
 </ul>
 </div></div>
@@ -315,21 +321,21 @@ x(t) = -\sqrt{t^2 + 4}.
 </div></div>
 <div class="solutions"><details id="task-separate-implicit-4" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">How to separate the variables</span></summary><div class="solution solution-like knowl__content">
 <div class="para logical" id="task-separate-implicit-4-2">
-<div class="para">First rewrite the right-hand side by combining the fractions:</div>
-<div class="displaymath process-math" id="task-separate-implicit-4-2-1">
+<div class="para">First notice <span class="process-math">\(v' \)</span> is the same thing as <span class="process-math">\(\frac{dv}{dt} \text{,}\)</span> and we can rewrite the right-hand side by combining the fractions:</div>
+<div class="displaymath process-math" id="task-separate-implicit-4-2-3">
 \begin{equation*}
-v' = \frac{1}{v} - \frac{t^2}{v} = \frac{1 - t^2}{v}.
+\frac{dv}{dt} = \frac{1}{v} - \frac{t^2}{v} = \frac{1 - t^2}{v}.
 \end{equation*}
 </div>
 <div class="para">Now multiply both sides by <span class="process-math">\(v\text{:}\)</span>
 </div>
-<div class="displaymath process-math" id="task-separate-implicit-4-2-3">
+<div class="displaymath process-math" id="task-separate-implicit-4-2-5">
 \begin{equation*}
-v \cdot v' = 1 - t^2 \implies v\, dv = (1 - t^2)\, dt.
+v \cdot \frac{dv}{dt} = 1 - t^2 \implies v\, dv = (1 - t^2)\, dt.
 \end{equation*}
 </div>
 <div class="para">Integrating both sides:</div>
-<div class="displaymath process-math" id="task-separate-implicit-4-2-4">
+<div class="displaymath process-math" id="task-separate-implicit-4-2-6">
 \begin{equation*}
 \int v\, dv = \int (1 - t^2)\, dt.
 \end{equation*}
