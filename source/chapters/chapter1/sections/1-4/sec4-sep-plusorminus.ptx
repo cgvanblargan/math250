@@ -53,7 +53,7 @@
     </statement>
     <choices randomize="no">
       <choice>
-        <statement><p>We integrated incorrectly — the antiderivative of <m>x</m> is not <m>\frac{1}{2}x^2</m>.</p></statement>
+        <statement><p>We integrated incorrectly. The antiderivative of <m>x</m> is not <m>\frac{1}{2}x^2</m>.</p></statement>
         <feedback><p>Not quite — <m>\int x\, dx = \frac{1}{2}x^2 + C</m> is correct!</p></feedback>
       </choice>
       <choice correct="yes">
@@ -61,7 +61,7 @@
         <feedback><p>Exactly! When solving <m>x^2 = t^2 + C</m>, we should have written <m>x = \pm\sqrt{t^2 + C}</m>. The negative branch is what allows <m>x(0) = -2</m>.</p></feedback>
       </choice>
       <choice>
-        <statement><p>The initial condition <m>x(0) = -2</m> is inconsistent with this ODE — no solution exists.</p></statement>
+        <statement><p>The initial condition <m>x(0) = -2</m> is inconsistent with this ODE, so no solution exists.</p></statement>
         <feedback><p>Not quite — a solution does exist! The issue is earlier in the working.</p></feedback>
       </choice>
     </choices>
@@ -150,10 +150,10 @@
     <solution>
       <title>How to separate the variables</title>
       <p>
-        First rewrite the right-hand side by combining the fractions:
-        <me>v' = \frac{1}{v} - \frac{t^2}{v} = \frac{1 - t^2}{v}.</me>
+        First notice <m>v' </m> is the same thing as <m>\frac{dv}{dt} </m>, and we can rewrite the right-hand side by combining the fractions:
+        <me>\frac{dv}{dt} = \frac{1}{v} - \frac{t^2}{v} = \frac{1 - t^2}{v}.</me>
         Now multiply both sides by <m>v</m>:
-        <me>v \cdot v' = 1 - t^2 \implies v\, dv = (1 - t^2)\, dt.</me>
+        <me>v \cdot \frac{dv}{dt} = 1 - t^2 \implies v\, dv = (1 - t^2)\, dt.</me>
         Integrating both sides:
         <me>\int v\, dv = \int (1 - t^2)\, dt.</me>
       </p>

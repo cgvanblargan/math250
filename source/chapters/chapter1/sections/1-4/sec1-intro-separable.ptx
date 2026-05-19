@@ -50,6 +50,12 @@
     <p>
       Recall that a separable ODE is one that can be written in the form <m>\frac{dy}{dx} = f(y)g(x)</m>, where the right-hand side factors into a part involving only the dependent variable and a part involving only the independent variable. Which of the following ODEs are separable? Select all that apply.
     </p>
+
+    <p> <p>
+  Note that an ODE is separable as long as it <em>can</em> be written in the form <m>\frac{dy}{dx} = f(y)g(x)</m>.
+  It does not need to appear that way initially.
+</p>
+    </p>
   </statement>
   <choices randomize="yes">
     <choice correct="yes">

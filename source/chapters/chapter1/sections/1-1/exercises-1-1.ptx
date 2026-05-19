@@ -1,12 +1,21 @@
 <exercises xml:id="exercises-1-1">
   <title>Exercises for Section 1.1</title>
 
+  <introduction>
+  Below are the exercises to complete for this section. You can check many of the answers in 
+  the "backmatter" of these notes. The necessary calculus pre-reqs for these exercises are listed at the bottom of this page.
+
+  </introduction>
+
   <exercise xml:id="ex-1-1-1">
     <statement>
       <p>
         Write a differential equation of the form <m>\dfrac{dy}{dx} = f(x,y)</m> whose solution <m>y = g(x)</m> has the property that the slope of its graph at any point <m>(x, y)</m> equals the sum of <m>x</m> and <m>y</m>.
       </p>
     </statement>
+    <answer>
+      <p><me>\frac{dy}{dx} = x + y</me></p>
+    </answer>
   </exercise>
 
   <exercise xml:id="ex-1-1-2">
@@ -17,18 +26,36 @@
     </statement>
     <hint>
       <p>
-        Compute the slope of the tangent line at <m>(x, y)</m>, knowing that it passes through both <m>(x, y)</m> and the point <m>(-y,\, x)</m>. Then refer to the setting up ODEs example in the notes.
+        You will need to use the fact that the slope of any line is <m>\frac{y_1-y_0}{x_1-x_0}</m>.
+        </p>
+        <p>
+        Compute the slope of the tangent line: one of the points it passes through is <m>(-y,\, x)</m>, what other point does the
+        tangent line always pass through?
+        Refer to the setting up ODEs example in the notes.
       </p>
     </hint>
+    <answer>
+      <p><me>\frac{dy}{dx} = \frac{x - y}{x + y}</me></p>
+    </answer>
   </exercise>
 
-  <exercise xml:id="ex-1-1-3">
-    <statement>
-      <p>
-      Write a differential equation of the form <m>\dfrac{dT}{dt} = f(T,t)</m> that models the following:   The temperature <m>T</m> of a cup of coffee changes at a rate proportional to the difference between the ambient air temperature <m>M</m> and the coffee's current temperature. Write a differential equation (with proportionality constant <m>k</m>) modeling <m>T(t)</m>.
-      </p>
-    </statement>
-  </exercise>
+ <exercise xml:id="ex-1-1-3">
+  <statement>
+    <p>
+      The temperature <m>T</m> of a cup of coffee changes at a rate proportional to 
+      the difference between the ambient air temperature and the coffee's current temperature. 
+      Suppose the ambient air temperature is <m>65^\circ</m>F. Write a differential equation modeling <m>T(t)</m>.
+    </p>
+  </statement>
+  <answer>
+    <p>
+      <me>\frac{dT}{dt} = k(T - 65)</me>
+      Or equivalently: 
+      <me>\frac{dT}{dt} = k(65 - T)</me>
+      (because <m> k</m> is not specified as a positive or negative constant, either is fine.)
+    </p>
+  </answer>
+</exercise>
 
   <exercise xml:id="ex-1-1-4">
     <statement>
@@ -42,6 +69,11 @@
           Verify that <m>y(x) = Ce^{-2x}</m> is a solution of <m>y' + 2y = 0</m>.
         </p>
       </statement>
+      <answer>
+        <p>
+          <me>y' + 2y = -2Ce^{-2x} + 2Ce^{-2x} = 0. \checkmark</me>
+        </p>
+      </answer>
     </task>
     <task xml:id="ex-1-1-4b">
       <statement>
@@ -49,6 +81,9 @@
           Find the value of <m>C</m> satisfying the initial condition <m>y(0) = 4</m>.
         </p>
       </statement>
+      <answer>
+        <p><m>C = 4</m>.</p>
+      </answer>
     </task>
   </exercise>
 
@@ -59,6 +94,15 @@
         <me>y'' + 25y = 0.</me>
       </p>
     </statement>
+   
+    <answer>
+  <p>
+    For <m>y_1 = \cos(5x)</m>: <m>y_1'' + 25y_1 = -25\cos(5x) + 25\cos(5x) = 0.</m> <m>\checkmark</m>
+  </p>
+  <p>
+    For <m>y_2 = \sin(5x)</m>: <m>y_2'' + 25y_2 = -25\sin(5x) + 25\sin(5x) = 0.</m> <m>\checkmark</m>
+  </p>
+</answer>
   </exercise>
 
   <exercise xml:id="ex-1-1-6">
@@ -68,6 +112,12 @@
         <me>y' = y + 12e^{-x}.</me>
       </p>
     </statement>
+    
+    <answer>
+  <p>
+    <m>y' = 10e^x + 6e^{-x}</m> and <m>y + 12e^{-x} = 10e^x + 6e^{-x}.</m> <m>\checkmark</m>
+  </p>
+</answer>
   </exercise>
 
   <exercise xml:id="ex-1-1-7">
@@ -77,6 +127,9 @@
         <me>xy'' - y' - \frac{3y}{x} = 0.</me>
       </p>
     </statement>
+    <answer>
+      <p><m>n = 3</m> and <m>n = -1</m>.</p>
+    </answer>
   </exercise>
 
   <exercise xml:id="ex-1-1-8">
@@ -86,6 +139,9 @@
         <me>\frac{d^2f}{dt^2} + \frac{1}{t}\frac{df}{dt} = 0.</me>
       </p>
     </statement>
+    <answer>
+      <p><m>n = 0</m>.</p>
+    </answer>
   </exercise>
 
   <exercise xml:id="ex-1-1-9">
@@ -95,6 +151,9 @@
         <me>y'' - y' - 6y = 0.</me>
       </p>
     </statement>
+    <answer>
+      <p><m>r = 3</m> and <m>r = -2</m>.</p>
+    </answer>
   </exercise>
 
   <exercise xml:id="ex-1-1-10">
@@ -104,6 +163,9 @@
         <me>y'' = e^{\cos t}\, y' - \sqrt{2t}\, y' + y^2 - t^2.</me>
       </p>
     </statement>
+    <answer>
+      <p>No equilibrium solutions.</p>
+    </answer>
   </exercise>
 
   <exercise xml:id="ex-1-1-11">
@@ -113,6 +175,69 @@
         <me>\frac{d\phi}{dq} + 9 = \phi^2 - q\frac{d\phi}{dq}.</me>
       </p>
     </statement>
+    <answer>
+      <p><m>\phi(q) = 3</m> and <m>\phi(q) = -3</m>.</p>
+    </answer>
   </exercise>
+
+  <p>
+      The following calculus facts will be useful throughout these exercises. Feel free to use them as a quick reference!
+    </p>
+    <p>
+      <alert>Calculus Prerequisites</alert>
+    </p>
+    <p>
+      <ul>
+        <li>
+          <p>
+            <alert>Power Rule:</alert> <m>\dfrac{d}{dx}(x^n) = nx^{n-1}</m>
+          </p>
+          <solution>
+            <title>Example</title>
+            <p>
+              <m>\dfrac{d}{dx}(x^3) = 3x^2</m>. We multiply by the exponent and reduce the power by 1.
+            </p>
+          </solution>
+        </li>
+        <li>
+          <p>
+            <alert>Exponential Rule:</alert> <m>\dfrac{d}{dx}(e^x) = e^x</m>, and more generally by the chain rule: <m>\dfrac{d}{dx}(e^{kx}) = ke^{kx}</m>
+          </p>
+          <solution>
+            <title>Example</title>
+            <p>
+              <m>\dfrac{d}{dx}(e^{3x}) = 3e^{3x}</m>. The chain rule brings down the inner derivative <m>3</m> as a factor.
+            </p>
+          </solution>
+        </li>
+        <li>
+          <p>
+            <alert>Chain Rule:</alert> <m>\dfrac{d}{dx}(f(g(x))) = f'(g(x)) \cdot g'(x)</m>
+          </p>
+          <solution>
+            <title>Example</title>
+            <p>
+              <m>\dfrac{d}{dx}(e^{x^2}) = e^{x^2} \cdot 2x = 2xe^{x^2}</m>. Here <m>f(u) = e^u</m> and <m>g(x) = x^2</m>, so <m>f'(g(x)) = e^{x^2}</m> and <m>g'(x) = 2x</m>.
+            </p>
+          </solution>
+        </li>
+        <li>
+          <p>
+            <alert>Product Rule:</alert> <m>\dfrac{d}{dx}(f(x)g(x)) = f'(x)g(x) + f(x)g'(x)</m>
+          </p>
+          <solution>
+            <title>Example</title>
+            <p>
+              <m>\dfrac{d}{dx}(xe^x) = 1 \cdot e^x + x \cdot e^x = e^x(1+x)</m>.
+            </p>
+          </solution>
+        </li>
+        <li>
+          <p>
+            <alert>Trig Derivatives:</alert> <m>\dfrac{d}{dx}(\sin x) = \cos x</m> and <m>\dfrac{d}{dx}(\cos x) = -\sin x</m>
+          </p>
+        </li>
+      </ul>
+    </p>
 
 </exercises>
