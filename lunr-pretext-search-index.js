@@ -610,7 +610,7 @@ var ptx_lunr_docs = [
   "type": "Exercises",
   "number": "1.2.3",
   "title": "Exercises for Section 1.2",
-  "body": " Exercises for Section 1.2    Find the general solution to the ODE:       Find the general solution to the ODE:       Find a function satisfying the differential equation and initial condition :       Find the position function of a moving particle with acceleration , initial velocity , and initial position .      The brakes of a car are applied when it is moving at km\/h and provide a constant deceleration of m\/s . How far does the car travel before coming to a stop?    "
+  "body": " Exercises for Section 1.2    Find the general solution to the ODE:            Find the general solution to the ODE:            Find a function satisfying the differential equation and initial condition :            Find the position function of a moving particle with acceleration , initial velocity , and initial position .           The brakes of a car are applied when it is moving at m\/s and provide a constant deceleration of m\/s . How far does the car travel before coming to a stop?    Start the problem similar to the example in the notes by first computing how much time passes before coming to a stop. Find the position function. How can you combine these two things to answer the question?    It takes 3 seconds to come to a stop, and at this point it will have traveled m.    "
 },
 {
   "id": "ex-1-2-1",
@@ -619,7 +619,7 @@ var ptx_lunr_docs = [
   "type": "Exercise",
   "number": "1.2.3.1",
   "title": "",
-  "body": "  Find the general solution to the ODE:    "
+  "body": "  Find the general solution to the ODE:         "
 },
 {
   "id": "ex-1-2-2",
@@ -628,7 +628,7 @@ var ptx_lunr_docs = [
   "type": "Exercise",
   "number": "1.2.3.2",
   "title": "",
-  "body": "  Find the general solution to the ODE:    "
+  "body": "  Find the general solution to the ODE:         "
 },
 {
   "id": "ex-1-2-3",
@@ -637,7 +637,7 @@ var ptx_lunr_docs = [
   "type": "Exercise",
   "number": "1.2.3.3",
   "title": "",
-  "body": "  Find a function satisfying the differential equation and initial condition :    "
+  "body": "  Find a function satisfying the differential equation and initial condition :         "
 },
 {
   "id": "ex-1-2-4",
@@ -646,7 +646,7 @@ var ptx_lunr_docs = [
   "type": "Exercise",
   "number": "1.2.3.4",
   "title": "",
-  "body": "  Find the position function of a moving particle with acceleration , initial velocity , and initial position .   "
+  "body": "  Find the position function of a moving particle with acceleration , initial velocity , and initial position .        "
 },
 {
   "id": "ex-1-2-5",
@@ -655,7 +655,7 @@ var ptx_lunr_docs = [
   "type": "Exercise",
   "number": "1.2.3.5",
   "title": "",
-  "body": "  The brakes of a car are applied when it is moving at km\/h and provide a constant deceleration of m\/s . How far does the car travel before coming to a stop?   "
+  "body": "  The brakes of a car are applied when it is moving at m\/s and provide a constant deceleration of m\/s . How far does the car travel before coming to a stop?    Start the problem similar to the example in the notes by first computing how much time passes before coming to a stop. Find the position function. How can you combine these two things to answer the question?    It takes 3 seconds to come to a stop, and at this point it will have traveled m.   "
 },
 {
   "id": "sec-slopefields",
@@ -907,7 +907,7 @@ var ptx_lunr_docs = [
   "type": "Exercises",
   "number": "1.4.6",
   "title": "Exercises for Section 1.4",
-  "body": " Exercises for Section 1.4    Find the explicit general solution to the following differential equation:       Find the explicit particular solution of the initial value problem:       Find the explicit general solution of the given differential equation:       Find the explicit general solution to the following differential equation:       Consider the separable ODE:      Find the explicit general solution.      Find the specific solution satisfying the initial condition .      Find the specific solution satisfying the initial condition .       Find a general implicit solution to the following ODE:       Solve the IVP explicitly:       More to be added for week 2 part of this section (the previous exercise also goes with week 2 homework)    "
+  "body": " Exercises for Section 1.4    Find the explicit general solution to the following differential equation:            Find the explicit general solution to the following differential equation:            Find the explicit general solution of the given differential equation:            Find the explicit general solution to the following differential equation:            Consider the separable ODE:      Find all equilibrium solutions, then find the explicit general solution.    Equilibrium: . General solution: .      Find the specific solution satisfying .     (the equilibrium solution).      Find the specific solution satisfying .            Find a general implicit solution to the following ODE:            Solve the IVP explicitly:            More to be added for week 2 part of this section.    "
 },
 {
   "id": "ex-1-4-1",
@@ -916,7 +916,7 @@ var ptx_lunr_docs = [
   "type": "Exercise",
   "number": "1.4.6.1",
   "title": "",
-  "body": "  Find the explicit general solution to the following differential equation:    "
+  "body": "  Find the explicit general solution to the following differential equation:         "
 },
 {
   "id": "ex-1-4-2",
@@ -925,52 +925,52 @@ var ptx_lunr_docs = [
   "type": "Exercise",
   "number": "1.4.6.2",
   "title": "",
-  "body": "  Find the explicit particular solution of the initial value problem:    "
+  "body": "  Find the explicit general solution to the following differential equation:         "
+},
+{
+  "id": "ex-1-4-3",
+  "level": "2",
+  "url": "exercises-1-4.html#ex-1-4-3",
+  "type": "Exercise",
+  "number": "1.4.6.3",
+  "title": "",
+  "body": "  Find the explicit general solution of the given differential equation:         "
+},
+{
+  "id": "ex-1-4-4",
+  "level": "2",
+  "url": "exercises-1-4.html#ex-1-4-4",
+  "type": "Exercise",
+  "number": "1.4.6.4",
+  "title": "",
+  "body": "  Find the explicit general solution to the following differential equation:         "
 },
 {
   "id": "ex-1-4-5",
   "level": "2",
   "url": "exercises-1-4.html#ex-1-4-5",
   "type": "Exercise",
-  "number": "1.4.6.3",
+  "number": "1.4.6.5",
   "title": "",
-  "body": "  Find the explicit general solution of the given differential equation:    "
+  "body": "  Consider the separable ODE:      Find all equilibrium solutions, then find the explicit general solution.    Equilibrium: . General solution: .      Find the specific solution satisfying .     (the equilibrium solution).      Find the specific solution satisfying .         "
 },
 {
   "id": "ex-1-4-6",
   "level": "2",
   "url": "exercises-1-4.html#ex-1-4-6",
   "type": "Exercise",
-  "number": "1.4.6.4",
+  "number": "1.4.6.6",
   "title": "",
-  "body": "  Find the explicit general solution to the following differential equation:    "
+  "body": "  Find a general implicit solution to the following ODE:         "
 },
 {
   "id": "ex-1-4-7",
   "level": "2",
   "url": "exercises-1-4.html#ex-1-4-7",
   "type": "Exercise",
-  "number": "1.4.6.5",
-  "title": "",
-  "body": "  Consider the separable ODE:      Find the explicit general solution.      Find the specific solution satisfying the initial condition .      Find the specific solution satisfying the initial condition .    "
-},
-{
-  "id": "ex-1-4-implicit",
-  "level": "2",
-  "url": "exercises-1-4.html#ex-1-4-implicit",
-  "type": "Exercise",
-  "number": "1.4.6.6",
-  "title": "",
-  "body": "  Find a general implicit solution to the following ODE:    "
-},
-{
-  "id": "ex-1-4-8",
-  "level": "2",
-  "url": "exercises-1-4.html#ex-1-4-8",
-  "type": "Exercise",
   "number": "1.4.6.7",
   "title": "",
-  "body": "  Solve the IVP explicitly:    "
+  "body": "  Solve the IVP explicitly:         "
 },
 {
   "id": "exercises-1-4-9",
@@ -979,7 +979,7 @@ var ptx_lunr_docs = [
   "type": "Exercise",
   "number": "1.4.6.8",
   "title": "",
-  "body": "  More to be added for week 2 part of this section (the previous exercise also goes with week 2 homework)   "
+  "body": "  More to be added for week 2 part of this section.   "
 },
 {
   "id": "ch-chapter-two",
