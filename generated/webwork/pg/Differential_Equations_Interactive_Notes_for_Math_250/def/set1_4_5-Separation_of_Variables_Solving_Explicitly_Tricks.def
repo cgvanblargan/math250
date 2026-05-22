@@ -1,0 +1,11 @@
+openDate          = 05/20/2026 at 12:00am
+dueDate           = 11/20/2026 at 10:00pm
+answerDate        = 11/20/2026 at 10:00pm
+paperHeaderFile   = Differential_Equations_Interactive_Notes_for_Math_250/header/1_4_5-Separation_of_Variables_Solving_Explicitly_Tricks.pg
+screenHeaderFile  = Differential_Equations_Interactive_Notes_for_Math_250/header/1_4_5-Separation_of_Variables_Solving_Explicitly_Tricks.pg
+description       = Separation of Variables: Solving Explicitly Tricks
+problemListV2
+problem_start
+source_file = Differential_Equations_Interactive_Notes_for_Math_250/1-The_Fundamentals_of_Differential_Equations/1_4-Separable_Differential_Equations/1_4_5-Separation_of_Variables_Solving_Explicitly_Tricks/1_4_2-Step_5_Write_the_explicit_solution.pg
+problem_id = 2
+problem_end

@@ -1,0 +1,123 @@
+<?xml version='1.0' encoding='utf-8'?>
+<webwork-representations>
+  <webwork-reps version="2" webwork2_major_version="2" webwork2_minor_version="20" xml:id="extracted-webwork-1" ww-id="webwork-1">
+    <static seed="1">
+      <statement><p>Starting from <m>(y+2)^2 = \frac{1}{2}e^{x^2} + C\text{,}</m> which of the following is the correct explicit solution?</p>
+<p><ul form="buttons" name="AnSwEr0001">
+<li>
+<p><m>y = \pm\sqrt{\frac{1}{2}e^{x^2} + C} - 2</m></p>
+</li>
+<li>
+<p><m>y = \sqrt{\frac{1}{2}e^{x^2} + C} - 2</m></p>
+</li>
+<li>
+<p><m>y = \pm\sqrt{\frac{1}{2}e^{x^2} + C} + 2</m></p>
+</li>
+<li>
+<p><m>y = \pm\sqrt{\frac{1}{2}e^{x^2}} + C - 2</m></p>
+</li>
+</ul></p>
+</statement>
+      <answer>
+        <p>
+          <m>\text{Choice 1}</m>
+        </p>
+      </answer>
+      <solution><p>Taking the square root of both sides of <m>(y+2)^2 = \frac{1}{2}e^{x^2} + C\text{:}</m></p>
+<p><me>y + 2 = \pm\sqrt{\frac{1}{2}e^{x^2} + C}.</me></p>
+<p>Subtracting 2 from both sides:</p>
+<p><me>y = \pm\sqrt{\frac{1}{2}e^{x^2} + C} - 2.</me></p>
+</solution>
+    </static>
+    <rendering-data problemSource="Differential_Equations_Interactive_Notes_for_Math_250/1-The_Fundamentals_of_Differential_Equations/1_4-Separable_Differential_Equations/1_4_5-Separation_of_Variables_Solving_Explicitly_Tricks/1_4_2-Step_5_Write_the_explicit_solution.pg" origin="generated" domain="https://webwork-ptx.aimath.org" course-id="anonymous" user-id="anonymous" passwd="anonymous" language="en-US"/>
+    <pg><![CDATA[
+#############################################
+###       Generated from PreTeXt source      
+###       on 2026-05-20T04:53:45Z       
+###   A recent stable commit (2022-07-01):   
+### 6c761d3dba23af92cba35001c852aac04ae99a5f 
+###                                          
+###         https://pretextbook.org          
+###                                          
+#############################################
+## DBsubject()
+## DBchapter()
+## DBsection()
+## Level()
+## KEYWORDS()
+## TitleText1()
+## EditionText1()
+## AuthorText1()
+## Section1(not reported)
+## Problem1(1.4.2)
+## Author()
+## Institution()
+## Language(en-US)
+
+DOCUMENT();
+
+############################################################
+# Load Macros
+############################################################
+loadMacros(
+  "PGstandard.pl",
+  "PGML.pl",
+  "AnswerFormatHelp.pl",
+  "parserRadioButtons.pl",
+  "PGcourse.pl",
+);
+COMMENT('Authored in PreTeXt');
+
+############################################################
+# Header
+############################################################
+TEXT(beginproblem());
+
+############################################################
+# PG Setup Code
+############################################################
+Context('Numeric');
+$answer = RadioButtons(
+  [
+    "\(y = \pm\sqrt{\frac{1}{2}e^{x^2} + C} - 2\)",
+    "\(y = \sqrt{\frac{1}{2}e^{x^2} + C} - 2\)",
+    "\(y = \pm\sqrt{\frac{1}{2}e^{x^2} + C} + 2\)",
+    "\(y = \pm\sqrt{\frac{1}{2}e^{x^2}} + C - 2\)",
+  ],
+  0,
+);
+
+############################################################
+# Body
+############################################################
+
+BEGIN_PGML
+Starting from [`(y+2)^2 = \frac{1}{2}e^{x^2} + C\text{,}`] which of the following is the correct explicit solution?
+
+[_]{$answer}{5}
+
+END_PGML
+
+############################################################
+# Solution
+############################################################
+
+BEGIN_PGML_SOLUTION
+Taking the square root of both sides of [`(y+2)^2 = \frac{1}{2}e^{x^2} + C\text{:}`]
+
+[```y + 2 = \pm\sqrt{\frac{1}{2}e^{x^2} + C}.```]
+
+Subtracting 2 from both sides:
+
+[```y = \pm\sqrt{\frac{1}{2}e^{x^2} + C} - 2.```]
+
+END_PGML_SOLUTION
+
+############################################################
+# End Problem
+############################################################
+
+ENDDOCUMENT();
+]]></pg>
+  </webwork-reps>
+</webwork-representations>

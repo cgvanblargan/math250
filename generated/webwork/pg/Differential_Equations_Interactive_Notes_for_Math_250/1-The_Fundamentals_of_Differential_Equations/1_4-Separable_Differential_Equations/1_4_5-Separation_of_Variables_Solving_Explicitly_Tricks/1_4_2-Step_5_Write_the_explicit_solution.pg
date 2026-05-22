@@ -1,0 +1,87 @@
+#############################################
+###       Generated from PreTeXt source      
+###       on 2026-05-20T04:53:45Z       
+###   A recent stable commit (2022-07-01):   
+### 6c761d3dba23af92cba35001c852aac04ae99a5f 
+###                                          
+###         https://pretextbook.org          
+###                                          
+#############################################
+## DBsubject()
+## DBchapter()
+## DBsection()
+## Level()
+## KEYWORDS()
+## TitleText1()
+## EditionText1()
+## AuthorText1()
+## Section1(not reported)
+## Problem1(1.4.2)
+## Author()
+## Institution()
+## Language(en-US)
+
+DOCUMENT();
+
+############################################################
+# Load Macros
+############################################################
+loadMacros(
+  "PGstandard.pl",
+  "PGML.pl",
+  "AnswerFormatHelp.pl",
+  "parserRadioButtons.pl",
+  "PGcourse.pl",
+);
+COMMENT('Authored in PreTeXt');
+
+############################################################
+# Header
+############################################################
+TEXT(beginproblem());
+
+############################################################
+# PG Setup Code
+############################################################
+Context('Numeric');
+$answer = RadioButtons(
+  [
+    "\(y = \pm\sqrt{\frac{1}{2}e^{x^2} + C} - 2\)",
+    "\(y = \sqrt{\frac{1}{2}e^{x^2} + C} - 2\)",
+    "\(y = \pm\sqrt{\frac{1}{2}e^{x^2} + C} + 2\)",
+    "\(y = \pm\sqrt{\frac{1}{2}e^{x^2}} + C - 2\)",
+  ],
+  0,
+);
+
+############################################################
+# Body
+############################################################
+
+BEGIN_PGML
+Starting from [`(y+2)^2 = \frac{1}{2}e^{x^2} + C\text{,}`] which of the following is the correct explicit solution?
+
+[_]{$answer}{5}
+
+END_PGML
+
+############################################################
+# Solution
+############################################################
+
+BEGIN_PGML_SOLUTION
+Taking the square root of both sides of [`(y+2)^2 = \frac{1}{2}e^{x^2} + C\text{:}`]
+
+[```y + 2 = \pm\sqrt{\frac{1}{2}e^{x^2} + C}.```]
+
+Subtracting 2 from both sides:
+
+[```y = \pm\sqrt{\frac{1}{2}e^{x^2} + C} - 2.```]
+
+END_PGML_SOLUTION
+
+############################################################
+# End Problem
+############################################################
+
+ENDDOCUMENT();

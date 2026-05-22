@@ -177,7 +177,16 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="subsec-sep-exp.html" class="internal"><span class="codenumber">1.4.3</span> <span class="title">Separation of Variables: Important Example with Exponentials</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="subsec-sep-minussign.html" class="internal"><span class="codenumber">1.4.4</span> <span class="title">Separation of Variables: Some Subtle Points</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="subsec-sep-completingsquare.html" class="internal"><span class="codenumber">1.4.5</span> <span class="title">Separation of Variables: Solving Explicitly Tricks</span></a></div></li>
-<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="exercises-1-4.html" class="internal"><span class="codenumber">1.4.6</span> <span class="title">Exercises for Section 1.4</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-1-4-radiocarbon.html" class="internal"><span class="codenumber">1.4.6</span> <span class="title">Radiocarbon Dating</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-1-4-newton.html" class="internal"><span class="codenumber">1.4.7</span> <span class="title">Newton’s Law of Cooling</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="exercises-1-4.html" class="internal"><span class="codenumber">1.4.8</span> <span class="title">Exercises for Section 1.4</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-first-order-linear.html" class="internal"><span class="codenumber">1.5</span> <span class="title">First-Order Linear ODEs</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-linear-first-order-intro.html" class="internal"><span class="codenumber">1.5.1</span> <span class="title">Definition of 1st Order Linear ODEs</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-solving-first-order-linear.html" class="internal"><span class="codenumber">1.5.2</span> <span class="title">Solving First-Order Linear ODEs</span></a></div></li>
 </ul>
 </li>
 </ul>
@@ -194,7 +203,7 @@ eBookConfig.enable_chatcodes =  false;
 <main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="subsec-sepofvar"><h2 class="heading hide-type">
 <span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.4.2</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Separation of Variables</span>
 </h2>
-<div class="para" id="subsec-sepofvar-2">The method we started exploring on the previous page used is called <dfn class="terminology">separation of variables</dfn>. Let’s now state it formally.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-sepofvar-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="subsec-sepofvar-2">The method we started exploring on the previous page is called <dfn class="terminology">separation of variables</dfn>. Let’s now make it precise.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-sepofvar-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="definition definition-like" id="def-separable-de"><h3 class="heading">
 <span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.4.1</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Separable Differential Equation.</span>
@@ -258,23 +267,56 @@ H(y(x)) = \int g(x)\, dx + C.
 <div class="para">which is exactly what the method produces. The "fake proof" manipulation, while informal, gives the correct result.</div>
 <div class="autopermalink" data-description="Paragraph"><a href="#subsec-sepofvar-6-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Proof 1.4.2.1: Precise Justification (optional — for the curious!)"><a href="#subsec-sepofvar-6" title="Copy heading and permalink for Proof 1.4.2.1: Precise Justification (optional — for the curious!)" aria-label="Copy heading and permalink for Proof 1.4.2.1: Precise Justification (optional — for the curious!)">🔗</a></div></article></details><div class="para" id="subsec-sepofvar-7">In the following example, we go through each step in applying separation of variables.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-sepofvar-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Proof 1.4.2.1: Precise Justification (optional — for the curious!)"><a href="#subsec-sepofvar-6" title="Copy heading and permalink for Proof 1.4.2.1: Precise Justification (optional — for the curious!)" aria-label="Copy heading and permalink for Proof 1.4.2.1: Precise Justification (optional — for the curious!)">🔗</a></div></article></details><div class="para" id="subsec-sepofvar-7">Notice that separation of variables misses any solution where <span class="process-math">\(f(y) = 0\text{,}\)</span> since we cannot divide by zero in that step. It turns out these are precisely the equilibrium solutions -- the ones you already know how to find from <a href="sec-equilibrium-solutions.html" class="internal" title="Section 1.1.5: Equilibrium Solutions">Section 1.1.5</a>!<div class="autopermalink" data-description="Paragraph"><a href="#subsec-sepofvar-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="subsec-sepofvar-8" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Why does <span class="process-math">\(f(y) = 0\)</span> give equilibrium solutions?</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="subsec-sepofvar-8-2">
+<div class="para">Recall that an equilibrium solution is a constant solution <span class="process-math">\(y = C\text{.}\)</span> If <span class="process-math">\(y\)</span> is constant, then <span class="process-math">\(y' = 0\text{,}\)</span> so the ODE <span class="process-math">\(\frac{dy}{dx} = f(y)g(x)\)</span> becomes</div>
+<div class="displaymath process-math" id="subsec-sepofvar-8-2-5">
+\begin{equation*}
+0 = f(C)\,g(x).
+\end{equation*}
+</div>
+<div class="para">For this to hold for all <span class="process-math">\(x\text{,}\)</span> we need <span class="process-math">\(f(C) = 0\text{.}\)</span> So the equilibrium solutions are exactly the values of <span class="process-math">\(y\)</span> where <span class="process-math">\(f(y) = 0\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-sepofvar-8-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 1.4.2.1: Why does f(y) = 0 give equilibrium solutions?"><a href="#subsec-sepofvar-8" title="Copy heading and permalink for Solution 1.4.2.1: Why does f(y) = 0 give equilibrium solutions?" aria-label="Copy heading and permalink for Solution 1.4.2.1: Why does f(y) = 0 give equilibrium solutions?">🔗</a></div>
+</div></details><article class="observation remark-like" id="obs-general-solution-separable"><h3 class="heading">
+<span class="type">Observation</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.4.2</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">General Solution of a Separable ODE.</span>
+</h3>
+<div class="para logical" id="obs-general-solution-separable-2">
+<div class="para">The general solution to <span class="process-math">\(\frac{dy}{dx} = f(y)\,g(x)\)</span> consists of:</div>
+<ol class="decimal" id="obs-general-solution-separable-2-2">
+<li id="obs-general-solution-separable-2-2-1">
+<div class="para" id="obs-general-solution-separable-2-2-1-1">All solutions found by separation of variables.<div class="autopermalink" data-description="Paragraph"><a href="#obs-general-solution-separable-2-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1"><a href="#obs-general-solution-separable-2-2-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
+</li>
+<li id="obs-general-solution-separable-2-2-2">
+<div class="para" id="obs-general-solution-separable-2-2-2-1">All equilibrium solutions, which correspond to values of <span class="process-math">\(y\)</span> where <span class="process-math">\(f(y) = 0\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#obs-general-solution-separable-2-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2"><a href="#obs-general-solution-separable-2-2-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#obs-general-solution-separable-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Observation 1.4.2: General Solution of a Separable ODE"><a href="#obs-general-solution-separable" title="Copy heading and permalink for Observation 1.4.2: General Solution of a Separable ODE" aria-label="Copy heading and permalink for Observation 1.4.2: General Solution of a Separable ODE">🔗</a></div></article><div class="para" id="subsec-sepofvar-10">In the following example, we go through each step in applying separation of variables. At this point, you are still getting used to the process, so feel free to follow along step by step!<div class="autopermalink" data-description="Paragraph"><a href="#subsec-sepofvar-10" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="example example-like" id="ex-separable-3y2x3"><h3 class="heading">
-<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.4.2</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Solving a Separable ODE.</span>
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.4.3</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Solving a Separable ODE.</span>
 </h3>
-<div class="para" id="ex-separable-3y2x3-2">Find all equilibrium solutions to <span class="process-math">\(\frac{dy}{dx} = 3y^2 x^3\text{,}\)</span> then find the general explicit solution.<div class="autopermalink" data-description="Paragraph"><a href="#ex-separable-3y2x3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="ex-separable-3y2x3-2">Find the general explicit solution to <span class="process-math">\(\frac{dy}{dx} = 3y^2 x^3\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex-separable-3y2x3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <details id="ex-separable-3y2x3-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
 <div class="para" id="ex-separable-3y2x3-3-1">
 <em class="alert">Step 1: Find equilibrium solutions.</em><div class="autopermalink" data-description="Paragraph"><a href="#ex-separable-3y2x3-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="para logical" id="ex-separable-3y2x3-3-2">
-<div class="para">Setting <span class="process-math">\(y = C\)</span> (constant), we need <span class="process-math">\(\frac{dy}{dx} = 0\text{:}\)</span>
-</div>
+<div class="para">From the observation above, a shortcut to finding equilibrium solutions in separable ODEs is to solve <span class="process-math">\(f(y) = 0\text{.}\)</span> Here <span class="process-math">\(f(y) = y^2\text{,}\)</span> so</div>
 <div class="displaymath process-math" id="ex-separable-3y2x3-3-2-3">
 \begin{equation*}
-0 = 3C^2 x^3 \implies C = 0.
+y^2 = 0 \implies y = 0.
 \end{equation*}
 </div>
 <div class="para">So <span class="process-math">\(y = 0\)</span> is the only equilibrium solution.</div>
@@ -302,7 +344,7 @@ H(y(x)) = \int g(x)\, dx + C.
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#ex-separable-3y2x3-3-5-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Solution 1.4.2.1.1: Explanation: separating variables"><a href="#ex-separable-3y2x3-3-5" title="Copy heading and permalink for Solution 1.4.2.1.1: Explanation: separating variables" aria-label="Copy heading and permalink for Solution 1.4.2.1.1: Explanation: separating variables">🔗</a></div>
+<div class="autopermalink" data-description="Solution 1.4.3.1.1: Explanation: separating variables"><a href="#ex-separable-3y2x3-3-5" title="Copy heading and permalink for Solution 1.4.3.1.1: Explanation: separating variables" aria-label="Copy heading and permalink for Solution 1.4.3.1.1: Explanation: separating variables">🔗</a></div>
 </div></details><div class="para" id="ex-separable-3y2x3-3-6">
 <em class="alert">Step 3: Integrate both sides.</em><div class="autopermalink" data-description="Paragraph"><a href="#ex-separable-3y2x3-3-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -341,33 +383,31 @@ y \amp= \frac{-1}{\frac{3}{4}x^4 + C}
 <div class="para">Note: in the third line, <span class="process-math">\(-C\)</span> was replaced with <span class="process-math">\(C\text{.}\)</span> Since <span class="process-math">\(C\)</span> ranges over all real numbers, so does <span class="process-math">\(-C\)</span> — so this is just a relabeling. See the remark below.</div>
 <div class="autopermalink" data-description="Paragraph"><a href="#ex-separable-3y2x3-3-10-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Solution 1.4.2.1.2: Full working"><a href="#ex-separable-3y2x3-3-10" title="Copy heading and permalink for Solution 1.4.2.1.2: Full working" aria-label="Copy heading and permalink for Solution 1.4.2.1.2: Full working">🔗</a></div>
-</div></details><div class="para" id="ex-separable-3y2x3-3-11">Note: we replaced <span class="process-math">\(-C\)</span> with <span class="process-math">\(C\)</span> above, since both vary over all real numbers. See the remark below for more on this.<div class="autopermalink" data-description="Paragraph"><a href="#ex-separable-3y2x3-3-11" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Solution 1.4.3.1.2: Full working"><a href="#ex-separable-3y2x3-3-10" title="Copy heading and permalink for Solution 1.4.3.1.2: Full working" aria-label="Copy heading and permalink for Solution 1.4.3.1.2: Full working">🔗</a></div>
+</div></details><div class="para" id="ex-separable-3y2x3-3-11">
+<em class="alert">Step 5: Write the general solution.</em><div class="autopermalink" data-description="Paragraph"><a href="#ex-separable-3y2x3-3-11" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para" id="ex-separable-3y2x3-3-12">
-<em class="alert">Step 5: Write the general solution.</em><div class="autopermalink" data-description="Paragraph"><a href="#ex-separable-3y2x3-3-12" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="para logical" id="ex-separable-3y2x3-3-13">
+<div class="para logical" id="ex-separable-3y2x3-3-12">
 <div class="para">Combining the equilibrium solution from Step 1 and the explicit solution from Step 4, the general solution is:</div>
-<div class="displaymath process-math" id="ex-separable-3y2x3-3-13-1">
+<div class="displaymath process-math" id="ex-separable-3y2x3-3-12-1">
 \begin{equation*}
 y = \frac{-1}{\frac{3}{4}x^4 + C} \quad \text{and} \quad y = 0.
 \end{equation*}
 </div>
-<div class="autopermalink" data-description="Paragraph"><a href="#ex-separable-3y2x3-3-13" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-separable-3y2x3-3-12" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Solution 1.4.2.1"><a href="#ex-separable-3y2x3-3" title="Copy heading and permalink for Solution 1.4.2.1" aria-label="Copy heading and permalink for Solution 1.4.2.1">🔗</a></div>
-</div></details><div class="autopermalink" data-description="Example 1.4.2: Solving a Separable ODE"><a href="#ex-separable-3y2x3" title="Copy heading and permalink for Example 1.4.2: Solving a Separable ODE" aria-label="Copy heading and permalink for Example 1.4.2: Solving a Separable ODE">🔗</a></div></article><div class="para" id="subsec-sepofvar-9">And we just successfully used separation of variables! All the problems with separation of variables follow this basic format (with steps 1-5). Some of the details will vary in each problem, which we explore in the following sections.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-sepofvar-9" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Solution 1.4.3.1"><a href="#ex-separable-3y2x3-3" title="Copy heading and permalink for Solution 1.4.3.1" aria-label="Copy heading and permalink for Solution 1.4.3.1">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Example 1.4.3: Solving a Separable ODE"><a href="#ex-separable-3y2x3" title="Copy heading and permalink for Example 1.4.3: Solving a Separable ODE" aria-label="Copy heading and permalink for Example 1.4.3: Solving a Separable ODE">🔗</a></div></article><div class="para" id="subsec-sepofvar-12">And we just successfully used separation of variables! All the problems with separation of variables follow this basic format (with steps 1-5). Some of the details will vary in each problem, which we explore in the following sections.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-sepofvar-12" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="remark remark-like" id="rem-absorbing-constants"><h3 class="heading">
-<span class="type">Remark</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.4.3</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Absorbing Constants.</span>
+<span class="type">Remark</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.4.4</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Absorbing Constants.</span>
 </h3>
 <div class="para" id="rem-absorbing-constants-2">In solving the previous example, we changed <span class="process-math">\(\frac{1}{y} = -\frac{3}{4}x^4 - C\)</span> to <span class="process-math">\(\frac{1}{y} = -\frac{3}{4}x^4 + C\text{.}\)</span> This is valid because <span class="process-math">\(-C\)</span> and <span class="process-math">\(C\)</span> both vary over all real numbers (they represent the same family of values, just relabeled).<div class="autopermalink" data-description="Paragraph"><a href="#rem-absorbing-constants-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="para" id="rem-absorbing-constants-3">We often <dfn class="terminology">absorb constants</dfn> into <span class="process-math">\(C\)</span> like this, and it is generally preferred to write the simpler expression. For example, it is much neater to write <span class="process-math">\(y = \sin(x) + C\)</span> than <span class="process-math">\(y = \sin(x) + 2C\text{,}\)</span> even though they represent the same family of functions. It is standard practice to reuse the name <span class="process-math">\(C\)</span> from line to line, even when absorbing constants into it.<div class="autopermalink" data-description="Paragraph"><a href="#rem-absorbing-constants-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Remark 1.4.3: Absorbing Constants"><a href="#rem-absorbing-constants" title="Copy heading and permalink for Remark 1.4.3: Absorbing Constants" aria-label="Copy heading and permalink for Remark 1.4.3: Absorbing Constants">🔗</a></div></article><article class="note remark-like" id="note-c-placement"><h3 class="heading">
-<span class="type">Note</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.4.4</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Be Careful with <span class="process-math">\(C\)</span> Placement.</span>
+<div class="autopermalink" data-description="Remark 1.4.4: Absorbing Constants"><a href="#rem-absorbing-constants" title="Copy heading and permalink for Remark 1.4.4: Absorbing Constants" aria-label="Copy heading and permalink for Remark 1.4.4: Absorbing Constants">🔗</a></div></article><article class="note remark-like" id="note-c-placement"><h3 class="heading">
+<span class="type">Note</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.4.5</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Be Careful with <span class="process-math">\(C\)</span> Placement.</span>
 </h3>
 <div class="para logical" id="note-c-placement-2">
 <div class="para">Be careful when changing expressions with <span class="process-math">\(C\text{.}\)</span> For example</div>
@@ -385,10 +425,10 @@ y = \frac{-1}{\frac{3}{4}x^4 + C} \quad \text{and} \quad y = 0.
 </ul>
 <div class="autopermalink" data-description="Paragraph"><a href="#note-c-placement-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Note 1.4.4: Be Careful with C Placement"><a href="#note-c-placement" title="Copy heading and permalink for Note 1.4.4: Be Careful with C Placement" aria-label="Copy heading and permalink for Note 1.4.4: Be Careful with C Placement">🔗</a></div></article><div class="para" id="subsec-sepofvar-12">Let’s do a quick check to make sure you are confident simplifying expressions with <span class="process-math">\(C\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#subsec-sepofvar-12" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Note 1.4.5: Be Careful with C Placement"><a href="#note-c-placement" title="Copy heading and permalink for Note 1.4.5: Be Careful with C Placement" aria-label="Copy heading and permalink for Note 1.4.5: Be Careful with C Placement">🔗</a></div></article><div class="para" id="subsec-sepofvar-15">Let’s do a quick check to make sure you are confident simplifying expressions with <span class="process-math">\(C\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#subsec-sepofvar-15" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="exercise exercise-like" id="ex-mc-absorbing-constants"><h3 class="heading">
-<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.4.5</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.4.6</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h3>
 <div class="ptx-runestone-container"><div class="runestone multiplechoice_section">
 <div class="exercise-statement"><div class="para" id="ex-mc-absorbing-constants-1-1">In each of the following, two expressions involving <span class="process-math">\(C\)</span> (where <span class="process-math">\(C\)</span> varies over all real numbers) are given. Select all pairs that represent the same family of functions.<div class="autopermalink" data-description="Paragraph"><a href="#ex-mc-absorbing-constants-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
@@ -417,8 +457,8 @@ y = \frac{-1}{\frac{3}{4}x^4 + C} \quad \text{and} \quad y = 0.
 <li data-component="feedback" id="rs-ex-mc-absorbing-constants_opt_e"><div class="para" id="ex-mc-absorbing-constants-2-5-2-1">Not equivalent! In the first, <span class="process-math">\(C\)</span> shifts the graph vertically. In the second, <span class="process-math">\(C\)</span> shifts the graph horizontally inside the square root. These are genuinely different families of functions.</div></li>
 </ul>
 </div></div>
-<div class="autopermalink" data-description="Checkpoint 1.4.5"><a href="#ex-mc-absorbing-constants" title="Copy heading and permalink for Checkpoint 1.4.5" aria-label="Copy heading and permalink for Checkpoint 1.4.5">🔗</a></div></article><figure class="figure figure-like" id="video-sep-of-var"><div class="video-box" style="width: 100%;padding-top: 56.25%; margin-left: 0%; margin-right: 0%;"><iframe class="video" allowfullscreen="" src="https://www.youtube-nocookie.com/embed/OcfSNX41wuU?&amp;modestbranding=1&amp;rel=0" id="video-sep-of-var-2"></iframe></div>
-<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.4.6<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>This video goes through the content of this page.<div class="autopermalink" data-description="Figure 1.4.6"><a href="#video-sep-of-var" title="Copy heading and permalink for Figure 1.4.6" aria-label="Copy heading and permalink for Figure 1.4.6">🔗</a></div></figcaption></figure><div class="autopermalink" data-description="Section 1.4.2: Separation of Variables"><a href="#subsec-sepofvar" title="Copy heading and permalink for Section 1.4.2: Separation of Variables" aria-label="Copy heading and permalink for Section 1.4.2: Separation of Variables">🔗</a></div></section></div>
+<div class="autopermalink" data-description="Checkpoint 1.4.6"><a href="#ex-mc-absorbing-constants" title="Copy heading and permalink for Checkpoint 1.4.6" aria-label="Copy heading and permalink for Checkpoint 1.4.6">🔗</a></div></article><figure class="figure figure-like" id="video-sep-of-var"><div class="video-box" style="width: 100%;padding-top: 56.25%; margin-left: 0%; margin-right: 0%;"><iframe class="video" allowfullscreen="" src="https://www.youtube-nocookie.com/embed/OcfSNX41wuU?&amp;modestbranding=1&amp;rel=0" id="video-sep-of-var-2"></iframe></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.4.7<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>This video goes through the content of this page.<div class="autopermalink" data-description="Figure 1.4.7"><a href="#video-sep-of-var" title="Copy heading and permalink for Figure 1.4.7" aria-label="Copy heading and permalink for Figure 1.4.7">🔗</a></div></figcaption></figure><div class="autopermalink" data-description="Section 1.4.2: Separation of Variables"><a href="#subsec-sepofvar" title="Copy heading and permalink for Section 1.4.2: Separation of Variables" aria-label="Copy heading and permalink for Section 1.4.2: Separation of Variables">🔗</a></div></section></div>
 <div id="ptx-content-footer" class="ptx-content-footer">
 <a class="previous-button button" href="subsec-intr-separable.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="subsec-sep-exp.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
 </div></main>
