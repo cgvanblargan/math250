@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-first-order-linear" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>First-Order Linear ODEs</title>
+
+  <introduction>
+<p>
+  We now come to another common family of ODEs: first-order linear differential equations. Just as with separable ODEs, they are
+  well understood, and we have a clean way of solving them! We will also see an interesting application to mixing problems,
+  which on first pass may seem tricky to set up, but writing them as a first0order linear differential equation
+  allows us to tackle these problems. 
+</p>
+  </introduction>
+
+  <xi:include href="./1-5/sec1-intro-linear.ptx"/>
+  <xi:include href="./1-5/sec2-solving-linear.ptx"/>
+ 
+
+</section>

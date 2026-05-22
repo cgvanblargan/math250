@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Radiocarbon Dating Explorer</title>
+<script src="jsxgraph-loader.js"></script>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    padding: 8px 12px 4px;
+    font-family: Georgia, "Times New Roman", serif;
+    background: transparent;
+  }
+  #display {
+    text-align: center;
+    font-size: 17px;
+    font-family: serif;
+    color: #2c3e50;
+    margin-bottom: 6px;
+    line-height: 1.8;
+    min-height: 30px;
+  }
+  #display strong { color: #1a5276; }
+  #controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    margin-bottom: 8px;
+    font-size: 16px;
+    font-family: serif;
+    color: #2c3e50;
+  }
+  #controls label {
+    font-weight: bold;
+    font-size: 18px;
+    color: #1a5276;
+  }
+  #pslider {
+    width: 200px;
+    accent-color: #1a5276;
+    cursor: pointer;
+  }
+  #pvalue {
+    min-width: 42px;
+    font-weight: bold;
+    color: #1a5276;
+    text-align: right;
+  }
+  #jxgbox {
+    width: 100%;
+    height: 300px;
+  }
+</style>
+</head>
+<body>
+
+<div id="display"
+     role="region"
+     aria-live="polite"
+     aria-label="Estimated sample age updates as slider changes">
+  50% remaining → age ≈ <strong>5,700 years</strong>
+</div>
+
+<div id="controls">
+  <label for="pslider">% remaining =</label>
+  <input type="range" id="pslider" min="1" max="100" step="1" value="50"
+         aria-label="Percentage of carbon-14 remaining, 1 to 100">
+  <span id="pvalue" aria-hidden="true">50%</span>
+</div>
+
+<div id="jxgbox" class="jxgbox"
+     role="img"
+     aria-label="Graph of C-14 percentage remaining vs time in thousands of years.
+                 An exponential decay curve drops from 100% at time 0.
+                 A movable point marks the selected percentage, with dashed guide
+                 lines to each axis showing the corresponding age.">
+</div>
+
+<script>
+var k   = 0.0001216;   /* textbook value, corresponds to half-life ≈ 5700 yr */
+var pct = 50;
+
+function ageKyr(p) {
+  return -Math.log(p / 100) / k / 1000;
+}
+
+function fmtAge(kyr) {
+  return Math.round(kyr * 1000 / 100) * 100;
+}
+
+var board = JXG.JSXGraph.initBoard('jxgbox', {
+  boundingbox   : [-1.5, 110, 45, -4],
+  axis          : true,
+  showCopyright : false,
+  showNavigation: false,
+  keepAspectRatio: false,
+  defaultAxes   : {
+    x: {
+      name     : 'years (thousands)',
+      withLabel: true,
+      label    : { position: 'rt', offset: [-70, 15], fontSize: 14 }
+    },
+    y: {
+      name     : '% remaining',
+      withLabel: true,
+      label    : { position: 'rt', offset: [15, 0], fontSize: 13 }
+    }
+  }
+});
+
+board.create('functiongraph', [
+  function(t) { return 100 * Math.exp(-k * t * 1000); },
+  0, 44
+], {
+  strokeColor: '#1a5276',
+  strokeWidth: 2.5
+});
+
+var initAge = ageKyr(pct);
+
+var pt = board.create('point', [initAge, pct], {
+  size : 5,
+  color: '#922b21',
+  fixed: true,
+  name : '',
+  label: { visible: false }
+});
+
+var vline = board.create('segment',
+  [[initAge, pct], [initAge, 0]],
+  { strokeColor: '#b7770d', strokeWidth: 1.8, dash: 2 });
+
+var hline = board.create('segment',
+  [[0, pct], [initAge, pct]],
+  { strokeColor: '#b7770d', strokeWidth: 1.8, dash: 2 });
+
+document.getElementById('pslider').addEventListener('input', function () {
+  pct = parseFloat(this.value);
+  var age = ageKyr(pct);
+
+  document.getElementById('pvalue').textContent = pct + '%';
+  document.getElementById('display').innerHTML =
+    pct + '% remaining → age ≈ <strong>' + fmtAge(age).toLocaleString() + ' years</strong>';
+
+  pt.setPosition(JXG.COORDS_BY_USER, [age, pct]);
+  vline.point1.setPosition(JXG.COORDS_BY_USER, [age, pct]);
+  vline.point2.setPosition(JXG.COORDS_BY_USER, [age, 0  ]);
+  hline.point1.setPosition(JXG.COORDS_BY_USER, [0,   pct]);
+  hline.point2.setPosition(JXG.COORDS_BY_USER, [age, pct]);
+
+  board.update();
+});
+</script>
+</body>
+</html>

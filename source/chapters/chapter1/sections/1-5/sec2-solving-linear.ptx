@@ -1,0 +1,256 @@
+<section xml:id="sec-solving-first-order-linear" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Solving First-Order Linear ODEs</title>
+
+  <p>We will rely heavily on the product rule, so below is a quick refresher! It also goes into how we specifically use it in this page.
+  </p>
+   <p>Before diving in, you may want to review the product rule:</p>
+
+<solution xml:id="prereq-product-rule">
+  <title>Prerequisite: The Product Rule</title>
+  <p>
+    If <m>f</m> and <m>g</m> are both functions of <m>x</m>, then
+    <me>(f \cdot g)' = f'g + fg'.</me>
+    For example, with <m>f(x) = x^2</m> and <m>g(x) = e^x</m>:
+    <me>(x^2 e^x)' = 2x e^x + x^2 e^x.</me>
+    Now consider <m>f(x) = e^{2x}</m> and <m>g(x) = y(x)</m>, where <m>y</m> is a function of <m>x</m>:
+    <me>\left(e^{2x} \cdot y\right)' = 2e^{2x} y + e^{2x} y'.</me>
+  </p>
+</solution>
+  <!-- ═══════════════════════════════════════════════════════════
+       MOTIVATING INTRO PROSE
+       ═══════════════════════════════════════════════════════════ -->
+  <p>
+    Okay so now we know how to recognize when an equation is a first-order linear ODE, let's dig into
+    how to actually solve these things! We'll work through
+    <me>y' + 2y = x</me>
+    as our guiding example. The steps may seem a bit random at first, but hopefully by the end of this page you'll
+    see why we did each step. The key idea is to find an <term>integrating factor</term>, which is
+    a function we multiply both sides by that lets us rewrite the left-hand side
+    as the derivative of a product. Once we do that, we can simply integrate both sides
+    and solve for <m>y</m>.
+  </p>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       MOTIVATING EXPLORATION
+       ═══════════════════════════════════════════════════════════ -->
+  <exploration xml:id="exp-integrating-factor-intro">
+    <title>Solving <m>y' + 2y = x</m></title>
+    <introduction>
+      <p>
+        It turns out the integrating factor for this equation is <m>e^{2x}</m>.
+        We will see exactly why this is the right choice shortly. For now, let's
+        multiply both sides by <m>e^{2x}</m> and see what happens.
+      </p>
+      <md>
+        <mrow>y' + 2y \amp= x</mrow>
+        <mrow>e^{2x}(y' + 2y) \amp= e^{2x} \cdot x</mrow>
+        <mrow>e^{2x}y' + 2e^{2x}y \amp= xe^{2x}</mrow>
+      </md>
+    </introduction>
+
+    <task xml:id="task-recognize-product-rule">
+      <title>Reversing the Product Rule</title>
+      <statement>
+        <p>
+          Look closely at the left-hand side: <m>e^{2x}y' + 2e^{2x}y</m>.
+          Which of the following is this equal to? You might need to perform the product rule in some of the choices below!
+        </p>
+      </statement>
+      <choices randomize="no">
+        <choice correct="yes">
+          <statement><p><m>\left(e^{2x} y\right)'</m></p></statement>
+          <feedback>
+            <p>
+              Yes! By the product rule, <m>\left(e^{2x} y\right)' = e^{2x}y' + 2e^{2x}y</m>,
+              which is exactly the left-hand side. We have reversed the product rule,
+              and can now write our equation as
+              <me>\left(e^{2x} y\right)' = xe^{2x}.</me>
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement><p><m>\left(e^{2x}\right)' \cdot y'</m></p></statement>
+          <feedback>
+            <p>
+              Not quite. <m>\left(e^{2x}\right)' = 2e^{2x}</m>, so this gives <m>2e^{2x}y'</m>,
+              which does not match.
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement><p><m>e^{2x}(y' + y)</m></p></statement>
+          <feedback>
+            <p>
+              Close, but distributing gives <m>e^{2x}y' + e^{2x}y</m>.
+              The coefficient on <m>y</m> needs to be <m>2e^{2x}</m>, not <m>e^{2x}</m>.
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement><p><m>\left(e^{2x} + y\right)'</m></p></statement>
+          <feedback>
+            <p>
+              No -- this is the derivative of a sum, not a product.
+              We need the product rule here.
+            </p>
+          </feedback>
+        </choice>
+      </choices>
+    </task>
+
+    <task xml:id="task-recognize-integrate">
+      <title>What is the Next Step?</title>
+      <statement>
+        <p>
+          We now have
+          <me>\left(e^{2x} y\right)' = xe^{2x}.</me>
+          The left-hand side is a derivative. What should we do next to solve for <m>y</m>?
+        </p>
+        <p>
+          <alert>Make sure to read the solution feedback by clicking the right answer to see how to finish solving for y.</alert>
+        </p>
+      </statement>
+      <choices randomize="no">
+        <choice correct="yes">
+          <statement><p>Integrate both sides with respect to <m>x</m>.</p></statement>
+          <feedback>
+            <p>
+              Exactly. Integrating both sides gives
+              <me>e^{2x} y = \int xe^{2x}\,dx,</me>
+              and dividing by <m>e^{2x}</m> yields
+              <me>y = \frac{\int xe^{2x}\,dx}{e^{2x}}.</me>
+              The integral on the right requires integration by parts -- we will return to
+              computing it fully later in this section.
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement><p>Differentiate both sides with respect to <m>x</m>.</p></statement>
+          <feedback>
+            <p>
+              Differentiating would make things more complicated.
+              Since the left-hand side is already a derivative, we want to undo it by integrating.
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement><p>Divide both sides by <m>e^{2x}</m>.</p></statement>
+          <feedback>
+            <p>
+              Dividing is part of the last step, but we are not quite there yet.
+              The left-hand side is <m>(e^{2x} y)'</m>, not <m>e^{2x} y</m>.
+              We need to integrate first, then divide.
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement><p>Multiply both sides by <m>e^{-2x}</m>.</p></statement>
+          <feedback>
+            <p>
+              Multiplying by <m>e^{-2x}</m> is equivalent to dividing by <m>e^{2x}</m>,
+              which comes after integrating, not before.
+            </p>
+          </feedback>
+        </choice>
+      </choices>
+    </task>
+
+    <conclusion>
+      <p>
+        Let's take stock of what just happened, because the structure here is the key to
+        solving <em>any</em> first-order linear ODE.
+      </p>
+      <p>
+        <alert>Step 1.</alert> We multiplied both sides by the integrating factor <m>e^{2x}</m>.
+      </p>
+      <p>
+        <alert>Step 2.</alert> This allowed us to recognize the left-hand side as
+        <m>\left(e^{2x} y\right)'</m> by reversing the product rule.
+      </p>
+      <p>
+        <alert>Step 3.</alert> With the left-hand side written as a single derivative,
+        there is no <m>y'</m> term to deal with separately. We simply integrate both sides
+        and solve for <m>y</m>.
+      </p>
+      <p>
+        The whole game is choosing the integrating factor correctly so that Step 2 works.
+        Let's see how to do that in general.
+      </p>
+    </conclusion>
+  </exploration>
+
+  <p>
+    So do we need to guess and check for an integrating factor every time? Not at all!
+    It turns out that for any first-order linear ODE
+    <me>\frac{dy}{dx} + P(x)y = Q(x),</me>
+    the integrating factor is always
+    <me>\rho(x) = e^{\int P(x)\,dx}.</me>
+    This is precisely what is needed to rewrite the left-hand side in the form
+    <m>\left(y \cdot \rho(x)\right)'</m>, which is what allows us to integrate both sides
+    and solve for <m>y</m>.
+  </p>
+  <p>
+    If you feel like it now, you can try working through why this is true by multiplying
+    <m>\rho(x)</m> on both sides of <m>\frac{dy}{dx} + P(x)y = Q(x)</m> yourself. You can
+    check the justification now, or later after you've had more practice with solving these ODEs!
+  </p>
+
+  <solution>
+    <title>Justification of the Integrating Factor (optional to read now)</title>
+    <p>
+      Multiply both sides of <m>\frac{dy}{dx} + P(x)y = Q(x)</m> by
+      <m>\rho(x) = e^{\int P(x)\,dx}</m>:
+      <me>e^{\int P(x)\,dx}\frac{dy}{dx} + P(x)e^{\int P(x)\,dx}y = e^{\int P(x)\,dx}Q(x).</me>
+      Now look at the left-hand side. By the product rule and the chain rule:
+      <me>\frac{d}{dx}\!\left(y \cdot e^{\int P(x)\,dx}\right) = e^{\int P(x)\,dx}y' + P(x)e^{\int P(x)\,dx}y,</me>
+      which is exactly the left-hand side. So we can write:
+      <me>\frac{d}{dx}\!\left(y \cdot e^{\int P(x)\,dx}\right) = e^{\int P(x)\,dx}Q(x).</me>
+      From here, integrate both sides and solve for <m>y</m>.
+    </p>
+  </solution>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       THEOREM
+       ═══════════════════════════════════════════════════════════ -->
+  <theorem xml:id="thm-first-order-linear-solution">
+    <title>Solution of a First-Order Linear ODE</title>
+    <statement>
+      <p>
+        The general solution of the first-order linear equation
+        <me>\frac{dy}{dx} + P(x)y = Q(x)</me>
+        can be found by multiplying both sides by the <term>integrating factor</term>
+        <me>\rho(x) = e^{\int P(x)\,dx},</me>
+        which allows the equation to be rewritten as
+        <me>\frac{d}{dx}\!\left(y \cdot \rho(x)\right) = \rho(x)\,Q(x).</me>
+        Integrating both sides and solving for <m>y</m> gives the general solution
+        <me>y = \frac{\displaystyle\int \rho(x)\,Q(x)\,dx}{\rho(x)}.</me>
+      </p>
+    </statement>
+  </theorem>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       POST-THEOREM: connect to example (inline prose)
+       ═══════════════════════════════════════════════════════════ -->
+  <p>
+    Let's connect this back to our example <m>y' + 2y = x</m>.
+    Here <m>P(x) = 2</m> and <m>Q(x) = x</m>, so the integrating factor is
+    <me>\rho(x) = e^{\int 2\,dx} = e^{2x},</me>
+    which is exactly what we used in the exploration above.
+    The general solution takes the form
+    <me>y = \frac{\int xe^{2x}\,dx}{e^{2x}} = \frac{\frac{x}{2}e^{2x} - \frac{1}{4}e^{2x} + C}{e^{2x}}.</me>
+    where we evaluated <m>\int xe^{2x}\,dx</m> using integration by parts.
+  </p>
+  <p>
+    The theorem tells us this approach works for <em>any</em> first-order linear ODE, not just this one.
+    The only thing that can get in our way now is if the integrals that appear are difficult to evaluate!
+  </p>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       VIDEO
+       ═══════════════════════════════════════════════════════════ -->
+  <figure xml:id="video-solving-first-order-linear">
+    <caption>This video walks through the content of this section.</caption>
+    <video youtube="lU9Kai4BZfM" width="100%" preview="default"/>
+  </figure>
+
+</section>

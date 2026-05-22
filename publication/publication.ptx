@@ -212,5 +212,7 @@
     <!-- You can also set how tasks are revealed for webwork problems using the @task-reveal attribute on the above-->
 
 
+  <webwork server="https://webwork-ptx.aimath.org"/>
+  <!-- your other publication settings -->
 
 </publication>

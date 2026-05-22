@@ -112,43 +112,43 @@
     </solution>
   </task>
 
-  <task xml:id="task-final-solution">
-    <title>Step 5: Write the explicit solution</title>
-    <statement>
-      <p>
-        Starting from <m>(y+2)^2 = \frac{1}{2}e^{x^2} + C</m>, which of the following is the correct explicit solution?
-      </p>
-    </statement>
-    <choices randomize="no">
-      <choice correct="yes">
-        <statement><p><m>y = \pm\sqrt{\frac{1}{2}e^{x^2} + C} - 2</m></p></statement>
-        <feedback><p>Correct! Taking the square root of both sides gives <m>y + 2 = \pm\sqrt{\frac{1}{2}e^{x^2} + C}</m>, and subtracting 2 gives the answer.</p></feedback>
-      </choice>
-      <choice>
-        <statement><p><m>y = \sqrt{\frac{1}{2}e^{x^2} + C} - 2</m></p></statement>
-        <feedback><p>Almost — but don't forget the <m>\pm</m>! When taking the square root of both sides of <m>(y+2)^2 = \ldots</m>, we get <m>y+2 = \pm\sqrt{\ldots}</m>.</p></feedback>
-      </choice>
-      <choice>
-        <statement><p><m>y = \pm\sqrt{\frac{1}{2}e^{x^2} + C} + 2</m></p></statement>
-        <feedback><p>Check the sign! From <m>y + 2 = \pm\sqrt{\ldots}</m>, subtracting 2 from both sides gives <m>y = \pm\sqrt{\ldots} - 2</m>, not <m>+2</m>.</p></feedback>
-      </choice>
-      <choice>
-        <statement><p><m>y = \pm\sqrt{\frac{1}{2}e^{x^2}} + C - 2</m></p></statement>
-        <feedback><p>Not quite — <m>C</m> should be inside the square root, not outside. We are taking the square root of the entire right-hand side <m>\frac{1}{2}e^{x^2} + C</m>.</p></feedback>
-      </choice>
-    </choices>
-    <solution>
-      <title>Working: taking the square root</title>
-      <p>
-        Taking the square root of both sides of <m>(y+2)^2 = \frac{1}{2}e^{x^2} + C</m>:
-        <me>y + 2 = \pm\sqrt{\frac{1}{2}e^{x^2} + C}.</me>
-        Subtracting 2 from both sides:
-        <me>y = \pm\sqrt{\frac{1}{2}e^{x^2} + C} - 2.</me>
-      </p>
-    </solution>
-  </task>
-
+    <task xml:id="task-final-solution">
+        <title>Step 5: Write the explicit solution</title>
+            <statement>
+                  <p>
+                          Starting from <m>(y+2)^2 = \frac{1}{2}e^{x^2} + C</m>, which of the following is the correct explicit solution?
+                                </p>
+                                    </statement>
+                                        <choices randomize="no">
+                                              <choice correct="yes">
+                                                      <statement><p><m>y = \pm\sqrt{\frac{1}{2}e^{x^2} + C} - 2</m></p></statement>
+                                                              <feedback><p>Correct! Taking the square root of both sides gives <m>y + 2 = \pm\sqrt{\frac{1}{2}e^{x^2} + C}</m>, and subtracting 2 gives the answer.</p></feedback>
+                                                                    </choice>
+                                                                          <choice>
+                                                                                  <statement><p><m>y = \sqrt{\frac{1}{2}e^{x^2} + C} - 2</m></p></statement>
+                                                                                          <feedback><p>Almost — but don't forget the <m>\pm</m>! When taking the square root of both sides of <m>(y+2)^2 = \ldots</m>, we get <m>y+2 = \pm\sqrt{\ldots}</m>.</p></feedback>
+                                                                                                </choice>
+                                                                                                      <choice>
+                                                                                                              <statement><p><m>y = \pm\sqrt{\frac{1}{2}e^{x^2} + C} + 2</m></p></statement>
+                                                                                                                      <feedback><p>Check the sign! From <m>y + 2 = \pm\sqrt{\ldots}</m>, subtracting 2 from both sides gives <m>y = \pm\sqrt{\ldots} - 2</m>, not <m>+2</m>.</p></feedback>
+                                                                                                                            </choice>
+                                                                                                                                  <choice>
+                                                                                                                                          <statement><p><m>y = \pm\sqrt{\frac{1}{2}e^{x^2}} + C - 2</m></p></statement>
+                                                                                                                                                  <feedback><p>Not quite — <m>C</m> should be inside the square root, not outside. We are taking the square root of the entire right-hand side <m>\frac{1}{2}e^{x^2} + C</m>.</p></feedback>
+                                                                                                                                                        </choice>
+                                                                                                                                                            </choices>
+                                                                                                                                                                <solution>
+                                                                                                                                                                      <title>Working: taking the square root</title>
+                                                                                                                                                                            <p>
+                                                                                                                                                                                    Taking the square root of both sides of <m>(y+2)^2 = \frac{1}{2}e^{x^2} + C</m>:
+                                                                                                                                                                                            <me>y + 2 = \pm\sqrt{\frac{1}{2}e^{x^2} + C}.</me>
+                                                                                                                                                                                                    Subtracting 2 from both sides:
+                                                                                                                                                                                                            <me>y = \pm\sqrt{\frac{1}{2}e^{x^2} + C} - 2.</me>
+                                                                                                                                                                                                                  </p>
+                                                                                                                                                                                                                      </solution>
+                                                                                                                                                                                                                        </task>
 </example>
+
 
 <figure xml:id="video-sep-completesquare">
   <caption>This video goes through the content of this page.</caption>

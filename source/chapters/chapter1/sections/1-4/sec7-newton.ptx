@@ -1,0 +1,343 @@
+<section xml:id="sec-1-4-newton" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Newton's Law of Cooling</title>
+
+  <p>
+    Another classic application of separable equations comes from a simple physical
+    observation: the rate at which an object cools is proportional to the difference
+    between its temperature and the temperature of the surrounding environment. This
+    is known as <term>Newton's law of cooling</term>. 
+    After this, you'll be able to figure out exactly how long until your coffee goes cold!
+  </p>
+
+  <fact xml:id="fact-newtons-cooling">
+    <title>Newton's Law of Cooling</title>
+    <p>
+      Let <m>T(t)</m> be the temperature of an object at time <m>t</m>, and let <m>A</m>
+      be the (constant) temperature of the surrounding environment. Then
+      <me>\frac{dT}{dt} = -k(T - A),</me>
+      where <m>k &gt; 0</m> is a constant that depends on the object and its surroundings.
+    </p>
+  </fact>
+
+  <p>
+    Notice that this equation is separable. Do you see it's similarity to the ODE <m>\frac{dy}{dt}=ky </m>? You should notice
+    a lot of similarities when solving it, as well!
+     Let's work through a concrete example. We have broken in it up to a lot of steps in the activity, so make sure
+    to <alert>refer to the conclusion afterwards to get a summary of the main points.</alert>
+  </p>
+
+  <activity xml:id="act-newtons-cooling-pizza">
+    <title>Practice: The Cooling Pizza</title>
+    <introduction>
+      <p>
+        A pizza is taken out of a 400°F oven and placed in a room that is 60°F.
+        After 20 minutes, the temperature of the pizza is 100°F. Work through the
+        following steps to find <m>T(t)</m>, the temperature of the pizza as a
+        function of time. <alert>Try each part on your own before checking the solution!</alert>
+      </p>
+    </introduction>
+
+    <task xml:id="task-newton-setup-ode">
+      <title>Step 1: Set Up the ODE</title>
+      <statement>
+        <p>
+          Which of the following is the correct differential equation for this situation?
+        </p>
+      </statement>
+      <choices randomize="yes">
+        <choice correct="yes">
+          <statement><p><m>\dfrac{dT}{dt} = -k(T - 60)</m>, where <m>k &gt; 0</m></p></statement>
+          <feedback>
+            <p>
+              Correct! The ambient temperature is <m>A = 60</m>°F, and the negative sign
+              with <m>k &gt; 0</m> ensures the pizza cools (rather than heats up) when
+              <m>T &gt; 60</m>.
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement><p><m>\dfrac{dT}{dt} = k(T - 60)</m>, where <m>k &gt; 0</m></p></statement>
+          <feedback>
+            <p>
+              Close, but the sign is wrong. With <m>k &gt; 0</m> and no negative sign,
+              this equation says the pizza heats up when <m>T &gt; 60</m>, which is the
+              opposite of cooling. We need a negative sign to model decay toward the
+              ambient temperature.
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement><p><m>\dfrac{dT}{dt} = -k(T - 20)</m>, where <m>k &gt; 0</m></p></statement>
+          <feedback>
+            <p>
+              The structure is right but <m>A = 20</m> is not the ambient temperature
+              here. The room is 60°F, so <m>A = 60</m>. The value 20 is the number of
+              minutes, not a temperature.
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement><p><m>\dfrac{dT}{dt} = -k(T - 20)</m>, where <m>k &lt; 0</m></p></statement>
+          <feedback>
+            <p>
+              Two issues here: the ambient temperature should be <m>A = 60</m>°F, not
+              20, and Newton's law of cooling is stated with <m>k &gt; 0</m> -- the
+              negative sign is already built into the equation. Allowing <m>k &lt; 0</m>
+              would double the negative and give the wrong behavior.
+            </p>
+          </feedback>
+        </choice>
+      </choices>
+    </task>
+
+    <task xml:id="task-newton-equilibrium">
+      <title>Step 2: Equilibrium Solution</title>
+      <statement>
+        <p>
+          Before solving, what is the equilibrium solution of
+          <m>\dfrac{dT}{dt} = -k(T - 60)</m>? If you need a reminder of how to find
+          equilibrium solutions, refer to <xref ref="sec-equilibrium-solutions"/>.
+        </p>
+      </statement>
+      <choices randomize="yes">
+        <choice correct="yes">
+          <statement><p><m>T = 60</m></p></statement>
+          <feedback>
+            <p>
+              Correct! Setting <m>\frac{dT}{dt} = 0</m> gives <m>-k(T - 60) = 0</m>,
+              so <m>T = 60</m>. This makes physical sense: when the pizza reaches room
+              temperature, it stops cooling.
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement><p><m>T = 0</m></p></statement>
+          <feedback>
+            <p>
+              Setting <m>\frac{dT}{dt} = 0</m> means <m>-k(T - 60) = 0</m>. Since
+              <m>k \neq 0</m>, we need <m>T - 60 = 0</m>, giving <m>T = 60</m>, not 0.
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement><p><m>T = 20</m></p></statement>
+          <feedback>
+            <p>
+              Remember that 20 is the time in minutes, not a temperature. The equilibrium
+              comes from setting <m>\frac{dT}{dt} = 0</m> and solving for <m>T</m>.
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement><p><m>T = 400</m></p></statement>
+          <feedback>
+            <p>
+              That is the initial temperature of the pizza, not the equilibrium. The
+              equilibrium is where <m>\frac{dT}{dt} = 0</m>, meaning the pizza is no
+              longer changing temperature.
+            </p>
+          </feedback>
+        </choice>
+      </choices>
+    </task>
+
+    <task xml:id="task-newton-separate">
+      <title>Step 3: Separate Variables and Integrate</title>
+      <statement>
+        <p>
+          Starting from <m>\dfrac{dT}{dt} = -k(T - 60)</m>, separate variables to get
+          <me>\int \frac{dT}{T - 60} = \int -k \, dt.</me>
+          What do both sides evaluate to?
+        </p>
+      </statement>
+      <choices randomize="yes">
+        <choice correct="yes">
+          <statement><p><m>\ln|T - 60| = -kt + C</m></p></statement>
+          <feedback>
+            <p>
+              Correct! The left side can be seen as a u-sub with <m>u = T - 60</m>,
+              so <m>du = dT</m>, giving <m>\int \frac{1}{u} \, du = \ln|u| = \ln|T - 60|</m>.
+              Notice that because the coefficient of <m>T</m> inside is 1, no extra factor
+              appears when substituting -- the integral works out cleanly without any
+              additional adjustment. The right side integrates to <m>-kt + C</m> as usual.
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement><p><m>\ln(T - 60) = -kt + C</m></p></statement>
+          <feedback>
+            <p>
+              Almost -- but don't forget the absolute value signs. We need <m>\ln|T - 60|</m>
+              since <m>T - 60</m> could be negative, and the logarithm is only defined for
+              positive inputs.
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement><p><m>\ln|T - 60| = -k + C</m></p></statement>
+          <feedback>
+            <p>
+              Check the right side. We are integrating <m>-k</m> with respect to <m>t</m>,
+              so the result is <m>-kt + C</m>, not just <m>-k + C</m>.
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement><p><m>(T - 60)^2 = -kt + C</m></p></statement>
+          <feedback>
+            <p>
+              The left side is not correct. We have <m>\int \frac{dT}{T-60}</m>, which
+              is a <m>\frac{1}{u}</m> integral giving <m>\ln|T - 60|</m>, not a power
+              rule integral.
+            </p>
+          </feedback>
+        </choice>
+      </choices>
+    </task>
+
+    <remark xml:id="rem-newton-avoid-usub">
+      <title>Why Leave <m>-k</m> on the Right?</title>
+      <p>
+        You might wonder why we separated variables to get
+        <m>\int \frac{dT}{T-60} = \int -k \, dt</m>
+        rather than dividing by <m>-k</m> first. Both are valid, but leaving constants
+        on the right avoids an extra factor on the left side and keeps the algebra
+        a bit cleaner. When in doubt, leave constants on the right.
+      </p>
+    </remark>
+
+    <task xml:id="task-newton-general-solution">
+      <title>Step 4: Find the General Solution</title>
+      <statement>
+        <p>
+          Starting from <m>\ln|T - 60| = -kt + C</m>, which of the following is the
+          general solution <m>T(t)</m>? This looks very similar to a situation we have
+          seen before -- refer to <xref ref="ex-mc-general-solution"/> for a reminder
+          of how to handle the absolute value and constants.
+        </p>
+      </statement>
+      <choices randomize="yes">
+        <choice correct="yes">
+          <statement><p><m>T(t) = Ce^{-kt} + 60</m></p></statement>
+          <feedback>
+            <p>
+              Correct! Exponentiating both sides and absorbing <m>\pm e^C</m> into a
+              single constant <m>C</m> gives <m>T - 60 = Ce^{-kt}</m>, so
+              <m>T(t) = Ce^{-kt} + 60</m>.
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement><p><m>T(t) = Ce^{-kt}</m></p></statement>
+          <feedback>
+            <p>
+              Don't forget to add the ambient temperature back. After exponentiating
+              we get <m>T - 60 = Ce^{-kt}</m>, so we need to add 60 to both sides.
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement><p><m>T(t) = Ce^{kt} + 60</m></p></statement>
+          <feedback>
+            <p>
+              Check the sign on the exponent. We had <m>\ln|T-60| = -kt + C</m>, so
+              exponentiating gives <m>e^{-kt}</m>, not <m>e^{kt}</m>. A positive exponent
+              would mean the temperature grows without bound, which doesn't model cooling.
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement><p><m>T(t) = e^{-kt} + C + 60</m></p></statement>
+          <feedback>
+            <p>
+              The constant <m>C</m> multiplies the exponential, it does not add to it.
+              When we exponentiate <m>\ln|T-60| = -kt + C</m> we get
+              <m>|T - 60| = e^{-kt + C} = e^C \cdot e^{-kt}</m>, and <m>e^C</m> becomes
+              a multiplicative constant.
+            </p>
+          </feedback>
+        </choice>
+      </choices>
+    </task>
+
+    <task xml:id="task-newton-find-C-and-k">
+      <title>Step 5: Use Initial Conditions to Find <m>C</m> and <m>k</m></title>
+      <statement>
+        <p>
+          We now have <m>T(t) = Ce^{-kt} + 60</m>. From the problem we know:
+          <md>
+            <mrow>T(0) \amp= 400</mrow>
+            <mrow>T(20) \amp= 100.</mrow>
+          </md>
+         Use these values to solve for <m>C</m> and <m>k</m>, and so we will have the final answer!
+        </p>
+      </statement>
+      <solution>    <title>Finding the constants to get the final answer</title>
+        <p> We first use <m>T(0) = 400</m> to solve for <m>C</m>.
+            </p>
+           <solution>
+        <title>Quick algebra solving for <m>C</m></title>
+        <p>
+          Plugging in <m>t = 0</m>:
+          <md>
+            <mrow>T(t) \amp= Ce^{t} + 60</mrow>
+            <mrow>400 \amp= Ce^{0} + 60</mrow>
+            <mrow>400 \amp= C + 60</mrow>
+            <mrow>C \amp= 340.</mrow>
+          </md>
+        </p>
+      </solution>
+      <p> So we now have:
+        <me>T(t) = 340e^{-kt} + 60.</me>
+      </p>
+      <p>
+        Now we use <m>T(20) = 100</m> to solve for <m>k</m>.
+      </p>
+      <solution>
+        <title>Algebra to find <m>k</m></title>
+        <p>
+          Plugging in <m>T(20) = 100</m>:
+          <md>
+            <mrow>100 \amp= 340e^{-20k} + 60</mrow>
+            <mrow>40 \amp= 340e^{-20k}</mrow>
+            <mrow>\frac{2}{17} \amp= e^{-20k}</mrow>
+            <mrow>\ln\!\left(\frac{2}{17}\right) \amp= -20k</mrow>
+            <mrow>k \amp= -\frac{1}{20}\ln\!\left(\frac{2}{17}\right) = \frac{\ln(17/2)}{20}.</mrow>
+          </md>
+          Recall what log property we use in the last line. Something similar was done in the radiocarbon dating example!
+        </p>
+      </solution>
+      <p>
+        Putting it all together:
+        <me>T(t) = 340e^{\frac{\ln(2/17)}{20} \cdot t} + 60.</me>
+      </p>
+      </solution>
+    </task>
+
+  </activity>
+
+  <p>
+    Let's summarize everything you just worked through!
+
+  </p>
+  <conclusion>
+      <title>Summary of Steps</title>
+      <p>
+        Here is a recap of what we found at each step:
+      </p>
+      <ul>
+        <li><p><alert>Step 1 (ODE):</alert> The model is <m>\frac{dT}{dt} = -k(T - 60)</m>, <m>k &gt; 0</m>.</p></li>
+        <li><p><alert>Step 2 (Equilibrium):</alert> The equilibrium solution is <m>T = 60</m></p></li>
+        <li><p><alert>Step 3 (Integrate):</alert> Separating and integrating gives <m>\ln|T - 60| = -kt + C</m>.</p></li>
+        <li><p><alert>Step 4 (General solution):</alert> Exponentiating gives the general solution <m>T(t) = Ce^{-kt} + 60</m>.</p></li>
+        <li><p><alert>Step 5 (Initial conditions):</alert> Using <m>T(0) = 400</m> and <m>T(20) = 100</m> gives <m>C = 340</m> and <m>k = \frac{\ln(17/2)}{20}</m>, so
+        <me>T(t) = 340e^{\frac{\ln(2/17)}{20} \cdot t} + 60.</me></p></li>
+      </ul>
+    </conclusion>
+
+  <figure xml:id="video-newton-cooling">
+    <caption>This video goes through the content of this page.</caption>
+    <video youtube="pXicWKKwFk4" width="100%" preview="default"/>
+  </figure>
+
+</section>

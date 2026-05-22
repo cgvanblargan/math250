@@ -1,0 +1,143 @@
+<section xml:id="sec-linear-first-order-intro" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Definition of 1st Order Linear ODEs</title>
+<p>
+  Not all first-order ODEs are separable! Another important class is first-order linear equations.
+  Before we can do anything interesting with them, we first need to recognize what they look like.
+</p>
+ 
+  <definition xml:id="def-linear-first-order">
+    <title>First-Order Linear Differential Equation</title>
+    <statement>
+      <p>
+        A <term>first-order linear differential equation</term> is one that can be written in the form
+        <me>\frac{dy}{dx} + P(x)y = Q(x),</me>
+        where <m>P(x)</m> and <m>Q(x)</m> are functions of <m>x</m> only.
+      </p>
+    </statement>
+  </definition>
+  <p>
+    As  quick example, the following ODE is first-order linear:
+  </p>
+<me>
+\frac{dy}{dx} + \underbrace{\sin(x)}_{P(x)}\, y = \underbrace{\cos(x)}_{Q(x)}
+</me>
+ <p>
+  The key idea here is that the equation is <em>linear</em> in <m>y</m> and <m>y'</m>: both <m>y</m> and <m>y'</m> appear only to the first power,
+  and never multiplied together. In particular, notice:
+</p>
+  <ul>
+    <li><p>No products or powers of <m>y'</m> and <m>y</m> -- terms like <m>y' \cdot y</m> or <m>y^2</m> are not allowed.</p></li>
+    <li><p>No compositions involving <m>y</m> -- terms like <m>\cos(y)</m> or <m>e^y</m> are not allowed.</p></li>
+    <li><p>The functions <m>P(x)</m> and <m>Q(x)</m> can be anything -- <m>\sin(x)</m>, <m>x^2</m>, constants, and so on -- as long as they depend only on <m>x</m>, not on <m>y</m>.</p></li>
+  </ul>
+
+  <p>
+     Let's explore these ideas in the following non-examples. 
+  </p>
+<ul>
+
+  <li><p>
+    <m>\dfrac{dy}{dx} + x\sin(y) = \cos(x)</m>.
+    This is <em>not</em> linear: the term <m>\sin(y)</m> is a composition involving <m>y</m>,
+    so this cannot be written in the form <m>\frac{dy}{dx} + P(x)y = Q(x)</m>.
+  </p></li>
+  <li><p>
+    <m>y'y = x</m>.
+    This is <em>not</em> linear: the left side is a product of <m>y'</m> and <m>y</m>,
+    which is not allowed.
+  </p></li>
+</ul>
+<p>
+Just as with separable ODEs, it is not always immediately obvious whether an ODE is linear. We will see this
+in the following example. 
+</p>
+  <example xml:id="ex-linear-standard-form">
+    <title>Rewriting in Standard Form</title>
+    <p>
+      Consider the equation <m>(x^2 + 1)y' + y + x = 0</m>.
+      Is this linear? If so, identify <m>P(x)</m> and <m>Q(x)</m>.
+    </p>
+    <hint>
+      <p>
+        Manipulate the ODE to get it in the form <m>\dfrac{dy}{dx} + P(x)y = Q(x)</m>.
+      </p>
+    </hint>
+    <solution>
+      <p>
+        First move the <m>x</m> term to the right:
+        <me>(x^2 + 1)y' + y = -x.</me>
+        Now divide through by <m>(x^2 + 1)</m>:
+        <me>y' + \frac{1}{x^2 + 1}y = \frac{-x}{x^2 + 1}.</me>
+        This is in standard form with
+        <me>P(x) = \frac{1}{x^2 + 1}, \qquad Q(x) = \frac{-x}{x^2 + 1}.</me>
+        So yes, this equation is linear!
+      </p>
+    </solution>
+  </example>
+
+  <p>
+    Now just a quick check before we get to the fun part!!
+  </p>
+  <exercise xml:id="ex-mc-linear-classify">
+    <title>Checkpoint: Identifying Linear Equations</title>
+    <statement>
+      <p>
+        Which of the following are first-order linear differential equations? Select all that apply.
+      </p>
+    </statement>
+    <choices randomize="yes">
+      <choice correct="yes">
+        <statement><p><m>\dfrac{dy}{dx} + x^2 y = e^x</m></p></statement>
+        <feedback>
+          <p>
+            Linear. This is already in standard form with <m>P(x) = x^2</m> and <m>Q(x) = e^x</m>,
+            both functions of <m>x</m> only.
+          </p>
+        </feedback>
+      </choice>
+      <choice correct="yes">
+        <statement><p><m>xy' + 2y = \cos(x)</m></p></statement>
+        <feedback>
+          <p>
+            Linear. Dividing through by <m>x</m> gives <m>y' + \frac{2}{x}y = \frac{\cos(x)}{x}</m>,
+            which is in standard form with <m>P(x) = \frac{2}{x}</m> and <m>Q(x) = \frac{\cos(x)}{x}</m>.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement><p><m>\dfrac{dy}{dx} + y^2 = x</m></p></statement>
+        <feedback>
+          <p>
+            Not linear. The term <m>y^2</m> is a power of <m>y</m> greater than one, which is not
+            allowed in a linear equation.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement><p><m>y' = \sin(y) + x</m></p></statement>
+        <feedback>
+          <p>
+            Not linear. The term <m>\sin(y)</m> is a composition involving <m>y</m>, so this
+            cannot be written in the form <m>\frac{dy}{dx} + P(x)y = Q(x)</m>.
+          </p>
+        </feedback>
+      </choice>
+      <choice correct="yes">
+        <statement><p><m>(x+1)y' - 3y = x^2</m></p></statement>
+        <feedback>
+          <p>
+            Linear. Dividing through by <m>(x+1)</m> gives
+            <m>y' - \frac{3}{x+1}y = \frac{x^2}{x+1}</m>,
+            which is in standard form with <m>P(x) = -\frac{3}{x+1}</m> and <m>Q(x) = \frac{x^2}{x+1}</m>.
+          </p>
+        </feedback>
+      </choice>
+    </choices>
+  </exercise>
+
+  <figure xml:id="video-linear-first-order">
+    <caption>This video goes through the content of this page.</caption>
+    <video youtube="-DhMEtcWtSs" width="100%" preview="default"/>
+  </figure>
+
+</section>

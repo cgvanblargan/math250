@@ -3,9 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Population Growth Model</title>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jsxgraph/1.6.0/jsxgraphcore.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jsxgraph/1.6.0/jsxgraph.css">
+<title>Population Growth Model</title><script src="jsxgraph-loader.js"></script>
 <style>
   body {
     margin: 0;
@@ -52,17 +50,23 @@
 </head>
 <body>
 
-<div id="expression">P(t) = e<sup>2t</sup></div>
+<div id="expression"
+  role="region"
+  aria-label="Interactive display showing the current solution P(t) equals C times e to the 2t. Updates as C changes.">P(t) = e<sup>2t</sup></div>
 
 <div id="controls">
   <label for="cslider">C =</label>
-  <input type="range" id="cslider" min="-5" max="5" step="0.1" value="1">
+  <input type="range" id="cslider" min="-5" max="5" step="0.1" value="1"
+    aria-label="Slider for constant C, ranging from negative 5 to 5. Controls the initial population P(0) equals C.">
   <span id="cvalue">1</span>
 </div>
 
-<div id="jxgbox" class="jxgbox"></div>
+<div id="jxgbox" class="jxgbox"
+  aria-label="Graph of P(t) equals C times e to the 2t with axes labeled t and P. A blue curve shows exponential growth or decay depending on C. A maroon dot marks the y-intercept at (0, C), showing the initial value P(0) equals C.">
+</div>
 
 <script>
+  window.onJSXLoaded = function() {
   var board = JXG.JSXGraph.initBoard('jxgbox', {
     boundingbox: [-1, 10, 2, -10],
     axis: true,
@@ -141,6 +145,8 @@
   });
 
   updateExpression(1);
+
+  };
 </script>
 </body>
 </html>

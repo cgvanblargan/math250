@@ -3,9 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Equilibrium Solutions</title>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jsxgraph/1.6.0/jsxgraphcore.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jsxgraph/1.6.0/jsxgraph.css">
+<title>Equilibrium Solutions</title><script src="jsxgraph-loader.js"></script>
 <style>
   body {
     margin: 0;
@@ -63,22 +61,29 @@
 </head>
 <body>
 
-<div id="expression" style="line-height:1.4;">P(t) = e<sup>2t</sup></div>
+<div id="expression"
+  role="region"
+  aria-label="Interactive display showing the current solution P(t) equals C times e to the 2t. When C equals 0, the equilibrium solution is found."
+  style="line-height:1.4;">P(t) = e<sup>2t</sup></div>
 
 <div id="controls">
   <label for="cslider" style="font-size:20px;">C =</label>
-  <input type="range" id="cslider" min="-5" max="5" step="0.5" value="1">
+  <input type="range" id="cslider" min="-5" max="5" step="0.5" value="1"
+    aria-label="Slider for constant C, ranging from negative 5 to 5. Set C to 0 to find the equilibrium solution.">
   <span id="cvalue" style="font-size:20px;">1</span>
 </div>
 
 <div style="position:relative;">
-  <div id="jxgbox" class="jxgbox"></div>
+  <div id="jxgbox" class="jxgbox"
+    aria-label="Graph of P(t) equals C times e to the 2t. Blue curve for non-zero C, turns green when C equals 0 revealing the equilibrium solution along the t-axis.">
+  </div>
   <canvas id="confetti-canvas"></canvas>
 </div>
 
-<div id="eq-label">🎉 Equilibrium Solution!! 🎉</div>
+<div id="eq-label" aria-live="polite">🎉 Equilibrium Solution!! 🎉</div>
 
 <script>
+  window.onJSXLoaded = function() {
   var board = JXG.JSXGraph.initBoard('jxgbox', {
     boundingbox: [-1, 10, 2, -10],
     axis: true,
@@ -205,6 +210,8 @@
   });
 
   updateExpression(1);
+
+  };
 </script>
 </body>
 </html>

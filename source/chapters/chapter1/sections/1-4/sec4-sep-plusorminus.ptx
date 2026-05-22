@@ -101,10 +101,11 @@
 <example xml:id="ex-implicit-solution">
   <title>Finding a General Implicit Solution</title>
   <introduction>
-    <p>
-      Find a general implicit solution to <m>v'(t) = \frac{1}{v} - \frac{t^2}{v}</m>.
-    </p>
-  </introduction>
+  <p>
+    Find a general implicit solution to <m>v'(t) = \frac{1}{v} - \frac{t^2}{v}</m>.
+    Before diving in, see if you can figure out whether there are any equilibrium solutions!
+  </p>
+</introduction>
   <task xml:id="task-separate-implicit">
     <title>Separating the variables</title>
     <statement>
@@ -172,10 +173,16 @@
     <solution>
       <title>Full working</title>
       <p>
-        <alert>Equilibrium solutions:</alert> None. To see why, rewrite the ODE as:
-        <me>\frac{dv}{dt} = \frac{1}{v}(1 - t^2).</me>
-        In this form, <m>f(v) = \frac{1}{v}</m> and <m>g(t) = 1 - t^2</m>. Equilibrium solutions are found by setting <m>f(v) = 0</m>, that is <m>\frac{1}{v} = 0</m> — but this has no solution. So there are no equilibrium solutions.
-      </p>
+  <alert>Equilibrium solutions:</alert> None.
+</p>
+<solution>
+  <title>Why are there no equilibrium solutions?</title>
+  <p>
+    Rewriting the ODE as <m>\frac{dv}{dt} = \frac{1}{v}(1 - t^2)</m>, we have
+    <m>f(v) = \frac{1}{v}</m>. Setting <m>f(v) = 0</m> gives <m>\frac{1}{v} = 0</m>,
+    which has no solution. So there are no equilibrium solutions.
+  </p>
+</solution>
       <p>
         <alert>Separating and integrating:</alert>
         <md>

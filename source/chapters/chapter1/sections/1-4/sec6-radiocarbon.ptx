@@ -1,0 +1,230 @@
+<section xml:id="sec-1-4-radiocarbon" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Radiocarbon Dating</title>
+
+  <p>
+    Separable ODEs actually show up naturally in many applications! We already saw it appear in population
+    modelling. We now look at a similar example with radioactive decay, which follows the principle that the rate at which
+    a radioactive substance decays is proportional to how much of it remains. That single
+    observation is enough to write down a differential equation, solve it, and use it to
+    date artifacts. 
+  </p>
+
+  <fact xml:id="fact-radioactive-decay">
+    <title>Radioactive Decay Model</title>
+    <p>
+      A material containing <m>N(t)</m> atoms of a radioactive isotope decays at a rate
+      proportional to the number of atoms present:
+      <me>\frac{dN}{dt} = -kN,</me>
+      where <m>k &gt; 0</m>. <term>Radiocarbon dating</term> uses the radioactive isotope
+      <m>{}^{14}C</m> of carbon, for which it is known that <m>k \approx 0.0001216</m>.
+      By measuring how much <m>{}^{14}C</m> remains in an organism after it dies, we can
+      approximate how long ago the organism died.
+    </p>
+  </fact>
+
+  <p>
+    Notice that <m>\frac{dN}{dt} = -kN</m> is separable. We saw this exact form when we
+    studied population growth. Now let's put it to work.
+  </p>
+
+  <activity xml:id="act-radiocarbon-dating">
+    <title>Practice: Radiocarbon Dating</title>
+    <introduction>
+      <p>
+        Bones from an animal are measured to have 50% of the original amount of
+        <m>{}^{14}C</m>. Approximate how old the bone is. Work through the following
+        steps. <alert>Try each part on your own before checking the solution!</alert>
+      </p>
+    </introduction>
+
+    <task xml:id="task-radiocarbon-general-solution">
+      <title>Step 1: General Solution</title>
+      <statement>
+        <p>
+          What is the general solution to <m>\frac{dN}{dt} = -kN</m>?
+        </p>
+      </statement>
+      <choices randomize="no">
+        <choice correct="yes">
+          <statement><p><m>N(t) = Ce^{-kt}</m></p></statement>
+          <feedback>
+            <p>
+              Correct! You can arrive at this by separation of variables, but at this
+              point it is worth having this form memorized: a differential equation
+              <m>\frac{dy}{dt} = ry</m> always has general solution <m>y = Ce^{rt}</m>.
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement><p><m>N(t) = Ce^{kt}</m></p></statement>
+          <feedback>
+            <p>
+              Not quite. Check the sign on the exponent. Since <m>k &gt; 0</m> and the
+              substance is <em>decaying</em>, the exponent should be negative.
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement><p><m>N(t) = -kCe^{t}</m></p></statement>
+          <feedback>
+            <p>
+              This is not correct. Try separating variables: move <m>N</m> to one side
+              and <m>dt</m> to the other, then integrate both sides.
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement><p><m>N(t) = C - kt</m></p></statement>
+          <feedback>
+            <p>
+              This would be the solution to <m>\frac{dN}{dt} = -k</m>, not
+              <m>\frac{dN}{dt} = -kN</m>. The <m>N</m> on the right-hand side makes
+              this equation exponential, not linear.
+            </p>
+          </feedback>
+        </choice>
+      </choices>
+    </task>
+
+    <task xml:id="task-radiocarbon-solve">
+      <title>Step 2: Find the Age of the Bone</title>
+      <statement>
+        <p>
+          Using <m>N(t) = Ce^{-kt}</m> with <m>k \approx 0.0001216</m>, and the fact
+          that 50% of the original <m>{}^{14}C</m> remains, find the age of the bone.
+        </p>
+      </statement>
+      <hint>
+        <p>
+          Let <m>N_0 = N(0)</m> denote the initial amount. We need to find <m>t_*</m>
+          so that <m>N(t_*) = 0.50 \cdot N_0 = \frac{N_0}{2}</m>.
+          Substituting into the general solution:
+          <me>\frac{N_0}{2} = N_0 e^{-k t_*}.</me>
+        </p>
+      </hint>
+      <solution>
+        <p>
+          We need to find <m>t_*</m> such that <m>N(t_*) = \frac{N_0}{2}</m>.
+          Substituting into <m>N(t) = N_0 e^{-kt}</m>:
+          <me>\frac{N_0}{2} = N_0 e^{-k t_*}.</me>
+          Dividing both sides by <m>N_0</m>:
+          <me>\frac{1}{2} = e^{-k t_*}.</me>
+          After some standard algebraic manipulations using log and exponent rules, we get:
+          <me>t_* = \frac{-\ln\!\left(\frac{1}{2}\right)}{k}.</me>
+        </p>
+        <solution>
+          <title>Stuck on the algebra? Check here.</title>
+          <p>
+            Taking the natural log of both sides to bring down the exponent:
+            <md>
+              <mrow> \frac{1}{2}\amp  = e^{-k t_*}</mrow>
+              <mrow>\ln\!\left(\frac{1}{2}\right) \amp=\ln\!\left(e^{-kt_*}\right) </mrow>
+              <mrow>\ln\!\left(\frac{1}{2}\right) \amp= -k t_*</mrow>
+              <mrow>t_* \amp= \frac{-\ln\!\left(\frac{1}{2}\right)}{k}.</mrow>
+            </md>
+          </p>
+        </solution>
+        <p>
+          With <m>k \approx 0.0001216</m>, we get
+          <me>t_* = \frac{-\ln\!\left(\frac{1}{2}\right)}{0.0001216} \approx 5700 \text{ years}.</me>
+          This is correct. We can write it in a slightly nicer form using exponent rules:
+          <me>t_* = \frac{\ln 2}{k} = \frac{\ln 2}{0.0001216} \approx 5700 \text{ years}.</me>
+        </p>
+        <solution>
+          <title>Why can we write it this way?</title>
+          <p>
+            Only look here if you want to see the algebra! Using log rules:
+            <md>
+              <mrow>-\ln\!\left(\frac{1}{2}\right) \amp= (-1) \cdot \ln\!\left(\frac{1}{2}\right)</mrow>
+              <mrow>\amp= \ln\!\left(\left(\frac{1}{2}\right)^{-1}\right)</mrow>
+              <mrow>\amp= \ln(2).</mrow>
+            </md>
+            So <m>t_* = \frac{-\ln\!\left(\frac{1}{2}\right)}{k} = \frac{\ln 2}{k}</m>.
+          </p>
+        </solution>
+      </solution>
+    </task>
+
+  </activity>
+The ODE for radioactive decay should look familiar.
+<remark xml:id="rem-memorize-decay-solution">
+    <title>A connection to the Population Growth Model</title>
+    <p>
+      The equation <m>\frac{dN}{dt} = -kN</m> is the same structure as the population
+      growth model <m>\frac{dP}{dt} = kP</m> we studied earlier. The only difference is whether the constant of
+      proportionality is positive or negative, which corresponds to whether the solution has <alert>exponential decay</alert>
+      (as in the carbon dating example) or <alert>exponential growth</alert> (such as the population growth model).
+      The main idea of these types of ODEs is:
+    </p>
+    <p>
+      <alert>When the rate of change of a quantity is proportional to the quantity itself,
+      the solution is exponential.</alert>
+    </p>
+    <p>
+      More precisely, whenever you see
+      <me>\frac{dy}{dt} = ry,</me>
+      you can immediately write down the general solution
+      <me>y = Ce^{rt}</me>
+      without going through separation of variables each time. At this point in the course,
+      it is worth having this memorized.
+    </p>
+  </remark>
+<exercise xml:id="ex-mc-decay-checkpoint">
+    <statement>
+      <p>
+        Using the ideas from the remark above (no separation of variables needed!),
+        what is the general solution to <m>\frac{dy}{dt} = -10y</m>, and is it
+        exponential growth or decay?
+      </p>
+    </statement>
+    <choices randomize="yes">
+      <choice correct="yes">
+        <statement><p><m>y = Ce^{-10t}</m>, exponential decay</p></statement>
+        <feedback>
+          <p>
+            Correct! Since the equation has the form <m>\frac{dy}{dt} = ry</m> with
+            <m>r = -10 \lt 0</m>, the solution is <m>y = Ce^{-10t}</m> and the negative
+            exponent means exponential decay.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement><p><m>y = Ce^{10t}</m>, exponential growth</p></statement>
+        <feedback>
+          <p>
+            Check the sign on <m>r</m>. The equation is <m>\frac{dy}{dt} = -10y</m>,
+            so <m>r = -10</m>, not <m>r = 10</m>. The solution is <m>Ce^{-10t}</m>,
+            not <m>Ce^{10t}</m>.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement><p><m>y = Ce^{-10t}</m>, exponential growth</p></statement>
+        <feedback>
+          <p>
+            The solution <m>Ce^{-10t}</m> is correct, but think about what a negative
+            exponent does. As <m>t \to \infty</m>, <m>e^{-10t} \to 0</m>, so this is
+            exponential decay, not growth.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement><p><m>y = e^{-10t} + C</m>, exponential decay</p></statement>
+        <feedback>
+          <p>
+            Be careful -- the constant <m>C</m> is not added on, it multiplies the
+            exponential. Adding <m>C</m> would mean <m>y(0) = 1 + C</m> for any
+            initial condition, which is not right. The correct form is <m>y = Ce^{-10t}</m>.
+          </p>
+        </feedback>
+      </choice>
+    </choices>
+  </exercise>
+
+
+  <figure xml:id="video-radiocarbon">
+    <caption>This video goes through the content of this page.</caption>
+    <video youtube="Z3b9BOh_6OM" width="100%" preview="default"/>
+  </figure>
+
+</section>

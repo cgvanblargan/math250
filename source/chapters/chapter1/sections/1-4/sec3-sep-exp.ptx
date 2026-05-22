@@ -60,15 +60,15 @@
       <p>
         The only equilibrium solution is <m>y = 0</m>.
       </p>
-      <solution>
-        <title>Work to solve for the equilibrium solution</title>
-        <p>
-          In separable ODEs, we can always find the equilibrium solution by 
-          solving <m>f(y) = 0</m>. 
-          Setting <m>y = C</m>, we need <m>\frac{dy}{dx} = 0</m>:
-          <me>0 = e^{2y} \implies y = 0.</me>
-        </p>
-      </solution>
+     <solution>
+  <title>Work to solve for the equilibrium solution</title>
+  <p>
+    In separable ODEs, we can always find the equilibrium solution by
+    solving <m>f(y) = 0</m>. Here <m>f(y) = 2y</m>, so
+    <me>2y = 0 \implies y = 0.</me>
+    So <m>y = 0</m> is the only equilibrium solution.
+  </p>
+</solution>
 
       <p>
         <alert>Steps 2 and 3: Separate the variables and integrate.</alert>

@@ -5,8 +5,8 @@
 
   <p>
     The method we started exploring on the previous page
-     used is called <term>separation of variables</term>. 
-     Let's now state it formally.
+      is called <term>separation of variables</term>. 
+     Let's now make it precise.
   </p>
 
   <definition xml:id="def-separable-de">
@@ -54,23 +54,54 @@
   </proof>
 
   <p>
+  Notice that separation of variables misses any solution where <m>f(y) = 0</m>,
+  since we cannot divide by zero in that step. It turns out these are precisely
+  the equilibrium solutions -- the ones you already know how to find from
+  <xref ref="sec-equilibrium-solutions"/>!
+</p>
+
+<solution>
+  <title>Why does <m>f(y) = 0</m> give equilibrium solutions?</title>
+  <p>
+    Recall that an equilibrium solution is a constant solution <m>y = C</m>.
+    If <m>y</m> is constant, then <m>y' = 0</m>, so the ODE <m>\frac{dy}{dx} = f(y)g(x)</m>
+    becomes
+    <me>0 = f(C)\,g(x).</me>
+    For this to hold for all <m>x</m>, we need <m>f(C) = 0</m>.
+    So the equilibrium solutions are exactly the values of <m>y</m> where <m>f(y) = 0</m>.
+  </p>
+</solution>
+
+<observation xml:id="obs-general-solution-separable">
+  <title>General Solution of a Separable ODE</title>
+  <p>
+    The general solution to <m>\frac{dy}{dx} = f(y)\,g(x)</m> consists of:
+    <ol>
+      <li><p>All solutions found by separation of variables.</p></li>
+      <li><p>All equilibrium solutions, which correspond to values of <m>y</m> where <m>f(y) = 0</m>.</p></li>
+    </ol>
+  </p>
+</observation>
+  <p>
     In the following example, we go through each step in applying separation of variables.
-    </p>
+   At this point, you are still getting used to the process, so feel free to follow along step by step!
+   </p>
 
   <example xml:id="ex-separable-3y2x3">
     <title>Solving a Separable ODE</title>
     <p>
-      Find all equilibrium solutions to <m>\frac{dy}{dx} = 3y^2 x^3</m>, then find the general explicit solution.
+      Find the general explicit solution to <m>\frac{dy}{dx} = 3y^2 x^3</m>.
     </p>
     <solution>
-      <p>
-        <alert>Step 1: Find equilibrium solutions.</alert>
-      </p>
-      <p>
-        Setting <m>y = C</m> (constant), we need <m>\frac{dy}{dx} = 0</m>:
-        <me>0 = 3C^2 x^3 \implies C = 0.</me>
-        So <m>y = 0</m> is the only equilibrium solution.
-      </p>
+     <p>
+  <alert>Step 1: Find equilibrium solutions.</alert>
+</p>
+<p>
+  From the observation above, a shortcut to finding equilibrium solutions
+  in separable ODEs is to solve <m>f(y) = 0</m>. Here <m>f(y) = y^2</m>, so
+  <me>y^2 = 0 \implies y = 0.</me>
+  So <m>y = 0</m> is the only equilibrium solution.
+</p>
 
       <p>
         <alert>Step 2: Separate the variables.</alert>
@@ -117,9 +148,7 @@
           Note: in the third line, <m>-C</m> was replaced with <m>C</m>. Since <m>C</m> ranges over all real numbers, so does <m>-C</m> — so this is just a relabeling. See the remark below.
         </p>
       </solution>
-      <p>
-        Note: we replaced <m>-C</m> with <m>C</m> above, since both vary over all real numbers. See the remark below for more on this.
-      </p>
+     
 
       <p>
         <alert>Step 5: Write the general solution.</alert>

@@ -14,22 +14,7 @@
       </p>
     </answer>
   </exercise>
-
-  <exercise xml:id="ex-1-4-2">
-    <statement>
-      <p>
-        Find the explicit general solution to the following differential equation:
-        <me>\frac{dy}{dx} = ye^{7x}.</me>
-      </p>
-    </statement>
-    <answer>
-      <p>
-        <me>y = Ce^{e^{7x}/7}</me>
-      </p>
-    </answer>
-  </exercise>
-
-  <exercise xml:id="ex-1-4-3">
+<exercise xml:id="ex-1-4-2">
     <statement>
       <p>
         Find the explicit general solution of the given differential equation:
@@ -43,6 +28,22 @@
     </answer>
   </exercise>
 
+  <exercise xml:id="ex-1-4-3">
+    <statement>
+      <p>
+        Find the explicit general solution to the following differential equation:
+        <me>\frac{dy}{dx} = ye^{7x}.</me>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <me>y = Ce^{e^{7x}/7}</me>
+      </p>
+    </answer>
+  </exercise>
+
+  
+
   <exercise xml:id="ex-1-4-4">
     <statement>
       <p>
@@ -53,6 +54,10 @@
     <answer>
       <p>
         <me>y = \pm\frac{1}{\sqrt{-(9x^2 + C)}}</me>
+        and
+         <me>y = 0</me>
+         Remember the general solution needs to include both any equilibrium solutions together with all solutions
+         found from separation of variables.
       </p>
     </answer>
   </exercise>
@@ -72,7 +77,9 @@
       </statement>
       <answer>
         <p>
-          Equilibrium: <m>y = 3</m>. General solution: <m>y = 3 - \dfrac{1}{x^2/2 + C}</m>.
+          Equilibrium: <m>y = 3</m>. 
+          This together with separation of variables yields the general solution:
+           <me>y = 3 - \dfrac{1}{x^2/2 + C} \text{ and } y=3</me>.
         </p>
       </answer>
     </task>

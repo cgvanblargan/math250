@@ -10,7 +10,7 @@
   <exercise xml:id="ex-1-1-1">
     <statement>
       <p>
-        Write a differential equation of the form <m>\dfrac{dy}{dx} = f(x,y)</m> whose solution <m>y = g(x)</m> has the property that the slope of its graph at any point <m>(x, y)</m> equals the sum of <m>x</m> and <m>y</m>.
+        Write a differential equation where the solution <m>y(x)</m> has the property that the slope of its graph at any point <m>(x, y)</m> equals the sum of <m>x</m> and <m>y</m>.
       </p>
     </statement>
     <answer>
@@ -21,7 +21,7 @@
   <exercise xml:id="ex-1-1-2">
     <statement>
       <p>
-        Write a differential equation of the form <m>\dfrac{dy}{dx} = f(x,y)</m> whose solution <m>y = g(x)</m> has the property that the tangent line to its graph at any point <m>(x, y)</m> passes through the point <m>(-y,\, x)</m>.
+        Write a differential equation where the solution <m>y(x)</m> has the property that the tangent line to its graph at any point <m>(x, y)</m> passes through the point <m>(-y,\, x)</m>.
       </p>
     </statement>
     <hint>
