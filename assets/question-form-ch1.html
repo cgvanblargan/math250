@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chapter 1 Questions</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: Georgia, 'Times New Roman', serif;
+    background: transparent;
+    padding: 12px 16px;
+    color: #2c3e50;
+  }
+  .form-header {
+    font-size: 14px;
+    color: #1a5276;
+    font-weight: bold;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .form-header::before {
+    content: "?";
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 22px;
+    height: 22px;
+    background: #1a5276;
+    color: white;
+    border-radius: 50%;
+    font-size: 13px;
+    font-family: Georgia, serif;
+    flex-shrink: 0;
+  }
+  .field-group {
+    margin-bottom: 10px;
+  }
+  label {
+    display: block;
+    font-size: 13px;
+    color: #2c3e50;
+    margin-bottom: 4px;
+    line-height: 1.4;
+  }
+  label em {
+    font-size: 12px;
+    color: #666;
+    font-style: italic;
+  }
+  input[type="text"], textarea {
+    width: 100%;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 13px;
+    color: #2c3e50;
+    background: #fff;
+    border: 1px solid #b0bec5;
+    border-radius: 3px;
+    padding: 6px 9px;
+    outline: none;
+    transition: border-color 0.15s;
+  }
+  input[type="text"]:focus, textarea:focus {
+    border-color: #1a5276;
+  }
+  input[type="text"] { height: 32px; }
+  textarea {
+    height: 70px;
+    resize: vertical;
+    line-height: 1.5;
+  }
+  .submit-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  button {
+    background: #1a5276;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    padding: 7px 20px;
+    font-family: Georgia, serif;
+    font-size: 13px;
+    cursor: pointer;
+    transition: background 0.15s;
+  }
+  button:hover { background: #154360; }
+  button:disabled { background: #aaa; cursor: default; }
+  #status {
+    font-size: 13px;
+    font-style: italic;
+    color: #1e8449;
+    display: none;
+  }
+  #status.error { color: #922b21; }
+</style>
+</head>
+<body>
+
+<div class="form-header">Have a question about this section?</div>
+
+<div class="field-group">
+  <label for="subsection">
+    Which subsection are you on?
+    <em>(e.g. 1.1.4, or the name shown in the navigation bar)</em>
+  </label>
+  <input type="text" id="subsection" placeholder="e.g. 1.4.2 or Separation of Variables"/>
+</div>
+
+<div class="field-group">
+  <label for="question">
+    What is your question?
+    <em>(If about a specific block, include its name — e.g. Example 1.4.2)</em>
+  </label>
+  <textarea id="question" placeholder="Type your question here..."></textarea>
+</div>
+
+<div class="submit-row">
+  <button id="submitBtn" onclick="submitForm()">Submit</button>
+  <span id="status"></span>
+</div>
+
+<script>
+var FORM_ACTION = "https://docs.google.com/forms/d/e/1FAIpQLSeHLtyWrkq6ZmFY0cO6v7UhfParausYHz06n3Oj7thyZp_GUA/formResponse";
+var ENTRY_SUBSECTION = "entry.842367560";
+var ENTRY_QUESTION = "entry.622780835";
+
+function submitForm() {
+  var subsection = document.getElementById('subsection').value.trim();
+  var question = document.getElementById('question').value.trim();
+  var status = document.getElementById('status');
+  var btn = document.getElementById('submitBtn');
+
+  if (!subsection || !question) {
+    status.textContent = "Please fill in both fields.";
+    status.className = "error";
+    status.style.display = "inline";
+    return;
+  }
+
+  btn.disabled = true;
+  status.style.display = "none";
+
+  var url = FORM_ACTION + "?" +
+    encodeURIComponent(ENTRY_SUBSECTION) + "=" + encodeURIComponent(subsection) + "&" +
+    encodeURIComponent(ENTRY_QUESTION) + "=" + encodeURIComponent(question) +
+    "&submit=Submit";
+
+  var img = new Image();
+  img.src = url;
+
+  setTimeout(function() {
+    document.getElementById('subsection').value = '';
+    document.getElementById('question').value = '';
+    status.textContent = "Thanks! Your question has been submitted.";
+    status.className = "";
+    status.style.display = "inline";
+    btn.disabled = false;
+  }, 800);
+}
+</script>
+
+</body>
+</html>

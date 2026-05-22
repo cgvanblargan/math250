@@ -1,0 +1,264 @@
+<section xml:id="sec-linear-standard-examples" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>First-Order Linear ODEs: Standard Examples</title>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       INTRO PROSE
+       ═══════════════════════════════════════════════════════════ -->
+ <p>
+    Okay so we have figured out that we have some sort of magical integrating factor to help us solve first-order linear ODEs.
+    It's time to make sure we understand how to solve problems with it!
+    In this section we walk through two examples that highlight techniques that come up
+    again and again when solving first-order linear ODEs.
+    For the first example, follow along and work out each step as we go.
+    The second example will get you trying much of it on your own!
+  </p>
+
+ 
+
+  <!-- ═══════════════════════════════════════════════════════════
+       EXAMPLE 1
+       ═══════════════════════════════════════════════════════════ -->
+  <example xml:id="ex-linear-usub">
+    <title>Solve <m>y' + 2xy + x = 0</m></title>
+    <p>
+      Solve the first-order linear ODE <m>y' + 2xy + x = 0</m>.
+    </p>
+       <hint>
+    <ul>
+      <li><p>Rewrite in standard form <m>y' + P(x)y = Q(x)</m> by moving the <m>x</m> term to the right-hand side. </p></li>
+      <li><p>Compute the integrating factor <m>\rho(x) = e^{\int P(x)\,dx}</m>. </p></li>
+      <li><p>Multiply both sides by <m>\rho(x)</m>, recognize the left-hand side as a single derivative, then integrate both sides.</p></li>
+       </ul>
+  </hint>
+    <solution>
+      <p>
+        <alert>Step 1: Standard form.</alert>
+        Move <m>x</m> to the right-hand side:
+        <me>y' + 2xy = -x.</me>
+        So <m>P(x) = 2x</m> and <m>Q(x) = -x</m>.
+      </p>
+      <p>
+        <alert>Step 2: Integrating factor.</alert>
+        <me>\rho(x) =e^{\int P(x)\,dx}= e^{\int 2x\,dx} = e^{x^2}.</me>
+      </p>
+     
+     <p>
+        <alert>Step 3: Multiply both sides by <m>\rho(x)</m>.</alert>
+        <me>e^{x^2} y' + 2xe^{x^2} y = -xe^{x^2}.</me>
+        The left-hand side is <m>(e^{x^2} y)'</m> by the product rule, so we can write:
+        <me>(e^{x^2} y)' = -xe^{x^2}.</me>
+      </p>
+      <p>
+        <alert>Step 4: Evaluate the integral</alert>
+        <me>y \cdot e^{x^2} = \int -x e^{x^2}\,dx = -\frac{1}{2}e^{x^2} + C.</me>
+      </p>
+      <solution>
+        <title>U-substitution details</title>
+        <p>
+          Let <m>u = x^2</m>, so <m>du = 2x\,dx</m>, which means <m>x\,dx = \frac{1}{2}du</m>. Then:
+          <md>
+            <mrow>\int -x e^{x^2}\,dx \amp= \int -e^u \cdot \frac{1}{2}\,du</mrow>
+            <mrow>\amp= -\frac{1}{2}\int e^u\,du</mrow>
+            <mrow>\amp= -\frac{1}{2}e^u + C</mrow>
+            <mrow>\amp= -\frac{1}{2}e^{x^2} + C.</mrow>
+          </md>
+        </p>
+      </solution>
+      <p>
+        <alert>Step 5: Solve for <m>y</m>.</alert>
+        Divide both sides by <m>e^{x^2}</m>:
+        <me>y = \frac{-\frac{1}{2}e^{x^2} + C}{e^{x^2}} = -\frac{1}{2} + Ce^{-x^2}.</me>
+      </p>
+    </solution>
+  </example>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       OBSERVATION: jump from rho to shortcut
+       ═══════════════════════════════════════════════════════════ -->
+  <observation xml:id="obs-integrating-factor-jump">
+    <title>A Shortcut</title>
+    <p>
+      Look at what just happened in the previous example. Once we had <m>\rho(x) = e^{x^2}</m>,
+      we multiplied through, recognized the left-hand side as <m>(e^{x^2} y)'</m> by the product rule,
+      integrated both sides, and solved for <m>y</m>. Those intermediate steps will
+      <em>always</em> play out the same way, as the integrating factor is defined
+      precisely to make the left-hand side collapse like that every single time.
+    </p>
+    <p>
+      So going forward, once you have <m>\rho(x)</m>, you can skip straight from the original ODE to
+      <me>y \cdot \rho(x) = \int \rho(x)\,Q(x)\,dx</me>
+      without writing out the multiplication, product rule collapse, and integration steps in between.
+      You will see this in action in the activity below.
+    </p>
+  </observation>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       EXAMPLE 2 (activity)
+       ═══════════════════════════════════════════════════════════ -->
+  <activity xml:id="act-linear-logfactor">
+    <title>Practice: Solve <m>y' + \frac{2}{x}y = 5x^2</m></title>
+    <introduction>
+      <p>
+        Try each part on your own before checking the solution. 
+      </p>
+    </introduction>
+
+    <!-- TASK 1: find the integrating factor (unsimplified) -->
+    <task xml:id="task-logfactor-rho-unsimplified">
+      <title>Finding the Integrating Factor</title>
+      <statement>
+        <p>
+          For the ODE <m>y' + \dfrac{2}{x}y = 5x^2</m>, we have <m>P(x) = \dfrac{2}{x}</m>.
+          Which of the following correctly gives the integrating factor <m>\rho(x) = e^{\int P(x)\,dx}</m>
+          with the integral evaluated?
+        </p>
+      </statement>
+      <choices randomize="yes">
+        <choice correct="yes">
+          <statement><p><m>\rho(x) = e^{2\ln|x|}</m></p></statement>
+          <feedback>
+            <p>
+              Correct! We compute <m>\int \frac{2}{x}\,dx = 2\ln|x|</m>, so <m>\rho(x) = e^{2\ln|x|}</m>.
+              We will simplify this in the next part.
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement><p><m>\rho(x) = e^{2/x}</m></p></statement>
+          <feedback>
+            <p>
+              Not quite -- this skips the integral. We need <m>e^{\int (2/x)\,dx}</m>,
+              not <m>e^{P(x)}</m>. Make sure to integrate <m>P(x)</m> first.
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement><p><m>\rho(x) = e^{2x}</m></p></statement>
+          <feedback>
+            <p>
+              This would be the integrating factor if <m>P(x) = 2</m>, but here <m>P(x) = \frac{2}{x}</m>.
+              Remember: <m>\int \frac{2}{x}\,dx \ne 2x</m>.
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement><p><m>\rho(x) = e^{\ln|x|}</m></p></statement>
+          <feedback>
+            <p>
+              Close -- <m>\int \frac{1}{x}\,dx = \ln|x|</m>, but there is a factor of <m>2</m> in front.
+              So <m>\int \frac{2}{x}\,dx = 2\ln|x|</m>.
+            </p>
+          </feedback>
+        </choice>
+      </choices>
+    </task>
+
+    <!-- TASK 2: simplify the integrating factor -->
+    <task xml:id="task-logfactor-rho-simplified">
+      <title>Simplifying the Integrating Factor</title>
+      <statement>
+        <p>
+          From the previous part, <m>\rho(x) = e^{2\ln|x|}</m>. Simplify this completely.
+          Which of the following is correct?
+        </p>
+      </statement>
+      <choices randomize="yes">
+        <choice correct="yes">
+          <statement><p><m>\rho(x) = x^2</m></p></statement>
+          <feedback>
+            <p>
+              Correct! Using the log property <m>e^{a\ln|x|} = |x|^a</m>, we get
+              <m>e^{2\ln|x|} = |x|^2 = x^2</m>, since <m>x^2</m> is always non-negative
+              and the absolute value drops.
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement><p><m>\rho(x) = 2x</m></p></statement>
+          <feedback>
+            <p>
+              Not quite. Recall that <m>e^{2\ln|x|} = e^{\ln(x^2)} = x^2</m>,
+              not <m>2x</m>. The exponent rule here is <m>e^{a\ln|x|} = |x|^a</m>.
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement><p><m>\rho(x) = |x|</m></p></statement>
+          <feedback>
+            <p>
+              This would follow from <m>e^{\ln|x|}</m>, but we have <m>e^{2\ln|x|}</m>.
+              The factor of <m>2</m> becomes the exponent on <m>|x|</m>, giving <m>|x|^2 = x^2</m>.
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement><p><m>\rho(x) = e^{x^2}</m></p></statement>
+          <feedback>
+            <p>
+              This is the integrating factor from Example 1, not this problem.
+              Here the exponent is <m>2\ln|x|</m>, and <m>e^{2\ln|x|} = x^2</m>.
+            </p>
+          </feedback>
+        </choice>
+      </choices>
+    </task>
+
+    <!-- TASK 3: finish solving -->
+    <task xml:id="task-logfactor-solve">
+      <title>Finishing the Solution</title>
+      <statement>
+        <p>
+          From the previous parts: the ODE is <m>y' + \dfrac{2}{x}y = 5x^2</m> and <m>\rho(x) = x^2</m>.
+          Using the shortcut
+          <me>y \cdot \rho(x) = \int \rho(x)\,Q(x)\,dx,</me>
+          finish solving for <m>y</m>.
+        </p>
+      </statement>
+     <solution>
+        <p>
+          Substituting <m>\rho(x) = x^2</m> and <m>Q(x) = 5x^2</m>:
+          <md>
+             <mrow>y \cdot \rho(x) \amp= \int \rho(x)\,Q(x)\,dx,</mrow>
+            <mrow>y \cdot x^2 \amp= \int 5x^4\,dx</mrow>
+            <mrow>y \cdot x^2 \amp= x^5 + C</mrow>
+            <mrow>y \amp= x^3 + Cx^{-2}.</mrow>
+          </md>
+        </p>
+      </solution>
+    </task>
+
+    <conclusion>
+      <p>
+        The general solution is <m>y = x^3 + Cx^{-2}</m>.
+        The key steps were identifying <m>P(x) = \frac{2}{x}</m>, computing and simplifying the
+        integrating factor to <m>\rho(x) = x^2</m>, and then applying the shortcut to jump
+        directly to integrating the right-hand side.
+      </p>
+    </conclusion>
+  </activity>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       REMARK: where does C go?
+       ═══════════════════════════════════════════════════════════ -->
+  <remark xml:id="rem-c-placement">
+    <title>Where Does <m>C</m> Go?</title>
+    <p>
+      In the last step above, we had <m>x^2 y = x^5 + C</m> and divided both sides by <m>x^2</m>.
+      This gives
+      <me>y = x^3 + Cx^{-2},</me>
+      <em>not</em> <m>y = x^3 + C</m>. The constant <m>C</m> appears when you integrate the right-hand side,
+      and it must be divided by <m>\rho(x) = x^2</m> along with everything else in that last step.
+      Forgetting to carry the <m>x^{-2}</m> through to the <m>C</m> term is one of the most common
+      mistakes in this method, so be careful!
+    </p>
+  </remark>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       VIDEO
+       ═══════════════════════════════════════════════════════════ -->
+  <figure xml:id="video-linear-standard-examples">
+    <caption>This video walks through the examples on this page.</caption>
+    <video youtube="9zow09JQ5uY" width="100%" preview="default"/>
+  </figure>
+
+</section>
