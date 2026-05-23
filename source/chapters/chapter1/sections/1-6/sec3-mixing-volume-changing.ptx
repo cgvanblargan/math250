@@ -1,0 +1,209 @@
+<section xml:id="sec-mixing-volume-changing" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Mixing Problem: Changing Volume</title>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       INTRO PROSE
+       ═══════════════════════════════════════════════════════════ -->
+  <!-- PROSE: motivating intro -->
+<p>
+    We are finally ready to revisit the beast of a problem from the intro page!
+    There is quite a bit to parse, and the first time through a problem like this takes some patience.
+    But the main patterns repeat, and with practice these become routine.
+    After working through the four parts below, make sure to check the Key Takeaways
+    at the end which ties everything together neatly.
+  </p>
+  <!-- ═══════════════════════════════════════════════════════════
+       EXAMPLE
+       ═══════════════════════════════════════════════════════════ -->
+  <example xml:id="ex-mixing-changing-volume">
+    <title>Mixing Problem with Changing Volume and Salty Water Entering</title>
+    <introduction>
+      <p>
+        There is a tank with 100 gallons of water that initially contains 20 kg of salt.
+        Water with 5 kg of salt per gallon is pumped into the tank at 10 gal/min.
+        The mixture is kept uniform by stirring, and water leaves the tank at 5 gal/min.
+        Suppose <m>x(t)</m> is the amount of salt in the tank (in kg) as a function of time <m>t</m> in minutes.
+        Set up a differential equation and solve for <m>x(t)</m>.
+      </p>
+      <p>
+        As before, <m>\frac{dx}{dt} = \text{rate in} - \text{rate out}</m>. Let's figure out each piece.
+      </p>
+    </introduction>
+
+    <!-- PART 1: rate in -->
+    <task xml:id="task-mixing-vc-ratein">
+      <title>Part 1: Rate Salt Enters the Tank</title>
+      <statement>
+        <p>
+          This time, salty water is being pumped in -- not pure water! Water with 5 kg of salt per gallon
+          enters at 10 gal/min. What is the rate at which salt enters the tank?
+        </p>
+      </statement>
+      <hint>
+        <p>
+          Rate salt enters = (salt concentration of incoming water) × (water flow rate in).
+          You have both pieces of information in the problem statement.
+        </p>
+      </hint>
+      <solution>
+        <p>
+          The incoming water has a salt concentration of 5 kg/gal, and water flows in at 10 gal/min. So:
+          <me>\text{rate in} = \underbrace{5}_{\text{salt concentration}} \times \underbrace{10}_{\text{water flow rate in}} = 50 \text{ kg/min}.</me>
+        </p>
+      </solution>
+    </task>
+
+    <!-- PART 2: rate out (MC) -->
+    <task xml:id="task-mixing-vc-rateout">
+      <title>Part 2: Rate Salt Leaves the Tank</title>
+     <statement>
+        <p>
+          A big difference in this example is that the volume of water in the tank, <m>V(t)</m>, is changing.
+          However, the same principle as in the <xref ref="task-mixing-cv-rateout">previous example</xref> applies.
+          Here is the relevant information:
+        </p>
+        <ul>
+          <li><p>Water leaves the tank at 5 gal/min (this is the<alert>water</alert>flow rate out).</p></li>
+          <li><p><m>V(t)</m> represents the volume of water in the tank at time <m>t</m>, which is currently unknown.</p></li>
+        </ul>
+        <p>
+          Without solving for <m>V(t)</m> yet, which of the following correctly gives the <alert>rate salt leaves the tank</alert>?
+        </p>
+      </statement>
+      <choices randomize="yes">
+        <choice correct="yes">
+          <statement><p><m>\dfrac{x(t)}{V(t)} \cdot 5</m></p></statement>
+          <feedback>
+            <p>
+              Correct! The salt concentration in the tank is <m>\dfrac{x(t)}{V(t)}</m> kg/gal,
+              and the water flow rate out is 5 gal/min. So rate out = <m>\dfrac{x(t)}{V(t)} \cdot 5</m> kg/min.
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement><p><m>\dfrac{x(t)}{100} \cdot 5</m></p></statement>
+          <feedback>
+            <p>
+              This was the rate out in the previous example, where the volume was constant at 100 gallons.
+              Here the volume is changing, so we need <m>V(t)</m> in place of 100.
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement><p><m>5 \cdot 10</m></p></statement>
+          <feedback>
+            <p>
+              This is the rate salt <em>enters</em> the tank, not the rate it leaves.
+              The rate out depends on the current concentration of salt in the tank, which involves <m>x(t)</m>.
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement><p><m>\dfrac{x(t)}{V(t)} \cdot 10</m></p></statement>
+          <feedback>
+            <p>
+              Close -- the concentration <m>\dfrac{x(t)}{V(t)}</m> is right, but the water flow rate
+              <em>out</em> is 5 gal/min, not 10. The 10 gal/min is the flow rate in.
+            </p>
+          </feedback>
+        </choice>
+      </choices>
+    </task>
+
+    <!-- PART 3: find V(t) -->
+    <task xml:id="task-mixing-vc-volume">
+      <title>Part 3: Finding <m>V(t)</m></title>
+      <statement>
+        <p>
+          From Part 2, the rate out involves <m>V(t)</m>, which we still need to find.
+          Water flows in at 10 gal/min and out at 5 gal/min, with an initial volume of 100 gallons.
+          Find <m>V(t)</m>.
+        </p>
+      </statement>
+      <hint>
+        <p>
+          The same rate in, rate out principle applies to the volume of water:
+          <me>\frac{dV}{dt} = \text{water flow rate in} - \text{water flow rate out}.</me>
+          Use the initial condition <m>V(0) = 100</m>.
+        </p>
+      </hint>
+      <solution>
+        <p>
+          <md>
+            <mrow>\frac{dV}{dt} \amp= 10 - 5 = 5</mrow>
+            <mrow>V(t) \amp= 5t + C.</mrow>
+          </md>
+          Applying <m>V(0) = 100</m> gives <m>C = 100</m>, so
+          <me>V(t) = 5t + 100.</me>
+        </p>
+      </solution>
+    </task>
+
+    <!-- PART 4: ODE and solve -->
+    <task xml:id="task-mixing-vc-solve">
+      <title>Part 4: The ODE and Solution</title>
+      <statement>
+        <p>
+          Putting it all together with <m>V(t) = 5t + 100</m>:
+          <me>\frac{dx}{dt} = \underbrace{50}_{\text{rate in}} - \underbrace{\frac{x(t)}{5t+100} \cdot 5}_{\text{rate out}} = 50 - \frac{x}{t+20}.</me>
+          Rewriting in standard form:
+          <me>\frac{dx}{dt} + \frac{1}{t+20} x = 50.</me>
+          This is a first-order linear ODE! The hard work is done, the solution to the ODE is below.
+        </p>
+      </statement>
+      <solution>
+        <title>Solving the ODE (can skim or skip for now)</title>
+        <p>
+          We have <m>P(t) = \dfrac{1}{t+20}</m> and <m>Q(t) = 50</m>. The integrating factor is:
+          <md>
+            <mrow>\rho(t) \amp= e^{\int \frac{1}{t+20}\,dt} = e^{\ln(t+20)} = t+20.</mrow>
+          </md>
+          Applying the shortcut:
+          <md>
+            <mrow>\rho(t) \cdot x \amp= \int \rho(t)\, Q(t)\,dt</mrow>
+            <mrow>(t+20)\, x \amp= \int (t+20) \cdot 50\,dt</mrow>
+            <mrow>(t+20)\, x \amp= \int (50t + 1000)\,dt</mrow>
+            <mrow>(t+20)\, x \amp= 25t^2 + 1000t + C.</mrow>
+          </md>
+          Dividing by <m>(t+20)</m>:
+          <me>x = \frac{25t^2 + 1000t + C}{t+20}.</me>
+          Applying <m>x(0) = 20</m>:
+          <md>
+            <mrow>20 \amp= \frac{0 + 0 + C}{20}</mrow>
+            <mrow>C \amp= 400.</mrow>
+          </md>
+          So the solution is
+          <me>x(t) = \frac{25t^2 + 1000t + 400}{t+20}.</me>
+        </p>
+      </solution>
+    </task>
+
+  </example>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       CONCLUSION
+       ═══════════════════════════════════════════════════════════ -->
+  <conclusion xml:id="conc-mixing-volume-changing">
+    <title>Key Takeaways: Setting Up Mixing Problems</title>
+    <p>
+      The mixing problems on this page and the previous one follow the same fundamental structure.
+      The two rates you always need are:
+      <md>
+        <mrow>\text{rate in} \amp= \text{(salt concentration of incoming water)} \times \text{(water flow rate in)}</mrow>
+        <mrow>\text{rate out} \amp= \underbrace{\frac{x(t)}{V(t)}}_{\text{salt concentration in tank}} \times \text{(water flow rate out)}</mrow>
+      </md>
+      When the volume is changing, you need to find <m>V(t)</m> first using the same rate in, rate out
+      principle applied to volume -- then plug it in. Once the ODE is set up, it is first-order linear,
+      and you already know how to handle that!
+    </p>
+  </conclusion>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       VIDEO
+       ═══════════════════════════════════════════════════════════ -->
+  <figure xml:id="video-mixing-volume-changing">
+    <caption>This video walks through the mixing problem on this page.</caption>
+    <video youtube="63xshrcjMeA" width="100%" preview="default"/>
+  </figure>
+
+</section>

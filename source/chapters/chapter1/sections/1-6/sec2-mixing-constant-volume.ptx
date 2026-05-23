@@ -135,7 +135,11 @@
   <!-- ═══════════════════════════════════════════════════════════
        CLOSING PROSE
        ═══════════════════════════════════════════════════════════ -->
-  <p>
+  <conclusion>
+   <title>Key Takeaways</title>
+   
+   
+       <p>
     The key insight was computing the rate out carefully:
     <md>
       <mrow>\text{rate salt leaves} \amp= \text{(salt concentration in tank)} \times \text{(rate water leaves)}</mrow>
@@ -146,7 +150,7 @@
     version where the volume is no longer constant and salty water is entering, which makes both the setup
     and the solving more involved.
   </p>
-
+</conclusion>
   <!-- ═══════════════════════════════════════════════════════════
        VIDEO
        ═══════════════════════════════════════════════════════════ -->
