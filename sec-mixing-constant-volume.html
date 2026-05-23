@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Mixing Problem: Constant Volume</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+<link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
+<script>
+var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  "tex": {
+    "inlineMath": [
+      [
+        "\\(",
+        "\\)"
+      ]
+    ],
+    "tags": "none",
+    "tagSide": "right",
+    "tagIndent": ".8em",
+    "packages": {
+      "[+]": [
+        "base",
+        "extpfeil",
+        "ams",
+        "amscd",
+        "color",
+        "newcommand",
+        "knowl"
+      ]
+    }
+  },
+  "options": {
+    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
+    "processHtmlClass": "process-math"
+  },
+  "chtml": {
+    "scale": 0.98,
+    "mtextInheritFont": true
+  },
+  "loader": {
+    "load": [
+      "input/asciimath",
+      "[tex]/extpfeil",
+      "[tex]/amscd",
+      "[tex]/color",
+      "[tex]/newcommand",
+      "[pretext]/mathjaxknowl3.js"
+    ],
+    "paths": {
+      "pretext": "_static/pretext/js"
+    }
+  },
+  "startup": {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  }
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Differential Equations: Interactive Notes for Math 250">
+<meta property="book:author" content="Caroline VanBlargan">
+<script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<!--** Runestone components to run locally in reader's browser **-->
+<!--** No external communication:                              **-->
+<!--**     log level is 0, Runestone Services are disabled     **-->
+<script type="text/javascript">
+eBookConfig = {};
+eBookConfig.useRunestoneServices = false;
+eBookConfig.host = 'http://127.0.0.1:8000';
+eBookConfig.course = 'PTX_Course_Title_Here';
+eBookConfig.basecourse = 'PTX_Base_Course';
+eBookConfig.isLoggedIn = false;
+eBookConfig.email = '';
+eBookConfig.isInstructor = false;
+eBookConfig.logLevel = 0;
+eBookConfig.username = '';
+eBookConfig.readings = null;
+eBookConfig.activities = null;
+eBookConfig.downloadsEnabled = false;
+eBookConfig.allow_pairs = false;
+eBookConfig.enableScratchAC = false;
+eBookConfig.build_info = "";
+eBookConfig.python3 = null;
+eBookConfig.runestone_version = '8.1.1';
+eBookConfig.jobehost = '';
+eBookConfig.proxyuri_runs = '';
+eBookConfig.proxyuri_files = '';
+eBookConfig.enable_chatcodes =  false;
+</script>
+<!--*** Runestone Services ***-->
+<script src="_static/prefix-runtime.dcab57465a404e85.bundle.js"></script><script src="_static/prefix-713.de0ab26248766350.bundle.js"></script><script src="_static/prefix-runestone.79fbb790b185d712.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-713.f43ced6a6134ea74.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.87414d180ebeebd6.css">
+<script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script>
+</head>
+<body id="vanblargan-de-math250" class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
+<h1 class="heading"><a href="my-great-book.html"><span class="title">Differential Equations: Interactive Notes for Math 250</span> <span class="subtitle">Penn State University</span></a></h1>
+<p class="byline">Caroline VanBlargan</p>
+</div></div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
+<button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="searchbox">
+<div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
+<div class="search-results-controls">
+<input aria-label="Search term" id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search term"><button title="Close search" id="closesearchresults" class="closesearchresults"><span class="material-symbols-outlined">close</span></button>
+</div>
+<h2 class="search-results-heading">Search Results: </h2>
+<div id="searchempty" class="searchempty"><span>No results.</span></div>
+<ol id="searchresults" class="searchresults"></ol>
+</div>
+</div>
+<span class="nav-other-controls"><button id="light-dark-button" class="light-dark-button button" title="Dark Mode"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span class="name">Dark Mode</span></button></span><span class="treebuttons"><a class="previous-button button" href="sec-mixing-teaser.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="sec-mixing-intro.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="sec-mixing-volume-changing.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
+</div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\N}{\mathbb N} \newcommand{\Z}{\mathbb Z} \newcommand{\Q}{\mathbb Q} \newcommand{\R}{\mathbb R}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth3 focused" data-preexpanded-levels="0" data-max-levels="3"><ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-frontmatter">
+<div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-colophon"><div class="toc-title-box"><a href="front-colophon.html" class="internal"><span class="title">Colophon</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="preface.html" class="internal"><span class="title">Preface</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter contains-active">
+<div class="toc-title-box"><a href="ch-chapter-title.html" class="internal"><span class="codenumber">1</span> <span class="title">The Fundamentals of Differential Equations</span></a></div>
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-intro-to-des.html" class="internal"><span class="codenumber">1.1</span> <span class="title">Introduction to Differential Equations</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-what-is-de.html" class="internal"><span class="codenumber">1.1.1</span> <span class="title">What is a Differential Equation?</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-gensolns-initialvalues.html" class="internal"><span class="codenumber">1.1.2</span> <span class="title">General Solutions and Initial Value Problems</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-setting-up-des.html" class="internal"><span class="codenumber">1.1.3</span> <span class="title">Setting Up Differential Equations</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-verifying-solutions.html" class="internal"><span class="codenumber">1.1.4</span> <span class="title">Verifying Solutions</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-equilibrium-solutions.html" class="internal"><span class="codenumber">1.1.5</span> <span class="title">Equilibrium Solutions</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="exercises-1-1.html" class="internal"><span class="codenumber">1.1.6</span> <span class="title">Exercises for Section 1.1</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-integral-solutions.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Integrals as Solutions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-integrating-to-get-solutions.html" class="internal"><span class="codenumber">1.2.1</span> <span class="title">Integrating to solve <span class="process-math">\(\frac{dy}{dx} = f(x)\)</span></span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-positionvelocity.html" class="internal"><span class="codenumber">1.2.2</span> <span class="title">Velocity and Acceleration</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="exercises-1-2.html" class="internal"><span class="codenumber">1.2.3</span> <span class="title">Exercises for Section 1.2</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-slopefields.html" class="internal"><span class="codenumber">1.3</span> <span class="title">Section 1.3: To be added</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-separabble.html" class="internal"><span class="codenumber">1.4</span> <span class="title">Separable Differential Equations</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="subsec-intr-separable.html" class="internal"><span class="codenumber">1.4.1</span> <span class="title">Introduction to Separable ODEs</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="subsec-sepofvar.html" class="internal"><span class="codenumber">1.4.2</span> <span class="title">Separation of Variables</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="subsec-sep-exp.html" class="internal"><span class="codenumber">1.4.3</span> <span class="title">Separation of Variables: Important Example with Exponentials</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="subsec-sep-minussign.html" class="internal"><span class="codenumber">1.4.4</span> <span class="title">Separation of Variables: Some Subtle Points</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="subsec-sep-completingsquare.html" class="internal"><span class="codenumber">1.4.5</span> <span class="title">Separation of Variables: Solving Explicitly Tricks</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-1-4-radiocarbon.html" class="internal"><span class="codenumber">1.4.6</span> <span class="title">Radiocarbon Dating</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-1-4-newton.html" class="internal"><span class="codenumber">1.4.7</span> <span class="title">Newton’s Law of Cooling</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="exercises-1-4.html" class="internal"><span class="codenumber">1.4.8</span> <span class="title">Exercises for Section 1.4</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-first-order-linear.html" class="internal"><span class="codenumber">1.5</span> <span class="title">First-Order Linear ODEs</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-linear-first-order-intro.html" class="internal"><span class="codenumber">1.5.1</span> <span class="title">Definition of 1st Order Linear ODEs</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-solving-first-order-linear.html" class="internal"><span class="codenumber">1.5.2</span> <span class="title">Solving First-Order Linear ODEs</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-linear-standard-examples.html" class="internal"><span class="codenumber">1.5.3</span> <span class="title">First-Order Linear ODEs: Standard Examples</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-linear-harder.html" class="internal"><span class="codenumber">1.5.4</span> <span class="title">First-Order Linear ODEs: A Harder Example</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section contains-active">
+<div class="toc-title-box"><a href="sec-mixing-intro.html" class="internal"><span class="codenumber">1.6</span> <span class="title">Mixing problems</span></a></div>
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-mixing-teaser.html" class="internal"><span class="codenumber">1.6.1</span> <span class="title">Setting Up Mixing Problems: Rate In, Rate Out</span></a></div></li>
+<li class="toc-item toc-section active"><div class="toc-title-box"><a href="sec-mixing-constant-volume.html" class="internal"><span class="codenumber">1.6.2</span> <span class="title">Mixing Problem: Constant Volume</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-mixing-volume-changing.html" class="internal"><span class="codenumber">1.6.3</span> <span class="title">Mixing Problem: Changing Volume</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter"><div class="toc-title-box"><a href="ch-chapter-two.html" class="internal"><span class="codenumber">2</span> <span class="title">Chapter 2: Coming soon</span></a></div></li>
+<li class="toc-item toc-backmatter">
+<div class="toc-title-box"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-solutions"><div class="toc-title-box"><a href="backmatter-2.html" class="internal"><span class="codenumber">A</span> <span class="title">Answers to Exercises</span></a></div></li>
+<li class="toc-item toc-colophon"><div class="toc-title-box"><a href="back-colophon.html" class="internal"><span class="title">Colophon</span></a></div></li>
+</ul>
+</li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec-mixing-constant-volume"><h2 class="heading hide-type">
+<span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.6.2</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Mixing Problem: Constant Volume</span>
+</h2>
+<div class="para" id="sec-mixing-constant-volume-2">Before we tackle that beast of a mixing problem we previewed earlier, let’s start with a simpler one. We will use the principle <span class="process-math">\(\frac{dx}{dt} = \text{rate in} - \text{rate out}\text{.}\)</span> The only tricky part will be using the information we are given (the rate water leaves and the current amount of salt in the tank) to figure out the rate salt leaves.<div class="autopermalink" data-description="Paragraph"><a href="#sec-mixing-constant-volume-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="example example-like" id="ex-mixing-constant-volume"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.6.1</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Mixing Problem with Constant Volume and Pure Water Entering.</span>
+</h3>
+<div class="introduction" id="ex-mixing-constant-volume-2"><div class="para" id="ex-mixing-constant-volume-2-1">There is a tank with 100 gallons of water that initially contains 20 kg of salt. Pure water is pumped into the tank at 5 gal/min. The mixture is kept uniform by stirring, and the (salty) water leaves the tank at 5 gal/min, thereby keeping the volume of water constant at 100 gallons. Suppose <span class="process-math">\(x(t)\)</span> is the amount of salt in the tank (in kg) as a function of time <span class="process-math">\(t\)</span> in minutes. Set up a differential equation and solve for <span class="process-math">\(x(t)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex-mixing-constant-volume-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></div>
+<article class="task exercise-like" id="task-mixing-cv-ratein"><h4 class="heading">
+<span class="codenumber">(a)</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Part 1: Rate Salt Enters the Tank.</span>
+</h4>
+<div class="para" id="task-mixing-cv-ratein-2-1">Pure water is pumped in at 5 gal/min. What is the rate at which salt enters the tank?<div class="autopermalink" data-description="Paragraph"><a href="#task-mixing-cv-ratein-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="task-mixing-cv-ratein-3" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="hint solution-like knowl__content">
+<div class="para" id="task-mixing-cv-ratein-3-1">Don’t over think it! How much salt is in pure water?<div class="autopermalink" data-description="Paragraph"><a href="#task-mixing-cv-ratein-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Hint 1.6.1.a.1"><a href="#task-mixing-cv-ratein-3" title="Copy heading and permalink for Hint 1.6.1.a.1" aria-label="Copy heading and permalink for Hint 1.6.1.a.1">🔗</a></div>
+</div></details><details id="task-mixing-cv-ratein-4" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="task-mixing-cv-ratein-4-1">
+<div class="para">Since pure water is entering, there is no salt in the incoming water. So the rate salt enters is</div>
+<div class="displaymath process-math" id="task-mixing-cv-ratein-4-1-1">
+\begin{equation*}
+\text{rate in} = 0 \text{ kg/min}.
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#task-mixing-cv-ratein-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 1.6.1.a.1"><a href="#task-mixing-cv-ratein-4" title="Copy heading and permalink for Solution 1.6.1.a.1" aria-label="Copy heading and permalink for Solution 1.6.1.a.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Task 1.6.1.a: Part 1: Rate Salt Enters the Tank"><a href="#task-mixing-cv-ratein" title="Copy heading and permalink for Task 1.6.1.a: Part 1: Rate Salt Enters the Tank" aria-label="Copy heading and permalink for Task 1.6.1.a: Part 1: Rate Salt Enters the Tank">🔗</a></div></article><article class="task exercise-like" id="task-mixing-cv-rateout"><h4 class="heading">
+<span class="codenumber">(b)</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Part 2: Rate Salt Leaves the Tank.</span>
+</h4>
+<div class="para logical" id="task-mixing-cv-rateout-2-1">
+<div class="para">We need to use the next two pieces of information for the rate out:</div>
+<ul class="disc" id="task-mixing-cv-rateout-2-1-1">
+<li id="task-mixing-cv-rateout-2-1-1-1">
+<div class="para" id="task-mixing-cv-rateout-2-1-1-1-1">Water leaves the tank at 5 gal/min.<div class="autopermalink" data-description="Paragraph"><a href="#task-mixing-cv-rateout-2-1-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#task-mixing-cv-rateout-2-1-1-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="task-mixing-cv-rateout-2-1-1-2">
+<div class="para" id="task-mixing-cv-rateout-2-1-1-2-1">The volume of water in the tank remains at 100 gallons (as the water entering = water leaving)<div class="autopermalink" data-description="Paragraph"><a href="#task-mixing-cv-rateout-2-1-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#task-mixing-cv-rateout-2-1-1-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+</ul>
+<div class="para">What is the rate at which salt leaves the tank? This will take more work, and the answer will also involve <span class="process-math">\(x(t)\text{,}\)</span> the quantity of salt currently in the tank!</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#task-mixing-cv-rateout-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="task-mixing-cv-rateout-3" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="hint solution-like knowl__content">
+<div class="para logical" id="task-mixing-cv-rateout-3-1">
+<div class="para">The rate salt leaves is not simply 5 gal/min -- that is the rate <em class="emphasis">water</em> leaves. To get the rate <em class="emphasis">salt</em> leaves, think about the concentration of salt in the tank:</div>
+<div class="displaymath process-math" id="task-mixing-cv-rateout-3-1-3">
+\begin{equation*}
+\text{rate salt leaves} = \text{concentration of salt in tank} \times \text{rate water leaves}.
+\end{equation*}
+</div>
+<div class="para">The concentration is the amount of salt divided by the volume of water.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#task-mixing-cv-rateout-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Hint 1.6.1.b.1"><a href="#task-mixing-cv-rateout-3" title="Copy heading and permalink for Hint 1.6.1.b.1" aria-label="Copy heading and permalink for Hint 1.6.1.b.1">🔗</a></div>
+</div></details><details id="task-mixing-cv-rateout-4" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="task-mixing-cv-rateout-4-1">
+<div class="para">The concentration of salt in the tank at time <span class="process-math">\(t\)</span> is <span class="process-math">\(\dfrac{x(t)}{100}\)</span> kg/gal, and this is the stuff leaving the tank! Multiplying by the flow rate out for water gives the total rate out of salt:</div>
+<div class="displaymath process-math" id="task-mixing-cv-rateout-4-1-3">
+\begin{equation*}
+\text{rate out} = \underbrace{\frac{x(t)}{100}}_{\text{salt concentration}} \times \underbrace{5}_{\text{flow rate of water}} \text{ kg/min},
+\end{equation*}
+</div>
+<div class="para">which simplifies to <span class="process-math">\(\dfrac{x(t)}{20}\)</span> kg/min.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#task-mixing-cv-rateout-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="task-mixing-cv-rateout-4-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Unit check</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="task-mixing-cv-rateout-4-2-2">
+<div class="displaymath process-math" id="task-mixing-cv-rateout-4-2-2-1">
+\begin{equation*}
+\frac{x(t) \text{ kg salt}}{100 \text{ gal water}} \cdot \frac{5 \text{ gal}}{\text{min}} = \frac{5x(t)}{100} \frac{\text{kg}}{\text{min}} = \frac{x(t)}{20} \frac{\text{kg}}{\text{min}}. \checkmark
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#task-mixing-cv-rateout-4-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 1.6.1.b.1.1: Unit check"><a href="#task-mixing-cv-rateout-4-2" title="Copy heading and permalink for Solution 1.6.1.b.1.1: Unit check" aria-label="Copy heading and permalink for Solution 1.6.1.b.1.1: Unit check">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Solution 1.6.1.b.1"><a href="#task-mixing-cv-rateout-4" title="Copy heading and permalink for Solution 1.6.1.b.1" aria-label="Copy heading and permalink for Solution 1.6.1.b.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Task 1.6.1.b: Part 2: Rate Salt Leaves the Tank"><a href="#task-mixing-cv-rateout" title="Copy heading and permalink for Task 1.6.1.b: Part 2: Rate Salt Leaves the Tank" aria-label="Copy heading and permalink for Task 1.6.1.b: Part 2: Rate Salt Leaves the Tank">🔗</a></div></article><article class="task exercise-like" id="task-mixing-cv-solve"><h4 class="heading">
+<span class="codenumber">(c)</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Part 3: The ODE and Solution.</span>
+</h4>
+<div class="para logical" id="task-mixing-cv-solve-2-1">
+<div class="para">The hard work is done! We have identified rate in and rate out. Combining them:</div>
+<div class="displaymath process-math" id="task-mixing-cv-solve-2-1-1">
+\begin{equation*}
+\frac{dx}{dt} = \underbrace{0}_{\text{rate in}} - \underbrace{\frac{x}{20}}_{\text{rate out}} = -\frac{x}{20}.
+\end{equation*}
+</div>
+<div class="para">Apply the initial condition <span class="process-math">\(x(0) = 20\)</span> (the initial amount of salt in the tank) and solve for <span class="process-math">\(x(t)\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#task-mixing-cv-solve-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="task-mixing-cv-solve-2-2">The meat of the problem is done, and there is nothing new involved in actually solving the ODE -- this is just a standard separable ODE (it is also first-order linear, so you can use either method!). For completeness, the solution is below.<div class="autopermalink" data-description="Paragraph"><a href="#task-mixing-cv-solve-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="task-mixing-cv-solve-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Solving the ODE (can skim or skip for now)</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="task-mixing-cv-solve-3-2">
+<div class="para">Separating and integrating:</div>
+<div class="displaymath process-math" id="task-mixing-cv-solve-3-2-1">
+\begin{align*}
+\frac{dx}{x} \amp= -\frac{1}{20}\,dt\\
+\ln|x| \amp= -\frac{t}{20} + C\\
+x(t) \amp= Ce^{-t/20}.
+\end{align*}
+</div>
+<div class="para">Applying the initial condition <span class="process-math">\(x(0) = 20\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="task-mixing-cv-solve-3-2-3">
+\begin{equation*}
+20 = Ce^{0} \implies C = 20.
+\end{equation*}
+</div>
+<div class="para">So the solution is <span class="process-math">\(x(t) = 20e^{-t/20}.\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#task-mixing-cv-solve-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 1.6.1.c.1: Solving the ODE (can skim or skip for now)"><a href="#task-mixing-cv-solve-3" title="Copy heading and permalink for Solution 1.6.1.c.1: Solving the ODE (can skim or skip for now)" aria-label="Copy heading and permalink for Solution 1.6.1.c.1: Solving the ODE (can skim or skip for now)">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Task 1.6.1.c: Part 3: The ODE and Solution"><a href="#task-mixing-cv-solve" title="Copy heading and permalink for Task 1.6.1.c: Part 3: The ODE and Solution" aria-label="Copy heading and permalink for Task 1.6.1.c: Part 3: The ODE and Solution">🔗</a></div></article><div class="autopermalink" data-description="Example 1.6.1: Mixing Problem with Constant Volume and Pure Water Entering"><a href="#ex-mixing-constant-volume" title="Copy heading and permalink for Example 1.6.1: Mixing Problem with Constant Volume and Pure Water Entering" aria-label="Copy heading and permalink for Example 1.6.1: Mixing Problem with Constant Volume and Pure Water Entering">🔗</a></div></article><section class="conclusion" id="sec-mixing-constant-volume-4"><h3 class="heading">Key Takeaways.<span></span>
+</h3>
+<div class="para logical" id="sec-mixing-constant-volume-4-2">
+<div class="para">The key insight was computing the rate out carefully:</div>
+<div class="displaymath process-math" id="sec-mixing-constant-volume-4-2-1">
+\begin{align*}
+\text{rate salt leaves} \amp= \text{(salt concentration in tank)} \times \text{(rate water leaves)}\\
+\text{salt concentration} \amp= \frac{\text{amount of salt in tank}}{\text{volume of tank}} = \frac{x(t)}{V(t)}
+\end{align*}
+</div>
+<div class="para">where in this problem <span class="process-math">\(V(t) = 100\)</span> gallons (constant). A similar idea applies to the rate salt is entering, but the rate in was simply 0 as only pure water was coming in. In the next page, we tackle a harder version where the volume is no longer constant and salty water is entering, which makes both the setup and the solving more involved.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec-mixing-constant-volume-4-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></section><figure class="figure figure-like" id="video-mixing-constant-volume"><div class="video-box" style="width: 100%;padding-top: 56.25%; margin-left: 0%; margin-right: 0%;"><iframe class="video" allowfullscreen="" src="https://www.youtube-nocookie.com/embed/nWpEERhX-v8?&amp;modestbranding=1&amp;rel=0" id="video-mixing-constant-volume-2"></iframe></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.6.2<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>This video walks through the mixing problem on this page.<div class="autopermalink" data-description="Figure 1.6.2"><a href="#video-mixing-constant-volume" title="Copy heading and permalink for Figure 1.6.2" aria-label="Copy heading and permalink for Figure 1.6.2">🔗</a></div></figcaption></figure><div class="autopermalink" data-description="Section 1.6.2: Mixing Problem: Constant Volume"><a href="#sec-mixing-constant-volume" title="Copy heading and permalink for Section 1.6.2: Mixing Problem: Constant Volume" aria-label="Copy heading and permalink for Section 1.6.2: Mixing Problem: Constant Volume">🔗</a></div></section></div>
+<div id="ptx-content-footer" class="ptx-content-footer">
+<a class="previous-button button" href="sec-mixing-teaser.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="sec-mixing-volume-changing.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="338 3000 8772 6866" role="img"><title>PreTeXt logo</title><g style="stroke-width:.025in; stroke:currentColor; fill:none"><polyline points="472,3590 472,9732 " style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png" alt="Runstone Academy logo"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png" alt="MathJax logo"></a>
+</div>
+</body>
+</html>
