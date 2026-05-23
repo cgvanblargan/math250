@@ -1,0 +1,158 @@
+<section xml:id="sec-mixing-constant-volume" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Mixing Problem: Constant Volume</title>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       INTRO PROSE
+       ═══════════════════════════════════════════════════════════ -->
+  <!-- PROSE: motivating intro -->
+<p>
+    Before we tackle that beast of a mixing problem we previewed earlier, let's start with a simpler one.
+    We will use the principle <m>\frac{dx}{dt} = \text{rate in} - \text{rate out}</m>. The only tricky part
+    will be using the information we are given (the rate water leaves and the current amount of salt in the tank) 
+    to figure out the rate salt leaves.
+  </p>
+  <!-- ═══════════════════════════════════════════════════════════
+       EXAMPLE
+       ═══════════════════════════════════════════════════════════ -->
+  <example xml:id="ex-mixing-constant-volume">
+    <title>Mixing Problem with Constant Volume and Pure Water Entering</title>
+    <introduction>
+      
+
+    <p>
+      There is a tank with 100 gallons of water that initially contains 20 kg of salt.
+      Pure water is pumped into the tank at 5 gal/min. The mixture is kept uniform by stirring,
+      and the (salty) water leaves the tank at 5 gal/min, thereby keeping the volume of water
+      constant at 100 gallons. Suppose <m>x(t)</m> is the amount of salt in the tank (in kg)
+      as a function of time <m>t</m> in minutes. Set up a differential equation and solve for <m>x(t)</m>.
+    </p>
+  </introduction>
+    <p>
+      We know that <m>\frac{dx}{dt} = \text{rate in} - \text{rate out}</m>. Let's figure out each piece.
+    </p>
+
+    <!-- PART 1: rate in -->
+    <task xml:id="task-mixing-cv-ratein">
+      <title>Part 1: Rate Salt Enters the Tank</title>
+      <statement>
+        <p>
+          Pure water is pumped in at 5 gal/min. What is the rate at which salt enters the tank?
+        </p>
+      </statement>
+      <hint>
+        <p>
+          Don't over think it! How much salt is in pure water?
+        </p>
+      </hint>
+      <solution>
+        <p>
+          Since pure water is entering, there is no salt in the incoming water. So the rate salt enters is
+          <me>\text{rate in} = 0 \text{ kg/min}.</me>
+        </p>
+      </solution>
+    </task>
+
+    <!-- PART 2: rate out -->
+    <task xml:id="task-mixing-cv-rateout">
+      <title>Part 2: Rate Salt Leaves the Tank</title>
+      <statement>
+        <p> We need to use the next two pieces of information for the rate out:
+          <ul>
+            <li>
+              <p>
+                Water leaves the tank at 5 gal/min. 
+              </p>
+              
+            </li>
+            <li>
+              <p>
+                The volume of water in the tank remains at 100 gallons (as the water entering = water leaving)
+              </p>
+            </li>
+          </ul>
+          What is the rate at which salt leaves the tank? This will take more work, and the answer will also 
+          involve <m>x(t)</m>, the quantity of salt currently in the tank!
+        </p>
+      </statement>
+      <hint>
+        <p>
+          The rate salt leaves is not simply 5 gal/min -- that is the rate <em>water</em> leaves.
+          To get the rate <em>salt</em> leaves, think about the concentration of salt in the tank:
+          <me>\text{rate salt leaves} = \text{concentration of salt in tank} \times \text{rate water leaves}.</me>
+          The concentration is the amount of salt divided by the volume of water.
+        </p>
+      </hint>
+      <solution>
+       <p>
+          The concentration of salt in the tank at time <m>t</m> is <m>\dfrac{x(t)}{100}</m> kg/gal, and this is the stuff 
+          leaving the tank!
+          Multiplying by the flow rate out for water gives the total rate out of salt:
+          <me>\text{rate out} = \underbrace{\frac{x(t)}{100}}_{\text{salt concentration}} \times \underbrace{5}_{\text{flow rate of water}} \text{ kg/min},</me>
+          which simplifies to <m>\dfrac{x(t)}{20}</m> kg/min.
+        </p>
+        <solution>
+          <title>Unit check</title>
+          <p>
+            <me>\frac{x(t) \text{ kg salt}}{100 \text{ gal water}} \cdot \frac{5 \text{ gal}}{\text{min}} = \frac{5x(t)}{100} \frac{\text{kg}}{\text{min}} = \frac{x(t)}{20} \frac{\text{kg}}{\text{min}}. \checkmark</me>
+          </p>
+        </solution>
+      </solution>
+    </task>
+
+    <!-- PART 3: set up ODE and solve -->
+    <task xml:id="task-mixing-cv-solve">
+  <title>Part 3: The ODE and Solution</title>
+  <statement>
+    <p>
+      The hard work is done! We have identified rate in and rate out. Combining them:
+      <me>\frac{dx}{dt} = \underbrace{0}_{\text{rate in}} - \underbrace{\frac{x}{20}}_{\text{rate out}} = -\frac{x}{20}.</me>
+      Apply the initial condition <m>x(0) = 20</m> (the initial amount of salt in the tank) and solve for <m>x(t)</m>.
+    </p>
+    <p>
+      The meat of the problem is done, and there is nothing new involved in actually solving the ODE -- this is
+      just a standard separable ODE (it is also first-order linear, so you can use either method!).
+      For completeness, the solution is below.
+    </p>
+  </statement>
+
+  <solution>
+    <title>Solving the ODE (can skim or skip for now)</title>
+    <p>
+      Separating and integrating:
+      <md>
+        <mrow>\frac{dx}{x} \amp= -\frac{1}{20}\,dt</mrow>
+        <mrow>\ln|x| \amp= -\frac{t}{20} + C</mrow>
+        <mrow>x(t) \amp= Ce^{-t/20}.</mrow>
+      </md>
+      Applying the initial condition <m>x(0) = 20</m>:
+      <me>20 = Ce^{0} \implies C = 20.</me>
+      So the solution is <m>x(t) = 20e^{-t/20}.</m>
+    </p>
+  </solution>
+</task>
+  </example>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       CLOSING PROSE
+       ═══════════════════════════════════════════════════════════ -->
+  <p>
+    The key insight was computing the rate out carefully:
+    <md>
+      <mrow>\text{rate salt leaves} \amp= \text{(salt concentration in tank)} \times \text{(rate water leaves)}</mrow>
+      <mrow>\text{salt concentration} \amp= \frac{\text{amount of salt in tank}}{\text{volume of tank}} = \frac{x(t)}{V(t)}</mrow>
+    </md>
+    where in this problem <m>V(t) = 100</m> gallons (constant). A similar idea applies to the rate salt is entering, but 
+    the rate in was simply 0 as only pure water was coming in. In the next page, we tackle a harder
+    version where the volume is no longer constant and salty water is entering, which makes both the setup
+    and the solving more involved.
+  </p>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       VIDEO
+       ═══════════════════════════════════════════════════════════ -->
+  <figure xml:id="video-mixing-constant-volume">
+    <caption>This video walks through the mixing problem on this page.</caption>
+    <video youtube="nWpEERhX-v8" width="100%" preview="default"/>
+  </figure>
+
+</section>

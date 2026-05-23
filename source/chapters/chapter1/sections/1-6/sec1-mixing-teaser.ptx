@@ -1,0 +1,106 @@
+<section xml:id="sec-mixing-teaser" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Setting Up Mixing Problems: Rate In, Rate Out</title>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       INTRO PROSE + PROBLEM 2 TEASER
+       ═══════════════════════════════════════════════════════════ -->
+  <p>
+    In this section and the next, we tackle a classic family of applications called <term>mixing problems</term>.
+    To give you a sense of what we are up against, here is one of the problems we will eventually solve.
+  </p>
+
+  <example xml:id="ex-mixing-teaser">
+    <title>A Mixing Problem (Coming Soon!)</title>
+    <p>
+      There is a tank with 100 gallons of water that initially contains 20 kg of salt.
+      Water with 5 kg of salt per gallon is pumped into the tank at 10 gal/min.
+      The mixture is kept uniform by stirring, and water leaves the tank at 5 gal/min.
+      Suppose <m>x(t)</m> is the amount of salt in the tank (in kg) as a function of time <m>t</m> in minutes.
+      Set up a differential equation and solve for <m>x(t)</m>.
+    </p>
+    <p>
+      <em>We will solve this in a later page. For now, just read it and let it sink in!</em>
+    </p>
+  </example>
+
+  <p>
+    If you are like most people, reading that probably made your brain spin a little. There is a lot going on:
+    salt is entering the tank, salt is leaving the tank, and the volume of water is changing over time. 
+    And it's all happening all simultaneously! The amount of salt leaving depends on how much is currently 
+    in the tank, which is itself changing because of what is entering. Everything is tangled together!
+    How could we possibly even begin to set up an ODE for this?
+  </p>
+  <p>
+    The key is to step back and think about what is really happening: the amount of salt in the tank
+    is changing over time, and that change is driven by two competing forces. There is stuff coming in, and
+    stuff going out. Before we can untangle the mixing problem above, we need to establish the
+    fundamental principle that underlies all of these problems.
+  </p>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       RATE IN - RATE OUT OBSERVATION
+       ═══════════════════════════════════════════════════════════ -->
+  <observation xml:id="obs-rate-in-rate-out">
+    <title>Rate In, Rate Out</title>
+    <p>
+      Suppose <m>x(t)</m> is the amount of some quantity at time <m>t</m>, and suppose we can
+      separately identify the rate at which <m>x</m> is entering a system and the rate at which
+      it is leaving. Then
+      <me>\frac{dx}{dt} = \text{rate in} - \text{rate out}.</me>
+    </p>
+  </observation>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       SIMPLE EXAMPLE: BANK ACCOUNT
+       ═══════════════════════════════════════════════════════════ -->
+       <p>
+        Let's convince you of this principle with a familiar idea first.
+       </p>
+  <example xml:id="ex-bank-account">
+    <title>A Bank Account</title>
+    <p>
+      Let <m>x(t)</m> be the balance (in dollars) in a bank account at time <m>t</m> (in months).
+      Suppose you earn a salary of <dollar />3000 per month deposited directly into the account,
+      and your monthly expenses total <dollar />2200. Set up a differential equation for <m>x(t)</m>.
+    </p>
+   <p>
+      Before you even learned about ODEs, you would probably identify that the <em>net rate of change</em>
+      equals <m>3000 - 2200 = 800</m>. The balance grows by <m>800</m> dollars per month.
+      Now let's rephrase this in terms of ODEs:
+      <md>
+        <mrow>\frac{dx}{dt}\ \amp= \text{rate in} - \text{rate out}</mrow>
+        <mrow>\frac{dx}{dt}\amp= 3000 - 2200 = 800.</mrow>
+      </md>
+      The balance grows at a steady <m>\$800</m> per month, giving <m>x(t) = 800t + x(0)</m>.
+      It is a simple problem, but the same principle applies even when things get much messier.
+    </p>
+  </example>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       POST-EXAMPLE PROSE
+       ═══════════════════════════════════════════════════════════ -->
+  <p>
+    This deceptively simple principle is what makes mixing problems tractable. Instead of staring
+    at a complicated situation and trying to write down one equation for everything at once, we
+    break it into two separate questions: what is the rate in, and what is the rate out? Then we
+    just subtract. As we will see in the mixing problems ahead, figuring out those two rates takes
+    some careful thought, especially when the concentration of the mixture is changing over time.
+    But the fundamental principle stays the same. Something that seems hopelessly tangled at first
+    becomes manageable once you know where to start.
+  </p>
+  <p>
+    In the next page, we will use this idea to fully solve a simpler mixing problem. Then we will return
+    to the more complicated example above and tackle it too.
+  </p>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       NO VIDEO NOTE
+       ═══════════════════════════════════════════════════════════ -->
+  <remark xml:id="rem-no-video-mixing-intro">
+    <title>No Video for This Page</title>
+    <p>
+      There is no video for this page. The next page has a video walking through the first mixing problem.
+    </p>
+  </remark>
+
+</section>

@@ -1,0 +1,241 @@
+<section xml:id="sec-linear-harder" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>First-Order Linear ODEs: A Harder Example</title>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       INTRO PROSE
+       ═══════════════════════════════════════════════════════════ -->
+  <!-- PROSE: motivating intro -->
+<p>
+  Now for some practice solving a first-order linear ODE. This will help reinforce all the ideas we just went through, plus
+  we will be getting our hands a little messier!
+</p>
+  <!-- ═══════════════════════════════════════════════════════════
+       ACTIVITY
+       ═══════════════════════════════════════════════════════════ -->
+
+  <activity xml:id="act-linear-harder">
+    <title>Practice: Solve <m>(x^4+5)y' + x^3 y = x^3</m></title>
+    <introduction>
+      <p>
+       In this activity we work through solving a first-order line ODE that is slightly more involved than the previous examples
+        The first few parts will reinforce steps we already discussed, so this will be a great way to practice these steps. The only big difference is that in the last step, where the final integral is a little messier.
+      </p>
+    </introduction>
+
+    <!-- TASK 1: identify P(x) and Q(x) -->
+<task xml:id="task-harder-pq">
+      <title>Identifying <m>P(x)</m> and <m>Q(x)</m></title>
+      <statement>
+        <p>
+          Consider the ODE
+          <me>(x^4+5)y' + x^3 y = x^3.</me>
+          Which of the following correctly identifies <m>P(x)</m> and <m>Q(x)</m> when this equation is written in standard form?
+        </p>
+      </statement>
+      <choices randomize="yes">
+        <choice correct="yes">
+          <statement>
+            <p><m>P(x) = \dfrac{x^3}{x^4+5}</m> and <m>Q(x) = \dfrac{x^3}{x^4+5}</m></p>
+          </statement>
+          <feedback>
+            <p>
+              Correct! In standard form <m>y' + P(x)y = Q(x)</m>: <m>y' + \dfrac{x^3}{x^4+5}y = \dfrac{x^3}{x^4+5}</m>.
+              Dividing both sides by <m>(x^4+5)</m> gives <m>P(x) = \frac{x^3}{x^4+5}</m> and <m>Q(x) = \frac{x^3}{x^4+5}</m>.
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement>
+            <p><m>P(x) = x^3</m> and <m>Q(x) = x^3</m></p>
+          </statement>
+          <feedback>
+            <p>
+              Not quite. In standard form <m>y' + P(x)y = Q(x)</m>: <m>y' + \dfrac{x^3}{x^4+5}y = \dfrac{x^3}{x^4+5}</m>.
+              The coefficient on <m>y'</m> must be 1, so you need to divide every term by <m>(x^4+5)</m> first.
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement>
+            <p><m>P(x) = \dfrac{x^3}{x^4+5}</m> and <m>Q(x) = x^3</m></p>
+          </statement>
+          <feedback>
+            <p>
+              Close, but not quite. In standard form <m>y' + P(x)y = Q(x)</m>: <m>y' + \dfrac{x^3}{x^4+5}y = \dfrac{x^3}{x^4+5}</m>.
+              <m>P(x)</m> is correct, but <m>Q(x)</m> needs to be divided by <m>(x^4+5)</m> too -- every term gets divided.
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement>
+            <p><m>P(x) = x^3</m> and <m>Q(x) = \dfrac{x^3}{x^4+5}</m></p>
+          </statement>
+          <feedback>
+            <p>
+              Close, but not quite. In standard form <m>y' + P(x)y = Q(x)</m>: <m>y' + \dfrac{x^3}{x^4+5}y = \dfrac{x^3}{x^4+5}</m>.
+              <m>Q(x)</m> is correct, but <m>P(x)</m> also needs to be divided by <m>(x^4+5)</m>.
+            </p>
+          </feedback>
+        </choice>
+      </choices>
+    </task>
+
+    <!-- TASK 2: find rho(x) unsimplified -->
+    <task xml:id="task-harder-rho-unsimplified">
+      <title>Finding the Integrating Factor</title>
+      <statement>
+        <p>
+          Now that we have <m>P(x) = \dfrac{x^3}{x^4+5}</m>, find the integrating factor
+          <m>\rho(x).</m>
+          Stop after integrating (the next part will simplify <m>\rho</m> further).
+        </p>
+      </statement>
+      <hint>
+        <ul>
+          <li><p>Recall that <m>\rho(x) = e^{\int P(x)\,dx}</m>.</p></li>
+          <li><p>To evaluate <m>\int \frac{x^3}{x^4+5}\,dx</m> use a u-sub (what should u be?)</p></li>
+          <li><p>Don't simplify the resulting <m>\rho(x)</m> yet, that's the next part.</p></li>
+        </ul>
+      </hint>
+      <solution>
+        <p>
+          We compute <m>\int P(x)\,dx = \int \frac{x^3}{x^4+5}\,dx</m> using a u-substitution with <m>u = x^4 + 5</m>.
+        </p>
+        <solution>
+          <title>U-substitution details (read if stuck)</title>
+          <p>
+            Let <m>u = x^4 + 5</m>, so <m>du = 4x^3\,dx</m>, which means <m>x^3\,dx = \frac{1}{4}du</m>. Then:
+            <md>
+              <mrow>\int \frac{x^3}{x^4+5}\,dx \amp= \int \frac{1}{u} \cdot \frac{1}{4}\,du</mrow>
+              <mrow>\amp= \frac{1}{4}\int \frac{1}{u}\,du</mrow>
+              <mrow>\amp= \frac{1}{4}\ln|u| + C</mrow>
+              <mrow>\amp= \frac{1}{4}\ln(x^4+5).</mrow>
+            </md>
+            (We drop the absolute value since <m>x^4 + 5 \gt 0</m> always, and drop <m>C</m> since we only need one antiderivative.)
+          </p>
+        </solution>
+        <p>
+          So,<m>\int P(x)\,dx= \frac{1}{4}\ln(x^4+5)</m>, meaning the integrating factor is
+          <me>\rho(x) = e^{\frac{1}{4}\ln(x^4+5)}.</me>
+        </p>
+      </solution>
+    </task>
+
+    <!-- TASK 3: simplify rho(x) -->
+    <task xml:id="task-harder-rho-simplified">
+      <title>Simplifying the Integrating Factor</title>
+      <statement>
+        <p>
+          From the previous part, <m>\rho(x) = e^{\frac{1}{4}\ln(x^4+5)}</m>. Which of the following correctly simplifies this?
+        </p>
+      </statement>
+      <choices randomize="yes">
+        <choice correct="yes">
+          <statement><p><m>\rho(x) = (x^4+5)^{1/4}</m></p></statement>
+          <feedback>
+            <p>
+              Correct! Using the log property <m>e^{a\ln(u)} = u^a</m>, we get
+              <m>e^{\frac{1}{4}\ln(x^4+5)} = (x^4+5)^{1/4}</m>.
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement><p><m>\rho(x) = \frac{1}{4}(x^4+5)</m></p></statement>
+          <feedback>
+            <p>
+              Not quite. The <m>\frac{1}{4}</m> is in the exponent of <m>e</m>, not a coefficient out front.
+              Use the property <m>e^{a\ln(u)} = u^a</m> with <m>a = \frac{1}{4}</m>.
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement><p><m>\rho(x) = (x^4+5)^4</m></p></statement>
+          <feedback>
+            <p>
+              Close in structure, but the exponent should be <m>\frac{1}{4}</m>, not <m>4</m>.
+              We have <m>e^{\frac{1}{4}\ln(x^4+5)} = (x^4+5)^{1/4}</m>.
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement><p><m>\rho(x) = e^{x^4+5}</m></p></statement>
+          <feedback>
+            <p>
+              Remember that <m>e^{\frac{1}{4}\ln(x^4+5)} \ne e^{x^4+5}</m>.
+              Use the log property <m>e^{a\ln(u)} = u^a</m> to simplify.
+            </p>
+          </feedback>
+        </choice>
+      </choices>
+    </task>
+
+    <!-- TASK 4: finish solving -->
+    <task xml:id="task-harder-solve">
+      <title>Finishing the Solution</title>
+      <statement>
+        <p>
+          The next steps -- multiplying by <m>\rho(x)</m>, recognizing the product rule collapse, and integrating -- always work out the same way. 
+          <alert>So we can always jump directly to:</alert>
+          <me>\rho(x) \cdot y = \int \rho(x)\, Q(x)\,dx.</me>
+          Fill in <m>\rho(x)</m> and <m>Q(x)</m> and finish solving for <m>y</m>.
+        </p>
+      </statement>
+      <hint>
+        <ul>
+          <li><p> Substitute <m>\rho(x) = (x^4+5)^{1/4}</m> and <m>Q(x) = \dfrac{x^3}{x^4+5}</m> into <m>\rho(x) \cdot y = \int \rho(x)\,Q(x)\,dx</m> to get your first line.</p></li>
+          <li><p>Simplify the integrand -- notice that <m>(x^4+5)^{1/4} \cdot \dfrac{x^3}{x^4+5} = x^3(x^4+5)^{-3/4}</m>. Then use the substitution <m>u = x^4+5</m>.</p></li>
+        </ul>
+      </hint>
+       <solution>
+        <p>
+          Substituting in <m>\rho(x)</m> and <m>Q(x)</m>:
+          <md>
+            <mrow>\rho(x) \cdot y \amp= \int \rho(x)\, Q(x)\,dx</mrow>
+            <mrow>(x^4+5)^{1/4}\, y \amp= \int (x^4+5)^{1/4} \cdot \frac{x^3}{x^4+5}\,dx</mrow>
+            <mrow>(x^4+5)^{1/4}\, y \amp= \int x^3(x^4+5)^{-3/4}\,dx.</mrow>
+          </md>
+        </p>
+        <solution>
+          <title>U-substitution details (read if stuck)</title>
+          <p>
+            Let <m>u = x^4+5</m>, so <m>du = 4x^3\,dx</m>, meaning <m>x^3\,dx = \frac{1}{4}du</m>. Then:
+            <md>
+              <mrow>\int x^3(x^4+5)^{-3/4}\,dx \amp= \frac{1}{4}\int u^{-3/4}\,du</mrow>
+              <mrow>\amp= \frac{1}{4} \cdot \frac{u^{1/4}}{1/4} + C</mrow>
+              <mrow>\amp= u^{1/4} + C</mrow>
+              <mrow>\amp= (x^4+5)^{1/4} + C.</mrow>
+            </md>
+          </p>
+        </solution>
+        <p>
+          So we have:
+          <md>
+            <mrow>(x^4+5)^{1/4}\, y \amp= (x^4+5)^{1/4} + C</mrow>
+            <mrow>y \amp= 1 + C(x^4+5)^{-1/4}.</mrow>
+          </md>
+        </p>
+      </solution>
+    </task>
+
+   
+  </activity>
+
+      <p>
+        Let's recap the steps for this problem:
+      </p>
+      <ul>
+        <li><p><alert>Step 1.</alert> Divide through by <m>(x^4+5)</m> to get standard form, giving <m>P(x) = \dfrac{x^3}{x^4+5}</m> and <m>Q(x) = \dfrac{x^3}{x^4+5}</m>.</p></li>
+        <li><p><alert>Step 2.</alert> Find <m>\rho(x) = e^{\int P(x)\,dx}</m>. The integral required a u-substitution, giving <m>e^{\frac{1}{4}\ln(x^4+5)}</m>, which simplifies via log rules to <m>(x^4+5)^{1/4}</m>.</p></li>
+        <li><p><alert>Step 3.</alert> Jump directly to <m>\rho(x) \cdot y = \int \rho(x)\,Q(x)\,dx</m> and evaluate the right-hand side, which required another u-substitution.</p></li>
+        <li><p><alert>Step 4.</alert> Divide both sides by <m>\rho(x)</m> to solve for <m>y</m>. Remember that <m>C</m> gets divided by <m>\rho(x)</m>, too! The final answer is <m>y=1+C(x^4+5)^{-1/4}</m>, <alert>not</alert> <m>y=1+C</m>.</p></li>
+      </ul>
+   
+  <!-- ═══════════════════════════════════════════════════════════
+       VIDEO
+       ═══════════════════════════════════════════════════════════ -->
+  <figure xml:id="video-linear-harder">
+    <caption>This video walks through the example on this page.</caption>
+    <video youtube="ud9X9x2B3y0" width="100%" preview="default"/>
+  </figure>
+
+</section>
