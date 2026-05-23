@@ -85,52 +85,35 @@
       </p>
     </hint>
     <solution>
-      <p>
-        We first compute <m>y'(x) = 3x^2\sec^2(x^3 + C)</m> by the chain rule.
-      </p>
-      <p>
-        Now we compare both sides of <m>y' = 3x^2(y^2 + 1)</m>:
-      </p>
-      <p>
-        <alert>LHS:</alert> <m>y' = 3x^2\sec^2(x^3 + C)</m>
-      </p>
-      <p>
-        <alert>RHS:</alert> <m>3x^2(y^2 + 1) = 3x^2(\tan^2(x^3 + C) + 1)</m>
-      </p>
-      <p>
-        Recall a trig identity — can you simplify the RHS to match the LHS? Check with the solution below!
-      </p>
-      <solution>
-        <title>Showing LHS = RHS</title>
         <p>
-          Using the Pythagorean identity <m>\tan^2(\theta) + 1 = \sec^2(\theta)</m>:
-          <md>
-            <mrow>\text{RHS} \amp= 3x^2(\tan^2(x^3+C)+1)</mrow>
-            <mrow>\amp= 3x^2\sec^2(x^3+C)</mrow>
-            <mrow>\amp= \text{LHS} \checkmark</mrow>
-          </md>
-          So <m>y(x) = \tan(x^3 + C)</m> is a solution.
+          We have <m>y = \tan(x^3 + C)</m>, so by the chain rule:
+          <me>y' = 3x^2\sec^2(x^3 + C).</me>
+        </p>
+        <p>
+          Plugging into both sides of the ODE:
+          <me>
+            \underbrace{3x^2\sec^2(x^3+C)}_{\text{LHS} = y'} = \underbrace{3x^2(\tan^2(x^3+C)+1)}_{\text{RHS} = 3x^2(y^2+1)} 
+          </me>
+          Using the Pythagorean identity <m>\tan^2(\theta)+1 = \sec^2(\theta)</m>, the RHS simplifies:
+          <me>
+            \underbrace{3x^2\sec^2(x^3+C)}_{\text{LHS}} = \underbrace{3x^2\sec^2(x^3+C)}_{\text{RHS (simplified)}} \checkmark
+          </me>
+        </p>
+        <p>
+          For the specific solution, apply <m>y(0) = 1</m>:
+        </p>
+        <solution>
+          <title>Finding <m>C</m></title>
+          <p>
+            <me>1 = \tan(0^3 + C) = \tan(C) \implies C = \frac{\pi}{4}.</me>
+            So the specific solution is <m>y(x) = \tan\!\left(x^3 + \dfrac{\pi}{4}\right)</m>.
+          </p>
+        </solution>
+        <p>
+          <em>Note: technically there are other values of <m>C</m> (namely <m>\frac{\pi}{4} + n\pi</m>), but they ultimately give the same function <m>y</m>, as the tangent function is <m>\pi</m>-periodic.</em>
         </p>
       </solution>
-      <p>
-        For the specific solution, apply <m>y(0) = 1</m> to find <m>C = \dfrac{\pi}{4}</m>.
-      </p>
-      <solution>
-        <title>Finding <m>C</m></title>
-        <p>
-          Plugging <m>x = 0</m> and <m>y = 1</m> into <m>y(x) = \tan(x^3 + C)</m>:
-          <me>1 = \tan(0^3 + C) = \tan(C) \implies C = \frac{\pi}{4}.</me>
-        </p>
-      </solution>
-      <p>
-        So the specific solution is <m>y(x) = \tan\!\left(x^3 + \dfrac{\pi}{4}\right)</m>.
-      </p>
-      <p>
-        <em>Note: technically there are other values of <m>C</m> (namely <m>\frac{\pi}{4} + n\pi</m>), but they ultimately give the same function <m>y</m>, as the tangent function is <m>\pi</m>-periodic.</em>
-      </p>
-    </solution>
   </task>
-
  <task xml:id="task-verify-cos">
   <statement>
     <p>

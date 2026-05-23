@@ -79,12 +79,16 @@
     <title>Algebraic Justification</title>
     <statement>
       <p>
-        Verify algebraically that <m>T(t) = 72</m> is the equilibrium solution.
+        Find the equilibrium solution algebraically. We haven't done this yet, so I expect most will need the hint to start!
       </p>
     </statement>
     <hint>
       <p>
         We want to find for what value of <m>C</m> the constant function <m>T(t) = C</m> is a solution. Notice that this implies <m>\frac{dT}{dt} = 0</m>.
+      </p>
+      <p> 
+        This really is the same process as "verifying" a solution. But here, you sub in <m>T(t) = C</m> and <m>\frac{dT}{dt} = 0</m>. 
+        Then you solve for <m>C</m>.
       </p>
       <p>
         Substitute both expressions into the ODE <m>\frac{dT}{dt} = -k(T - 72)</m> and solve for <m>C</m>.
