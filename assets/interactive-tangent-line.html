@@ -4,7 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Tangent Line to y = x²</title>
-<script src="jsxgraph-loader.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jsxgraph/1.6.0/jsxgraph.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jsxgraph/1.6.0/jsxgraphcore.js"></script>
 <style>
   body { margin: 0; padding: 10px; font-family: serif; background: transparent; overflow: hidden; }
   #display {
@@ -77,7 +78,6 @@
 
   var xVal = 1;
 
-  // Parabola
   board.create('functiongraph', [
     function(x) { return x * x; },
     -3, 3
@@ -87,7 +87,6 @@
     name: 'y = x²'
   });
 
-  // Curve label
   board.create('text', [1.6, 7, 'y = x²'], {
     fontSize: 14,
     fontFamily: 'serif',
@@ -95,7 +94,6 @@
     fixed: true
   });
 
-  // Point on curve
   var pt = board.create('point', [xVal, xVal * xVal], {
     size: 6,
     color: '#922b21',
@@ -104,7 +102,6 @@
     label: { visible: false }
   });
 
-  // Point label (x, x²)
   var ptLabel = board.create('text', [
     function() { return xVal + 0.15; },
     function() { return xVal * xVal + 0.5; },
@@ -122,7 +119,6 @@
     fixed: true
   });
 
-  // Tangent line: y = 2x·(X - xVal) + xVal²
   var tangent = board.create('functiongraph', [
     function(x) { return 2 * xVal * (x - xVal) + xVal * xVal; },
     -3, 3
@@ -132,12 +128,8 @@
     dash: 0
   });
 
-  // Tangent label
   var tangentLabel = board.create('text', [
-    function() {
-      // Place label to the right or left depending on x
-      return xVal > 0 ? -2.8 : 1.5;
-    },
+    function() { return xVal > 0 ? -2.8 : 1.5; },
     function() {
       var slope = 2 * xVal;
       var y0 = xVal * xVal;
