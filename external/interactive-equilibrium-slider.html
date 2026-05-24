@@ -3,21 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Verifying y = Ce^{-x³}</title>
-<script src="jsxgraph-loader.js"></script>
+<title>Equilibrium Solutions</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jsxgraph/1.6.0/jsxgraph.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jsxgraph/1.6.0/jsxgraphcore.js"></script>
 <style>
-  body { margin: 0; padding: 10px; font-family: serif; background: transparent; overflow: hidden; }
-  #expressions {
-    text-align: center;
-    font-size: 18px;
+  body {
+    margin: 0;
+    padding: 10px;
     font-family: serif;
-    margin-bottom: 6px;
-    line-height: 1.8;
+    background: transparent;
+    overflow: hidden;
   }
-  #expr-y { font-weight: bold; font-size: 18px; }
-  #expr-verify { color: #2c3e50; font-size: 18px; }
-  .sub { color: #1e8449; font-weight: bold; }
-  .ylabel { color: #1e8449; font-weight: bold; }
   #controls {
     display: flex;
     align-items: center;
@@ -28,51 +24,82 @@
     font-family: serif;
     color: #2c3e50;
   }
-  #controls label { font-weight: bold; font-size: 20px; }
+  #controls label { font-weight: bold; }
   #cslider { width: 200px; accent-color: #1a5276; }
-  #cvalue { min-width: 40px; font-weight: bold; font-size: 20px; color: #1a5276; }
-  #jxgbox { width: 100%; height: 260px; }
+  #cvalue { min-width: 40px; font-weight: bold; color: #1a5276; }
+  #expression {
+    text-align: center;
+    font-size: 20px;
+    font-family: serif;
+    margin-bottom: 8px;
+    color: #2c3e50;
+    min-height: 28px;
+  }
+  #jxgbox {
+    width: 100%;
+    aspect-ratio: 3/2;
+    position: relative;
+  }
+  #confetti-canvas {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    pointer-events: none;
+  }
+  #eq-label {
+    display: none;
+    text-align: center;
+    font-size: 22px;
+    font-weight: bold;
+    color: #1e8449;
+    margin-top: 6px;
+    animation: pop 0.3s ease;
+  }
+  @keyframes pop {
+    0% { transform: scale(0.5); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+  }
 </style>
 </head>
 <body>
 
-<div id="expressions" role="region" aria-label="Interactive display showing the solution y equals C times e to the negative x cubed, and verification that it satisfies the differential equation y prime plus 3 x squared y equals 0">
-  <div id="expr-y" style="color:#1e8449;"><span class="ylabel">y</span> = Ce<sup>&#x2212;x&#xB3;</sup></div>
-  <div id="expr-verify">
-    LHS = y&prime; + 3x&sup2;y =
-    (<span class="sub" id="sub-y1">Ce<sup>&#x2212;x&#xB3;</sup></span>)&prime;
-    + 3x&sup2;(<span class="sub" id="sub-y2">Ce<sup>&#x2212;x&#xB3;</sup></span>)
-    = 0 = RHS &#x2713;
-  </div>
-</div>
+<div id="expression"
+  role="region"
+  aria-label="Interactive display showing the current solution P(t) equals C times e to the 2t. When C equals 0, the equilibrium solution is found."
+  style="line-height:1.4;">P(t) = e<sup>2t</sup></div>
 
 <div id="controls">
-  <label for="cslider">C =</label>
-  <input type="range" id="cslider" min="-3" max="3" step="0.5" value="1"
-    aria-label="Slider for constant C, ranging from negative 3 to 3">
-  <span id="cvalue">1</span>
+  <label for="cslider" style="font-size:20px;">C =</label>
+  <input type="range" id="cslider" min="-5" max="5" step="0.5" value="1"
+    aria-label="Slider for constant C, ranging from negative 5 to 5. Set C to 0 to find the equilibrium solution.">
+  <span id="cvalue" style="font-size:20px;">1</span>
 </div>
 
-<div id="jxgbox" class="jxgbox"
-  aria-label="Graph of y equals C times e to the negative x cubed. As C changes with the slider, the curve updates. A red dot marks the y-intercept at (0, C), showing the initial value y(0) equals C.">
+<div style="position:relative;">
+  <div id="jxgbox" class="jxgbox"
+    aria-label="Graph of P(t) equals C times e to the 2t. Blue curve for non-zero C, turns green when C equals 0 revealing the equilibrium solution along the t-axis.">
+  </div>
+  <canvas id="confetti-canvas"></canvas>
 </div>
+
+<div id="eq-label" aria-live="polite">🎉 Equilibrium Solution!! 🎉</div>
 
 <script>
   var board = JXG.JSXGraph.initBoard('jxgbox', {
-    boundingbox: [-2, 7, 2, -7],
+    boundingbox: [-1, 10, 2, -10],
     axis: true,
     showCopyright: false,
     showNavigation: false,
     defaultAxes: {
       x: {
-        name: 'x',
+        name: 't',
         withLabel: true,
-        label: { position: 'rt', offset: [-15, 15], fontSize: 14 }
+        label: { position: 'rt', offset: [-15, 15], fontSize: 16 }
       },
       y: {
-        name: 'y',
+        name: 'P',
         withLabel: true,
-        label: { position: 'rt', offset: [15, 0], fontSize: 14 }
+        label: { position: 'rt', offset: [15, 0], fontSize: 16 }
       }
     }
   });
@@ -80,52 +107,99 @@
   var C = 1;
 
   var curve = board.create('functiongraph', [
-    function(x) { return C * Math.exp(-x * x * x); },
-    -2, 2
+    function(t) { return C * Math.exp(2 * t); },
+    -1, 2
   ], {
     strokeColor: '#1a5276',
     strokeWidth: 2.5
   });
 
-  var dot = board.create('point', [0, C], {
-    size: 5,
-    color: '#922b21',
-    fixed: true,
-    name: '',
-    label: { visible: false }
-  });
+  // --- Confetti ---
+  var confettiCanvas = document.getElementById('confetti-canvas');
+  var ctx = confettiCanvas.getContext('2d');
+  var particles = [];
+  var animating = false;
 
-  var dotLabel = board.create('text', [0.15, function() { return C - 0.4; }, function() {
-    var val = Math.round(C * 10) / 10;
-    var display = Number.isInteger(val) ? val : val.toFixed(1);
-    return 'y(0) = ' + display;
-  }], {
-    fontSize: 13,
-    fontFamily: 'serif',
-    color: '#922b21',
-    fixed: true
-  });
+  function resizeConfetti() {
+    var box = document.getElementById('jxgbox');
+    confettiCanvas.width = box.offsetWidth;
+    confettiCanvas.height = box.offsetHeight;
+  }
+  resizeConfetti();
+  window.addEventListener('resize', resizeConfetti);
 
-  function getCExpr(val) {
-    var absVal = Math.abs(val);
-    var absDsp = Number.isInteger(absVal) ? absVal : absVal.toFixed(1);
-    if (val === 0) return '0';
-    if (val === 1) return 'e<sup>\u2212x\u00B3</sup>';
-    if (val === -1) return '\u2212e<sup>\u2212x\u00B3</sup>';
-    if (val > 0) return absDsp + 'e<sup>\u2212x\u00B3</sup>';
-    return '\u2212' + absDsp + 'e<sup>\u2212x\u00B3</sup>';
+  function launchConfetti() {
+    resizeConfetti();
+    particles = [];
+    var colors = ['#922b21','#b7770d','#1e8449','#1a5276','#6c3483','#b7860d'];
+    for (var i = 0; i < 80; i++) {
+      particles.push({
+        x: Math.random() * confettiCanvas.width,
+        y: Math.random() * confettiCanvas.height * 0.3,
+        r: Math.random() * 6 + 3,
+        color: colors[Math.floor(Math.random() * colors.length)],
+        vx: (Math.random() - 0.5) * 4,
+        vy: Math.random() * 3 + 1,
+        alpha: 1,
+        rotation: Math.random() * 360
+      });
+    }
+    if (!animating) animateConfetti();
   }
 
-  function updateExpression(val) {
-    var exprY = document.getElementById('expr-y');
-    var sub1 = document.getElementById('sub-y1');
-    var sub2 = document.getElementById('sub-y2');
-    var expr = getCExpr(val);
+  function animateConfetti() {
+    animating = true;
+    ctx.clearRect(0, 0, confettiCanvas.width, confettiCanvas.height);
+    particles.forEach(function(p) {
+      ctx.save();
+      ctx.globalAlpha = p.alpha;
+      ctx.fillStyle = p.color;
+      ctx.translate(p.x, p.y);
+      ctx.rotate(p.rotation * Math.PI / 180);
+      ctx.fillRect(-p.r/2, -p.r/2, p.r, p.r * 1.5);
+      ctx.restore();
+      p.x += p.vx;
+      p.y += p.vy;
+      p.alpha -= 0.012;
+      p.rotation += 3;
+    });
+    particles = particles.filter(function(p) { return p.alpha > 0; });
+    if (particles.length > 0) {
+      requestAnimationFrame(animateConfetti);
+    } else {
+      animating = false;
+      ctx.clearRect(0, 0, confettiCanvas.width, confettiCanvas.height);
+    }
+  }
 
-    exprY.style.color = '#1e8449';
-    exprY.innerHTML = '<span class="ylabel">y</span> = ' + expr;
-    sub1.innerHTML = expr;
-    sub2.innerHTML = expr;
+  // --- Expression update ---
+  function updateExpression(val) {
+    var expr = document.getElementById('expression');
+    var eqLabel = document.getElementById('eq-label');
+    var absC = Math.abs(val);
+    var absCstr = Number.isInteger(absC) ? absC : absC.toFixed(1);
+
+    if (val === 0) {
+      expr.innerHTML = 'P(t) = 0';
+      curve.setAttribute({ strokeColor: '#1e8449', strokeWidth: 4 });
+      eqLabel.style.display = 'block';
+      eqLabel.style.animation = 'none';
+      void eqLabel.offsetWidth;
+      eqLabel.style.animation = 'pop 0.3s ease';
+      launchConfetti();
+    } else {
+      curve.setAttribute({ strokeColor: '#1a5276', strokeWidth: 2.5 });
+      eqLabel.style.display = 'none';
+      if (val === 1) {
+        expr.innerHTML = 'P(t) = e<sup>2t</sup>';
+      } else if (val === -1) {
+        expr.innerHTML = 'P(t) = &minus;e<sup>2t</sup>';
+      } else if (val > 0) {
+        expr.innerHTML = 'P(t) = ' + absCstr + 'e<sup>2t</sup>';
+      } else {
+        expr.innerHTML = 'P(t) = &minus;' + absCstr + 'e<sup>2t</sup>';
+      }
+    }
   }
 
   document.getElementById('cslider').addEventListener('input', function() {
@@ -133,7 +207,6 @@
     var display = Number.isInteger(C) ? C : C.toFixed(1);
     document.getElementById('cvalue').textContent = display;
     updateExpression(C);
-    dot.setPosition(JXG.COORDS_BY_USER, [0, C]);
     board.update();
   });
 
