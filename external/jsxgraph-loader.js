@@ -12,8 +12,13 @@
   link.href = BASE + "/jsxgraph.css";
   document.head.appendChild(link);
 
-  // Load JS (synchronously so JSXGraph is ready before page scripts run)
-  document.write(
-    '<script src="' + BASE + '/jsxgraphcore.js"><\/script>'
-  );
+  // Load JS then fire onJSXLoaded if defined
+  var script = document.createElement("script");
+  script.src = BASE + "/jsxgraphcore.js";
+  script.onload = function() {
+    if (typeof window.onJSXLoaded === "function") {
+      window.onJSXLoaded();
+    }
+  };
+  document.head.appendChild(script);
 })();
