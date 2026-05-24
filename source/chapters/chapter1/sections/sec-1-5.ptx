@@ -16,6 +16,7 @@
   <xi:include href="./1-5/sec2-solving-linear.ptx"/>
   <xi:include href="./1-5/sec3-linear-common-examples.ptx"/>
   <xi:include href="./1-5/sec4-linear-harder.ptx"/>
+  <xi:include href="./1-5/exercises-1-5.ptx"/>
 
 
 </section>

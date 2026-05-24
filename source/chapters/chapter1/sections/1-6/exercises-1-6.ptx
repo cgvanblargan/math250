@@ -1,0 +1,165 @@
+<exercises xml:id="exercises-1-6">
+  <title>Exercises for Section 1.6</title>
+
+
+   <exercise xml:id="ex-1-6-1">
+    <title>Setting Up Rate In, Rate Out</title>
+    <introduction>
+      <p>
+        For each of the following, define the relevant quantity and write a differential equation
+        using the principle <m>\dfrac{dx}{dt} = \text{rate in} - \text{rate out}</m>. 
+      </p>
+      <p>
+        <alert>Do not solve.</alert>
+      </p>
+    </introduction>
+
+    <task xml:id="ex-1-6-1a">
+      <statement>
+        <p>
+          A lake is stocked with fish. The fish population reproduces at a rate proportional
+          to the current population (with proportionality constant <m>k</m>), and fishermen
+          catch fish at a constant rate of 200 fish per year. Let <m>F(t)</m> be the number
+          of fish in the lake at time <m>t</m> (in years). Write a differential equation for <m>F(t)</m>.
+        </p>
+      </statement>
+      <answer>
+        <p>
+          <me>\frac{dF}{dt} = kF - 200.</me>
+        </p>
+      </answer>
+    </task>
+<task xml:id="ex-1-6-1b">
+      <statement>
+        <p>
+          A patient receives a drug intravenously at a constant rate of 50 mg/hour.
+          The body eliminates the drug at a rate proportional to the current amount
+          in the bloodstream, with proportionality constant <m>k</m>. Let <m>A(t)</m>
+          be the amount of drug (in mg) in the bloodstream at time <m>t</m> (in hours).
+          Write a differential equation for <m>A(t)</m>.
+        </p>
+      </statement>
+      <answer>
+        <p>
+          <me>\frac{dA}{dt} = 50 - kA.</me>
+        </p>
+      </answer>
+    </task>
+    <task xml:id="ex-1-6-1c">
+      <statement>
+        <p>
+          A tank contains 200 gallons of water with 50 kg of salt dissolved in it.
+          Pure water enters the tank at 4 gal/min, and the well-mixed solution leaves
+          at 4 gal/min (so the volume stays constant). Let <m>x(t)</m> be the amount
+          of salt (in kg) in the tank at time <m>t</m>. Write a differential equation for <m>x(t)</m>.
+        </p>
+      </statement>
+      <answer>
+        <p>
+         <me>\frac{dx}{dt} = -\frac{x}{50}.</me>
+        </p>
+      </answer>
+    </task>
+
+   
+  </exercise>
+
+  <!-- RESTRUCTURED Q6: CONSTANT VOLUME MIXING -->
+  <exercise xml:id="ex-1-6-2">
+    <introduction>
+      <p>
+        A tank contains 4000 L of a solution consisting of 270 kg of salt dissolved in water.
+        Pure water is pumped into the tank at 7 L/s, and the well-mixed solution is pumped
+        out at 7 L/s (so the volume stays constant). Let <m>x(t)</m> be the amount of salt
+        (in kg) at time <m>t</m> (in seconds).
+      </p>
+    </introduction>
+
+    <task xml:id="ex-1-6-2a">
+      <statement>
+        <p>
+          Set up the differential equation for <m>x(t)</m> with its initial condition.
+        </p>
+      </statement>
+      <answer>
+        <p>
+          <me>\frac{dx}{dt} = -\frac{7x}{4000}, \quad x(0) = 270.</me>
+        </p>
+      </answer>
+    </task>
+
+    <task xml:id="ex-1-6-2b">
+      <statement>
+        <p>
+          <alert>Solve the ODE</alert>. Recall that we have discussed a "short-cut"
+          to finding solutions to ODEs in the form <m>\frac{dy}{dt} =ry </m>.
+        </p>
+      </statement>
+      <answer>
+        <p>
+          <me>x(t) = 270e^{-7t/4000}.</me>
+        </p>
+      </answer>
+    </task>
+
+    <task xml:id="ex-1-6-2c">
+      <statement>
+        <p>
+          How long until only 15 kg of salt remains in the tank?
+        </p>
+      </statement>
+      <answer>
+        <p>
+          Solving <m>15 = 270e^{-7t/4000}</m>:
+          <me>t = \frac{4000}{7}\ln\!\left(\frac{270}{15}\right) = \frac{4000}{7}\ln(18) \approx 1652 \text{ seconds}.</me>
+        </p>
+      </answer>
+    </task>
+  </exercise>
+
+  <!-- RESTRUCTURED Q7: CHANGING VOLUME MIXING -->
+  <exercise xml:id="ex-1-6-3">
+    <introduction>
+      <p>
+        A tank initially contains 50 gal of pure water. Brine containing 3 lb of salt per gallon
+        enters the tank at 2 gal/min, and the well-mixed solution leaves at 3 gal/min.
+        The tank is empty after exactly 50 minutes. Let <m>x(t)</m> be the amount of salt (in lb)
+        at time <m>t</m> (in minutes).
+      </p>
+    </introduction>
+
+    <task xml:id="ex-1-6-3a">
+      <statement>
+        <p>
+         Set up
+          the differential equation for <m>x(t)</m> with its initial condition.
+        </p>
+        <p>
+            Don't forget to find <m>V(t)</m>, the volume of water in the tank at time <m>t</m>, as one of the steps!
+        </p>
+      </statement>
+      <answer>
+        <p>
+          <me>\frac{dx}{dt} = 6 - \frac{3x}{50-t}, \quad x(0) = 0.</me>
+        </p>
+      </answer>
+    </task>
+
+    <task xml:id="ex-1-6-3b">
+      <statement>
+        <p>
+          The ODE from part (a) is first-order linear. Solve it! Don't forget to apply the initial condition. 
+        </p>
+      </statement>
+      <answer>
+        <p>
+             <me>x(t) = 3(50-t) - \frac{3}{2500}(50-t)^3.</me>
+        </p>
+      </answer>
+    </task>
+
+
+  </exercise>
+
+
+</exercises>

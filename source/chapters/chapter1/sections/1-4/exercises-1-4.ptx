@@ -137,12 +137,76 @@
     </answer>
   </exercise>
 
-  <exercise>
+<exercise xml:id="ex-1-4-8">
     <statement>
       <p>
-        More to be added for week 2 part of this section.
+        After some ancient bones were excavated, carbon was taken from one of the bones to find that there was 68% as much <m>^{14}C</m> as from current bones. The decay constant of <m>^{14}C</m> is <m>k \approx 0.0001216</m>, for time in years. How many years old is the bone?
       </p>
     </statement>
+    <answer>
+      <p>
+        The bone is approximately <m>3172</m> years old.
+      </p>
+    </answer>
+  </exercise>
+
+  <exercise xml:id="ex-1-4-9">
+    <introduction>
+      <p>
+        The intensity of light <m>I</m> through a lake at a depth of <m>x</m> meters satisfies
+        <me>\frac{dI}{dx} = -1.33I.</me>
+      </p>
+    </introduction>
+    <task xml:id="ex-1-4-9a">
+      <statement>
+        <p>
+          At what depth is the intensity of the light half that of the intensity at the surface <m>I_0</m>?
+        </p>
+      </statement>
+      <answer>
+        <p>
+          <m>0.521</m> meters.
+        </p>
+      </answer>
+    </task>
+    <task xml:id="ex-1-4-9b">
+      <statement>
+        <p>
+          At 5 meters deep, what is the intensity of the light as a fraction of <m>I_0</m>?
+        </p>
+      </statement>
+      <answer>
+        <p>
+          <m>1.29 \times 10^{-3} I_0</m>
+        </p>
+      </answer>
+    </task>
+    <task xml:id="ex-1-4-9c">
+      <statement>
+        <p>
+          At what depth will the intensity of light be 3% of the intensity at the surface?
+        </p>
+      </statement>
+      <answer>
+        <p>
+          <m>2.64</m> meters.
+        </p>
+      </answer>
+    </task>
+  </exercise>
+
+  <exercise xml:id="ex-1-4-10">
+    <statement>
+      <p>
+        A cake is removed from an oven at <m>226^\circ</m>F and left to cool at room temperature, which is <m>73^\circ</m>F.
+        After 29 minutes, the temperature of the cake is <m>159^\circ</m>F. When will it be <m>97^\circ</m>F?
+      </p>
+    </statement>
+    <answer>
+      <p>
+        The cake will be at <m>97^\circ</m>F after approximately <m>93</m> minutes.
+      </p>
+    </answer>
   </exercise>
 
 </exercises>

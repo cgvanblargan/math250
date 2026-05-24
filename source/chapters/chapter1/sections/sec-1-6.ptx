@@ -12,6 +12,7 @@
   <xi:include href="./1-6/sec1-mixing-teaser.ptx"/>
   <xi:include href="./1-6/sec2-mixing-constant-volume.ptx"/>
  <xi:include href="./1-6/sec3-mixing-volume-changing.ptx"/>
+ <xi:include href="./1-6/exercises-1-6.ptx"/>
 
 
 </section>

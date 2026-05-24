@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<chapter xml:id="ch-first-order-autonomous" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>First Order Autonomous ODEs and Applications</title>
+
+  <introduction>
+    <p>
+      In this chapter we study first order autonomous ODEs, which are equations where the rate of change
+      depends only on the current state, not explicitly on time. We explore three important
+      applications: resistive forces, population modelling, and the stability of equilibrium solutions.
+    </p>
+  </introduction>
+
+  <xi:include href="./sections/sec-2-1.ptx" />
+  <xi:include href="./sections/sec-2-2.ptx" />
+  <xi:include href="./sections/sec-2-3.ptx" />
+
+</chapter>

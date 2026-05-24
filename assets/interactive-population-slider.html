@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Population Growth Model</title><script src="jsxgraph-loader.js"></script>
+<title>Population Growth Model</title>
+<script src="jsxgraph-loader.js"></script>
 <style>
   body {
     margin: 0;
@@ -66,7 +67,6 @@
 </div>
 
 <script>
-  window.onJSXLoaded = function() {
   var board = JXG.JSXGraph.initBoard('jxgbox', {
     boundingbox: [-1, 10, 2, -10],
     axis: true,
@@ -96,7 +96,6 @@
     strokeWidth: 2.5
   });
 
-  // Dot at (0, C) = (0, P(0))
   var dot = board.create('point', [0, C], {
     size: 5,
     color: '#922b21',
@@ -105,7 +104,6 @@
     label: { visible: false }
   });
 
-  // Label for P(0)
   var dotLabel = board.create('text', [0.08, C, function() {
     var val = Math.round(C * 10) / 10;
     var display = Number.isInteger(val) ? val : val.toFixed(1);
@@ -121,7 +119,6 @@
     var expr = document.getElementById('expression');
     var absC = Math.abs(val);
     var absCstr = Number.isInteger(absC) ? absC : absC.toFixed(1);
-
     if (val === 0) {
       expr.innerHTML = 'P(t) = 0';
     } else if (val === 1) {
@@ -145,8 +142,6 @@
   });
 
   updateExpression(1);
-
-  };
 </script>
 </body>
 </html>

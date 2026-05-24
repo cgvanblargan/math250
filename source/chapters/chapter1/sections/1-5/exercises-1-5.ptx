@@ -1,0 +1,127 @@
+<exercises xml:id="exercises-1-5">
+  <title>Exercises for Section 1.5</title>
+
+  <exercise xml:id="ex-1-5-1">
+    <statement>
+      <p>
+        Which of the following ODEs are first-order linear? Select all that apply.
+      </p>
+      <p>
+        <ol label="I">
+          <li><p><m>\dfrac{df}{dz} + e^z f = z^2</m></p></li>
+          <li><p><m>py'(t) - 2e^{-t}y = 4t - 1</m></p></li>
+          <li><p><m>\dfrac{dx}{dt} - 2t^2 x = \cos(\pi t)</m></p></li>
+          <li><p><m>2ty'(t) = 1</m></p></li>
+          <li><p><m>\phi\dfrac{d\phi}{dt} + 9\phi = 3t^2</m></p></li>
+          <li><p><m>x'(t) - 2t\sin(x) = e^t</m></p></li>
+        </ol>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        I, II, III, and IV are first-order linear. V and VI are not.
+      </p>
+      <p>
+        I, II, III, and IV can all be written in the form <m>y' + P(t)y = Q(t)</m> where <m>P</m> and <m>Q</m> depend only on the independent variable -- not on <m>y</m>.
+      </p>
+      <p>
+        V is not linear because of the <m>\phi\dfrac{d\phi}{dt}</m> term -- this is a product of the dependent variable and its derivative, which is nonlinear.
+      </p>
+      <p>
+        VI is not linear because of the <m>\sin(x)</m> term -- the dependent variable appears inside a nonlinear function.
+      </p>
+    </answer>
+  </exercise>
+
+  <exercise xml:id="ex-1-5-2">
+    <introduction>
+      <p>
+        Find the general solution, then use the initial condition to find the particular solution:
+        <me>y' - 5y = 6e^{5x}, \quad y(0) = 0.</me>
+      </p>
+    </introduction>
+    <task xml:id="ex-1-5-2a">
+      <statement><p>Find the general solution.</p></statement>
+      <answer>
+        <p><me>y = 6xe^{5x} + Ce^{5x}</me></p>
+      </answer>
+    </task>
+    <task xml:id="ex-1-5-2b">
+      <statement><p>Find the particular solution satisfying <m>y(0) = 0</m>.</p></statement>
+      <answer>
+        <p><me>y = 6xe^{5x}</me></p>
+      </answer>
+    </task>
+  </exercise>
+
+  <exercise xml:id="ex-1-5-3">
+    <introduction>
+      <p>
+        Find the general solution, then use the initial condition to find the particular solution:
+        <me>xy' + 4y = 5x, \quad y(3) = 6.</me>
+      </p>
+    </introduction>
+    <task xml:id="ex-1-5-3a">
+      <statement><p>Find the general solution.</p></statement>
+      <answer>
+        <p><me>y = x + Cx^{-4}</me></p>
+      </answer>
+    </task>
+    <task xml:id="ex-1-5-3b">
+      <statement><p>Find the particular solution satisfying <m>y(3) = 6</m>.</p></statement>
+      <answer>
+        <p><me>y = x + 243x^{-4}</me></p>
+      </answer>
+    </task>
+  </exercise>
+
+<exercise xml:id="ex-1-5-4">
+    <statement>
+      <p>
+        Find the general solution:
+        <me>\frac{dy}{dx} + 9xy = 8x.</me>
+      </p>
+    </statement>
+    <answer>
+      <p><me>y = \frac{8}{9} + Ce^{-9x^2/2}</me></p>
+    </answer>
+  </exercise>
+
+  <exercise xml:id="ex-1-5-5">
+    <statement>
+      <p>
+        Find the general solution:
+        <me>xy' = 16y + x^{17}\cos x.</me>
+      </p>
+      <p>
+        Note: Things should cancel out nicely. If you compute the integrating factor correctly, there will be no 
+        integration by parts!
+      </p>
+    </statement>
+    <answer>
+      <p><me>y = x^{16}\sin x + Cx^{16}</me></p>
+    </answer>
+  </exercise>
+
+  <exercise xml:id="ex-1-5-6">
+    <introduction>
+      <p>
+        Find the general solution, then use the initial condition to find the particular solution:
+        <me>(x^2 + 25)\frac{dy}{dx} + xy = 8x, \quad y(0) = 4.</me>
+      </p>
+    </introduction>
+    <task xml:id="ex-1-5-6a">
+      <statement><p>Find the general solution.</p></statement>
+      <answer>
+        <p><me>y = 8 + \frac{C}{\sqrt{x^2+25}}</me></p>
+      </answer>
+    </task>
+    <task xml:id="ex-1-5-6b">
+      <statement><p>Find the particular solution satisfying <m>y(0) = 4</m>.</p></statement>
+      <answer>
+        <p><me>y = 8 - \frac{20}{\sqrt{x^2+25}}</me></p>
+      </answer>
+    </task>
+  </exercise>
+
+</exercises>
