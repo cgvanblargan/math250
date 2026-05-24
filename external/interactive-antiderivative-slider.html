@@ -4,7 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>y = x² + C</title>
-<script src="jsxgraph-loader.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jsxgraph/1.6.0/jsxgraph.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jsxgraph/1.6.0/jsxgraphcore.js"></script>
 <style>
   body { margin: 0; padding: 10px; font-family: serif; background: transparent; overflow: hidden; }
   #expressions {
@@ -75,7 +76,6 @@
 
   var C = 0;
 
-  // Parabola
   var curve = board.create('functiongraph', [
     function(x) { return x * x + C; },
     -3, 3
@@ -84,9 +84,6 @@
     strokeWidth: 2.5
   });
 
-
-
-  // Tangent point at x=1: y = 1 + C, slope = 2
   var tanPoint = board.create('point', [1, 1 + C], {
     size: 5,
     color: '#b7770d',
@@ -95,7 +92,6 @@
     label: { visible: false }
   });
 
-  // Tangent line at x=1: y = 2(x-1) + (1+C) = 2x - 1 + C
   var tangent = board.create('functiongraph', [
     function(x) { return 2 * x - 1 + C; },
     -3, 3
@@ -105,7 +101,6 @@
     dash: 2
   });
 
-  // Tangent label
   var tangentLabel = board.create('text', [1.15, function() { return 1 + C - 0.4; }, 'slope = 2'], {
     fontSize: 13,
     fontFamily: 'serif',
