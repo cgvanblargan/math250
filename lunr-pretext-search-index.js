@@ -1015,7 +1015,7 @@ var ptx_lunr_docs = [
   "type": "Exercises",
   "number": "1.4.8",
   "title": "Exercises for Section 1.4",
-  "body": " Exercises for Section 1.4    Find the explicit general solution to the following differential equation:            Find the explicit general solution of the given differential equation:            Find the explicit general solution to the following differential equation:            Find the explicit general solution to the following differential equation:      and Remember the general solution needs to include both any equilibrium solutions together with all solutions found from separation of variables.      Consider the separable ODE:      Find all equilibrium solutions, then find the explicit general solution.    Equilibrium: . This together with separation of variables yields the general solution: .      Find the specific solution satisfying .     (the equilibrium solution).      Find the specific solution satisfying .            Find a general implicit solution to the following ODE:            Solve the IVP explicitly:            More to be added for week 2 part of this section.    "
+  "body": " Exercises for Section 1.4    Find the explicit general solution to the following differential equation:            Find the explicit general solution of the given differential equation:            Find the explicit general solution to the following differential equation:            Find the explicit general solution to the following differential equation:      and Remember the general solution needs to include both any equilibrium solutions together with all solutions found from separation of variables.      Consider the separable ODE:      Find all equilibrium solutions, then find the explicit general solution.    Equilibrium: . This together with separation of variables yields the general solution: .      Find the specific solution satisfying .     (the equilibrium solution).      Find the specific solution satisfying .            Find a general implicit solution to the following ODE:            Solve the IVP explicitly:            After some ancient bones were excavated, carbon was taken from one of the bones to find that there was 68% as much as from current bones. The decay constant of is , for time in years. How many years old is the bone?    The bone is approximately years old.      The intensity of light through a lake at a depth of meters satisfies      At what depth is the intensity of the light half that of the intensity at the surface ?     meters.      At 5 meters deep, what is the intensity of the light as a fraction of ?           At what depth will the intensity of light be 3% of the intensity at the surface?     meters.       A cake is removed from an oven at F and left to cool at room temperature, which is F. After 29 minutes, the temperature of the cake is F. When will it be F?    The cake will be at F after approximately minutes.    "
 },
 {
   "id": "ex-1-4-1",
@@ -1081,13 +1081,31 @@ var ptx_lunr_docs = [
   "body": "  Solve the IVP explicitly:         "
 },
 {
-  "id": "exercises-1-4-9",
+  "id": "ex-1-4-8",
   "level": "2",
-  "url": "exercises-1-4.html#exercises-1-4-9",
+  "url": "exercises-1-4.html#ex-1-4-8",
   "type": "Exercise",
   "number": "1.4.8.8",
   "title": "",
-  "body": "  More to be added for week 2 part of this section.   "
+  "body": "  After some ancient bones were excavated, carbon was taken from one of the bones to find that there was 68% as much as from current bones. The decay constant of is , for time in years. How many years old is the bone?    The bone is approximately years old.   "
+},
+{
+  "id": "ex-1-4-9",
+  "level": "2",
+  "url": "exercises-1-4.html#ex-1-4-9",
+  "type": "Exercise",
+  "number": "1.4.8.9",
+  "title": "",
+  "body": "  The intensity of light through a lake at a depth of meters satisfies      At what depth is the intensity of the light half that of the intensity at the surface ?     meters.      At 5 meters deep, what is the intensity of the light as a fraction of ?           At what depth will the intensity of light be 3% of the intensity at the surface?     meters.    "
+},
+{
+  "id": "ex-1-4-10",
+  "level": "2",
+  "url": "exercises-1-4.html#ex-1-4-10",
+  "type": "Exercise",
+  "number": "1.4.8.10",
+  "title": "",
+  "body": "  A cake is removed from an oven at F and left to cool at room temperature, which is F. After 29 minutes, the temperature of the cake is F. When will it be F?    The cake will be at F after approximately minutes.   "
 },
 {
   "id": "sec-linear-first-order-intro",
@@ -1261,6 +1279,69 @@ var ptx_lunr_docs = [
   "body": " This video walks through the example on this page.   "
 },
 {
+  "id": "exercises-1-5",
+  "level": "1",
+  "url": "exercises-1-5.html",
+  "type": "Exercises",
+  "number": "1.5.5",
+  "title": "Exercises for Section 1.5",
+  "body": " Exercises for Section 1.5    Which of the following ODEs are first-order linear? Select all that apply.              I, II, III, and IV are first-order linear. V and VI are not.  I, II, III, and IV can all be written in the form where and depend only on the independent variable -- not on .  V is not linear because of the term -- this is a product of the dependent variable and its derivative, which is nonlinear.  VI is not linear because of the term -- the dependent variable appears inside a nonlinear function.      Find the general solution, then use the initial condition to find the particular solution:     Find the general solution.       Find the particular solution satisfying .         Find the general solution, then use the initial condition to find the particular solution:     Find the general solution.       Find the particular solution satisfying .         Find the general solution:          Find the general solution:   Note: Things should cancel out nicely. If you compute the integrating factor correctly, there will be no integration by parts!         Find the general solution, then use the initial condition to find the particular solution:     Find the general solution.       Find the particular solution satisfying .       "
+},
+{
+  "id": "ex-1-5-1",
+  "level": "2",
+  "url": "exercises-1-5.html#ex-1-5-1",
+  "type": "Exercise",
+  "number": "1.5.5.1",
+  "title": "",
+  "body": "  Which of the following ODEs are first-order linear? Select all that apply.              I, II, III, and IV are first-order linear. V and VI are not.  I, II, III, and IV can all be written in the form where and depend only on the independent variable -- not on .  V is not linear because of the term -- this is a product of the dependent variable and its derivative, which is nonlinear.  VI is not linear because of the term -- the dependent variable appears inside a nonlinear function.   "
+},
+{
+  "id": "ex-1-5-2",
+  "level": "2",
+  "url": "exercises-1-5.html#ex-1-5-2",
+  "type": "Exercise",
+  "number": "1.5.5.2",
+  "title": "",
+  "body": "  Find the general solution, then use the initial condition to find the particular solution:     Find the general solution.       Find the particular solution satisfying .      "
+},
+{
+  "id": "ex-1-5-3",
+  "level": "2",
+  "url": "exercises-1-5.html#ex-1-5-3",
+  "type": "Exercise",
+  "number": "1.5.5.3",
+  "title": "",
+  "body": "  Find the general solution, then use the initial condition to find the particular solution:     Find the general solution.       Find the particular solution satisfying .      "
+},
+{
+  "id": "ex-1-5-4",
+  "level": "2",
+  "url": "exercises-1-5.html#ex-1-5-4",
+  "type": "Exercise",
+  "number": "1.5.5.4",
+  "title": "",
+  "body": "  Find the general solution:       "
+},
+{
+  "id": "ex-1-5-5",
+  "level": "2",
+  "url": "exercises-1-5.html#ex-1-5-5",
+  "type": "Exercise",
+  "number": "1.5.5.5",
+  "title": "",
+  "body": "  Find the general solution:   Note: Things should cancel out nicely. If you compute the integrating factor correctly, there will be no integration by parts!      "
+},
+{
+  "id": "ex-1-5-6",
+  "level": "2",
+  "url": "exercises-1-5.html#ex-1-5-6",
+  "type": "Exercise",
+  "number": "1.5.5.6",
+  "title": "",
+  "body": "  Find the general solution, then use the initial condition to find the particular solution:     Find the general solution.       Find the particular solution satisfying .      "
+},
+{
   "id": "sec-mixing-teaser",
   "level": "1",
   "url": "sec-mixing-teaser.html",
@@ -1369,13 +1450,67 @@ var ptx_lunr_docs = [
   "body": " This video walks through the mixing problem on this page.   "
 },
 {
-  "id": "ch-chapter-two",
+  "id": "exercises-1-6",
   "level": "1",
-  "url": "ch-chapter-two.html",
-  "type": "Chapter",
-  "number": "2",
-  "title": "Chapter 2: Coming soon",
-  "body": " Chapter 2: Coming soon   Chapter 2 has not been added yet    "
+  "url": "exercises-1-6.html",
+  "type": "Exercises",
+  "number": "1.6.4",
+  "title": "Exercises for Section 1.6",
+  "body": " Exercises for Section 1.6   Setting Up Rate In, Rate Out   For each of the following, define the relevant quantity and write a differential equation using the principle .   Do not solve.      A lake is stocked with fish. The fish population reproduces at a rate proportional to the current population (with proportionality constant ), and fishermen catch fish at a constant rate of 200 fish per year. Let be the number of fish in the lake at time (in years). Write a differential equation for .           A patient receives a drug intravenously at a constant rate of 50 mg\/hour. The body eliminates the drug at a rate proportional to the current amount in the bloodstream, with proportionality constant . Let be the amount of drug (in mg) in the bloodstream at time (in hours). Write a differential equation for .           A tank contains 200 gallons of water with 50 kg of salt dissolved in it. Pure water enters the tank at 4 gal\/min, and the well-mixed solution leaves at 4 gal\/min (so the volume stays constant). Let be the amount of salt (in kg) in the tank at time . Write a differential equation for .             A tank contains 4000 L of a solution consisting of 270 kg of salt dissolved in water. Pure water is pumped into the tank at 7 L\/s, and the well-mixed solution is pumped out at 7 L\/s (so the volume stays constant). Let be the amount of salt (in kg) at time (in seconds).     Set up the differential equation for with its initial condition.            Solve the ODE . Recall that we have discussed a \"short-cut\" to finding solutions to ODEs in the form .           How long until only 15 kg of salt remains in the tank?    Solving :         A tank initially contains 50 gal of pure water. Brine containing 3 lb of salt per gallon enters the tank at 2 gal\/min, and the well-mixed solution leaves at 3 gal\/min. The tank is empty after exactly 50 minutes. Let be the amount of salt (in lb) at time (in minutes).     Set up the differential equation for with its initial condition.  Don't forget to find , the volume of water in the tank at time , as one of the steps!           The ODE from part (a) is first-order linear. Solve it! Don't forget to apply the initial condition.          "
+},
+{
+  "id": "ex-1-6-1",
+  "level": "2",
+  "url": "exercises-1-6.html#ex-1-6-1",
+  "type": "Exercise",
+  "number": "1.6.4.1",
+  "title": "Setting Up Rate In, Rate Out.",
+  "body": " Setting Up Rate In, Rate Out   For each of the following, define the relevant quantity and write a differential equation using the principle .   Do not solve.      A lake is stocked with fish. The fish population reproduces at a rate proportional to the current population (with proportionality constant ), and fishermen catch fish at a constant rate of 200 fish per year. Let be the number of fish in the lake at time (in years). Write a differential equation for .           A patient receives a drug intravenously at a constant rate of 50 mg\/hour. The body eliminates the drug at a rate proportional to the current amount in the bloodstream, with proportionality constant . Let be the amount of drug (in mg) in the bloodstream at time (in hours). Write a differential equation for .           A tank contains 200 gallons of water with 50 kg of salt dissolved in it. Pure water enters the tank at 4 gal\/min, and the well-mixed solution leaves at 4 gal\/min (so the volume stays constant). Let be the amount of salt (in kg) in the tank at time . Write a differential equation for .         "
+},
+{
+  "id": "ex-1-6-2",
+  "level": "2",
+  "url": "exercises-1-6.html#ex-1-6-2",
+  "type": "Exercise",
+  "number": "1.6.4.2",
+  "title": "",
+  "body": "  A tank contains 4000 L of a solution consisting of 270 kg of salt dissolved in water. Pure water is pumped into the tank at 7 L\/s, and the well-mixed solution is pumped out at 7 L\/s (so the volume stays constant). Let be the amount of salt (in kg) at time (in seconds).     Set up the differential equation for with its initial condition.            Solve the ODE . Recall that we have discussed a \"short-cut\" to finding solutions to ODEs in the form .           How long until only 15 kg of salt remains in the tank?    Solving :     "
+},
+{
+  "id": "ex-1-6-3",
+  "level": "2",
+  "url": "exercises-1-6.html#ex-1-6-3",
+  "type": "Exercise",
+  "number": "1.6.4.3",
+  "title": "",
+  "body": "  A tank initially contains 50 gal of pure water. Brine containing 3 lb of salt per gallon enters the tank at 2 gal\/min, and the well-mixed solution leaves at 3 gal\/min. The tank is empty after exactly 50 minutes. Let be the amount of salt (in lb) at time (in minutes).     Set up the differential equation for with its initial condition.  Don't forget to find , the volume of water in the tank at time , as one of the steps!           The ODE from part (a) is first-order linear. Solve it! Don't forget to apply the initial condition.         "
+},
+{
+  "id": "sec-resistive-forces",
+  "level": "1",
+  "url": "sec-resistive-forces.html",
+  "type": "Section",
+  "number": "2.1",
+  "title": "Resistive Forces",
+  "body": " Resistive Forces   To be added.  "
+},
+{
+  "id": "sec-population-modelling",
+  "level": "1",
+  "url": "sec-population-modelling.html",
+  "type": "Section",
+  "number": "2.2",
+  "title": "Population Modelling",
+  "body": " Population Modelling   To be added.  "
+},
+{
+  "id": "sec-stability-equilibrium",
+  "level": "1",
+  "url": "sec-stability-equilibrium.html",
+  "type": "Section",
+  "number": "2.3",
+  "title": "Stability of Equilibrium Solutions",
+  "body": " Stability of Equilibrium Solutions  To be added.  "
 },
 {
   "id": "backmatter-2",
