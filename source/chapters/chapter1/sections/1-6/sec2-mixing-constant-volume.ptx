@@ -158,5 +158,5 @@
     <caption>This video walks through the mixing problem on this page.</caption>
     <video youtube="nWpEERhX-v8" width="100%" preview="default"/>
   </figure>
-
+<interactive xml:id="question-form-1-6-2" iframe="question-form.html?section=1.6.2" width="100%" aspect="2:1"/>
 </section>

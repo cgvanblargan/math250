@@ -139,5 +139,5 @@ in the following example.
     <caption>This video goes through the content of this page.</caption>
     <video youtube="-DhMEtcWtSs" width="100%" preview="default"/>
   </figure>
-
+<interactive xml:id="question-form-1-5-1" iframe="question-form.html?section=1.5.1" width="100%" aspect="2:1"/>
 </section>
