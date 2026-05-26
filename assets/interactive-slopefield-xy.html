@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Building a Slope Field: dy/dx = x + y</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jsxgraph/1.6.0/jsxgraph.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jsxgraph/1.6.0/jsxgraphcore.js"></script>
+<style>
+  body { margin: 0; padding: 10px; font-family: serif; background: transparent; overflow: hidden; }
+  #display {
+    text-align: center;
+    font-size: 16px;
+    font-family: serif;
+    margin-bottom: 8px;
+    line-height: 1.8;
+    color: #2c3e50;
+    min-height: 28px;
+  }
+  .val-x { color: #1a5276; font-weight: bold; }
+  .val-y { color: #922b21; font-weight: bold; }
+  .val-slope { color: #b7770d; font-weight: bold; }
+  #controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 8px;
+  }
+  #playbtn {
+    background: #1a5276;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    padding: 7px 24px;
+    font-family: serif;
+    font-size: 14px;
+    cursor: pointer;
+    min-width: 90px;
+  }
+  #playbtn:hover { background: #154360; }
+  #resetbtn {
+    background: transparent;
+    color: #1a5276;
+    border: 1px solid #1a5276;
+    border-radius: 3px;
+    padding: 7px 16px;
+    font-family: serif;
+    font-size: 14px;
+    cursor: pointer;
+  }
+  #resetbtn:hover { background: #eaf0f6; }
+  #progress {
+    font-size: 13px;
+    font-style: italic;
+    color: #2c3e50;
+    min-width: 60px;
+  }
+  #jxgbox { width: 100%; aspect-ratio: 3/2; }
+</style>
+</head>
+<body>
+
+<div id="display" role="region" aria-live="polite"
+  aria-label="Current point and slope being drawn">
+  &nbsp;
+</div>
+
+<div id="controls">
+  <button id="playbtn" aria-label="Play or pause slope field animation">&#9654; Play</button>
+  <button id="resetbtn" aria-label="Reset slope field">Reset</button>
+  <span id="progress" aria-live="polite"></span>
+</div>
+
+<div id="jxgbox" class="jxgbox"
+  role="region"
+  aria-label="Slope field for dy/dx equals x plus y being built row by row. For each row, y is fixed and x sweeps from negative 3 to 3. The display above shows the current x, y, and computed slope at each step.">
+</div>
+
+<script>
+  var board = JXG.JSXGraph.initBoard('jxgbox', {
+    boundingbox: [-3.5, 4, 3.5, -4],
+    axis: true,
+    showCopyright: false,
+    showNavigation: false,
+    defaultAxes: {
+      x: { name: 'x', withLabel: true, label: { position: 'rt', offset: [-15, 15], fontSize: 14 } },
+      y: { name: 'y', withLabel: true, label: { position: 'rt', offset: [15, 0], fontSize: 14 } }
+    }
+  });
+
+  // Same row-sweep order as the reference: start at y=0, then out in both directions
+  var xVals = [-3, -2, -1, 0, 1, 2, 3];
+  var yOrder = [0, 1, 2, 3, -1, -2, -3];
+  var len = 0.35;
+  var DELAY = 500;   // slow enough to read
+
+  var segments = [];
+  var animInterval = null;
+  var animIndex = 0;
+  var playing = false;
+  var grid = [];
+
+  function makeGrid() {
+    var g = [];
+    for (var j = 0; j < yOrder.length; j++) {
+      for (var i = 0; i < xVals.length; i++) {
+        g.push([xVals[i], yOrder[j]]);
+      }
+    }
+    return g;
+  }
+
+  function drawSegment(x, y) {
+    var slope = x + y;
+    var angle = Math.atan2(slope, 1);
+    var dx = len * Math.cos(angle);
+    var dy = len * Math.sin(angle);
+    var seg = board.create('segment', [
+      [x - dx, y - dy], [x + dx, y + dy]
+    ], { strokeColor: '#1a5276', strokeWidth: 1.8, fixed: true, highlight: false });
+    segments.push(seg);
+  }
+
+  function updateDisplay(x, y) {
+    var slope = x + y;
+    var xStr = Number.isInteger(x) ? x : x.toFixed(1);
+    var yStr = Number.isInteger(y) ? y : y.toFixed(1);
+    var sStr = Number.isInteger(slope) ? slope : slope.toFixed(1);
+    document.getElementById('display').innerHTML =
+      '<span class="val-x">x = ' + xStr + '</span> &nbsp;|&nbsp; ' +
+      '<span class="val-y">y = ' + yStr + '</span> &nbsp;|&nbsp; ' +
+      '<span class="val-slope">dy/dx = x + y = ' + sStr + '</span>';
+  }
+
+  function clearField() {
+    for (var i = 0; i < segments.length; i++) board.removeObject(segments[i]);
+    segments = [];
+    board.update();
+    document.getElementById('display').innerHTML = '&nbsp;';
+    document.getElementById('progress').textContent = '';
+  }
+
+  function step() {
+    if (animIndex >= grid.length) {
+      clearInterval(animInterval);
+      animInterval = null;
+      playing = false;
+      document.getElementById('playbtn').innerHTML = '&#9654; Play';
+      document.getElementById('progress').textContent = 'Done!';
+      return;
+    }
+    var pt = grid[animIndex];
+    drawSegment(pt[0], pt[1]);
+    updateDisplay(pt[0], pt[1]);
+    document.getElementById('progress').textContent = (animIndex + 1) + ' / ' + grid.length;
+    animIndex++;
+  }
+
+  function startPlaying() {
+    playing = true;
+    document.getElementById('playbtn').innerHTML = '&#9646;&#9646; Pause';
+    animInterval = setInterval(step, DELAY);
+  }
+
+  function pausePlaying() {
+    playing = false;
+    document.getElementById('playbtn').innerHTML = '&#9654; Play';
+    clearInterval(animInterval);
+    animInterval = null;
+  }
+
+  document.getElementById('playbtn').addEventListener('click', function() {
+    if (animIndex >= grid.length && !playing) {
+      clearField();
+      animIndex = 0;
+    }
+    if (playing) {
+      pausePlaying();
+    } else {
+      startPlaying();
+    }
+  });
+
+  document.getElementById('resetbtn').addEventListener('click', function() {
+    pausePlaying();
+    clearField();
+    animIndex = 0;
+    document.getElementById('playbtn').innerHTML = '&#9654; Play';
+  });
+
+  grid = makeGrid();
+</script>
+</body>
+</html>

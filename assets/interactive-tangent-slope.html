@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tangent Line Slope: dy/dx = 2y</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jsxgraph/1.6.0/jsxgraph.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jsxgraph/1.6.0/jsxgraphcore.js"></script>
+<style>
+  body { margin: 0; padding: 10px; font-family: serif; background: transparent; overflow: hidden; }
+  #display {
+    text-align: center;
+    font-size: 17px;
+    font-family: serif;
+    margin-bottom: 8px;
+    line-height: 2;
+    color: #2c3e50;
+  }
+  .val-c { color: #922b21; font-weight: bold; }
+  .val-y { color: #1a5276; font-weight: bold; }
+  .val-slope { color: #b7770d; font-weight: bold; }
+  #controls {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 8px;
+    font-size: 15px;
+    font-family: serif;
+    color: #2c3e50;
+  }
+  .control-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+  }
+  .control-row label { font-weight: bold; min-width: 40px; text-align: right; }
+  .control-row input[type=range] { width: 180px; accent-color: #1a5276; }
+  .control-row span { min-width: 36px; font-weight: bold; }
+  #jxgbox { width: 100%; aspect-ratio: 3/2; }
+</style>
+</head>
+<body>
+
+<div id="display"
+  role="region"
+  aria-label="Display showing current equation, y value, and slope dy/dx equals 2y">
+  <span class="val-c">y = e<sup>2x</sup></span> &nbsp;|&nbsp;
+  <span class="val-y">y = 1.00</span> &nbsp;|&nbsp;
+  <span class="val-slope">dy/dx = 2y = 2.00</span>
+</div>
+
+<div id="controls">
+  <div class="control-row">
+    <label for="cslider" style="color:#922b21;">C =</label>
+    <input type="range" id="cslider" min="-3" max="3" step="0.5" value="1"
+      aria-label="Slider for C, changes which solution curve y equals C times e to the 2x">
+    <span id="cvalue" style="color:#922b21;">1</span>
+  </div>
+  <div class="control-row">
+    <label for="yslider" style="color:#1a5276;">y =</label>
+    <input type="range" id="yslider" min="-3" max="3" step="0.25" value="1"
+      aria-label="Slider for y value, moves the point along the curve to show slope at that y">
+    <span id="yvalue" style="color:#1a5276;">1.00</span>
+  </div>
+</div>
+
+<div id="jxgbox" class="jxgbox"
+  role="region"
+  aria-label="Graph showing solution curve y equals C times e to the 2x in blue, with a maroon point and amber tangent segment showing slope equals 2y at the chosen y value">
+</div>
+
+<script>
+  var board = JXG.JSXGraph.initBoard('jxgbox', {
+    boundingbox: [-2, 5, 2, -5],
+    axis: true,
+    showCopyright: false,
+    showNavigation: false,
+    defaultAxes: {
+      x: { name: 'x', withLabel: true, label: { position: 'rt', offset: [-15, 15], fontSize: 14 } },
+      y: { name: 'y', withLabel: true, label: { position: 'rt', offset: [15, 0], fontSize: 14 } }
+    }
+  });
+
+  var C = 1;
+  var yVal = 1;
+
+  var curve = board.create('functiongraph', [
+    function(x) { return C * Math.exp(2 * x); }, -2, 2
+  ], { strokeColor: '#1a5276', strokeWidth: 2.5 });
+
+  var dot = board.create('point', [0, 1], {
+    size: 5, color: '#922b21', fixed: true, name: '', label: { visible: false }
+  });
+
+  var tangent = board.create('segment', [
+    [-0.25, 0.5], [0.25, 1.5]
+  ], { strokeColor: '#b7770d', strokeWidth: 2.5, fixed: true });
+
+  function getCExpr(c) {
+    var absC = Math.abs(c);
+    var absCstr = Number.isInteger(absC) ? absC : absC.toFixed(1);
+    if (c === 0) return 'y = 0';
+    if (c === 1) return 'y = e<sup>2x</sup>';
+    if (c === -1) return 'y = &minus;e<sup>2x</sup>';
+    if (c > 0) return 'y = ' + absCstr + 'e<sup>2x</sup>';
+    return 'y = &minus;' + absCstr + 'e<sup>2x</sup>';
+  }
+
+  function getX(c, y) {
+    if (c === 0) return null;
+    if (c > 0 && y <= 0) return null;
+    if (c < 0 && y >= 0) return null;
+    var x = Math.log(y / c) / 2;
+    return (isFinite(x) && x >= -2 && x <= 2) ? x : null;
+  }
+
+  function update() {
+    var x0 = getX(C, yVal);
+    var slope = 2 * yVal;
+    var len = 1.2;
+    var angle = Math.atan2(slope, 1);
+    var dx = len * Math.cos(angle);
+    var dy = len * Math.sin(angle);
+
+    if (x0 !== null) {
+      dot.setPosition(JXG.COORDS_BY_USER, [x0, yVal]);
+      tangent.point1.setPosition(JXG.COORDS_BY_USER, [x0 - dx, yVal - dy]);
+      tangent.point2.setPosition(JXG.COORDS_BY_USER, [x0 + dx, yVal + dy]);
+      tangent.setAttribute({ visible: true });
+    } else {
+      tangent.setAttribute({ visible: false });
+    }
+
+    var yDisp = yVal.toFixed(2);
+    var sDisp = slope.toFixed(2);
+
+    document.getElementById('display').innerHTML =
+      '<span class="val-c">' + getCExpr(C) + '</span> &nbsp;|&nbsp; ' +
+      '<span class="val-y">y = ' + yDisp + '</span> &nbsp;|&nbsp; ' +
+      '<span class="val-slope">dy/dx = 2y = ' + sDisp + '</span>';
+
+    board.update();
+  }
+
+  document.getElementById('cslider').addEventListener('input', function() {
+    C = parseFloat(this.value);
+    document.getElementById('cvalue').textContent = Number.isInteger(C) ? C : C.toFixed(1);
+    update();
+  });
+
+  document.getElementById('yslider').addEventListener('input', function() {
+    yVal = parseFloat(this.value);
+    document.getElementById('yvalue').textContent = yVal.toFixed(2);
+    update();
+  });
+
+  update();
+</script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Slope Field B: dy/dx = x - y</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jsxgraph/1.6.0/jsxgraph.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jsxgraph/1.6.0/jsxgraphcore.js"></script>
+<style>
+  body { margin: 0; padding: 6px; font-family: serif; background: transparent; overflow: hidden; }
+  #label { text-align: center; font-size: 15px; font-family: serif; color: #2c3e50; margin-bottom: 4px; }
+  #jxgbox { width: 100%; aspect-ratio: 1/1; }
+</style>
+</head>
+<body>
+<div id="label">Field B</div>
+<div id="jxgbox" class="jxgbox"
+  role="region"
+  aria-label="Slope field B for dy over dx equals x minus y. Along the y-axis, ticks tilt downward above the origin and upward below — the opposite of what dy over dx equals x plus y predicts. This is the incorrect field.">
+</div>
+<script>
+  var board = JXG.JSXGraph.initBoard('jxgbox', {
+    boundingbox: [-3.5, 3.5, 3.5, -3.5],
+    axis: true,
+    showCopyright: false,
+    showNavigation: false,
+    defaultAxes: {
+      x: { name: 'x', withLabel: true, label: { position: 'rt', offset: [-15, 15], fontSize: 13 } },
+      y: { name: 'y', withLabel: true, label: { position: 'rt', offset: [15, 0], fontSize: 13 } }
+    }
+  });
+
+  var xs = [-3,-2,-1,0,1,2,3];
+  var ys = [-3,-2,-1,0,1,2,3];
+  var len = 0.32;
+
+  for (var j = 0; j < ys.length; j++) {
+    for (var i = 0; i < xs.length; i++) {
+      var x = xs[i], y = ys[j];
+      var slope = x - y;  // dy/dx = x - y  (wrong field)
+      var angle = Math.atan2(slope, 1);
+      var dx = len * Math.cos(angle);
+      var dy = len * Math.sin(angle);
+      board.create('segment', [[x-dx, y-dy],[x+dx, y+dy]],
+        { strokeColor: '#1a5276', strokeWidth: 1.8, fixed: true, highlight: false });
+    }
+  }
+</script>
+</body>
+</html>
