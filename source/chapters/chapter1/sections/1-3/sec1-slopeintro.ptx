@@ -1,27 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
 <section xml:id="sec-slope-fields-intro" xmlns:xi="http://www.w3.org/2001/XInclude">
   <title>Slope Fields</title>
 
   <!-- ═══════════════════════════════════════════════════════════
        INTRO PROSE
        ═══════════════════════════════════════════════════════════ -->
-  <!-- PROSE: motivating intro -->
+
+  <p>
+    So far we have been solving differential equations and writing down explicit formulas for solutions.
+    That is powerful, but it is not always possible. Many differential equations are too complicated to
+    solve by hand, and even when we can solve them, the formula alone does not always make it easy to
+    picture what the solutions actually look like. In this section we develop a visual tool that lets us
+    understand the behavior of solutions to a differential equation without solving it at all.
+  </p>
+  <p>
+    The idea starts with something simple. If we have a differential equation
+    <m>\dfrac{dy}{dx} = F(x, y)</m>, then at any point <m>(x, y)</m> in the plane, the equation
+    tells us exactly what slope a solution passing through that point must have. We do not need to
+    know the solution to know its slope. We just plug in <m>x</m> and <m>y</m>.
+  </p>
 
   <!-- ═══════════════════════════════════════════════════════════
        MOTIVATING EXAMPLE: dy/dx = 2y
        ═══════════════════════════════════════════════════════════ -->
+
   <p>
     Recall that the general solution to <m>\dfrac{dy}{dx} = 2y</m> is <m>y = Ce^{2x}</m>.
     Let's focus on one specific solution, <m>y = e^{2x}</m> (that is, <m>C = 1</m>).
     Since <m>\dfrac{dy}{dx} = 2y</m>, the slope of the tangent line to this curve
     at any point is just twice the <m>y</m>-value at that point. Use the interactive
-    below to explore this -- try changing both the solution curve (via <m>C</m>)
+    below to explore this. Try changing both the solution curve (via <m>C</m>)
     and the <m>y</m>-value to see how the slope responds.
   </p>
 
   <figure xml:id="fig-tangent-slope-slider">
     <caption>
       The solution curve <m>y = Ce^{2x}</m> with a tangent line at a chosen point.
-      Notice that the slope <m>dy/dx = 2y</m> depends only on the <m>y</m>-value --
+      Notice that the slope <m>dy/dx = 2y</m> depends only on the <m>y</m>-value,
       not on which curve you are on or what <m>x</m> is.
     </caption>
     <interactive xml:id="interactive-tangent-slope" iframe="interactive-tangent-slope.html" width="100%" aspect="3:2">
@@ -38,6 +54,7 @@
   <!-- ═══════════════════════════════════════════════════════════
        TRANSITION PROSE: into slope fields
        ═══════════════════════════════════════════════════════════ -->
+
   <p>
     Here is the key observation from the interactive above: the slope <m>\dfrac{dy}{dx} = 2y</m>
     depends only on the <m>y</m>-value, not on the specific solution curve or the <m>x</m>-value.
@@ -46,7 +63,7 @@
   </p>
   <p>
     This gives us a powerful idea. Even without knowing the solutions explicitly,
-    we can draw a short line segment at every point <m>(x, y)</m> with slope equal to <m>2y</m> --
+    we can draw a short line segment at every point <m>(x, y)</m> with slope equal to <m>2y</m>,
     just from knowing the <m>y</m>-value. The resulting picture is called a <term>slope field</term>.
   </p>
 
@@ -65,9 +82,10 @@
   <!-- ═══════════════════════════════════════════════════════════
        INTERACTIVE 2: building the slope field
        ═══════════════════════════════════════════════════════════ -->
+
   <p>
     Let's build the slope field for <m>\dfrac{dy}{dx} = 2y</m> step by step.
-    For each <m>y</m>-value, the slope is <m>2y</m> regardless of <m>x</m> --
+    For each <m>y</m>-value, the slope is <m>2y</m> regardless of <m>x</m>,
     so every tick in the same row has the same slope.
     Press play to watch the slope field get drawn.
   </p>
@@ -76,7 +94,7 @@
     <caption>
       Building the slope field for <m>dy/dx = 2y</m>. Each tick mark is drawn at a
       grid point <m>(x, y)</m> with slope <m>2y</m>. Notice that all ticks in the
-      same row (same <m>y</m>) are parallel -- the slope does not depend on <m>x</m>.
+      same row (same <m>y</m>) are parallel. The slope does not depend on <m>x</m>.
     </caption>
     <interactive xml:id="interactive-slope-field-build" iframe="interactive-slope-field-build.html" width="100%" aspect="3:2">
       <static>
@@ -92,18 +110,20 @@
   <!-- ═══════════════════════════════════════════════════════════
        PROSE: transition to solution curves
        ═══════════════════════════════════════════════════════════ -->
+
   <p>
     In practice, computers generate slope fields with far more points than we could
     draw by hand. The interactive below shows a dense slope field for <m>\dfrac{dy}{dx} = 2y</m>.
     Use the slider to set an initial value <m>y(0)</m>, then press play to watch the
-    corresponding solution curve trace itself through the field -- following the arrows,
-    "connecting the dots." This is the fundamental idea: the slope field tells you
+    corresponding solution curve trace itself through the field, following the arrows and
+    connecting the dots. This is the fundamental idea: the slope field tells you
     which way any solution must travel at every point.
   </p>
 
   <!-- ═══════════════════════════════════════════════════════════
        INTERACTIVE 3: dense slope field + trajectory tracing
        ═══════════════════════════════════════════════════════════ -->
+
   <figure xml:id="fig-slope-field-trajectory">
     <caption>
       A dense slope field for <m>dy/dx = 2y</m>. Set the initial value <m>y(0)</m>
@@ -125,6 +145,7 @@
   <!-- ═══════════════════════════════════════════════════════════
        VIDEO
        ═══════════════════════════════════════════════════════════ -->
+
   <figure xml:id="video-slope-fields-intro">
     <caption>This video walks through the content of this page.</caption>
     <video youtube="M2KWsBEtdBc" width="100%" preview="default"/>

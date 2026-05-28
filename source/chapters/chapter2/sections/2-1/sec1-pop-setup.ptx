@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-pop-setup" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Setting Up Population Models</title>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       INTRO PROSE
+       ═══════════════════════════════════════════════════════════ -->
+
+  <p>
+    We are now going to explore some very interesting applications of differential equations
+    to population modelling. Early in these notes, we looked at many examples involving
+    <m>\frac{dP}{dt} = kP</m>, whose general solution is <m>P(t) = Ce^{kt}</m>.
+    The idea that a population grows at a rate proportional to its current size is actually
+    quite natural: the more individuals there are, the more births there are, and so the
+    faster the population grows. Every person contributes, and those contributions add up. 
+    For example, if each member of a population contributes on average 2 new members per year, the total growth rate is 2 times the population size, 
+    giving <m>\frac{dP}{dt} = 2P</m>.
+  </p>
+
+  <p>
+    But if you think about it a little longer, you will notice something uncomfortable.
+    If <m>k \gt 0</m>, then <m>P(t) = Ce^{kt}</m> grows without bound as <m>t \to \infty</m>.
+    Populations do not actually do that. Resources run out, disease spreads more easily in
+    crowded conditions, competition for food increases. In practice, a rising population tends
+    to put pressure on its own birth rate and death rate in ways that slow growth down.
+    The simple model <m>\frac{dP}{dt} = kP</m> ignores all of that.
+  </p>
+
+  <p>
+    So to build more realistic population models, we need to go back to an idea you have
+    already seen. Recall from <xref ref="sec-mixing-teaser"/> that for any quantity <m>x(t)</m>,
+    <me>\frac{dx}{dt} = \text{rate in} - \text{rate out}.</me>
+    For a self-contained population with no migration, the rate in comes entirely from births
+    and the rate out comes entirely from deaths. That gives us the following principle.
+  </p>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       PRINCIPLE BLOCK
+       ═══════════════════════════════════════════════════════════ -->
+
+  <principle xml:id="prin-population-model">
+    <title>A General Population Model</title>
+    <statement>
+      <p>
+        Let <m>P(t)</m> be the size of a population at time <m>t</m>, let <m>\beta</m> be the
+        <term>birth rate</term> (rate of births per person), and let <m>\alpha</m> be the
+        <term>death rate</term> (rate of deaths per person). Then
+        <me>\frac{dP}{dt} = \beta P - \alpha P = (\beta - \alpha)P.</me>
+      </p>
+    </statement>
+  </principle>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       REMARK: WHY MULTIPLY BY P
+       ═══════════════════════════════════════════════════════════ -->
+
+  <p>
+    It is worth pausing on why <m>\beta</m> and <m>\alpha</m> get multiplied by <m>P</m>.
+    The rates <m>\beta</m> and <m>\alpha</m> are rates <em>per person</em>. So the total number
+    of births per unit time is not just <m>\beta</m>, it is <m>\beta</m> times the number of
+    people contributing to those births, which is <m>P</m>. Same logic for deaths.
+    If a town of 1000 people has a birth rate of 0.02 births per person per year,
+    that is <m>0.02 \times 1000 = 20</m> births per year, not just 0.02. This is the step
+    that trips people up most often, so keep it in mind as you work through the examples below.
+  </p>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       ACTIVITY: SETTING UP POPULATION DEs
+       ═══════════════════════════════════════════════════════════ -->
+
+  <p>
+    Let's get some practice setting up population models. For each of the following,
+    <m>P(t)</m> is a population function. Try each one before peeking at the solution.
+  </p>
+
+  <activity xml:id="act-pop-setup">
+    <title>Practice: Setting Up Population Models</title>
+
+    <task xml:id="task-pop-setup-1">
+      <statement>
+        <p>
+          The population has a constant birth rate of 2 and its death rate is 0.
+          Write a differential equation for <m>P(t)</m>.
+        </p>
+      </statement>
+      <hint>
+       <p>
+  Recall:
+  <ul>
+    <li><p>The population model: <m>\frac{dP}{dt} = \beta P - \alpha P</m></p></li>
+    <li><p><m>\beta = 2</m> is the birth rate per person, <m>\alpha = 0</m> is the death rate per person.</p></li>
+  </ul>
+  Remember: because <m>\beta</m> is a rate <em>per person</em>, the total birth contribution is <m>\beta \cdot P</m>, not just <m>\beta</m>.
+</p>
+      </hint>
+      <solution>
+        <p>
+          Using <m>\frac{dP}{dt} = \beta P - \alpha P</m> with <m>\beta = 2</m> and <m>\alpha = 0</m>:
+          <me>\frac{dP}{dt} = 2P - 0 = 2P.</me>
+          Even though the birth rate 2 looks like a plain constant, it is a rate per person,
+          so the total number of births per unit time is <m>2 \cdot P</m>. That is why we
+          multiply by <m>P</m>.
+        </p>
+      </solution>
+    </task>
+
+    <task xml:id="task-pop-setup-2">
+      <statement>
+        <p>
+          The birth rate and death rate are both proportional to <m>P</m>, with
+          proportionality constants 3 and 4 respectively.
+          Write a differential equation for <m>P(t)</m>.
+        </p>
+      </statement>
+      <hint>
+       <p>
+  Recall:
+  <ul>
+    <li><p>The population model: <m>\frac{dP}{dt} = \beta P - \alpha P</m></p></li>
+    <li><p><m>\beta = 3P</m> is the birth rate per person, <m>\alpha = 4P</m> is the death rate per person.</p></li>
+  </ul>
+  Remember: because these are rates <em>per person</em>, each one still gets multiplied by <m>P</m>.
+</p>
+      </hint>
+      <solution>
+        <p>
+          With <m>\beta = 3P</m> and <m>\alpha = 4P</m>:
+          <me>\frac{dP}{dt} = (3P)P - (4P)P = 3P^2 - 4P^2 = -P^2.</me>
+          Notice that both rates were proportional to <m>P</m>, and since each rate per person
+          still gets multiplied by another factor of <m>P</m>, we end up with <m>P^2</m> terms.
+        </p>
+      </solution>
+    </task>
+
+    <task xml:id="task-pop-setup-3">
+      <statement>
+        <p>
+          The birth rate is proportional to <m>P</m> with constant <m>k_1</m>, and the
+          death rate is proportional to <m>P^2</m> with constant <m>k_2</m>.
+          Which of the following is the correct differential equation for <m>P(t)</m>?
+        </p>
+      </statement>
+      <choices randomize="no">
+        <choice>
+          <statement><p><m>\dfrac{dP}{dt} = k_1 P - k_2 P^2</m></p></statement>
+          <feedback>
+            <p>
+              Not quite. Remember that <m>\beta</m> and <m>\alpha</m> are rates <em>per person</em>,
+              so each one gets multiplied by <m>P</m>. Here <m>\beta = k_1 P</m>, so the birth
+              contribution is <m>(k_1 P) \cdot P = k_1 P^2</m>, not just <m>k_1 P</m>.
+            </p>
+          </feedback>
+        </choice>
+        <choice correct="yes">
+          <statement><p><m>\dfrac{dP}{dt} = k_1 P^2 - k_2 P^3</m></p></statement>
+          <feedback>
+            <p>
+              Correct! With <m>\beta = k_1 P</m> and <m>\alpha = k_2 P^2</m>:
+              <me>\frac{dP}{dt} = (k_1 P) \cdot P - (k_2 P^2) \cdot P = k_1 P^2 - k_2 P^3.</me>
+              Each rate per person gets multiplied by <m>P</m>, bumping the exponents up by one.
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement><p><m>\dfrac{dP}{dt} = k_1 P^2 - k_2 P^2</m></p></statement>
+          <feedback>
+            <p>
+              Not quite. The death rate per person is <m>k_2 P^2</m>, which when multiplied by
+              <m>P</m> gives <m>k_2 P^3</m>, not <m>k_2 P^2</m>.
+            </p>
+          </feedback>
+        </choice>
+      </choices>
+    </task>
+
+  </activity>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       TRANSITION TO LOGISTIC
+       ═══════════════════════════════════════════════════════════ -->
+
+  <p>
+    Now let's think about what a more realistic model might look like. In the simple model
+    <m>\frac{dP}{dt} = (\beta - \alpha)P</m>, both <m>\beta</m> and <m>\alpha</m> were constants.
+    But in reality, as a population grows, resources become scarcer and conditions become more
+    crowded. A natural way to capture this is to let the birth rate <em>decrease</em> as the
+    population increases. Suppose we model the birth rate as
+    <me>\beta = \beta_1 - \beta_2 P, \quad \beta_1, \beta_2 \gt 0,</me>
+    so that <m>\beta</m> is high when the population is small and decreases as <m>P</m> grows.
+    Keeping <m>\alpha</m> constant and plugging in:
+    <md>
+      <mrow>\frac{dP}{dt} \amp= (\beta_1 - \beta_2 P)P - \alpha P</mrow>
+      <mrow>\amp= P(\beta_1 - \beta_2 P - \alpha)</mrow>
+      <mrow>\amp= \beta_2 P\!\left(\frac{\beta_1 - \alpha}{\beta_2} - P\right).</mrow>
+    </md>
+    Setting <m>k = \beta_2</m> and <m>M = \frac{\beta_1 - \alpha}{\beta_2}</m>, this becomes
+    the famous <term>logistic equation</term>.
+  </p>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       DEFINITION: LOGISTIC EQUATION
+       ═══════════════════════════════════════════════════════════ -->
+
+  <definition xml:id="def-logistic-equation">
+    <title>The Logistic Equation</title>
+    <statement>
+      <p>
+        The <term>logistic equation</term> is
+        <me>\frac{dP}{dt} = kP(M - P),</me>
+        where <m>M</m> is called the <term>carrying capacity</term> of the population.
+        It is a common model of population growth and the spread of disease.
+        It is standard to require <m>k \gt 0</m>.
+      </p>
+      <p>
+        Note: solving the logistic equation requires partial fractions, since you will
+        encounter integrals involving <m>\dfrac{1}{P(M-P)}</m>.
+      </p>
+    </statement>
+  </definition>
+
+  <p>
+    In the pages ahead, we are going to explore both the case <m>k \gt 0</m> and <m>k \lt 0</m>
+    and find some surprisingly interesting behavior in each one.
+  </p>
+
+  <figure xml:id="video-pop-setup">
+    <caption>Setting up population models (video)</caption>
+    <video xml:id="yt-pop-setup" youtube="KBNSX5Kz6cE" width="60%"/>
+  </figure>
+
+</section>

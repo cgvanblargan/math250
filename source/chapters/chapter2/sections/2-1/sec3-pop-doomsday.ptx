@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-pop-doomsday" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Doomsday vs Extinction</title>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       INTRO PROSE
+       ═══════════════════════════════════════════════════════════ -->
+
+  <p>
+    In the previous page we solved the logistic equation <m>\dfrac{dP}{dt} = kP(M-P)</m>
+    with <m>k \gt 0</m> and found beautifully predictable behavior: no matter where the
+    population starts, it always levels off at the carrying capacity <m>M</m>. Now we ask
+    what happens when <m>k \lt 0</m>. The formula for the general solution looks almost
+    identical, but the behavior is shockingly different, and it depends heavily on the
+    initial condition. Our goal here is not to dwell on the algebra of solving, but to
+    understand what the solutions actually <em>do</em>, because this will motivate
+    everything in the next section.
+  </p>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       OBSERVATION: RECAP
+       ═══════════════════════════════════════════════════════════ -->
+
+  <observation xml:id="obs-general-solution-recap">
+    <title>General Solution (from previous page)</title>
+    <p>
+      For the equation <m>\dfrac{dP}{dt} = kP(M - P)</m>, the general solution is
+      <me>P(t) = \frac{M}{1 + Ce^{-kMt}},</me>
+      where <m>C</m> is an arbitrary constant, and the solution <m>P(t) = 0</m> must
+      be noted separately. When <m>k \gt 0</m>, every solution satisfies
+      <me>\lim_{t \to \infty} P(t) = M.</me>
+    </p>
+  </observation>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       ACTIVITY
+       ═══════════════════════════════════════════════════════════ -->
+
+  <activity xml:id="act-doomsday-extinction">
+    <title>Doomsday vs Extinction</title>
+
+    <introduction>
+      <p>
+        Consider the following situation: the birth rate of a population <m>P</m> is
+        proportional to <m>P</m> with proportionality constant 2, the death rate is
+        the constant 20, and time is measured in years.
+        Let's solve the ODE and determine the long-term behavior of the solutions.
+      </p>
+    </introduction>
+
+    <!-- ── TASK A: SETUP AND GENERAL SOLUTION WITH C ── -->
+
+    <task xml:id="task-doom-setup">
+      <title>Setting Up and the General Solution</title>
+      <statement>
+        <p>
+          Using <m>\dfrac{dP}{dt} = \beta P - \alpha P</m> with <m>\beta = 2P</m>
+          and <m>\alpha = 20</m>:
+          <me>\frac{dP}{dt} = (2P)P - 20P = -2P(10 - P).</me>
+          This is <m>kP(M-P)</m> with
+          <me>\frac{dP}{dt} = \underbrace{-2}_{k}\,P\!\left(\underbrace{10}_{M} - P\right).</me>
+          Since the work is almost identical to the previous page, the general solution is
+          <me>P(t) = \frac{10}{1 + Ce^{20t}},</me>
+          where we have used <m>-kM = -(-2)(10) = 20</m>.
+        </p>
+      </statement>
+    </task>
+
+    <!-- ── TASK B: PUT IN TERMS OF P0 ── -->
+
+    <task xml:id="task-doom-initial">
+      <title>Writing the Solution in Terms of <m>P_0 = P(0)</m></title>
+      <statement>
+        <p>
+          We will find that the initial value <m>P(0) = P_0</m> makes a huge difference
+          on the long-term behavior, so we will put the previous expression for <m>P(t)</m>
+          in terms of <m>P_0</m>. We find:
+          <me>P(t) = \frac{10 P_0}{P_0 + (10 - P_0)\,e^{20t}}.</me>
+        </p>
+        <solution>
+          <title>Putting <m>C</m> in terms of <m>P_0</m> (can skim for now)</title>
+          <p>
+            Plugging <m>t = 0</m> into <m>P(t) = \dfrac{10}{1 + Ce^{20t}}</m>:
+            <me>P_0 = \frac{10}{1 + C} \implies C = \frac{10}{P_0} - 1 = \frac{10 - P_0}{P_0}.</me>
+            Substituting back:
+            <me>P(t) = \frac{10}{1 + \frac{10 - P_0}{P_0}e^{20t}} = \frac{10P_0}{P_0 + (10 - P_0)e^{20t}}.</me>
+          </p>
+        </solution>
+      </statement>
+    </task>
+
+    <!-- ── TASK C: STATE TWO CASES ── -->
+
+    <task xml:id="task-doom-two-cases">
+      <title>Two Initial Conditions</title>
+      <statement>
+        <p>
+          We will examine what happens with the following two initial conditions.
+          Recall that in this ODE, <m>M = 10</m>. We will see that the two solutions
+          behave much differently, and it actually comes down to whether
+          <m>P(0)</m> is less than or greater than <m>M</m>.
+        </p>
+        <p>
+          Plugging in each initial condition:
+          <ul>
+            <li><p>
+              <m>P(0) = 8</m>: <m>\quad\displaystyle P(t) = \frac{80}{8 + 2e^{20t}}</m>
+            </p></li>
+            <li><p>
+              <m>P(0) = 12</m>: <m>\quad\displaystyle P(t) = \frac{120}{12 - 2e^{20t}}</m>
+            </p></li>
+          </ul>
+        </p>
+      </statement>
+    </task>
+
+    <!-- ── TASK D: EXTINCTION MC ── -->
+
+    <task xml:id="task-doom-extinction">
+      <title><m>P(0) = 8</m>: Extinction</title>
+      <statement>
+        <p>
+          What is <m>\displaystyle\lim_{t \to \infty} P(t)</m> when
+          <m>P(t) = \dfrac{80}{8 + 2e^{20t}}</m>?
+        </p>
+      </statement>
+      <choices randomize="no">
+        <choice>
+          <statement><p><m>10</m></p></statement>
+          <feedback>
+            <p>
+              That was the logistic case with <m>k \gt 0</m>. Here <m>k \lt 0</m>, so
+              the exponent in the solution is positive. As <m>t \to \infty</m>,
+              <m>e^{20t} \to \infty</m>, so the denominator blows up, not the numerator.
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement><p><m>\infty</m></p></statement>
+          <feedback>
+            <p>
+              Not quite. The numerator is the fixed number 80. As <m>t \to \infty</m>,
+              <m>e^{20t} \to \infty</m>, so the denominator grows without bound.
+              What happens to a fixed numerator over a growing denominator?
+            </p>
+          </feedback>
+        </choice>
+        <choice correct="yes">
+          <statement><p><m>0</m></p></statement>
+          <feedback>
+            <p>
+              Correct! As <m>t \to \infty</m>, <m>e^{20t} \to \infty</m>, so the
+              denominator <m>8 + 2e^{20t} \to \infty</m>, giving
+              <m>P(t) = \dfrac{80}{8 + 2e^{20t}} \to 0</m>.
+              When <m>P(0) \lt M</m>, the population goes extinct.
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement><p>It depends on <m>C</m>.</p></statement>
+          <feedback>
+            <p>
+              We have already written the solution in terms of <m>P_0 = P(0) = 8</m>,
+              so <m>C</m> is already determined. The limit is a specific number.
+            </p>
+          </feedback>
+        </choice>
+      </choices>
+    </task>
+
+    <!-- ── TASK E: DOOMSDAY MC ── -->
+
+    <task xml:id="task-doom-doomsday">
+      <title><m>P(0) = 12</m>: Doomsday</title>
+      <statement>
+        <p>
+          Now consider <m>P(t) = \dfrac{120}{12 - 2e^{20t}}</m>. Notice something
+          strange: the denominator is not always positive. It equals zero when
+          <me>12 - 2e^{20t} = 0 \implies e^{20t} = 6 \implies t = T = \frac{\ln 6}{20} \approx 0.09 \text{ years}.</me>
+          That is a very short time! As <m>t \to T^-</m> (approaching from the left),
+          what happens to <m>P(t)</m>?
+        </p>
+      </statement>
+      <choices randomize="no">
+        <choice>
+          <statement><p><m>P(t) \to 0</m></p></statement>
+          <feedback>
+            <p>
+              Not quite. As <m>t \to T^-</m>, the denominator <m>12 - 2e^{20t}</m>
+              approaches zero from the positive side. Think about what happens to
+              a positive numerator divided by a denominator that approaches <m>0^+</m>.
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement><p><m>P(t) \to 10</m></p></statement>
+          <feedback>
+            <p>
+              That was the logistic behavior for <m>k \gt 0</m>. Here the denominator
+              is heading toward zero, not toward a nonzero number.
+            </p>
+          </feedback>
+        </choice>
+        <choice correct="yes">
+          <statement><p><m>P(t) \to +\infty</m></p></statement>
+          <feedback>
+            <p>
+              Correct! As <m>t \to T^-</m>, the denominator <m>12 - 2e^{20t} \to 0^+</m>,
+              so <m>P(t) = \dfrac{120}{12 - 2e^{20t}} \to +\infty</m>.
+              The population explodes to infinity in the finite time <m>T \approx 0.09</m> years.
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement><p><m>P(t) \to -\infty</m></p></statement>
+          <feedback>
+            <p>
+              The numerator 120 is positive. As long as <m>t \lt T</m>, the denominator
+              is also positive and approaching <m>0^+</m>. So the quotient goes to
+              <m>+\infty</m>, not <m>-\infty</m>.
+            </p>
+          </feedback>
+        </choice>
+      </choices>
+    </task>
+
+  </activity>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       POST-ACTIVITY: DOOMSDAY PROSE + GRAPH PLACEHOLDERS
+       ═══════════════════════════════════════════════════════════ -->
+
+  <p>
+    In finite time <m>T = \dfrac{\ln 6}{20}</m> years, the population explodes to infinity.
+    When applying this to population modelling, the model completely breaks down at <m>t = T</m>.
+    We call this <term>doomsday</term>: a population explosion in finite time.
+  </p>
+
+  <p>
+    The two graphs below show both cases. Notice how dramatically different the behavior
+    is, even though the ODE is the same and the initial conditions differ by only a small amount
+    relative to <m>M = 10</m>.
+  </p>
+
+  <!-- GRAPH PLACEHOLDER 1: interactive-extinction.html
+       Plot P(t) = 80/(8 + 2*e^{20t}) for t in [0, 1].
+       Curve starts at P=8 and decays toward 0.
+       Dashed horizontal line at P=10 labelled "M = 10".
+       Label the curve "P(0) = 8: extinction". -->
+
+  <!-- GRAPH PLACEHOLDER 2: interactive-doomsday.html
+       Plot P(t) = 120/(12 - 2*e^{20t}) for t in [0, T).
+       Curve starts at P=12 and blows up as t -> T.
+       Vertical dashed line at t = ln(6)/20 labelled "T (doomsday)".
+       Dashed horizontal line at P=10 labelled "M = 10".
+       Label the curve "P(0) = 12: doomsday". -->
+
+  <!-- ═══════════════════════════════════════════════════════════
+       CONCLUSION OBSERVATION
+       ═══════════════════════════════════════════════════════════ -->
+
+  <observation xml:id="obs-doomsday-extinction-summary">
+    <title>Summary: Long-Term Behavior of <m>\dfrac{dP}{dt} = kP(M-P)</m></title>
+    <p>
+      <ul>
+        <li><p>
+          <m>k \gt 0</m> (the logistic equation):
+          <m>\displaystyle\lim_{t \to \infty} P(t) = M</m> for any <m>P(0) \gt 0</m>.
+          The population always levels off at the carrying capacity.
+        </p></li>
+        <li><p>
+          <m>k \lt 0</m> and <m>P(0) \lt M</m>:
+          <m>\displaystyle\lim_{t \to \infty} P(t) = 0</m>.
+          The population goes <term>extinct</term>.
+        </p></li>
+        <li><p>
+          <m>k \lt 0</m> and <m>P(0) \gt M</m>: the population reaches
+          <m>+\infty</m> in finite time. This is <term>doomsday</term>.
+        </p></li>
+        <li><p>
+          <m>P(0) = M</m>: the population is already at the equilibrium solution
+          <m>P(t) = M</m> and stays there forever.
+        </p></li>
+      </ul>
+    </p>
+  </observation>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       VIDEO
+       ═══════════════════════════════════════════════════════════ -->
+
+  <figure xml:id="video-pop-doomsday">
+    <caption>Doomsday vs extinction (video)</caption>
+    <video xml:id="yt-pop-doomsday" youtube="_rr5XYbNdgU" width="80%"/>
+  </figure>
+
+</section>

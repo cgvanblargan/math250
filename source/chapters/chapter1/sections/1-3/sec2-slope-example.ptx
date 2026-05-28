@@ -3,7 +3,23 @@
 <section xml:id="sec-slopefield-matching" xmlns:xi="http://www.w3.org/2001/XInclude">
   <title>Reading and Matching Slope Fields</title>
 
-  <!-- PROSE: motivating intro (professor writes this) -->
+  <!-- ═══════════════════════════════════════════════════════════
+       INTRO PROSE
+       ═══════════════════════════════════════════════════════════ -->
+
+  <p>
+    In the previous page we built a slope field from scratch for <m>\dfrac{dy}{dx} = 2y</m>,
+    drawing tick marks one row at a time until the full picture emerged. That is a great way
+    to understand what a slope field is. But in practice, you will often be handed a slope field
+    and asked to figure out which differential equation it came from, or to identify which
+    picture shows the correct solution curves. That requires a different skill: reading a slope
+    field strategically rather than building it from the ground up.
+  </p>
+  <p>
+    The good news is that you do not need to check every single point. A few well-chosen
+    locations, like the coordinate axes, can tell you almost everything you need to know.
+    Let's build that intuition now with an example.
+  </p>
 
   <p>
     For <m>\dfrac{dy}{dx} = x + y</m>, the slope at any point <m>(x, y)</m> is just <m>x + y</m>.
@@ -27,20 +43,7 @@
     <row><cell><m>1</m></cell><cell><m>1</m></cell><cell><m>2</m></cell></row>
   </tabular>
 
-  <p>
-    Two observations worth pausing on:
-    <ul>
-      <li><p>
-        Along <m>y = 0</m>: slope <m>= x + 0 = x</m>.
-        Ticks tilt right for <m>x \gt 0</m>, are flat at the origin, tilt left for <m>x \lt 0</m>.
-      </p></li>
-      <li><p>
-        Along <m>x = 0</m>: slope <m>= 0 + y = y</m>.
-        Ticks tilt upward for <m>y \gt 0</m>, flat at origin, tilt downward for <m>y \lt 0</m>.
-      </p></li>
-    </ul>
-    Keep these in mind — they'll be your main tool for matching slope fields quickly.
-  </p>
+
 
   <p>
     Now watch the full slope field build up row by row.
@@ -71,8 +74,8 @@
   <p>
     Two slope fields are shown below. Exactly one is the slope field for <m>\dfrac{dy}{dx} = x + y</m>.
     Rather than checking every point, be strategic: check what happens along the axes.
-    Along <m>x = 0</m>, the slope should equal <m>y</m> —
-    so ticks above the origin should tilt upward, and ticks below should tilt downward.
+    Along <m>x = 0</m>, the slope should equal <m>y</m>,
+    so ticks above the origin should tilt upward and ticks below should tilt downward.
     Does that rule out one of the fields?
   </p>
 
@@ -92,7 +95,7 @@
       <interactive xml:id="interactive-match-B" iframe="slopefield-match-B.html" width="100%" aspect="1:1">
         <static>
           <p>Slope field B. Along the y-axis, ticks tilt downward above the origin and upward
-          below — the opposite of what dy/dx equals x plus y predicts. This is the incorrect field.</p>
+          below, the opposite of what dy/dx equals x plus y predicts. This is the incorrect field.</p>
         </static>
       </interactive>
     </figure>
@@ -117,8 +120,8 @@
         <feedback>
           <p>
             Not quite. Check the <m>x = 0</m> axis in Field B: the ticks above the origin tilt
-            <em>downward</em> and below the origin tilt <em>upward</em> — that's the opposite of
-            what <m>\frac{dy}{dx} = x + y</m> predicts (slope <m>= y</m> along <m>x=0</m>).
+            downward and the ticks below tilt upward. That is the opposite of what
+            <m>\frac{dy}{dx} = x + y</m> predicts, since the slope along <m>x = 0</m> should equal <m>y</m>.
             Field B is actually the slope field for <m>\frac{dy}{dx} = x - y</m>.
           </p>
         </feedback>
@@ -129,9 +132,9 @@
   <!-- ==================== MC 2: solution curves ==================== -->
 
   <p>
-    Both pictures below show the slope field for <m>\dfrac{dy}{dx} = x + y</m> with solution curves drawn on top.
-    Recall: a solution curve must be <em>tangent</em> to the slope field at every point —
-    it flows <em>with</em> the ticks, never cutting across them at a sharp angle.
+    Both pictures below show the slope field for <m>\dfrac{dy}{dx} = x + y</m> with solution
+    curves drawn on top. Recall: a solution curve must be <em>tangent</em> to the slope field
+    at every point. It flows with the ticks, never cutting across them at a sharp angle.
   </p>
 
   <sidebyside widths="45% 45%" margins="0% 5%">
@@ -166,8 +169,8 @@
         <statement><p>Picture A</p></statement>
         <feedback>
           <p>
-            Correct! In Picture A the curves flow tangentially with the tick marks everywhere —
-            they sweep steeply upward in the upper-right where the field is steep, exactly as
+            Correct! In Picture A the curves flow tangentially with the tick marks everywhere.
+            They sweep steeply upward in the upper-right where the field is steep, exactly as
             a solution to <m>\frac{dy}{dx} = x + y</m> must.
           </p>
         </feedback>

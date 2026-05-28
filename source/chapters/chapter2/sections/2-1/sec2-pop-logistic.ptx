@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-pop-logistic" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Solving the Logistic Equation</title>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       INTRO PROSE
+       ═══════════════════════════════════════════════════════════ -->
+
+  <p>
+    In the previous page we set up the logistic equation
+    <m>\dfrac{dP}{dt} = kP(M - P)</m>
+    as a model for population growth that accounts for crowding and resource limits.
+    Now let's actually solve it. The algebra is a workout, so we have organized things
+    so you can read the big picture first and dig into the details later when you need
+    them for homework.
+  </p>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       EXAMPLE
+       ═══════════════════════════════════════════════════════════ -->
+
+  <example xml:id="ex-logistic-solve">
+    <title>Solving a Logistic Equation</title>
+    <p>
+      The birth rate of a population <m>P</m> is the constant 20 and the death rate is
+      proportional to <m>P</m> with proportionality constant 4. Set up and solve the
+      resulting differential equation for <m>P(t)</m>.
+    </p>
+    <p>
+      Using <m>\dfrac{dP}{dt} = \beta P - \alpha P</m> with <m>\beta = 20</m>
+      and <m>\alpha = 4P</m>:
+      <md>
+        <mrow>\frac{dP}{dt} \amp= 20P - (4P)P = 4P(5 - P).</mrow>
+      </md>
+      This is the logistic equation with <m>k = 4</m> and <m>M = 5</m>.
+    </p>
+
+    <p>
+      <alert>Step 1: Equilibrium solutions.</alert>
+      Setting <m>4P(5 - P) = 0</m> gives
+      <me>P(t) = 0 \qquad \text{and} \qquad P(t) = 5.</me>
+    </p>
+
+    <solution>
+      <title>Work for equilibrium solutions (if stuck)</title>
+      <p>
+        Constant solutions satisfy <m>\dfrac{dP}{dt} = 0</m>. So we solve
+        <me>4P(5 - P) = 0,</me>
+        which gives <m>P = 0</m> or <m>5 - P = 0</m>, that is <m>P = 5</m>.
+      </p>
+    </solution>
+
+    <p>
+      <alert>Step 2: Separate variables.</alert>
+      For non-equilibrium solutions:
+      <me>\frac{1}{P(5 - P)}\, dP = 4\, dt.</me>
+    </p>
+
+    <p>
+      <alert>Step 3: Integrate both sides.</alert>
+      <me>\int \frac{1}{P(5-P)}\,dP = \int 4\,dt</me>
+      gives
+      <me>\ln\left|\frac{P}{5-P}\right| = 20t + C, \qquad \text{so} \qquad \frac{P}{5-P} = Ce^{20t}.</me>
+    </p>
+
+    <solution>
+      <title>Full LHS integration with partial fractions (can skim for now, useful for homework)</title>
+      <p>
+        We use partial fractions. Write
+        <me>\frac{1}{P(5-P)} = \frac{A}{P} + \frac{B}{5-P}.</me>
+        Multiplying both sides by <m>P(5-P)</m> and matching coefficients:
+        <me>1 = A(5-P) + BP = (-A+B)P + 5A.</me>
+        So <m>A = \tfrac{1}{5}</m> and <m>B = \tfrac{1}{5}</m>. Therefore:
+        <md>
+          <mrow>\int \frac{1}{P(5-P)}\,dP
+            \amp= \frac{1}{5}\int \frac{dP}{P} + \frac{1}{5}\int \frac{dP}{5-P}</mrow>
+          <mrow>\amp= \frac{1}{5}\ln|P| - \frac{1}{5}\ln|5-P|.</mrow>
+        </md>
+        Multiplying through by 5 and using log rules:
+        <me>\ln\left|\frac{P}{5-P}\right| = 20t + C.</me>
+        Exponentiating: <m>\dfrac{P}{5-P} = Ce^{20t}</m>.
+      </p>
+    </solution>
+
+  <p>
+  <alert>Step 4: Solve for <m>P(t)</m>.</alert>
+  The general solution is
+  <me>P(t) = \frac{5}{Ce^{-20t} + 1},</me>
+  where <m>C</m> is any real number. Note that <m>C = 0</m> recovers the equilibrium
+  solution <m>P(t) = 5</m>. The equilibrium solution <m>P(t) = 0</m> is not captured
+  by this formula and must be noted separately.
+</p>
+    <solution>
+      <title>Algebra: solving for <m>P</m> explicitly (can skim for now)</title>
+      <p>
+        Starting from <m>\dfrac{P}{5-P} = Ce^{20t}</m>, take reciprocals of both sides:
+        <me>\frac{5-P}{P} = \frac{1}{C}e^{-20t}.</me>
+        Split the left side:
+        <me>\frac{5}{P} - 1 = \frac{1}{C}e^{-20t}.</me>
+        Relabeling <m>\tfrac{1}{C}</m> as <m>C</m>:
+        <me>\frac{5}{P} = Ce^{-20t} + 1.</me>
+        Taking reciprocals:
+        <me>P(t) = \frac{5}{Ce^{-20t} + 1}.</me>
+      </p>
+    </solution>
+
+  </example>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       TRANSITION PROSE TO MC
+       ═══════════════════════════════════════════════════════════ -->
+
+  <p>
+    Now that we have an explicit formula for <m>P(t)</m>, one of the most important
+    questions in population modelling is: what happens in the long run?
+    Does the population grow forever, crash to zero, or stabilize at some value?
+  </p>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       MC CHECKPOINT
+       ═══════════════════════════════════════════════════════════ -->
+
+  <exercise xml:id="ex-mc-logistic-limit">
+    <statement>
+      <p>
+        Using the general solution <m>P(t) = \dfrac{5}{Ce^{-20t} + 1}</m>,
+        what is <m>\displaystyle\lim_{t \to \infty} P(t)</m>?
+      </p>
+    </statement>
+    <choices randomize="no">
+      <choice>
+        <statement><p><m>0</m></p></statement>
+        <feedback>
+          <p>
+            Not quite. Think about what happens to <m>e^{-20t}</m> as <m>t \to \infty</m>.
+            It decays to zero, not grows. So the denominator does not blow up.
+          </p>
+        </feedback>
+      </choice>
+      <choice correct="yes">
+        <statement><p><m>5</m></p></statement>
+        <feedback>
+          <p>
+            Correct! As <m>t \to \infty</m>, <m>e^{-20t} \to 0</m>, so
+            <m>Ce^{-20t} + 1 \to 1</m>, giving <m>P(t) \to \dfrac{5}{1} = 5</m>.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement><p><m>\infty</m></p></statement>
+        <feedback>
+          <p>
+            Not quite. Since <m>e^{-20t} \to 0</m> as <m>t \to \infty</m>,
+            the denominator approaches 1, not 0. So <m>P(t)</m> does not blow up.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement><p>It depends on <m>C</m>.</p></statement>
+        <feedback>
+          <p>
+            Good instinct, but notice that <m>Ce^{-20t} \to 0</m> as <m>t \to \infty</m>
+            regardless of what <m>C</m> is. The limit is the same for every solution.
+          </p>
+        </feedback>
+      </choice>
+    </choices>
+  </exercise>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       CARRYING CAPACITY PROSE
+       ═══════════════════════════════════════════════════════════ -->
+
+  <p>
+    That limit equals exactly <m>M = 5</m>, the carrying capacity. This is not a coincidence.
+    For the logistic equation with <m>k \gt 0</m>, every solution with <m>P(0) \gt 0</m> satisfies
+    <me>\lim_{t \to \infty} P(t) = M.</me>
+    No matter where the population starts, it always levels off at the carrying capacity.
+    This is exactly the realistic, well-behaved growth we were hoping to model.
+  </p>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       GRAPH PLACEHOLDER
+  JSXGraph interactive showing several solution curves for dP/dt = 4P(5-P)
+  with different initial conditions, all converging to M = 5.
+  Dashed horizontal line at P = 5 labelled "M = 5 (carrying capacity)".
+  Place here so students see the S-curve right after understanding the limit.
+       ═══════════════════════════════════════════════════════════ -->
+
+  <!-- GRAPH PLACEHOLDER: interactive-logistic-curves.html -->
+
+  <!-- ═══════════════════════════════════════════════════════════
+       CONCLUSION: TEASER FOR NEXT SECTION
+       ═══════════════════════════════════════════════════════════ -->
+
+  <p>
+    The logistic equation with <m>k \gt 0</m> is a beautifully behaved model. Solutions
+    are bounded, they stabilize, and the long-term behavior is completely predictable
+    regardless of initial conditions. In the next section we look at a similar model
+    with <m>k \lt 0</m>, and we find much more pathological behavior: populations that
+    go extinct in finite time and populations that explode to infinity in finite time.
+  </p>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       VIDEO
+       ═══════════════════════════════════════════════════════════ -->
+
+  <figure xml:id="video-pop-logistic">
+    <caption>Solving the logistic equation (video)</caption>
+    <video xml:id="yt-pop-logistic" youtube="Yy__OKgQdPY" width="60%"/>
+  </figure>
+
+</section>
