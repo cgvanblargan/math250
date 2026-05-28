@@ -238,24 +238,37 @@
   </p>
 
   <p>
-    The two graphs below show both cases. Notice how dramatically different the behavior
+    Let's explore what is happening with these two limits in the graph below. You can change
+    the value <m>P(0)</m> and press play to see how the population changes with time. 
+    Notice how dramatically different the behavior
     is, even though the ODE is the same and the initial conditions differ by only a small amount
-    relative to <m>M = 10</m>.
+    relative to <m>M = 10</m>. 
   </p>
 
-  <!-- GRAPH PLACEHOLDER 1: interactive-extinction.html
-       Plot P(t) = 80/(8 + 2*e^{20t}) for t in [0, 1].
-       Curve starts at P=8 and decays toward 0.
-       Dashed horizontal line at P=10 labelled "M = 10".
-       Label the curve "P(0) = 8: extinction". -->
-
-  <!-- GRAPH PLACEHOLDER 2: interactive-doomsday.html
-       Plot P(t) = 120/(12 - 2*e^{20t}) for t in [0, T).
-       Curve starts at P=12 and blows up as t -> T.
-       Vertical dashed line at t = ln(6)/20 labelled "T (doomsday)".
-       Dashed horizontal line at P=10 labelled "M = 10".
-       Label the curve "P(0) = 12: doomsday". -->
-
+ <figure xml:id="fig-doomsday-extinction">
+  <caption>
+    Solutions to <m>\dfrac{dP}{dt} = -2P(10-P)</m> for different initial populations.
+    Use the slider to set <m>P(0)</m> and press Play to watch the solution evolve.
+    When <m>P(0) \lt M = 10</m>, the population goes extinct.
+    When <m>P(0) \gt M = 10</m>, the population explodes to infinity in finite time <m>T</m>
+    (marked by the vertical dashed line).
+    When <m>P(0) = M</m>, the population stays constant forever.
+  </caption>
+  <interactive xml:id="interactive-doomsday"
+    iframe="ch2-graph/interactive-doomsday.html" width="100%" aspect="4:3">
+    <static>
+      <p>
+        Animated solution curves for <m>\dfrac{dP}{dt} = -2P(10-P)</m> with slider
+        for <m>P(0)</m> from 0 to 13. Dashed lines mark the equilibrium solutions
+        <m>P = 0</m> and <m>P = 10</m>. When <m>P(0) \lt 10</m>, the solution
+        decays to zero (extinction). When <m>P(0) \gt 10</m>, the solution blows up
+        to infinity at a finite doomsday time <m>T</m>, marked by a vertical dashed
+        line. The model breaks down for <m>t \gt T</m>.
+        When <m>P(0) = 10</m>, the population remains at the equilibrium <m>M = 10</m>.
+      </p>
+    </static>
+  </interactive>
+</figure>
   <!-- ═══════════════════════════════════════════════════════════
        CONCLUSION OBSERVATION
        ═══════════════════════════════════════════════════════════ -->

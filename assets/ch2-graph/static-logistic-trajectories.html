@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Logistic Trajectories: dP/dt = 4P(5-P)</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jsxgraph/1.6.0/jsxgraph.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jsxgraph/1.6.0/jsxgraphcore.js"></script>
+<style>
+  body { margin: 0; padding: 10px; font-family: serif; background: transparent; overflow: hidden; }
+  #jxgbox { width: 100%; aspect-ratio: 4/3; }
+</style>
+</head>
+<body>
+<div id="jxgbox" class="jxgbox"
+  role="img"
+  aria-label="Solution curves for dP over dt equals 4P times 5 minus P. Equilibrium solutions P equals 0 and P equals 5 are shown as thick green lines. Several solution curves are shown: curves starting above P equals 5 decrease toward 5, curves starting between 0 and 5 increase toward 5, and a curve starting below 0 decreases away from 0. This shows P equals 5 is stable and P equals 0 is unstable.">
+</div>
+<script>
+  var board = JXG.JSXGraph.initBoard('jxgbox', {
+    boundingbox: [-0.15, 9, 3, -6],
+    axis: true,
+    showCopyright: false,
+    showNavigation: false,
+    defaultAxes: {
+      x: { name: 't', withLabel: true, label: { position: 'rt', offset: [-10, 15], fontSize: 14 } },
+      y: { name: 'P', withLabel: true, label: { position: 'rt', offset: [15, 0], fontSize: 14 } }
+    }
+  });
+
+  // Exact solution: P(t) = 5*P0 / (P0 + (5-P0)*exp(-20t))
+  function sol(P0) {
+    return function(t) {
+      if (P0 === 0) return 0;
+      if (P0 === 5) return 5;
+      var denom = P0 + (5 - P0) * Math.exp(-20 * t);
+      if (Math.abs(denom) < 1e-10) return P0 > 5 ? 999 : -999;
+      return 5 * P0 / denom;
+    };
+  }
+
+  // Equilibrium lines — thick green, distinct from trajectories
+  board.create('functiongraph', [sol(5), -0.15, 3],
+    { strokeColor: '#1e8449', strokeWidth: 3, highlight: false });
+  board.create('functiongraph', [sol(0), -0.15, 3],
+    { strokeColor: '#1e8449', strokeWidth: 3, highlight: false });
+
+  // Trajectories — dark blue
+  var P0vals = [8, 6.5, 3.5, 2, 0.8, -1.5];
+  P0vals.forEach(function(P0) {
+    board.create('functiongraph', [sol(P0), 0, 3],
+      { strokeColor: '#1a5276', strokeWidth: 2, highlight: false, dash: 0 });
+  });
+
+  // Labels
+  board.create('text', [2.6, 5.3], ['P = 5 (stable)'],
+    { fontSize: 12, strokeColor: '#1e8449', highlight: false });
+  board.create('text', [2.6, 0.3], ['P = 0 (unstable)'],
+    { fontSize: 12, strokeColor: '#1e8449', highlight: false });
+</script>
+</body>
+</html>

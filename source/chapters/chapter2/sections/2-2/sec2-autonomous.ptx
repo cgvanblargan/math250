@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-autonomous-odes" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Autonomous Differential Equations</title>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       INTRO PROSE
+       ═══════════════════════════════════════════════════════════ -->
+
+  <p>
+    Look back at the two population models we have been working with:
+    <m>\dfrac{dP}{dt} = 4P(5-P)</m> and <m>\dfrac{dP}{dt} = -2P(10-P)</m>.
+    Notice that in both cases, the right-hand side only involves <m>P</m>, and there
+    is no <m>t</m> anywhere. 
+    When the rate of change depends only on the current state and not on time itself,
+    the long-term behavior of solutions is much more predictable and structured.
+    We refer to such equations as <em>autonomous ODEs</em>.
+  </p>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       DEFINITION: AUTONOMOUS ODE
+       ═══════════════════════════════════════════════════════════ -->
+
+  <definition xml:id="def-autonomous-ode">
+    <title>Autonomous First-Order Differential Equation</title>
+    <statement>
+      <p>
+        A <term>first-order autonomous differential equation</term> is one of the form
+        <me>\frac{dy}{dt} = f(y),</me>
+        where the right-hand side depends only on <m>y</m> and not explicitly on <m>t</m>.
+      </p>
+    </statement>
+  </definition>
+
+  <p>
+    For example, <m>\dfrac{dP}{dt} = 2P(P-10)</m> and <m>\dfrac{dP}{dt} = 2P(10-P)</m>
+    are both autonomous, since the right-hand side involves only <m>P</m>.
+    On the other hand, <m>\dfrac{dy}{dt} = yt^2</m> is <em>not</em> autonomous,
+    since <m>t</m> appears explicitly on the right-hand side.
+  </p>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       CHECKPOINT
+       ═══════════════════════════════════════════════════════════ -->
+
+  <exercise xml:id="ex-mc-autonomous">
+    <statement>
+      <p>
+        Select all of the following that are first-order autonomous differential equations.
+      </p>
+    </statement>
+    <choices randomize="no">
+      <choice correct="yes">
+        <statement><p><m>\dfrac{dy}{dt} = y^3 - 2y</m></p></statement>
+        <feedback>
+          <p>Correct! The right-hand side depends only on <m>y</m>.</p>
+        </feedback>
+      </choice>
+      <choice correct="yes">
+        <statement><p><m>\dfrac{dP}{dt} = 3P(P-5)</m></p></statement>
+        <feedback>
+          <p>Correct! The right-hand side depends only on <m>P</m>.</p>
+        </feedback>
+      </choice>
+      <choice correct="yes">
+        <statement><p><m>\dfrac{dy}{dt} = y^2\sin(y)</m></p></statement>
+        <feedback>
+          <p>Correct! Even though <m>\sin(y)</m> is a complicated function, it depends only on <m>y</m>, not on <m>t</m>.</p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement><p><m>\dfrac{dy}{dt} = yt^2</m></p></statement>
+        <feedback>
+          <p>
+            Not autonomous. The right-hand side involves <m>t</m> explicitly,
+            so this does not fit the form <m>dy/dt = f(y)</m>.
+          </p>
+        </feedback>
+      </choice>
+      
+    </choices>
+  </exercise>
+<observation xml:id="obs-equilibrium-autonomous">
+  <title>Equilibrium Solutions to Autonomous DEs</title>
+  <p>
+    The equilibrium solutions to <m>\dfrac{dy}{dt} = f(y)</m> occur when <m>f(y) = 0</m>.
+  </p>
+</observation>
+
+<p>
+  For example, the equilibrium solutions to <m>\dfrac{dP}{dt} = 2P(P-10)</m> are found
+  by solving <m>2P(P-10) = 0</m>, giving <m>P = 0</m> and <m>P = 10</m>.
+</p>
+
+<solution>
+  <title>Why this is true</title>
+  <p>
+    An equilibrium solution is a constant function <m>y(t) = C</m>. Since <m>y</m> is
+    constant, <m>\dfrac{dy}{dt} = 0</m>. Plugging into the ODE gives
+    <me>0 = f(C),</me>
+    so <m>C</m> must be a zero of <m>f</m>. Conversely, if <m>f(C) = 0</m> then
+    <m>y(t) = C</m> satisfies the ODE since both sides equal zero.
+  </p>
+</solution>
+
+<exercise xml:id="ex-mc-equilibrium-autonomous">
+  <statement>
+    <p>
+      Find all equilibrium solutions to <m>\dfrac{dy}{dt} = (y-2)^2</m>.
+    </p>
+  </statement>
+  <choices randomize="no">
+    <choice>
+      <statement><p><m>y = 0</m> and <m>y = 2</m></p></statement>
+      <feedback>
+        <p>
+          Not quite. Set <m>f(y) = (y-2)^2 = 0</m> and solve. Remember
+          <m>(y-2)^2 = 0</m> only when <m>y - 2 = 0</m>.
+        </p>
+      </feedback>
+    </choice>
+    <choice correct="yes">
+      <statement><p><m>y = 2</m></p></statement>
+      <feedback>
+        <p>
+          Correct! Setting <m>(y-2)^2 = 0</m> gives <m>y = 2</m> as the only equilibrium solution.
+        </p>
+      </feedback>
+    </choice>
+    <choice>
+      <statement><p><m>y = 0</m></p></statement>
+      <feedback>
+        <p>
+          Not quite. Plug <m>y = 0</m> into <m>(y-2)^2</m>: you get
+          <m>(0-2)^2 = 4 \neq 0</m>, so <m>y = 0</m> is not an equilibrium.
+        </p>
+      </feedback>
+    </choice>
+    <choice>
+      <statement><p>There are no equilibrium solutions.</p></statement>
+      <feedback>
+        <p>
+          Not quite. Set <m>(y-2)^2 = 0</m> and solve for <m>y</m>.
+        </p>
+      </feedback>
+    </choice>
+  </choices>
+</exercise>
+  <!-- ═══════════════════════════════════════════════════════════
+       EXISTENCE AND UNIQUENESS
+       ═══════════════════════════════════════════════════════════ -->
+
+  <p>
+    We are going to make heavy use of the following theorem as we study stability.
+    We will not prove it here, but it gives us a much fuller picture of how solutions
+    to autonomous equations behave and why our stability analysis works the way it does.
+  </p>
+
+  <theorem xml:id="thm-existence-uniqueness">
+    <title>Existence and Uniqueness for First-Order Autonomous DEs</title>
+    <statement>
+      <p>
+        Suppose we are solving <m>\dfrac{dy}{dt} = f(y)</m> where <m>f</m> and
+        <m>f'(y)</m> are continuous. Then given any initial value <m>y(0) = y_0</m>:
+        <ul>
+          <li><p>A solution exists.</p></li>
+          <li><p>The solution is unique.</p></li>
+          <li><p>Solutions do not intersect.</p></li>
+        </ul>
+      </p>
+    </statement>
+  </theorem>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       OBSERVATION: CONSEQUENCES
+       ═══════════════════════════════════════════════════════════ -->
+
+  <observation xml:id="obs-uniqueness-consequences">
+    <title>Properties to Note</title>
+    <p>
+      The fact that solutions do not intersect has some powerful consequences.
+      <ul>
+        <li><p>
+          If <m>y(t) = M</m> is an equilibrium solution, then the only solution
+          with <m>y(0) = M</m> is the equilibrium itself. No other solution can
+          pass through a point on an equilibrium.
+        </p></li>
+        <li><p>
+          If a solution is initially increasing (or decreasing), it stays increasing
+          (or decreasing) for all time. It cannot change direction without crossing
+          another solution, which is impossible.
+        </p></li>
+      </ul>
+      Together these facts mean that non-equilibrium solutions are permanently trapped
+      between equilibrium solutions, and must either converge to one or escape to infinity.
+      This is exactly what makes phase diagrams so useful, as we will see on the next page.
+    </p>
+  </observation>
+
+</section>

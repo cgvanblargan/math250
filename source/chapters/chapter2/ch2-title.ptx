@@ -13,6 +13,6 @@
 
   <xi:include href="./sections/sec-2-1.ptx" />
   <xi:include href="./sections/sec-2-2.ptx" />
-  <xi:include href="./sections/sec-2-3.ptx" />
+  
 
 </chapter>

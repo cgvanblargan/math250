@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-equilibrium-stability" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Stability of Equilibrium Solutions</title>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       INTRO PROSE
+       ═══════════════════════════════════════════════════════════ -->
+
+  <p>
+    Recall from <xref ref="sec-equilibrium-solutions"/> that an <alert>equilibrium solution</alert>
+    is a constant solution <m>y(t) = C</m>, found by setting <m>\dfrac{dy}{dt} = 0</m>.
+    In <xref ref="sec-pop-logistic"/> and <xref ref="sec-pop-doomsday"/>, we found
+    that both population models had equilibrium solutions at <m>P(t) = 0</m> and
+    <m>P(t) = M</m>. But what made those two pages interesting was not the equilibrium
+    solutions themselves, it was what happened to all the other solutions nearby.
+  </p>
+
+  <p>
+    In the logistic model <m>\dfrac{dP}{dt} = 4P(5-P)</m>, no matter where a solution
+    started (above or below <m>M = 5</m>), it converged to <m>M</m> as <m>t \to \infty</m>, as long as <m>P(0)>0</m>.
+    The equilibrium at <m>P = 5</m> acted like a magnet. The equilibrium at <m>P = 0</m>
+    behaved very differently: solutions that started nearby drifted away from it.
+    We want language to describe this difference.
+  </p>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       LOGISTIC STATIC GRAPH
+       ═══════════════════════════════════════════════════════════ -->
+
+  <p>
+    The figure below shows several solution curves for <m>\dfrac{dP}{dt} = 4P(5-P)</m>
+    with different initial values. The equilibrium solutions <m>P = 0</m> and <m>P = 5</m>
+    are highlighted in green. Note that we include a solution with <m>P(0) \lt 0</m>
+    as well: while a negative population has no physical meaning, it is still a valid
+    solution to the ODE, and it is useful to see how the equation behaves without
+    restricting to a population context.
+  </p>
+
+  <figure xml:id="fig-logistic-trajectories">
+    <caption>
+      Solution curves for <m>\dfrac{dP}{dt} = 4P(5-P)</m>. The equilibrium solutions
+      <m>P = 0</m> and <m>P = 5</m> are shown in green. All other solutions converge
+      to <m>P = 5</m> as <m>t \to \infty</m>, regardless of the initial value,
+      while solutions near <m>P = 0</m> drift away.
+    </caption>
+    <interactive xml:id="interactive-logistic-trajectories"
+      iframe="ch2-graph/static-logistic-trajectories.html" width="100%" aspect="4:3">
+      <static>
+        <p>
+          Several solution curves for <m>dP/dt = 4P(5-P)</m>. Equilibrium solutions
+          <m>P = 0</m> and <m>P = 5</m> are shown as thick green lines. Curves starting
+          above <m>P = 5</m> decrease toward 5. Curves starting between 0 and 5 increase
+          toward 5. A curve starting below 0 decreases away from 0. This shows <m>P = 5</m>
+          is stable and <m>P = 0</m> is unstable.
+        </p>
+      </static>
+    </interactive>
+  </figure>
+
+  <p>
+    We say <m>P = 5</m> is <term>stable</term> and <m>P = 0</m> is <term>unstable</term>.
+    Here is the precise definition.
+  </p>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       DEFINITION: STABILITY
+       ═══════════════════════════════════════════════════════════ -->
+
+  <definition xml:id="def-stability">
+    <title>Stability of Equilibrium Solutions</title>
+    <statement>
+      <p>
+        Suppose <m>y(t) = C</m> is an equilibrium solution to a differential equation.
+        We say <m>y(t) = C</m> is:
+        <ul>
+          <li><p>
+            <term>stable</term>: if solutions that start near <m>C</m> converge to
+            <m>C</m> as <m>t \to \infty</m>.
+          </p></li>
+          <li><p>
+            <term>unstable</term>: if solutions that start near <m>C</m> do not converge
+            to <m>C</m>.
+          </p></li>
+          <li><p>
+            <term>semi-stable</term>: if solutions on one side of <m>C</m> converge to
+            <m>C</m>, but solutions on the other side do not.
+          </p></li>
+        </ul>
+      </p>
+    </statement>
+  </definition>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       DOOMSDAY STATIC GRAPH
+       ═══════════════════════════════════════════════════════════ -->
+
+  <p>
+    Now compare this with the model from <xref ref="sec-pop-doomsday"/>:
+    <m>\dfrac{dP}{dt} = -2P(10-P)</m>. The equilibrium solutions are still
+    <m>P = 0</m> and <m>P = 10</m>, but the roles are reversed.
+    Solutions that start below <m>M = 10</m> decay to zero (extinction),
+    and solutions that start above <m>M = 10</m> blow up to infinity in finite time
+    (doomsday). Now <m>P = 10</m> is unstable and <m>P = 0</m> is stable.
+  </p>
+
+  <figure xml:id="fig-doomsday-trajectories">
+    <caption>
+      Solution curves for <m>\dfrac{dP}{dt} = -2P(10-P)</m>. The equilibrium solutions
+      <m>P = 0</m> and <m>P = 10</m> are shown in green. Curves starting below
+      <m>P = 10</m> decay toward zero. Curves starting above <m>P = 10</m> blow up
+      to infinity at a finite doomsday time (marked by vertical dashed lines).
+    </caption>
+    <interactive xml:id="interactive-doomsday-trajectories"
+      iframe="ch2-graph/static-doomsday-trajectories.html" width="100%" aspect="4:3">
+      <static>
+        <p>
+          Several solution curves for <m>dP/dt = -2P(10-P)</m>. Equilibrium solutions
+          <m>P = 0</m> and <m>P = 10</m> are shown as thick green lines. Curves starting
+          below <m>P = 10</m> decay to zero (extinction). Curves starting above
+          <m>P = 10</m> blow up to infinity at a finite doomsday time, marked by
+          vertical red dashed lines. This shows <m>P = 10</m> is unstable and
+          <m>P = 0</m> is stable.
+        </p>
+      </static>
+    </interactive>
+  </figure>
+
+<p>
+  Let's test your understanding of stability in the context of the doomsday/extinction example from above!
+</p>
+  <exercise xml:id="ex-mc-doomsday-stability">
+  <statement>
+    <p>
+      Based on the second graph above, classify the stability of the equilibrium
+      solutions to <m>\dfrac{dP}{dt} = -2P(10-P)</m>.
+    </p>
+  </statement>
+  <choices randomize="no">
+    <choice correct="yes">
+      <statement><p><m>P = 0</m> is stable and <m>P = 10</m> is unstable.</p></statement>
+      <feedback>
+        <p>
+          Correct! Solutions starting near <m>P = 0</m> decay toward it, while solutions
+          starting near <m>P = 10</m> move away — either to extinction or doomsday
+          depending on which side they start.
+        </p>
+      </feedback>
+    </choice>
+    <choice>
+      <statement><p><m>P = 0</m> is unstable and <m>P = 10</m> is stable.</p></statement>
+      <feedback>
+        <p>
+          Not quite — that describes the logistic case from the first graph.
+          Look at what happens to solutions that start near <m>P = 10</m> in the second graph.
+          Do they converge to 10 or move away from it?
+        </p>
+      </feedback>
+    </choice>
+    <choice>
+      <statement><p>Both <m>P = 0</m> and <m>P = 10</m> are stable.</p></statement>
+      <feedback>
+        <p>
+          Not quite. Look at solutions starting just above <m>P = 10</m> — they blow up
+          to infinity rather than returning to 10.
+        </p>
+      </feedback>
+    </choice>
+    <choice>
+      <statement><p>Both <m>P = 0</m> and <m>P = 10</m> are unstable.</p></statement>
+      <feedback>
+        <p>
+          Not quite. Look at solutions starting near <m>P = 0</m> — they stay close to
+          and converge toward zero over time.
+        </p>
+      </feedback>
+    </choice>
+  </choices>
+</exercise>
+  <!-- ═══════════════════════════════════════════════════════════
+       VIDEO NOTE + VIDEO
+       ═══════════════════════════════════════════════════════════ -->
+
+  <remark xml:id="rem-stability-video">
+    <title>Video Note</title>
+    <p>
+      The video below covers the content of this page through approximately the 3:50 mark.
+    </p>
+  </remark>
+
+  <figure xml:id="video-equilibrium-stability">
+    <caption>Stability of equilibrium solutions (video)</caption>
+    <video xml:id="yt-equilibrium-stability" youtube="HxXjD4FQMdQ" width="60%"/>
+  </figure>
+
+</section>

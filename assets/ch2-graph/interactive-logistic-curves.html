@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Logistic Equation: dP/dt = 4P(5-P)</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jsxgraph/1.6.0/jsxgraph.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jsxgraph/1.6.0/jsxgraphcore.js"></script>
+<style>
+  body { margin: 0; padding: 10px; font-family: serif; background: transparent; overflow: hidden; }
+  #display {
+    text-align: center;
+    font-size: 15px;
+    font-family: serif;
+    color: #2c3e50;
+    margin-bottom: 6px;
+    min-height: 24px;
+  }
+  .val-p { color: #922b21; font-weight: bold; }
+  #controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 6px;
+    flex-wrap: wrap;
+  }
+  #playbtn {
+    background: #1a5276; color: #fff; border: none; border-radius: 3px;
+    padding: 7px 24px; font-family: serif; font-size: 14px; cursor: pointer; min-width: 90px;
+  }
+  #playbtn:hover { background: #154360; }
+  #resetbtn {
+    background: transparent; color: #1a5276; border: 1px solid #1a5276; border-radius: 3px;
+    padding: 7px 16px; font-family: serif; font-size: 14px; cursor: pointer;
+  }
+  #resetbtn:hover { background: #eaf0f6; }
+  .slider-wrap { display: flex; align-items: center; gap: 8px; font-family: serif; font-size: 14px; color: #2c3e50; }
+  #p0slider { width: 120px; cursor: pointer; }
+  #jxgbox { width: 100%; aspect-ratio: 3/2; }
+</style>
+</head>
+<body>
+
+<div id="display"
+  role="status"
+  aria-live="polite"
+  aria-atomic="true"
+  aria-label="Current animation state">&nbsp;</div>
+
+<div id="controls" role="group" aria-label="Animation controls">
+  <button id="playbtn"
+    aria-label="Play animation of solution curve">&#9654; Play</button>
+  <button id="resetbtn"
+    aria-label="Reset animation to beginning">Reset</button>
+  <div class="slider-wrap">
+    <label for="p0slider">P(0) =</label>
+    <input type="range" id="p0slider"
+      min="0" max="8" step="0.1" value="1"
+      aria-label="Initial population P(0)"
+      aria-valuemin="0" aria-valuemax="8" aria-valuenow="1"
+      aria-valuetext="P(0) equals 1.0"
+      aria-describedby="slider-desc">
+    <span id="p0val" class="val-p" aria-hidden="true">1.0</span>
+  </div>
+</div>
+
+<p id="slider-desc" class="sr-only" style="position:absolute;left:-9999px;">
+  Set the initial population value from 0 to 8. Then press Play to watch the solution curve animate.
+</p>
+
+<div id="jxgbox" class="jxgbox"
+  role="img"
+  aria-label="Graph of solution to dP over dt equals 4P times 5 minus P with initial value P(0) equals 1.0. The curve starts at 1.0 and converges to the carrying capacity M equals 5 as t increases. Dashed lines mark the equilibrium solutions P equals 0 and P equals 5."
+  aria-describedby="display">
+</div>
+
+<script>
+  var P0 = 1.0;
+  var tMax = 0.001;
+  var T_END = 3.0;
+  var playing = false;
+  var animInterval = null;
+
+  var board = JXG.JSXGraph.initBoard('jxgbox', {
+    boundingbox: [-0.1, 8, 3, -4],
+    axis: true,
+    showCopyright: false,
+    showNavigation: false,
+    defaultAxes: {
+      x: { name: 't', withLabel: true, label: { position: 'rt', offset: [-10, 15], fontSize: 14 } },
+      y: { name: 'P', withLabel: true, label: { position: 'rt', offset: [15, 0], fontSize: 14 } }
+    }
+  });
+
+  // Dashed equilibrium lines
+  board.create('functiongraph', [function(t){ return 5; }, -0.1, 3.1],
+    { strokeColor: '#1a5276', strokeWidth: 1.5, dash: 2, highlight: false });
+  board.create('functiongraph', [function(t){ return 0; }, -0.1, 3.1],
+    { strokeColor: '#2c3e50', strokeWidth: 1.2, dash: 2, highlight: false });
+
+  function exact(t) {
+    if (P0 <= 0) return 0;
+    return 5 * P0 / (P0 + (5 - P0) * Math.exp(-20 * t));
+  }
+
+  var solutionCurve = board.create('functiongraph', [
+    function(t) { return exact(t); },
+    0, function() { return tMax; }
+  ], { strokeColor: '#922b21', strokeWidth: 2.5, highlight: false });
+
+  function updateGraphAriaLabel() {
+    var label;
+    if (P0 <= 0) {
+      label = 'Graph showing the equilibrium solution P(t) equals 0 for all t, since P(0) equals 0. Dashed lines mark P equals 0 and P equals 5.';
+    } else {
+      label = 'Graph of solution to dP over dt equals 4P times 5 minus P with initial value P(0) equals ' +
+        P0.toFixed(1) + '. The curve starts at ' + P0.toFixed(1) +
+        ' and converges to the carrying capacity M equals 5 as t increases. Dashed lines mark the equilibrium solutions P equals 0 and P equals 5.';
+    }
+    document.getElementById('jxgbox').setAttribute('aria-label', label);
+  }
+
+  function step() {
+    tMax += 0.008;
+    if (tMax >= T_END) {
+      tMax = T_END;
+      board.update();
+      pausePlaying();
+      var msg;
+      if (P0 <= 0) {
+        msg = 'P(0) = 0, so P(t) = 0 for all t.';
+      } else {
+        msg = '<span class="val-p">P(0) = ' + P0.toFixed(1) + '</span>' +
+          ' &rarr; converges to <strong style="color:#1a5276">M = 5</strong>';
+      }
+      document.getElementById('display').innerHTML = msg;
+      return;
+    }
+    var pNow = exact(tMax);
+    document.getElementById('display').innerHTML =
+      't = ' + tMax.toFixed(2) +
+      ' &nbsp;|&nbsp; <span class="val-p">P = ' + pNow.toFixed(3) + '</span>';
+    board.update();
+  }
+
+  function startPlaying() {
+    if (P0 <= 0) {
+      // P=0 is equilibrium — just show the message, nothing to animate
+      tMax = T_END;
+      board.update();
+      document.getElementById('display').innerHTML = 'P(0) = 0, so P(t) = 0 for all t.';
+      return;
+    }
+    if (tMax >= T_END) { tMax = 0.001; board.update(); }
+    playing = true;
+    document.getElementById('playbtn').innerHTML = '&#9646;&#9646; Pause';
+    document.getElementById('playbtn').setAttribute('aria-label', 'Pause animation');
+    animInterval = setInterval(step, 20);
+  }
+
+  function pausePlaying() {
+    playing = false;
+    document.getElementById('playbtn').innerHTML = '&#9654; Play';
+    document.getElementById('playbtn').setAttribute('aria-label', 'Play animation of solution curve');
+    clearInterval(animInterval);
+    animInterval = null;
+  }
+
+  function reset() {
+    pausePlaying();
+    tMax = 0.001;
+    board.update();
+    document.getElementById('display').innerHTML = '&nbsp;';
+  }
+
+  document.getElementById('playbtn').addEventListener('click', function() {
+    if (playing) pausePlaying(); else startPlaying();
+  });
+
+  document.getElementById('resetbtn').addEventListener('click', reset);
+
+  document.getElementById('p0slider').addEventListener('input', function() {
+    P0 = parseFloat(this.value);
+    document.getElementById('p0val').textContent = P0.toFixed(1);
+    // Update aria attributes on slider
+    this.setAttribute('aria-valuenow', P0);
+    this.setAttribute('aria-valuetext', 'P(0) equals ' + P0.toFixed(1));
+    updateGraphAriaLabel();
+    reset();
+  });
+
+  updateGraphAriaLabel();
+</script>
+</body>
+</html>

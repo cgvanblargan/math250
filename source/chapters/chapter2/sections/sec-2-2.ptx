@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<section xml:id="sec-population-modelling" xmlns:xi="http://www.w3.org/2001/XInclude">
-  <title>Population Modelling</title>
+<section xml:id="sec-stability" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Stability of Equilibrium Solutions</title>
   <!-- PROSE: motivating intro -->
     <p>
-    To be added.
+   
  </p> 
+
+ <xi:include href="./2-2/sec1-equilibrium-stability.ptx"/>
+ <xi:include href="./2-2/sec2-autonomous.ptx"/>
+  <xi:include href="./2-2/sec3-phase-diagrams.ptx"/>
+
+
 </section>

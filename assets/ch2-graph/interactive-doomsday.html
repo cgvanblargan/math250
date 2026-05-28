@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Doomsday vs Extinction: dP/dt = -2P(10-P)</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jsxgraph/1.6.0/jsxgraph.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jsxgraph/1.6.0/jsxgraphcore.js"></script>
+<style>
+  body { margin: 0; padding: 10px; font-family: serif; background: transparent; overflow: hidden; }
+  #display {
+    text-align: center; font-size: 15px; font-family: serif;
+    color: #2c3e50; margin-bottom: 4px; min-height: 24px;
+  }
+  .val-p { color: #922b21; font-weight: bold; }
+  #controls {
+    display: flex; align-items: center; justify-content: center;
+    gap: 12px; margin-bottom: 4px; flex-wrap: wrap;
+  }
+  #playbtn {
+    background: #1a5276; color: #fff; border: none; border-radius: 3px;
+    padding: 7px 24px; font-family: serif; font-size: 14px; cursor: pointer; min-width: 90px;
+  }
+  #playbtn:hover { background: #154360; }
+  #resetbtn {
+    background: transparent; color: #1a5276; border: 1px solid #1a5276; border-radius: 3px;
+    padding: 7px 16px; font-family: serif; font-size: 14px; cursor: pointer;
+  }
+  #resetbtn:hover { background: #eaf0f6; }
+  .slider-wrap { display: flex; align-items: center; gap: 8px; font-family: serif; font-size: 14px; color: #2c3e50; }
+  #p0slider { width: 130px; cursor: pointer; }
+  #jxgbox { width: 100%; aspect-ratio: 3/2; position: relative; }
+  #event-msg {
+    display: none; text-align: center; font-size: 19px; font-weight: bold;
+    margin-top: 3px;
+  }
+  #boom-canvas {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    pointer-events: none;
+  }
+  @keyframes pop {
+    0% { transform: scale(0.5); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+  }
+  @keyframes droop {
+    0% { transform: scale(1.3); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+  }
+</style>
+</head>
+<body>
+
+<div id="display" role="status" aria-live="polite" aria-atomic="true">&nbsp;</div>
+
+<div id="controls" role="group" aria-label="Animation controls">
+  <button id="playbtn" aria-label="Play animation">&#9654; Play</button>
+  <button id="resetbtn" aria-label="Reset animation">Reset</button>
+  <div class="slider-wrap">
+    <label for="p0slider">P(0) =</label>
+    <input type="range" id="p0slider"
+      min="0" max="13" step="0.5" value="8"
+      aria-label="Initial population P(0) from 0 to 15"
+      aria-valuemin="0" aria-valuemax="13" aria-valuenow="8"
+      aria-valuetext="P(0) equals 8">
+    <span id="p0val" class="val-p">8.0</span>
+  </div>
+</div>
+
+<div style="position:relative;">
+  <div id="jxgbox" class="jxgbox"
+    role="img"
+    aria-label="Graph of solution to dP over dt equals negative 2P times 10 minus P. Dashed lines mark the equilibrium solutions P equals 0 and P equals 10. Use the slider to change the initial population."
+    aria-describedby="display">
+  </div>
+  <canvas id="boom-canvas"></canvas>
+</div>
+
+<div id="event-msg" aria-live="assertive" aria-atomic="true"></div>
+
+<script>
+  var P0 = 8.0;
+  var tMax = 0.001;
+  var T_END = 0.3;
+  var playing = false;
+  var animInterval = null;
+  var eventTriggered = false;
+  var asymptoteLine = null;
+  var boomAnimating = false;
+  var boomParticles = [];
+
+  var board = JXG.JSXGraph.initBoard('jxgbox', {
+    boundingbox: [-0.05, 24, 0.3, -4],
+    axis: true,
+    showCopyright: false,
+    showNavigation: false,
+    defaultAxes: {
+      x: { name: 't', withLabel: true, label: { position: 'rt', offset: [-10, 15], fontSize: 14 } },
+      y: { name: 'P', withLabel: true, label: { position: 'rt', offset: [15, 0], fontSize: 14 } }
+    }
+  });
+
+  // Equilibrium dashed lines
+  board.create('functiongraph', [function(t){ return 10; }, -0.05, 0.35],
+    { strokeColor: '#1a5276', strokeWidth: 1.5, dash: 2, highlight: false });
+  board.create('functiongraph', [function(t){ return 0; }, -0.05, 0.35],
+    { strokeColor: '#2c3e50', strokeWidth: 1.2, dash: 2, highlight: false });
+
+  // Solution: P(t) = 10*P0 / (P0 + (10-P0)*e^{20t})
+  function exact(t) {
+    if (P0 <= 0) return 0;
+    var denom = P0 + (10 - P0) * Math.exp(20 * t);
+    return 10 * P0 / denom;
+  }
+
+  // Doomsday time T = ln(P0/(P0-10)) / 20  for P0 > 10
+  function doomsdayT() {
+    if (P0 <= 10) return null;
+    return Math.log(P0 / (P0 - 10)) / 20;
+  }
+
+  var solutionCurve = board.create('functiongraph', [
+    function(t) { return exact(t); },
+    0, function() { return tMax; }
+  ], { strokeColor: '#922b21', strokeWidth: 2.5, highlight: false });
+
+  // ── Boom animation ──
+  var boomCanvas = document.getElementById('boom-canvas');
+  var bctx = boomCanvas.getContext('2d');
+
+  function resizeBoom() {
+    var box = document.getElementById('jxgbox');
+    boomCanvas.width = box.offsetWidth;
+    boomCanvas.height = box.offsetHeight;
+  }
+  resizeBoom();
+  window.addEventListener('resize', resizeBoom);
+
+  function launchBoom() {
+    resizeBoom();
+    boomParticles = [];
+    var colors = ['#e74c3c','#e67e22','#f1c40f','#e74c3c','#c0392b','#f39c12'];
+    var cx = boomCanvas.width * 0.5;
+    var cy = boomCanvas.height * 0.3;
+    for (var i = 0; i < 120; i++) {
+      var angle = Math.random() * Math.PI * 2;
+      var speed = Math.random() * 6 + 2;
+      boomParticles.push({
+        x: cx, y: cy,
+        vx: Math.cos(angle) * speed,
+        vy: Math.sin(angle) * speed,
+        r: Math.random() * 7 + 3,
+        color: colors[Math.floor(Math.random() * colors.length)],
+        alpha: 1,
+        shape: Math.random() > 0.5 ? 'circle' : 'rect'
+      });
+    }
+    if (!boomAnimating) animateBoom();
+  }
+
+  function animateBoom() {
+    boomAnimating = true;
+    bctx.clearRect(0, 0, boomCanvas.width, boomCanvas.height);
+    boomParticles.forEach(function(p) {
+      bctx.save();
+      bctx.globalAlpha = p.alpha;
+      bctx.fillStyle = p.color;
+      if (p.shape === 'circle') {
+        bctx.beginPath();
+        bctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        bctx.fill();
+      } else {
+        bctx.fillRect(p.x - p.r/2, p.y - p.r/2, p.r, p.r * 1.5);
+      }
+      bctx.restore();
+      p.x += p.vx;
+      p.y += p.vy;
+      p.vy += 0.15; // gravity
+      p.alpha -= 0.018;
+    });
+    boomParticles = boomParticles.filter(function(p){ return p.alpha > 0; });
+    if (boomParticles.length > 0) {
+      requestAnimationFrame(animateBoom);
+    } else {
+      boomAnimating = false;
+      bctx.clearRect(0, 0, boomCanvas.width, boomCanvas.height);
+    }
+  }
+
+  // ── Sad face animation for extinction ──
+  function triggerExtinction() {
+    if (eventTriggered) return;
+    eventTriggered = true;
+    var msg = document.getElementById('event-msg');
+    msg.style.color = '#922b21';
+    msg.innerHTML = '&#128546; POPULATION IS GOING EXTINCT!';
+    msg.style.animation = 'none';
+    void msg.offsetWidth;
+    msg.style.animation = 'droop 0.5s ease';
+    msg.style.display = 'block';
+  }
+
+  function triggerDoomsday(T) {
+    if (eventTriggered) return;
+    eventTriggered = true;
+    var msg = document.getElementById('event-msg');
+    msg.style.color = '#922b21';
+    msg.innerHTML = '&#128165; DOOMSDAY! Population goes to &infin; by <em>t</em> = ' + T.toFixed(4);
+    msg.style.animation = 'none';
+    void msg.offsetWidth;
+    msg.style.animation = 'pop 0.4s ease';
+    msg.style.display = 'block';
+    launchBoom();
+  }
+
+  function updateAsymptote() {
+    if (asymptoteLine) { board.removeObject(asymptoteLine); asymptoteLine = null; }
+    var T = doomsdayT();
+    if (T !== null && T < T_END) {
+      asymptoteLine = board.create('functiongraph', [function(t){ return t <= T ? 999 : -999; }, T - 0.001, T + 0.001],
+        { strokeColor: '#922b21', strokeWidth: 1.5, dash: 3, highlight: false });
+      // Use a vertical segment approximation
+      board.removeObject(asymptoteLine);
+      asymptoteLine = board.create('segment',
+        [[T, -4], [T, 100]],
+        { strokeColor: '#922b21', strokeWidth: 1.5, dash: 3, fixed: true, highlight: false });
+    }
+    board.update();
+  }
+
+  function step() {
+    var T = doomsdayT();
+
+    // For doomsday: stop just before T
+    if (T !== null && tMax >= T - 0.002) {
+      tMax = T - 0.002;
+      board.update();
+      pausePlaying();
+      document.getElementById('display').innerHTML =
+        '<span class="val-p">P(0) = ' + P0.toFixed(1) + ' &gt; M = 10</span> &rarr; ' +
+        '<strong style="color:#922b21">population &rarr; &infin; by t = ' + T.toFixed(4) + '</strong>';
+      triggerDoomsday(T);
+      return;
+    }
+
+    tMax += 0.002;
+
+    if (tMax >= T_END) {
+      tMax = T_END;
+      board.update();
+      pausePlaying();
+      var pFinal = exact(T_END);
+      if (P0 <= 0) {
+        document.getElementById('display').innerHTML = 'P(0) = 0 &rarr; P(t) = 0 for all t.';
+      } else if (Math.abs(P0 - 10) < 0.01) {
+        document.getElementById('display').innerHTML =
+          '<span class="val-p">P(0) = M = 10</span> &rarr; equilibrium solution, stays at 10 forever.';
+      } else {
+        document.getElementById('display').innerHTML =
+          '<span class="val-p">P(0) = ' + P0.toFixed(1) + ' &lt; M = 10</span> &rarr; ' +
+          '<strong style="color:#922b21">lim P(t) = 0 (extinction)</strong>';
+        if (!eventTriggered) triggerExtinction();
+      }
+      return;
+    }
+
+    var pNow = exact(tMax);
+    document.getElementById('display').innerHTML =
+      't = ' + tMax.toFixed(3) +
+      ' &nbsp;|&nbsp; <span class="val-p">P = ' + pNow.toFixed(4) + '</span>';
+
+    // Trigger extinction message early when P gets tiny
+    if (P0 < 10 && pNow < 0.3 && !eventTriggered) triggerExtinction();
+
+    board.update();
+  }
+
+  function startPlaying() {
+    if (tMax >= T_END || (doomsdayT() !== null && tMax >= doomsdayT() - 0.002)) {
+      reset();
+    }
+    playing = true;
+    document.getElementById('playbtn').innerHTML = '&#9646;&#9646; Pause';
+    document.getElementById('playbtn').setAttribute('aria-label', 'Pause animation');
+    animInterval = setInterval(step, 20);
+  }
+
+  function pausePlaying() {
+    playing = false;
+    document.getElementById('playbtn').innerHTML = '&#9654; Play';
+    document.getElementById('playbtn').setAttribute('aria-label', 'Play animation');
+    clearInterval(animInterval);
+    animInterval = null;
+  }
+
+  function reset() {
+    pausePlaying();
+    tMax = 0.001;
+    eventTriggered = false;
+    document.getElementById('event-msg').style.display = 'none';
+    document.getElementById('display').innerHTML = '&nbsp;';
+    board.update();
+  }
+
+  function updateAriaLabel() {
+    var T = doomsdayT();
+    var label;
+    if (P0 <= 0) {
+      label = 'Graph showing equilibrium solution P equals 0 for all t.';
+    } else if (Math.abs(P0 - 10) < 0.01) {
+      label = 'Graph showing equilibrium solution P equals 10 for all t since P(0) equals M.';
+    } else if (T !== null) {
+      label = 'Graph of solution with P(0) equals ' + P0.toFixed(1) + ' greater than M equals 10. The population explodes to infinity at doomsday time T equals ' + T.toFixed(4) + '. A vertical dashed line marks this doomsday time.';
+    } else {
+      label = 'Graph of solution with P(0) equals ' + P0.toFixed(1) + ' less than M equals 10. The population decays toward extinction.';
+    }
+    document.getElementById('jxgbox').setAttribute('aria-label', label);
+  }
+
+  document.getElementById('playbtn').addEventListener('click', function() {
+    if (playing) pausePlaying(); else startPlaying();
+  });
+  document.getElementById('resetbtn').addEventListener('click', reset);
+  document.getElementById('p0slider').addEventListener('input', function() {
+    P0 = parseFloat(this.value);
+    document.getElementById('p0val').textContent = P0.toFixed(1);
+    this.setAttribute('aria-valuenow', P0);
+    this.setAttribute('aria-valuetext', 'P(0) equals ' + P0.toFixed(1));
+    reset();
+    updateAsymptote();
+    updateAriaLabel();
+  });
+
+  updateAsymptote();
+  updateAriaLabel();
+</script>
+</body>
+</html>

@@ -1,0 +1,350 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-phase-diagrams" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Analyzing Stability with Phase Diagrams</title>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       INTRO PROSE
+       ═══════════════════════════════════════════════════════════ -->
+
+  <p>
+    We now develop a tool for classifying the stability of equilibrium solutions
+    without having to solve the ODE explicitly. Some of what we say here will be
+    justified more carefully in the next section — for now, let's build intuition
+    through an example.
+  </p>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       PROSE WALKTHROUGH: dP/dt = 2P(10-P)
+       ═══════════════════════════════════════════════════════════ -->
+
+  <p>
+    Consider <m>\dfrac{dP}{dt} = 2P(10 - P)</m>, which has equilibrium solutions
+    <m>P = 0</m> and <m>P = 10</m>. These two equilibria divide the <m>P</m>-axis
+    into three regions. 
+  </p>
+
+  <p>
+    The figure below shows the solution curves with each region labeled.
+    Notice that solutions starting in a region stay in that region — they get
+    <em>trapped</em> between the equilibrium solutions and can only increase or
+    decrease monotonically. We will justify this precisely in the next section.
+  </p>
+
+  <figure xml:id="fig-phase-intro">
+    <caption>
+      Solution curves for <m>dP/dt = 2P(10-P)</m> with the sign of <m>dP/dt</m>
+      labeled in each region. Equilibrium solutions <m>P = 0</m> and <m>P = 10</m>
+      are shown in green.
+    </caption>
+    <interactive xml:id="interactive-phase-intro"
+      iframe="ch2-graph/static-phase-intro.html" width="100%" aspect="4:3">
+      <static>
+        <p>
+          Solution curves for <m>dP/dt = 2P(10-P)</m>. Three regions are labeled:
+          <m>dP/dt \lt 0</m> for <m>P \lt 0</m>, <m>dP/dt \gt 0</m> for
+          <m>0 \lt P \lt 10</m>, and <m>dP/dt \lt 0</m> for <m>P \gt 10</m>.
+          Equilibrium solutions at <m>P = 0</m> and <m>P = 10</m> are shown in green.
+        </p>
+      </static>
+    </interactive>
+  </figure>
+<p>
+  In each region, the sign of <m>\dfrac{dP}{dt}</m> tells us
+    whether solutions are increasing or decreasing.
+</p>
+  <p>
+    We can capture all of this information in a compact diagram called a
+    <term>phase diagram</term>. We draw the <m>P</m>-axis, mark the equilibrium
+    solutions as points, and draw arrows pointing right where <m>dP/dt \gt 0</m>
+    (solutions increasing) and arrows pointing left where <m>dP/dt \lt 0</m>
+    (solutions decreasing).
+  </p>
+
+<figure xml:id="fig-phase-diagram-1a">
+  <caption>
+    Phase diagram for <m>\dfrac{dP}{dt} = 2P(10-P)</m>. Arrows point right where
+    <m>dP/dt \gt 0</m> and left where <m>dP/dt \lt 0</m>. Since arrows on both
+    sides of <m>P = 10</m> point toward it, <m>P = 10</m> is stable. Since arrows
+    on both sides of <m>P = 0</m> point away from it, <m>P = 0</m> is unstable.
+  </caption>
+  <interactive xml:id="interactive-phase-diagram-1a"
+    iframe="ch2-graph/phase-diagram-1a.html" width="100%" aspect="4:1.1">
+    <static>
+      <p>
+        Phase diagram for <m>dP/dt = 2P(10-P)</m>. Number line with equilibrium
+        points at <m>P = 0</m> and <m>P = 10</m>. Arrow points left for <m>P \lt 0</m>,
+        right for <m>0 \lt P \lt 10</m>, and left for <m>P \gt 10</m>.
+        <m>P = 0</m> is unstable and <m>P = 10</m> is stable.
+      </p>
+    </static>
+  </interactive>
+</figure>
+ 
+  <p>
+    From the directions of the arrows, we can read off the stability directly.
+    At <m>P = 10</m>: arrows on both sides point <em>toward</em> it — solutions
+    approaching from below are increasing toward 10, and solutions above are
+    decreasing toward 10. So <m>P = 10</m> is <term>stable</term>.
+    At <m>P = 0</m>: the arrow to the left points away, and the arrow to the right
+    also points away (solutions between 0 and 10 increase, moving away from 0).
+    So <m>P = 0</m> is <term>unstable</term>.
+  </p>
+
+  <!-- PHASE DIAGRAM 2: with stability labels -->
+  <!-- PLACEHOLDER: same SVG phase diagram but with "stable" and "unstable" labels
+       at each equilibrium point. -->
+
+  <!-- ═══════════════════════════════════════════════════════════
+       ACTIVITY 1: dP/dt = 2P(P-10)
+       ═══════════════════════════════════════════════════════════ -->
+
+  <activity xml:id="act-phase-diagram-1">
+    <title>Phase Diagram for <m>\dfrac{dP}{dt} = 2P(P-10)</m></title>
+
+    <introduction>
+      <p>
+        Let's work through the phase diagram method step by step for
+        <m>\dfrac{dP}{dt} = 2P(P - 10)</m>.
+      </p>
+    </introduction>
+
+    <task xml:id="task-phase1-equil">
+      <title>Step 1: Find the equilibrium solutions</title>
+      <statement>
+        <p>
+          The equilibrium solutions are <m>P = 0</m> and <m>P = 10</m>.
+        </p>
+      </statement>
+      <solution>
+        <title>Work</title>
+        <p>
+          Set <m>2P(P-10) = 0</m>. Then <m>P = 0</m> or <m>P - 10 = 0</m>,
+          giving <m>P = 0</m> and <m>P = 10</m>.
+        </p>
+      </solution>
+    </task>
+
+    <task xml:id="task-phase1-sign">
+      <title>Step 2: Determine the sign of <m>dP/dt</m> in each region</title>
+      <statement>
+        <p>
+          The equilibria divide the <m>P</m>-axis into three regions.
+          The sign of <m>2P(P-10)</m> in each:
+          <ul>
+            <li><p>
+              <m>P \lt 0</m>: <m>dP/dt \gt 0</m> (solutions increasing).
+            </p></li>
+            <li><p>
+              <m>0 \lt P \lt 10</m>: <m>dP/dt \lt 0</m> (solutions decreasing).
+            </p></li>
+            <li><p>
+              <m>P \gt 10</m>: <m>dP/dt \gt 0</m> (solutions increasing).
+            </p></li>
+          </ul>
+        </p>
+      </statement>
+      <solution>
+        <title>Sign analysis</title>
+        <p>
+          Pick a test value in each region and evaluate <m>2P(P-10)</m>:
+          <ul>
+            <li><p>
+              <m>P = -1</m>: <m>2(-1)(-11) = 22 \gt 0</m>.
+            </p></li>
+            <li><p>
+              <m>P = 5</m>: <m>2(5)(-5) = -50 \lt 0</m>.
+            </p></li>
+            <li><p>
+              <m>P = 15</m>: <m>2(15)(5) = 150 \gt 0</m>.
+            </p></li>
+          </ul>
+          Or use sign analysis: <m>2P(P-10)</m> has factors <m>2P</m> and <m>(P-10)</m>.
+          The signs flip at <m>P = 0</m> and <m>P = 10</m>.
+        </p>
+      </solution>
+    </task>
+
+    <task xml:id="task-phase1-diagram">
+      <title>Step 3: Draw the phase diagram</title>
+      <statement>
+        <p>
+          Based on the sign analysis above, here is the phase diagram for
+          <m>\dfrac{dP}{dt} = 2P(P-10)</m>:
+        </p>
+       <figure xml:id="fig-phase-diagram-2">
+  <caption>
+    Phase diagram for <m>\dfrac{dP}{dt} = 2P(P-10)</m>.
+  </caption>
+  <interactive xml:id="interactive-phase-diagram-2"
+    iframe="ch2-graph/phase-diagram-2.html" width="100%" aspect="3.8:1">
+    <static>
+      <p>
+        Phase diagram for <m>dP/dt = 2P(P-10)</m>. Number line with equilibrium
+        points at <m>P = 0</m> and <m>P = 10</m>. Arrow points right for <m>P \lt 0</m>,
+        left for <m>0 \lt P \lt 10</m>, and right for <m>P \gt 10</m>.
+      </p>
+    </static>
+  </interactive>
+</figure>
+      </statement>
+    </task>
+
+    <task xml:id="task-phase1-stability">
+      <title>Step 4: Determine stability</title>
+      <statement>
+        <p>
+          From the phase diagram: <m>P = 0</m> is <term>stable</term> and
+          <m>P = 10</m> is <term>unstable</term>.
+        </p>
+      </statement>
+      <solution>
+        <title>Reading stability from the arrows</title>
+        <p>
+          At <m>P = 0</m>: the arrow to the left points right (toward 0), and the
+          arrow to the right points left (toward 0). Both arrows converge toward
+          <m>P = 0</m>, so it is stable.
+        </p>
+        <p>
+          At <m>P = 10</m>: the arrow to the left points left (away from 10), and
+          the arrow to the right points right (away from 10). Both arrows diverge
+          away from <m>P = 10</m>, so it is unstable.
+        </p>
+      </solution>
+    </task>
+
+  </activity>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       ACTIVITY 2: dy/dx = (y-2)^2
+       ═══════════════════════════════════════════════════════════ -->
+
+  <activity xml:id="act-phase-diagram-2">
+    <title>Phase Diagram for <m>\dfrac{dy}{dx} = (y-2)^2</m></title>
+
+    <introduction>
+      <p>
+        Now let's try an example with a twist.
+      </p>
+    </introduction>
+
+    <task xml:id="task-phase2-equil">
+      <title>Step 1: Find the equilibrium solutions</title>
+      <statement>
+        <p>
+          The only equilibrium solution is <m>y = 2</m>.
+        </p>
+      </statement>
+      <solution>
+        <title>Work</title>
+        <p>
+          Set <m>(y-2)^2 = 0</m>, giving <m>y = 2</m> as the only solution.
+        </p>
+      </solution>
+    </task>
+
+    <task xml:id="task-phase2-sign">
+      <title>Step 2: Determine the sign of <m>dy/dx</m> in each region</title>
+      <statement>
+        <p>
+          The equilibrium <m>y = 2</m> divides the <m>y</m>-axis into two regions.
+          The sign of <m>(y-2)^2</m> in each:
+          <ul>
+            <li><p>
+              <m>y \lt 2</m>: <m>dy/dx \gt 0</m> (solutions increasing).
+            </p></li>
+            <li><p>
+              <m>y \gt 2</m>: <m>dy/dx \gt 0</m> (solutions increasing).
+            </p></li>
+          </ul>
+        </p>
+      </statement>
+      <solution>
+        <title>Sign analysis</title>
+        <p>
+          Since <m>(y-2)^2 \geq 0</m> for all <m>y</m>, the derivative is always
+          non-negative. It equals zero only at <m>y = 2</m>. So solutions are
+          increasing on both sides of the equilibrium.
+        </p>
+      </solution>
+    </task>
+
+    <task xml:id="task-phase2-diagram">
+      <title>Step 3: Draw the phase diagram</title>
+      <statement>
+        <p>
+          Based on the sign analysis, here is the phase diagram for
+          <m>\dfrac{dy}{dx} = (y-2)^2</m>:
+        </p>
+       <figure xml:id="fig-phase-diagram-3">
+  <caption>
+    Phase diagram for <m>\dfrac{dy}{dx} = (y-2)^2</m>.
+  </caption>
+  <interactive xml:id="interactive-phase-diagram-3"
+    iframe="ch2-graph/phase-diagram-3.html" width="100%" aspect="3.5:1">
+    <static>
+      <p>
+        Phase diagram for <m>dy/dx = (y-2)^2</m>. Number line with equilibrium
+        point at <m>y = 2</m>. Arrow points right on both sides since
+        <m>dy/dx \gt 0</m> for all <m>y \neq 2</m>.
+      </p>
+    </static>
+  </interactive>
+</figure>
+            
+      </statement>
+    </task>
+
+    <task xml:id="task-phase2-stability">
+      <title>Step 4: Determine stability</title>
+      <statement>
+        <p>
+          What is the stability of <m>y = 2</m>?
+        </p>
+      </statement>
+      <choices randomize="no">
+        <choice>
+          <statement><p>Stable</p></statement>
+          <feedback>
+            <p>
+              Not quite. Look at the arrows on both sides of <m>y = 2</m> in the
+              phase diagram. Solutions below <m>y = 2</m> are increasing toward it,
+              but what about solutions above?
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement><p>Unstable</p></statement>
+          <feedback>
+            <p>
+              Not quite. Solutions below <m>y = 2</m> are increasing and do converge
+              toward it — so it is not fully unstable either.
+            </p>
+          </feedback>
+        </choice>
+        <choice correct="yes">
+          <statement><p>Semi-stable</p></statement>
+          <feedback>
+            <p>
+              Correct! Both arrows point right. Solutions starting below <m>y = 2</m>
+              increase toward it (converging), but solutions starting above <m>y = 2</m>
+              also increase — moving away from it (diverging). One side converges,
+              the other diverges, so <m>y = 2</m> is semi-stable.
+            </p>
+          </feedback>
+        </choice>
+      </choices>
+    </task>
+
+  </activity>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       VIDEO
+       ═══════════════════════════════════════════════════════════ -->
+
+  <figure xml:id="video-phase-diagrams">
+    <caption>This video goes through the content of this page.</caption>
+    <video xml:id="yt-phase-diagrams" youtube="AdKXRAGezws" width="60%"/>
+  </figure>
+
+</section>

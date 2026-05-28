@@ -86,7 +86,7 @@
   <p>
   <alert>Step 4: Solve for <m>P(t)</m>.</alert>
   The general solution is
-  <me>P(t) = \frac{5}{Ce^{-20t} + 1},</me>
+  <me>P(t) = \frac{5}{Ce^{-20t} + 1} \quad \text{or} \quad P(t) = 0,</me>
   where <m>C</m> is any real number. Note that <m>C = 0</m> recovers the equilibrium
   solution <m>P(t) = 5</m>. The equilibrium solution <m>P(t) = 0</m> is not captured
   by this formula and must be noted separately.
@@ -124,7 +124,7 @@
   <exercise xml:id="ex-mc-logistic-limit">
     <statement>
       <p>
-        Using the general solution <m>P(t) = \dfrac{5}{Ce^{-20t} + 1}</m>,
+        In the solution <m>P(t) = \dfrac{5}{Ce^{-20t} + 1}</m>,
         what is <m>\displaystyle\lim_{t \to \infty} P(t)</m>?
       </p>
     </statement>
@@ -176,10 +176,31 @@
     That limit equals exactly <m>M = 5</m>, the carrying capacity. This is not a coincidence.
     For the logistic equation with <m>k \gt 0</m>, every solution with <m>P(0) \gt 0</m> satisfies
     <me>\lim_{t \to \infty} P(t) = M.</me>
-    No matter where the population starts, it always levels off at the carrying capacity.
+    No matter where the population starts, it always levels off at the carrying capacity. 
+    Also notice that <m>P(0) = 0</m> we recover one of the equilibrium solutions: if the population starts at zero, it stays there.
+    A similar thing happens for <m>P(0) = 5</m>!
     This is exactly the realistic, well-behaved growth we were hoping to model.
   </p>
-
+<figure xml:id="fig-logistic-curves">
+  <caption>
+    Solution curves for <m>\dfrac{dP}{dt} = 4P(5-P)</m>. For any <m>P(0) \gt 0</m>,
+    the population converges to the carrying capacity <m>M = 5</m> as <m>t \to \infty</m>.
+    If <m>P(0) = 0</m>, then <m>P(t) = 0</m> for all <m>t</m>.
+    Use the slider to set the initial value and press Play to watch the solution evolve.
+  </caption>
+  <interactive xml:id="interactive-logistic-curves"
+    iframe="ch2-graph/interactive-logistic-curves.html" width="100%" aspect="3:2">
+    <static>
+      <p>
+        Animated solution curve for <m>\dfrac{dP}{dt} = 4P(5-P)</m> with a slider for
+        <m>P(0)</m> from 0 to 8. For any positive initial value, the curve converges to
+        the carrying capacity <m>M = 5</m>. If <m>P(0) = 0</m>, the population stays
+        at zero for all time. Dashed lines mark the equilibrium solutions <m>P = 0</m>
+        and <m>P = 5</m>.
+      </p>
+    </static>
+  </interactive>
+</figure>
   <!-- ═══════════════════════════════════════════════════════════
        GRAPH PLACEHOLDER
   JSXGraph interactive showing several solution curves for dP/dt = 4P(5-P)
