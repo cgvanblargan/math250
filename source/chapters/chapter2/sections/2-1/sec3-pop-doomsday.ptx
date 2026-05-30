@@ -304,8 +304,9 @@
        ═══════════════════════════════════════════════════════════ -->
 
   <figure xml:id="video-pop-doomsday">
-    <caption>Doomsday vs extinction (video)</caption>
-    <video xml:id="yt-pop-doomsday" youtube="_rr5XYbNdgU" width="80%"/>
+    <caption>This video goes through the content of this page </caption>
+    <video xml:id="yt-pop-doomsday" youtube="_rr5XYbNdgU" width="100%"/>
   </figure>
 
+<interactive xml:id="question-form-2-1-3" iframe="question-form.html?section=2.1.3" width="100%" aspect="2:1"/>
 </section>

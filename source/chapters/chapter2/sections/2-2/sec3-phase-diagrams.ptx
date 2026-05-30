@@ -344,7 +344,8 @@
 
   <figure xml:id="video-phase-diagrams">
     <caption>This video goes through the content of this page.</caption>
-    <video xml:id="yt-phase-diagrams" youtube="AdKXRAGezws" width="60%"/>
+    <video xml:id="yt-phase-diagrams" youtube="AdKXRAGezws" width="100%"/>
   </figure>
 
+<interactive xml:id="question-form-2-2-3" iframe="question-form.html?section=2.2.3" width="100%" aspect="2:1"/>
 </section>

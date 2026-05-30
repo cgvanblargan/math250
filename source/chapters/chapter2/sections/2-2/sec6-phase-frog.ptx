@@ -165,7 +165,8 @@
 
   <figure xml:id="video-frog-question">
     <caption>This video goes through the content of this page.</caption>
-    <video xml:id="yt-frog-question" youtube="jEhpabfimvo" width="90%"/>
+    <video xml:id="yt-frog-question" youtube="jEhpabfimvo" width="100%"/>
   </figure>
 
+<interactive xml:id="question-form-2-2-6" iframe="question-form.html?section=2.2.6" width="100%" aspect="2:1"/>
 </section>

@@ -228,8 +228,9 @@
        ═══════════════════════════════════════════════════════════ -->
 
   <figure xml:id="video-pop-logistic">
-    <caption>Solving the logistic equation (video)</caption>
-    <video xml:id="yt-pop-logistic" youtube="Yy__OKgQdPY" width="60%"/>
+    <caption>This video goes through the content of this page</caption>
+    <video xml:id="yt-pop-logistic" youtube="Yy__OKgQdPY" width="100%"/>
   </figure>
 
+<interactive xml:id="question-form-2-1-2" iframe="question-form.html?section=2.1.2" width="100%" aspect="2:1"/>
 </section>

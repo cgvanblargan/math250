@@ -189,8 +189,9 @@
 
   <!-- YouTube video -->
   <figure xml:id="video-slopefield-matching">
-    <caption>Reading and matching slope fields (video)</caption>
-    <video xml:id="yt-slopefield-matching" youtube="Lbqk61_sSBA" width="60%"/>
+    <caption>This video goes through the content of this page</caption>
+    <video xml:id="yt-slopefield-matching" youtube="Lbqk61_sSBA" width="100%"/>
   </figure>
 
+<interactive xml:id="question-form-1-3-2" iframe="question-form.html?section=1.3.2" width="100%" aspect="2:1"/>
 </section>

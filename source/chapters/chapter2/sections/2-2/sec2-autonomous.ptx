@@ -150,51 +150,17 @@
        EXISTENCE AND UNIQUENESS
        ═══════════════════════════════════════════════════════════ -->
 
-  <p>
-    We are going to make heavy use of the following theorem as we study stability.
-    We will not prove it here, but it gives us a much fuller picture of how solutions
-    to autonomous equations behave and why our stability analysis works the way it does.
-  </p>
-
-  <theorem xml:id="thm-existence-uniqueness">
-    <title>Existence and Uniqueness for First-Order Autonomous DEs</title>
-    <statement>
-      <p>
-        Suppose we are solving <m>\dfrac{dy}{dt} = f(y)</m> where <m>f</m> and
-        <m>f'(y)</m> are continuous. Then given any initial value <m>y(0) = y_0</m>:
-        <ul>
-          <li><p>A solution exists.</p></li>
-          <li><p>The solution is unique.</p></li>
-          <li><p>Solutions do not intersect.</p></li>
-        </ul>
-      </p>
-    </statement>
-  </theorem>
+ 
+ 
 
   <!-- ═══════════════════════════════════════════════════════════
        OBSERVATION: CONSEQUENCES
        ═══════════════════════════════════════════════════════════ -->
 
-  <observation xml:id="obs-uniqueness-consequences">
-    <title>Properties to Note</title>
-    <p>
-      The fact that solutions do not intersect has some powerful consequences.
-      <ul>
-        <li><p>
-          If <m>y(t) = M</m> is an equilibrium solution, then the only solution
-          with <m>y(0) = M</m> is the equilibrium itself. No other solution can
-          pass through a point on an equilibrium.
-        </p></li>
-        <li><p>
-          If a solution is initially increasing (or decreasing), it stays increasing
-          (or decreasing) for all time. It cannot change direction without crossing
-          another solution, which is impossible.
-        </p></li>
-      </ul>
-      Together these facts mean that non-equilibrium solutions are permanently trapped
-      between equilibrium solutions, and must either converge to one or escape to infinity.
-      This is exactly what makes phase diagrams so useful, as we will see on the next page.
-    </p>
-  </observation>
-
+ <figure xml:id="video-equilibrium-stability-part2">
+    <caption>Starting at time 3:50, this video goes through the contents of this page</caption>
+    <video xml:id="yt-equilibrium-stability-part2" youtube="HxXjD4FQMdQ" width="100%"/>
+  </figure>
+   
+<interactive xml:id="question-form-2-2-2" iframe="question-form.html?section=2.2.2" width="100%" aspect="2:1"/>
 </section>

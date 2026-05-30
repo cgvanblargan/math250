@@ -225,8 +225,9 @@
   </p>
 
   <figure xml:id="video-pop-setup">
-    <caption>Setting up population models (video)</caption>
-    <video xml:id="yt-pop-setup" youtube="KBNSX5Kz6cE" width="60%"/>
+    <caption>This video goes through the content of this page</caption>
+    <video xml:id="yt-pop-setup" youtube="KBNSX5Kz6cE" width="100%"/>
   </figure>
 
+<interactive xml:id="question-form-2-1-1" iframe="question-form.html?section=2.1.1" width="100%" aspect="2:1"/>
 </section>

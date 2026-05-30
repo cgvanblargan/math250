@@ -189,8 +189,9 @@
   </remark>
 
   <figure xml:id="video-equilibrium-stability">
-    <caption>Stability of equilibrium solutions (video)</caption>
-    <video xml:id="yt-equilibrium-stability" youtube="HxXjD4FQMdQ" width="60%"/>
+    <caption>This video, up through time 3:50, goes through the contents of this page</caption>
+    <video xml:id="yt-equilibrium-stability" youtube="HxXjD4FQMdQ" width="100%"/>
   </figure>
 
+<interactive xml:id="question-form-2-2-1" iframe="question-form.html?section=2.2.1" width="100%" aspect="2:1"/>
 </section>
