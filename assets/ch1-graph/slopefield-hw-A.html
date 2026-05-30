@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Slope Field A: dy/dx = x - y</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jsxgraph/1.6.0/jsxgraph.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jsxgraph/1.6.0/jsxgraphcore.js"></script>
+<style>
+  body { margin: 0; padding: 0; background: transparent; }
+  #jxgbox-A { width: 100%; aspect-ratio: 1/1; }
+</style>
+</head>
+<body>
+<div id="jxgbox-A" class="jxgbox" role="region" aria-label="Slope field A for the differential equation dy over dx equals x minus y. Along the y-axis where x equals 0, tick marks tilt downward above the x-axis and upward below, consistent with slope equal to negative y. Along the x-axis where y equals 0, tick marks tilt upward to the right and downward to the left, consistent with slope equal to x."></div>
+<script>
+var board = JXG.JSXGraph.initBoard('jxgbox-A', {
+  boundingbox: [-4, 4, 4, -4],
+  axis: true,
+  showCopyright: false,
+  showNavigation: false
+});
+
+var xs = [-3,-2,-1,0,1,2,3];
+var ys = [-3,-2,-1,0,1,2,3];
+var len = 0.32;
+
+for (var i = 0; i < xs.length; i++) {
+  for (var j = 0; j < ys.length; j++) {
+    var x = xs[i], y = ys[j];
+    var slope = x - y;
+    var angle = Math.atan2(slope, 1);
+    var dx = len * Math.cos(angle);
+    var dy = len * Math.sin(angle);
+    board.create('segment', [[x-dx, y-dy],[x+dx, y+dy]], {
+      strokeColor: '#1a5276', strokeWidth: 1.5, fixed: true
+    });
+  }
+}
+</script>
+</body>
+</html>

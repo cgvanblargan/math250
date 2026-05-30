@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Slope Field B: dy/dx = xy</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jsxgraph/1.6.0/jsxgraph.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jsxgraph/1.6.0/jsxgraphcore.js"></script>
+<style>
+  body { margin: 0; padding: 0; background: transparent; }
+  #jxgbox-B { width: 100%; aspect-ratio: 1/1; }
+</style>
+</head>
+<body>
+<div id="jxgbox-B" class="jxgbox" role="region" aria-label="Slope field B for a different differential equation. Along the x-axis where y equals 0, all tick marks are flat with slope zero. Along the y-axis where x equals 0, all tick marks are also flat with slope zero. This is inconsistent with dy over dx equals x minus y, which predicts nonzero slopes along the axes."></div>
+<script>
+var board = JXG.JSXGraph.initBoard('jxgbox-B', {
+  boundingbox: [-4, 4, 4, -4],
+  axis: true,
+  showCopyright: false,
+  showNavigation: false
+});
+
+var xs = [-3,-2,-1,0,1,2,3];
+var ys = [-3,-2,-1,0,1,2,3];
+var len = 0.32;
+
+for (var i = 0; i < xs.length; i++) {
+  for (var j = 0; j < ys.length; j++) {
+    var x = xs[i], y = ys[j];
+    var slope = x * y;
+    var angle = Math.atan2(slope, 1);
+    var dx = len * Math.cos(angle);
+    var dy = len * Math.sin(angle);
+    board.create('segment', [[x-dx, y-dy],[x+dx, y+dy]], {
+      strokeColor: '#1a5276', strokeWidth: 1.5, fixed: true
+    });
+  }
+}
+</script>
+</body>
+</html>

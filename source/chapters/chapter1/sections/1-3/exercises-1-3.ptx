@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<exercises xml:id="exercises-1-3">
+  <title>Exercises for Section 1.3</title>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       Q1: Computing slopes at points
+       ═══════════════════════════════════════════════════════════ -->
+
+  <exercise xml:id="ex-1-3-1">
+    <title>Computing Slopes from a Differential Equation</title>
+    <statement>
+      <p>
+        Consider the differential equation <m>\dfrac{dy}{dx} = x - y</m>.
+        For each of the following points <m>(x, y)</m>, compute the slope
+        <m>\dfrac{dy}{dx}</m> that a solution passing through that point must have.
+      </p>
+      <tabular halign="center" top="minor" bottom="minor" left="minor" right="minor">
+        <row header="yes">
+          <cell><m>x</m></cell>
+          <cell><m>y</m></cell>
+          <cell><m>\dfrac{dy}{dx} = x - y</m></cell>
+        </row>
+        <row><cell><m>0</m></cell><cell><m>0</m></cell><cell></cell></row>
+        <row><cell><m>1</m></cell><cell><m>0</m></cell><cell></cell></row>
+        <row><cell><m>0</m></cell><cell><m>1</m></cell><cell></cell></row>
+        <row><cell><m>2</m></cell><cell><m>1</m></cell><cell></cell></row>
+        <row><cell><m>-1</m></cell><cell><m>2</m></cell><cell></cell></row>
+        <row><cell><m>1</m></cell><cell><m>1</m></cell><cell></cell></row>
+      </tabular>
+      <p>
+        Notice that two of the slopes are zero. What do those two points have in common?
+        What does this tell you about the slope field along the line <m>y = x</m>?
+      </p>
+    </statement>
+    <answer>
+      <tabular halign="center" top="minor" bottom="minor" left="minor" right="minor">
+        <row header="yes">
+          <cell><m>x</m></cell>
+          <cell><m>y</m></cell>
+          <cell><m>\dfrac{dy}{dx} = x - y</m></cell>
+        </row>
+        <row><cell><m>0</m></cell><cell><m>0</m></cell><cell><m>0</m></cell></row>
+        <row><cell><m>1</m></cell><cell><m>0</m></cell><cell><m>1</m></cell></row>
+        <row><cell><m>0</m></cell><cell><m>1</m></cell><cell><m>-1</m></cell></row>
+        <row><cell><m>2</m></cell><cell><m>1</m></cell><cell><m>1</m></cell></row>
+        <row><cell><m>-1</m></cell><cell><m>2</m></cell><cell><m>-3</m></cell></row>
+        <row><cell><m>1</m></cell><cell><m>1</m></cell><cell><m>0</m></cell></row>
+      </tabular>
+      <p>
+        Both zero-slope points satisfy <m>y = x</m>. Along the line <m>y = x</m>,
+        all tick marks in the slope field are horizontal.
+      </p>
+    </answer>
+  </exercise>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       Q2: Matching slope fields
+       ═══════════════════════════════════════════════════════════ -->
+
+  <exercise xml:id="ex-1-3-2">
+    <title>Matching a Slope Field</title>
+    <introduction>
+      <p>
+        One of the two slope fields below is the slope field for
+        <m>\dfrac{dy}{dx} = x - y</m>. The other is the slope field for
+        a different differential equation.
+      </p>
+      <sidebyside widths="45% 45%" margins="0% 5%">
+        <figure xml:id="fig-hw-field-A">
+          <caption>Field A</caption>
+          <interactive xml:id="interactive-hw-field-A"
+            iframe="ch1-graph/slopefield-hw-A.html" width="100%" aspect="1:1">
+            <static>
+              <p>
+                Slope field A. Along the x-axis where <m>y = 0</m>, tick marks
+                tilt upward to the right and downward to the left. Along the
+                y-axis where <m>x = 0</m>, tick marks tilt downward above the
+                origin and upward below.
+              </p>
+            </static>
+          </interactive>
+        </figure>
+        <figure xml:id="fig-hw-field-B">
+          <caption>Field B</caption>
+          <interactive xml:id="interactive-hw-field-B"
+            iframe="ch1-graph/slopefield-hw-B.html" width="100%" aspect="1:1">
+            <static>
+              <p>
+                Slope field B. Along the x-axis where <m>y = 0</m>, all tick
+                marks are horizontal. Along the y-axis where <m>x = 0</m>,
+                all tick marks are also horizontal.
+              </p>
+            </static>
+          </interactive>
+        </figure>
+      </sidebyside>
+    </introduction>
+
+    <task xml:id="ex-1-3-2a">
+      <statement>
+        <p>
+          Which field is the slope field for <m>\dfrac{dy}{dx} = x - y</m>?
+        </p>
+      </statement>
+      <choices randomize="no">
+        <choice correct="yes">
+          <statement><p>Field A</p></statement>
+          <feedback>
+            <p>Correct!</p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement><p>Field B</p></statement>
+          <feedback>
+            <p>
+              Not quite — check the reasoning in part (b).
+            </p>
+          </feedback>
+        </choice>
+      </choices>
+    </task>
+
+    <task xml:id="ex-1-3-2b">
+      <statement>
+        <p>
+          Explain how you can eliminate one of the fields using a single strategic check.
+          <em>Hint:</em> what should the slope be along <m>y = 0</m>?
+        </p>
+      </statement>
+      <answer>
+        <p>
+          Along <m>y = 0</m>, the slope of <m>\dfrac{dy}{dx} = x - y</m> equals <m>x</m>,
+          so tick marks should tilt upward to the right (positive <m>x</m>) and downward
+          to the left (negative <m>x</m>). Field B has all horizontal ticks along <m>y = 0</m>
+          (slope zero everywhere there), which eliminates it. Therefore Field A is correct.
+        </p>
+      </answer>
+    </task>
+
+  </exercise>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       Q3: Reading behavior from a slope field
+       ═══════════════════════════════════════════════════════════ -->
+
+  <exercise xml:id="ex-1-3-3">
+    <title>Reading Behavior from a Slope Field</title>
+    <introduction>
+      <p>
+        The slope field below is for some differential equation
+        <m>\dfrac{dy}{dx} = f(x, y)</m>.
+      </p>
+      <figure xml:id="fig-hw-logistic">
+        <caption>
+          A slope field for a differential equation. Tick marks are flat along
+          <m>y = 0</m> and <m>y = 4</m>, tilt upward for <m>0 \lt y \lt 4</m>,
+          and tilt downward for <m>y \lt 0</m> and <m>y \gt 4</m>.
+        </caption>
+        <interactive xml:id="interactive-hw-logistic"
+          iframe="ch1-graph/slopefield-hw-logistic.html" width="100%" aspect="1:1">
+          <static>
+            <p>
+              Slope field for a differential equation. Tick marks are horizontal
+              along <m>y = 0</m> and <m>y = 4</m>. Between those values, tick marks
+              tilt upward to the right. Above <m>y = 4</m> and below <m>y = 0</m>,
+              tick marks tilt downward to the right.
+            </p>
+          </static>
+        </interactive>
+      </figure>
+      <p>
+        For each of the following initial conditions, determine whether the
+        solution <m>y(x)</m> is <em>increasing</em>, <em>decreasing</em>, or
+        <em>constant</em>.
+      </p>
+    </introduction>
+
+    <task xml:id="ex-1-3-3a">
+      <statement>
+        <p><m>y(0) = 1</m></p>
+      </statement>
+      <answer>
+        <p>Increasing — at <m>y=1</m> the tick marks point upward.</p>
+      </answer>
+    </task>
+
+    <task xml:id="ex-1-3-3b">
+      <statement>
+        <p><m>y(0) = 6</m></p>
+      </statement>
+      <answer>
+        <p>Decreasing — at <m>y=6</m> the tick marks point downward.</p>
+      </answer>
+    </task>
+
+    <task xml:id="ex-1-3-3c">
+      <statement>
+        <p><m>y(0) = 4</m></p>
+      </statement>
+      <answer>
+        <p>Constant — at <m>y=4</m> the tick marks are flat,
+        so the solution stays at <m>y=4</m> for all <m>x</m>.</p>
+      </answer>
+    </task>
+
+  </exercise>
+
+  <interactive xml:id="question-form-1-3-ex" iframe="question-form.html?section=1.3 exercises" width="100%" aspect="2:1"/>
+
+</exercises>
