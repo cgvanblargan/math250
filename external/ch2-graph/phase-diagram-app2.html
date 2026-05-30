@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Phase Diagram: dP/dt = P(10-P)</title>
+<style>
+  body { margin: 0; padding: 16px; font-family: serif; background: transparent; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+</style>
+</head>
+<body>
+<svg viewBox="0 0 600 130" width="100%" role="img"
+  aria-label="Phase diagram for dP over dt equals P times 10 minus P. Equilibrium solutions marked as green dots at P equals 0 and P equals 10 on a number line. For P less than 0, an arrow points left indicating solutions are decreasing. For 0 less than P less than 10, an arrow points right indicating solutions are increasing. For P greater than 10, an arrow points left indicating solutions are decreasing.">
+
+  <!-- Number line -->
+  <line x1="40" y1="65" x2="555" y2="65" stroke="#2c3e50" stroke-width="3"/>
+  <polygon points="558,65 544,58 544,72" fill="#2c3e50"/>
+  <polygon points="37,65 51,58 51,72" fill="#2c3e50"/>
+
+  <!-- Arrow LEFT for P<0 -->
+  <line x1="215" y1="65" x2="85" y2="65" stroke="#922b21" stroke-width="5"/>
+  <polygon points="82,65 98,57 98,73" fill="#922b21"/>
+
+  <!-- Arrow RIGHT for 0<P<10 -->
+  <line x1="235" y1="65" x2="368" y2="65" stroke="#1a5276" stroke-width="5"/>
+  <polygon points="371,65 355,57 355,73" fill="#1a5276"/>
+
+  <!-- Arrow LEFT for P>10 -->
+  <line x1="510" y1="65" x2="405" y2="65" stroke="#922b21" stroke-width="5"/>
+  <polygon points="402,65 418,57 418,73" fill="#922b21"/>
+
+  <!-- Equilibrium dots -->
+  <circle cx="225" cy="65" r="8" fill="#1e8449" stroke="white" stroke-width="1.5"/>
+  <circle cx="390" cy="65" r="8" fill="#1e8449" stroke="white" stroke-width="1.5"/>
+
+  <!-- Labels -->
+  <text x="225" y="95" text-anchor="middle" font-size="22" font-family="serif" fill="#1e8449" font-weight="bold">0</text>
+  <text x="390" y="95" text-anchor="middle" font-size="22" font-family="serif" fill="#1e8449" font-weight="bold">10</text>
+
+  <!-- P axis label -->
+  <text x="570" y="70" font-size="20" font-family="serif" fill="#2c3e50" font-style="italic">P</text>
+</svg>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Solution Curves A: correct</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jsxgraph/1.6.0/jsxgraph.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jsxgraph/1.6.0/jsxgraphcore.js"></script>
+<style>
+  body { margin: 0; padding: 6px; font-family: serif; background: transparent; overflow: hidden; }
+  #label { text-align: center; font-size: 15px; font-family: serif; color: #2c3e50; margin-bottom: 4px; }
+  #jxgbox { width: 100%; aspect-ratio: 1/1; }
+</style>
+</head>
+<body>
+<div id="label">Picture A</div>
+<div id="jxgbox" class="jxgbox"
+  role="region"
+  aria-label="Picture A: slope field for dy over dx equals x plus y with correct solution curves overlaid. The curves flow tangentially with the tick marks, sweeping steeply upward in the upper-right and steeply downward in the lower-left.">
+</div>
+<script>
+  var board = JXG.JSXGraph.initBoard('jxgbox', {
+    boundingbox: [-3.5, 3.5, 3.5, -3.5],
+    axis: true,
+    showCopyright: false,
+    showNavigation: false,
+    defaultAxes: {
+      x: { name: 'x', withLabel: true, label: { position: 'rt', offset: [-15, 15], fontSize: 13 } },
+      y: { name: 'y', withLabel: true, label: { position: 'rt', offset: [15, 0], fontSize: 13 } }
+    }
+  });
+
+  // Draw faint slope field
+  var xs = [-3,-2,-1,0,1,2,3];
+  var ys = [-3,-2,-1,0,1,2,3];
+  var len = 0.32;
+  for (var j = 0; j < ys.length; j++) {
+    for (var i = 0; i < xs.length; i++) {
+      var x = xs[i], y = ys[j];
+      var slope = x + y;
+      var angle = Math.atan2(slope, 1);
+      var dx = len * Math.cos(angle);
+      var dy = len * Math.sin(angle);
+      board.create('segment', [[x-dx, y-dy],[x+dx, y+dy]],
+        { strokeColor: '#1a5276', strokeWidth: 1.4, fixed: true, highlight: false, opacity: 0.4 });
+    }
+  }
+
+  // Correct solution curves: y = Ce^x - x - 1  (general solution to dy/dx = x+y)
+  // Draw several curves with different C values
+  var Cvals = [-2, -1, -0.5, 0.5, 1, 2];
+  Cvals.forEach(function(C) {
+    board.create('functiongraph', [
+      function(C) { return function(x) { return C * Math.exp(x) - x - 1; }; }(C),
+      -3.5, 3.5
+    ], {
+      strokeColor: '#922b21',
+      strokeWidth: 2.2,
+      fixed: true,
+      highlight: false
+    });
+  });
+</script>
+</body>
+</html>

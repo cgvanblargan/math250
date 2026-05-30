@@ -658,13 +658,184 @@ var ptx_lunr_docs = [
   "body": "  The brakes of a car are applied when it is moving at m\/s and provide a constant deceleration of m\/s . How far does the car travel before coming to a stop?    Start the problem similar to the example in the notes by first computing how much time passes before coming to a stop. Find the position function. How can you combine these two things to answer the question?    It takes 3 seconds to come to a stop, and at this point it will have traveled m.   "
 },
 {
-  "id": "sec-slopefields",
+  "id": "sec-slope-fields-intro",
   "level": "1",
-  "url": "sec-slopefields.html",
+  "url": "sec-slope-fields-intro.html",
   "type": "Section",
-  "number": "1.3",
-  "title": "Section 1.3: To be added",
-  "body": " Section 1.3: To be added   Section 1.3 is not currently being covered in the course.   "
+  "number": "1.3.1",
+  "title": "Slope Fields",
+  "body": " Slope Fields   So far we have been solving differential equations and writing down explicit formulas for solutions. That is powerful, but it is not always possible. Many differential equations are too complicated to solve by hand, and even when we can solve them, the formula alone does not always make it easy to picture what the solutions actually look like. In this section we develop a visual tool that lets us understand the behavior of solutions to a differential equation without solving it at all.  The idea starts with something simple. If we have a differential equation , then at any point in the plane, the equation tells us exactly what slope a solution passing through that point must have. We do not need to know the solution to know its slope. We just plug in and .   Recall that the general solution to is . Let's focus on one specific solution, (that is, ). Since , the slope of the tangent line to this curve at any point is just twice the -value at that point. Use the interactive below to explore this. Try changing both the solution curve (via ) and the -value to see how the slope responds.   The solution curve with a tangent line at a chosen point. Notice that the slope depends only on the -value, not on which curve you are on or what is.     Here is the key observation from the interactive above: the slope depends only on the -value, not on the specific solution curve or the -value. This means that at every point in the plane with the same -coordinate, the slope of any solution passing through that point is the same.  This gives us a powerful idea. Even without knowing the solutions explicitly, we can draw a short line segment at every point with slope equal to , just from knowing the -value. The resulting picture is called a slope field .   Slope Field   A slope field for a differential equation is a plot of short line segments drawn at a grid of points , each with slope equal to . Together, these segments show the slope that any solution curve must have as it passes through each point.     Let's build the slope field for step by step. For each -value, the slope is regardless of , so every tick in the same row has the same slope. Press play to watch the slope field get drawn.   Building the slope field for . Each tick mark is drawn at a grid point with slope . Notice that all ticks in the same row (same ) are parallel. The slope does not depend on .     In practice, computers generate slope fields with far more points than we could draw by hand. The interactive below shows a dense slope field for . Use the slider to set an initial value , then press play to watch the corresponding solution curve trace itself through the field, following the arrows and connecting the dots. This is the fundamental idea: the slope field tells you which way any solution must travel at every point.    A dense slope field for . Set the initial value with the slider, then press play to trace the solution curve through the field. Notice how the curve always aligns with the tick marks as it travels.      This video walks through the content of this page.    "
+},
+{
+  "id": "fig-tangent-slope-slider",
+  "level": "2",
+  "url": "sec-slope-fields-intro.html#fig-tangent-slope-slider",
+  "type": "Figure",
+  "number": "1.3.1",
+  "title": "",
+  "body": " The solution curve with a tangent line at a chosen point. Notice that the slope depends only on the -value, not on which curve you are on or what is.   "
+},
+{
+  "id": "sec-slope-fields-intro-7",
+  "level": "2",
+  "url": "sec-slope-fields-intro.html#sec-slope-fields-intro-7",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "slope field "
+},
+{
+  "id": "def-slope-field",
+  "level": "2",
+  "url": "sec-slope-fields-intro.html#def-slope-field",
+  "type": "Definition",
+  "number": "1.3.2",
+  "title": "Slope Field.",
+  "body": " Slope Field   A slope field for a differential equation is a plot of short line segments drawn at a grid of points , each with slope equal to . Together, these segments show the slope that any solution curve must have as it passes through each point.   "
+},
+{
+  "id": "fig-slope-field-build",
+  "level": "2",
+  "url": "sec-slope-fields-intro.html#fig-slope-field-build",
+  "type": "Figure",
+  "number": "1.3.3",
+  "title": "",
+  "body": " Building the slope field for . Each tick mark is drawn at a grid point with slope . Notice that all ticks in the same row (same ) are parallel. The slope does not depend on .   "
+},
+{
+  "id": "fig-slope-field-trajectory",
+  "level": "2",
+  "url": "sec-slope-fields-intro.html#fig-slope-field-trajectory",
+  "type": "Figure",
+  "number": "1.3.4",
+  "title": "",
+  "body": " A dense slope field for . Set the initial value with the slider, then press play to trace the solution curve through the field. Notice how the curve always aligns with the tick marks as it travels.   "
+},
+{
+  "id": "video-slope-fields-intro",
+  "level": "2",
+  "url": "sec-slope-fields-intro.html#video-slope-fields-intro",
+  "type": "Figure",
+  "number": "1.3.5",
+  "title": "",
+  "body": " This video walks through the content of this page.   "
+},
+{
+  "id": "sec-slopefield-matching",
+  "level": "1",
+  "url": "sec-slopefield-matching.html",
+  "type": "Section",
+  "number": "1.3.2",
+  "title": "Reading and Matching Slope Fields",
+  "body": " Reading and Matching Slope Fields   In the previous page we built a slope field from scratch for , drawing tick marks one row at a time until the full picture emerged. That is a great way to understand what a slope field is. But in practice, you will often be handed a slope field and asked to figure out which differential equation it came from, or to identify which picture shows the correct solution curves. That requires a different skill: reading a slope field strategically rather than building it from the ground up.  The good news is that you do not need to check every single point. A few well-chosen locations, like the coordinate axes, can tell you almost everything you need to know. Let's build that intuition now with an example.  For , the slope at any point is just . Let's compute a few values and draw the corresponding tick marks.                  Now watch the full slope field build up row by row. For each tick, the display shows the current , , and computed slope.   The slope field for , built row by row starting at . Notice how the ticks get steeper as you move away from the line , where the slope is zero.     Two slope fields are shown below. Exactly one is the slope field for . Rather than checking every point, be strategic: check what happens along the axes. Along , the slope should equal , so ticks above the origin should tilt upward and ticks below should tilt downward. Does that rule out one of the fields?    Field A     Field B       Which of the two slope fields above is the slope field for ?     Field A   Correct! Check the axis: slope there, so ticks above the origin tilt upward and ticks below tilt downward. Field A shows exactly this.     Field B   Not quite. Check the axis in Field B: the ticks above the origin tilt downward and the ticks below tilt upward. That is the opposite of what predicts, since the slope along should equal . Field B is actually the slope field for .       Both pictures below show the slope field for with solution curves drawn on top. Recall: a solution curve must be tangent to the slope field at every point. It flows with the ticks, never cutting across them at a sharp angle.    Picture A     Picture B       Which of the two pictures above shows correct solution curves for ?     Picture A   Correct! In Picture A the curves flow tangentially with the tick marks everywhere. They sweep steeply upward in the upper-right where the field is steep, exactly as a solution to must.     Picture B   Not quite. The curves in Picture B cross the tick marks at sharp angles rather than flowing with them. A solution curve must be tangent to the field at every point.        Reading and matching slope fields (video)    "
+},
+{
+  "id": "fig-slopefield-xy",
+  "level": "2",
+  "url": "sec-slopefield-matching.html#fig-slopefield-xy",
+  "type": "Figure",
+  "number": "1.3.1",
+  "title": "",
+  "body": " The slope field for , built row by row starting at . Notice how the ticks get steeper as you move away from the line , where the slope is zero.   "
+},
+{
+  "id": "fig-mc-field-A",
+  "level": "2",
+  "url": "sec-slopefield-matching.html#fig-mc-field-A",
+  "type": "Figure",
+  "number": "1.3.2",
+  "title": "",
+  "body": " Field A   "
+},
+{
+  "id": "fig-mc-field-B",
+  "level": "2",
+  "url": "sec-slopefield-matching.html#fig-mc-field-B",
+  "type": "Figure",
+  "number": "1.3.3",
+  "title": "",
+  "body": " Field B   "
+},
+{
+  "id": "ex-mc-slopefield-match",
+  "level": "2",
+  "url": "sec-slopefield-matching.html#ex-mc-slopefield-match",
+  "type": "Checkpoint",
+  "number": "1.3.4",
+  "title": "",
+  "body": "  Which of the two slope fields above is the slope field for ?     Field A   Correct! Check the axis: slope there, so ticks above the origin tilt upward and ticks below tilt downward. Field A shows exactly this.     Field B   Not quite. Check the axis in Field B: the ticks above the origin tilt downward and the ticks below tilt upward. That is the opposite of what predicts, since the slope along should equal . Field B is actually the slope field for .     "
+},
+{
+  "id": "fig-mc-curves-A",
+  "level": "2",
+  "url": "sec-slopefield-matching.html#fig-mc-curves-A",
+  "type": "Figure",
+  "number": "1.3.5",
+  "title": "",
+  "body": " Picture A   "
+},
+{
+  "id": "fig-mc-curves-B",
+  "level": "2",
+  "url": "sec-slopefield-matching.html#fig-mc-curves-B",
+  "type": "Figure",
+  "number": "1.3.6",
+  "title": "",
+  "body": " Picture B   "
+},
+{
+  "id": "ex-mc-slopefield-curves",
+  "level": "2",
+  "url": "sec-slopefield-matching.html#ex-mc-slopefield-curves",
+  "type": "Checkpoint",
+  "number": "1.3.7",
+  "title": "",
+  "body": "  Which of the two pictures above shows correct solution curves for ?     Picture A   Correct! In Picture A the curves flow tangentially with the tick marks everywhere. They sweep steeply upward in the upper-right where the field is steep, exactly as a solution to must.     Picture B   Not quite. The curves in Picture B cross the tick marks at sharp angles rather than flowing with them. A solution curve must be tangent to the field at every point.     "
+},
+{
+  "id": "video-slopefield-matching",
+  "level": "2",
+  "url": "sec-slopefield-matching.html#video-slopefield-matching",
+  "type": "Figure",
+  "number": "1.3.8",
+  "title": "",
+  "body": " Reading and matching slope fields (video)   "
+},
+{
+  "id": "exercises-1-3",
+  "level": "1",
+  "url": "exercises-1-3.html",
+  "type": "Exercises",
+  "number": "1.3.3",
+  "title": "Exercises for Section 1.3",
+  "body": " Exercises for Section 1.3    Computing Slopes from a Differential Equation   Consider the differential equation . For each of the following points , compute the slope that a solution passing through that point must have.               Notice that two of the slopes are zero. What do those two points have in common? What does this tell you about the slope field along the line ?                 Both zero-slope points satisfy . Along the line , all tick marks in the slope field are horizontal.      Matching a Slope Field   One of the two slope fields below is the slope field for . The other is the slope field for a different differential equation.    Field A     Field B        Which field is the slope field for ?     Field A   Correct!     Field B   Not quite — check the reasoning in part (b).        Explain how you can eliminate one of the fields using a single strategic check. Hint: what should the slope be along ?    Along , the slope of equals , so tick marks should tilt upward to the right (positive ) and downward to the left (negative ). Field B has all horizontal ticks along (slope zero everywhere there), which eliminates it. Therefore Field A is correct.       Reading Behavior from a Slope Field   The slope field below is for some differential equation .   A slope field for a differential equation. Tick marks are flat along and , tilt upward for , and tilt downward for and .    For each of the following initial conditions, determine whether the solution is increasing , decreasing , or constant .        Increasing — at the tick marks point upward.         Decreasing — at the tick marks point downward.         Constant — at the tick marks are flat, so the solution stays at for all .      "
+},
+{
+  "id": "ex-1-3-1",
+  "level": "2",
+  "url": "exercises-1-3.html#ex-1-3-1",
+  "type": "Exercise",
+  "number": "1.3.3.1",
+  "title": "Computing Slopes from a Differential Equation.",
+  "body": " Computing Slopes from a Differential Equation   Consider the differential equation . For each of the following points , compute the slope that a solution passing through that point must have.               Notice that two of the slopes are zero. What do those two points have in common? What does this tell you about the slope field along the line ?                 Both zero-slope points satisfy . Along the line , all tick marks in the slope field are horizontal.   "
+},
+{
+  "id": "ex-1-3-2",
+  "level": "2",
+  "url": "exercises-1-3.html#ex-1-3-2",
+  "type": "Exercise",
+  "number": "1.3.3.2",
+  "title": "Matching a Slope Field.",
+  "body": " Matching a Slope Field   One of the two slope fields below is the slope field for . The other is the slope field for a different differential equation.    Field A     Field B        Which field is the slope field for ?     Field A   Correct!     Field B   Not quite — check the reasoning in part (b).        Explain how you can eliminate one of the fields using a single strategic check. Hint: what should the slope be along ?    Along , the slope of equals , so tick marks should tilt upward to the right (positive ) and downward to the left (negative ). Field B has all horizontal ticks along (slope zero everywhere there), which eliminates it. Therefore Field A is correct.    "
+},
+{
+  "id": "ex-1-3-3",
+  "level": "2",
+  "url": "exercises-1-3.html#ex-1-3-3",
+  "type": "Exercise",
+  "number": "1.3.3.3",
+  "title": "Reading Behavior from a Slope Field.",
+  "body": " Reading Behavior from a Slope Field   The slope field below is for some differential equation .   A slope field for a differential equation. Tick marks are flat along and , tilt upward for , and tilt downward for and .    For each of the following initial conditions, determine whether the solution is increasing , decreasing , or constant .        Increasing — at the tick marks point upward.         Decreasing — at the tick marks point downward.         Constant — at the tick marks are flat, so the solution stays at for all .    "
 },
 {
   "id": "subsec-intr-separable",
@@ -1486,31 +1657,625 @@ var ptx_lunr_docs = [
   "body": "  A tank initially contains 50 gal of pure water. Brine containing 3 lb of salt per gallon enters the tank at 2 gal\/min, and the well-mixed solution leaves at 3 gal\/min. The tank is empty after exactly 50 minutes. Let be the amount of salt (in lb) at time (in minutes).     Set up the differential equation for with its initial condition.  Don't forget to find , the volume of water in the tank at time , as one of the steps!           The ODE from part (a) is first-order linear. Solve it! Don't forget to apply the initial condition.         "
 },
 {
-  "id": "sec-resistive-forces",
+  "id": "sec-pop-setup",
   "level": "1",
-  "url": "sec-resistive-forces.html",
+  "url": "sec-pop-setup.html",
   "type": "Section",
-  "number": "2.1",
-  "title": "Resistive Forces",
-  "body": " Resistive Forces   To be added.  "
+  "number": "2.1.1",
+  "title": "Setting Up Population Models",
+  "body": " Setting Up Population Models   We are now going to explore some very interesting applications of differential equations to population modelling. Early in these notes, we looked at many examples involving , whose general solution is . The idea that a population grows at a rate proportional to its current size is actually quite natural: the more individuals there are, the more births there are, and so the faster the population grows. Every person contributes, and those contributions add up. For example, if each member of a population contributes on average 2 new members per year, the total growth rate is 2 times the population size, giving .  But if you think about it a little longer, you will notice something uncomfortable. If , then grows without bound as . Populations do not actually do that. Resources run out, disease spreads more easily in crowded conditions, competition for food increases. In practice, a rising population tends to put pressure on its own birth rate and death rate in ways that slow growth down. The simple model ignores all of that.  So to build more realistic population models, we need to go back to an idea you have already seen. Recall from that for any quantity , For a self-contained population with no migration, the rate in comes entirely from births and the rate out comes entirely from deaths. That gives us the following principle.    A General Population Model   Let be the size of a population at time , let be the birth rate (rate of births per person), and let be the death rate (rate of deaths per person). Then      It is worth pausing on why and get multiplied by . The rates and are rates per person . So the total number of births per unit time is not just , it is times the number of people contributing to those births, which is . Same logic for deaths. If a town of 1000 people has a birth rate of 0.02 births per person per year, that is births per year, not just 0.02. This is the step that trips people up most often, so keep it in mind as you work through the examples below.   Let's get some practice setting up population models. For each of the following, is a population function. Try each one before peeking at the solution.   Practice: Setting Up Population Models    The population has a constant birth rate of 2 and its death rate is 0. Write a differential equation for .    Recall:  The population model:  is the birth rate per person, is the death rate per person.  Remember: because is a rate per person , the total birth contribution is , not just .    Using with and : Even though the birth rate 2 looks like a plain constant, it is a rate per person, so the total number of births per unit time is . That is why we multiply by .      The birth rate and death rate are both proportional to , with proportionality constants 3 and 4 respectively. Write a differential equation for .    Recall:  The population model:  is the birth rate per person, is the death rate per person.  Remember: because these are rates per person , each one still gets multiplied by .    With and : Notice that both rates were proportional to , and since each rate per person still gets multiplied by another factor of , we end up with terms.      The birth rate is proportional to with constant , and the death rate is proportional to with constant . Which of the following is the correct differential equation for ?       Not quite. Remember that and are rates per person , so each one gets multiplied by . Here , so the birth contribution is , not just .       Correct! With and : Each rate per person gets multiplied by , bumping the exponents up by one.       Not quite. The death rate per person is , which when multiplied by gives , not .        Now let's think about what a more realistic model might look like. In the simple model , both and were constants. But in reality, as a population grows, resources become scarcer and conditions become more crowded. A natural way to capture this is to let the birth rate decrease as the population increases. Suppose we model the birth rate as so that is high when the population is small and decreases as grows. Keeping constant and plugging in: Setting and , this becomes the famous logistic equation .    The Logistic Equation   The logistic equation is where is called the carrying capacity of the population. It is a common model of population growth and the spread of disease. It is standard to require .  Note: solving the logistic equation requires partial fractions, since you will encounter integrals involving .    In the pages ahead, we are going to explore both the case and and find some surprisingly interesting behavior in each one.   Setting up population models (video)    "
 },
 {
-  "id": "sec-population-modelling",
-  "level": "1",
-  "url": "sec-population-modelling.html",
-  "type": "Section",
-  "number": "2.2",
-  "title": "Population Modelling",
-  "body": " Population Modelling   To be added.  "
+  "id": "prin-population-model",
+  "level": "2",
+  "url": "sec-pop-setup.html#prin-population-model",
+  "type": "Principle",
+  "number": "2.1.1",
+  "title": "A General Population Model.",
+  "body": " A General Population Model   Let be the size of a population at time , let be the birth rate (rate of births per person), and let be the death rate (rate of deaths per person). Then    "
 },
 {
-  "id": "sec-stability-equilibrium",
+  "id": "act-pop-setup",
+  "level": "2",
+  "url": "sec-pop-setup.html#act-pop-setup",
+  "type": "Activity",
+  "number": "2.1.1",
+  "title": "Practice: Setting Up Population Models.",
+  "body": " Practice: Setting Up Population Models    The population has a constant birth rate of 2 and its death rate is 0. Write a differential equation for .    Recall:  The population model:  is the birth rate per person, is the death rate per person.  Remember: because is a rate per person , the total birth contribution is , not just .    Using with and : Even though the birth rate 2 looks like a plain constant, it is a rate per person, so the total number of births per unit time is . That is why we multiply by .      The birth rate and death rate are both proportional to , with proportionality constants 3 and 4 respectively. Write a differential equation for .    Recall:  The population model:  is the birth rate per person, is the death rate per person.  Remember: because these are rates per person , each one still gets multiplied by .    With and : Notice that both rates were proportional to , and since each rate per person still gets multiplied by another factor of , we end up with terms.      The birth rate is proportional to with constant , and the death rate is proportional to with constant . Which of the following is the correct differential equation for ?       Not quite. Remember that and are rates per person , so each one gets multiplied by . Here , so the birth contribution is , not just .       Correct! With and : Each rate per person gets multiplied by , bumping the exponents up by one.       Not quite. The death rate per person is , which when multiplied by gives , not .      "
+},
+{
+  "id": "sec-pop-setup-9",
+  "level": "2",
+  "url": "sec-pop-setup.html#sec-pop-setup-9",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "logistic equation "
+},
+{
+  "id": "def-logistic-equation",
+  "level": "2",
+  "url": "sec-pop-setup.html#def-logistic-equation",
+  "type": "Definition",
+  "number": "2.1.2",
+  "title": "The Logistic Equation.",
+  "body": " The Logistic Equation   The logistic equation is where is called the carrying capacity of the population. It is a common model of population growth and the spread of disease. It is standard to require .  Note: solving the logistic equation requires partial fractions, since you will encounter integrals involving .   "
+},
+{
+  "id": "video-pop-setup",
+  "level": "2",
+  "url": "sec-pop-setup.html#video-pop-setup",
+  "type": "Figure",
+  "number": "2.1.3",
+  "title": "",
+  "body": " Setting up population models (video)   "
+},
+{
+  "id": "sec-pop-logistic",
   "level": "1",
-  "url": "sec-stability-equilibrium.html",
+  "url": "sec-pop-logistic.html",
   "type": "Section",
-  "number": "2.3",
+  "number": "2.1.2",
+  "title": "Solving the Logistic Equation",
+  "body": " Solving the Logistic Equation   In the previous page we set up the logistic equation as a model for population growth that accounts for crowding and resource limits. Now let's actually solve it. The algebra is a workout, so we have organized things so you can read the big picture first and dig into the details later when you need them for homework.    Solving a Logistic Equation  The birth rate of a population is the constant 20 and the death rate is proportional to with proportionality constant 4. Set up and solve the resulting differential equation for .  Using with and : This is the logistic equation with and .   Step 1: Equilibrium solutions. Setting gives    Work for equilibrium solutions (if stuck)  Constant solutions satisfy . So we solve which gives or , that is .    Step 2: Separate variables. For non-equilibrium solutions:    Step 3: Integrate both sides.  gives    Full LHS integration with partial fractions (can skim for now, useful for homework)  We use partial fractions. Write Multiplying both sides by and matching coefficients: So and . Therefore: Multiplying through by 5 and using log rules: Exponentiating: .    Step 4: Solve for . The general solution is where is any real number. Note that recovers the equilibrium solution . The equilibrium solution is not captured by this formula and must be noted separately.   Algebra: solving for explicitly (can skim for now)  Starting from , take reciprocals of both sides: Split the left side: Relabeling as : Taking reciprocals:      Now that we have an explicit formula for , one of the most important questions in population modelling is: what happens in the long run? Does the population grow forever, crash to zero, or stabilize at some value?     In the solution , what is ?       Not quite. Think about what happens to as . It decays to zero, not grows. So the denominator does not blow up.       Correct! As , , so , giving .       Not quite. Since as , the denominator approaches 1, not 0. So does not blow up.     It depends on .   Good instinct, but notice that as regardless of what is. The limit is the same for every solution.       That limit equals exactly , the carrying capacity. This is not a coincidence. For the logistic equation with , every solution with satisfies No matter where the population starts, it always levels off at the carrying capacity. Also notice that we recover one of the equilibrium solutions: if the population starts at zero, it stays there. A similar thing happens for ! This is exactly the realistic, well-behaved growth we were hoping to model.   Solution curves for . For any , the population converges to the carrying capacity as . If , then for all . Use the slider to set the initial value and press Play to watch the solution evolve.       The logistic equation with is a beautifully behaved model. Solutions are bounded, they stabilize, and the long-term behavior is completely predictable regardless of initial conditions. In the next section we look at a similar model with , and we find much more pathological behavior: populations that go extinct in finite time and populations that explode to infinity in finite time.    Solving the logistic equation (video)    "
+},
+{
+  "id": "ex-logistic-solve",
+  "level": "2",
+  "url": "sec-pop-logistic.html#ex-logistic-solve",
+  "type": "Example",
+  "number": "2.1.1",
+  "title": "Solving a Logistic Equation.",
+  "body": " Solving a Logistic Equation  The birth rate of a population is the constant 20 and the death rate is proportional to with proportionality constant 4. Set up and solve the resulting differential equation for .  Using with and : This is the logistic equation with and .   Step 1: Equilibrium solutions. Setting gives    Work for equilibrium solutions (if stuck)  Constant solutions satisfy . So we solve which gives or , that is .    Step 2: Separate variables. For non-equilibrium solutions:    Step 3: Integrate both sides.  gives    Full LHS integration with partial fractions (can skim for now, useful for homework)  We use partial fractions. Write Multiplying both sides by and matching coefficients: So and . Therefore: Multiplying through by 5 and using log rules: Exponentiating: .    Step 4: Solve for . The general solution is where is any real number. Note that recovers the equilibrium solution . The equilibrium solution is not captured by this formula and must be noted separately.   Algebra: solving for explicitly (can skim for now)  Starting from , take reciprocals of both sides: Split the left side: Relabeling as : Taking reciprocals:    "
+},
+{
+  "id": "ex-mc-logistic-limit",
+  "level": "2",
+  "url": "sec-pop-logistic.html#ex-mc-logistic-limit",
+  "type": "Checkpoint",
+  "number": "2.1.2",
+  "title": "",
+  "body": "  In the solution , what is ?       Not quite. Think about what happens to as . It decays to zero, not grows. So the denominator does not blow up.       Correct! As , , so , giving .       Not quite. Since as , the denominator approaches 1, not 0. So does not blow up.     It depends on .   Good instinct, but notice that as regardless of what is. The limit is the same for every solution.     "
+},
+{
+  "id": "fig-logistic-curves",
+  "level": "2",
+  "url": "sec-pop-logistic.html#fig-logistic-curves",
+  "type": "Figure",
+  "number": "2.1.3",
+  "title": "",
+  "body": " Solution curves for . For any , the population converges to the carrying capacity as . If , then for all . Use the slider to set the initial value and press Play to watch the solution evolve.   "
+},
+{
+  "id": "video-pop-logistic",
+  "level": "2",
+  "url": "sec-pop-logistic.html#video-pop-logistic",
+  "type": "Figure",
+  "number": "2.1.4",
+  "title": "",
+  "body": " Solving the logistic equation (video)   "
+},
+{
+  "id": "sec-pop-doomsday",
+  "level": "1",
+  "url": "sec-pop-doomsday.html",
+  "type": "Section",
+  "number": "2.1.3",
+  "title": "Doomsday vs Extinction",
+  "body": " Doomsday vs Extinction   In the previous page we solved the logistic equation with and found beautifully predictable behavior: no matter where the population starts, it always levels off at the carrying capacity . Now we ask what happens when . The formula for the general solution looks almost identical, but the behavior is shockingly different, and it depends heavily on the initial condition. Our goal here is not to dwell on the algebra of solving, but to understand what the solutions actually do , because this will motivate everything in the next section.    General Solution (from previous page)  For the equation , the general solution is where is an arbitrary constant, and the solution must be noted separately. When , every solution satisfies      Doomsday vs Extinction   Consider the following situation: the birth rate of a population is proportional to with proportionality constant 2, the death rate is the constant 20, and time is measured in years. Let's solve the ODE and determine the long-term behavior of the solutions.     Setting Up and the General Solution   Using with and : This is with Since the work is almost identical to the previous page, the general solution is where we have used .      Writing the Solution in Terms of   We will find that the initial value makes a huge difference on the long-term behavior, so we will put the previous expression for in terms of . We find:    Putting in terms of (can skim for now)  Plugging into : Substituting back:        Two Initial Conditions   We will examine what happens with the following two initial conditions. Recall that in this ODE, . We will see that the two solutions behave much differently, and it actually comes down to whether is less than or greater than .  Plugging in each initial condition:   :    :         : Extinction   What is when ?       That was the logistic case with . Here , so the exponent in the solution is positive. As , , so the denominator blows up, not the numerator.       Not quite. The numerator is the fixed number 80. As , , so the denominator grows without bound. What happens to a fixed numerator over a growing denominator?       Correct! As , , so the denominator , giving . When , the population goes extinct.     It depends on .   We have already written the solution in terms of , so is already determined. The limit is a specific number.        : Doomsday   Now consider . Notice something strange: the denominator is not always positive. It equals zero when That is a very short time! As (approaching from the left), what happens to ?       Not quite. As , the denominator approaches zero from the positive side. Think about what happens to a positive numerator divided by a denominator that approaches .       That was the logistic behavior for . Here the denominator is heading toward zero, not toward a nonzero number.       Correct! As , the denominator , so . The population explodes to infinity in the finite time years.       The numerator 120 is positive. As long as , the denominator is also positive and approaching . So the quotient goes to , not .        In finite time years, the population explodes to infinity. When applying this to population modelling, the model completely breaks down at . We call this doomsday : a population explosion in finite time.  Let's explore what is happening with these two limits in the graph below. You can change the value and press play to see how the population changes with time. Notice how dramatically different the behavior is, even though the ODE is the same and the initial conditions differ by only a small amount relative to .   Solutions to for different initial populations. Use the slider to set and press Play to watch the solution evolve. When , the population goes extinct. When , the population explodes to infinity in finite time (marked by the vertical dashed line). When , the population stays constant forever.      Summary: Long-Term Behavior of     (the logistic equation): for any . The population always levels off at the carrying capacity.   and : . The population goes extinct .   and : the population reaches in finite time. This is doomsday .   : the population is already at the equilibrium solution and stays there forever.       Doomsday vs extinction (video)    "
+},
+{
+  "id": "obs-general-solution-recap",
+  "level": "2",
+  "url": "sec-pop-doomsday.html#obs-general-solution-recap",
+  "type": "Observation",
+  "number": "2.1.1",
+  "title": "General Solution (from previous page).",
+  "body": " General Solution (from previous page)  For the equation , the general solution is where is an arbitrary constant, and the solution must be noted separately. When , every solution satisfies   "
+},
+{
+  "id": "act-doomsday-extinction",
+  "level": "2",
+  "url": "sec-pop-doomsday.html#act-doomsday-extinction",
+  "type": "Activity",
+  "number": "2.1.1",
+  "title": "Doomsday vs Extinction.",
+  "body": " Doomsday vs Extinction   Consider the following situation: the birth rate of a population is proportional to with proportionality constant 2, the death rate is the constant 20, and time is measured in years. Let's solve the ODE and determine the long-term behavior of the solutions.     Setting Up and the General Solution   Using with and : This is with Since the work is almost identical to the previous page, the general solution is where we have used .      Writing the Solution in Terms of   We will find that the initial value makes a huge difference on the long-term behavior, so we will put the previous expression for in terms of . We find:    Putting in terms of (can skim for now)  Plugging into : Substituting back:        Two Initial Conditions   We will examine what happens with the following two initial conditions. Recall that in this ODE, . We will see that the two solutions behave much differently, and it actually comes down to whether is less than or greater than .  Plugging in each initial condition:   :    :         : Extinction   What is when ?       That was the logistic case with . Here , so the exponent in the solution is positive. As , , so the denominator blows up, not the numerator.       Not quite. The numerator is the fixed number 80. As , , so the denominator grows without bound. What happens to a fixed numerator over a growing denominator?       Correct! As , , so the denominator , giving . When , the population goes extinct.     It depends on .   We have already written the solution in terms of , so is already determined. The limit is a specific number.        : Doomsday   Now consider . Notice something strange: the denominator is not always positive. It equals zero when That is a very short time! As (approaching from the left), what happens to ?       Not quite. As , the denominator approaches zero from the positive side. Think about what happens to a positive numerator divided by a denominator that approaches .       That was the logistic behavior for . Here the denominator is heading toward zero, not toward a nonzero number.       Correct! As , the denominator , so . The population explodes to infinity in the finite time years.       The numerator 120 is positive. As long as , the denominator is also positive and approaching . So the quotient goes to , not .      "
+},
+{
+  "id": "sec-pop-doomsday-5",
+  "level": "2",
+  "url": "sec-pop-doomsday.html#sec-pop-doomsday-5",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "doomsday "
+},
+{
+  "id": "fig-doomsday-extinction",
+  "level": "2",
+  "url": "sec-pop-doomsday.html#fig-doomsday-extinction",
+  "type": "Figure",
+  "number": "2.1.2",
+  "title": "",
+  "body": " Solutions to for different initial populations. Use the slider to set and press Play to watch the solution evolve. When , the population goes extinct. When , the population explodes to infinity in finite time (marked by the vertical dashed line). When , the population stays constant forever.   "
+},
+{
+  "id": "obs-doomsday-extinction-summary",
+  "level": "2",
+  "url": "sec-pop-doomsday.html#obs-doomsday-extinction-summary",
+  "type": "Observation",
+  "number": "2.1.3",
+  "title": "Summary: Long-Term Behavior of <span class=\"process-math\">\\(\\dfrac{dP}{dt} = kP(M-P)\\)<\/span>.",
+  "body": " Summary: Long-Term Behavior of     (the logistic equation): for any . The population always levels off at the carrying capacity.   and : . The population goes extinct .   and : the population reaches in finite time. This is doomsday .   : the population is already at the equilibrium solution and stays there forever.    "
+},
+{
+  "id": "video-pop-doomsday",
+  "level": "2",
+  "url": "sec-pop-doomsday.html#video-pop-doomsday",
+  "type": "Figure",
+  "number": "2.1.4",
+  "title": "",
+  "body": " Doomsday vs extinction (video)   "
+},
+{
+  "id": "exercises-2-1",
+  "level": "1",
+  "url": "exercises-2-1.html",
+  "type": "Exercises",
+  "number": "2.1.4",
+  "title": "Exercises for Section 2.1",
+  "body": " Exercises for Section 2.1   Nothing in these exercises should require solving a differential equation from scratch. The focus is on setting up models and understanding long-term behavior.     Setting Up Population Models   For each of the following, write a differential equation for the population using the principle where is the birth rate per person and is the death rate per person. Do not solve.      The birth rate is the constant 5 and the death rate is proportional to with proportionality constant 2.           The birth rate is proportional to with constant , and the death rate is proportional to with constant , where .           A population has birth rate (decreasing as the population grows) and a constant death rate . Write the ODE and identify it as a logistic equation by writing it in the form . What are and ?     This is logistic with and .       Long-Term Behavior: Logistic Equation ( )   Consider the logistic equation which has carrying capacity . The general solution in terms of the initial population is   The following three parts cover the cases , , and .     Suppose . Write the specific solution and compute . What does this mean for the population?     . As , , so . The population grows and levels off at the carrying capacity.      Suppose . Write the specific solution and compute . What does this mean for the population?     . As , , so . The population decreases and levels off at the carrying capacity.      Suppose . What is for all ?     for all — this is the equilibrium solution.       Long-Term Behavior: Doomsday vs Extinction ( )   Now consider the same equation with : which has threshold . The general solution in terms of is   The following three parts cover the cases , , and . Notice how dramatically different the behavior is compared to Q2, even though the ODE differs only by the sign of .     Suppose . Write the specific solution and compute . What does this mean for the population?     . As , , so . The population goes extinct.      Suppose . Write the specific solution. Find the finite time at which the denominator equals zero, and determine what happens to as . What is this called?     . Denominator zero when . As , . This is doomsday .      Suppose . What is for all ?     for all .       Long-Term Behavior: Newton's Law of Cooling   Recall from that a cake removed from an oven at F and left in a room at F satisfies Newton's law of cooling with specific solution Compute and explain what this means physically.     F. The cake cools to room temperature.     "
+},
+{
+  "id": "ex-2-1-1",
+  "level": "2",
+  "url": "exercises-2-1.html#ex-2-1-1",
+  "type": "Exercise",
+  "number": "2.1.4.1",
+  "title": "Setting Up Population Models.",
+  "body": " Setting Up Population Models   For each of the following, write a differential equation for the population using the principle where is the birth rate per person and is the death rate per person. Do not solve.      The birth rate is the constant 5 and the death rate is proportional to with proportionality constant 2.           The birth rate is proportional to with constant , and the death rate is proportional to with constant , where .           A population has birth rate (decreasing as the population grows) and a constant death rate . Write the ODE and identify it as a logistic equation by writing it in the form . What are and ?     This is logistic with and .    "
+},
+{
+  "id": "ex-2-1-2",
+  "level": "2",
+  "url": "exercises-2-1.html#ex-2-1-2",
+  "type": "Exercise",
+  "number": "2.1.4.2",
+  "title": "Long-Term Behavior: Logistic Equation (<span class=\"process-math\">\\(k \\gt 0\\)<\/span>).",
+  "body": " Long-Term Behavior: Logistic Equation ( )   Consider the logistic equation which has carrying capacity . The general solution in terms of the initial population is   The following three parts cover the cases , , and .     Suppose . Write the specific solution and compute . What does this mean for the population?     . As , , so . The population grows and levels off at the carrying capacity.      Suppose . Write the specific solution and compute . What does this mean for the population?     . As , , so . The population decreases and levels off at the carrying capacity.      Suppose . What is for all ?     for all — this is the equilibrium solution.    "
+},
+{
+  "id": "ex-2-1-3",
+  "level": "2",
+  "url": "exercises-2-1.html#ex-2-1-3",
+  "type": "Exercise",
+  "number": "2.1.4.3",
+  "title": "Long-Term Behavior: Doomsday vs Extinction (<span class=\"process-math\">\\(k \\lt 0\\)<\/span>).",
+  "body": " Long-Term Behavior: Doomsday vs Extinction ( )   Now consider the same equation with : which has threshold . The general solution in terms of is   The following three parts cover the cases , , and . Notice how dramatically different the behavior is compared to Q2, even though the ODE differs only by the sign of .     Suppose . Write the specific solution and compute . What does this mean for the population?     . As , , so . The population goes extinct.      Suppose . Write the specific solution. Find the finite time at which the denominator equals zero, and determine what happens to as . What is this called?     . Denominator zero when . As , . This is doomsday .      Suppose . What is for all ?     for all .    "
+},
+{
+  "id": "ex-2-1-4",
+  "level": "2",
+  "url": "exercises-2-1.html#ex-2-1-4",
+  "type": "Exercise",
+  "number": "2.1.4.4",
+  "title": "Long-Term Behavior: Newton’s Law of Cooling.",
+  "body": " Long-Term Behavior: Newton's Law of Cooling   Recall from that a cake removed from an oven at F and left in a room at F satisfies Newton's law of cooling with specific solution Compute and explain what this means physically.     F. The cake cools to room temperature.   "
+},
+{
+  "id": "sec-equilibrium-stability",
+  "level": "1",
+  "url": "sec-equilibrium-stability.html",
+  "type": "Section",
+  "number": "2.2.1",
   "title": "Stability of Equilibrium Solutions",
-  "body": " Stability of Equilibrium Solutions  To be added.  "
+  "body": " Stability of Equilibrium Solutions   Recall from that an equilibrium solution is a constant solution , found by setting . In and , we found that both population models had equilibrium solutions at and . But what made those two pages interesting was not the equilibrium solutions themselves, it was what happened to all the other solutions nearby.  In the logistic model , no matter where a solution started (above or below ), it converged to as , as long as . The equilibrium at acted like a magnet. The equilibrium at behaved very differently: solutions that started nearby drifted away from it. We want language to describe this difference.   The figure below shows several solution curves for with different initial values. The equilibrium solutions and are highlighted in green. Note that we include a solution with as well: while a negative population has no physical meaning, it is still a valid solution to the ODE, and it is useful to see how the equation behaves without restricting to a population context.   Solution curves for . The equilibrium solutions and are shown in green. All other solutions converge to as , regardless of the initial value, while solutions near drift away.    We say is stable and is unstable . Here is the precise definition.    Stability of Equilibrium Solutions   Suppose is an equilibrium solution to a differential equation. We say is:   stable : if solutions that start near converge to as .   unstable : if solutions that start near do not converge to .   semi-stable : if solutions on one side of converge to , but solutions on the other side do not.       Now compare this with the model from : . The equilibrium solutions are still and , but the roles are reversed. Solutions that start below decay to zero (extinction), and solutions that start above blow up to infinity in finite time (doomsday). Now is unstable and is stable.   Solution curves for . The equilibrium solutions and are shown in green. Curves starting below decay toward zero. Curves starting above blow up to infinity at a finite doomsday time (marked by vertical dashed lines).    Let's test your understanding of stability in the context of the doomsday\/extinction example from above!    Based on the second graph above, classify the stability of the equilibrium solutions to .     is stable and is unstable.   Correct! Solutions starting near decay toward it, while solutions starting near move away — either to extinction or doomsday depending on which side they start.     is unstable and is stable.   Not quite — that describes the logistic case from the first graph. Look at what happens to solutions that start near in the second graph. Do they converge to 10 or move away from it?     Both and are stable.   Not quite. Look at solutions starting just above — they blow up to infinity rather than returning to 10.     Both and are unstable.   Not quite. Look at solutions starting near — they stay close to and converge toward zero over time.        Video Note  The video below covers the content of this page through approximately the 3:50 mark.    Stability of equilibrium solutions (video)    "
+},
+{
+  "id": "fig-logistic-trajectories",
+  "level": "2",
+  "url": "sec-equilibrium-stability.html#fig-logistic-trajectories",
+  "type": "Figure",
+  "number": "2.2.1",
+  "title": "",
+  "body": " Solution curves for . The equilibrium solutions and are shown in green. All other solutions converge to as , regardless of the initial value, while solutions near drift away.   "
+},
+{
+  "id": "sec-equilibrium-stability-6",
+  "level": "2",
+  "url": "sec-equilibrium-stability.html#sec-equilibrium-stability-6",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "stable unstable "
+},
+{
+  "id": "def-stability",
+  "level": "2",
+  "url": "sec-equilibrium-stability.html#def-stability",
+  "type": "Definition",
+  "number": "2.2.2",
+  "title": "Stability of Equilibrium Solutions.",
+  "body": " Stability of Equilibrium Solutions   Suppose is an equilibrium solution to a differential equation. We say is:   stable : if solutions that start near converge to as .   unstable : if solutions that start near do not converge to .   semi-stable : if solutions on one side of converge to , but solutions on the other side do not.     "
+},
+{
+  "id": "fig-doomsday-trajectories",
+  "level": "2",
+  "url": "sec-equilibrium-stability.html#fig-doomsday-trajectories",
+  "type": "Figure",
+  "number": "2.2.3",
+  "title": "",
+  "body": " Solution curves for . The equilibrium solutions and are shown in green. Curves starting below decay toward zero. Curves starting above blow up to infinity at a finite doomsday time (marked by vertical dashed lines).   "
+},
+{
+  "id": "ex-mc-doomsday-stability",
+  "level": "2",
+  "url": "sec-equilibrium-stability.html#ex-mc-doomsday-stability",
+  "type": "Checkpoint",
+  "number": "2.2.4",
+  "title": "",
+  "body": "  Based on the second graph above, classify the stability of the equilibrium solutions to .     is stable and is unstable.   Correct! Solutions starting near decay toward it, while solutions starting near move away — either to extinction or doomsday depending on which side they start.     is unstable and is stable.   Not quite — that describes the logistic case from the first graph. Look at what happens to solutions that start near in the second graph. Do they converge to 10 or move away from it?     Both and are stable.   Not quite. Look at solutions starting just above — they blow up to infinity rather than returning to 10.     Both and are unstable.   Not quite. Look at solutions starting near — they stay close to and converge toward zero over time.     "
+},
+{
+  "id": "rem-stability-video",
+  "level": "2",
+  "url": "sec-equilibrium-stability.html#rem-stability-video",
+  "type": "Remark",
+  "number": "2.2.5",
+  "title": "Video Note.",
+  "body": " Video Note  The video below covers the content of this page through approximately the 3:50 mark.  "
+},
+{
+  "id": "video-equilibrium-stability",
+  "level": "2",
+  "url": "sec-equilibrium-stability.html#video-equilibrium-stability",
+  "type": "Figure",
+  "number": "2.2.6",
+  "title": "",
+  "body": " Stability of equilibrium solutions (video)   "
+},
+{
+  "id": "sec-autonomous-odes",
+  "level": "1",
+  "url": "sec-autonomous-odes.html",
+  "type": "Section",
+  "number": "2.2.2",
+  "title": "Autonomous Differential Equations",
+  "body": " Autonomous Differential Equations   Look back at the two population models we have been working with: and . Notice that in both cases, the right-hand side only involves , and there is no anywhere. When the rate of change depends only on the current state and not on time itself, the long-term behavior of solutions is much more predictable and structured. We refer to such equations as autonomous ODEs .    Autonomous First-Order Differential Equation   A first-order autonomous differential equation is one of the form where the right-hand side depends only on and not explicitly on .    For example, and are both autonomous, since the right-hand side involves only . On the other hand, is not autonomous, since appears explicitly on the right-hand side.     Select all of the following that are first-order autonomous differential equations.       Correct! The right-hand side depends only on .       Correct! The right-hand side depends only on .       Correct! Even though is a complicated function, it depends only on , not on .       Not autonomous. The right-hand side involves explicitly, so this does not fit the form .       Equilibrium Solutions to Autonomous DEs  The equilibrium solutions to occur when .   For example, the equilibrium solutions to are found by solving , giving and .   Why this is true  An equilibrium solution is a constant function . Since is constant, . Plugging into the ODE gives so must be a zero of . Conversely, if then satisfies the ODE since both sides equal zero.     Find all equilibrium solutions to .     and   Not quite. Set and solve. Remember only when .       Correct! Setting gives as the only equilibrium solution.       Not quite. Plug into : you get , so is not an equilibrium.     There are no equilibrium solutions.   Not quite. Set and solve for .       We are going to make heavy use of the following theorem as we study stability. We will not prove it here, but it gives us a much fuller picture of how solutions to autonomous equations behave and why our stability analysis works the way it does.   Existence and Uniqueness for First-Order Autonomous DEs   Suppose we are solving where and are continuous. Then given any initial value :  A solution exists.  The solution is unique.  Solutions do not intersect.        Properties to Note  The fact that solutions do not intersect has some powerful consequences.  If is an equilibrium solution, then the only solution with is the equilibrium itself. No other solution can pass through a point on an equilibrium.  If a solution is initially increasing (or decreasing), it stays increasing (or decreasing) for all time. It cannot change direction without crossing another solution, which is impossible.  Together these facts mean that non-equilibrium solutions are permanently trapped between equilibrium solutions, and must either converge to one or escape to infinity. This is exactly what makes phase diagrams so useful, as we will see on the next page.   "
+},
+{
+  "id": "def-autonomous-ode",
+  "level": "2",
+  "url": "sec-autonomous-odes.html#def-autonomous-ode",
+  "type": "Definition",
+  "number": "2.2.1",
+  "title": "Autonomous First-Order Differential Equation.",
+  "body": " Autonomous First-Order Differential Equation   A first-order autonomous differential equation is one of the form where the right-hand side depends only on and not explicitly on .   "
+},
+{
+  "id": "ex-mc-autonomous",
+  "level": "2",
+  "url": "sec-autonomous-odes.html#ex-mc-autonomous",
+  "type": "Checkpoint",
+  "number": "2.2.2",
+  "title": "",
+  "body": "  Select all of the following that are first-order autonomous differential equations.       Correct! The right-hand side depends only on .       Correct! The right-hand side depends only on .       Correct! Even though is a complicated function, it depends only on , not on .       Not autonomous. The right-hand side involves explicitly, so this does not fit the form .     "
+},
+{
+  "id": "obs-equilibrium-autonomous",
+  "level": "2",
+  "url": "sec-autonomous-odes.html#obs-equilibrium-autonomous",
+  "type": "Observation",
+  "number": "2.2.3",
+  "title": "Equilibrium Solutions to Autonomous DEs.",
+  "body": " Equilibrium Solutions to Autonomous DEs  The equilibrium solutions to occur when .  "
+},
+{
+  "id": "ex-mc-equilibrium-autonomous",
+  "level": "2",
+  "url": "sec-autonomous-odes.html#ex-mc-equilibrium-autonomous",
+  "type": "Checkpoint",
+  "number": "2.2.4",
+  "title": "",
+  "body": "  Find all equilibrium solutions to .     and   Not quite. Set and solve. Remember only when .       Correct! Setting gives as the only equilibrium solution.       Not quite. Plug into : you get , so is not an equilibrium.     There are no equilibrium solutions.   Not quite. Set and solve for .     "
+},
+{
+  "id": "thm-existence-uniqueness",
+  "level": "2",
+  "url": "sec-autonomous-odes.html#thm-existence-uniqueness",
+  "type": "Theorem",
+  "number": "2.2.5",
+  "title": "Existence and Uniqueness for First-Order Autonomous DEs.",
+  "body": " Existence and Uniqueness for First-Order Autonomous DEs   Suppose we are solving where and are continuous. Then given any initial value :  A solution exists.  The solution is unique.  Solutions do not intersect.     "
+},
+{
+  "id": "obs-uniqueness-consequences",
+  "level": "2",
+  "url": "sec-autonomous-odes.html#obs-uniqueness-consequences",
+  "type": "Observation",
+  "number": "2.2.6",
+  "title": "Properties to Note.",
+  "body": " Properties to Note  The fact that solutions do not intersect has some powerful consequences.  If is an equilibrium solution, then the only solution with is the equilibrium itself. No other solution can pass through a point on an equilibrium.  If a solution is initially increasing (or decreasing), it stays increasing (or decreasing) for all time. It cannot change direction without crossing another solution, which is impossible.  Together these facts mean that non-equilibrium solutions are permanently trapped between equilibrium solutions, and must either converge to one or escape to infinity. This is exactly what makes phase diagrams so useful, as we will see on the next page.  "
+},
+{
+  "id": "sec-phase-diagrams",
+  "level": "1",
+  "url": "sec-phase-diagrams.html",
+  "type": "Section",
+  "number": "2.2.3",
+  "title": "Analyzing Stability with Phase Diagrams",
+  "body": " Analyzing Stability with Phase Diagrams   We now develop a tool for classifying the stability of equilibrium solutions without having to solve the ODE explicitly. Some of what we say here will be justified more carefully in the next section — for now, let's build intuition through an example.   Consider , which has equilibrium solutions and . These two equilibria divide the -axis into three regions.  The figure below shows the solution curves with each region labeled. Notice that solutions starting in a region stay in that region — they get trapped between the equilibrium solutions and can only increase or decrease monotonically. We will justify this precisely in the next section.   Solution curves for with the sign of labeled in each region. Equilibrium solutions and are shown in green.    In each region, the sign of tells us whether solutions are increasing or decreasing.  We can capture all of this information in a compact diagram called a phase diagram . We draw the -axis, mark the equilibrium solutions as points, and draw arrows pointing right where (solutions increasing) and arrows pointing left where (solutions decreasing).   Phase diagram for . Arrows point right where and left where . Since arrows on both sides of point toward it, is stable. Since arrows on both sides of point away from it, is unstable.    From the directions of the arrows, we can read off the stability directly. At : arrows on both sides point toward it — solutions approaching from below are increasing toward 10, and solutions above are decreasing toward 10. So is stable . At : the arrow to the left points away, and the arrow to the right also points away (solutions between 0 and 10 increase, moving away from 0). So is unstable .      Phase Diagram for   Let's work through the phase diagram method step by step for .    Step 1: Find the equilibrium solutions   The equilibrium solutions are and .    Work  Set . Then or , giving and .     Step 2: Determine the sign of in each region   The equilibria divide the -axis into three regions. The sign of in each:   : (solutions increasing).   : (solutions decreasing).   : (solutions increasing).      Sign analysis  Pick a test value in each region and evaluate :   : .   : .   : .  Or use sign analysis: has factors and . The signs flip at and .     Step 3: Draw the phase diagram   Based on the sign analysis above, here is the phase diagram for :   Phase diagram for .       Step 4: Determine stability   From the phase diagram: is stable and is unstable .    Reading stability from the arrows  At : the arrow to the left points right (toward 0), and the arrow to the right points left (toward 0). Both arrows converge toward , so it is stable.  At : the arrow to the left points left (away from 10), and the arrow to the right points right (away from 10). Both arrows diverge away from , so it is unstable.       Phase Diagram for   Now let's try an example with a twist.    Step 1: Find the equilibrium solutions   The only equilibrium solution is .    Work  Set , giving as the only solution.     Step 2: Determine the sign of in each region   The equilibrium divides the -axis into two regions. The sign of in each:   : (solutions increasing).   : (solutions increasing).      Sign analysis  Since for all , the derivative is always non-negative. It equals zero only at . So solutions are increasing on both sides of the equilibrium.     Step 3: Draw the phase diagram   Based on the sign analysis, here is the phase diagram for :   Phase diagram for .       Step 4: Determine stability   What is the stability of ?     Stable   Not quite. Look at the arrows on both sides of in the phase diagram. Solutions below are increasing toward it, but what about solutions above?     Unstable   Not quite. Solutions below are increasing and do converge toward it — so it is not fully unstable either.     Semi-stable   Correct! Both arrows point right. Solutions starting below increase toward it (converging), but solutions starting above also increase — moving away from it (diverging). One side converges, the other diverges, so is semi-stable.         This video goes through the content of this page.    "
+},
+{
+  "id": "fig-phase-intro",
+  "level": "2",
+  "url": "sec-phase-diagrams.html#fig-phase-intro",
+  "type": "Figure",
+  "number": "2.2.1",
+  "title": "",
+  "body": " Solution curves for with the sign of labeled in each region. Equilibrium solutions and are shown in green.   "
+},
+{
+  "id": "sec-phase-diagrams-7",
+  "level": "2",
+  "url": "sec-phase-diagrams.html#sec-phase-diagrams-7",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "phase diagram "
+},
+{
+  "id": "fig-phase-diagram-1a",
+  "level": "2",
+  "url": "sec-phase-diagrams.html#fig-phase-diagram-1a",
+  "type": "Figure",
+  "number": "2.2.2",
+  "title": "",
+  "body": " Phase diagram for . Arrows point right where and left where . Since arrows on both sides of point toward it, is stable. Since arrows on both sides of point away from it, is unstable.   "
+},
+{
+  "id": "sec-phase-diagrams-9",
+  "level": "2",
+  "url": "sec-phase-diagrams.html#sec-phase-diagrams-9",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "stable unstable "
+},
+{
+  "id": "act-phase-diagram-1",
+  "level": "2",
+  "url": "sec-phase-diagrams.html#act-phase-diagram-1",
+  "type": "Activity",
+  "number": "2.2.1",
+  "title": "Phase Diagram for <span class=\"process-math\">\\(\\dfrac{dP}{dt} = 2P(P-10)\\)<\/span>.",
+  "body": " Phase Diagram for   Let's work through the phase diagram method step by step for .    Step 1: Find the equilibrium solutions   The equilibrium solutions are and .    Work  Set . Then or , giving and .     Step 2: Determine the sign of in each region   The equilibria divide the -axis into three regions. The sign of in each:   : (solutions increasing).   : (solutions decreasing).   : (solutions increasing).      Sign analysis  Pick a test value in each region and evaluate :   : .   : .   : .  Or use sign analysis: has factors and . The signs flip at and .     Step 3: Draw the phase diagram   Based on the sign analysis above, here is the phase diagram for :   Phase diagram for .       Step 4: Determine stability   From the phase diagram: is stable and is unstable .    Reading stability from the arrows  At : the arrow to the left points right (toward 0), and the arrow to the right points left (toward 0). Both arrows converge toward , so it is stable.  At : the arrow to the left points left (away from 10), and the arrow to the right points right (away from 10). Both arrows diverge away from , so it is unstable.    "
+},
+{
+  "id": "act-phase-diagram-2",
+  "level": "2",
+  "url": "sec-phase-diagrams.html#act-phase-diagram-2",
+  "type": "Activity",
+  "number": "2.2.2",
+  "title": "Phase Diagram for <span class=\"process-math\">\\(\\dfrac{dy}{dx} = (y-2)^2\\)<\/span>.",
+  "body": " Phase Diagram for   Now let's try an example with a twist.    Step 1: Find the equilibrium solutions   The only equilibrium solution is .    Work  Set , giving as the only solution.     Step 2: Determine the sign of in each region   The equilibrium divides the -axis into two regions. The sign of in each:   : (solutions increasing).   : (solutions increasing).      Sign analysis  Since for all , the derivative is always non-negative. It equals zero only at . So solutions are increasing on both sides of the equilibrium.     Step 3: Draw the phase diagram   Based on the sign analysis, here is the phase diagram for :   Phase diagram for .       Step 4: Determine stability   What is the stability of ?     Stable   Not quite. Look at the arrows on both sides of in the phase diagram. Solutions below are increasing toward it, but what about solutions above?     Unstable   Not quite. Solutions below are increasing and do converge toward it — so it is not fully unstable either.     Semi-stable   Correct! Both arrows point right. Solutions starting below increase toward it (converging), but solutions starting above also increase — moving away from it (diverging). One side converges, the other diverges, so is semi-stable.      "
+},
+{
+  "id": "video-phase-diagrams",
+  "level": "2",
+  "url": "sec-phase-diagrams.html#video-phase-diagrams",
+  "type": "Figure",
+  "number": "2.2.5",
+  "title": "",
+  "body": " This video goes through the content of this page.   "
+},
+{
+  "id": "sec-existence-uniqueness",
+  "level": "1",
+  "url": "sec-existence-uniqueness.html",
+  "type": "Section",
+  "number": "2.2.4",
+  "title": "Consequences of Existence and Uniqueness",
+  "body": " Consequences of Existence and Uniqueness  The phase diagram method we developed on the previous page is powerful, but you might be wondering why it actually works. Why does the sign of tell us the long-term behavior of solutions? Why can't a solution just jump from one region to another? The answer comes from a fundamental theorem about autonomous differential equations. We aren't going to dwell on the theorem itself, but we need to understand how its consequences give us a much cleaner picture of the behavior of solutions and why our stability analysis is reliable.   Existence and Uniqueness for First-Order Autonomous DEs   Suppose we are solving the first-order autonomous DE , where and are continuous. Then given any initial value :  A solution exists.  The solution is unique.  Solutions do not intersect.       Optional: full technical statement  The theorem above is somewhat simplified. The full statement is: suppose and are continuous on some open region of the -plane containing the point . Then there exists an interval for some on which a unique solution to with exists. Since our equation is autonomous (no on the right-hand side), we can take without loss of generality.   The video below walks through the reasoning behind each of the consequences listed here. We will not write out all the reasoning in the notes — what matters most is understanding and applying the results, which we do on this page immediately after the video.   This video explains how the theorem implies the consequences below, which is not contained in the notes.     Consequences of Existence and Uniqueness  In a first-order autonomous ODE , the following apply to continuous solutions :   A solution that starts at an equilibrium value stays there. If is an equilibrium solution, then the only solution with is itself. No other solution can pass through a point on an equilibrium.   Solutions grow or decrease forever. Since the sign of is constant within each zone between equilibria, and solutions cannot intersect one another, a solution that starts out increasing stays increasing for its entire interval of existence, and similarly for decreasing solutions.   Solutions are trapped between equilibria. Because solutions are continuous and cannot cross an equilibrium (by consequence 1), a solution that starts between two adjacent equilibria stays between them for its entire interval of existence.   Convergence to stable equilibria. A solution that is increasing and trapped below an equilibrium (with no other equilibrium between them) must converge to as . Similarly, a decreasing solution trapped above an equilibrium must converge to it.     These consequences show that the phase diagram is useful for determining the long-term behavior of solutions. For example, in consequence 2, we see that determining whether a continuous solution is growing or decreasing forever is determined purely by which region falls in. For : if or , then grows forever. If , then decreases forever.   Long-term behavior of solutions to based on initial value.    We can also read stability directly from the phase diagram, which relates to consequence 4. If arrows on both sides of an equilibrium point toward it, the equilibrium is stable, meaning nearby solutions converge to it. If arrows on both sides point away, it is unstable. For this example, is stable and is unstable.   Stability of equilibrium solutions to read from the phase diagram.     A Note on \"Growing Forever\" and the Doomsday Case  When we say a solution \"grows forever,\" the doomsday example from deserves a careful look. In that example, the solution with starts above the upper equilibrium and is increasing. The solution remains continuous and stays above on its entire interval of existence , and it blows up to infinity as . So it does grow forever, but only up to time , and the model breaks down at doomsday.  For , if we allow discontinuous solutions, the formula continues to give values, but the solution jumps from to large negative values at , which is physically meaningless for a population and not a continuous solution. In particular, it is not accurate to say as .  In the stability analysis that follows, we will classify solutions starting above an upper non-stable equilibrium as \"growing forever\" without distinguishing the finite-time blowup case from true growth to infinity. The phase diagram correctly captures the direction of this behavior either way.   Before we move onto more complicated examples, let's make sure we understand how deduce some behavior from a phase diagram. Consider the phase diagram below for a population model .   Phase diagram for a population model with equilibria at and .      In the phase diagram above: for which values of does the solution grow forever?       Not quite. Check the arrow directions in those regions — do they point right (increasing) or left (decreasing)?       Correct! In the region , the arrow points right, so solutions are increasing and grow forever. By consequence 4, since the solution is trapped below and increasing, it converges to . So it grows forever, just not without bound.       Not quite. Look at what happens for — the arrow points left, meaning solutions are decreasing there.     No solution grows forever.   Not quite. Look at the arrow in the middle region — it points right, meaning solutions there are increasing for their entire interval of existence.      Notice that in this case, grows forever but not without bound. It converges to the stable equilibrium while it increases for all . This is different from the doomsday case, where solutions grow forever and blow up to infinity in finite time.  "
+},
+{
+  "id": "thm-existence-uniqueness-autonomous",
+  "level": "2",
+  "url": "sec-existence-uniqueness.html#thm-existence-uniqueness-autonomous",
+  "type": "Theorem",
+  "number": "2.2.1",
+  "title": "Existence and Uniqueness for First-Order Autonomous DEs.",
+  "body": " Existence and Uniqueness for First-Order Autonomous DEs   Suppose we are solving the first-order autonomous DE , where and are continuous. Then given any initial value :  A solution exists.  The solution is unique.  Solutions do not intersect.     "
+},
+{
+  "id": "video-existence-uniqueness",
+  "level": "2",
+  "url": "sec-existence-uniqueness.html#video-existence-uniqueness",
+  "type": "Figure",
+  "number": "2.2.2",
+  "title": "",
+  "body": " This video explains how the theorem implies the consequences below, which is not contained in the notes.   "
+},
+{
+  "id": "obs-eu-consequences",
+  "level": "2",
+  "url": "sec-existence-uniqueness.html#obs-eu-consequences",
+  "type": "Observation",
+  "number": "2.2.3",
+  "title": "Consequences of Existence and Uniqueness.",
+  "body": " Consequences of Existence and Uniqueness  In a first-order autonomous ODE , the following apply to continuous solutions :   A solution that starts at an equilibrium value stays there. If is an equilibrium solution, then the only solution with is itself. No other solution can pass through a point on an equilibrium.   Solutions grow or decrease forever. Since the sign of is constant within each zone between equilibria, and solutions cannot intersect one another, a solution that starts out increasing stays increasing for its entire interval of existence, and similarly for decreasing solutions.   Solutions are trapped between equilibria. Because solutions are continuous and cannot cross an equilibrium (by consequence 1), a solution that starts between two adjacent equilibria stays between them for its entire interval of existence.   Convergence to stable equilibria. A solution that is increasing and trapped below an equilibrium (with no other equilibrium between them) must converge to as . Similarly, a decreasing solution trapped above an equilibrium must converge to it.    "
+},
+{
+  "id": "fig-phase-grows",
+  "level": "2",
+  "url": "sec-existence-uniqueness.html#fig-phase-grows",
+  "type": "Figure",
+  "number": "2.2.4",
+  "title": "",
+  "body": " Long-term behavior of solutions to based on initial value.   "
+},
+{
+  "id": "fig-phase-stability",
+  "level": "2",
+  "url": "sec-existence-uniqueness.html#fig-phase-stability",
+  "type": "Figure",
+  "number": "2.2.5",
+  "title": "",
+  "body": " Stability of equilibrium solutions to read from the phase diagram.   "
+},
+{
+  "id": "rem-doomsday-continuity",
+  "level": "2",
+  "url": "sec-existence-uniqueness.html#rem-doomsday-continuity",
+  "type": "Remark",
+  "number": "2.2.6",
+  "title": "A Note on \"Growing Forever\" and the Doomsday Case.",
+  "body": " A Note on \"Growing Forever\" and the Doomsday Case  When we say a solution \"grows forever,\" the doomsday example from deserves a careful look. In that example, the solution with starts above the upper equilibrium and is increasing. The solution remains continuous and stays above on its entire interval of existence , and it blows up to infinity as . So it does grow forever, but only up to time , and the model breaks down at doomsday.  For , if we allow discontinuous solutions, the formula continues to give values, but the solution jumps from to large negative values at , which is physically meaningless for a population and not a continuous solution. In particular, it is not accurate to say as .  In the stability analysis that follows, we will classify solutions starting above an upper non-stable equilibrium as \"growing forever\" without distinguishing the finite-time blowup case from true growth to infinity. The phase diagram correctly captures the direction of this behavior either way.  "
+},
+{
+  "id": "fig-phase-mc",
+  "level": "2",
+  "url": "sec-existence-uniqueness.html#fig-phase-mc",
+  "type": "Figure",
+  "number": "2.2.7",
+  "title": "",
+  "body": " Phase diagram for a population model with equilibria at and .   "
+},
+{
+  "id": "ex-mc-grows-forever",
+  "level": "2",
+  "url": "sec-existence-uniqueness.html#ex-mc-grows-forever",
+  "type": "Checkpoint",
+  "number": "2.2.8",
+  "title": "",
+  "body": "  In the phase diagram above: for which values of does the solution grow forever?       Not quite. Check the arrow directions in those regions — do they point right (increasing) or left (decreasing)?       Correct! In the region , the arrow points right, so solutions are increasing and grow forever. By consequence 4, since the solution is trapped below and increasing, it converges to . So it grows forever, just not without bound.       Not quite. Look at what happens for — the arrow points left, meaning solutions are decreasing there.     No solution grows forever.   Not quite. Look at the arrow in the middle region — it points right, meaning solutions there are increasing for their entire interval of existence.     "
+},
+{
+  "id": "sec-phase-applications",
+  "level": "1",
+  "url": "sec-phase-applications.html",
+  "type": "Section",
+  "number": "2.2.5",
+  "title": "Applying Phase Diagrams to Population Models",
+  "body": " Applying Phase Diagrams to Population Models   We now apply the phase diagram method to answer real questions about population models. The key question we focus on is: for which initial values does a population grow forever?    Example 1   Suppose a population is modelled by Find all values of for which the population grows forever.    Step 1: Find the equilibrium solutions   Find all equilibrium solutions to .    Solution  Set , giving and .     Step 2: Draw the phase diagram   Determine the sign of in each region and draw the phase diagram.    Solution  Test a value in each region:  : , so arrow points right.  : , so arrow points left.  : , so arrow points right.     Phase diagram for . Equilibria at and . Arrows point right for and , and left for .       Step 3: Determine which give growth forever   Using the phase diagram, for which values of does grow forever?       Correct! Both regions have rightward arrows, so solutions starting there are increasing and grow forever.       Not quite. In this region the arrow points left, so solutions are decreasing, not growing.       Close, but the left region should include all , not just . Solutions starting at negative values of also have rightward arrows.     only   Not quite. Check the arrow direction for as well — it also points right, so solutions there are also growing.         Example 2   Suppose a population is modelled by Find all values of for which the population grows forever.    Step 1: Find the equilibrium solutions   Find all equilibrium solutions to .    Solution  Set , giving and .     Step 2: Draw the phase diagram   Determine the sign of in each region and draw the phase diagram.    Solution  Test a value in each region:  : , so arrow points left.  : , so arrow points right.  : , so arrow points left.     Phase diagram for . Equilibria at and . Arrows point left for and , and right for .       Step 3: Determine which give growth forever   Using the phase diagram, for which values of does grow forever?       Correct! This is the only region with a rightward arrow, so solutions starting there are increasing and grow forever.  By the way, is a stable equilibrium above, so the solution is trapped below it and converges to , but is increasing for all of time.       Not quite. In both of these regions the arrow points left, so solutions are decreasing, not growing.     only   Not quite. Check the arrow direction for — it points left, so solutions there are actually decreasing.       Close, but check the arrow direction for — it points left, so solutions starting above are decreasing, not growing.         This video goes through the content of this page.    "
+},
+{
+  "id": "act-phase-app-1",
+  "level": "2",
+  "url": "sec-phase-applications.html#act-phase-app-1",
+  "type": "Activity",
+  "number": "2.2.1",
+  "title": "Example 1.",
+  "body": " Example 1   Suppose a population is modelled by Find all values of for which the population grows forever.    Step 1: Find the equilibrium solutions   Find all equilibrium solutions to .    Solution  Set , giving and .     Step 2: Draw the phase diagram   Determine the sign of in each region and draw the phase diagram.    Solution  Test a value in each region:  : , so arrow points right.  : , so arrow points left.  : , so arrow points right.     Phase diagram for . Equilibria at and . Arrows point right for and , and left for .       Step 3: Determine which give growth forever   Using the phase diagram, for which values of does grow forever?       Correct! Both regions have rightward arrows, so solutions starting there are increasing and grow forever.       Not quite. In this region the arrow points left, so solutions are decreasing, not growing.       Close, but the left region should include all , not just . Solutions starting at negative values of also have rightward arrows.     only   Not quite. Check the arrow direction for as well — it also points right, so solutions there are also growing.      "
+},
+{
+  "id": "act-phase-app-2",
+  "level": "2",
+  "url": "sec-phase-applications.html#act-phase-app-2",
+  "type": "Activity",
+  "number": "2.2.2",
+  "title": "Example 2.",
+  "body": " Example 2   Suppose a population is modelled by Find all values of for which the population grows forever.    Step 1: Find the equilibrium solutions   Find all equilibrium solutions to .    Solution  Set , giving and .     Step 2: Draw the phase diagram   Determine the sign of in each region and draw the phase diagram.    Solution  Test a value in each region:  : , so arrow points left.  : , so arrow points right.  : , so arrow points left.     Phase diagram for . Equilibria at and . Arrows point left for and , and right for .       Step 3: Determine which give growth forever   Using the phase diagram, for which values of does grow forever?       Correct! This is the only region with a rightward arrow, so solutions starting there are increasing and grow forever.  By the way, is a stable equilibrium above, so the solution is trapped below it and converges to , but is increasing for all of time.       Not quite. In both of these regions the arrow points left, so solutions are decreasing, not growing.     only   Not quite. Check the arrow direction for — it points left, so solutions there are actually decreasing.       Close, but check the arrow direction for — it points left, so solutions starting above are decreasing, not growing.      "
+},
+{
+  "id": "video-phase-applications",
+  "level": "2",
+  "url": "sec-phase-applications.html#video-phase-applications",
+  "type": "Figure",
+  "number": "2.2.3",
+  "title": "",
+  "body": " This video goes through the content of this page.   "
+},
+{
+  "id": "sec-frog-question",
+  "level": "1",
+  "url": "sec-frog-question.html",
+  "type": "Section",
+  "number": "2.2.6",
+  "title": "Applying Phase Diagrams: The Frog Question",
+  "body": " Applying Phase Diagrams: The Frog Question  We will do a similar example now as the previous page, except now we explore how the behavior of a solution will differ given a change in the initial value. If you are stuck, you can reference the previous page for some guidance!   The Mosquito Population   Suppose the population of mosquitoes in a pond is given by , modelled by the differential equation There are currently 100 mosquitoes in the pond, so . You would like the population to decrease to zero over time.    P(0)=100   Determine whether will decrease to zero when .    First find the equilibrium solutions by setting , then draw the phase diagram. Where does lie?    The equilibrium solutions are and . The phase diagram is:   Phase diagram for . Equilibria at and .    Since , the initial value lies in the region where the arrow points right. By the consequences of existence and uniqueness, is increasing for all time, so the population will not decrease to zero.   Sign analysis (if stuck on the phase diagram)  Test a value in each region:  : , arrow right.  : , arrow left.  : , arrow right.        The magic frog   A man offers a magic frog that can eat 80 mosquitoes instantly, reducing the population to . Will the population now decrease to zero?     Yes the population will decrease to zero.   Correct! With , the initial value falls in the region , where the arrow points left. By the consequences of existence and uniqueness, is decreasing for all time and trapped above the stable equilibrium , so it must converge to as . The frog works!     No, the population will still increase.   Not quite. Check the phase diagram from part 1 again — which direction does the arrow point in the region ?     No, is unstable, so solutions won't converge to it.   Check the arrow directions on both sides of in the phase diagram. Do they point toward it or away from it?     It depends on the value of in the model.   The constant affects the speed of change but not the direction — that is determined entirely by the sign of , which the phase diagram captures. The phase diagram is all we need.       Key Takeaway: Phase Diagrams as a First Step  When analyzing the behavior of solutions to a first-order autonomous ODE, such as whether they are increasing or decreasing, and what they converge to, a good first step is always to find the equilibrium solutions and draw the phase diagram, even if you are not explicitly asked to. All the information you need is in the diagram.  In this example, the phase diagram told us everything:   Part 1:  falls in a zone where the arrow points right, so stays increasing, and so it will not decrease to zero.   Part 2:  falls in a zone where the arrow points left toward the stable equilibrium , so is decreasing and converges to .       This video goes through the content of this page.    "
+},
+{
+  "id": "act-mosquito-stability",
+  "level": "2",
+  "url": "sec-frog-question.html#act-mosquito-stability",
+  "type": "Activity",
+  "number": "2.2.1",
+  "title": "The Mosquito Population.",
+  "body": " The Mosquito Population   Suppose the population of mosquitoes in a pond is given by , modelled by the differential equation There are currently 100 mosquitoes in the pond, so . You would like the population to decrease to zero over time.    P(0)=100   Determine whether will decrease to zero when .    First find the equilibrium solutions by setting , then draw the phase diagram. Where does lie?    The equilibrium solutions are and . The phase diagram is:   Phase diagram for . Equilibria at and .    Since , the initial value lies in the region where the arrow points right. By the consequences of existence and uniqueness, is increasing for all time, so the population will not decrease to zero.   Sign analysis (if stuck on the phase diagram)  Test a value in each region:  : , arrow right.  : , arrow left.  : , arrow right.        The magic frog   A man offers a magic frog that can eat 80 mosquitoes instantly, reducing the population to . Will the population now decrease to zero?     Yes the population will decrease to zero.   Correct! With , the initial value falls in the region , where the arrow points left. By the consequences of existence and uniqueness, is decreasing for all time and trapped above the stable equilibrium , so it must converge to as . The frog works!     No, the population will still increase.   Not quite. Check the phase diagram from part 1 again — which direction does the arrow point in the region ?     No, is unstable, so solutions won't converge to it.   Check the arrow directions on both sides of in the phase diagram. Do they point toward it or away from it?     It depends on the value of in the model.   The constant affects the speed of change but not the direction — that is determined entirely by the sign of , which the phase diagram captures. The phase diagram is all we need.       Key Takeaway: Phase Diagrams as a First Step  When analyzing the behavior of solutions to a first-order autonomous ODE, such as whether they are increasing or decreasing, and what they converge to, a good first step is always to find the equilibrium solutions and draw the phase diagram, even if you are not explicitly asked to. All the information you need is in the diagram.  In this example, the phase diagram told us everything:   Part 1:  falls in a zone where the arrow points right, so stays increasing, and so it will not decrease to zero.   Part 2:  falls in a zone where the arrow points left toward the stable equilibrium , so is decreasing and converges to .     "
+},
+{
+  "id": "video-frog-question",
+  "level": "2",
+  "url": "sec-frog-question.html#video-frog-question",
+  "type": "Figure",
+  "number": "2.2.2",
+  "title": "",
+  "body": " This video goes through the content of this page.   "
+},
+{
+  "id": "exercises-2-2",
+  "level": "1",
+  "url": "exercises-2-2.html",
+  "type": "Exercises",
+  "number": "2.2.7",
+  "title": "Exercises for Section 2.2",
+  "body": " Exercises for Section 2.2   Nothing in these exercises should require solving a differential equation explicitly. When in doubt, draw a phase diagram to get started!     Reading Stability from Solution Curves   The figure below shows solution trajectories for a first-order autonomous ODE . The equilibrium solutions are shown as bold green horizontal lines. Blue curves show non-equilibrium solution trajectories.   Solution trajectories for an autonomous ODE with equilibria at , , and .       Identify the equilibrium solutions and classify the stability of each.     : stable. : unstable. : semi-stable.      Draw the phase diagram consistent with the solution curves above.    Arrows: left for , left for , right for , left for .       Phase Diagrams and Stability    Consider the autonomous differential equation Find all equilibrium solutions, draw the phase diagram, and classify the stability of each equilibrium.    Equilibria: (unstable), (stable).      Now consider Find all equilibrium solutions, draw the phase diagram, and classify the stability of each equilibrium.    Equilibria: (stable), (semi-stable).       Deer Population   A deer population in a wildlife reserve is modelled by where is the population (in hundreds) at time (in years).     Draw the phase diagram. Then determine whether is increasing or decreasing, and what converges to as , for each of:        Equilibria: , , . : decreasing, converges to . : increasing, converges to .      For which initial values is an increasing function?     .       The Fish Population   A fish population in a lake is modelled by where is the population (in thousands) at time (in years). There are currently 200 thousand fish in the lake, so . A fishery manager would like the population to decrease to zero over time.     Using a phase diagram, determine whether the population will decrease to zero when .    No. Since , the population is increasing and will not decrease to zero.      A fishing crew can remove any number of fish instantly. What is the minimum number of fish (in thousands) they must remove to guarantee the population will eventually decrease to zero? Justify your answer using the phase diagram.    More than 150 thousand fish must be removed, bringing the population strictly below .       Rabbit Population with Variable Carrying Capacity   A wildlife reserve manages a rabbit population modelled by where is the population (in hundreds) at time , and is the carrying capacity, which the reserve can control by adjusting the amount of food and vegetation available. Currently hundred rabbits.     For which values of will the rabbit population be increasing?    Find the equilibrium solutions in terms of and draw the phase diagram. Then consider where falls relative to the equilibria, which this depends on whether is greater than, equal to, or less than 8.     .       A Semi-Stable Population   A bacteria colony in a lab is modelled by where is the population (in millions) at time (in hours).     Find all equilibrium solutions, draw the phase diagram, and classify the stability of each equilibrium.    Equilibria: (semi-stable), (unstable).      The colony currently has million bacteria. A scientist can instantly reduce the colony size by adding an antibiotic.  If the antibiotic reduces the population to , what happens to the colony in the long run?  If the antibiotic reduces the population to , what happens to the colony in the long run?  What is significant about the equilibrium at in this context?         : falls in , arrow left so is decreasing and converges to the semi-stable equilibrium . The colony shrinks but does not die out.   : falls in , arrow left so is decreasing and moves away from , heading toward . The colony dies out.  The semi-stable equilibrium at acts as a threshold: reducing the population to below 4 million guarantees extinction, but reducing it to above 4 million only shrinks the colony to 4 million — it survives. The antibiotic must be strong enough to push the population strictly below this threshold to eliminate the colony entirely.        "
+},
+{
+  "id": "ex-2-2-1",
+  "level": "2",
+  "url": "exercises-2-2.html#ex-2-2-1",
+  "type": "Exercise",
+  "number": "2.2.7.1",
+  "title": "Reading Stability from Solution Curves.",
+  "body": " Reading Stability from Solution Curves   The figure below shows solution trajectories for a first-order autonomous ODE . The equilibrium solutions are shown as bold green horizontal lines. Blue curves show non-equilibrium solution trajectories.   Solution trajectories for an autonomous ODE with equilibria at , , and .       Identify the equilibrium solutions and classify the stability of each.     : stable. : unstable. : semi-stable.      Draw the phase diagram consistent with the solution curves above.    Arrows: left for , left for , right for , left for .    "
+},
+{
+  "id": "ex-2-2-2",
+  "level": "2",
+  "url": "exercises-2-2.html#ex-2-2-2",
+  "type": "Exercise",
+  "number": "2.2.7.2",
+  "title": "Phase Diagrams and Stability.",
+  "body": " Phase Diagrams and Stability    Consider the autonomous differential equation Find all equilibrium solutions, draw the phase diagram, and classify the stability of each equilibrium.    Equilibria: (unstable), (stable).      Now consider Find all equilibrium solutions, draw the phase diagram, and classify the stability of each equilibrium.    Equilibria: (stable), (semi-stable).    "
+},
+{
+  "id": "ex-2-2-3",
+  "level": "2",
+  "url": "exercises-2-2.html#ex-2-2-3",
+  "type": "Exercise",
+  "number": "2.2.7.3",
+  "title": "Deer Population.",
+  "body": " Deer Population   A deer population in a wildlife reserve is modelled by where is the population (in hundreds) at time (in years).     Draw the phase diagram. Then determine whether is increasing or decreasing, and what converges to as , for each of:        Equilibria: , , . : decreasing, converges to . : increasing, converges to .      For which initial values is an increasing function?     .    "
+},
+{
+  "id": "ex-2-2-4",
+  "level": "2",
+  "url": "exercises-2-2.html#ex-2-2-4",
+  "type": "Exercise",
+  "number": "2.2.7.4",
+  "title": "The Fish Population.",
+  "body": " The Fish Population   A fish population in a lake is modelled by where is the population (in thousands) at time (in years). There are currently 200 thousand fish in the lake, so . A fishery manager would like the population to decrease to zero over time.     Using a phase diagram, determine whether the population will decrease to zero when .    No. Since , the population is increasing and will not decrease to zero.      A fishing crew can remove any number of fish instantly. What is the minimum number of fish (in thousands) they must remove to guarantee the population will eventually decrease to zero? Justify your answer using the phase diagram.    More than 150 thousand fish must be removed, bringing the population strictly below .    "
+},
+{
+  "id": "ex-2-2-5",
+  "level": "2",
+  "url": "exercises-2-2.html#ex-2-2-5",
+  "type": "Exercise",
+  "number": "2.2.7.5",
+  "title": "Rabbit Population with Variable Carrying Capacity.",
+  "body": " Rabbit Population with Variable Carrying Capacity   A wildlife reserve manages a rabbit population modelled by where is the population (in hundreds) at time , and is the carrying capacity, which the reserve can control by adjusting the amount of food and vegetation available. Currently hundred rabbits.     For which values of will the rabbit population be increasing?    Find the equilibrium solutions in terms of and draw the phase diagram. Then consider where falls relative to the equilibria, which this depends on whether is greater than, equal to, or less than 8.     .    "
+},
+{
+  "id": "ex-2-2-6",
+  "level": "2",
+  "url": "exercises-2-2.html#ex-2-2-6",
+  "type": "Exercise",
+  "number": "2.2.7.6",
+  "title": "A Semi-Stable Population.",
+  "body": " A Semi-Stable Population   A bacteria colony in a lab is modelled by where is the population (in millions) at time (in hours).     Find all equilibrium solutions, draw the phase diagram, and classify the stability of each equilibrium.    Equilibria: (semi-stable), (unstable).      The colony currently has million bacteria. A scientist can instantly reduce the colony size by adding an antibiotic.  If the antibiotic reduces the population to , what happens to the colony in the long run?  If the antibiotic reduces the population to , what happens to the colony in the long run?  What is significant about the equilibrium at in this context?         : falls in , arrow left so is decreasing and converges to the semi-stable equilibrium . The colony shrinks but does not die out.   : falls in , arrow left so is decreasing and moves away from , heading toward . The colony dies out.  The semi-stable equilibrium at acts as a threshold: reducing the population to below 4 million guarantees extinction, but reducing it to above 4 million only shrinks the colony to 4 million — it survives. The antibiotic must be strong enough to push the population strictly below this threshold to eliminate the colony entirely.      "
 },
 {
   "id": "backmatter-2",

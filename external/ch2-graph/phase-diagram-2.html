@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Phase Diagram: dP/dt = 2P(P-10)</title>
+<style>
+  body { margin: 0; padding: 16px; font-family: serif; background: transparent; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+</style>
+</head>
+<body>
+<svg viewBox="0 0 600 150" width="100%" role="img"
+  aria-label="Phase diagram for dP over dt equals 2P times P minus 10. Arrow pointing right for P less than 0. Arrow pointing left for 0 less than P less than 10. Arrow pointing right for P greater than 10.">
+
+  <!-- Number line -->
+  <line x1="40" y1="95" x2="555" y2="95" stroke="#2c3e50" stroke-width="3"/>
+  <polygon points="558,95 544,88 544,102" fill="#2c3e50"/>
+  <polygon points="37,95 51,88 51,102" fill="#2c3e50"/>
+
+  <!-- Arrow RIGHT for P<0 (dP/dt > 0) -->
+  <line x1="85" y1="95" x2="223" y2="95" stroke="#1a5276" stroke-width="5"/>
+  <polygon points="226,95 210,87 210,103" fill="#1a5276"/>
+
+  <!-- Arrow LEFT for 0<P<10 (dP/dt < 0) -->
+  <line x1="383" y1="95" x2="237" y2="95" stroke="#922b21" stroke-width="5"/>
+  <polygon points="234,95 250,87 250,103" fill="#922b21"/>
+
+  <!-- Arrow RIGHT for P>10 (dP/dt > 0) -->
+  <line x1="397" y1="95" x2="520" y2="95" stroke="#1a5276" stroke-width="5"/>
+  <polygon points="523,95 507,87 507,103" fill="#1a5276"/>
+
+  <!-- Equilibrium dots on top -->
+  <circle cx="230" cy="95" r="8" fill="#1e8449" stroke="white" stroke-width="1.5"/>
+  <circle cx="390" cy="95" r="8" fill="#1e8449" stroke="white" stroke-width="1.5"/>
+
+  <!-- P=0 and P=10 labels -->
+  <text x="230" y="125" text-anchor="middle" font-size="22" font-family="serif" fill="#1e8449" font-weight="bold">0</text>
+  <text x="390" y="125" text-anchor="middle" font-size="22" font-family="serif" fill="#1e8449" font-weight="bold">10</text>
+
+  <!-- Region labels -->
+  <text x="145" y="74" text-anchor="middle" font-size="22" font-family="serif" font-style="italic" fill="#1a5276">dP/dt &gt; 0</text>
+  <text x="310" y="74" text-anchor="middle" font-size="22" font-family="serif" font-style="italic" fill="#922b21">dP/dt &lt; 0</text>
+  <text x="458" y="74" text-anchor="middle" font-size="22" font-family="serif" font-style="italic" fill="#1a5276">dP/dt &gt; 0</text>
+
+  <!-- P axis label -->
+  <text x="570" y="100" font-size="20" font-family="serif" fill="#2c3e50" font-style="italic">P</text>
+</svg>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Phase Diagram: dy/dx = (y-2)^2</title>
+<style>
+  body { margin: 0; padding: 16px; font-family: serif; background: transparent; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+</style>
+</head>
+<body>
+<svg viewBox="0 0 600 150" width="100%" role="img"
+  aria-label="Phase diagram for dy over dx equals y minus 2 squared. Single equilibrium point at y equals 2. Arrow pointing right for y less than 2 and arrow pointing right for y greater than 2, since dy over dx is positive on both sides.">
+
+  <!-- Number line -->
+  <line x1="40" y1="95" x2="555" y2="95" stroke="#2c3e50" stroke-width="3"/>
+  <polygon points="558,95 544,88 544,102" fill="#2c3e50"/>
+  <polygon points="37,95 51,88 51,102" fill="#2c3e50"/>
+
+  <!-- Arrow RIGHT for y<2 (dP/dt > 0) -->
+  <line x1="85" y1="95" x2="303" y2="95" stroke="#1a5276" stroke-width="5"/>
+  <polygon points="306,95 290,87 290,103" fill="#1a5276"/>
+
+  <!-- Arrow RIGHT for y>2 (dP/dt > 0) -->
+  <line x1="317" y1="95" x2="520" y2="95" stroke="#1a5276" stroke-width="5"/>
+  <polygon points="523,95 507,87 507,103" fill="#1a5276"/>
+
+  <!-- Equilibrium dot on top -->
+  <circle cx="310" cy="95" r="8" fill="#1e8449" stroke="white" stroke-width="1.5"/>
+
+  <!-- y=2 label -->
+  <text x="310" y="125" text-anchor="middle" font-size="22" font-family="serif" fill="#1e8449" font-weight="bold">2</text>
+
+  <!-- Region labels -->
+  <text x="185" y="74" text-anchor="middle" font-size="22" font-family="serif" font-style="italic" fill="#1a5276">dy/dx &gt; 0</text>
+  <text x="430" y="74" text-anchor="middle" font-size="22" font-family="serif" font-style="italic" fill="#1a5276">dy/dx &gt; 0</text>
+
+  <!-- y axis label -->
+  <text x="570" y="100" font-size="20" font-family="serif" fill="#2c3e50" font-style="italic">y</text>
+</svg>
+</body>
+</html>

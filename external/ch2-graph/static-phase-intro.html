@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Phase Diagram Intro: dP/dt = 2P(10-P)</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jsxgraph/1.6.0/jsxgraph.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jsxgraph/1.6.0/jsxgraphcore.js"></script>
+<style>
+  body { margin: 0; padding: 6px; font-family: serif; background: transparent; overflow: hidden; }
+  #wrap { position: relative; width: 100%; }
+  #jxgbox { width: 100%; aspect-ratio: 4/3; }
+  .region-label {
+    position: absolute;
+    font-family: serif;
+    font-size: 40px;
+    font-style: italic;
+    font-weight: bold;
+    pointer-events: none;
+  }
+</style>
+</head>
+<body>
+<div id="wrap">
+  <div id="jxgbox" class="jxgbox"
+    role="img"
+    aria-label="Solution curves for dP over dt equals 2P times 10 minus P. Three regions labeled: dP over dt less than 0 for P less than 0, dP over dt greater than 0 for 0 less than P less than 10, and dP over dt less than 0 for P greater than 10. Equilibrium solutions at P equals 0 and P equals 10 in green.">
+  </div>
+  <!-- HTML overlay labels -->
+  <div id="lbl-top" class="region-label" style="color:#922b21;">dP/dt &lt; 0</div>
+  <div id="lbl-mid" class="region-label" style="color:#1e8449;">dP/dt &gt; 0</div>
+  <div id="lbl-bot" class="region-label" style="color:#922b21;">dP/dt &lt; 0</div>
+</div>
+
+<script>
+  var BB = [-0.05, 14, 0.5, -10]; // [xmin, ymax, xmax, ymin]
+
+  var board = JXG.JSXGraph.initBoard('jxgbox', {
+    boundingbox: BB,
+    axis: true,
+    showCopyright: false,
+    showNavigation: false,
+    defaultAxes: {
+      x: { name: 't', withLabel: true, label: { position: 'rt', offset: [-10, 15], fontSize: 14 } },
+      y: { name: 'P', withLabel: true, label: { position: 'rt', offset: [15, 0], fontSize: 14 } }
+    }
+  });
+
+  function sol(P0) {
+    return function(t) {
+      if (P0 === 0) return 0;
+      if (P0 === 10) return 10;
+      var denom = P0 + (10 - P0) * Math.exp(-20 * t);
+      if (Math.abs(denom) < 1e-10) return P0 > 10 ? 999 : -999;
+      return 10 * P0 / denom;
+    };
+  }
+
+  // Equilibrium lines
+  board.create('functiongraph', [sol(10), -0.05, 0.55],
+    { strokeColor: '#1e8449', strokeWidth: 3, highlight: false });
+  board.create('functiongraph', [sol(0), -0.05, 0.55],
+    { strokeColor: '#1e8449', strokeWidth: 3, highlight: false });
+
+  // Trajectories
+  [13, 12, 7, 4, 1, -1, -2, -4].forEach(function(P0) {
+    board.create('functiongraph', [sol(P0), 0, 0.5],
+      { strokeColor: '#1a5276', strokeWidth: 2, highlight: false });
+  });
+
+  // Position HTML labels by converting math coords to pixel coords
+  function positionLabels() {
+    var box = document.getElementById('jxgbox');
+    var W = box.offsetWidth;
+    var H = box.offsetHeight;
+    var xmin = BB[0], ymax = BB[1], xmax = BB[2], ymin = BB[3];
+
+    function toPixel(x, y) {
+      return {
+        left: (x - xmin) / (xmax - xmin) * W,
+        top:  (ymax - y) / (ymax - ymin) * H
+      };
+    }
+
+    // Place labels at t=0.28, in middle of each region
+    var top = toPixel(0.28, 13.5);
+    var mid = toPixel(0.2, 6);
+    var bot = toPixel(0.1, -4);
+
+    var lTop = document.getElementById('lbl-top');
+    var lMid = document.getElementById('lbl-mid');
+    var lBot = document.getElementById('lbl-bot');
+
+    lTop.style.left = top.left + 'px'; lTop.style.top = top.top + 'px';
+    lMid.style.left = mid.left + 'px'; lMid.style.top = mid.top + 'px';
+    lBot.style.left = bot.left + 'px'; lBot.style.top = bot.top + 'px';
+  }
+
+  // Position after board renders
+  setTimeout(positionLabels, 100);
+  window.addEventListener('resize', positionLabels);
+</script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Phase Diagram: grows/decreases forever regions</title>
+<style>
+  body { margin: 0; padding: 16px; font-family: serif; background: transparent; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+</style>
+</head>
+<body>
+<svg viewBox="0 0 600 240" width="100%" role="img"
+  aria-label="Phase diagram for dP over dt equals 2P times P minus 10. P(0) in negative infinity to 0 implies P(t) grows forever. P(0) in 0 to 10 implies P(t) decreases forever. P(0) in 10 to infinity implies P(t) grows forever.">
+
+  <!-- Number line -->
+  <line x1="40" y1="75" x2="555" y2="75" stroke="#2c3e50" stroke-width="3"/>
+  <polygon points="558,75 544,68 544,82" fill="#2c3e50"/>
+  <polygon points="37,75 51,68 51,82" fill="#2c3e50"/>
+
+  <!-- Arrow RIGHT for P<0 -->
+  <line x1="85" y1="75" x2="223" y2="75" stroke="#1a5276" stroke-width="5"/>
+  <polygon points="226,75 210,67 210,83" fill="#1a5276"/>
+
+  <!-- Arrow LEFT for 0<P<10 -->
+  <line x1="383" y1="75" x2="237" y2="75" stroke="#922b21" stroke-width="5"/>
+  <polygon points="234,75 250,67 250,83" fill="#922b21"/>
+
+  <!-- Arrow RIGHT for P>10 -->
+  <line x1="397" y1="75" x2="520" y2="75" stroke="#1a5276" stroke-width="5"/>
+  <polygon points="523,75 507,67 507,83" fill="#1a5276"/>
+
+  <!-- Equilibrium dots -->
+  <circle cx="230" cy="75" r="8" fill="#1e8449" stroke="white" stroke-width="1.5"/>
+  <circle cx="390" cy="75" r="8" fill="#1e8449" stroke="white" stroke-width="1.5"/>
+
+  <!-- P=0 and P=10 labels -->
+  <text x="230" y="100" text-anchor="middle" font-size="22" font-family="serif" fill="#1e8449" font-weight="bold">0</text>
+  <text x="390" y="100" text-anchor="middle" font-size="22" font-family="serif" fill="#1e8449" font-weight="bold">10</text>
+
+  <!-- Region labels -->
+  <text x="145" y="54" text-anchor="middle" font-size="22" font-family="serif" font-style="italic" fill="#1a5276">dP/dt &gt; 0</text>
+  <text x="310" y="54" text-anchor="middle" font-size="22" font-family="serif" font-style="italic" fill="#922b21">dP/dt &lt; 0</text>
+  <text x="458" y="54" text-anchor="middle" font-size="22" font-family="serif" font-style="italic" fill="#1a5276">dP/dt &gt; 0</text>
+
+  <!-- P(0) dots -->
+  <circle cx="130" cy="75" r="7" fill="#b7770d" stroke="white" stroke-width="1.5"/>
+  <circle cx="310" cy="75" r="7" fill="#b7770d" stroke="white" stroke-width="1.5"/>
+  <circle cx="470" cy="75" r="7" fill="#b7770d" stroke="white" stroke-width="1.5"/>
+
+  <!-- Left underbrace: P<0 -->
+  <path d="M 42,118 Q 42,128 85,128 Q 133,128 133,138 Q 133,128 180,128 Q 226,128 226,118"
+    fill="none" stroke="#b7770d" stroke-width="2"/>
+  <text x="134" y="158" text-anchor="middle" font-size="16" font-family="serif" fill="#b7770d">P(0) &#8712; (-&#8734;, 0)</text>
+  <text x="134" y="178" text-anchor="middle" font-size="16" font-family="serif" fill="#b7770d">&#8658; grows forever</text>
+
+  <!-- Middle underbrace: 0<P<10 -->
+  <path d="M 232,118 Q 232,128 270,128 Q 310,128 310,138 Q 310,128 350,128 Q 388,128 388,118"
+    fill="none" stroke="#922b21" stroke-width="2"/>
+  <text x="310" y="158" text-anchor="middle" font-size="16" font-family="serif" fill="#922b21">P(0) &#8712; (0, 10)</text>
+  <text x="310" y="178" text-anchor="middle" font-size="16" font-family="serif" fill="#922b21">&#8658; decreases forever</text>
+
+  <!-- Right underbrace: P>10 -->
+  <path d="M 392,118 Q 392,128 430,128 Q 473,128 473,138 Q 473,128 516,128 Q 554,128 554,118"
+    fill="none" stroke="#b7770d" stroke-width="2"/>
+  <text x="473" y="158" text-anchor="middle" font-size="16" font-family="serif" fill="#b7770d">P(0) &#8712; (10, &#8734;)</text>
+  <text x="473" y="178" text-anchor="middle" font-size="16" font-family="serif" fill="#b7770d">&#8658; grows forever</text>
+
+  <!-- P axis label -->
+  <text x="570" y="80" font-size="20" font-family="serif" fill="#2c3e50" font-style="italic">P</text>
+</svg>
+</body>
+</html>

@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Slope Field and Trajectories: dy/dx = 2y</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jsxgraph/1.6.0/jsxgraph.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jsxgraph/1.6.0/jsxgraphcore.js"></script>
+<style>
+  body { margin: 0; padding: 10px; font-family: serif; background: transparent; overflow: hidden; }
+  #display {
+    text-align: center;
+    font-size: 16px;
+    font-family: serif;
+    margin-bottom: 8px;
+    line-height: 1.8;
+    color: #2c3e50;
+    min-height: 28px;
+  }
+  .val-y0 { color: #922b21; font-weight: bold; }
+  #controls {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 8px;
+  }
+  .control-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    font-size: 15px;
+    font-family: serif;
+    color: #2c3e50;
+  }
+  .control-row label { font-weight: bold; min-width: 60px; text-align: right; }
+  .control-row input[type=range] { width: 180px; accent-color: #922b21; }
+  .control-row span { min-width: 40px; font-weight: bold; color: #922b21; }
+  #btnrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+  }
+  #playbtn {
+    background: #1a5276;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    padding: 7px 24px;
+    font-family: serif;
+    font-size: 14px;
+    cursor: pointer;
+    min-width: 90px;
+  }
+  #playbtn:hover { background: #154360; }
+  #clearbtn {
+    background: transparent;
+    color: #1a5276;
+    border: 1px solid #1a5276;
+    border-radius: 3px;
+    padding: 7px 16px;
+    font-family: serif;
+    font-size: 14px;
+    cursor: pointer;
+  }
+  #clearbtn:hover { background: #eaf0f6; }
+  #jxgbox { width: 100%; aspect-ratio: 3/2; }
+</style>
+</head>
+<body>
+
+<div id="display" role="region" aria-label="Current initial value and solution curve equation">
+  Set <span class="val-y0">y(0)</span> and press Trace to trace a solution curve.
+</div>
+
+<div id="controls">
+  <div class="control-row">
+    <label for="y0slider" style="color:#922b21;">y(0) =</label>
+    <input type="range" id="y0slider" min="-3" max="3" step="0.5" value="1"
+      aria-label="Slider for initial value y(0), ranging from negative 3 to 3">
+    <span id="y0value">1</span>
+  </div>
+  <div id="btnrow">
+    <button id="playbtn" aria-label="Play or pause trajectory animation">&#9654; Trace</button>
+    <button id="clearbtn" aria-label="Clear all traced curves">Clear</button>
+  </div>
+</div>
+
+<div id="jxgbox" class="jxgbox"
+  role="region"
+  aria-label="Dense slope field for dy/dx equals 2y with solution curves traced through it. The slope field shows short segments whose slope equals 2y at each point. Solution curves follow the direction of the segments.">
+</div>
+
+<script>
+  var board = JXG.JSXGraph.initBoard('jxgbox', {
+    boundingbox: [-3.5, 4, 3.5, -4],
+    axis: true,
+    showCopyright: false,
+    showNavigation: false,
+    defaultAxes: {
+      x: { name: 'x', withLabel: true, label: { position: 'rt', offset: [-15, 15], fontSize: 14 } },
+      y: { name: 'y', withLabel: true, label: { position: 'rt', offset: [15, 0], fontSize: 14 } }
+    }
+  });
+
+  var len = 0.22;
+  var xVals = [-3, -2.5, -2, -1.5, -1, -0.5, 0, 0.5, 1, 1.5, 2, 2.5, 3];
+  var yVals = [-3, -2.5, -2, -1.5, -1, -0.5, 0, 0.5, 1, 1.5, 2, 2.5, 3];
+
+  for (var j = 0; j < yVals.length; j++) {
+    for (var i = 0; i < xVals.length; i++) {
+      var x = xVals[i], y = yVals[j];
+      var slope = 2 * y;
+      var angle = Math.atan2(slope, 1);
+      var dx = len * Math.cos(angle);
+      var dy = len * Math.sin(angle);
+      board.create('segment', [
+        [x - dx, y - dy], [x + dx, y + dy]
+      ], { strokeColor: '#1a5276', strokeWidth: 1.2, fixed: true, highlight: false });
+    }
+  }
+
+  var y0 = 1;
+  var traceCurves = [];
+  var animInterval = null;
+  var playing = false;
+  var traceX = -3.5;
+  var tracePoints = [];
+  var traceLine = null;
+
+  function getY0Expr(val) {
+    var absV = Math.abs(val);
+    var s = Number.isInteger(absV) ? absV : absV.toFixed(1);
+    if (val === 0) return 'y = 0';
+    if (val === 1) return 'y = e<sup>2x</sup>';
+    if (val === -1) return 'y = &minus;e<sup>2x</sup>';
+    if (val > 0) return 'y = ' + s + 'e<sup>2x</sup>';
+    return 'y = &minus;' + s + 'e<sup>2x</sup>';
+  }
+
+  function clearTraces() {
+    for (var i = 0; i < traceCurves.length; i++) board.removeObject(traceCurves[i]);
+    traceCurves = [];
+    board.update();
+  }
+
+  function stopAnim() {
+    if (animInterval) { clearInterval(animInterval); animInterval = null; }
+    playing = false;
+    document.getElementById('playbtn').innerHTML = '&#9654; Trace';
+  }
+
+  function startTrace() {
+    stopAnim();
+    traceX = -3.5;
+    tracePoints = [];
+    if (traceLine) { board.removeObject(traceLine); traceLine = null; }
+
+    playing = true;
+    document.getElementById('playbtn').innerHTML = '&#9646;&#9646; Pause';
+
+    var C = y0;
+    var step = 0.05;
+
+    animInterval = setInterval(function() {
+      if (traceX > 3.5) {
+        stopAnim();
+        if (tracePoints.length > 1) {
+          traceLine = board.create('curve', [
+            tracePoints.map(function(p) { return p[0]; }),
+            tracePoints.map(function(p) { return p[1]; })
+          ], { strokeColor: '#922b21', strokeWidth: 2.5, fixed: true });
+          traceCurves.push(traceLine);
+          traceLine = null;
+        }
+        board.update();
+        return;
+      }
+
+      var yNow = C * Math.exp(2 * traceX);
+      if (Math.abs(yNow) <= 4.2) {
+        tracePoints.push([traceX, yNow]);
+      }
+
+      if (tracePoints.length > 1) {
+        if (traceLine) board.removeObject(traceLine);
+        traceLine = board.create('curve', [
+          tracePoints.map(function(p) { return p[0]; }),
+          tracePoints.map(function(p) { return p[1]; })
+        ], { strokeColor: '#922b21', strokeWidth: 2.5, fixed: true });
+      }
+
+      board.update();
+      traceX += step;
+    }, 20);
+  }
+
+  document.getElementById('y0slider').addEventListener('input', function() {
+    y0 = parseFloat(this.value);
+    var disp = Number.isInteger(y0) ? y0 : y0.toFixed(1);
+    document.getElementById('y0value').textContent = disp;
+    document.getElementById('display').innerHTML =
+      '<span class="val-y0">y(0) = ' + disp + '</span> &nbsp;|&nbsp; ' + getY0Expr(y0);
+    stopAnim();
+  });
+
+  document.getElementById('playbtn').addEventListener('click', function() {
+    if (playing) {
+      stopAnim();
+    } else {
+      startTrace();
+    }
+  });
+
+  document.getElementById('clearbtn').addEventListener('click', function() {
+    stopAnim();
+    clearTraces();
+    if (traceLine) { board.removeObject(traceLine); traceLine = null; }
+    tracePoints = [];
+    document.getElementById('display').innerHTML =
+      'Set <span class="val-y0">y(0)</span> and press Trace to trace a solution curve.';
+    document.getElementById('playbtn').innerHTML = '&#9654; Trace';
+  });
+
+  document.getElementById('display').innerHTML =
+    '<span class="val-y0">y(0) = 1</span> &nbsp;|&nbsp; y = e<sup>2x</sup>';
+</script>
+</body>
+</html>

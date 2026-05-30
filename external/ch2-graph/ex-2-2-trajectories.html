@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Solution Trajectories</title>
+<style>
+  body { margin: 0; padding: 8px; font-family: serif; background: transparent; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+</style>
+</head>
+<body>
+<svg viewBox="0 0 760 500" width="100%" role="img"
+  aria-label="Graph of solution trajectories for a first-order autonomous ODE. The vertical axis is labeled P and the horizontal axis is labeled t. Three bold green horizontal lines mark the equilibrium solutions at P equals negative 1, P equals 2, and P equals 5. Blue curves show non-equilibrium solution trajectories in four zones. In the zone above P equals 5, four blue curves start above the equilibrium and decrease, approaching P equals 5 as t increases. In the zone between P equals 2 and P equals 5, four blue curves start near P equals 2 and increase, approaching P equals 5 as t increases. In the zone between P equals negative 1 and P equals 2, four blue curves start near P equals 2 and decrease, approaching P equals negative 1 as t increases. In the zone below P equals negative 1, four blue curves start near P equals negative 1 and decrease away from it as t increases.">
+
+  <!-- P axis (vertical, solid) -->
+  <line x1="70" y1="15" x2="70" y2="465" stroke="#2c3e50" stroke-width="2"/>
+
+  <!-- Dotted horizontal line at P=0 level for reference -->
+  <line x1="70" y1="280" x2="720" y2="280" stroke="#2c3e50" stroke-width="1" stroke-dasharray="5,4"/>
+
+  <!-- Axis labels -->
+  <text x="48" y="20" font-size="18" font-family="serif" fill="#2c3e50" font-style="italic" aria-hidden="true">P</text>
+  <text x="728" y="284" font-size="18" font-family="serif" fill="#2c3e50" font-style="italic" aria-hidden="true">t</text>
+
+
+
+  <!-- P=5 equilibrium y=90 -->
+  <line x1="70" y1="90" x2="720" y2="90" stroke="#1e8449" stroke-width="4" aria-hidden="true"/>
+  <text x="48" y="95" text-anchor="middle" font-size="16" font-family="serif" fill="#1e8449" font-weight="bold" aria-hidden="true">5</text>
+
+  <!-- P=2 equilibrium y=210 -->
+  <line x1="70" y1="210" x2="720" y2="210" stroke="#1e8449" stroke-width="4" aria-hidden="true"/>
+  <text x="48" y="215" text-anchor="middle" font-size="16" font-family="serif" fill="#1e8449" font-weight="bold" aria-hidden="true">2</text>
+
+  <!-- P=-1 equilibrium y=340 -->
+  <line x1="70" y1="340" x2="720" y2="340" stroke="#1e8449" stroke-width="4" aria-hidden="true"/>
+  <text x="48" y="345" text-anchor="middle" font-size="16" font-family="serif" fill="#1e8449" font-weight="bold" aria-hidden="true">-1</text>
+
+  <!-- ═══ ZONE 1: Above P=5 (y < 90): decreasing toward 5 ═══ -->
+  <path d="M70,25  C200,28  380,48  520,65  C610,74  670,81  720,88" fill="none" stroke="#1a5276" stroke-width="1.8" aria-hidden="true"/>
+  <path d="M70,40  C200,43  380,58  520,71  C610,77  670,83  720,89" fill="none" stroke="#1a5276" stroke-width="1.8" aria-hidden="true"/>
+  <path d="M70,56  C200,58  380,67  520,76  C610,81  670,85  720,89" fill="none" stroke="#1a5276" stroke-width="1.8" aria-hidden="true"/>
+  <path d="M70,72  C200,73  380,78  520,83  C610,85  670,87  720,89" fill="none" stroke="#1a5276" stroke-width="1.8" aria-hidden="true"/>
+
+  <!-- ═══ ZONE 2: Between P=2 and P=5 (90 < y < 210): increasing toward 5 ═══ -->
+  <path d="M70,200 C200,196 380,175 520,135 C610,115 670,102 720,94" fill="none" stroke="#1a5276" stroke-width="1.8" aria-hidden="true"/>
+  <path d="M70,185 C200,181 380,163 520,128 C610,110 670,100 720,93" fill="none" stroke="#1a5276" stroke-width="1.8" aria-hidden="true"/>
+  <path d="M70,168 C200,164 380,149 520,120 C610,106 670,98  720,93" fill="none" stroke="#1a5276" stroke-width="1.8" aria-hidden="true"/>
+  <path d="M70,148 C200,145 380,134 520,112 C610,101 670,96  720,92" fill="none" stroke="#1a5276" stroke-width="1.8" aria-hidden="true"/>
+
+  <!-- ═══ ZONE 3: Between P=-1 and P=2 (210 < y < 340): decreasing toward -1 ═══ -->
+  <path d="M70,220 C200,227 380,252 520,292 C610,311 670,326 720,334" fill="none" stroke="#1a5276" stroke-width="1.8" aria-hidden="true"/>
+  <path d="M70,243 C200,249 380,268 520,302 C610,317 670,329 720,336" fill="none" stroke="#1a5276" stroke-width="1.8" aria-hidden="true"/>
+  <path d="M70,265 C200,270 380,283 520,309 C610,321 670,331 720,337" fill="none" stroke="#1a5276" stroke-width="1.8" aria-hidden="true"/>
+  <path d="M70,295 C200,299 380,308 520,322 C610,329 670,334 720,338" fill="none" stroke="#1a5276" stroke-width="1.8" aria-hidden="true"/>
+
+  <!-- ═══ ZONE 4: Below P=-1 (y > 340): decreasing away from -1 ═══ -->
+  <path d="M70,355 C200,361 380,378 520,403 C610,417 670,433 720,448" fill="none" stroke="#1a5276" stroke-width="1.8" aria-hidden="true"/>
+  <path d="M70,373 C200,380 380,396 520,419 C610,431 670,444 720,456" fill="none" stroke="#1a5276" stroke-width="1.8" aria-hidden="true"/>
+  <path d="M70,393 C200,399 380,413 520,433 C610,443 670,452 720,460" fill="none" stroke="#1a5276" stroke-width="1.8" aria-hidden="true"/>
+  <path d="M70,413 C200,418 380,428 520,445 C610,453 670,459 720,463" fill="none" stroke="#1a5276" stroke-width="1.8" aria-hidden="true"/>
+
+</svg>
+</body>
+</html>

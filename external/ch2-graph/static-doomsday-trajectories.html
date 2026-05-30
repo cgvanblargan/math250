@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Doomsday/Extinction Trajectories: dP/dt = -2P(10-P)</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jsxgraph/1.6.0/jsxgraph.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jsxgraph/1.6.0/jsxgraphcore.js"></script>
+<style>
+  body { margin: 0; padding: 10px; font-family: serif; background: transparent; overflow: hidden; }
+  #jxgbox { width: 100%; aspect-ratio: 4/3; }
+</style>
+</head>
+<body>
+<div id="jxgbox" class="jxgbox"
+  role="img"
+  aria-label="Solution curves for dP over dt equals negative 2P times 10 minus P. Equilibrium solutions P equals 0 and P equals 10 are shown as thick green lines. Curves starting below P equals 10 decay toward 0 (extinction). Curves starting above P equals 10 blow up to infinity in finite time (doomsday). A curve with negative initial value is also shown as a valid mathematical solution to the ODE. P equals 10 is unstable and P equals 0 is stable.">
+</div>
+<script>
+  var board = JXG.JSXGraph.initBoard('jxgbox', {
+    boundingbox: [-0.05, 22, 0.3, -6],
+    axis: true,
+    showCopyright: false,
+    showNavigation: false,
+    defaultAxes: {
+      x: { name: 't', withLabel: true, label: { position: 'rt', offset: [-10, 15], fontSize: 14 } },
+      y: { name: 'P', withLabel: true, label: { position: 'rt', offset: [15, 0], fontSize: 14 } }
+    }
+  });
+
+  // Exact solution: P(t) = 10*P0 / (P0 + (10-P0)*exp(20t))
+  function sol(P0) {
+    return function(t) {
+      if (P0 === 0) return 0;
+      if (P0 === 10) return 10;
+      var denom = P0 + (10 - P0) * Math.exp(20 * t);
+      if (Math.abs(denom) < 0.01) return P0 > 10 ? 999 : -999;
+      var val = 10 * P0 / denom;
+      return val;
+    };
+  }
+
+  function doomT(P0) {
+    return Math.log(P0 / (P0 - 10)) / 20;
+  }
+
+  // Equilibrium lines — thick green
+  board.create('functiongraph', [sol(10), -0.05, 0.3],
+    { strokeColor: '#1e8449', strokeWidth: 3, highlight: false });
+  board.create('functiongraph', [sol(0), -0.05, 0.3],
+    { strokeColor: '#1e8449', strokeWidth: 3, highlight: false });
+
+  // Extinction trajectories (P0 < 10)
+  [8, 6, 3, 1].forEach(function(P0) {
+    board.create('functiongraph', [sol(P0), 0, 0.3],
+      { strokeColor: '#1a5276', strokeWidth: 2, highlight: false });
+  });
+
+  // Doomsday trajectories (P0 > 10) — draw up to just before T
+  [11, 12, 13].forEach(function(P0) {
+    var T = doomT(P0);
+    var tEnd = Math.min(T - 0.003, 0.28);
+    board.create('functiongraph', [sol(P0), 0, tEnd],
+      { strokeColor: '#1a5276', strokeWidth: 2, highlight: false });
+  });
+
+  // Negative P0 trajectory
+  board.create('functiongraph', [sol(-2), 0, 0.3],
+    { strokeColor: '#1a5276', strokeWidth: 2, highlight: false });
+
+  // Labels
+  board.create('text', [0.22, 10.6], ['P = 10 (unstable)'],
+    { fontSize: 12, strokeColor: '#1e8449', highlight: false });
+  board.create('text', [0.22, 0.7], ['P = 0 (stable)'],
+    { fontSize: 12, strokeColor: '#1e8449', highlight: false });
+</script>
+</body>
+</html>

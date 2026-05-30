@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Phase Diagram: dP/dt = 2P(10-P)</title>
+<style>
+  body { margin: 0; padding: 16px; font-family: serif; background: transparent; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+</style>
+</head>
+<body>
+<svg viewBox="0 0 600 170" width="100%" role="img"
+  aria-label="Phase diagram for dP over dt equals 2P times 10 minus P. Arrow pointing left for P less than 0. Arrow pointing right for 0 less than P less than 10. Arrow pointing left for P greater than 10. P equals 0 is unstable, P equals 10 is stable.">
+
+  <!-- Number line -->
+  <line x1="40" y1="95" x2="555" y2="95" stroke="#2c3e50" stroke-width="3"/>
+  <polygon points="558,95 544,88 544,102" fill="#2c3e50"/>
+  <polygon points="37,95 51,88 51,102" fill="#2c3e50"/>
+
+  <!-- Arrow LEFT for P<0 -->
+  <line x1="223" y1="95" x2="85" y2="95" stroke="#922b21" stroke-width="5"/>
+  <polygon points="82,95 98,87 98,103" fill="#922b21"/>
+
+  <!-- Arrow RIGHT for 0<P<10 -->
+  <line x1="237" y1="95" x2="383" y2="95" stroke="#1a5276" stroke-width="5"/>
+  <polygon points="386,95 370,87 370,103" fill="#1a5276"/>
+
+  <!-- Arrow LEFT for P>10 (toward 10, since stable) -->
+  <line x1="520" y1="95" x2="398" y2="95" stroke="#1a5276" stroke-width="5"/>
+  <polygon points="395,95 411,87 411,103" fill="#1a5276"/>
+
+  <!-- Equilibrium dots on top -->
+  <circle cx="230" cy="95" r="8" fill="#1e8449" stroke="white" stroke-width="1.5"/>
+  <circle cx="390" cy="95" r="8" fill="#1e8449" stroke="white" stroke-width="1.5"/>
+
+  <!-- P=0 and P=10 labels -->
+  <text x="230" y="125" text-anchor="middle" font-size="22" font-family="serif" fill="#1e8449" font-weight="bold">0</text>
+  <text x="390" y="125" text-anchor="middle" font-size="22" font-family="serif" fill="#1e8449" font-weight="bold">10</text>
+
+  <!-- Stability labels -->
+  <text x="230" y="150" text-anchor="middle" font-size="18" font-family="serif" fill="#922b21" font-style="italic">unstable</text>
+  <text x="390" y="150" text-anchor="middle" font-size="18" font-family="serif" fill="#1a5276" font-style="italic">stable</text>
+
+  <!-- Region labels -->
+  <text x="145" y="74" text-anchor="middle" font-size="22" font-family="serif" font-style="italic" fill="#922b21">dP/dt &lt; 0</text>
+  <text x="310" y="74" text-anchor="middle" font-size="22" font-family="serif" font-style="italic" fill="#1a5276">dP/dt &gt; 0</text>
+  <text x="458" y="74" text-anchor="middle" font-size="22" font-family="serif" font-style="italic" fill="#922b21">dP/dt &lt; 0</text>
+
+  <!-- P axis label -->
+  <text x="570" y="100" font-size="20" font-family="serif" fill="#2c3e50" font-style="italic">P</text>
+</svg>
+</body>
+</html>
