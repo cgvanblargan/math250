@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<exercises xml:id="exercises-2-1">
+  <title>Exercises for Section 2.1</title>
+
+  <introduction>
+    <p>
+      Nothing in these exercises should require solving a differential equation from scratch.
+      The focus is on setting up models and understanding long-term behavior.
+    </p>
+  </introduction>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       Q1: Setting up population ODEs
+       ═══════════════════════════════════════════════════════════ -->
+
+  <exercise xml:id="ex-2-1-1">
+    <title>Setting Up Population Models</title>
+    <introduction>
+      <p>
+        For each of the following,<alert> write a differential equation </alert> for the population
+        <m>P(t)</m> using the principle
+        <me>\frac{dP}{dt} = \beta P - \alpha P,</me>
+        where <m>\beta</m> is the birth rate per person and <m>\alpha</m> is the
+        death rate per person. <alert>Do not solve.</alert>
+      </p>
+    </introduction>
+
+    <task xml:id="ex-2-1-1a">
+      <statement>
+        <p>
+          The birth rate is the constant 5 and the death rate is proportional to
+          <m>P</m> with proportionality constant 2.
+        </p>
+      </statement>
+      <answer>
+        <p>
+          <me>\frac{dP}{dt} = 5P - 2P^2 = P(5 - 2P).</me>
+        </p>
+      </answer>
+    </task>
+
+    <task xml:id="ex-2-1-1b">
+      <statement>
+        <p>
+          The birth rate is proportional to <m>P</m> with constant <m>k_1</m>,
+          and the death rate is proportional to <m>P</m> with constant <m>k_2</m>,
+          where <m>k_1 \gt k_2</m>.
+         
+        </p>
+      </statement>
+      <answer>
+        <p>
+          <me>\frac{dP}{dt} = k_1 P^2 - k_2 P^2 = (k_1 - k_2)P^2.</me>
+        </p>
+      </answer>
+    </task>
+
+    <task xml:id="ex-2-1-1c">
+      <statement>
+        <p>
+          A population has birth rate <m>\beta = 10 - P</m> (decreasing as the
+          population grows) and a constant death rate <m>\alpha = 2</m>.
+          Write the ODE and identify it as a logistic equation by writing it
+          in the form <m>kP(M - P)</m>. What are <m>k</m> and <m>M</m>?
+        </p>
+      </statement>
+      <answer>
+        <p>
+          <md>
+            <mrow>\frac{dP}{dt} \amp= (10 - P)P - 2P = P(10 - P - 2) = P(8 - P).</mrow>
+          </md>
+          This is logistic with <m>k = 1</m> and <m>M = 8</m>.
+        </p>
+      </answer>
+    </task>
+
+  </exercise>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       Q2: Logistic k>0 — long-term behavior
+       ═══════════════════════════════════════════════════════════ -->
+
+  <exercise xml:id="ex-2-1-2">
+    <title>Long-Term Behavior: Logistic Equation (<m>k \gt 0</m>)</title>
+    <introduction>
+      <p>
+        Consider the logistic equation
+        <me>\frac{dP}{dt} = 2P(6 - P),</me>
+        which has carrying capacity <m>M = 6</m>. The general solution in terms
+        of the initial population <m>P_0 = P(0)</m> is
+        <me>P(t) = \frac{6P_0}{P_0 + (6 - P_0)e^{-12t}}.</me>
+      </p>
+      <p>
+        The following three parts cover the cases <m>0 \lt P(0) \lt M</m>,
+        <m>P(0) \gt M</m>, and <m>P(0) = M</m>.
+      </p>
+    </introduction>
+
+    <task xml:id="ex-2-1-2a">
+      <statement>
+        <p>
+          Suppose <m>P(0) = 2</m>. Write the specific solution and compute
+          <m>\displaystyle\lim_{t \to \infty} P(t)</m>. What does this mean for the population?
+        </p>
+      </statement>
+      <answer>
+        <p>
+          <m>P(t) = \dfrac{12}{2 + 4e^{-12t}}</m>. As <m>t \to \infty</m>,
+          <m>e^{-12t} \to 0</m>, so <m>P(t) \to \dfrac{12}{2} = 6 = M</m>.
+          The population grows and levels off at the carrying capacity.
+        </p>
+      </answer>
+    </task>
+
+    <task xml:id="ex-2-1-2b">
+      <statement>
+        <p>
+          Suppose <m>P(0) = 9</m>. Write the specific solution and compute
+          <m>\displaystyle\lim_{t \to \infty} P(t)</m>. What does this mean for the population?
+        </p>
+      </statement>
+      <answer>
+        <p>
+          <m>P(t) = \dfrac{54}{9 - 3e^{-12t}}</m>. As <m>t \to \infty</m>,
+          <m>e^{-12t} \to 0</m>, so <m>P(t) \to \dfrac{54}{9} = 6 = M</m>.
+          The population decreases and levels off at the carrying capacity.
+        </p>
+      </answer>
+    </task>
+
+    <task xml:id="ex-2-1-2c">
+      <statement>
+        <p>
+          Suppose <m>P(0) = 6</m>. What is <m>P(t)</m> for all <m>t</m>?
+          
+        </p>
+      </statement>
+      <answer>
+        <p>
+          <m>P(t) = 6</m> for all <m>t</m> — this is the equilibrium solution.
+          
+        </p>
+      </answer>
+    </task>
+
+  </exercise>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       Q3: Doomsday/Extinction k<0 — long-term behavior
+       ═══════════════════════════════════════════════════════════ -->
+
+  <exercise xml:id="ex-2-1-3">
+    <title>Long-Term Behavior: Doomsday vs Extinction (<m>k \lt 0</m>)</title>
+    <introduction>
+      <p>
+        Now consider the same equation with <m>k \lt 0</m>:
+        <me>\frac{dP}{dt} = -2P(6 - P),</me>
+        which has threshold <m>M = 6</m>. The general solution in terms of
+        <m>P_0 = P(0)</m> is
+        <me>P(t) = \frac{6P_0}{P_0 + (6 - P_0)e^{12t}}.</me>
+      </p>
+      <p>
+        The following three parts cover the cases <m>0 \lt P(0) \lt M</m>,
+        <m>P(0) \gt M</m>, and <m>P(0) = M</m>.
+        Notice how dramatically different the behavior is compared to Q2,
+        even though the ODE differs only by the sign of <m>k</m>.
+      </p>
+    </introduction>
+
+    <task xml:id="ex-2-1-3a">
+      <statement>
+        <p>
+          Suppose <m>P(0) = 2</m>. Write the specific solution and compute
+          <m>\displaystyle\lim_{t \to \infty} P(t)</m>. What does this mean for the population?
+        </p>
+      </statement>
+      <answer>
+        <p>
+          <m>P(t) = \dfrac{12}{2 + 4e^{12t}}</m>. As <m>t \to \infty</m>,
+          <m>e^{12t} \to \infty</m>, so <m>P(t) \to 0</m>. The population goes extinct.
+        </p>
+      </answer>
+    </task>
+
+    <task xml:id="ex-2-1-3b">
+      <statement>
+        <p>
+          Suppose <m>P(0) = 9</m>. Write the specific solution. Find the finite
+          time <m>T</m> at which the denominator equals zero, and determine what
+          happens to <m>P(t)</m> as <m>t \to T^-</m>. What is this called?
+        </p>
+      </statement>
+      <answer>
+        <p>
+          <m>P(t) = \dfrac{54}{9 - 3e^{12t}}</m>. Denominator zero when
+          <m>9 - 3e^{12t} = 0 \Rightarrow t = T = \dfrac{\ln 3}{12}</m>.
+          As <m>t \to T^-</m>, <m>P(t) \to +\infty</m>. This is <term>doomsday</term>.
+        </p>
+      </answer>
+    </task>
+
+    <task xml:id="ex-2-1-3c">
+      <statement>
+        <p>
+          Suppose <m>P(0) = 6</m>. What is <m>P(t)</m> for all <m>t</m>?
+         
+        </p>
+      </statement>
+      <answer>
+        <p>
+          <m>P(t) = 6</m> for all <m>t</m>. 
+        </p>
+      </answer>
+    </task>
+
+  </exercise>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       Q4: Newton's cooling callback
+       ═══════════════════════════════════════════════════════════ -->
+
+  <exercise xml:id="ex-2-1-4">
+    <title>Long-Term Behavior: Newton's Law of Cooling</title>
+    <statement>
+      <p>
+        Recall from <xref ref="ex-1-4-10"/> that a cake removed from an oven at
+        <m>226^\circ</m>F and left in a room at <m>73^\circ</m>F satisfies
+        Newton's law of cooling
+        <me>\frac{dT}{dt} = -k(T - 73),</me>
+        with specific solution
+        <me>T(t) = 73 + 153e^{-kt}, \quad k = \frac{1}{29}\ln\!\left(\frac{153}{86}\right).</me>
+        Compute <m>\displaystyle\lim_{t \to \infty} T(t)</m> and explain what this means physically.
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>\displaystyle\lim_{t \to \infty} T(t) = 73^\circ</m>F. The cake cools to room temperature.
+      </p>
+    </answer>
+  </exercise>
+
+  <interactive xml:id="question-form-2-1-ex" iframe="question-form.html?section=2.1 exercises" width="100%" aspect="2:1"/>
+
+</exercises>

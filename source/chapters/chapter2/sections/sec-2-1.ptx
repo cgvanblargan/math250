@@ -9,4 +9,6 @@
    <xi:include href="./2-1/sec1-pop-setup.ptx"/>
     <xi:include href="./2-1/sec2-pop-logistic.ptx"/>
     <xi:include href="./2-1/sec3-pop-doomsday.ptx"/>
+<xi:include href="./2-1/exercises-2-1.ptx"/>
+    
 </section>

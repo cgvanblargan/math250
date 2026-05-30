@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<exercises xml:id="exercises-2-2">
+  <title>Exercises for Section 2.2</title>
+
+  <introduction>
+    <p>
+      Nothing in these exercises should require solving a differential equation explicitly.
+      When in doubt, draw a phase diagram to get started!
+    </p>
+  </introduction>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       Q1: Read stability from trajectory graph
+       ═══════════════════════════════════════════════════════════ -->
+
+  <exercise xml:id="ex-2-2-1">
+    <title>Reading Stability from Solution Curves</title>
+    <introduction>
+      <p>
+        The figure below shows solution trajectories for a first-order autonomous ODE
+        <m>\dfrac{dP}{dt} = f(P)</m>. The equilibrium solutions are shown as bold green
+        horizontal lines. Blue curves show non-equilibrium solution trajectories.
+      </p>
+      <figure xml:id="fig-ex-2-2-trajectories">
+        <caption>
+          Solution trajectories for an autonomous ODE with equilibria at
+          <m>P = -1</m>, <m>P = 2</m>, and <m>P = 5</m>.
+        </caption>
+        <interactive xml:id="interactive-ex-2-2-trajectories"
+          iframe="ch2-graph/ex-2-2-trajectories.html" width="100%" aspect="5:3">
+          <static>
+            <p>
+              Solution trajectories for an autonomous ODE. Three bold green horizontal
+              lines mark equilibria at <m>P = -1</m>, <m>P = 2</m>, and <m>P = 5</m>.
+              Blue curves above <m>P = 5</m> decrease toward it. Blue curves between
+              <m>P = 2</m> and <m>P = 5</m> increase toward <m>P = 5</m>. Blue curves
+              between <m>P = -1</m> and <m>P = 2</m> decrease toward <m>P = -1</m>.
+              Blue curves below <m>P = -1</m> decrease away from it.
+            </p>
+          </static>
+        </interactive>
+      </figure>
+    </introduction>
+
+    <task xml:id="ex-2-2-1a">
+      <statement>
+        <p>
+          Identify the equilibrium solutions and classify the stability of each.
+        </p>
+      </statement>
+      <answer>
+        <p>
+          <m>P = 5</m>: stable. <m>P = 2</m>: unstable. <m>P = -1</m>: semi-stable.
+        </p>
+      </answer>
+    </task>
+
+    <task xml:id="ex-2-2-1b">
+      <statement>
+        <p>
+          Draw the phase diagram consistent with the solution curves above.
+        </p>
+      </statement>
+      <answer>
+        <p>
+          Arrows: left for <m>P \lt -1</m>, left for <m>-1 \lt P \lt 2</m>,
+          right for <m>2 \lt P \lt 5</m>, left for <m>P \gt 5</m>.
+        </p>
+      </answer>
+    </task>
+
+  </exercise>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       Q2: Phase diagram and stability — two parts
+       ═══════════════════════════════════════════════════════════ -->
+
+  <exercise xml:id="ex-2-2-2">
+    <title>Phase Diagrams and Stability</title>
+
+    <task xml:id="ex-2-2-2a">
+      <statement>
+        <p>
+          Consider the autonomous differential equation
+          <me>\frac{dP}{dt} = P^2 - 7P + 10.</me>
+          Find all equilibrium solutions, draw the phase diagram, and classify
+          the stability of each equilibrium.
+        </p>
+      </statement>
+      <answer>
+        <p>
+          Equilibria: <m>P = 2</m> (unstable), <m>P = 5</m> (stable).
+        </p>
+      </answer>
+    </task>
+
+    <task xml:id="ex-2-2-2b">
+      <statement>
+        <p>
+          Now consider
+          <me>\frac{dP}{dt} = (P-2)(P-5)^2.</me>
+          Find all equilibrium solutions, draw the phase diagram, and classify
+          the stability of each equilibrium.
+        </p>
+      </statement>
+      <answer>
+        <p>
+          Equilibria: <m>P = 2</m> (stable), <m>P = 5</m> (semi-stable).
+        </p>
+      </answer>
+    </task>
+
+  </exercise>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       Q3: Deer population — specific P(0) values + which P_0 increasing
+       ═══════════════════════════════════════════════════════════ -->
+
+  <exercise xml:id="ex-2-2-3">
+    <title>Deer Population</title>
+    <introduction>
+      <p>
+        A deer population in a wildlife reserve is modelled by
+        <me>\frac{dP}{dt} = P(P - 20)(40 - P),</me>
+        where <m>P(t)</m> is the population (in hundreds) at time <m>t</m> (in years).
+      </p>
+    </introduction>
+
+    <task xml:id="ex-2-2-3a">
+      <statement>
+        <p>
+          Draw the phase diagram. Then determine whether <m>P(t)</m> is increasing
+          or decreasing, and what <m>P(t)</m> converges to as <m>t \to \infty</m>, for each of:
+          <ul>
+            <li><p><m>P(0) = 10</m></p></li>
+            <li><p><m>P(0) = 30</m></p></li>
+          </ul>
+        </p>
+      </statement>
+      <answer>
+        <p>
+          Equilibria: <m>P = 0</m>, <m>P = 20</m>, <m>P = 40</m>.
+          <m>P(0) = 10</m>: decreasing, converges to <m>P = 0</m>.
+          <m>P(0) = 30</m>: increasing, converges to <m>P = 40</m>.
+        </p>
+      </answer>
+    </task>
+
+    <task xml:id="ex-2-2-3b">
+      <statement>
+        <p>
+          For which initial values <m>P_0 = P(0) \gt 0</m> is <m>P(t)</m> an increasing function?
+        </p>
+      </statement>
+      <answer>
+        <p>
+          <m>P_0 \in (20, 40)</m>.
+        </p>
+      </answer>
+    </task>
+
+  </exercise>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       Q4: Fish population — how many must be removed?
+       ═══════════════════════════════════════════════════════════ -->
+
+  <exercise xml:id="ex-2-2-4">
+    <title>The Fish Population</title>
+    <introduction>
+      <p>
+        A fish population in a lake is modelled by
+        <me>\frac{dP}{dt} = 3P(P - 50),</me>
+        where <m>P(t)</m> is the population (in thousands) at time <m>t</m> (in years).
+        There are currently 200 thousand fish in the lake, so <m>P(0) = 200</m>.
+        A fishery manager would like the population to decrease to zero over time.
+      </p>
+    </introduction>
+
+    <task xml:id="ex-2-2-4a">
+      <statement>
+        <p>
+          Using a phase diagram, determine whether the population will decrease
+          to zero when <m>P(0) = 200</m>.
+        </p>
+      </statement>
+      <answer>
+        <p>
+          No. Since <m>P(0) = 200 \gt 50</m>, the population is increasing and will not decrease to zero.
+        </p>
+      </answer>
+    </task>
+
+    <task xml:id="ex-2-2-4b">
+      <statement>
+        <p>
+          A fishing crew can remove any number of fish instantly. What is the
+          minimum number of fish (in thousands) they must remove to guarantee
+          the population will eventually decrease to zero? Justify your answer
+          using the phase diagram.
+        </p>
+      </statement>
+      <answer>
+        <p>
+          More than 150 thousand fish must be removed, bringing the population strictly below <m>P = 50</m>.
+        </p>
+      </answer>
+    </task>
+
+  </exercise>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       Q5: Rabbit population with parameter M
+       ═══════════════════════════════════════════════════════════ -->
+
+  <exercise xml:id="ex-2-2-5">
+    <title>Rabbit Population with Variable Carrying Capacity</title>
+    <introduction>
+      <p>
+        A wildlife reserve manages a rabbit population modelled by
+        <me>\frac{dP}{dt} = P(M - P),</me>
+        where <m>P(t)</m> is the population (in hundreds) at time <m>t</m>, and
+        <m>M \gt 0</m> is the carrying capacity, which the reserve can control
+        by adjusting the amount of food and vegetation available.
+        Currently <m>P(0) = 8</m> hundred rabbits.
+      </p>
+    </introduction>
+
+    <task xml:id="ex-2-2-5a">
+      <statement>
+        <p>
+          For which values of <m>M \gt 0</m> will the rabbit population be increasing?
+        </p>
+      </statement>
+      <hint>
+        <p>
+          Find the equilibrium solutions in terms of <m>M</m> and draw the phase
+          diagram. Then consider where <m>P(0) = 8</m> falls relative to the
+          equilibria, which this depends on whether <m>M</m> is greater than, equal to,
+          or less than 8.
+        </p>
+      </hint>
+      <answer>
+        <p>
+          <m>M \gt 8</m>.
+        </p>
+      </answer>
+    </task>
+
+  </exercise>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       Q6: Semi-stable applied question
+       ═══════════════════════════════════════════════════════════ -->
+
+  <exercise xml:id="ex-2-2-6">
+    <title>A Semi-Stable Population</title>
+    <introduction>
+      <p>
+        A bacteria colony in a lab is modelled by
+        <me>\frac{dP}{dt} = (P - 4)^2(P - 10),</me>
+        where <m>P(t)</m> is the population (in millions) at time <m>t</m> (in hours).
+      </p>
+    </introduction>
+
+    <task xml:id="ex-2-2-6a">
+      <statement>
+        <p>
+          Find all equilibrium solutions, draw the phase diagram, and classify
+          the stability of each equilibrium.
+        </p>
+      </statement>
+      <answer>
+        <p>
+          Equilibria: <m>P = 4</m> (semi-stable), <m>P = 10</m> (unstable).
+        </p>
+      </answer>
+    </task>
+
+    <task xml:id="ex-2-2-6b">
+      <statement>
+        <p>
+          The colony currently has <m>P(0) = 12</m> million bacteria.
+          A scientist can instantly reduce the colony size by adding an antibiotic.
+          <ul>
+            <li><p>
+              If the antibiotic reduces the population to <m>P(0) = 7</m>, what
+              happens to the colony in the long run?
+            </p></li>
+            <li><p>
+              If the antibiotic reduces the population to <m>P(0) = 2</m>, what
+              happens to the colony in the long run?
+            </p></li>
+            <li><p>
+              What is significant about the equilibrium at <m>P = 4</m> in this context?
+            </p></li>
+          </ul>
+        </p>
+      </statement>
+      <answer>
+        <p>
+          <ul>
+            <li><p>
+              <m>P(0) = 7</m>: falls in <m>4 \lt P \lt 10</m>, arrow left so
+              <m>P(t)</m> is decreasing and converges to the semi-stable equilibrium
+              <m>P = 4</m>. The colony shrinks but does not die out.
+            </p></li>
+            <li><p>
+              <m>P(0) = 2</m>: falls in <m>P \lt 4</m>, arrow left so
+              <m>P(t)</m> is decreasing and moves away from <m>P = 4</m>,
+              heading toward <m>P = 0</m>. The colony dies out.
+            </p></li>
+            <li><p>
+              The semi-stable equilibrium at <m>P = 4</m> acts as a threshold:
+              reducing the population to below 4 million guarantees extinction,
+              but reducing it to above 4 million only shrinks the colony to 4 million —
+              it survives. The antibiotic must be strong enough to push the population
+              strictly below this threshold to eliminate the colony entirely.
+            </p></li>
+          </ul>
+        </p>
+      </answer>
+    </task>
+
+  </exercise>
+
+  <interactive xml:id="question-form-2-2-ex" iframe="question-form.html?section=2.2 exercises" width="100%" aspect="2:1"/>
+
+</exercises>

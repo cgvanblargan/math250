@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-phase-applications" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Applying Phase Diagrams to Population Models</title>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       INTRO PROSE
+       ═══════════════════════════════════════════════════════════ -->
+
+  <p>
+    We now apply the phase diagram method to answer real questions about population models.
+    The key question we focus on is: for which initial values <m>P_0 = P(0)</m> does a
+    population grow forever?
+  </p>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       ACTIVITY 1: dP/dt = (P-2)(P-4) — scaffolded
+       ═══════════════════════════════════════════════════════════ -->
+
+  <activity xml:id="act-phase-app-1">
+    <title>Example 1</title>
+
+    <introduction>
+      <p>
+        Suppose a population is modelled by
+        <me>\frac{dP}{dt} = (P-2)(P-4), \quad P(0) = P_0.</me>
+        Find all values of <m>P_0</m> for which the population grows forever.
+      </p>
+    </introduction>
+
+    <task xml:id="task-app1-equil">
+      <title>Step 1: Find the equilibrium solutions</title>
+      <statement>
+        <p>
+          Find all equilibrium solutions to <m>\dfrac{dP}{dt} = (P-2)(P-4)</m>.
+        </p>
+      </statement>
+      <solution>
+        <title>Solution</title>
+        <p>
+          Set <m>(P-2)(P-4) = 0</m>, giving <m>P = 2</m> and <m>P = 4</m>.
+        </p>
+      </solution>
+    </task>
+
+    <task xml:id="task-app1-phase">
+      <title>Step 2: Draw the phase diagram</title>
+      <statement>
+        <p>
+          Determine the sign of <m>\dfrac{dP}{dt}</m> in each region and draw the phase diagram.
+        </p>
+      </statement>
+      <solution>
+        <title>Solution</title>
+        <p>
+          Test a value in each region:
+          <ul>
+            <li><p><m>P = 0</m>: <m>(0-2)(0-4) = (-2)(-4) = 8 \gt 0</m>, so arrow points right.</p></li>
+            <li><p><m>P = 3</m>: <m>(3-2)(3-4) = (1)(-1) = -1 \lt 0</m>, so arrow points left.</p></li>
+            <li><p><m>P = 5</m>: <m>(5-2)(5-4) = (3)(1) = 3 \gt 0</m>, so arrow points right.</p></li>
+          </ul>
+        </p>
+        <figure xml:id="fig-phase-app1">
+          <caption>
+            Phase diagram for <m>dP/dt = (P-2)(P-4)</m>. Equilibria at <m>P = 2</m>
+            and <m>P = 4</m>. Arrows point right for <m>P \lt 2</m> and <m>P \gt 4</m>,
+            and left for <m>2 \lt P \lt 4</m>.
+          </caption>
+          <interactive xml:id="interactive-phase-app1"
+            iframe="ch2-graph/phase-diagram-app1.html" width="100%" aspect="5:1">
+            <static>
+              <p>
+                Phase diagram with equilibrium solutions at <m>P = 2</m> and <m>P = 4</m>.
+                Arrow points right for <m>P \lt 2</m> (solutions increasing),
+                left for <m>2 \lt P \lt 4</m> (solutions decreasing),
+                and right for <m>P \gt 4</m> (solutions increasing).
+              </p>
+            </static>
+          </interactive>
+        </figure>
+      </solution>
+    </task>
+
+    <task xml:id="task-app1-grows">
+      <title>Step 3: Determine which <m>P_0</m> give growth forever</title>
+      <statement>
+        <p>
+          Using the phase diagram, for which values of <m>P_0</m> does <m>P(t)</m> grow forever?
+        </p>
+      </statement>
+      <choices randomize="no">
+        <choice correct="yes">
+          <statement><p><m>P_0 \in (-\infty, 2) \cup (4, \infty)</m></p></statement>
+          <feedback>
+            <p>
+              Correct! Both regions have rightward arrows, so solutions starting there
+              are increasing and grow forever.
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement><p><m>P_0 \in (2, 4)</m></p></statement>
+          <feedback>
+            <p>
+              Not quite. In this region the arrow points left, so solutions are decreasing,
+              not growing.
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement><p><m>P_0 \in (0, 2) \cup (4, \infty)</m></p></statement>
+          <feedback>
+            <p>
+              Close, but the left region should include all <m>P \lt 2</m>, not just
+              <m>P \in (0,2)</m>. Solutions starting at negative values of <m>P</m>
+              also have rightward arrows.
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement><p><m>P_0 \gt 4</m> only</p></statement>
+          <feedback>
+            <p>
+              Not quite. Check the arrow direction for <m>P \lt 2</m> as well —
+              it also points right, so solutions there are also growing.
+            </p>
+          </feedback>
+        </choice>
+      </choices>
+    </task>
+
+  </activity>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       ACTIVITY 2: dP/dt = P(10-P) — unscaffolded
+       ═══════════════════════════════════════════════════════════ -->
+
+ 
+
+  <activity xml:id="act-phase-app-2">
+    <title>Example 2</title>
+
+    <introduction>
+      <p>
+        Suppose a population is modelled by
+        <me>\frac{dP}{dt} = 10P - P^2 = P(10-P), \quad P(0) = P_0.</me>
+        Find all values of <m>P_0</m> for which the population grows forever.
+      </p>
+    </introduction>
+
+    <task xml:id="task-app2-equil">
+      <title>Step 1: Find the equilibrium solutions</title>
+      <statement>
+        <p>
+          Find all equilibrium solutions to <m>\dfrac{dP}{dt} = P(10-P)</m>.
+        </p>
+      </statement>
+      <solution>
+        <title>Solution</title>
+        <p>
+          Set <m>P(10-P) = 0</m>, giving <m>P = 0</m> and <m>P = 10</m>.
+        </p>
+      </solution>
+    </task>
+
+    <task xml:id="task-app2-phase">
+      <title>Step 2: Draw the phase diagram</title>
+      <statement>
+        <p>
+          Determine the sign of <m>\dfrac{dP}{dt}</m> in each region and draw the phase diagram.
+        </p>
+      </statement>
+      <solution>
+        <title>Solution</title>
+        <p>
+          Test a value in each region:
+          <ul>
+            <li><p><m>P = -1</m>: <m>(-1)(11) = -11 \lt 0</m>, so arrow points left.</p></li>
+            <li><p><m>P = 5</m>: <m>(5)(5) = 25 \gt 0</m>, so arrow points right.</p></li>
+            <li><p><m>P = 15</m>: <m>(15)(-5) = -75 \lt 0</m>, so arrow points left.</p></li>
+          </ul>
+        </p>
+        <figure xml:id="fig-phase-app2">
+          <caption>
+            Phase diagram for <m>dP/dt = P(10-P)</m>. Equilibria at <m>P = 0</m>
+            and <m>P = 10</m>. Arrows point left for <m>P \lt 0</m> and <m>P \gt 10</m>,
+            and right for <m>0 \lt P \lt 10</m>.
+          </caption>
+          <interactive xml:id="interactive-phase-app2"
+            iframe="ch2-graph/phase-diagram-app2.html" width="100%" aspect="5:1">
+            <static>
+              <p>
+                Phase diagram with equilibrium solutions at <m>P = 0</m> and <m>P = 10</m>.
+                Arrow points left for <m>P \lt 0</m> (solutions decreasing),
+                right for <m>0 \lt P \lt 10</m> (solutions increasing),
+                and left for <m>P \gt 10</m> (solutions decreasing).
+              </p>
+            </static>
+          </interactive>
+        </figure>
+      </solution>
+    </task>
+
+    <task xml:id="task-app2-grows">
+      <title>Step 3: Determine which <m>P_0</m> give growth forever</title>
+      <statement>
+        <p>
+          Using the phase diagram, for which values of <m>P_0</m> does <m>P(t)</m> grow forever?
+        </p>
+      </statement>
+      <choices randomize="no">
+        <choice correct="yes">
+          <statement><p><m>P_0 \in (0, 10)</m></p></statement>
+          <feedback>
+            <p>
+              Correct! This is the only region with a rightward arrow, so solutions
+              starting there are increasing and grow forever.</p>
+              <p>
+               By the way, <m>P = 10</m>
+              is a stable equilibrium above, so the solution is trapped below it and
+              converges to <m>10</m>, but is increasing for all of time.
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement><p><m>P_0 \in (-\infty, 0) \cup (10, \infty)</m></p></statement>
+          <feedback>
+            <p>
+              Not quite. In both of these regions the arrow points left, so solutions
+              are decreasing, not growing.
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement><p><m>P_0 \gt 10</m> only</p></statement>
+          <feedback>
+            <p>
+              Not quite. Check the arrow direction for <m>P \gt 10</m> — it points
+              left, so solutions there are actually decreasing.
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement><p><m>P_0 \in (0, \infty)</m></p></statement>
+          <feedback>
+            <p>
+              Close, but check the arrow direction for <m>P \gt 10</m> — it points
+              left, so solutions starting above <m>10</m> are decreasing, not growing.
+            </p>
+          </feedback>
+        </choice>
+      </choices>
+    </task>
+
+  </activity>
+ 
+
+  <!-- ═══════════════════════════════════════════════════════════
+       VIDEO
+       ═══════════════════════════════════════════════════════════ -->
+
+  <figure xml:id="video-phase-applications">
+    <caption>This video goes through the content of this page.</caption>
+    <video xml:id="yt-phase-applications" youtube="Qq6Eumb-ub0" width="100%"/>
+  </figure>
+
+</section>

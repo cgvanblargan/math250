@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-existence-uniqueness" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Consequences of Existence and Uniqueness</title>
+
+  <p>
+    The phase diagram method we developed on the previous page is powerful, but you
+    might be wondering why it actually works. Why does the sign of <m>f(y)</m> tell
+    us the long-term behavior of solutions? Why can't a solution just jump from one
+    region to another? The answer comes from a fundamental theorem about autonomous
+    differential equations. We aren't going to dwell on the theorem itself, but we need to understand how
+    its consequences give us a much cleaner picture of the behavior of solutions and why
+    our stability analysis is reliable.
+  </p>
+
+  <theorem xml:id="thm-existence-uniqueness-autonomous">
+    <title>Existence and Uniqueness for First-Order Autonomous DEs</title>
+    <statement>
+      <p>
+        Suppose we are solving the first-order autonomous DE
+        <m>\dfrac{dy}{dt} = f(y)</m>, where <m>f</m> and <m>f'(y)</m> are continuous.
+        Then given any initial value <m>y(0) = y_0</m>:
+        <ul>
+          <li><p>A solution exists.</p></li>
+          <li><p>The solution is unique.</p></li>
+          <li><p>Solutions do not intersect.</p></li>
+        </ul>
+      </p>
+    </statement>
+  </theorem>
+
+  <solution>
+    <title>Optional: full technical statement</title>
+    <p>
+      The theorem above is somewhat simplified. The full statement is:
+      suppose <m>f(y)</m> and <m>\dfrac{\partial f}{\partial y}</m> are continuous
+      on some open region <m>R</m> of the <m>ty</m>-plane containing the point
+      <m>(t_0, y_0)</m>. Then there exists an interval <m>(t_0 - h, t_0 + h)</m>
+      for some <m>h \gt 0</m> on which a unique solution to
+      <m>\dfrac{dy}{dt} = f(y)</m> with <m>y(t_0) = y_0</m> exists.
+      Since our equation is autonomous (no <m>t</m> on the right-hand side),
+      we can take <m>t_0 = 0</m> without loss of generality.
+    </p>
+  </solution>
+
+  <p>
+    The video below walks through the reasoning behind each of the consequences
+    listed here. We will not write out all the reasoning in the notes — what matters
+    most is understanding and applying the results, which we do on this page immediately after the video.
+  </p>
+
+  <figure xml:id="video-existence-uniqueness">
+    <caption>This video explains how the theorem implies the consequences below, which is not contained in the notes.</caption>
+    <video xml:id="yt-existence-uniqueness" youtube="0wMH13u7JzI" width="90%"/>
+  </figure>
+
+  <observation xml:id="obs-eu-consequences">
+    <title>Consequences of Existence and Uniqueness</title>
+    <p>
+      In a first-order autonomous ODE <m>\dfrac{dy}{dt} = f(y)</m>, the following apply to continuous solutions <m>y(t)</m>:
+      <ol>
+        <li><p>
+          <alert>A solution that starts at an equilibrium value stays there.</alert>
+          If <m>y(t) = M</m> is an equilibrium solution, then the only solution
+          with <m>y(0) = M</m> is <m>y(t) = M</m> itself. No other solution can
+          pass through a point on an equilibrium.
+        </p></li>
+        <li><p>
+          <alert>Solutions grow or decrease forever.</alert>
+          Since the sign of <m>f(y)</m> is constant within each zone between equilibria,
+          and solutions cannot intersect one another, a solution that starts out
+          increasing stays increasing for its entire interval of existence,
+          and similarly for decreasing solutions.
+        </p></li>
+        <li><p>
+          <alert>Solutions are trapped between equilibria.</alert>
+          Because solutions are continuous and cannot cross an equilibrium
+          (by consequence 1), a solution that starts between two
+          adjacent equilibria stays between them for its entire interval of existence.
+        </p></li>
+        <li><p>
+          <alert>Convergence to stable equilibria.</alert>
+          A solution that is increasing and trapped below an equilibrium <m>M</m>
+          (with no other equilibrium between them) must converge to <m>M</m>
+          as <m>t \to \infty</m>. Similarly, a decreasing solution trapped above
+          an equilibrium must converge to it.
+        </p></li>
+      </ol>
+    </p>
+  </observation>
+
+  <p>
+    These consequences show that the phase diagram is useful for determining the long-term behavior of solutions.
+    For example, in consequence 2, we see that determining whether a continuous solution is growing or decreasing forever
+    is determined purely by which region <m>P(0)</m> falls in. For <m>\dfrac{dP}{dt} = 2P(P-10)</m>:
+    if <m>P(0) \in (-\infty, 0)</m> or <m>P(0) \in (10, \infty)</m>, then <m>P(t)</m>
+    grows forever. If <m>P(0) \in (0, 10)</m>, then <m>P(t)</m> decreases forever.
+  </p>
+
+  <figure xml:id="fig-phase-grows">
+    <caption>
+      Long-term behavior of solutions to <m>\dfrac{dP}{dt} = 2P(P-10)</m>
+      based on initial value.
+    </caption>
+    <interactive xml:id="interactive-phase-grows"
+      iframe="ch2-graph/phase-diagram-grows.html" width="100%" aspect="4:1.3">
+      <static>
+        <p>
+          Phase diagram for <m>dP/dt = 2P(P-10)</m> showing which initial values
+          lead to solutions that grow forever versus decrease forever.
+        </p>
+      </static>
+    </interactive>
+  </figure>
+
+  <p>
+    We can also read stability directly from the phase diagram, which relates to consequence 4. If arrows on both
+    sides of an equilibrium point toward it, the equilibrium is stable, meaning nearby
+    solutions converge to it. If arrows on both sides point away, it is unstable.
+    For this example, <m>P = 0</m> is stable and <m>P = 10</m> is unstable.
+  </p>
+
+  <figure xml:id="fig-phase-stability">
+    <caption>
+      Stability of equilibrium solutions to <m>\dfrac{dP}{dt} = 2P(P-10)</m>
+      read from the phase diagram.
+    </caption>
+    <interactive xml:id="interactive-phase-stability"
+      iframe="ch2-graph/phase-diagram-stability.html" width="100%" aspect="4:1.3">
+      <static>
+        <p>
+          Phase diagram for <m>dP/dt = 2P(P-10)</m> with stability labels.
+          <m>P = 0</m> is stable since arrows point toward it from both sides.
+          <m>P = 10</m> is unstable since arrows point away on both sides.
+        </p>
+      </static>
+    </interactive>
+  </figure>
+
+  <remark xml:id="rem-doomsday-continuity">
+    <title>A Note on "Growing Forever" and the Doomsday Case</title>
+    <p>
+      When we say a solution "grows forever," the doomsday example from
+      <xref ref="sec-pop-doomsday"/> deserves a careful look. In that example,
+      the solution with <m>P(0) \gt M</m> starts above the upper equilibrium
+      and is increasing. The solution remains continuous
+      and stays above <m>M</m> on its entire interval of existence <m>[0, T)</m>,
+      and it blows up to infinity as <m>t \to T^-</m>. So it does grow forever,
+      but only up to time <m>T</m>, and the model breaks down at doomsday.
+    </p>
+    <p>
+      For <m>t \gt T</m>, if we allow discontinuous solutions, the formula continues
+      to give values, but the solution jumps from <m>+\infty</m> to large negative
+      values at <m>T</m>, which is physically meaningless for a population and not
+      a continuous solution. In particular, it is not accurate
+      to say <m>P(t) \to \infty</m> as <m>t \to \infty</m>.
+    </p>
+    <p>
+      In the stability analysis that follows, we will classify solutions starting
+      above an upper non-stable equilibrium as "growing forever" without distinguishing
+      the finite-time blowup case from true growth to infinity. The phase diagram
+      correctly captures the direction of this behavior either way.
+    </p>
+  </remark>
+
+  <p>
+    Before we move onto more complicated examples, let's make sure we understand how deduce some behavior
+     from a phase diagram. Consider the phase diagram below for a population model <m>\dfrac{dP}{dt} = f(P)</m>.
+  </p>
+
+  <figure xml:id="fig-phase-mc">
+    <caption>
+      Phase diagram for a population model with equilibria at <m>P = 0</m> and <m>P = 10</m>.
+    </caption>
+    <interactive xml:id="interactive-phase-mc"
+      iframe="ch2-graph/phase-diagram-mc.html" width="100%" aspect="5:1">
+      <static>
+        <p>
+          Phase diagram for a population model with equilibrium solutions at <m>P = 0</m>
+          and <m>P = 10</m>, marked as dots on a number line. An arrow points left for
+          <m>P \lt 0</m> (solutions decreasing), right for <m>0 \lt P \lt 10</m>
+          (solutions increasing), and left for <m>P \gt 10</m> (solutions decreasing).
+        </p>
+      </static>
+    </interactive>
+  </figure>
+
+  <exercise xml:id="ex-mc-grows-forever">
+    <statement>
+      <p>
+        In the phase diagram above: for which values of <m>P(0)</m> does the solution <m>P(t)</m> grow forever?
+      </p>
+    </statement>
+    <choices randomize="no">
+      <choice>
+        <statement><p><m>P(0) \in (-\infty, 0) \cup (10, \infty)</m></p></statement>
+        <feedback>
+          <p>
+            Not quite. Check the arrow directions in those regions — do they point
+            right (increasing) or left (decreasing)?
+          </p>
+        </feedback>
+      </choice>
+      <choice correct="yes">
+        <statement><p><m>P(0) \in (0, 10)</m></p></statement>
+        <feedback>
+          <p>
+            Correct! In the region <m>0 \lt P \lt 10</m>, the arrow points right,
+            so solutions are increasing and grow forever. By consequence 4, since
+            the solution is trapped below <m>P = 10</m> and increasing, it
+            converges to <m>P = 10</m>. So it grows forever, just not without bound.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement><p><m>P(0) \in (0, \infty)</m></p></statement>
+        <feedback>
+          <p>
+            Not quite. Look at what happens for <m>P(0) \gt 10</m> — the arrow
+            points left, meaning solutions are decreasing there.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement><p>No solution grows forever.</p></statement>
+        <feedback>
+          <p>
+            Not quite. Look at the arrow in the middle region — it points right,
+            meaning solutions there are increasing for their entire interval of existence.
+          </p>
+        </feedback>
+      </choice>
+    </choices>
+  </exercise>
+
+  <p>
+    Notice that in this case, <m>P(t)</m> grows forever but not without bound. It
+    converges to the stable equilibrium <m>P = 10</m> while it increases for all <m>t>0</m>. This is different from the
+    doomsday case, where solutions grow forever <em>and</em> blow up to infinity
+    in finite time.
+  </p>
+
+</section>

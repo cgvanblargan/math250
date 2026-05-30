@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-frog-question" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Applying Phase Diagrams: The Frog Question</title>
+
+  <p>
+    We will do a similar example now as the previous page, except now we explore
+    how the behavior of a solution will differ given a change in the initial value.
+    If you are stuck, you can reference the previous page for some guidance!
+  </p>
+
+  <activity xml:id="act-mosquito-stability">
+    <title>The Mosquito Population</title>
+
+    <introduction>
+      <p>
+        Suppose the population of mosquitoes in a pond is given by <m>P(t)</m>,
+        modelled by the differential equation
+        <me>\frac{dP}{dt} = 4P(P - 30).</me>
+        There are currently 100 mosquitoes in the pond, so <m>P(0) = 100</m>.
+        You would like the population to decrease to zero over time.
+      </p>
+    </introduction>
+
+    <task xml:id="task-mosquito-decrease">
+      <title>P(0)=100</title>
+      <statement>
+        <p>
+          Determine whether <m>P(t)</m> will decrease
+          to zero when <m>P(0) = 100</m>.
+        </p>
+      </statement>
+      <hint>
+        <p>
+          First find the equilibrium solutions by setting <m>4P(P-30) = 0</m>,
+          then draw the phase diagram. Where does <m>P(0)</m> lie?
+        </p>
+      </hint>
+      <solution>
+       
+        <p>
+          The equilibrium solutions are <m>P = 0</m> and <m>P = 30</m>.
+          The phase diagram is:
+        </p>
+        <figure xml:id="fig-phase-mosquito-1">
+          <caption>
+            Phase diagram for <m>dP/dt = 4P(P-30)</m>. Equilibria at
+            <m>P = 0</m> and <m>P = 30</m>.
+          </caption>
+          <interactive xml:id="interactive-phase-mosquito-1"
+            iframe="ch2-graph/phase-diagram-mosquito.html" width="100%" aspect="5:1">
+            <static>
+              <p>
+                Phase diagram with equilibrium solutions at <m>P = 0</m> and
+                <m>P = 30</m>. Arrow points right for <m>P \lt 0</m> (increasing),
+                left for <m>0 \lt P \lt 30</m> (decreasing), and right for
+                <m>P \gt 30</m> (increasing).
+              </p>
+            </static>
+          </interactive>
+        </figure>
+        <p>
+          Since <m>P(0) = 100 \gt 30</m>, the initial value lies in the region
+          where the arrow points right. By the consequences of existence and
+          uniqueness, <m>P(t)</m> is increasing for all time, so the population
+          will <em>not</em> decrease to zero.
+        </p>
+        <solution>
+          <title>Sign analysis (if stuck on the phase diagram)</title>
+          <p>
+            Test a value in each region:
+            <ul>
+              <li><p><m>P = -1</m>: <m>4(-1)(-31) = 124 \gt 0</m>, arrow right.</p></li>
+              <li><p><m>P = 15</m>: <m>4(15)(-15) = -900 \lt 0</m>, arrow left.</p></li>
+              <li><p><m>P = 40</m>: <m>4(40)(10) = 1600 \gt 0</m>, arrow right.</p></li>
+            </ul>
+          </p>
+        </solution>
+      </solution>
+    </task>
+
+    <task xml:id="task-mosquito-frog">
+      <title>The magic frog</title>
+      <statement>
+        <p>
+          A man offers a magic frog that can eat 80 mosquitoes instantly,
+          reducing the population to <m>P(0) = 20</m>. Will the population
+          now decrease to zero?
+        </p>
+      </statement>
+      <choices randomize="no">
+        <choice correct="yes">
+          <statement><p>Yes  the population will decrease to zero.</p></statement>
+          <feedback>
+            <p>
+              Correct! With <m>P(0) = 20</m>, the initial value falls in the
+              region <m>0 \lt P \lt 30</m>, where the arrow points left.
+              By the consequences of existence and uniqueness, <m>P(t)</m>
+              is decreasing for all time and trapped above the stable
+              equilibrium <m>P = 0</m>, so it must converge to <m>0</m>
+              as <m>t \to \infty</m>. The frog works!
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement><p>No, the population will still increase.</p></statement>
+          <feedback>
+            <p>
+              Not quite. Check the phase diagram from part 1 again —
+              which direction does the arrow point in the region
+              <m>0 \lt P \lt 30</m>?
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement><p>No, <m>P = 0</m> is unstable, so solutions won't converge to it.</p></statement>
+          <feedback>
+            <p>
+              Check the arrow directions on both sides of <m>P = 0</m>
+              in the phase diagram. Do they point toward it or away from it?
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement><p>It depends on the value of <m>k</m> in the model.</p></statement>
+          <feedback>
+            <p>
+              The constant <m>k = 4</m> affects the speed of change but not
+              the direction — that is determined entirely by the sign of
+              <m>f(P)</m>, which the phase diagram captures. The phase diagram
+              is all we need.
+            </p>
+          </feedback>
+        </choice>
+      </choices>
+    </task>
+
+    <conclusion>
+      <title>Key Takeaway: Phase Diagrams as a First Step</title>
+      <p>
+        When analyzing the behavior of solutions to a first-order autonomous ODE, such as
+        whether they are increasing or decreasing, and what they converge to,
+        a good first step is always to find the equilibrium solutions and draw
+        the phase diagram, even if you are not explicitly asked to. All the
+        information you need is in the diagram.
+      </p>
+      <p>
+        In this example, the phase diagram told us everything:
+        <ul>
+          <li><p>
+            <alert>Part 1:</alert> <m>P(0) = 100</m> falls in a zone where
+            the arrow points right, so <m>P(t)</m> stays increasing, and so it
+          will not decrease to zero.
+          </p></li>
+          <li><p>
+            <alert>Part 2:</alert> <m>P(0) = 20</m> falls in a zone where
+            the arrow points left toward the stable equilibrium <m>P = 0</m>,
+            so <m>P(t)</m> is decreasing and converges to <m>0</m>.
+          </p></li>
+        </ul>
+      </p>
+    </conclusion>
+
+  </activity>
+
+  <figure xml:id="video-frog-question">
+    <caption>This video goes through the content of this page.</caption>
+    <video xml:id="yt-frog-question" youtube="jEhpabfimvo" width="90%"/>
+  </figure>
+
+</section>

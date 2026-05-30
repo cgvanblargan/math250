@@ -9,6 +9,9 @@
  <xi:include href="./2-2/sec1-equilibrium-stability.ptx"/>
  <xi:include href="./2-2/sec2-autonomous.ptx"/>
   <xi:include href="./2-2/sec3-phase-diagrams.ptx"/>
-
-
+  <xi:include href="./2-2/sec4-existence-uniqueness.ptx"/>
+  <xi:include href="./2-2/sec5-phase-applications.ptx"/>
+    <xi:include href="./2-2/sec6-phase-frog.ptx"/>
+     <xi:include href="./2-2/exercises-2-2.ptx"/>
+exercises-2-2.ptx
 </section>
