@@ -1,0 +1,379 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-characteristic-equation" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>The Characteristic Equation</title>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       INTRO PROSE
+       ═══════════════════════════════════════════════════════════ -->
+
+
+
+  <!-- ═══════════════════════════════════════════════════════════
+       GENERAL SOLUTION THEOREM
+       ═══════════════════════════════════════════════════════════ -->
+<p> Let's continue looking the ODE <m>y'' - 5y' + 6y = 0</m> from the previous page. Notice that this
+ is a a 2nd-order linear homogeneous ODE. However, it is a pretty simple one as the coefficient functions are all constant.
+  More precisely, <m>P_0(x)=1</m>, <m>P_1(x)=-5</m>, and <m>P_2(x)=6</m>. These types of ODEs will be the focus for the rest of this chapter, 
+  and are perhaps the most fun ones to solve yet!
+</p> 
+<definition xml:id="def-constant-coeff-homogeneous">
+  <title>Second-Order Linear Homogeneous ODE with Constant Coefficients</title>
+  <statement>
+    <p>
+      A <term>second-order linear homogeneous ODE with constant coefficients</term>
+      has the form
+      <me>ay'' + by' + cy = 0,</me>
+      where <m>a \neq 0</m>, <m>b</m>, and <m>c</m> are constants.
+    </p>
+  </statement>
+</definition>
+  <p>
+    On the previous page we saw that <m>y_1 = e^{2x}</m> and <m>y_2 = e^{3x}</m> are
+    solutions to <m>y'' - 5y' + 6y = 0</m>, and by superposition,
+    <m>y = c_1 e^{2x} + c_2 e^{3x}</m> is also a solution for any constants <m>c_1, c_2</m>.
+    How do we know if this is <em> all</em> of the solutions?
+  </p>
+
+  <theorem xml:id="thm-general-solution-homogeneous">
+    <title>General Solution of a Second-Order Linear Homogeneous ODE</title>
+    <statement>
+      <p>
+        Suppose <m>y_1</m> and <m>y_2</m> are two <term>linearly independent</term> solutions
+        to a second-order linear homogeneous ODE (meaning <m>y_1 \neq k y_2</m> for any
+        constant <m>k</m>). Then
+        <me>y = c_1 y_1 + c_2 y_2</me>
+        is the <term>general solution</term> to the ODE (meaning this family of solutions contains all possible solutions).
+      </p>
+    </statement>
+  </theorem>
+
+  <p>
+    We won't prove this theorem in this course, but we will be making heavy use of it.
+    For example, now we can say for certain that <m>y = c_1 e^{2x} + c_2 e^{3x}</m> gives every solution to <m>y'' - 5y' + 6y = 0</m>
+     as we vary over all real numbers for <m>c_1</m> and <m>c_2</m>!
+  </p>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       MC CHECKPOINT
+       ═══════════════════════════════════════════════════════════ -->
+
+  <exercise xml:id="ex-mc-general-solution-2">
+    <statement>
+      <p>
+        It turns out that <m>y_1 = e^{x}</m> and <m>y_2 = e^{2x}</m> are two solutions to <m>y'' - 3y' + 2y = 0</m>. What is the general solution?
+      </p>
+    </statement>
+    <choices randomize="no">
+      <choice correct="yes">
+        <statement><p><m>y = c_1 e^{x} + c_2 e^{2x}</m></p></statement>
+        <feedback>
+          <p>
+            Exactly! Since <m>y_1 = e^x</m> and <m>y_2 = e^{2x}</m> are solutions that are also linearly independent
+            (not constant multiples of each other), the general solution is <m>y = c_1 y_1 + c_2 y_2 = c_1 e^x + c_2 e^{2x}</m>.
+            Every solution to this ODE can be written this way. <m>\checkmark</m>
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement><p><m>y = e^{x} + e^{2x}</m></p></statement>
+        <feedback>
+          <p>
+            Close, but this is just one specific solution (with <m>c_1 = c_2 = 1</m>).
+            The general solution needs arbitrary constants <m>c_1</m> and <m>c_2</m>
+            to capture all possible solutions.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement><p><m>y = c_1 e^{x} \cdot c_2 e^{2x}</m></p></statement>
+        <feedback>
+          <p>
+            Not quite. The general solution uses a <em>sum</em> of the two solutions,
+            not a product. Superposition tells us <m>c_1 y_1 + c_2 y_2</m> is a solution,
+            not <m>c_1 y_1 \cdot c_2 y_2</m>.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement><p><m>y = c_1 e^{3x}</m></p></statement>
+        <feedback>
+          <p>
+            This only has one arbitrary constant, so it can't be the general solution
+            to a second-order ODE. We always need two linearly independent solutions
+            and two constants.
+          </p>
+        </feedback>
+      </choice>
+    </choices>
+  </exercise>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       EXPLORATION: ARRIVING AT e^{rx} OURSELVES
+       ═══════════════════════════════════════════════════════════ -->
+
+  <p>
+    So the theorem tells us that finding two linearly independent solutions is the whole
+    game. But how do we actually find solutions in the first place?
+    We will explore this below. And soon we will have a way to systematically solve similar ODEs!
+  </p>
+
+  <exploration xml:id="explore-characteristic-equation">
+    <title>Where Do Solutions Come From? Trying <m>y = e^{rx}</m></title>
+
+    <introduction>
+      <p>
+        Consider the ODE <m>y'' - 3y' - 4y = 0</m>. From the previous page, we might guess that some solutions
+        take the form <m>y = e^{rx}</m>. Let's suppose
+        <m>y = e^{rx}</m> for some unknown constant <m>r</m>, and figure out which
+        values of <m>r</m> make it a solution (this should look familiar from chapter 1!).
+      </p>
+    </introduction>
+
+    <task xml:id="task-char-derivatives">
+      <title>Step 1: Find <m>y'</m> and <m>y''</m></title>
+      <statement>
+        <p>
+          If <m>y = e^{rx}</m>, what are <m>y'</m> and <m>y''</m>?
+        </p>
+      </statement>
+      <solution>
+        <p>
+          <md>
+            <mrow>y \amp= e^{rx}</mrow>
+            <mrow>y' \amp= re^{rx}</mrow>
+            <mrow>y'' \amp= r^2 e^{rx}</mrow>
+          </md>
+        </p>
+      </solution>
+    </task>
+
+    <task xml:id="task-char-substitute">
+      <title>Step 2: Substitute into the ODE</title>
+      <statement>
+        <p>
+          Substitute <m>y = e^{rx}</m>, <m>y' = re^{rx}</m>, <m>y'' = r^2 e^{rx}</m>
+          into <m>y'' - 3y' - 4y = 0</m> and factor out <m>e^{rx}</m>.
+          Which equation do you get?
+        </p>
+      </statement>
+      <choices randomize="no">
+        <choice correct="yes">
+          <statement><p><m>e^{rx}(r^2 - 3r - 4) = 0</m></p></statement>
+          <feedback>
+            <p>
+              Exactly right! Substituting gives:
+              <md>
+                <mrow>r^2 e^{rx} - 3re^{rx} - 4e^{rx} \amp= 0</mrow>
+                <mrow>e^{rx}(r^2 - 3r - 4) \amp= 0. \checkmark</mrow>
+              </md>
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement><p><m>e^{rx}(r^2 - 3r - 4) = e^{rx}</m></p></statement>
+          <feedback>
+            <p>
+              Not quite. The right-hand side of the ODE is <m>0</m>, so after
+              substituting we should have <m>0</m> on the right, not <m>e^{rx}</m>.
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement><p><m>e^{rx}(r - 3r - 4) = 0</m></p></statement>
+          <feedback>
+            <p>
+              Almost, but check the <m>y''</m> term. Since <m>y'' = r^2 e^{rx}</m>,
+              the first term should contribute <m>r^2</m>, not <m>r</m>.
+            </p>
+          </feedback>
+        </choice>
+      </choices>
+    </task>
+
+    <task xml:id="task-char-key-step">
+      <title>Step 3: The Key Observation</title>
+      <statement>
+        <p>
+          We have <m>e^{rx}(r^2 - 3r - 4) = 0</m>. Since <m>e^{rx} \neq 0</m>
+          for any value of <m>x</m>, what must be true?
+        </p>
+      </statement>
+      <choices randomize="no">
+        <choice correct="yes">
+          <statement><p><m>r^2 - 3r - 4 = 0</m></p></statement>
+          <feedback>
+            <p>
+              Yes! Since <m>e^{rx}</m> is never zero, the only way the product can
+              equal zero is if the other factor equals zero. So <m>r</m> must satisfy
+              <m>r^2 - 3r - 4 = 0</m>. This is called the <term>characteristic equation</term>. <m>\checkmark</m>
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement><p><m>e^{rx} = 0</m></p></statement>
+          <feedback>
+            <p>
+              Actually, <m>e^{rx} \neq 0</m> for any real <m>x</m> -- exponentials
+              are always positive! So this factor can never be zero.
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement><p>There are no solutions of the form <m>e^{rx}</m>.</p></statement>
+          <feedback>
+            <p>
+              Not quite -- we just need <m>r^2 - 3r - 4 = 0</m> to hold.
+              If we can find values of <m>r</m> satisfying this, then <m>e^{rx}</m>
+              is indeed a solution.
+            </p>
+          </feedback>
+        </choice>
+      </choices>
+    </task>
+
+    <task xml:id="task-char-solve">
+      <title>Step 4: Solve for <m>r</m></title>
+      <statement>
+        <p>
+          Factor and solve <m>r^2 - 3r - 4 = 0</m>. What are the two values of <m>r</m>,
+          and what are the corresponding solutions <m>y_1</m> and <m>y_2</m>?
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Factoring: <m>(r - 4)(r + 1) = 0</m>, so <m>r = 4</m> or <m>r = -1</m>.
+          The two solutions are:
+          <me>y_1 = e^{4x} \qquad \text{and} \qquad y_2 = e^{-x}.</me>
+          Since these are not multiples of each other, they are linearly independent,
+          and the general solution is:
+          <me>y = c_1 e^{4x} + c_2 e^{-x}.</me>
+        </p>
+      </solution>
+    </task>
+
+ 
+  </exploration>
+ <p>
+        Let's summarize the main findings of this exploration. We were looking to find solutions in the form 
+        <m>y=e^{rx}</m> to
+         <me>y'' - 3y' - 4y = 0.</me>
+         We solved for the <m>r</m> that worked by solving the algebraic equation:
+         <me>r^2 -3r - 4 = 0. </me>
+         Do you see the similarities between the ODE and the quadratic equation above? This turns out to be fundamental to solving
+          2nd-order linear homogeneous ODEs with constant coefficients. We call it the <alert>characteristic equation</alert>.
+      </p>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       DEFINITION: CHARACTERISTIC EQUATION
+       ═══════════════════════════════════════════════════════════ -->
+
+  <definition xml:id="def-characteristic-equation">
+    <title>Characteristic Equation</title>
+    <statement>
+      <p>
+        The <term>characteristic equation</term> of the second-order linear homogeneous ODE
+        with constant coefficients
+        <me>ay'' + by' + cy = 0</me>
+        is the quadratic equation
+        <me>ar^2 + br + c = 0.</me>
+      </p>
+    </statement>
+  </definition>
+
+  
+
+  <!-- ═══════════════════════════════════════════════════════════
+       OBSERVATION: TWO REAL ROOTS GIVE TWO SOLUTIONS
+       ═══════════════════════════════════════════════════════════ -->
+<p> If you look through the exploration we just did, it should be clear that this process will lead to the same conclusion
+   for any ODE in the form <m>ay'' + by' + cy = 0</m>. That is, any time r is a root to the characteristic
+  equation <m>ar^2 + br + c = 0</m>, then <m>e^{rx}</m> is a solution to the ODE. Even more,
+   if there are two distinct real roots, that gives us two solutions from which we can form the general solution!
+</p>
+  <observation xml:id="obs-distinct-real-roots">
+    <title>Two Distinct Real Roots</title>
+    <p>
+      If <m>r_1</m> and <m>r_2</m> are two distinct real roots of the characteristic
+      equation <m>ar^2 + br + c = 0</m>, then
+      <me>y_1 = e^{r_1 x} \qquad \text{and} \qquad y_2 = e^{r_2 x}</me>
+      are two linearly independent solutions to <m>ay'' + by' + cy = 0</m>, and the
+      general solution is:
+      <me>y = c_1 e^{r_1 x} + c_2 e^{r_2 x}.</me>
+    </p>
+  </observation>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       EXAMPLE: y'' - 5y' + 6y = 0 (callback to page 1)
+       ═══════════════════════════════════════════════════════════ -->
+<p> Note that this observation only applies to when there are <em>two distinct real roots</em> to the characteristic equation. 
+  We will be looking at other cases for the roots on the next page! Let's quickly apply this to an example.</p>
+  <example xml:id="ex-char-eq-distinct">
+    <title>Solving <m>y'' - 5y' + 6y = 0</m></title>
+    <introduction>
+      <p>
+        Let's revisit the ODE from the previous page. This time, instead of being
+        told that <m>e^{2x}</m> and <m>e^{3x}</m> are solutions, let's
+        find them ourselves using the characteristic equation.
+        Find the general solution to <m>y'' - 5y' + 6y = 0</m>.
+      </p>
+    </introduction>
+    <hint>
+      <p>
+        Write down the characteristic equation by replacing <m>y''</m> with <m>r^2</m>,
+        <m>y'</m> with <m>r</m>, and <m>y</m> with <m>1</m>. Then factor and solve for <m>r</m>.
+      </p>
+    </hint>
+    <solution>
+      <p>
+        The characteristic equation is:
+        <me>r^2 - 5r + 6 = 0.</me>
+        Factoring: <m>(r - 2)(r - 3) = 0</m>, so <m>r_1 = 2</m> and <m>r_2 = 3</m>.
+        These are two distinct real roots, so the general solution is:
+        <me>y = c_1 e^{2x} + c_2 e^{3x}.</me>
+       Just as we found before!
+      </p>
+    </solution>
+  </example>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       KEY TAKEAWAYS
+       ═══════════════════════════════════════════════════════════ -->
+
+  <conclusion>
+    <title>Key Takeaways</title>
+    <p>
+      <ul>
+        <li><p>
+          <alert>General solution:</alert> If <m>y_1</m> and <m>y_2</m> are two linearly
+          independent solutions to a second-order linear homogeneous ODE, then
+          <m>y = c_1 y_1 + c_2 y_2</m> is the general solution -- every solution can
+          be written this way.
+        </p></li>
+        <li><p>
+          <alert>Characteristic equation:</alert> For <m>ay'' + by' + cy = 0</m> the characteristic equation is <m>ar^2 + br + c = 0</m>.
+          Each root <m>r</m> gives a solution <m>e^{rx}</m>.
+        </p></li>
+        <li><p>
+          <alert>Distinct real roots:</alert> If the characteristic equation has two distinct
+          real roots <m>r_1</m> and <m>r_2</m>, then <m>y_1 = e^{r_1 x}</m> and
+          <m>y_2 = e^{r_2 x}</m> are linearly independent, and the general solution is
+          <m>y = c_1 e^{r_1 x} + c_2 e^{r_2 x}</m>.
+        </p></li>
+      </ul>
+    </p>
+  </conclusion>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       NO VIDEO NOTE + QUESTION FORM
+       ═══════════════════════════════════════════════════════════ -->
+
+  <remark xml:id="remark-no-video-3-1-2">
+    <p>
+      There is no separate video for this page.
+    </p>
+  </remark>
+
+  <interactive xml:id="question-form-3-1-2" iframe="question-form.html?section=3.1.2" width="100%" aspect="2:1"/>
+
+</section>

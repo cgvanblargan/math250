@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-practice-real-roots" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Practice: Real Roots</title>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       INTRO PROSE
+       ═══════════════════════════════════════════════════════════ -->
+
+  
+
+  <p>
+    Recall that for <m>ay'' + by' + cy = 0</m>, if the characteristic equation has:
+    <ul>
+      <li><p><alert>Two distinct real roots</alert> <m>r_1 \neq r_2</m>: general solution <m>y = c_1 e^{r_1 x} + c_2 e^{r_2 x}</m></p></li>
+      <li><p><alert>One repeated real root</alert> <m>r_1</m>: general solution <m>y = c_1 e^{r_1 x} + c_2 x e^{r_1 x}</m></p></li>
+    </ul>
+    We justified the distinct roots case on a previous page. Let's justify the repeated root case now.
+  </p>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       REPEATED ROOT JUSTIFICATION (DROPDOWN)
+       ═══════════════════════════════════════════════════════════ -->
+
+  <theorem xml:id="thm-repeated-root-justification">
+    <title>Why Does the Repeated Root Case Give <m>xe^{r_1 x}</m>?</title>
+    <statement>
+      <p>
+        If <m>r_1</m> is a repeated root of <m>ar^2 + br + c = 0</m>, then
+        <m>y_1 = e^{r_1 x}</m> and <m>y_2 = xe^{r_1 x}</m> are two linearly
+        independent solutions to <m>ay'' + by' + cy = 0</m>.
+      </p>
+    </statement>
+    <proof>
+      <title>Justification (can skim)</title>
+      <p>
+        Since <m>r_1</m> is a repeated root, the characteristic equation factors as
+        <m>a(r - r_1)^2 = 0</m>, which means <m>b = -2ar_1</m> and <m>c = ar_1^2</m>.
+        We already know <m>y_1 = e^{r_1 x}</m> is a solution. We need to verify
+        <m>y_2 = xe^{r_1 x}</m> is also a solution.
+      </p>
+      <p>
+        Computing the derivatives of <m>y_2 = xe^{r_1 x}</m>:
+        <md>
+          <mrow>y_2' \amp= e^{r_1 x} + r_1 xe^{r_1 x} = (1 + r_1 x)e^{r_1 x}</mrow>
+          <mrow>y_2'' \amp= r_1 e^{r_1 x} + r_1(1 + r_1 x)e^{r_1 x} = (2r_1 + r_1^2 x)e^{r_1 x}</mrow>
+        </md>
+        Substituting into <m>ay_2'' + by_2' + cy_2</m>:
+        <md>
+          <mrow>\amp= a(2r_1 + r_1^2 x)e^{r_1 x} + b(1 + r_1 x)e^{r_1 x} + cxe^{r_1 x}</mrow>
+          <mrow>\amp= e^{r_1 x}\left[(2ar_1 + b) + (ar_1^2 + br_1 + c)x\right]</mrow>
+        </md>
+        Since <m>r_1</m> is a root: <m>ar_1^2 + br_1 + c = 0</m>. And since it is a
+        <em>repeated</em> root: <m>2ar_1 + b = 0</m>. So both terms vanish:
+        <me>ay_2'' + by_2' + cy_2 = e^{r_1 x}[0 + 0] = 0. \checkmark</me>
+        Finally, <m>y_1 = e^{r_1 x}</m> and <m>y_2 = xe^{r_1 x}</m> are not constant
+        multiples of each other, so they are linearly independent.
+      </p>
+    </proof>
+  </theorem>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       ACTIVITY 1: REAL ROOTS PRACTICE
+       ═══════════════════════════════════════════════════════════ -->
+
+  <activity xml:id="act-real-roots-practice">
+    <title>Practice: Real Roots</title>
+
+    <introduction>
+      <p>
+        <!-- PROSE: short encouraging intro, these look simple but have some fun twists -->
+      </p>
+    </introduction>
+
+    <task xml:id="task-real-roots-1">
+      <title>Solve <m>y'' + 2y' + y = 0</m></title>
+      <statement>
+        <p>Find the general solution to <m>y'' + 2y' + y = 0</m>.</p>
+      </statement>
+      <hint>
+        <p>
+          The characteristic equation is <m>r^2 + 2r + 1 = 0</m>. Try factoring it!
+        </p>
+      </hint>
+      <solution>
+        <p>
+          The characteristic equation is <m>r^2 + 2r + 1 = 0</m>, which factors as:
+          <me>(r + 1)^2 = 0.</me>
+          This gives a repeated root <m>r_1 = -1</m>. The general solution is:
+          <me>y = c_1 e^{-x} + c_2 x e^{-x}.</me>
+        </p>
+      </solution>
+    </task>
+
+    <task xml:id="task-real-roots-2">
+      <title>Solve <m>y'' - y' = 0</m></title>
+      <statement>
+        <p>Find the general solution to <m>y'' - y' = 0</m>.</p>
+      </statement>
+      <hint>
+        <p>
+          The characteristic equation is <m>r^2 - r = 0</m>. An <m>r</m> can be factored out.
+        </p>
+      </hint>
+      <solution>
+        <p>
+          The characteristic equation is <m>r^2 - r = 0</m>, which factors as:
+          <me>r(r - 1) = 0.</me>
+          So <m>r_1 = 0</m> and <m>r_2 = 1</m>. These are two distinct real roots, giving:
+          <me>y_1 = e^{0 \cdot x} = 1 \qquad \text{and} \qquad y_2 = e^{x}.</me>
+          The general solution is:
+          <me>y = c_1 + c_2 e^{x}.</me>
+          Notice that <m>r = 0</m> as a root just gives a constant solution -- that's
+          perfectly valid!
+        </p>
+      </solution>
+    </task>
+
+    <task xml:id="task-real-roots-3">
+      <title>Solve <m>y'' = 0</m></title>
+      <statement>
+        <p>Find the general solution to <m>y'' = 0</m>.</p>
+      </statement>
+      <hint>
+        <p>
+          The characteristic equation is <m>r^2 = 0</m>. What are the roots?
+        </p>
+      </hint>
+      <solution>
+        <p>
+          The characteristic equation is <m>r^2 = 0</m>, giving a repeated root
+          <m>r_1 = 0</m>. By the repeated root case:
+          <me>y_1 = e^{0 \cdot x} = 1 \qquad \text{and} \qquad y_2 = xe^{0 \cdot x} = x.</me>
+          The general solution is:
+          <me>y = c_1 + c_2 x.</me>
+          This makes sense. If the second derivative is zero, the function must be linear!
+        </p>
+      </solution>
+    </task>
+
+  
+
+  </activity>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       NO VIDEO + QUESTION FORM
+       ═══════════════════════════════════════════════════════════ -->
+
+  <remark xml:id="remark-no-video-3-1-4">
+    <p>
+      There is no separate video for this page.
+    </p>
+  </remark>
+
+  <interactive xml:id="question-form-3-1-4" iframe="question-form.html?section=3.1.4" width="100%" aspect="2:1"/>
+
+</section>

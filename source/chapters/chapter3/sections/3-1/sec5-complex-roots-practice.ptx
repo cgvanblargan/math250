@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-complex-roots-practice" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Complex Roots and Practice</title>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       INTRO PROSE
+       ═══════════════════════════════════════════════════════════ -->
+
+ 
+
+  <p>
+    Recall that for <m>ay'' + by' + cy = 0</m>, if the characteristic equation has
+    complex roots <m>\alpha \pm \beta i</m>, the general solution is:
+    <me>y = e^{\alpha x}\left(c_1\cos(\beta x) + c_2\sin(\beta x)\right).</me>
+  </p>
+     <theorem xml:id="thm-complex-roots-justification">
+    <title>Why Does the Complex Root Case Give Sines and Cosines?</title>
+    <statement>
+      <p>
+        If the characteristic equation has complex roots <m>\alpha \pm \beta i</m>,
+        then <m>y_1 = e^{\alpha x}\cos(\beta x)</m> and <m>y_2 = e^{\alpha x}\sin(\beta x)</m>
+        are two linearly independent real-valued solutions.
+      </p>
+    </statement>
+    <proof>
+      <title>Justification (can skim for now)</title>
+      <p>
+        From the complex roots <m>r = \alpha \pm \beta i</m>, we formally get complex solutions
+        <m>e^{(\alpha + \beta i)x}</m> and <m>e^{(\alpha - \beta i)x}</m>. Using
+        <term>Euler's formula</term> <m>e^{i\theta} = \cos\theta + i\sin\theta</m>:
+        <md>
+          <mrow>e^{(\alpha + \beta i)x} \amp= e^{\alpha x}e^{i\beta x} = e^{\alpha x}(\cos(\beta x) + i\sin(\beta x))</mrow>
+          <mrow>e^{(\alpha - \beta i)x} \amp= e^{\alpha x}e^{-i\beta x} = e^{\alpha x}(\cos(\beta x) - i\sin(\beta x))</mrow>
+        </md>
+        Taking the sum and difference of these two complex solutions (and dividing by
+        appropriate constants) gives two real-valued solutions:
+        <md>
+          <mrow>y_1 \amp= e^{\alpha x}\cos(\beta x)</mrow>
+          <mrow>y_2 \amp= e^{\alpha x}\sin(\beta x)</mrow>
+        </md>
+        These are linearly independent since one involves cosine and the other sine,
+        and neither is a constant multiple of the other (assuming <m>\beta \neq 0</m>).
+      </p>
+    </proof>
+  </theorem>
+
+  
+ <p>
+  A huge difference in the solution for this case is that it involves <m>\sin(x)</m> and <m>cos(x)</m>. 
+  Let's explore a simple case to see how these trig functions naturally appear.
+ </p>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       EXPLORATION: y'' = -y
+       ═══════════════════════════════════════════════════════════ -->
+
+  <exploration xml:id="explore-yprimeprime-neg-y">
+    <title>Exploring <m>y'' = -y</m></title>
+
+    <introduction>
+      <p>
+        Consider the ODE <m>y'' = -y</m>, or equivalently <m>y'' + y = 0</m>.
+        This is asking: what functions have a second derivative equal to the
+        negative of themselves? Let's find the general solution two different ways.
+      </p>
+    </introduction>
+
+    <task xml:id="task-neg-y-inspection">
+      <title>Part 1: By Inspection</title>
+      <statement>
+        <p>
+          We're looking for functions whose second derivative equals the negative
+          of the function itself. Can you think of two functions that satisfy this?
+        </p>
+      </statement>
+      <hint>
+        <p>
+          Think about what you know from calculus. Which familiar functions have
+          the property that their second derivative is the negative of themselves?
+        </p>
+      </hint>
+      <solution>
+        <p>
+          We know from calculus that:
+          <md>
+            <mrow>\frac{d^2}{dx^2}\cos(x) \amp= -\cos(x)</mrow>
+            <mrow>\frac{d^2}{dx^2}\sin(x) \amp= -\sin(x)</mrow>
+          </md>
+          So both <m>y_1 = \cos(x)</m> and <m>y_2 = \sin(x)</m> satisfy <m>y'' = -y</m>!
+          Since they are not constant multiples of each other, they are linearly
+          independent, and the general solution is:
+          <me>y = c_1\cos(x) + c_2\sin(x).</me>
+        </p>
+      </solution>
+    </task>
+
+    <task xml:id="task-neg-y-char-eq">
+      <title>Part 2: Via the Characteristic Equation</title>
+      <statement>
+        <p>
+          Now let's arrive at the same answer using the characteristic equation
+          for <m>y'' + y = 0</m>.
+        </p>
+      </statement>
+      <hint>
+        <p>
+          The characteristic equation is <m>r^2 + 1 = 0</m>. This doesn't factor
+          easily, but notice you don't need the quadratic formula either. Just
+          solve directly for <m>r^2</m>!
+        </p>
+      </hint>
+      <solution>
+        <p>
+          The characteristic equation is <m>r^2 + 1 = 0</m>. Solving directly:
+          <md>
+            <mrow>r^2 + 1 \amp= 0</mrow>
+            <mrow>r^2 \amp= -1</mrow>
+            <mrow>r \amp= \pm i</mrow>
+          </md>
+          So the roots are <m>r = 0 \pm 1 \cdot i</m>, giving <m>\alpha = 0</m> and
+          <m>\beta = 1</m>. The general solution is:
+          <me>y = e^{0 \cdot x}\left(c_1\cos(1 \cdot x) + c_2\sin(1 \cdot x)\right) = c_1\cos(x) + c_2\sin(x).</me>
+          Just as we found by inspection!
+        </p>
+      </solution>
+    </task>
+
+  </exploration>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       OBSERVATION: y'' + omega^2 y = 0
+       ═══════════════════════════════════════════════════════════ -->
+
+  <observation xml:id="obs-simple-harmonic-ode">
+    <title>The ODE <m>y'' + \omega^2 y = 0</m></title>
+    <p>
+      For any constant <m>\omega \neq 0</m>, the ODE
+      <me>y'' + \omega^2 y = 0</me>
+      has characteristic equation <m>r^2 + \omega^2 = 0</m>, giving roots
+      <m>r = \pm \omega i</m> (so <m>\alpha = 0</m>, <m>\beta = \omega</m>).
+      The general solution is:
+      <me>y = c_1\cos(\omega x) + c_2\sin(\omega x).</me>
+    </p>
+  </observation>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       COMPLEX ROOTS JUSTIFICATION (DROPDOWN)
+       ═══════════════════════════════════════════════════════════ -->
+
+ 
+  <!-- ═══════════════════════════════════════════════════════════
+       ACTIVITY 2: MIXED PRACTICE
+       ═══════════════════════════════════════════════════════════ -->
+
+  <activity xml:id="act-mixed-practice">
+    <title>Practice: All Cases</title>
+
+    
+
+    <task xml:id="task-mixed-1">
+      <title>Solve <m>y'' - 4y' + 5y = 0</m></title>
+      <statement>
+        <p>Find the general solution to <m>y'' - 4y' + 5y = 0</m>.</p>
+      </statement>
+      <hint>
+        <p>
+          The characteristic equation is <m>r^2 - 4r + 5 = 0</m>. This does not
+          factor easily. You will need the quadratic formula here.
+        </p>
+      </hint>
+      <solution>
+        <p>
+          The characteristic equation is <m>r^2 - 4r + 5 = 0</m>. Applying the
+          quadratic formula:
+          <md>
+            <mrow>r \amp= \frac{4 \pm \sqrt{16 - 20}}{2} = \frac{4 \pm \sqrt{-4}}{2} = \frac{4 \pm 2i}{2} = 2 \pm i.</mrow>
+          </md>
+          So <m>\alpha = 2</m> and <m>\beta = 1</m>. The general solution is:
+          <me>y = e^{2x}\left(c_1\cos(x) + c_2\sin(x)\right).</me>
+        </p>
+      </solution>
+    </task>
+
+    <task xml:id="task-mixed-2">
+      <title>Solve <m>y'' - 5y' + 4y = 0</m></title>
+      <statement>
+        <p>Find the general solution to <m>y'' - 5y' + 4y = 0</m>.</p>
+      </statement>
+      <hint>
+        <p>
+          The characteristic equation is <m>r^2 - 5r + 4 = 0</m>. Try factoring first!
+        </p>
+      </hint>
+      <solution>
+        <p>
+          The characteristic equation is <m>r^2 - 5r + 4 = 0</m>, which factors as:
+          <me>(r - 1)(r - 4) = 0.</me>
+          So <m>r_1 = 1</m> and <m>r_2 = 4</m>. The general solution is:
+          <me>y = c_1 e^{x} + c_2 e^{4x}.</me>
+        </p>
+      </solution>
+    </task>
+
+    <task xml:id="task-mixed-3">
+      <title>Solve <m>y'' + 9y = 0</m></title>
+      <statement>
+        <p>Find the general solution to <m>y'' + 9y = 0</m>.</p>
+      </statement>
+      <hint>
+        <p>
+          Notice this fits the form <m>y'' + \omega^2 y = 0</m> from the observation
+          above. Just do the usual characteristic equation process.
+        </p>
+      </hint>
+      <solution>
+        <p>
+          This fits the form <m>y'' + \omega^2 y = 0</m> with <m>\omega = 3</m>.
+          By the observation, the general solution is:
+          <me>y = c_1\cos(3x) + c_2\sin(3x).</me>
+        </p>
+      </solution>
+    </task>
+
+    <task xml:id="task-mixed-4">
+      <title>Solve <m>y'' - 9y = 0</m></title>
+      <statement>
+        <p>Find the general solution to <m>y'' - 9y = 0</m>.</p>
+      </statement>
+      <hint>
+        <p>
+          Notice this does <em>not</em> follow from the observation above, since
+          the coefficient of <m>y</m> is <m>-9</m>, not <m>+9</m>. Find the roots
+          of the characteristic equation -- you may be surprised which case you're in!
+        </p>
+      </hint>
+      <solution>
+        <p>
+          The characteristic equation is <m>r^2 - 9 = 0</m>, which factors as:
+          <me>(r - 3)(r + 3) = 0.</me>
+          So <m>r_1 = 3</m> and <m>r_2 = -3</m>, which are two distinct <em>real</em> roots,
+          not complex!
+          The general solution is:
+          <me>y = c_1 e^{3x} + c_2 e^{-3x}.</me>
+        </p>
+      </solution>
+    </task>
+
+     
+        
+    
+
+  </activity>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       NO VIDEO + QUESTION FORM
+       ═══════════════════════════════════════════════════════════ -->
+
+  <remark xml:id="remark-no-video-3-1-5">
+    <p>
+      There is no separate video for this page.
+    </p>
+  </remark>
+
+  <interactive xml:id="question-form-3-1-5" iframe="question-form.html?section=3.1.5" width="100%" aspect="2:1"/>
+
+</section>

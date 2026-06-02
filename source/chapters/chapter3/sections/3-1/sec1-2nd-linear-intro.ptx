@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-2nd-linear-intro" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Introduction to Second-Order Linear ODEs</title>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       INTRO PROSE
+       ═══════════════════════════════════════════════════════════ -->
+
+  <p>
+    So far we've been working with first-order ODEs. But 2nd order ODEs show up naturally
+    in many applications. We'll actually see an interesting example with the mass-spring system
+    later in this chapter, where the 2nd derivative appears because of acceleration.
+    These equations aren't just 2nd order, they're also linear, which turns out to make
+    them very well-behaved and understandable. This whole chapter is dedicated to
+    exploring exactly these types of equations!
+  </p>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       DEFINITION: 2ND ORDER LINEAR ODE
+       ═══════════════════════════════════════════════════════════ -->
+
+  <definition xml:id="def-second-order-linear">
+    <title>Second-Order Linear ODE</title>
+    <statement>
+      <p>
+        A <term>second-order linear differential equation</term> can be written in the form:
+        <me>P_0(x)y'' + P_1(x)y' + P_2(x)y = Q(x),</me>
+        where <m>P_0(x)</m>, <m>P_1(x)</m>, <m>P_2(x)</m>, and <m>Q(x)</m> are functions of <m>x</m>.
+      </p>
+    </statement>
+  </definition>
+
+  <p>
+    For example, the equation
+    <me>
+      \underbrace{x^2}_{P_0(x)}y'' + \underbrace{1}_{P_1(x)}y' + \underbrace{e^x}_{P_2(x)}y = \underbrace{\sin(x)+3}_{Q(x)}
+    </me>
+    is a second-order linear ODE, with the coefficient functions and right-hand side labeled.
+  </p>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       MC: IDENTIFY A 2ND ORDER LINEAR ODE
+       ═══════════════════════════════════════════════════════════ -->
+
+  <exercise xml:id="ex-mc-identify-linear">
+    <statement>
+      <p>
+        Which of the following is a second-order linear ODE?
+      </p>
+    </statement>
+    <choices randomize="yes">
+      <choice correct="yes">
+        <statement><p><m>y'' + 3xy' - e^x y = \cos(x)</m></p></statement>
+        <feedback>
+          <p>
+            Correct! This fits the form <m>P_0 y'' + P_1 y' + P_2 y = Q(x)</m> with
+            <m>P_0 = 1</m>, <m>P_1 = 3x</m>, <m>P_2 = -e^x</m>, and <m>Q(x) = \cos(x)</m>.
+            The key is that <m>y</m> and its derivatives appear only to the first power,
+            with no products between them. <m>\checkmark</m>
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement><p><m>yy'' + y' = 0</m></p></statement>
+        <feedback>
+          <p>
+            Not quite. The term <m>yy''</m> is a product of the unknown function <m>y</m>
+            with its second derivative <m>y''</m> -- that makes this equation nonlinear.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement><p><m>y'' + (y')^2 = x</m></p></statement>
+        <feedback>
+          <p>
+            Not quite. The term <m>(y')^2</m> is the first derivative squared -- since
+            <m>y'</m> appears to a power higher than 1, this equation is nonlinear.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement><p><m>y' + 3y = x^2</m></p></statement>
+        <feedback>
+          <p>
+            This is linear, but it's only first-order -- there's no <m>y''</m> term.
+            We're looking for a second-order equation.
+          </p>
+        </feedback>
+      </choice>
+    </choices>
+  </exercise>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       DEFINITION: HOMOGENEOUS
+       ═══════════════════════════════════════════════════════════ -->
+
+  <definition xml:id="def-homogeneous-second-order">
+    <title>Homogeneous Second-Order Linear ODE</title>
+    <statement>
+      <p>
+        A second-order linear ODE is called <term>homogeneous</term> when <m>Q(x) = 0</m>.
+        That is, it has the form:
+        <me>P_0(x)y'' + P_1(x)y' + P_2(x)y = 0.</me>
+      </p>
+    </statement>
+  </definition>
+
+  <p>
+    Here's a quick way to see the difference:
+    <md>
+      <mrow>x^2 y'' + y' + e^x y \amp= \sin(x) + 3 \quad \leadsto \text{ not homogeneous}</mrow>
+      <mrow>x^2 y'' + y' + e^x y \amp= 0 \hphantom{\sin(x) + 3} \quad \leadsto \text{ homogeneous}</mrow>
+    </md>
+    Same left-hand side, but setting the right-hand side to zero makes it homogeneous.
+  </p>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       OBSERVATION: SUPERPOSITION
+       ═══════════════════════════════════════════════════════════ -->
+
+  <observation xml:id="obs-superposition">
+    <title>Superposition Principle</title>
+    <p>
+      If <m>y_1</m> and <m>y_2</m> are both solutions to a second-order linear
+      <em>homogeneous</em> ODE, then
+      <me>y = c_1y_1 + c_2y_2</me>
+      is also a solution, for any constants <m>a</m> and <m>b</m>.
+    </p>
+  </observation>
+
+  <p>
+    You can skim through the proof below and come back to it if you're curious. 
+  </p>
+
+  <proof>
+    <title>Proof of Superposition (can skim)</title>
+    <p>
+      Suppose <m>y_1</m> and <m>y_2</m> both satisfy <m>P_0 y'' + P_1 y' + P_2 y = 0</m>.
+      Let <m>y = ay_1 + by_2</m>. We check that <m>y</m> satisfies the ODE:
+      <md>
+        <mrow>P_0 y'' + P_1 y' + P_2 y
+          \amp= P_0(ay_1 + by_2)'' + P_1(ay_1 + by_2)' + P_2(ay_1 + by_2)</mrow>
+        <mrow>\amp= P_0(ay_1'' + by_2'') + P_1(ay_1' + by_2') + P_2(ay_1 + by_2)</mrow>
+        <mrow>\amp= a\underbrace{(P_0 y_1'' + P_1 y_1' + P_2 y_1)}_{=\,0} +
+               b\underbrace{(P_0 y_2'' + P_1 y_2' + P_2 y_2)}_{=\,0}</mrow>
+        <mrow>\amp= 0.</mrow>
+      </md>
+      So <m>y = ay_1 + by_2</m> satisfies the ODE. <m>\checkmark</m>
+    </p>
+  </proof>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       EXAMPLE: COUNTEREXAMPLE (NONLINEAR)
+       ═══════════════════════════════════════════════════════════ -->
+
+  <example xml:id="ex-superposition-fails-nonlinear">
+    <title>Superposition Can Fail for Nonlinear ODEs</title>
+    <introduction>
+      <p>
+        The superposition principle requires the ODE to be both linear and homogeneous.
+        Let's see what happens when it's not. Show that <m>y_1 = 1</m> and
+        <m>y_2 = \sqrt{x}</m> are both solutions to
+        <me>yy'' + (y')^2 = 0,</me>
+        but their sum <m>y = y_1 + y_2 = 1 + \sqrt{x}</m> is <em>not</em> a solution.
+      </p>
+    </introduction>
+    <solution>
+      <title>Can skim for now -- come back if needed</title>
+      <p>
+        <alert>Checking <m>y_1 = 1</m>:</alert> We have <m>y_1' = 0</m> and <m>y_1'' = 0</m>, so:
+        <me>y_1 y_1'' + (y_1')^2 = (1)(0) + (0)^2 = 0. \checkmark</me>
+      </p>
+      <p>
+        <alert>Checking <m>y_2 = \sqrt{x}</m>:</alert> We have <m>y_2' = \dfrac{1}{2\sqrt{x}}</m>
+        and <m>y_2'' = -\dfrac{1}{4x^{3/2}}</m>, so:
+        <me>y_2 y_2'' + (y_2')^2 = \sqrt{x} \cdot \left(-\frac{1}{4x^{3/2}}\right) + \left(\frac{1}{2\sqrt{x}}\right)^2
+          = -\frac{1}{4x} + \frac{1}{4x} = 0. \checkmark</me>
+      </p>
+      <p>
+        <alert>Checking <m>y = 1 + \sqrt{x}</m>:</alert> We have <m>y' = \dfrac{1}{2\sqrt{x}}</m>
+        and <m>y'' = -\dfrac{1}{4x^{3/2}}</m>, so:
+        <md>
+          <mrow>yy'' + (y')^2 \amp= (1 + \sqrt{x})\left(-\frac{1}{4x^{3/2}}\right) + \frac{1}{4x}</mrow>
+          <mrow>\amp= -\frac{1}{4x^{3/2}} - \frac{1}{4x} + \frac{1}{4x}</mrow>
+          <mrow>\amp= -\frac{1}{4x^{3/2}} \neq 0.</mrow>
+        </md>
+        So the sum is <em>not</em> a solution. This makes sense -- superposition only applies
+        to linear homogeneous ODEs, and <m>yy'' + (y')^2 = 0</m> is nonlinear.
+      </p>
+    </solution>
+  </example>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       EXAMPLE: CONFIRMING SUPERPOSITION
+       ═══════════════════════════════════════════════════════════ -->
+
+  <example xml:id="ex-superposition-confirm">
+    <title>Superposition in Action</title>
+    <introduction>
+      <p>
+        It is easy to check that <m>y_1 = e^{2x}</m> and <m>y_2 = e^{3x}</m> are both solutions
+        to the second-order linear homogeneous ODE:
+        <me>y'' - 5y' + 6y = 0.</me>
+        By the superposition principle, any combination <m>y = c_1e^{2x} + c_2e^{3x}</m> should
+        also be a solution. Let's confirm this for <m>y = 2e^{2x} + 5e^{3x}</m>.
+      </p>
+    </introduction>
+    <solution>
+      <p>
+        We compute the derivatives of <m>y = 2e^{2x} + 5e^{3x}</m>:
+        <md>
+          <mrow>y' \amp= 4e^{2x} + 15e^{3x}</mrow>
+          <mrow>y'' \amp= 8e^{2x} + 45e^{3x}</mrow>
+        </md>
+        Now substitute into <m>y'' - 5y' + 6y</m>:
+        <md>
+          <mrow>\amp\underbrace{(8e^{2x} + 45e^{3x})}_{y''} - 5\underbrace{(4e^{2x} + 15e^{3x})}_{y'} + 6\underbrace{(2e^{2x} + 5e^{3x})}_{y}</mrow>
+          <mrow>\amp= e^{2x}(8 - 20 + 12) + e^{3x}(45 - 75 + 30)</mrow>
+          <mrow>\amp= e^{2x}(0) + e^{3x}(0) = 0. \checkmark</mrow>
+        </md>
+        Superposition works (as it should!).
+      </p>
+    </solution>
+  </example>
+
+  <conclusion>
+    <title>Key Takeaways</title>
+    <p>
+      <ul>
+        <li><p><alert>Second-order linear ODE:</alert> Has the form <m>P_0(x)y'' + P_1(x)y' + P_2(x)y = Q(x)</m>. It is <alert>homogeneous</alert> when <m>Q(x) = 0</m>.</p></li>
+        <li><p><alert>Superposition:</alert> If <m>y_1</m> and <m>y_2</m> are solutions to a linear homogeneous ODE, then so is <m>ay_1 + by_2</m> for any constants <m>a</m> and <m>b</m>.</p></li>
+        <li><p><alert>Linearity matters for superposition:</alert> Superposition can fail for nonlinear ODEs. We saw this with the counterexample. The homogeneous condition matters too.</p></li>
+      </ul>
+    </p>
+  </conclusion>
+  <!-- ═══════════════════════════════════════════════════════════
+       VIDEO
+       ═══════════════════════════════════════════════════════════ -->
+
+  <figure xml:id="video-2nd-linear-intro">
+    <caption>This video goes through the content of this page.</caption>
+    <video youtube="MzBj-JYPhSE" width="100%" preview="default"/>
+  </figure>
+
+  <interactive xml:id="question-form-3-1-1" iframe="question-form.html?section=3.1.1" width="100%" aspect="2:1"/>
+
+</section>

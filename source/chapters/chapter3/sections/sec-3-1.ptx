@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-3-1" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>2nd Order Linear ODEs</title>
+
+  <introduction>
+    <p>
+        Before we explore applications to the mass-spring-dashpot system, 
+        we will become familar with 2nd order linear ODEs.
+     </p>
+  </introduction>
+
+  <xi:include href="./3-1/sec1-2nd-linear-intro.ptx"/>
+    <xi:include href="./3-1/sec2-characteristic-equation.ptx"/>
+     <xi:include href="./3-1/sec3-all-three-cases.ptx"/>
+     <xi:include href="./3-1/sec4-practice-real-roots.ptx"/>
+<xi:include href="./3-1/sec5-complex-roots-practice.ptx"/>
+
+</section>

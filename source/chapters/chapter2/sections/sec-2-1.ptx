@@ -3,7 +3,7 @@
   <title>Population Modelling</title>
   <!-- PROSE: motivating intro -->
     <p>
-    To be added.
+    We will now explore population modelling!
  </p> 
 
    <xi:include href="./2-1/sec1-pop-setup.ptx"/>

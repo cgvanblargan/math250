@@ -3,7 +3,7 @@
   <title>Stability of Equilibrium Solutions</title>
   <!-- PROSE: motivating intro -->
     <p>
-   
+   In this section we find that phase diagrams can help us understand solutions to population models without actually solving an ODE.
  </p> 
 
  <xi:include href="./2-2/sec1-equilibrium-stability.ptx"/>
