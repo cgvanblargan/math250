@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mass-Spring System</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jsxgraph/1.6.0/jsxgraph.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jsxgraph/1.6.0/jsxgraphcore.js"></script>
+<style>
+  body { margin: 0; padding: 10px; font-family: serif; background: transparent; overflow: hidden; }
+
+  #title-display {
+    text-align: center;
+    font-size: 15px;
+    font-family: serif;
+    color: #2c3e50;
+    margin-bottom: 8px;
+  }
+
+  #spring-panel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #spring-canvas {
+    width: 420px;
+    height: 160px;
+    border: 1px solid #ccc;
+    background: #f9f9f9;
+  }
+
+  #btnrow {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 8px;
+  }
+
+  #playbtn {
+    background: #1a5276;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    padding: 6px 24px;
+    font-family: serif;
+    font-size: 14px;
+    cursor: pointer;
+    min-width: 85px;
+  }
+  #playbtn:hover { background: #154360; }
+
+  #resetbtn {
+    background: transparent;
+    color: #1a5276;
+    border: 1px solid #1a5276;
+    border-radius: 3px;
+    padding: 6px 14px;
+    font-family: serif;
+    font-size: 14px;
+    cursor: pointer;
+  }
+  #resetbtn:hover { background: #eaf0fb; }
+
+  #info {
+    text-align: center;
+    font-size: 13px;
+    font-family: serif;
+    color: #2c3e50;
+    margin-top: 6px;
+    min-height: 18px;
+  }
+</style>
+</head>
+<body>
+
+<div id="title-display">A mass-spring system</div>
+
+<div id="spring-panel">
+  <canvas id="spring-canvas" width="420" height="160"
+    role="img"
+    aria-label="Animated horizontal mass-spring system. A block labeled m is attached to a spring fixed to a wall on the left. The block slides right when the spring is stretched (x greater than 0), sits at center when at equilibrium (x equals 0), and slides left when the spring is compressed (x less than 0).">
+  </canvas>
+</div>
+
+<div id="btnrow">
+  <button id="playbtn" aria-label="Play or pause spring animation">&#9654; Play</button>
+  <button id="resetbtn" aria-label="Reset spring animation">Reset</button>
+</div>
+
+<div id="info" aria-live="polite">Press Play to watch the spring oscillate!</div>
+
+<script>
+  // ── Fixed parameters ───────────────────────────────────────
+  var c1 = 2, c2 = 0, omega = 1;
+  var tNow = 0;
+  var playing = false;
+  var animInterval = null;
+  var T_MAX = 4 * Math.PI;
+
+  // ── Canvas setup ───────────────────────────────────────────
+  var canvas = document.getElementById('spring-canvas');
+  var ctx = canvas.getContext('2d');
+  var CW = canvas.width, CH = canvas.height;
+  var wallX = 40;
+  var equilibriumX = 210;
+  var blockW = 38, blockH = 38;
+  var springCoils = 10;
+  var AMP_PX = 110;
+
+  function drawSpring(blockX) {
+    ctx.clearRect(0, 0, CW, CH);
+    var cy = CH / 2 - 12;
+
+    // Wall fill
+    ctx.fillStyle = '#bdc3c7';
+    ctx.fillRect(wallX - 14, cy - 45, 14, 90);
+
+    // Wall hatching
+    ctx.strokeStyle = '#95a5a6';
+    ctx.lineWidth = 1;
+    for (var i = -40; i <= 40; i += 12) {
+      ctx.beginPath();
+      ctx.moveTo(wallX - 14, cy + i);
+      ctx.lineTo(wallX - 2, cy + i - 10);
+      ctx.stroke();
+    }
+
+    // Wall face
+    ctx.strokeStyle = '#2c3e50';
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    ctx.moveTo(wallX, cy - 45);
+    ctx.lineTo(wallX, cy + 45);
+    ctx.stroke();
+
+    // Spring zigzag
+    var springEndX = blockX - blockW / 2;
+    var sLen = springEndX - wallX;
+    if (sLen < 5) sLen = 5;
+    var cw = sLen / (springCoils + 1);
+    var ch = 13;
+
+    ctx.strokeStyle = '#566573';
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    ctx.moveTo(wallX, cy);
+    ctx.lineTo(wallX + cw * 0.4, cy);
+    for (var n = 0; n < springCoils; n++) {
+      var bx = wallX + cw * (0.4 + n);
+      ctx.lineTo(bx + cw * 0.3, cy - ch);
+      ctx.lineTo(bx + cw * 0.8, cy + ch);
+    }
+    ctx.lineTo(springEndX, cy);
+    ctx.stroke();
+
+    // Spring constant label k
+    var springMidX = wallX + (springEndX - wallX) / 2;
+    ctx.fillStyle = '#566573';
+    ctx.font = 'italic 13px serif';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'bottom';
+    ctx.fillText('k', springMidX, cy - ch - 3);
+
+    // Block
+    ctx.fillStyle = '#1a5276';
+    ctx.fillRect(blockX - blockW/2, cy - blockH/2, blockW, blockH);
+    ctx.strokeStyle = '#154360';
+    ctx.lineWidth = 1.5;
+    ctx.strokeRect(blockX - blockW/2, cy - blockH/2, blockW, blockH);
+
+    // Block label m
+    ctx.fillStyle = '#fff';
+    ctx.font = 'bold 14px serif';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillText('m', blockX, cy);
+
+    // Equilibrium dashed line
+    ctx.setLineDash([5, 4]);
+    ctx.strokeStyle = '#145a32';
+    ctx.lineWidth = 1.5;
+    ctx.beginPath();
+    ctx.moveTo(equilibriumX, cy - 48);
+    ctx.lineTo(equilibriumX, cy + 48);
+    ctx.stroke();
+    ctx.setLineDash([]);
+
+    // Bottom labels
+    var labelY = CH - 24;
+    var leftLabelX = equilibriumX - AMP_PX * 0.7;
+    var rightLabelX = equilibriumX + AMP_PX * 0.7;
+    ctx.textBaseline = 'top';
+
+    ctx.font = 'bold 11px serif';
+    ctx.fillStyle = '#1a5276';
+    ctx.textAlign = 'center';
+    ctx.fillText('x < 0', leftLabelX, labelY);
+    ctx.font = '10px serif';
+    ctx.fillText('(compressed)', leftLabelX, labelY + 13);
+
+    ctx.font = 'bold 11px serif';
+    ctx.fillStyle = '#145a32';
+    ctx.textAlign = 'center';
+    ctx.fillText('x = 0', equilibriumX, labelY);
+    ctx.font = '10px serif';
+    ctx.fillText('(equilibrium)', equilibriumX, labelY + 13);
+
+    ctx.font = 'bold 11px serif';
+    ctx.fillStyle = '#922b21';
+    ctx.textAlign = 'center';
+    ctx.fillText('x > 0', rightLabelX, labelY);
+    ctx.font = '10px serif';
+    ctx.fillText('(stretched)', rightLabelX, labelY + 13);
+  }
+
+  function xVal(t) {
+    return c1 * Math.cos(omega * t) + c2 * Math.sin(omega * t);
+  }
+
+  function stopAnim() {
+    if (animInterval) { clearInterval(animInterval); animInterval = null; }
+    playing = false;
+    document.getElementById('playbtn').innerHTML = '&#9654; Play';
+  }
+
+  function resetAll() {
+    stopAnim();
+    tNow = 0;
+    var x0 = xVal(0);
+    var clamped = Math.max(-3.0, Math.min(3.0, x0));
+    drawSpring(equilibriumX + (clamped / 3.0) * AMP_PX);
+    document.getElementById('info').textContent = 'Press Play to watch the spring oscillate!';
+    document.getElementById('playbtn').innerHTML = '&#9654; Play';
+  }
+
+  function startAnim() {
+    stopAnim();
+    if (tNow >= T_MAX) { tNow = 0; }
+    playing = true;
+    document.getElementById('playbtn').innerHTML = '&#9646;&#9646; Pause';
+    document.getElementById('info').textContent = 'Watch the block oscillate back and forth!';
+
+    animInterval = setInterval(function() {
+      if (tNow > T_MAX) {
+        stopAnim();
+        document.getElementById('info').textContent = 'Our goal: find x(t), the position as a function of time!';
+        return;
+      }
+      var xv = xVal(tNow);
+      var clamped = Math.max(-3.0, Math.min(3.0, xv));
+      drawSpring(equilibriumX + (clamped / 3.0) * AMP_PX);
+      tNow += 0.04;
+    }, 30);
+  }
+
+  document.getElementById('playbtn').addEventListener('click', function() {
+    if (playing) { stopAnim(); } else { startAnim(); }
+  });
+  document.getElementById('resetbtn').addEventListener('click', resetAll);
+
+  resetAll();
+</script>
+</body>
+</html>

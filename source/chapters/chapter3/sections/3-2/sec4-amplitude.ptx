@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-amplitude" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Distance from Equilibrium</title>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       INTRO + INTERACTIVE
+       ═══════════════════════════════════════════════════════════ -->
+
+  <p>
+    We know the mass oscillates forever. In this page we explore how far from
+    equilibrium it actually gets. Watch the spring below, and pay attention
+    to when it's at its most stretched and most compressed! How does this connect to what's happening in the graph on the right?
+  </p>
+
+  <figure xml:id="fig-spring-amplitude">
+    <caption>
+      The solution <m>x(t) = 2\cos(3t)</m>. The dashed horizontal lines on
+      the graph mark the maximum and minimum values. Notice these match the
+      "max stretched" and "max compressed" moments on the spring.
+    </caption>
+    <interactive xml:id="interactive-spring-amplitude"
+      iframe="ch3-graph/interactive-spring-amplitude.html"
+      width="100%" aspect="5:3">
+      <description>
+        An animated spring and position graph for x of t equals 2 cosine of
+        3t. When the block reaches maximum stretch (x equals 2), the block
+        darkens and a label reads "max stretched, distance from equilibrium
+        equals 2." When it reaches maximum compression (x equals negative 2),
+        a similar label appears. Dashed horizontal lines on the graph at y
+        equals 2 and y equals negative 2 are labeled "distance from
+        equilibrium equals 2."
+      </description>
+    </interactive>
+  </figure>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       MC CHECKPOINT
+       ═══════════════════════════════════════════════════════════ -->
+
+  <exercise xml:id="ex-mc-amplitude-2cos3t">
+    <statement>
+      <p>
+        From the graph above, what is the furthest distance the mass
+        ever gets from equilibrium?
+      </p>
+    </statement>
+    <choices randomize="yes">
+      <choice correct="yes">
+        <statement><p><m>2</m></p></statement>
+        <feedback>
+          <p>
+            Right -- the graph peaks at <m>x = 2</m> and bottoms out at
+            <m>x = -2</m>, so the mass never gets more than 2 units from
+            equilibrium. <m>\checkmark</m>
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement><p><m>3</m></p></statement>
+        <feedback>
+          <p>
+            The 3 is <m>\omega_0</m>, the frequency -- it controls how fast
+            the mass oscillates, not how far it goes. Look at the graph: the
+            curve never reaches <m>y = 3</m>.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement><p><m>4</m></p></statement>
+        <feedback>
+          <p>
+            The mass swings between <m>x = -2</m> and <m>x = 2</m>, so the
+            total distance from one extreme to the other is 4 -- but the
+            question asks for distance from <em>equilibrium</em>, which is
+            just half of that.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement><p><m>\dfrac{2\pi}{3}</m></p></statement>
+        <feedback>
+          <p>
+            That's the period of <m>x(t) = 2\cos(3t)</m>
+            (<m>T = 2\pi/\omega_0 = 2\pi/3</m>) -- a time, not a distance.
+            Look at the height of the curve on the graph for the maximum distance.
+          </p>
+        </feedback>
+      </choice>
+    </choices>
+  </exercise>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       AMPLITUDE OBSERVATION
+       ═══════════════════════════════════════════════════════════ -->
+
+  <p>
+    That maximum distance is just the amplitude of the cosine function, which equals the
+    coefficient out front. In general, for any solution of the form
+    <m>x(t) = c_1\cos(\omega_0 t) + c_2\sin(\omega_0 t)</m>, the amplitude is
+    <m>A = \sqrt{c_1^2 + c_2^2}</m>.
+  </p>
+
+  <observation xml:id="obs-amplitude">
+    <title>Maximum Distance from Equilibrium</title>
+    <p>
+      If <m>x(t) = c_1\cos(\omega_0 t) + c_2\sin(\omega_0 t)</m> is the
+      position of a mass in a spring-mass system, then the maximum distance
+      the mass ever gets from equilibrium is the <term>amplitude</term>:
+      <me>A = \sqrt{c_1^2 + c_2^2}.</me>
+    </p>
+  </observation>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       EXAMPLE: y'' + 4y = 0, y(0)=-3, y'(0)=0
+       ═══════════════════════════════════════════════════════════ -->
+
+  <p>
+    Let's put all of this together with an example. We will be exploring an additional question at the end regarding the speed
+     of the spring.
+  </p>
+
+  <example xml:id="ex-spring-amplitude-speed">
+    <title>A Mass-Spring System: Amplitude and Speed</title>
+    <introduction>
+      <p>
+        Suppose a mass-spring system is described by
+        <me>y'' + 4y = 0, \qquad y(0) = -3, \quad y'(0) = 0.</me>
+      </p>
+    </introduction>
+
+    <task xml:id="task-amplitude-solve">
+      <title>Step 1: Solve the IVP</title>
+      <statement><p>Find <m>y(t)</m>.</p></statement>
+     <hint>
+  <p>
+    This is in the form of <xref ref="obs-simple-harmonic-ode"/> -- identify
+    <m>\omega</m> and write down the general solution, then apply the initial conditions.
+  </p>
+</hint>
+<solution>
+  <p>
+    The equation <m>y'' + 4y = 0</m> is in the form of <xref ref="obs-simple-harmonic-ode"/>
+    with <m>\omega = 2</m>, so the general solution is:
+    <me>y(t) = c_1\cos(2t) + c_2\sin(2t).</me>
+    Applying initial conditions:
+    <md>
+      <mrow>y(0) = c_1 \amp= -3,</mrow>
+      <mrow>y'(0) = 2c_2 \amp= 0 \implies c_2 = 0.</mrow>
+    </md>
+    So the solution is:
+    <me>y(t) = -3\cos(2t).</me>
+  </p>
+</solution>
+    </task>
+
+    <task xml:id="task-amplitude-distance">
+      <title>Step 2: How far from equilibrium?</title>
+      <statement><p>What is the furthest the mass gets from equilibrium?</p></statement>
+      <hint>
+        <p>Identify the amplitude <m>A = \sqrt{c_1^2 + c_2^2}</m>.</p>
+      </hint>
+      <solution>
+        <p>
+          With <m>c_1 = -3</m> and <m>c_2 = 0</m>:
+          <me>A = \sqrt{(-3)^2 + 0^2} = 3.</me>
+          The mass gets at most <m>3</m> units from equilibrium. We can also
+          see this directly: <m>y(t) = -3\cos(2t)</m> has maximum value 3
+          and minimum value <m>-3</m>.
+        </p>
+      </solution>
+    </task>
+
+    <task xml:id="task-amplitude-speed">
+      <title>Step 3: Does it slow down over time?</title>
+      <statement>
+        <p>
+          Will the mass move slower as it passes through equilibrium the
+          5th time compared to the 1st time?
+        </p>
+      </statement>
+      <hint>
+  <p>
+    <ol>
+      <li><p>Compute <m>y'(t)</m>.</p></li>
+      <li><p>
+        Find all times <m>t^*</m> when the mass passes through
+        equilibrium, i.e. solve <m>y(t^*) = 0</m>.
+      </p></li>
+      <li><p>
+        Evaluate the speed <m>|y'(t^*)|</m> at those times and compare.
+      </p></li>
+    </ol>
+  </p>
+</hint>
+<solution>
+  <p>
+    <alert>1.</alert> Compute <m>y'(t)</m>:
+    <me>y'(t) = 6\sin(2t).</me>
+  </p>
+  <p>
+    <alert>2.</alert> The mass passes through equilibrium when <m>y(t^*) = 0</m>, i.e.
+    <m>-3\cos(2t^*) = 0</m>, so <m>\cos(2t^*) = 0</m>, giving:
+    <me>t^* = \frac{\pi}{4} + \frac{n\pi}{2}, \qquad n = 0, 1, 2, \ldots</me>
+  </p>
+  <p>
+    <alert>3.</alert> Evaluate the speed at each crossing:
+    <me>|y'(t^*)| = |6\sin(2t^*)| = \left|6\sin\!\left(\frac{\pi}{2} + n\pi\right)\right|.</me>
+    Since <m>\sin(\pi/2 + n\pi) = \pm 1</m> for all integers <m>n</m>,
+    we get:
+    <me>|y'(t^*)| = 6 \quad \text{every time.}</me>
+    The speed at equilibrium is always exactly 6, whether it's the
+    1st crossing or the 5th. Free undamped motion has constant
+    amplitude -- no energy is lost, so the mass moves just as fast
+    through equilibrium every time.
+  </p>
+</solution>
+    </task>
+
+  </example>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       KEY TAKEAWAYS
+       ═══════════════════════════════════════════════════════════ -->
+
+  <conclusion>
+    <title>Key Takeaways</title>
+    <p><ul>
+      <li><p>
+        <alert>Amplitude:</alert> the maximum distance from equilibrium is
+        <m>A = \sqrt{c_1^2 + c_2^2}</m>. For a pure cosine or sine solution,
+        it's just the coefficient out front.
+      </p></li>
+      <li><p>
+        <alert>Speed at equilibrium is constant:</alert> since there's no
+        damping, no energy is lost. The mass passes through equilibrium at
+        the same speed every time.
+      </p></li>
+      <li><p>
+        <alert>Free undamped motion is perfectly periodic:</alert> same
+        amplitude, same speed, same period...forever! Damping changes all
+        of this, as we'll see next.
+      </p></li>
+    </ul></p>
+  </conclusion>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       NO VIDEO + QUESTION FORM
+       ═══════════════════════════════════════════════════════════ -->
+
+  <figure xml:id="video-undamped-spring-examples">
+  <caption>This video goes through the content of this page.</caption>
+  <video youtube="CpYiEVj0ggM" width="100%" preview="default"/>
+</figure>
+
+  <interactive xml:id="question-form-3-2-4"
+    iframe="question-form.html?section=3.2.4"
+    width="100%" aspect="2:1"/>
+
+</section>

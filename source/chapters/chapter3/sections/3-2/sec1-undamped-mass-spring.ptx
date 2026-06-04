@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-undamped-mass-spring" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>The Undamped Mass-Spring System</title>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       INTRO PROSE + SPRING INTRO INTERACTIVE
+       ═══════════════════════════════════════════════════════════ -->
+
+
+
+  <figure xml:id="fig-spring-intro">
+    <caption>
+      A horizontal mass-spring system. The block of mass <m>m</m> is attached
+      to a spring with spring constant <m>k</m> fixed to a wall. We measure
+      position <m>x(t)</m> from the <term>equilibrium position</term> (where
+      the spring is neither stretched nor compressed). When <m>x \gt 0</m> the
+      spring is <term>stretched</term>; when <m>x \lt 0</m> the spring is
+      <term>compressed</term>; when <m>x = 0</m> the mass is at equilibrium.
+      Press Play to watch it oscillate!
+    </caption>
+    <interactive xml:id="interactive-spring-intro"
+      iframe="ch3-graph/interactive-spring-intro.html"
+      width="100%" aspect="5:2">
+      <description>
+        An animated horizontal mass-spring system. A block labeled m slides
+        left and right on a frictionless surface, attached to a spring fixed
+        to a wall on the left. The block oscillates back and forth. Labels at
+        the bottom show x less than 0 as compressed, x equals 0 as
+        equilibrium, and x greater than 0 as stretched. Press Play to start
+        the animation.
+      </description>
+    </interactive>
+  </figure>
+
+ 
+
+  <!-- ═══════════════════════════════════════════════════════════
+       HOOKE'S LAW
+       ═══════════════════════════════════════════════════════════ -->
+
+  <definition xml:id="def-hookes-law">
+    <title>Hooke's Law</title>
+    <statement>
+      <p>
+        The <term>restoring force</term> exerted by a spring is proportional
+        to the displacement <m>x(t)</m> from equilibrium:
+        <me>F_s = -kx,</me>
+        where <m>k \gt 0</m> is the <term>spring constant</term>. The negative
+        sign means the force always pulls the mass back toward equilibrium.
+      </p>
+    </statement>
+  </definition>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       NEWTON'S LAW + ARRIVING AT THE ODE
+       ═══════════════════════════════════════════════════════════ -->
+
+  <p>
+    By Newton's second law, the total force on the mass equals <m>ma</m>,
+    where <m>a = x''(t)</m> is the acceleration. Since the only force acting
+    on the mass is the spring force <m>F_s</m>, we have:
+    <me>mx'' = F_s = -kx.</me>
+    Rearranging gives us the <term>undamped mass-spring ODE</term>:
+    <me>mx'' + kx = 0.</me>
+    We can simplify this by dividing through by <m>m</m> and letting
+    <m>\omega_0 = \sqrt{k/m}</m>:
+    <me>x'' + \omega_0^2 x = 0.</me>
+  </p>
+
+  <definition xml:id="def-natural-frequency">
+    <title>Natural Frequency</title>
+    <statement>
+      <p>
+        The constant <m>\omega_0 = \sqrt{k/m}</m> is called the
+        <term>natural frequency</term> of the system. It depends only on the
+        spring constant and the mass -- not on how far you stretch the spring
+        to start.
+      </p>
+    </statement>
+  </definition>
+
+  <note xml:id="note-free-undamped">
+    <p>
+      This ODE describes <term>free undamped motion</term>. It is
+      <em>free</em> because there is no external driving force, and
+      <em>undamped</em> because there is no friction or damping force
+      slowing the mass down. We'll add both of those in later sections!
+    </p>
+  </note>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       SOLUTION VIA XREF
+       ═══════════════════════════════════════════════════════════ -->
+
+  <p>
+    Notice that <m>x'' + \omega_0^2 x = 0</m> is exactly in the form we saw
+    in <xref ref="obs-simple-harmonic-ode"/>. The general solution is:
+    <me>x(t) = c_1\cos(\omega_0 t) + c_2\sin(\omega_0 t).</me>
+    This is called <term>simple harmonic motion</term> -- the mass oscillates
+    back and forth forever, with the shape of the solution determined by the
+    initial conditions <m>x(0)</m> and <m>x'(0)</m>.
+  </p>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       REMARK: A cos(omega(t - delta)) FORM
+       ═══════════════════════════════════════════════════════════ -->
+
+  <remark xml:id="remark-amplitude-form">
+    <title>An Equivalent Form</title>
+    <p>
+      The solution <m>x(t) = c_1\cos(\omega_0 t) + c_2\sin(\omega_0 t)</m>
+      can also be written as a single cosine function:
+      <me>x(t) = A\cos(\omega_0(t - \delta)),</me>
+      where <m>A = \sqrt{c_1^2 + c_2^2}</m> is the <term>amplitude</term>
+      (the maximum displacement from equilibrium) and <m>\delta</m> is a
+      phase shift. We'll skip the proof, but see the dropdown if you're curious.
+    </p>
+    <proof>
+      <title>Why these two forms are equivalent (can skim)</title>
+      <p>
+        Using the cosine angle subtraction formula:
+        <me>A\cos(\omega_0(t - \delta)) = A\cos(\omega_0 t)\cos(\delta) + A\sin(\omega_0 t)\sin(\delta).</me>
+        Setting <m>c_1 = A\cos(\delta)</m> and <m>c_2 = A\sin(\delta)</m>, we
+        get <m>c_1^2 + c_2^2 = A^2(\cos^2\delta + \sin^2\delta) = A^2</m>, so
+        <m>A = \sqrt{c_1^2 + c_2^2}</m>. The two forms are identical.
+      </p>
+    </proof>
+  </remark>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       FULL INTERACTIVE
+       ═══════════════════════════════════════════════════════════ -->
+
+  <p>
+    <!-- PROSE: now that we know the solution, let's see what it looks like.
+         Adjust c1, c2, omega and watch both the spring and the position graph. -->
+  </p>
+
+  <figure xml:id="fig-spring-full">
+    <caption>
+      Simple harmonic motion. The left panel shows the spring oscillating;
+      the right panel traces the position <m>x(t)</m> over time. Adjust
+      <m>c_1</m>, <m>c_2</m>, and <m>\omega_0</m> to see how the solution
+      changes. Notice that when <m>x \gt 0</m> the spring is stretched, when
+      <m>x = 0</m> the mass passes through equilibrium, and when <m>x \lt 0</m>
+      the spring is compressed.
+    </caption>
+    <interactive xml:id="interactive-spring-full"
+      iframe="ch3-graph/interactive-spring-animation.html"
+      width="100%" aspect="3:2">
+      <description>
+        An interactive mass-spring animation with two panels. The left panel
+        shows an animated spring and block. The right panel shows the position
+        x of t graphed against time. A red dot traces the curve as the
+        animation plays. Sliders control c1, c2, and omega naught. Press Play
+        to start. The dashed gray curve shows the full solution; the blue
+        curve is the portion traced so far.
+      </description>
+    </interactive>
+  </figure>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       KEY TAKEAWAYS
+       ═══════════════════════════════════════════════════════════ -->
+
+  <conclusion>
+    <title>Key Takeaways</title>
+    <p>
+      <ul>
+        <li><p>
+          <alert>The ODE:</alert> A mass <m>m</m> on a spring with constant
+          <m>k</m> satisfies <m>mx'' + kx = 0</m>, or equivalently
+          <m>x'' + \omega_0^2 x = 0</m> where <m>\omega_0 = \sqrt{k/m}</m>.
+        </p></li>
+        <li><p>
+          <alert>Simple harmonic motion:</alert> The general solution is
+          <m>x(t) = c_1\cos(\omega_0 t) + c_2\sin(\omega_0 t)</m>, or
+          equivalently <m>A\cos(\omega_0(t - \delta))</m> with amplitude
+          <m>A = \sqrt{c_1^2 + c_2^2}</m>.
+        </p></li>
+        <li><p>
+          <alert>Free undamped:</alert> No external force, no friction --
+          the mass oscillates forever. This changes when we add damping next week!
+        </p></li>
+      </ul>
+    </p>
+  </conclusion>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       VIDEO + QUESTION FORM
+       ═══════════════════════════════════════════════════════════ -->
+
+  <figure xml:id="video-undamped-spring">
+    <caption>This video goes through the content of this page.</caption>
+    <video youtube="ry173uKBazA" width="100%" preview="default"/>
+  </figure>
+
+  <interactive xml:id="question-form-3-2-1"
+    iframe="question-form.html?section=3.2.1"
+    width="100%" aspect="2:1"/>
+
+</section>

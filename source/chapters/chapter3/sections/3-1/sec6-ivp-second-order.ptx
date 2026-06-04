@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-ivp-second-order" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Initial Value Problems</title>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       INTRO PROSE
+       ═══════════════════════════════════════════════════════════ -->
+
+  <p>
+    So far we have only been finding the general solution to <m>ay'' + by' + cy = 0</m>.
+    Just like with first-order ODEs, we can also solve <term>initial value problems</term>.
+    However, there is one noticeable difference. With first-order ODEs, we only had one
+    constant <m>C</m> to solve for. For example, <m>P(t) = Ce^{2t}</m> solves
+    <m>\frac{dP}{dt} = 2P</m>, and knowing <m>P(0)</m> let us solve for <m>C</m>.
+  </p>
+
+  <p>
+    Now that we have two unknown constants, with a general solution of the form
+    <me>y = c_1 y_1 + c_2 y_2,</me>
+    knowing just <m>y(0)</m> won't be enough, as we'd have one equation with two unknowns!
+    However, if we also know <m>y'(0)</m>, we get a system of two equations:
+    <md>
+      <mrow>y(0) \amp= c_1 y_1(0) + c_2 y_2(0)</mrow>
+      <mrow>y'(0) \amp= c_1 y_1'(0) + c_2 y_2'(0)</mrow>
+    </md>
+    and we can uniquely solve for <m>c_1</m> and <m>c_2</m>.
+  </p>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       EXISTENCE AND UNIQUENESS THEOREM
+       ═══════════════════════════════════════════════════════════ -->
+
+  <theorem xml:id="thm-existence-uniqueness-second-order">
+    <title>Existence and Uniqueness for Second-Order Linear ODEs</title>
+    <statement>
+      <p>
+        When solving <m>ay'' + by' + cy = 0</m>, there exists a unique solution
+        given initial conditions <m>y(0)</m> and <m>y'(0)</m>.
+      </p>
+    </statement>
+  </theorem>
+
+  <p>
+    We actually saw this demonstrated earlier in the course in
+    <xref ref="ex-position-from-acceleration"/>. When given acceleration
+    <m>a(t) = p''(t)</m>, we needed to know both <m>p(0)</m> and <m>v(0) = p'(0)</m>
+    to uniquely determine the position function. In general, we see this theme that
+    a first-order ODE requires 1 initial condition, and a second-order ODE requires 2.
+    This is a theme we'll continue to see as we go.
+  </p>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       EXAMPLE: IVP
+       ═══════════════════════════════════════════════════════════ -->
+
+  <example xml:id="ex-ivp-second-order">
+    <title>Solving an IVP: <m>y'' - 4y' + 5y = 0</m>, <m>y(0) = 1</m>, <m>y'(0) = 5</m></title>
+    <introduction>
+      <p>
+        In <xref ref="ex-complex-roots"/>, we already found that the general solution
+        to <m>y'' - 4y' + 5y = 0</m> is:
+        <me>y = e^{2x}\left(c_1\cos(x) + c_2\sin(x)\right).</me>
+        Now let's use the initial conditions <m>y(0) = 1</m> and <m>y'(0) = 5</m>
+        to find the unique solution.
+      </p>
+    </introduction>
+    <hint>
+      <p>
+        First compute <m>y'</m>. Then plug in <m>x = 0</m> into both <m>y</m> and
+        <m>y'</m> to set up the system of equations:
+        <md>
+          <mrow>1 \amp= y(0) = \ldots</mrow>
+          <mrow>5 \amp= y'(0) = \ldots</mrow>
+        </md>
+      </p>
+    </hint>
+    <solution>
+      <p>
+        Starting with the general solution and computing <m>y'</m>:
+        <md>
+          <mrow>y \amp= e^{2x}(c_1\cos(x) + c_2\sin(x))</mrow>
+          <mrow>y' \amp= 2e^{2x}(c_1\cos(x) + c_2\sin(x)) + e^{2x}(-c_1\sin(x) + c_2\cos(x))</mrow>
+          <mrow>\amp= e^{2x}\left((2c_1 + c_2)\cos(x) + (2c_2 - c_1)\sin(x)\right)</mrow>
+        </md>
+        Plugging in the initial conditions:
+        <md>
+          <mrow>1 = y(0) \amp= e^{0}(c_1\cos(0) + c_2\sin(0)) = c_1</mrow>
+          <mrow>5 = y'(0) \amp= e^{0}((2c_1 + c_2)\cos(0) + (2c_2 - c_1)\sin(0)) = 2c_1 + c_2</mrow>
+        </md>
+        Solve the system of equations yields <m>c_1 = 1</m> and <m>c_2 = 3</m>.
+      </p>
+      
+      <solution>
+        <title>Algebra for solving the system</title>
+        <p>
+          We have the system:
+          <md>
+            <mrow>c_1 \amp= 1</mrow>
+            <mrow>2c_1 + c_2 \amp= 5</mrow>
+          </md>
+          The first equation gives <m>c_1 = 1</m> directly. Substituting into the
+          second: <m>2(1) + c_2 = 5</m>, so <m>c_2 = 3</m>.
+        </p>
+      </solution>
+      <p>
+       Plugging in <m>c_1</m> and <m>c_2</m>, we find the unique solution to the IVP is:
+        <me>y = e^{2x}\left(\cos(x) + 3\sin(x)\right).</me>
+      </p>
+    </solution>
+  </example>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       KEY TAKEAWAYS
+       ═══════════════════════════════════════════════════════════ -->
+
+  <conclusion>
+    <title>Key Takeaways</title>
+    <p>
+      <ul>
+        <li><p>
+          <alert>Two initial conditions:</alert> A second-order ODE needs both
+          <m>y(0)</m> and <m>y'(0)</m> to uniquely determine a solution -- one for
+          each unknown constant <m>c_1</m> and <m>c_2</m>.
+        </p></li>
+        <li><p>
+          <alert>Process:</alert> Find the general solution, compute <m>y'</m>,
+          plug in the initial conditions to get a system of two equations, solve
+          for <m>c_1</m> and <m>c_2</m>.
+        </p></li>
+      </ul>
+    </p>
+  </conclusion>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       VIDEO + QUESTION FORM
+       ═══════════════════════════════════════════════════════════ -->
+
+  <figure xml:id="video-ivp-second-order">
+    <caption>This video goes through the content of this page starting at 3:35.</caption>
+    <video youtube="JdPwIDp78c0" start="215" width="100%" preview="default"/>
+  </figure>
+
+  <interactive xml:id="question-form-3-1-6" iframe="question-form.html?section=3.1.6" width="100%" aspect="2:1"/>
+
+</section>

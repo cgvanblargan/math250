@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-period-frequency" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Period and Frequency</title>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       EXAMPLE: 10 kg mass, k = 140
+       ═══════════════════════════════════════════════════════════ -->
+
+  <p>
+    <!-- PROSE: quick callback to the setup on the previous page, something like
+         "let's put that ODE to work with a concrete example" -->
+  </p>
+
+  <p>
+    Recall that an undamped mass-spring system satisfies
+    <me>mx'' + kx = 0, \qquad \text{i.e.} \qquad x'' + \omega_0^2 x = 0,</me>
+    where <m>\omega_0 = \sqrt{k/m}</m>.
+  </p>
+
+  <example xml:id="ex-spring-10kg">
+    <title>A 10 kg Mass on a Spring</title>
+    <introduction>
+      <p>
+        A block of mass <m>m = 10</m> kg is attached to a spring with spring
+        constant <m>k = 140</m> N/m. Find the general solution <m>x(t)</m>
+        describing its position.
+      </p>
+    </introduction>
+    <hint>
+      <p>
+        Plug <m>m = 10</m> and <m>k = 140</m> into <m>mx'' + kx = 0</m> and solve.
+      </p>
+    </hint>
+    <solution>
+      <p>
+        Substituting <m>m = 10</m> and <m>k = 140</m>:
+        <me>10x'' + 140x = 0.</me>
+        Dividing through by 10:
+        <me>x'' + 14x = 0.</me>
+        So <m>\omega_0^2 = 14</m>, giving <m>\omega_0 = \sqrt{14}</m>.
+        The general solution is:
+        <me>x(t) = c_1\cos\!\left(\sqrt{14}\, t\right) + c_2\sin\!\left(\sqrt{14}\, t\right).</me>
+      </p>
+    </solution>
+  </example>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       INTERACTIVE: spring animation fixed to omega = sqrt(14)
+       ═══════════════════════════════════════════════════════════ -->
+
+  <figure xml:id="fig-spring-sqrt14">
+    <caption>
+      The solution <m>x(t) = c_1\cos(\sqrt{14}\,t) + c_2\sin(\sqrt{14}\,t)</m>
+      for our 10 kg mass. The left panel shows the spring; the right panel
+      traces position over time. The shaded blue region marks
+      <em>one full oscillation</em>. 
+    </caption>
+    <interactive xml:id="interactive-spring-sqrt14"
+      iframe="ch3-graph/interactive-spring-sqrt14.html"
+      width="100%" aspect="5:3">
+      <description>
+        An animated horizontal mass-spring system with a position versus time
+        graph. The natural frequency is fixed at omega naught equals square
+        root of 14. Sliders control c1 and c2, the coefficients of the cosine
+        and sine terms. A shaded blue region on the graph marks one complete
+        oscillation. A red dot traces the current position on the curve. No
+        matter how c1 and c2 are adjusted, the width of the shaded region
+        (the period) stays the same.
+      </description>
+    </interactive>
+  </figure>
+
+  <p>
+    Notice that no matter what you set c1 and c2 to,
+         the shaded region (one full oscillation) always has the same width.
+         The shape of the curve changes, but the time it takes to complete one
+         cycle doesn't. That time is what we call the period."
+  </p>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       PERIOD: informal intro
+       ═══════════════════════════════════════════════════════════ -->
+
+  <p>
+    The period is just how long one full oscillation takes.
+         for our spring, it's the time from, say, maximum stretch back around
+         to maximum stretch again.
+  </p>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       INTERACTIVE: period explorer, cos(omega t) with omega slider
+       ═══════════════════════════════════════════════════════════ -->
+
+  <figure xml:id="fig-period-explorer">
+    <caption>
+      The function <m>x(t) = 2\cos(\omega_0 t)</m> for different values of
+      <m>\omega_0</m>. The shaded region shows one full period, with the
+      period value updating live as you move the slider. What's the
+      relationship between <m>\omega_0</m> and the period?
+    </caption>
+    <interactive xml:id="interactive-period-explorer"
+      iframe="ch3-graph/interactive-period-explorer.html"
+      width="100%" aspect="5:3">
+      <description>
+        A graph of 2 cosine of omega naught times t. A blue shaded region
+        marks one full period, bounded by red dashed vertical lines. A label
+        shows the numerical value of the period. A slider controls omega
+        naught from 0.5 to 4. As omega naught increases, the curve oscillates
+        faster and the shaded period region gets narrower. The period equals
+        2 pi divided by omega naught.
+      </description>
+    </interactive>
+  </figure>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       FREQUENCY + OBSERVATION BLOCK
+       ═══════════════════════════════════════════════════════════ -->
+
+  <p>
+    A related quantity is frequency: how many
+         full oscillations happen per unit time. bigger omega means faster
+         oscillation, so higher frequency. the two are just reciprocals.
+  </p>
+
+  <observation xml:id="obs-period-frequency">
+    <title>Period and Frequency of Simple Harmonic Motion</title>
+    <p>
+      For simple harmonic motion <m>x(t) = c_1\cos(\omega_0 t) + c_2\sin(\omega_0 t)</m>:
+      <ul>
+        <li><p>
+          The <term>period</term> (time to complete one full oscillation) is:
+          <me>T = \frac{2\pi}{\omega_0}.</me>
+        </p></li>
+        <li><p>
+          The <term>frequency</term> (number of oscillations per unit time) is:
+          <me>f = \frac{\omega_0}{2\pi} = \frac{1}{T}.</me>
+        </p></li>
+      </ul>
+      Larger <m>\omega_0</m> means faster oscillation: shorter period, higher frequency.
+    </p>
+  </observation>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       MC CHECKPOINT
+       ═══════════════════════════════════════════════════════════ -->
+
+  <exercise xml:id="ex-mc-period-freq">
+    <statement>
+      <p>
+        For the 10 kg mass-spring system from <xref ref="ex-spring-10kg"/>,
+        where <m>\omega_0 = \sqrt{14}</m>, which of the following correctly
+        gives the period <m>T</m> and frequency <m>f</m>?
+      </p>
+    </statement>
+    <choices randomize="yes">
+      <choice correct="yes">
+        <statement>
+          <p><m>T = \dfrac{2\pi}{\sqrt{14}}</m> and <m>f = \dfrac{\sqrt{14}}{2\pi}</m></p>
+        </statement>
+        <feedback>
+          <p>
+            Exactly right. With <m>\omega_0 = \sqrt{14}</m>, the period is
+            <m>T = 2\pi/\sqrt{14} \approx 1.68</m> seconds, and the frequency
+            is <m>f = \sqrt{14}/(2\pi) \approx 0.60</m> oscillations per second.
+            <m>\checkmark</m>
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p><m>T = \dfrac{2\pi}{\sqrt{14}}</m> and <m>f = \dfrac{2\pi}{\sqrt{14}}</m></p>
+        </statement>
+        <feedback>
+          <p>
+            The period is correct, but frequency and period are reciprocals of
+            each other, not equal. Frequency is <m>f = 1/T = \sqrt{14}/(2\pi)</m>.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p><m>T = \sqrt{14}</m> and <m>f = \dfrac{1}{\sqrt{14}}</m></p>
+        </statement>
+        <feedback>
+          <p>
+            The period formula is <m>T = 2\pi/\omega_0</m>, not just
+            <m>\omega_0</m> itself. The <m>2\pi</m> comes from the fact that
+            cosine completes one full cycle over an interval of length <m>2\pi</m>.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p><m>T = \dfrac{\pi}{\sqrt{14}}</m> and <m>f = \dfrac{\sqrt{14}}{\pi}</m></p>
+        </statement>
+        <feedback>
+          <p>
+            Close, but off by a factor of 2. One full oscillation of cosine
+            spans <m>2\pi</m>, not <m>\pi</m> -- that would only be a half-cycle.
+            The correct period is <m>T = 2\pi/\sqrt{14}</m>.
+          </p>
+        </feedback>
+      </choice>
+    </choices>
+  </exercise>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       KEY TAKEAWAYS
+       ═══════════════════════════════════════════════════════════ -->
+
+  <conclusion>
+    <title>Key Takeaways</title>
+    <p><ul>
+      <li><p>
+        <alert>Period:</alert> <m>T = 2\pi/\omega_0</m> -- the time for one
+        complete oscillation. Depends only on <m>\omega_0 = \sqrt{k/m}</m>,
+        not on how far you pull the mass.
+      </p></li>
+      <li><p>
+        <alert>Frequency:</alert> <m>f = \omega_0/(2\pi) = 1/T</m> --
+        oscillations per unit time. Larger <m>\omega_0</m> means higher frequency
+        and shorter period.
+      </p></li>
+      <li><p>
+        <alert>Initial conditions don't affect period:</alert> changing <m>c_1</m>
+        and <m>c_2</m> changes the shape of the oscillation (amplitude, starting
+        position) but not how fast it oscillates.
+      </p></li>
+    </ul></p>
+  </conclusion>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       NO VIDEO + QUESTION FORM
+       ═══════════════════════════════════════════════════════════ -->
+
+  <figure xml:id="video-period-frequency">
+  <caption>This video goes through the content of this page.</caption>
+  <video youtube="59x5nR1GysQ" width="100%" preview="default"/>
+</figure>
+
+  <interactive xml:id="question-form-3-2-2"
+    iframe="question-form.html?section=3.2.2"
+    width="100%" aspect="2:1"/>
+
+</section>

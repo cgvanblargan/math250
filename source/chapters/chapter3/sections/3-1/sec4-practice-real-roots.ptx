@@ -146,12 +146,10 @@
        NO VIDEO + QUESTION FORM
        ═══════════════════════════════════════════════════════════ -->
 
-  <remark xml:id="remark-no-video-3-1-4">
-    <p>
-      There is no separate video for this page.
-    </p>
-  </remark>
-
+ <figure xml:id="video-real-roots-practice">
+  <caption>This video goes through the content of this page.</caption>
+  <video youtube="HxsCdZNVQOs" width="100%" preview="default"/>
+</figure>
   <interactive xml:id="question-form-3-1-4" iframe="question-form.html?section=3.1.4" width="100%" aspect="2:1"/>
 
 </section>

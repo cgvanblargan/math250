@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-equilibrium-crossings" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Passing Through Equilibrium</title>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       INTRO PROSE + INTERACTIVE
+       ═══════════════════════════════════════════════════════════ -->
+
+  <p>
+    We know the mass oscillates forever in
+         free undamped motion. Let's think about a specific question:
+         how many times does it pass through equilibrium (x=0) as t goes
+         to infinity? Play around with the graph below and see what you notice. 
+  </p>
+
+  <figure xml:id="fig-spring-equilibrium">
+    <caption>
+      Simple harmonic motion <m>x(t) = c_1\cos(\omega_0 t) + c_2\sin(\omega_0 t)</m>
+      with all three parameters adjustable. Each time the mass passes through
+      equilibrium (<m>x = 0</m>), a green dot appears on the graph and the
+      counter updates. Try different values of <m>c_1</m>, <m>c_2</m>, and
+      <m>\omega_0</m>. What do you notice?
+    </caption>
+    <interactive xml:id="interactive-spring-equilibrium"
+      iframe="ch3-graph/interactive-spring-equilibrium.html"
+      width="100%" aspect="5:3">
+      <description>
+        An animated spring and position graph. A counter labeled "Times through
+        equilibrium (x equals 0)" increments each time the mass crosses the
+        equilibrium position. Green dots appear on the graph at each crossing.
+        The equilibrium line on the spring flashes green at each crossing.
+        Sliders control c1, c2, and omega naught.
+      </description>
+    </interactive>
+  </figure>
+
+  <p>
+    Notice that no matter what you set the sliders to (as long as
+         the solution isn't identically zero), the mass oscillating with a fixed amplitude, 
+         So it keeps crossing the equilibrium (<m>x=0</m>) forever.
+  </p>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       MC CHECKPOINT
+       ═══════════════════════════════════════════════════════════ -->
+
+  <exercise xml:id="ex-mc-equil-crossings">
+    <statement>
+      <p>
+        Based on the graph above, how many times does a mass undergoing
+        free undamped simple harmonic motion pass through equilibrium
+        (<m>x = 0</m>) as <m>t \to \infty</m>?
+      </p>
+    </statement>
+    <choices randomize="no">
+      <choice>
+        <statement><p>A finite number of times, depending on <m>c_1</m> and <m>c_2</m>.</p></statement>
+        <feedback>
+          <p>
+            Try changing <m>c_1</m> and <m>c_2</m> in the interactive above --
+            the mass keeps crossing equilibrium regardless. The amplitude changes,
+            but the oscillation never stops.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement><p>A finite number of times, depending on <m>\omega_0</m>.</p></statement>
+        <feedback>
+          <p>
+            Changing <m>\omega_0</m> makes the mass oscillate faster or slower,
+            but it never stops oscillating. The crossings keep coming, forever.
+          </p>
+        </feedback>
+      </choice>
+      <choice correct="yes">
+        <statement><p>Infinitely many times, regardless of <m>c_1</m>, <m>c_2</m>, or <m>\omega_0</m>.</p></statement>
+        <feedback>
+          <p>
+            Exactly. Since there's no damping, the amplitude stays fixed and
+            the mass oscillates forever -- crossing <m>x = 0</m> twice per
+            period, indefinitely. <m>\checkmark</m>
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement><p>Zero times. The mass never reaches exactly <m>x = 0</m> unless it starts there.</p></statement>
+        <feedback>
+          <p>
+            The mass absolutely does pass through <m>x = 0</m>! Watch the
+            counter in the interactive. Unless the solution is identically zero
+            (which requires <m>c_1 = c_2 = 0</m>), the oscillation crosses
+            equilibrium repeatedly.
+          </p>
+        </feedback>
+      </choice>
+    </choices>
+  </exercise>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       ALGEBRAIC JUSTIFICATION
+       ═══════════════════════════════════════════════════════════ -->
+
+  <p>
+    Now let's justify this algebraically.
+  </p>
+
+  <example xml:id="ex-equil-crossings-algebra">
+    <title>Showing Infinitely Many Equilibrium Crossings</title>
+    <introduction>
+      <p>
+        Let <m>x(t) = c_1\cos(\omega_0 t) + c_2\sin(\omega_0 t)</m> be the
+        general solution to an undamped mass-spring system, where
+        <m>\omega_0 \gt 0</m> and <m>c_1, c_2</m> are not both zero.
+        Show that <m>x(t) = 0</m> has infinitely many solutions.
+      </p>
+    </introduction>
+    <hint>
+      <p>
+        Set <m>x(t) = 0</m> and solve for <m>t</m>. 
+      </p>
+    </hint>
+    <solution>
+      <p>
+        We want to solve <m>x(t) = 0</m>, i.e.:
+        <me>c_1\cos(\omega_0 t) + c_2\sin(\omega_0 t) = 0.</me>
+      </p>
+      <p>
+        <alert>Case 1: <m>c_2 = 0</m>.</alert>
+        Then <m>x(t) = c_1\cos(\omega_0 t) = 0</m>. Since <m>c_1 \neq 0</m>
+        (not both zero), we need <m>\cos(\omega_0 t) = 0</m>, which gives:
+        <me>\omega_0 t = \frac{\pi}{2} + n\pi, \qquad n = 0, 1, 2, 3, \ldots</me>
+        so <m>t = \dfrac{1}{\omega_0}\!\left(\dfrac{\pi}{2} + n\pi\right)</m>.
+        This is a different value of <m>t</m> for each <m>n</m> -- infinitely many solutions.
+      </p>
+      <p>
+        <alert>Case 2: <m>c_2 \neq 0</m>.</alert>
+        Rearranging:
+        <md>
+          <mrow>c_1\cos(\omega_0 t) \amp= -c_2\sin(\omega_0 t).</mrow>
+        </md>
+        Dividing both sides by <m>c_2\cos(\omega_0 t)</m>:
+        <me>\tan(\omega_0 t) = -\frac{c_1}{c_2}.</me>
+       Solving for <m>t</m>:
+<me>\omega_0 t = \arctan\!\left(-\frac{c_1}{c_2}\right) + n\pi</me>
+<me>t = \frac{1}{\omega_0}\left[\arctan\!\left(-\frac{c_1}{c_2}\right) + n\pi\right].</me>
+Since we need <m>t \geq 0</m>, we take <m>n</m> to be whichever non-negative
+integers keep <m>t</m> positive -- starting at <m>n = 0</m> or <m>n = 1</m>
+depending on the sign of the arctan term. Either way, there are infinitely
+many valid values of <m>t</m>.
+      </p>
+      <solution>
+        <title>Why <m>+ \, n\pi</m>? (if unsure: click for a trig review)</title>
+        <p>
+          Two things are going on here. First, <m>\arctan</m> only gives us
+          one solution -- it's the inverse of <m>\tan</m> restricted to
+          <m>(-\pi/2, \pi/2)</m>. So <m>\arctan(-c_1/c_2)</m> is just the
+          <em>first</em> value of <m>\omega_0 t</m> that works.
+        </p>
+        <p>
+          Second, tangent has period <m>\pi</m> -- meaning
+          <m>\tan(\theta) = \tan(\theta + \pi)</m> for any <m>\theta</m>.
+          So if <m>\omega_0 t = \theta_0</m> is a solution to
+          <m>\tan(\omega_0 t) = -c_1/c_2</m>, then so is
+          <m>\omega_0 t = \theta_0 + \pi</m>, and <m>\theta_0 + 2\pi</m>,
+          and so on. That's where the <m>+ \, n\pi</m> comes from -- it
+          captures all solutions at once.
+        </p>
+        <p>
+          (Note: <m>\tan</m> has period <m>\pi</m>, not <m>2\pi</m> like
+          sine and cosine. So we add multiples of <m>\pi</m>, not <m>2\pi</m>.)
+        </p>
+      </solution>
+      <p>
+        Since <m>n</m> ranges over all integers, this gives infinitely many
+        values of <m>t</m> -- one for each <m>n</m>. No matter what
+        <m>c_1</m>, <m>c_2</m>, and <m>\omega_0</m> are, the mass passes
+        through equilibrium infinitely many times.
+      </p>
+    </solution>
+  </example>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       KEY TAKEAWAYS
+       ═══════════════════════════════════════════════════════════ -->
+
+  <conclusion>
+    <title>Key Takeaways</title>
+    <p><ul>
+      <li><p>
+        <alert>Graphical observation:</alert> free undamped simple harmonic
+        motion oscillates with fixed amplitude forever. So the mass passes
+        through equilibrium (<m>x = 0</m>) infinitely many times.
+      </p></li>
+      <li><p>
+        <alert>Algebraic justification:</alert> setting <m>x(t) = 0</m> and
+        solving gives
+        <me>t = \frac{1}{\omega_0}\left[\arctan\!\left(-\frac{c_1}{c_2}\right) + n\pi\right], \quad n = (0), 1, 2, \ldots</me>
+        (or <m>t = \frac{1}{\omega_0}\!\left(\frac{\pi}{2} + n\pi\right)</m>
+        when <m>c_2 = 0</m>). Either way, infinitely many solutions for the time in which it passes the equilibrium.
+      </p></li>
+      <li><p>
+        <alert>This is a feature of free undamped motion:</alert> no energy
+        is lost, so the oscillation never dies out. When we add damping later,
+        this will change!
+      </p></li>
+    </ul></p>
+  </conclusion>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       NO VIDEO + QUESTION FORM
+       ═══════════════════════════════════════════════════════════ -->
+
+<figure xml:id="video-equilibrium-crossings">
+  <caption>This video goes through the content of this page.</caption>
+  <video youtube="CpYiEVj0ggM" width="100%" preview="default"/>
+</figure>
+
+  <interactive xml:id="question-form-3-2-3"
+    iframe="question-form.html?section=3.2.3"
+    width="100%" aspect="2:1"/>
+
+</section>

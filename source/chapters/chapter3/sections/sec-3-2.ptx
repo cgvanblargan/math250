@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-3-2" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>The mass-spring system</title>
+
+  <introduction>
+    <p>
+        In this section we explore a big application of 2nd order linear ODEs: the mass-spring system.
+     </p>
+  </introduction>
+
+  <xi:include href="./3-2/sec1-undamped-mass-spring.ptx"/>
+    <xi:include href="./3-2/sec2-period-frequency.ptx"/>
+ <xi:include href="./3-2/sec3-equilibrium-crossings.ptx"/>
+ <xi:include href="./3-2/sec4-amplitude.ptx"/>
+
+</section>

@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Amplitude: x(t) = 2cos(3t)</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jsxgraph/1.6.0/jsxgraph.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jsxgraph/1.6.0/jsxgraphcore.js"></script>
+<style>
+  body { margin: 0; padding: 8px; font-family: serif; background: transparent; overflow: hidden; }
+
+  #eq-display {
+    text-align: center;
+    font-size: 16px;
+    font-family: serif;
+    color: #2c3e50;
+    margin-bottom: 6px;
+  }
+  #eq-display .eq-val { color: #922b21; font-weight: bold; }
+
+  #panels {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    justify-content: center;
+  }
+
+  #spring-panel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 0 0 240px;
+  }
+  #spring-label { font-size: 13px; font-family: serif; color: #2c3e50; margin-bottom: 3px; }
+  #spring-canvas { width: 240px; height: 130px; border: 1px solid #bdc3c7; background: #f9f9f9; }
+
+  #graph-panel { flex: 1; min-width: 0; }
+  #graph-label { font-size: 13px; font-family: serif; color: #2c3e50; margin-bottom: 3px; text-align: center; }
+  #jxgbox { width: 100%; height: 185px; border: 1px solid #bdc3c7; }
+
+  #stretch-label {
+    text-align: center;
+    font-size: 14px;
+    font-family: serif;
+    font-weight: bold;
+    color: #145a32;
+    margin-top: 5px;
+    min-height: 20px;
+  }
+
+  #btnrow {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 6px;
+  }
+  #playbtn {
+    background: #1a5276; color: #fff; border: none; border-radius: 3px;
+    padding: 5px 20px; font-family: serif; font-size: 14px; cursor: pointer; min-width: 80px;
+  }
+  #playbtn:hover { background: #154360; }
+  #resetbtn {
+    background: transparent; color: #1a5276; border: 1px solid #1a5276;
+    border-radius: 3px; padding: 5px 12px; font-family: serif; font-size: 14px; cursor: pointer;
+  }
+  #resetbtn:hover { background: #eaf0fb; }
+
+  #info { text-align: center; font-size: 13px; font-family: serif; color: #555; margin-top: 4px; min-height: 18px; }
+</style>
+</head>
+<body>
+
+<div id="eq-display" aria-live="polite" aria-label="Current equation: x of t equals 2 cosine of 3t">
+  <i>x</i>(<i>t</i>) = <span class="eq-val">2</span>cos(<span class="eq-val">3</span><i>t</i>)
+</div>
+
+<div id="panels">
+  <div id="spring-panel">
+    <div id="spring-label">Spring</div>
+    <canvas id="spring-canvas" width="240" height="130"
+      role="img"
+      aria-label="Animated horizontal spring. The block oscillates between maximum stretch (x equals 2, labeled max stretched) and maximum compression (x equals negative 2, labeled max compressed). The equilibrium position is at x equals zero, marked by a green dashed line.">
+    </canvas>
+  </div>
+  <div id="graph-panel">
+    <div id="graph-label">Position <i>x</i>(<i>t</i>) vs time <i>t</i></div>
+    <div id="jxgbox"
+      role="img"
+      aria-label="Graph of x equals 2 cosine of 3t. Dashed horizontal lines at y equals 2 and y equals negative 2 mark the amplitude. Labels read amplitude equals 2 at both lines. The red dot traces the curve as the animation plays.">
+    </div>
+  </div>
+</div>
+
+<div id="stretch-label" role="status" aria-live="polite" aria-atomic="true">&nbsp;</div>
+
+<div id="btnrow">
+  <button id="playbtn" aria-label="Play or pause animation">&#9654; Play</button>
+  <button id="resetbtn" aria-label="Reset animation">Reset</button>
+</div>
+
+<div id="info" aria-live="polite">Press Play to watch the spring!</div>
+
+<script>
+  var C1 = 2, OMEGA = 3;
+  var tNow = 0, playing = false, animInterval = null;
+  var T_MAX = 3 * (2 * Math.PI / OMEGA);
+  var AMP = Math.abs(C1);
+
+  // Canvas
+  var canvas = document.getElementById('spring-canvas');
+  var ctx = canvas.getContext('2d');
+  var CW = canvas.width, CH = canvas.height;
+  var wallX = 28, equilibriumX = 118, blockW = 34, blockH = 34;
+  var springCoils = 9, AMP_PX = 62;
+
+  function drawSpring(blockX, state) {
+    // state: 'max-stretch' | 'max-compress' | 'normal'
+    ctx.clearRect(0, 0, CW, CH);
+    var cy = CH / 2 - 5;
+
+    // Bottom labels
+    var labelY = CH - 24;
+    ctx.textBaseline = 'top';
+
+    ctx.font = 'bold 10px serif';
+    ctx.fillStyle = '#1a5276';
+    ctx.textAlign = 'center';
+    ctx.fillText('x < 0', equilibriumX - AMP_PX * 1.05, labelY);
+    ctx.font = '9px serif';
+    ctx.fillText('(compressed)', equilibriumX - AMP_PX * 1.05, labelY + 12);
+
+    ctx.font = 'bold 10px serif';
+    ctx.fillStyle = '#145a32';
+    ctx.textAlign = 'center';
+    ctx.fillText('x = 0', equilibriumX, labelY);
+    ctx.font = '9px serif';
+    ctx.fillText('(equilibrium)', equilibriumX, labelY + 12);
+
+    ctx.font = 'bold 10px serif';
+    ctx.fillStyle = '#922b21';
+    ctx.textAlign = 'center';
+    ctx.fillText('x > 0', equilibriumX + AMP_PX * 1.05, labelY);
+    ctx.font = '9px serif';
+    ctx.fillText('(stretched)', equilibriumX + AMP_PX * 1.05, labelY + 12);
+
+    // Wall
+    ctx.fillStyle = '#bdc3c7';
+    ctx.fillRect(wallX - 12, cy - 38, 12, 76);
+    ctx.strokeStyle = '#95a5a6'; ctx.lineWidth = 1;
+    for (var i = -32; i <= 32; i += 11) {
+      ctx.beginPath(); ctx.moveTo(wallX-12, cy+i); ctx.lineTo(wallX-1, cy+i-9); ctx.stroke();
+    }
+    ctx.strokeStyle = '#2c3e50'; ctx.lineWidth = 2;
+    ctx.beginPath(); ctx.moveTo(wallX, cy-38); ctx.lineTo(wallX, cy+38); ctx.stroke();
+
+    // Spring zigzag
+    var springEndX = blockX - blockW/2;
+    var sLen = Math.max(springEndX - wallX, 5);
+    var cw = sLen / (springCoils + 1), ch = 12;
+    ctx.strokeStyle = '#566573'; ctx.lineWidth = 1.8;
+    ctx.beginPath(); ctx.moveTo(wallX, cy); ctx.lineTo(wallX + cw*0.4, cy);
+    for (var n = 0; n < springCoils; n++) {
+      var bx = wallX + cw*(0.4+n);
+      ctx.lineTo(bx + cw*0.3, cy-ch); ctx.lineTo(bx + cw*0.8, cy+ch);
+    }
+    ctx.lineTo(springEndX, cy); ctx.stroke();
+
+    // Block -- highlight red at extremes
+    ctx.fillStyle = (state === 'max-stretch' || state === 'max-compress') ? '#7b241c' : '#1a5276';
+    ctx.fillRect(blockX-blockW/2, cy-blockH/2, blockW, blockH);
+    ctx.strokeStyle = '#154360'; ctx.lineWidth = 1.5;
+    ctx.strokeRect(blockX-blockW/2, cy-blockH/2, blockW, blockH);
+    ctx.fillStyle = '#fff'; ctx.font = 'bold 13px serif';
+    ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+    ctx.fillText('m', blockX, cy);
+
+    // Equilibrium dashed line
+    ctx.setLineDash([4,3]); ctx.strokeStyle = '#145a32'; ctx.lineWidth = 1.5;
+    ctx.beginPath(); ctx.moveTo(equilibriumX, cy-42); ctx.lineTo(equilibriumX, cy+42); ctx.stroke();
+    ctx.setLineDash([]);
+
+    // Max stretch / max compress label on spring side
+    if (state === 'max-stretch') {
+      ctx.font = 'bold 11px serif'; ctx.fillStyle = '#922b21';
+      ctx.textAlign = 'center'; ctx.textBaseline = 'bottom';
+      ctx.fillText('max stretched!', blockX, cy - blockH/2 - 3);
+    } else if (state === 'max-compress') {
+      ctx.font = 'bold 11px serif'; ctx.fillStyle = '#1a5276';
+      ctx.textAlign = 'center'; ctx.textBaseline = 'bottom';
+      ctx.fillText('max compressed!', blockX, cy - blockH/2 - 3);
+    }
+  }
+
+  // JSXGraph
+  var board = JXG.JSXGraph.initBoard('jxgbox', {
+    boundingbox: [-0.5, 3.2, T_MAX + 0.1, -3.2],
+    axis: true, showCopyright: false, showNavigation: false,
+    pan: { enabled: false }, zoom: { enabled: false }
+  });
+
+  // Amplitude dashed lines
+  board.create('line', [[-1, AMP], [T_MAX+1, AMP]], {
+    strokeColor: '#922b21', strokeWidth: 1.5, dash: 2,
+    straightFirst: false, straightLast: false, fixed: true
+  });
+  board.create('line', [[-1, -AMP], [T_MAX+1, -AMP]], {
+    strokeColor: '#1a5276', strokeWidth: 1.5, dash: 2,
+    straightFirst: false, straightLast: false, fixed: true
+  });
+  // Amplitude labels
+  board.create('text', [0.1, AMP + 0.25, 'distance from equilibrium = 2'], {
+    fontSize: 11, fontFamily: 'serif', color: '#922b21', anchorX: 'left', fixed: true
+  });
+  board.create('text', [0.1, -AMP - 0.25, 'distance from equilibrium = 2'], {
+    fontSize: 11, fontFamily: 'serif', color: '#1a5276', anchorX: 'left', anchorY: 'top', fixed: true
+  });
+
+  // Ghost curve
+  var ghostXs = [], ghostYs = [];
+  var ghostCurve = board.create('curve', [ghostXs, ghostYs], {
+    strokeColor: '#aab7b8', strokeWidth: 1.5, dash: 2
+  });
+
+  // Live curve
+  var liveXs = [], liveYs = [];
+  var liveCurve = board.create('curve', [liveXs, liveYs], {
+    strokeColor: '#1a5276', strokeWidth: 2.5
+  });
+
+  // Dot
+  var dot = board.create('point', [0, C1], {
+    size: 5, fillColor: '#922b21', strokeColor: '#922b21', fixed: true, withLabel: false
+  });
+
+  function xVal(t) { return C1 * Math.cos(OMEGA * t); }
+
+  function rebuildGhost() {
+    ghostXs.length = 0; ghostYs.length = 0;
+    for (var i = 0; i <= 400; i++) {
+      var t = T_MAX * i / 400;
+      ghostXs.push(t); ghostYs.push(xVal(t));
+    }
+    ghostCurve.dataX = ghostXs; ghostCurve.dataY = ghostYs;
+  }
+
+  var THRESH = 0.18; // how close to ±AMP counts as "at extreme"
+
+  function updateFrame(t) {
+    var xv = xVal(t);
+    var atMax = Math.abs(xv - AMP) < THRESH;
+    var atMin = Math.abs(xv + AMP) < THRESH;
+    var state = atMax ? 'max-stretch' : (atMin ? 'max-compress' : 'normal');
+
+    var clamped = Math.max(-AMP, Math.min(AMP, xv));
+    var blockX = equilibriumX + (clamped / AMP) * AMP_PX;
+    drawSpring(blockX, state);
+
+    dot.setPosition(JXG.COORDS_BY_USER, [t, xv]);
+    liveXs.push(t); liveYs.push(xv);
+    liveCurve.dataX = liveXs; liveCurve.dataY = liveYs;
+    board.update();
+
+    var stretchEl = document.getElementById('stretch-label');
+    if (atMax) {
+      stretchEl.textContent = 'Max stretched (distance from equilibrium = 2)';
+      stretchEl.style.color = '#922b21';
+    } else if (atMin) {
+      stretchEl.textContent = 'Max compressed (distance from equilibrium = 2)';
+      stretchEl.style.color = '#1a5276';
+    } else {
+      stretchEl.innerHTML = '&nbsp;';
+    }
+  }
+
+  function stopAnim() {
+    if (animInterval) { clearInterval(animInterval); animInterval = null; }
+    playing = false;
+    document.getElementById('playbtn').innerHTML = '&#9654; Play';
+  }
+
+  function resetAll() {
+    stopAnim();
+    tNow = 0;
+    liveXs.length = 0; liveYs.length = 0;
+    liveCurve.dataX = liveXs; liveCurve.dataY = liveYs;
+    rebuildGhost();
+    dot.setPosition(JXG.COORDS_BY_USER, [0, xVal(0)]);
+    drawSpring(equilibriumX + AMP_PX, 'normal');
+    board.update();
+    document.getElementById('stretch-label').innerHTML = '&nbsp;';
+    document.getElementById('info').textContent = 'Press Play to watch the spring!';
+    document.getElementById('playbtn').innerHTML = '&#9654; Play';
+  }
+
+  function startAnim() {
+    stopAnim();
+    if (tNow >= T_MAX) { tNow = 0; liveXs.length = 0; liveYs.length = 0; }
+    playing = true;
+    document.getElementById('playbtn').innerHTML = '&#9646;&#9646; Pause';
+    document.getElementById('info').textContent = 'Watch the max stretch and max compress moments!';
+
+    animInterval = setInterval(function() {
+      if (tNow > T_MAX) {
+        stopAnim();
+        document.getElementById('info').textContent = 'Done! Notice the mass never gets further than 2 from equilibrium.';
+        return;
+      }
+      updateFrame(tNow);
+      tNow += 0.012;
+    }, 25);
+  }
+
+  document.getElementById('playbtn').addEventListener('click', function() {
+    if (playing) { stopAnim(); } else { startAnim(); }
+  });
+  document.getElementById('resetbtn').addEventListener('click', resetAll);
+
+  resetAll();
+</script>
+</body>
+</html>
