@@ -3,36 +3,29 @@
 <section xml:id="sec-characteristic-equation" xmlns:xi="http://www.w3.org/2001/XInclude">
   <title>The Characteristic Equation</title>
 
-  <!-- ═══════════════════════════════════════════════════════════
-       INTRO PROSE
-       ═══════════════════════════════════════════════════════════ -->
+  <p> Let's continue looking at the ODE <m>y'' - 5y' + 6y = 0</m> from the previous page. Notice that this
+   is a 2nd-order linear homogeneous ODE. However, it is a pretty simple one as the coefficient functions are all constant.
+    More precisely, <m>P_0(x)=1</m>, <m>P_1(x)=-5</m>, and <m>P_2(x)=6</m>. These types of ODEs will be the focus for the rest of this chapter, 
+    and are perhaps the most fun ones to solve yet!
+  </p> 
 
+  <definition xml:id="def-constant-coeff-homogeneous">
+    <title>Second-Order Linear Homogeneous ODE with Constant Coefficients</title>
+    <statement>
+      <p>
+        A <term>second-order linear homogeneous ODE with constant coefficients</term>
+        has the form
+        <me>ay'' + by' + cy = 0,</me>
+        where <m>a \neq 0</m>, <m>b</m>, and <m>c</m> are constants.
+      </p>
+    </statement>
+  </definition>
 
-
-  <!-- ═══════════════════════════════════════════════════════════
-       GENERAL SOLUTION THEOREM
-       ═══════════════════════════════════════════════════════════ -->
-<p> Let's continue looking the ODE <m>y'' - 5y' + 6y = 0</m> from the previous page. Notice that this
- is a a 2nd-order linear homogeneous ODE. However, it is a pretty simple one as the coefficient functions are all constant.
-  More precisely, <m>P_0(x)=1</m>, <m>P_1(x)=-5</m>, and <m>P_2(x)=6</m>. These types of ODEs will be the focus for the rest of this chapter, 
-  and are perhaps the most fun ones to solve yet!
-</p> 
-<definition xml:id="def-constant-coeff-homogeneous">
-  <title>Second-Order Linear Homogeneous ODE with Constant Coefficients</title>
-  <statement>
-    <p>
-      A <term>second-order linear homogeneous ODE with constant coefficients</term>
-      has the form
-      <me>ay'' + by' + cy = 0,</me>
-      where <m>a \neq 0</m>, <m>b</m>, and <m>c</m> are constants.
-    </p>
-  </statement>
-</definition>
   <p>
     On the previous page we saw that <m>y_1 = e^{2x}</m> and <m>y_2 = e^{3x}</m> are
     solutions to <m>y'' - 5y' + 6y = 0</m>, and by superposition,
     <m>y = c_1 e^{2x} + c_2 e^{3x}</m> is also a solution for any constants <m>c_1, c_2</m>.
-    How do we know if this is <em> all</em> of the solutions?
+    How do we know if this is <em>all</em> of the solutions?
   </p>
 
   <theorem xml:id="thm-general-solution-homogeneous">
@@ -51,12 +44,8 @@
   <p>
     We won't prove this theorem in this course, but we will be making heavy use of it.
     For example, now we can say for certain that <m>y = c_1 e^{2x} + c_2 e^{3x}</m> gives every solution to <m>y'' - 5y' + 6y = 0</m>
-     as we vary over all real numbers for <m>c_1</m> and <m>c_2</m>!
+    as we vary over all real numbers for <m>c_1</m> and <m>c_2</m>.
   </p>
-
-  <!-- ═══════════════════════════════════════════════════════════
-       MC CHECKPOINT
-       ═══════════════════════════════════════════════════════════ -->
 
   <exercise xml:id="ex-mc-general-solution-2">
     <statement>
@@ -108,14 +97,10 @@
     </choices>
   </exercise>
 
-  <!-- ═══════════════════════════════════════════════════════════
-       EXPLORATION: ARRIVING AT e^{rx} OURSELVES
-       ═══════════════════════════════════════════════════════════ -->
-
   <p>
     So the theorem tells us that finding two linearly independent solutions is the whole
     game. But how do we actually find solutions in the first place?
-    We will explore this below. And soon we will have a way to systematically solve similar ODEs!
+    We will explore this below, and soon we will have a way to systematically solve these ODEs.
   </p>
 
   <exploration xml:id="explore-characteristic-equation">
@@ -214,7 +199,7 @@
           <statement><p><m>e^{rx} = 0</m></p></statement>
           <feedback>
             <p>
-              Actually, <m>e^{rx} \neq 0</m> for any real <m>x</m> -- exponentials
+              Actually, <m>e^{rx} \neq 0</m> for any real <m>x</m>: exponentials
               are always positive! So this factor can never be zero.
             </p>
           </feedback>
@@ -223,7 +208,7 @@
           <statement><p>There are no solutions of the form <m>e^{rx}</m>.</p></statement>
           <feedback>
             <p>
-              Not quite -- we just need <m>r^2 - 3r - 4 = 0</m> to hold.
+              Not quite: we just need <m>r^2 - 3r - 4 = 0</m> to hold.
               If we can find values of <m>r</m> satisfying this, then <m>e^{rx}</m>
               is indeed a solution.
             </p>
@@ -252,21 +237,17 @@
       </solution>
     </task>
 
- 
   </exploration>
- <p>
-        Let's summarize the main findings of this exploration. We were looking to find solutions in the form 
-        <m>y=e^{rx}</m> to
-         <me>y'' - 3y' - 4y = 0.</me>
-         We solved for the <m>r</m> that worked by solving the algebraic equation:
-         <me>r^2 -3r - 4 = 0. </me>
-         Do you see the similarities between the ODE and the quadratic equation above? This turns out to be fundamental to solving
-          2nd-order linear homogeneous ODEs with constant coefficients. We call it the <alert>characteristic equation</alert>.
-      </p>
 
-  <!-- ═══════════════════════════════════════════════════════════
-       DEFINITION: CHARACTERISTIC EQUATION
-       ═══════════════════════════════════════════════════════════ -->
+  <p>
+    Let's summarize the main findings of this exploration. We were looking to find solutions in the form 
+    <m>y=e^{rx}</m> to
+    <me>y'' - 3y' - 4y = 0.</me>
+    We solved for the <m>r</m> that worked by solving the algebraic equation:
+    <me>r^2 -3r - 4 = 0. </me>
+    Do you see the similarities between the ODE and the quadratic equation above? This turns out to be fundamental to solving
+    2nd-order linear homogeneous ODEs with constant coefficients. We call it the <alert>characteristic equation</alert>.
+  </p>
 
   <definition xml:id="def-characteristic-equation">
     <title>Characteristic Equation</title>
@@ -281,16 +262,12 @@
     </statement>
   </definition>
 
-  
+  <p> If you look through the exploration we just did, it should be clear that this process will lead to the same conclusion
+    for any ODE in the form <m>ay'' + by' + cy = 0</m>. That is, any time <m>r</m> is a root of the characteristic
+    equation <m>ar^2 + br + c = 0</m>, then <m>e^{rx}</m> is a solution to the ODE. Even more,
+    if there are two distinct real roots, that gives us two solutions from which we can form the general solution!
+  </p>
 
-  <!-- ═══════════════════════════════════════════════════════════
-       OBSERVATION: TWO REAL ROOTS GIVE TWO SOLUTIONS
-       ═══════════════════════════════════════════════════════════ -->
-<p> If you look through the exploration we just did, it should be clear that this process will lead to the same conclusion
-   for any ODE in the form <m>ay'' + by' + cy = 0</m>. That is, any time r is a root to the characteristic
-  equation <m>ar^2 + br + c = 0</m>, then <m>e^{rx}</m> is a solution to the ODE. Even more,
-   if there are two distinct real roots, that gives us two solutions from which we can form the general solution!
-</p>
   <observation xml:id="obs-distinct-real-roots">
     <title>Two Distinct Real Roots</title>
     <p>
@@ -303,11 +280,9 @@
     </p>
   </observation>
 
-  <!-- ═══════════════════════════════════════════════════════════
-       EXAMPLE: y'' - 5y' + 6y = 0 (callback to page 1)
-       ═══════════════════════════════════════════════════════════ -->
-<p> Note that this observation only applies to when there are <em>two distinct real roots</em> to the characteristic equation. 
-  We will be looking at other cases for the roots on the next page! Let's quickly apply this to an example.</p>
+  <p> Note that this observation only applies when there are <em>two distinct real roots</em> to the characteristic equation. 
+    We will be looking at other cases on the next page! Let's quickly apply this to an example.</p>
+
   <example xml:id="ex-char-eq-distinct">
     <title>Solving <m>y'' - 5y' + 6y = 0</m></title>
     <introduction>
@@ -331,14 +306,10 @@
         Factoring: <m>(r - 2)(r - 3) = 0</m>, so <m>r_1 = 2</m> and <m>r_2 = 3</m>.
         These are two distinct real roots, so the general solution is:
         <me>y = c_1 e^{2x} + c_2 e^{3x}.</me>
-       Just as we found before!
+        Just as we found on the previous page!
       </p>
     </solution>
   </example>
-
-  <!-- ═══════════════════════════════════════════════════════════
-       KEY TAKEAWAYS
-       ═══════════════════════════════════════════════════════════ -->
 
   <conclusion>
     <title>Key Takeaways</title>
@@ -347,7 +318,7 @@
         <li><p>
           <alert>General solution:</alert> If <m>y_1</m> and <m>y_2</m> are two linearly
           independent solutions to a second-order linear homogeneous ODE, then
-          <m>y = c_1 y_1 + c_2 y_2</m> is the general solution -- every solution can
+          <m>y = c_1 y_1 + c_2 y_2</m> is the general solution, meaning every solution can
           be written this way.
         </p></li>
         <li><p>
@@ -363,10 +334,6 @@
       </ul>
     </p>
   </conclusion>
-
-  <!-- ═══════════════════════════════════════════════════════════
-       NO VIDEO NOTE + QUESTION FORM
-       ═══════════════════════════════════════════════════════════ -->
 
   <remark xml:id="remark-no-video-3-1-2">
     <p>

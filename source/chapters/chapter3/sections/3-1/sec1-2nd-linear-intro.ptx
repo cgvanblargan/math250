@@ -8,12 +8,11 @@
        ═══════════════════════════════════════════════════════════ -->
 
   <p>
-    So far we've been working with first-order ODEs. But 2nd order ODEs show up naturally
+    So far we've been working with first-order ODEs. But second-order ODEs show up naturally
     in many applications. We'll actually see an interesting example with the mass-spring system
-    later in this chapter, where the 2nd derivative appears because of acceleration.
-    These equations aren't just 2nd order, they're also linear, which turns out to make
-    them very well-behaved and understandable. This whole chapter is dedicated to
-    exploring exactly these types of equations!
+    later in this chapter, where the second derivative appears because of acceleration.
+    Before we get to the fun stuff, we need to spend this section understanding the mathematics
+    of the ODE and learning how to fully solve a simple case!
   </p>
 
   <!-- ═══════════════════════════════════════════════════════════
@@ -37,6 +36,8 @@
       \underbrace{x^2}_{P_0(x)}y'' + \underbrace{1}_{P_1(x)}y' + \underbrace{e^x}_{P_2(x)}y = \underbrace{\sin(x)+3}_{Q(x)}
     </me>
     is a second-order linear ODE, with the coefficient functions and right-hand side labeled.
+    Also, notice that if you remove the <m>y''</m> term, you are left with a first-order linear ODE!
+    You can extend this definition to a linear ODE of any order, but for our own sanity we will stop at second-order.
   </p>
 
   <!-- ═══════════════════════════════════════════════════════════
@@ -46,7 +47,7 @@
   <exercise xml:id="ex-mc-identify-linear">
     <statement>
       <p>
-        Which of the following is a second-order linear ODE?
+        Select all equations that are second-order linear ODEs.
       </p>
     </statement>
     <choices randomize="yes">
@@ -55,9 +56,16 @@
         <feedback>
           <p>
             Correct! This fits the form <m>P_0 y'' + P_1 y' + P_2 y = Q(x)</m> with
-            <m>P_0 = 1</m>, <m>P_1 = 3x</m>, <m>P_2 = -e^x</m>, and <m>Q(x) = \cos(x)</m>.
-            The key is that <m>y</m> and its derivatives appear only to the first power,
-            with no products between them. <m>\checkmark</m>
+            <m>P_0 = 1</m>, <m>P_1 = 3x</m>, <m>P_2 = -e^x</m>, and <m>Q(x) = \cos(x)</m>. <m>\checkmark</m>
+          </p>
+        </feedback>
+      </choice>
+      <choice correct="yes">
+        <statement><p><m>x^2 y'' = \sin(x) - y' + xy</m></p></statement>
+        <feedback>
+          <p>
+            Correct! This is not in standard form, but rearranging gives <m>x^2 y'' + y' - xy = \sin(x)</m>,
+            which fits the form with <m>P_0 = x^2</m>, <m>P_1 = 1</m>, <m>P_2 = -x</m>. <m>\checkmark</m>
           </p>
         </feedback>
       </choice>
@@ -65,8 +73,8 @@
         <statement><p><m>yy'' + y' = 0</m></p></statement>
         <feedback>
           <p>
-            Not quite. The term <m>yy''</m> is a product of the unknown function <m>y</m>
-            with its second derivative <m>y''</m> -- that makes this equation nonlinear.
+            Not quite. The term <m>yy''</m> is a product of <m>y</m> with its second derivative,
+            which makes this equation nonlinear.
           </p>
         </feedback>
       </choice>
@@ -74,8 +82,8 @@
         <statement><p><m>y'' + (y')^2 = x</m></p></statement>
         <feedback>
           <p>
-            Not quite. The term <m>(y')^2</m> is the first derivative squared -- since
-            <m>y'</m> appears to a power higher than 1, this equation is nonlinear.
+            Not quite. The term <m>(y')^2</m> means <m>y'</m> appears to a power higher than 1,
+            so this equation is nonlinear.
           </p>
         </feedback>
       </choice>
@@ -83,8 +91,7 @@
         <statement><p><m>y' + 3y = x^2</m></p></statement>
         <feedback>
           <p>
-            This is linear, but it's only first-order -- there's no <m>y''</m> term.
-            We're looking for a second-order equation.
+            This is linear, but only first-order. There is no <m>y''</m> term.
           </p>
         </feedback>
       </choice>
@@ -118,41 +125,50 @@
   <!-- ═══════════════════════════════════════════════════════════
        OBSERVATION: SUPERPOSITION
        ═══════════════════════════════════════════════════════════ -->
+  <p>
+    We now arrive at a very consequential observation regarding linear ODEs. We state it for second-order,
+    but it is true for any linear ODE, and it is part of what makes linear ODEs so nice to work with.
+  </p>
 
   <observation xml:id="obs-superposition">
-    <title>Superposition Principle</title>
+    <title>The Principle of Superposition</title>
     <p>
       If <m>y_1</m> and <m>y_2</m> are both solutions to a second-order linear
       <em>homogeneous</em> ODE, then
-      <me>y = c_1y_1 + c_2y_2</me>
-      is also a solution, for any constants <m>a</m> and <m>b</m>.
+      <me>y = c_1 y_1 + c_2 y_2</me>
+      is also a solution, for any constants <m>c_1</m> and <m>c_2</m>.
     </p>
   </observation>
 
   <p>
-    You can skim through the proof below and come back to it if you're curious. 
+    You can skim through the proof below and come back to it if you're curious.
   </p>
 
   <proof>
     <title>Proof of Superposition (can skim)</title>
     <p>
       Suppose <m>y_1</m> and <m>y_2</m> both satisfy <m>P_0 y'' + P_1 y' + P_2 y = 0</m>.
-      Let <m>y = ay_1 + by_2</m>. We check that <m>y</m> satisfies the ODE:
+      Let <m>y = c_1 y_1 + c_2 y_2</m>. We check that <m>y</m> satisfies the ODE:
       <md>
         <mrow>P_0 y'' + P_1 y' + P_2 y
-          \amp= P_0(ay_1 + by_2)'' + P_1(ay_1 + by_2)' + P_2(ay_1 + by_2)</mrow>
-        <mrow>\amp= P_0(ay_1'' + by_2'') + P_1(ay_1' + by_2') + P_2(ay_1 + by_2)</mrow>
-        <mrow>\amp= a\underbrace{(P_0 y_1'' + P_1 y_1' + P_2 y_1)}_{=\,0} +
-               b\underbrace{(P_0 y_2'' + P_1 y_2' + P_2 y_2)}_{=\,0}</mrow>
+          \amp= P_0(c_1 y_1 + c_2 y_2)'' + P_1(c_1 y_1 + c_2 y_2)' + P_2(c_1 y_1 + c_2 y_2)</mrow>
+        <mrow>\amp= P_0(c_1 y_1'' + c_2 y_2'') + P_1(c_1 y_1' + c_2 y_2') + P_2(c_1 y_1 + c_2 y_2)</mrow>
+        <mrow>\amp= c_1\underbrace{(P_0 y_1'' + P_1 y_1' + P_2 y_1)}_{=\,0} +
+               c_2\underbrace{(P_0 y_2'' + P_1 y_2' + P_2 y_2)}_{=\,0}</mrow>
         <mrow>\amp= 0.</mrow>
       </md>
-      So <m>y = ay_1 + by_2</m> satisfies the ODE. <m>\checkmark</m>
+      So <m>y = c_1 y_1 + c_2 y_2</m> satisfies the ODE. <m>\checkmark</m>
     </p>
   </proof>
 
   <!-- ═══════════════════════════════════════════════════════════
        EXAMPLE: COUNTEREXAMPLE (NONLINEAR)
        ═══════════════════════════════════════════════════════════ -->
+  <p>
+    It is important to understand that the principle of superposition requires the ODE to be <em>both</em>
+    linear and homogeneous. If either fails, we cannot expect this principle to hold.
+    In the following example, we show that it can fail in the nonlinear case.
+  </p>
 
   <example xml:id="ex-superposition-fails-nonlinear">
     <title>Superposition Can Fail for Nonlinear ODEs</title>
@@ -166,7 +182,7 @@
       </p>
     </introduction>
     <solution>
-      <title>Can skim for now -- come back if needed</title>
+      <title>Can skim for now</title>
       <p>
         <alert>Checking <m>y_1 = 1</m>:</alert> We have <m>y_1' = 0</m> and <m>y_1'' = 0</m>, so:
         <me>y_1 y_1'' + (y_1')^2 = (1)(0) + (0)^2 = 0. \checkmark</me>
@@ -185,7 +201,7 @@
           <mrow>\amp= -\frac{1}{4x^{3/2}} - \frac{1}{4x} + \frac{1}{4x}</mrow>
           <mrow>\amp= -\frac{1}{4x^{3/2}} \neq 0.</mrow>
         </md>
-        So the sum is <em>not</em> a solution. This makes sense -- superposition only applies
+        So the sum is <em>not</em> a solution. This makes sense: superposition only applies
         to linear homogeneous ODEs, and <m>yy'' + (y')^2 = 0</m> is nonlinear.
       </p>
     </solution>
@@ -194,6 +210,11 @@
   <!-- ═══════════════════════════════════════════════════════════
        EXAMPLE: CONFIRMING SUPERPOSITION
        ═══════════════════════════════════════════════════════════ -->
+  <p>
+    We end with one more example, this time confirming that the principle of superposition works in a specific case.
+    By the way, this is not just a random homogeneous linear ODE. We will be studying ODEs of this type extensively for the
+    rest of this section. 
+  </p>
 
   <example xml:id="ex-superposition-confirm">
     <title>Superposition in Action</title>
@@ -223,17 +244,23 @@
       </p>
     </solution>
   </example>
-
+<p>
+  Notice in the example above how the <m>e^{2x}</m> terms collected together and the <m>e^{3x}</m> terms collected together, 
+  each summing to zero independently. The fact that the ODE was linear was key for splitting the expressions over the sum, and it being
+   homogeneous is why both parts summed to 0. This is at the heart of why superposition principle works.
+</p>
   <conclusion>
     <title>Key Takeaways</title>
     <p>
       <ul>
         <li><p><alert>Second-order linear ODE:</alert> Has the form <m>P_0(x)y'' + P_1(x)y' + P_2(x)y = Q(x)</m>. It is <alert>homogeneous</alert> when <m>Q(x) = 0</m>.</p></li>
-        <li><p><alert>Superposition:</alert> If <m>y_1</m> and <m>y_2</m> are solutions to a linear homogeneous ODE, then so is <m>ay_1 + by_2</m> for any constants <m>a</m> and <m>b</m>.</p></li>
-        <li><p><alert>Linearity matters for superposition:</alert> Superposition can fail for nonlinear ODEs. We saw this with the counterexample. The homogeneous condition matters too.</p></li>
+        <li><p><alert>Superposition:</alert> If <m>y_1</m> and <m>y_2</m> are solutions to a linear homogeneous ODE, then so is <m>c_1 y_1 + c_2 y_2</m> for any constants <m>c_1</m> and <m>c_2</m>.</p></li>
+        <li><p><alert>Linearity matters for superposition:</alert> Superposition can fail for nonlinear ODEs, 
+          as we saw in the counterexample. The homogeneous condition is required as well.</p></li>
       </ul>
     </p>
   </conclusion>
+
   <!-- ═══════════════════════════════════════════════════════════
        VIDEO
        ═══════════════════════════════════════════════════════════ -->

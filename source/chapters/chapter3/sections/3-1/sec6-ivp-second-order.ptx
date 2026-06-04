@@ -88,7 +88,7 @@
           <mrow>1 = y(0) \amp= e^{0}(c_1\cos(0) + c_2\sin(0)) = c_1</mrow>
           <mrow>5 = y'(0) \amp= e^{0}((2c_1 + c_2)\cos(0) + (2c_2 - c_1)\sin(0)) = 2c_1 + c_2</mrow>
         </md>
-        Solve the system of equations yields <m>c_1 = 1</m> and <m>c_2 = 3</m>.
+      From the system above, we get <m>c_1 = 1</m> and <m>c_2 = 3</m>.
       </p>
       
       <solution>
@@ -120,7 +120,7 @@
       <ul>
         <li><p>
           <alert>Two initial conditions:</alert> A second-order ODE needs both
-          <m>y(0)</m> and <m>y'(0)</m> to uniquely determine a solution -- one for
+          <m>y(0)</m> and <m>y'(0)</m> to uniquely determine a solution, one for
           each unknown constant <m>c_1</m> and <m>c_2</m>.
         </p></li>
         <li><p>

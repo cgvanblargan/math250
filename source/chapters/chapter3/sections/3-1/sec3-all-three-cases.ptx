@@ -3,35 +3,30 @@
 <section xml:id="sec-all-three-cases" xmlns:xi="http://www.w3.org/2001/XInclude">
   <title>All Three Cases of the Characteristic Equation</title>
 
-  <!-- ═══════════════════════════════════════════════════════════
-       INTRO PROSE
-       ═══════════════════════════════════════════════════════════ -->
-
-
   <p>
     When solving <m>ay'' + by' + cy = 0</m>, we always start by looking at the
-    characteristic equation <m>ar^2 + br + c = 0</m>. Recall that the roots of a
+    characteristic equation <m>ar^2 + br + c = 0</m>. We saw exactly how this played out
+    in <xref ref="ex-char-eq-distinct"/> when there were two distinct real roots. Unfortunately,
+    we won't always be in this case. Recall from algebra that the roots of a
     quadratic can fall into three cases:
     <ul>
       <li><p>Two distinct real roots <m>r_1 \neq r_2</m></p></li>
       <li><p>One repeated real root <m>r_1 = r_2</m></p></li>
       <li><p>Two complex conjugate roots <m>\alpha \pm \beta i</m></p></li>
     </ul>
-    On the previous page, the observation we stated only covers the first case.
-    When there is only one real root, that lends itself to just one solution of the
+    The observation from the previous page only covers the first case.
+    When there is only one real root, that gives us just one solution of the
     form <m>e^{rx}</m>, which isn't enough to form the general solution.
     And when there are complex roots, <m>e^{r_1 x}</m> and <m>e^{r_2 x}</m> would
-    be complex-valued, which is not what we want in this course!
+    be complex-valued, which is not what we want in this course. We will need to extract 
+    two real-valued solutions from the complex ones in that case.
   </p>
 
   <p>
-    We'll state what to do in all three cases in the theorem below, saving the
-    justification for later in this chapter.
+    For now, we'll just state what to do in all three cases in the theorem below to get some quick practice. We will
+    provide justification for cases 2 and 3 on the following pages. In this page, we are just getting acquainted 
+    with cases two and three before we move on to some more interesting problems!
   </p>
-
-  <!-- ═══════════════════════════════════════════════════════════
-       THEOREM: ALL THREE CASES
-       ═══════════════════════════════════════════════════════════ -->
 
   <theorem xml:id="thm-three-cases-char-eq">
     <title>Solving <m>ay'' + by' + cy = 0</m>: All Three Cases</title>
@@ -61,15 +56,14 @@
             </p>
           </li>
         </ul>
-         In each case, 
-        <term>general solution</term> is <m>y = c_1 y_1 + c_2 y_2</m>.
+        In each case, the <term>general solution</term> is <m>y = c_1 y_1 + c_2 y_2</m>.
       </p>
     </statement>
   </theorem>
 
-  <!-- ═══════════════════════════════════════════════════════════
-       EXAMPLE 1: REPEATED ROOT
-       ═══════════════════════════════════════════════════════════ -->
+  <p>
+    The next example demonstrates the repeated root case.
+  </p>
 
   <example xml:id="ex-repeated-root">
     <title>Solving <m>y'' - 6y' + 9y = 0</m></title>
@@ -81,8 +75,8 @@
     <hint>
       <p>
         Notice the characteristic equation is <m>r^2 - 6r + 9 = 0</m>.
-        This factors as <m>(r-3)^2 = 0</m> -- notice that the factor <m>(r-3)</m>
-        shows up <em>twice</em>, which means this is a repeated root!
+        This factors as <m>(r-3)^2 = 0</m>, meaning the factor <m>(r-3)</m>
+        shows up <em>twice</em>, so this is a repeated root.
       </p>
     </hint>
     <solution>
@@ -98,9 +92,9 @@
     </solution>
   </example>
 
-  <!-- ═══════════════════════════════════════════════════════════
-       EXAMPLE 2: COMPLEX ROOTS
-       ═══════════════════════════════════════════════════════════ -->
+  <p>
+    We end with applying the theorem to the complex root case.
+  </p>
 
   <example xml:id="ex-complex-roots">
     <title>Solving <m>y'' + 4y' + 5y = 0</m></title>
@@ -135,10 +129,6 @@
       </p>
     </solution>
   </example>
-
-  <!-- ═══════════════════════════════════════════════════════════
-       MC CHECKPOINT: IDENTIFY alpha AND beta, WRITE GENERAL SOLUTION
-       ═══════════════════════════════════════════════════════════ -->
 
   <exercise xml:id="ex-mc-complex-roots-identify">
     <statement>
@@ -200,10 +190,6 @@
     </choices>
   </exercise>
 
-  <!-- ═══════════════════════════════════════════════════════════
-       KEY TAKEAWAYS
-       ═══════════════════════════════════════════════════════════ -->
-
   <conclusion>
     <title>Key Takeaways</title>
     <p>
@@ -219,15 +205,10 @@
         <li><p>
           <alert>Complex roots</alert> <m>\alpha \pm \beta i</m>: general solution
           <m>y = e^{\alpha x}(c_1\cos(\beta x) + c_2\sin(\beta x))</m>.
-          
         </p></li>
       </ul>
     </p>
   </conclusion>
-
-  <!-- ═══════════════════════════════════════════════════════════
-       NO VIDEO + QUESTION FORM
-       ═══════════════════════════════════════════════════════════ -->
 
   <remark xml:id="remark-no-video-3-1-3">
     <p>

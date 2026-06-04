@@ -3,18 +3,13 @@
 <section xml:id="sec-complex-roots-practice" xmlns:xi="http://www.w3.org/2001/XInclude">
   <title>Complex Roots and Practice</title>
 
-  <!-- ═══════════════════════════════════════════════════════════
-       INTRO PROSE
-       ═══════════════════════════════════════════════════════════ -->
-
- 
-
   <p>
     Recall that for <m>ay'' + by' + cy = 0</m>, if the characteristic equation has
     complex roots <m>\alpha \pm \beta i</m>, the general solution is:
     <me>y = e^{\alpha x}\left(c_1\cos(\beta x) + c_2\sin(\beta x)\right).</me>
   </p>
-     <theorem xml:id="thm-complex-roots-justification">
+
+  <theorem xml:id="thm-complex-roots-justification">
     <title>Why Does the Complex Root Case Give Sines and Cosines?</title>
     <statement>
       <p>
@@ -45,15 +40,13 @@
     </proof>
   </theorem>
 
-  
- <p>
-  A huge difference in the solution for this case is that it involves <m>\sin(x)</m> and <m>cos(x)</m>. 
-  Let's explore a simple case to see how these trig functions naturally appear.
- </p>
-
-  <!-- ═══════════════════════════════════════════════════════════
-       EXPLORATION: y'' = -y
-       ═══════════════════════════════════════════════════════════ -->
+  <p>
+    A key difference in the solution for this case is that it involves <m>\sin(x)</m> and <m>\cos(x)</m>. 
+    Let's explore a simple case to see how these trig functions naturally appear. It is tempting to 
+    jump straight to the characteristic equation, but solving this one by inspection actually gives you stronger
+    intuition for why the solution involves trig functions. Even more, ODEs similar to the following example appear often in
+    applications we will explore later, and it is useful to be able to jump straight to the solution without using the characteristic equation.
+  </p>
 
   <exploration xml:id="explore-yprimeprime-neg-y">
     <title>Exploring <m>y'' = -y</m></title>
@@ -87,7 +80,7 @@
             <mrow>\frac{d^2}{dx^2}\cos(x) \amp= -\cos(x)</mrow>
             <mrow>\frac{d^2}{dx^2}\sin(x) \amp= -\sin(x)</mrow>
           </md>
-          So both <m>y_1 = \cos(x)</m> and <m>y_2 = \sin(x)</m> satisfy <m>y'' = -y</m>!
+          So both <m>y_1 = \cos(x)</m> and <m>y_2 = \sin(x)</m> satisfy <m>y'' = -y</m>.
           Since they are not constant multiples of each other, they are linearly
           independent, and the general solution is:
           <me>y = c_1\cos(x) + c_2\sin(x).</me>
@@ -106,7 +99,7 @@
       <hint>
         <p>
           The characteristic equation is <m>r^2 + 1 = 0</m>. This doesn't factor
-          easily, but notice you don't need the quadratic formula either. Just
+          easily, but you don't need the quadratic formula either. Just
           solve directly for <m>r^2</m>!
         </p>
       </hint>
@@ -128,9 +121,18 @@
 
   </exploration>
 
-  <!-- ═══════════════════════════════════════════════════════════
-       OBSERVATION: y'' + omega^2 y = 0
-       ═══════════════════════════════════════════════════════════ -->
+  <p>
+    Solving the ODE by inspection came naturally from understanding how the derivatives of sine and cosine work. 
+    Furthermore, when we solved the characteristic equation, the real part of the root was 0, which is precisely
+    why there was no exponential in the final answer. In general, when the roots are <m>\alpha \pm \beta i</m>,
+    the real part <m>\alpha</m> shows up in the exponential and the imaginary part <m>\beta</m> appears inside
+    the cosine and sine.
+  </p>
+
+  <p>
+    If you worked through the example above but replaced <m>y'' + y = 0</m> with any equation of the form
+    <m>y'' + \omega^2 y = 0</m>, you would arrive at a very similar result, stated in the observation below.
+  </p>
 
   <observation xml:id="obs-simple-harmonic-ode">
     <title>The ODE <m>y'' + \omega^2 y = 0</m></title>
@@ -144,19 +146,45 @@
     </p>
   </observation>
 
-  <!-- ═══════════════════════════════════════════════════════════
-       COMPLEX ROOTS JUSTIFICATION (DROPDOWN)
-       ═══════════════════════════════════════════════════════════ -->
+  <p>
+    With this observation, you should be able to solve the following checkpoint question with almost no work!
+  </p>
 
- 
-  <!-- ═══════════════════════════════════════════════════════════
-       ACTIVITY 2: MIXED PRACTICE
-       ═══════════════════════════════════════════════════════════ -->
+  <exercise xml:id="ex-mc-simple-harmonic-16">
+    <statement>
+      <p>
+        Using the observation above, what is the general solution to <m>y'' + 16y = 0</m>?
+      </p>
+    </statement>
+    <choices randomize="no">
+      <choice correct="yes">
+        <statement><p><m>y = c_1\cos(4x) + c_2\sin(4x)</m></p></statement>
+        <feedback>
+          <p>
+            Exactly! This fits the form <m>y'' + \omega^2 y = 0</m> with <m>\omega = 4</m>,
+            so the general solution is <m>y = c_1\cos(4x) + c_2\sin(4x)</m>. <m>\checkmark</m>
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement><p><m>y = c_1 e^{4x} + c_2 e^{-4x}</m></p></statement>
+        <feedback>
+          <p>
+            This would be the solution to <m>y'' - 16y = 0</m>, not <m>y'' + 16y = 0</m>.
+            The positive sign on the <m>16y</m> term gives complex roots, not real ones.
+            Always check the sign before deciding which case you're in!
+          </p>
+        </feedback>
+      </choice>
+    </choices>
+  </exercise>
+
+  <p>
+    Now for some more practice! Pay close attention to the difference between parts (c) and (d).
+  </p>
 
   <activity xml:id="act-mixed-practice">
     <title>Practice: All Cases</title>
-
-    
 
     <task xml:id="task-mixed-1">
       <title>Solve <m>y'' - 4y' + 5y = 0</m></title>
@@ -166,7 +194,7 @@
       <hint>
         <p>
           The characteristic equation is <m>r^2 - 4r + 5 = 0</m>. This does not
-          factor easily. You will need the quadratic formula here.
+          factor easily, so use the quadratic formula.
         </p>
       </hint>
       <solution>
@@ -209,14 +237,14 @@
       </statement>
       <hint>
         <p>
-          Notice this fits the form <m>y'' + \omega^2 y = 0</m> from the observation
-          above. Just do the usual characteristic equation process.
+          Notice this fits the form <m>y'' + \omega^2 y = 0</m> from <xref ref="obs-simple-harmonic-ode"/>.
+          Just identify <m>\omega</m> and write down the solution.
         </p>
       </hint>
       <solution>
         <p>
           This fits the form <m>y'' + \omega^2 y = 0</m> with <m>\omega = 3</m>.
-          By the observation, the general solution is:
+          By <xref ref="obs-simple-harmonic-ode"/>, the general solution is:
           <me>y = c_1\cos(3x) + c_2\sin(3x).</me>
         </p>
       </solution>
@@ -229,9 +257,9 @@
       </statement>
       <hint>
         <p>
-          Notice this does <em>not</em> follow from the observation above, since
+          Notice this does <em>not</em> follow from <xref ref="obs-simple-harmonic-ode"/>, since
           the coefficient of <m>y</m> is <m>-9</m>, not <m>+9</m>. Find the roots
-          of the characteristic equation -- you may be surprised which case you're in!
+          of the characteristic equation: you may be surprised which case you're in!
         </p>
       </hint>
       <solution>
@@ -239,27 +267,96 @@
           The characteristic equation is <m>r^2 - 9 = 0</m>, which factors as:
           <me>(r - 3)(r + 3) = 0.</me>
           So <m>r_1 = 3</m> and <m>r_2 = -3</m>, which are two distinct <em>real</em> roots,
-          not complex!
-          The general solution is:
+          not complex! The general solution is:
           <me>y = c_1 e^{3x} + c_2 e^{-3x}.</me>
         </p>
       </solution>
     </task>
 
-     
-        
-    
-
   </activity>
 
-  <!-- ═══════════════════════════════════════════════════════════
-       NO VIDEO + QUESTION FORM
-       ═══════════════════════════════════════════════════════════ -->
+  <exercise xml:id="ex-mc-why-no-trig">
+    <statement>
+      <p>
+        In part (d) above, <m>y'' - 9y = 0</m> looks similar to <m>y'' + 9y = 0</m> from part (c),
+        yet the solutions look completely different. Why can't we apply <xref ref="obs-simple-harmonic-ode"/>
+        to <m>y'' - 9y = 0</m>?
+      </p>
+    </statement>
+    <choices randomize="yes">
+      <choice correct="yes">
+        <statement>
+          <p>
+            The observation requires the coefficient of <m>y</m> to be positive. Since <m>y'' - 9y = 0</m>
+            has a negative coefficient, the characteristic equation <m>r^2 - 9 = 0</m> has real roots,
+            not complex ones, so trig functions do not appear.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            Exactly. <xref ref="obs-simple-harmonic-ode"/> applies only when the ODE has the form
+            <m>y'' + \omega^2 y = 0</m> with a <em>positive</em> coefficient. A negative coefficient
+            means the characteristic equation has real roots, giving exponentials instead of trig functions. <m>\checkmark</m>
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            The observation only applies when the coefficient of <m>y</m> is exactly 9.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            Not quite. The observation applies for any positive <m>\omega^2</m>, not just 9.
+            The issue with <m>y'' - 9y = 0</m> is the sign, not the specific value.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            The observation does apply, but the answer happens to come out as exponentials anyway.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            The observation does not apply here. It requires a positive coefficient on <m>y</m>,
+            which gives complex roots and trig functions. With a negative coefficient the characteristic
+            equation has real roots from the start, so exponentials are the correct form.
+          </p>
+        </feedback>
+      </choice>
+    </choices>
+  </exercise>
 
-<figure xml:id="video-complex-roots-practice">
-  <caption>This video goes through the content of this page.</caption>
-  <video youtube="JdPwIDp78c0" width="100%" preview="default"/>
-</figure>
+  <conclusion>
+    <title>Key Takeaways</title>
+    <p>
+      <ul>
+        <li><p>
+          <alert>Complex roots <m>\alpha \pm \beta i</m>:</alert> the general solution is
+          <m>y = e^{\alpha x}(c_1\cos(\beta x) + c_2\sin(\beta x))</m>. The real part
+          <m>\alpha</m> goes in the exponential, the imaginary part <m>\beta</m> goes inside the trig.
+        </p></li>
+        <li><p>
+          <alert>Know this one cold:</alert> the ODE <m>y'' + \omega^2 y = 0</m> has general solution
+          <m>y = c_1\cos(\omega x) + c_2\sin(\omega x)</m>. You should be able to write this down
+          immediately without touching the characteristic equation.
+        </p></li>
+        <li><p>
+          <alert>Sign matters:</alert> <m>y'' + 9y = 0</m> gives trig functions, but <m>y'' - 9y = 0</m>
+          gives exponentials. Always check the sign of the coefficient before assuming which case you're in.
+        </p></li>
+      </ul>
+    </p>
+  </conclusion>
+
+  <figure xml:id="video-complex-roots-practice">
+    <caption>This video goes through the content of this page.</caption>
+    <video youtube="JdPwIDp78c0" width="100%" preview="default"/>
+  </figure>
+
   <interactive xml:id="question-form-3-1-5" iframe="question-form.html?section=3.1.5" width="100%" aspect="2:1"/>
 
 </section>
