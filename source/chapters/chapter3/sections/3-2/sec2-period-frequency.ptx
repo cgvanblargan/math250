@@ -8,16 +8,22 @@
        ═══════════════════════════════════════════════════════════ -->
 
   <p>
-    <!-- PROSE: quick callback to the setup on the previous page, something like
-         "let's put that ODE to work with a concrete example" -->
-  </p>
-
-  <p>
-    Recall that an undamped mass-spring system satisfies
+    From the previous page, we already know how to set up and solve the undamped mass-spring system. As a reminder, 
+    when <m> m</m> is the mass and <m>k</m> is the spring constant of the system, the position function <m>x(t)</m> satisfies
+    the ODE
     <me>mx'' + kx = 0, \qquad \text{i.e.} \qquad x'' + \omega_0^2 x = 0,</me>
-    where <m>\omega_0 = \sqrt{k/m}</m>.
+    where <m>\omega_0 = \sqrt{k/m}</m>. And the solution is 
+        <me>x(t) = c_1\cos(\omega_0 t) + c_2\sin(\omega_0 t),</me>
+        which is called <em>simple harmonic motion</em>
   </p>
+<p> Now at this point, it may feel like we have a full understanding of this ODE model. However, just solving for <m>x(t)</m>
+   does not give us the full picture. Often in applications, we want to take this a step further and really understand
+    the behavior of the solutions. A big theme from here on is exploring how the mathematics relates to the
+     physical behavior of the spring.
+</p>
 
+<p> We begin with a quick example to make sure we understand how to solve the ODE. Then we will explore some more properties.
+</p>
   <example xml:id="ex-spring-10kg">
     <title>A 10 kg Mass on a Spring</title>
     <introduction>
@@ -48,7 +54,13 @@
   <!-- ═══════════════════════════════════════════════════════════
        INTERACTIVE: spring animation fixed to omega = sqrt(14)
        ═══════════════════════════════════════════════════════════ -->
-
+<p>
+  As we said at the beginning of this page, we don't just care about the equation <m>x(t) = c_1\cos\!\left(\sqrt{14}\, t\right) + c_2\sin\!\left(\sqrt{14}\, t\right).</m>
+  We want to understand what is actually <em>happening</em> in the mass-spring system. In particular,
+  we care about the period of the solution: the time it takes to complete one full oscillation.
+  As you play with the interactive below, pay attention to what happens as you change <m>c_1</m> and <m>c_2</m>: does the period change?
+  Also notice how the spring animation on the left relates to the graph on the right.
+</p>
   <figure xml:id="fig-spring-sqrt14">
     <caption>
       The solution <m>x(t) = c_1\cos(\sqrt{14}\,t) + c_2\sin(\sqrt{14}\,t)</m>
@@ -72,21 +84,18 @@
   </figure>
 
   <p>
-    Notice that no matter what you set c1 and c2 to,
+    Notice that no matter what you set <m>c_1</m> and <m>c_2</m> to,
          the shaded region (one full oscillation) always has the same width.
          The shape of the curve changes, but the time it takes to complete one
-         cycle doesn't. That time is what we call the period."
+         cycle doesn't. That time is what we call the <m>period</m>.
   </p>
-
-  <!-- ═══════════════════════════════════════════════════════════
-       PERIOD: informal intro
-       ═══════════════════════════════════════════════════════════ -->
 
   <p>
-    The period is just how long one full oscillation takes.
-         for our spring, it's the time from, say, maximum stretch back around
-         to maximum stretch again.
+    What does affect the period is the natural frequency of the system: <m>\omega_0</m>. 
+    In the graph below, observe what happens to a cosine function as you change the value of <m>\omega_0</m>.
   </p>
+
+ 
 
   <!-- ═══════════════════════════════════════════════════════════
        INTERACTIVE: period explorer, cos(omega t) with omega slider
@@ -113,14 +122,22 @@
     </interactive>
   </figure>
 
-  <!-- ═══════════════════════════════════════════════════════════
-       FREQUENCY + OBSERVATION BLOCK
-       ═══════════════════════════════════════════════════════════ -->
+  
+  <p>
+  As <m>\omega_0</m> <em>increases</em>, the position function <m>x(t)=2\cos(\omega_0 t)</m> oscillates <em>faster</em>, so
+  the period decreases. We know that <m>A\cos(t)</m> has a period of <m>2\pi</m>. If you make it move twice as fast,
+  as in <m>A\cos(2t)</m>, then the period is cut in half: <m>\frac{2\pi}{2}=\pi</m>. In general, scaling time
+  by a factor of <m>\omega_0</m> gives a period of:
+  <me>\text{period} = \frac{2\pi}{\omega_0} </me> 
+</p>
+
+<p>
+  A related quantity is frequency: how many full oscillations occur per unit time. Bigger <m>\omega_0</m> means faster
+  oscillation and therefore higher frequency. In fact, <em>frequency is just the reciprocal of the period</em>.
+</p>
 
   <p>
-    A related quantity is frequency: how many
-         full oscillations happen per unit time. bigger omega means faster
-         oscillation, so higher frequency. the two are just reciprocals.
+    Let's summarize this below.
   </p>
 
   <observation xml:id="obs-period-frequency">
@@ -144,7 +161,7 @@
   <!-- ═══════════════════════════════════════════════════════════
        MC CHECKPOINT
        ═══════════════════════════════════════════════════════════ -->
-
+<p> Now for a quick check! </p>
   <exercise xml:id="ex-mc-period-freq">
     <statement>
       <p>
@@ -197,7 +214,7 @@
         <feedback>
           <p>
             Close, but off by a factor of 2. One full oscillation of cosine
-            spans <m>2\pi</m>, not <m>\pi</m> -- that would only be a half-cycle.
+            spans <m>2\pi</m>, not <m>\pi</m>, that would only be a half-cycle.
             The correct period is <m>T = 2\pi/\sqrt{14}</m>.
           </p>
         </feedback>
@@ -213,12 +230,12 @@
     <title>Key Takeaways</title>
     <p><ul>
       <li><p>
-        <alert>Period:</alert> <m>T = 2\pi/\omega_0</m> -- the time for one
+        <alert>Period:</alert> <m>T = 2\pi/\omega_0</m>, the time for one
         complete oscillation. Depends only on <m>\omega_0 = \sqrt{k/m}</m>,
         not on how far you pull the mass.
       </p></li>
       <li><p>
-        <alert>Frequency:</alert> <m>f = \omega_0/(2\pi) = 1/T</m> --
+        <alert>Frequency:</alert> <m>f = \omega_0/(2\pi) = 1/T</m>, 
         oscillations per unit time. Larger <m>\omega_0</m> means higher frequency
         and shorter period.
       </p></li>

@@ -8,7 +8,22 @@
        ═══════════════════════════════════════════════════════════ -->
 
 
+<p>
+  Alright, so we now have a full understanding of how to solve the ODE
+  <me>ay''+by'+cy'=0. </me>
+  This ODE turns out to have a very interesting application to the mass-spring model. 
+  The idea behind the model is simple: a block of mass <m>m</m> is attached to a spring, 
+  and we want to track its position over time.
+     
+</p>
 
+<p>
+  Press "Play" on the animation below to get a feel for how the mass moves.
+  The mass oscillates back and forth between a compressed state and a stretched state,
+  passing through the equilibrium position each time. The equilibrium position is simply
+  where the spring sits at rest with no velocity: if the mass starts there undisturbed, it stays there.
+  But if it starts displaced in either direction, the spring pulls it back, and the oscillation begins.
+</p>
   <figure xml:id="fig-spring-intro">
     <caption>
       A horizontal mass-spring system. The block of mass <m>m</m> is attached
@@ -38,8 +53,10 @@
   <!-- ═══════════════════════════════════════════════════════════
        HOOKE'S LAW
        ═══════════════════════════════════════════════════════════ -->
-
-  <definition xml:id="def-hookes-law">
+<p>Borrowing some facts from physics, we will give a brief derivation of how to obtain an ODE modelling the system. 
+  Everything below follows from just Hooke's Law and Newton's second law of motion.
+  Later on we will mostly be focusing on interpreting the behavior of solutions to the ODE and how it relates to the physical reality. </p>
+  <fact xml:id="def-hookes-law">
     <title>Hooke's Law</title>
     <statement>
       <p>
@@ -50,7 +67,7 @@
         sign means the force always pulls the mass back toward equilibrium.
       </p>
     </statement>
-  </definition>
+  </fact>
 
   <!-- ═══════════════════════════════════════════════════════════
        NEWTON'S LAW + ARRIVING AT THE ODE
@@ -67,28 +84,32 @@
     <m>\omega_0 = \sqrt{k/m}</m>:
     <me>x'' + \omega_0^2 x = 0.</me>
   </p>
-
+ <p>
+  Let's give a quick summary of this below.
+ </p>
   <definition xml:id="def-natural-frequency">
-    <title>Natural Frequency</title>
+    <title>Undamped Mass Spring System</title>
     <statement>
       <p>
-        The constant <m>\omega_0 = \sqrt{k/m}</m> is called the
+      The <term>undamped mass-spring ODE</term> is:
+    <me>mx'' + kx = 0,</me>
+    where <m>m</m> is the mass of the object on the spring and <m>k</m> is the spring constant in the system. Dividing through
+    by <m>m</m>, we can write this as 
+     <me>x'' + \omega_0^2 x = 0,</me>
+        where the constant <m>\omega_0 = \sqrt{k/m}</m> is called the
         <term>natural frequency</term> of the system. It depends only on the
-        spring constant and the mass -- not on how far you stretch the spring
-        to start.
+        spring constant and the mass. 
       </p>
-    </statement>
-  </definition>
-
-  <note xml:id="note-free-undamped">
-    <p>
+        <p>
       This ODE describes <term>free undamped motion</term>. It is
       <em>free</em> because there is no external driving force, and
       <em>undamped</em> because there is no friction or damping force
-      slowing the mass down. We'll add both of those in later sections!
+      slowing the mass down. 
     </p>
-  </note>
+    </statement>
+  </definition>
 
+ 
   <!-- ═══════════════════════════════════════════════════════════
        SOLUTION VIA XREF
        ═══════════════════════════════════════════════════════════ -->
@@ -97,7 +118,7 @@
     Notice that <m>x'' + \omega_0^2 x = 0</m> is exactly in the form we saw
     in <xref ref="obs-simple-harmonic-ode"/>. The general solution is:
     <me>x(t) = c_1\cos(\omega_0 t) + c_2\sin(\omega_0 t).</me>
-    This is called <term>simple harmonic motion</term> -- the mass oscillates
+    This is called <term>simple harmonic motion</term>: the mass oscillates
     back and forth forever, with the shape of the solution determined by the
     initial conditions <m>x(0)</m> and <m>x'(0)</m>.
   </p>
@@ -114,7 +135,7 @@
       <me>x(t) = A\cos(\omega_0(t - \delta)),</me>
       where <m>A = \sqrt{c_1^2 + c_2^2}</m> is the <term>amplitude</term>
       (the maximum displacement from equilibrium) and <m>\delta</m> is a
-      phase shift. We'll skip the proof, but see the dropdown if you're curious.
+      phase shift. We will skip the proof, but see the dropdown if you are curious.
     </p>
     <proof>
       <title>Why these two forms are equivalent (can skim)</title>
@@ -163,7 +184,8 @@
   <!-- ═══════════════════════════════════════════════════════════
        KEY TAKEAWAYS
        ═══════════════════════════════════════════════════════════ -->
-
+       <p>Okay, so we covered a lot of ground on this page! There was quite a bit of set-up with the physics, but we
+   will start getting more familiar with all these terms as we work through more examples. Let's summarize below: </p>
   <conclusion>
     <title>Key Takeaways</title>
     <p>
@@ -180,8 +202,8 @@
           <m>A = \sqrt{c_1^2 + c_2^2}</m>.
         </p></li>
         <li><p>
-          <alert>Free undamped:</alert> No external force, no friction --
-          the mass oscillates forever. This changes when we add damping next week!
+          <alert>Free undamped:</alert> No external force, no friction.
+          The mass oscillates forever. This changes when we add damping next week!
         </p></li>
       </ul>
     </p>

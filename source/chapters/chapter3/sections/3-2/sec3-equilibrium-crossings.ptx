@@ -3,14 +3,13 @@
 <section xml:id="sec-equilibrium-crossings" xmlns:xi="http://www.w3.org/2001/XInclude">
   <title>Passing Through Equilibrium</title>
 
-  <!-- ═══════════════════════════════════════════════════════════
-       INTRO PROSE + INTERACTIVE
-       ═══════════════════════════════════════════════════════════ -->
-
+<p>
+  As we said on the previous page, from here on out we are exploring the behavior of the solutions to the mass-spring system.
+</p>
   <p>
     We know the mass oscillates forever in
          free undamped motion. Let's think about a specific question:
-         how many times does it pass through equilibrium (x=0) as t goes
+         how many times does it pass through equilibrium (<m>x=0</m> ) as time goes
          to infinity? Play around with the graph below and see what you notice. 
   </p>
 
@@ -24,7 +23,7 @@
     </caption>
     <interactive xml:id="interactive-spring-equilibrium"
       iframe="ch3-graph/interactive-spring-equilibrium.html"
-      width="100%" aspect="5:3">
+      width="100%" aspect="5:3.5">
       <description>
         An animated spring and position graph. A counter labeled "Times through
         equilibrium (x equals 0)" increments each time the mass crosses the
@@ -34,12 +33,6 @@
       </description>
     </interactive>
   </figure>
-
-  <p>
-    Notice that no matter what you set the sliders to (as long as
-         the solution isn't identically zero), the mass oscillating with a fixed amplitude, 
-         So it keeps crossing the equilibrium (<m>x=0</m>) forever.
-  </p>
 
   <!-- ═══════════════════════════════════════════════════════════
        MC CHECKPOINT
@@ -58,8 +51,8 @@
         <statement><p>A finite number of times, depending on <m>c_1</m> and <m>c_2</m>.</p></statement>
         <feedback>
           <p>
-            Try changing <m>c_1</m> and <m>c_2</m> in the interactive above --
-            the mass keeps crossing equilibrium regardless. The amplitude changes,
+            Try changing <m>c_1</m> and <m>c_2</m> in the interactive above.
+            The mass keeps crossing equilibrium regardless. The amplitude changes,
             but the oscillation never stops.
           </p>
         </feedback>
@@ -78,7 +71,7 @@
         <feedback>
           <p>
             Exactly. Since there's no damping, the amplitude stays fixed and
-            the mass oscillates forever -- crossing <m>x = 0</m> twice per
+            the mass oscillates forever, crossing <m>x = 0</m> twice per
             period, indefinitely. <m>\checkmark</m>
           </p>
         </feedback>
@@ -101,8 +94,15 @@
        ALGEBRAIC JUSTIFICATION
        ═══════════════════════════════════════════════════════════ -->
 
+ <p>
+    Notice that no matter what you set the sliders to (as long as
+         the solution isn't identically zero), the mass oscillates with a fixed amplitude, 
+         so it keeps crossing the equilibrium (<m>x=0</m>) forever. This is a key feature of undamped motion. There
+          is nothing slowing it down, so the force from the spring has it just repeat the same oscillations for all of time!
+  </p>
+
   <p>
-    Now let's justify this algebraically.
+   While it seems clear from the graph, we should always be able to back this up algebraically. We do this in the following example.
   </p>
 
   <example xml:id="ex-equil-crossings-algebra">
@@ -131,7 +131,7 @@
         (not both zero), we need <m>\cos(\omega_0 t) = 0</m>, which gives:
         <me>\omega_0 t = \frac{\pi}{2} + n\pi, \qquad n = 0, 1, 2, 3, \ldots</me>
         so <m>t = \dfrac{1}{\omega_0}\!\left(\dfrac{\pi}{2} + n\pi\right)</m>.
-        This is a different value of <m>t</m> for each <m>n</m> -- infinitely many solutions.
+        This is a different value of <m>t</m> for each <m>n</m>, so infinitely many solutions.
       </p>
       <p>
         <alert>Case 2: <m>c_2 \neq 0</m>.</alert>
@@ -145,26 +145,26 @@
 <me>\omega_0 t = \arctan\!\left(-\frac{c_1}{c_2}\right) + n\pi</me>
 <me>t = \frac{1}{\omega_0}\left[\arctan\!\left(-\frac{c_1}{c_2}\right) + n\pi\right].</me>
 Since we need <m>t \geq 0</m>, we take <m>n</m> to be whichever non-negative
-integers keep <m>t</m> positive -- starting at <m>n = 0</m> or <m>n = 1</m>
-depending on the sign of the arctan term. Either way, there are infinitely
+integers keep <m>t</m> positive (starting at <m>n = 0</m> or <m>n = 1</m>
+depending on the sign of the arctan term). Either way, there are infinitely
 many valid values of <m>t</m>.
       </p>
       <solution>
         <title>Why <m>+ \, n\pi</m>? (if unsure: click for a trig review)</title>
         <p>
           Two things are going on here. First, <m>\arctan</m> only gives us
-          one solution -- it's the inverse of <m>\tan</m> restricted to
+          one solution: it's the inverse of <m>\tan</m> restricted to
           <m>(-\pi/2, \pi/2)</m>. So <m>\arctan(-c_1/c_2)</m> is just the
           <em>first</em> value of <m>\omega_0 t</m> that works.
         </p>
         <p>
-          Second, tangent has period <m>\pi</m> -- meaning
+          Second, tangent has period <m>\pi</m>, meaning
           <m>\tan(\theta) = \tan(\theta + \pi)</m> for any <m>\theta</m>.
           So if <m>\omega_0 t = \theta_0</m> is a solution to
           <m>\tan(\omega_0 t) = -c_1/c_2</m>, then so is
           <m>\omega_0 t = \theta_0 + \pi</m>, and <m>\theta_0 + 2\pi</m>,
-          and so on. That's where the <m>+ \, n\pi</m> comes from -- it
-          captures all solutions at once.
+          and so on. That's where the <m>+ \, n\pi</m> comes from, capturing
+          all solutions at once.
         </p>
         <p>
           (Note: <m>\tan</m> has period <m>\pi</m>, not <m>2\pi</m> like
@@ -173,7 +173,7 @@ many valid values of <m>t</m>.
       </solution>
       <p>
         Since <m>n</m> ranges over all integers, this gives infinitely many
-        values of <m>t</m> -- one for each <m>n</m>. No matter what
+        values of <m>t</m>, one for each <m>n</m>. No matter what
         <m>c_1</m>, <m>c_2</m>, and <m>\omega_0</m> are, the mass passes
         through equilibrium infinitely many times.
       </p>
@@ -195,9 +195,9 @@ many valid values of <m>t</m>.
       <li><p>
         <alert>Algebraic justification:</alert> setting <m>x(t) = 0</m> and
         solving gives
-        <me>t = \frac{1}{\omega_0}\left[\arctan\!\left(-\frac{c_1}{c_2}\right) + n\pi\right], \quad n = (0), 1, 2, \ldots</me>
+        <me>t = \frac{1}{\omega_0}\left[\arctan\!\left(-\frac{c_1}{c_2}\right) + n\pi\right], \quad n = 0, 1, 2, \ldots</me>
         (or <m>t = \frac{1}{\omega_0}\!\left(\frac{\pi}{2} + n\pi\right)</m>
-        when <m>c_2 = 0</m>). Either way, infinitely many solutions for the time in which it passes the equilibrium.
+        when <m>c_2 = 0</m>). Either way, there are infinitely many times at which the mass passes through equilibrium.
       </p></li>
       <li><p>
         <alert>This is a feature of free undamped motion:</alert> no energy

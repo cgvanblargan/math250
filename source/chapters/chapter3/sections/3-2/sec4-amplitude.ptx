@@ -8,6 +8,7 @@
        ═══════════════════════════════════════════════════════════ -->
 
   <p>
+    We are not quite done exploring the behavior of solutions to the free undamped model! 
     We know the mass oscillates forever. In this page we explore how far from
     equilibrium it actually gets. Watch the spring below, and pay attention
     to when it's at its most stretched and most compressed! How does this connect to what's happening in the graph on the right?
@@ -50,7 +51,7 @@
         <statement><p><m>2</m></p></statement>
         <feedback>
           <p>
-            Right -- the graph peaks at <m>x = 2</m> and bottoms out at
+            Right: the graph peaks at <m>x = 2</m> and bottoms out at
             <m>x = -2</m>, so the mass never gets more than 2 units from
             equilibrium. <m>\checkmark</m>
           </p>
@@ -60,7 +61,7 @@
         <statement><p><m>3</m></p></statement>
         <feedback>
           <p>
-            The 3 is <m>\omega_0</m>, the frequency -- it controls how fast
+            The 3 is <m>\omega_0</m>, the frequency: it controls how fast
             the mass oscillates, not how far it goes. Look at the graph: the
             curve never reaches <m>y = 3</m>.
           </p>
@@ -71,7 +72,7 @@
         <feedback>
           <p>
             The mass swings between <m>x = -2</m> and <m>x = 2</m>, so the
-            total distance from one extreme to the other is 4 -- but the
+            total distance from one extreme to the other is 4, but the
             question asks for distance from <em>equilibrium</em>, which is
             just half of that.
           </p>
@@ -82,7 +83,7 @@
         <feedback>
           <p>
             That's the period of <m>x(t) = 2\cos(3t)</m>
-            (<m>T = 2\pi/\omega_0 = 2\pi/3</m>) -- a time, not a distance.
+            (<m>T = 2\pi/\omega_0 = 2\pi/3</m>), a time, not a distance.
             Look at the height of the curve on the graph for the maximum distance.
           </p>
         </feedback>
@@ -134,7 +135,7 @@
       <statement><p>Find <m>y(t)</m>.</p></statement>
      <hint>
   <p>
-    This is in the form of <xref ref="obs-simple-harmonic-ode"/> -- identify
+    This is in the form of <xref ref="obs-simple-harmonic-ode"/>: identify
     <m>\omega</m> and write down the general solution, then apply the initial conditions.
   </p>
 </hint>
@@ -211,7 +212,7 @@
     <me>|y'(t^*)| = 6 \quad \text{every time.}</me>
     The speed at equilibrium is always exactly 6, whether it's the
     1st crossing or the 5th. Free undamped motion has constant
-    amplitude -- no energy is lost, so the mass moves just as fast
+    amplitude: no energy is lost, so the mass moves just as fast
     through equilibrium every time.
   </p>
 </solution>
@@ -222,7 +223,13 @@
   <!-- ═══════════════════════════════════════════════════════════
        KEY TAKEAWAYS
        ═══════════════════════════════════════════════════════════ -->
-
+<p>
+  So there we have it. From the previous pages, we learned how to interpret and determine the frequency and period of mass.
+   Then we explored how it goes back and forth through the equilibrium position infinitely many times as time goes on forever. 
+And now, we understand how to connect the amplitude of <m>x(t)</m> with the distance the spring is from the equilibrium. 
+We also explored the slightly more subtle point that the speed at which it passes through equilibrium never changes.
+This should be clear from the graph though, as <m>x(t)</m> is a periodic function that keeps repeating the same motion forever!
+</p>
   <conclusion>
     <title>Key Takeaways</title>
     <p><ul>
@@ -238,7 +245,7 @@
       </p></li>
       <li><p>
         <alert>Free undamped motion is perfectly periodic:</alert> same
-        amplitude, same speed, same period...forever! Damping changes all
+        amplitude, same speed, same period, forever! Damping changes all
         of this, as we'll see next.
       </p></li>
     </ul></p>
