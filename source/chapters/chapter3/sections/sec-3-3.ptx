@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-3-3" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>The mass-spring-dashpot system (damped)</title>
+
+  <introduction>
+    <p>
+    We continue exploring the mass-spring system, but now we add in the dashpot, adding friction to the system. 
+     </p>
+  </introduction>
+
+  <xi:include href="./3-3/sec1-damped-mass-spring.ptx"/>
+  
+
+</section>

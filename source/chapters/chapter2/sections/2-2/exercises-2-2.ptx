@@ -90,7 +90,7 @@
       </statement>
       <answer>
         <p>
-          Equilibria: <m>P = 2</m> (unstable), <m>P = 5</m> (stable).
+          Equilibria: <m>P = 2</m> (stable), <m>P = 5</m> (unstable).
         </p>
       </answer>
     </task>
@@ -106,7 +106,7 @@
       </statement>
       <answer>
         <p>
-          Equilibria: <m>P = 2</m> (stable), <m>P = 5</m> (semi-stable).
+          Equilibria: <m>P = 2</m> (unstable), <m>P = 5</m> (semi-stable).
         </p>
       </answer>
     </task>

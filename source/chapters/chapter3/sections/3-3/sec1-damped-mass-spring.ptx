@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-damped-mass-spring" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>The Damped Mass-Spring System</title>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       INTRO PROSE + DASHPOT INTERACTIVE
+       ═══════════════════════════════════════════════════════════ -->
+
+  <p>
+    In <xref ref="sec-undamped-mass-spring"/>, we modeled a mass attached to a spring
+    and derived the ODE <m>mx'' + kx = 0</m>. That model assumed no friction
+    whatsoever, so the mass oscillated forever. In reality, friction always acts to
+    slow things down. We now add a <term>dashpot</term> to the system to model this
+    frictional resistance.
+  </p>
+
+  <p>
+    A dashpot is a mechanical device that resists motion: think of a piston sliding
+    through a cylinder filled with fluid. The spring and dashpot both connect the mass
+    to the wall, as shown in the animation below. Press Play to see how the dashpot
+    changes the behavior compared to the undamped case.
+  </p>
+
+  <figure xml:id="fig-dashpot-intro">
+    <caption>
+      A horizontal mass-spring-dashpot system. The block of mass <m>m</m> is connected
+      to the wall by a spring (top) and a dashpot (bottom). Press Play to watch the
+      oscillations die out as the dashpot dissipates energy.
+    </caption>
+    <interactive xml:id="interactive-dashpot-intro"
+      iframe="ch3-graph/interactive-dashpot-intro.html"
+      width="100%" aspect="5:3">
+      <description>
+        An animated horizontal mass-spring-dashpot system. A block labeled m is
+        attached to a fixed wall on the left by two connectors: a coiled spring on
+        the upper lane and a dashpot on the lower lane. When Play is pressed, the
+        block oscillates left and right with amplitude that decays over time,
+        eventually coming to rest at the equilibrium position x equals 0.
+      </description>
+    </interactive>
+  </figure>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       FORCES + DERIVING THE ODE
+       ═══════════════════════════════════════════════════════════ -->
+
+  <p>
+    Let's derive the ODE governing this system.
+    As in <xref ref="sec-undamped-mass-spring"/>, we measure position <m>x(t)</m>
+    from the equilibrium position, with <m>x > 0</m> meaning the spring is stretched
+    and <m>x &lt; 0</m> meaning it is compressed.
+    By <xref ref="def-hookes-law"/>, the restoring force from the spring is:
+    <me>F_s = -kx,</me>
+    where <m>k > 0</m> is the spring constant.
+    The dashpot contributes a <term>damping force</term> proportional to velocity:
+    <me>F_R = -cx',</me>
+    where <m>c > 0</m> is the <term>damping constant</term>. The negative sign means
+    the dashpot always resists the direction of motion.
+  </p>
+
+  <p>
+    By Newton's second law, the total force equals <m>mx''</m>. Since the only forces
+    acting on the mass are <m>F_s</m> and <m>F_R</m>, we have:
+    <me>mx'' = F_s + F_R = -kx - cx'.</me>
+    Rearranging gives the <term>damped mass-spring ODE</term>:
+    <me>mx'' + cx' + kx = 0.</me>
+  </p>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       DEFINITION BLOCK: THE DAMPED ODE
+       ═══════════════════════════════════════════════════════════ -->
+
+  <definition xml:id="def-damped-mass-spring">
+    <title>The Damped Mass-Spring System</title>
+    <statement>
+      <p>
+        The position <m>x(t)</m> of a mass <m>m</m> on a spring with constant
+        <m>k</m> and damping constant <m>c</m> satisfies:
+        <me>mx'' + cx' + kx = 0,</me>
+        where <m>m, k, c > 0</m>. This is called <term>free damped motion</term>:
+        <em>free</em> because there is no external driving force, and
+        <em>damped</em> because the dashpot dissipates energy.
+      </p>
+    </statement>
+  </definition>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       PROSE: TYPES OF ROOTS + DISCRIMINANT PLACEHOLDER
+       ═══════════════════════════════════════════════════════════ -->
+
+  <p>
+    To solve <m>mx'' + cx' + kx = 0</m>, we use the same characteristic equation
+    approach from <xref ref="sec-all-three-cases"/>. The characteristic equation is:
+    <me>mr^2 + cr + k = 0.</me>
+    By the quadratic formula, the roots are:
+    <me>r = \frac{-c \pm \sqrt{c^2 - 4km}}{2m}.</me>
+    The expression <m>D = c^2 - 4km</m> is the <term>discriminant</term>, and its
+    sign determines which of the three cases from
+    <xref ref="thm-three-cases-char-eq"/> we are in.
+  </p>
+
+  <p>
+    <!-- PLACEHOLDER: reference a homework exercise here where students verify
+         the discriminant D = c^2 - 4km and the quadratic formula roots explicitly
+         for a specific example of mx'' + cx' + kx = 0. -->
+    You will practice computing these roots directly in the homework exercises.
+  </p>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       MC CHECKPOINT: WHICH CASE GIVES TWO DISTINCT REAL ROOTS
+       ═══════════════════════════════════════════════════════════ -->
+
+  <p>
+    Let's make sure we remember which sign of <m>D</m> gives which type of roots.
+  </p>
+
+  <exercise xml:id="ex-mc-discriminant-overdamped">
+    <statement>
+      <p>
+        For the characteristic equation <m>mr^2 + cr + k = 0</m>,
+        which condition on <m>c</m>, <m>m</m>, and <m>k</m> gives
+        two distinct real roots?
+      </p>
+    </statement>
+    <choices randomize="yes">
+      <choice correct="yes">
+        <statement><p><m>c^2 - 4km > 0</m></p></statement>
+        <feedback>
+          <p>
+            Correct! When the discriminant is positive, the square root is real and
+            nonzero, giving two distinct real roots
+            <m>r = \frac{-c \pm \sqrt{c^2-4km}}{2m}</m>. <m>\checkmark</m>
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement><p><m>c^2 - 4km = 0</m></p></statement>
+        <feedback>
+          <p>
+            When the discriminant is zero the square root vanishes, giving one
+            repeated root <m>r = -c/(2m)</m>, not two distinct roots.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement><p><m>c^2 - 4km &lt; 0</m></p></statement>
+        <feedback>
+          <p>
+            When the discriminant is negative the square root is imaginary,
+            giving complex conjugate roots, not two distinct real roots.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement><p><m>c^2 - 4km \geq 0</m></p></statement>
+        <feedback>
+          <p>
+            This includes the case <m>c^2 - 4km = 0</m>, which gives a
+            repeated root, not two distinct roots. Strict inequality is needed.
+          </p>
+        </feedback>
+      </choice>
+    </choices>
+  </exercise>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       THE THREE CASES (OL)
+       ═══════════════════════════════════════════════════════════ -->
+
+  <p>
+    In general, the three cases for the roots of <m>mr^2 + cr + k = 0</m> are:
+  </p>
+
+  <p>
+    <ol>
+      <li><p>
+        <alert>Two distinct real roots</alert> when <m>c^2 - 4km > 0</m>:
+        <me>r_1 = \frac{-c + \sqrt{c^2 - 4km}}{2m}, \qquad
+           r_2 = \frac{-c - \sqrt{c^2 - 4km}}{2m}.</me>
+      </p></li>
+      <li><p>
+        <alert>One repeated real root</alert> when <m>c^2 - 4km = 0</m>:
+        <me>r = \frac{-c}{2m}.</me>
+      </p></li>
+      <li><p>
+        <alert>Complex conjugate roots</alert> when <m>c^2 - 4km &lt; 0</m>:
+        <me>r = \frac{-c}{2m} \pm i\,\frac{\sqrt{4km - c^2}}{2m}.</me>
+      </p></li>
+    </ol>
+  </p>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       BRIDGE PROSE: EACH CASE HAS A NAME
+       ═══════════════════════════════════════════════════════════ -->
+
+  <p>
+    As we saw in <xref ref="thm-three-cases-char-eq"/>, each type of roots leads to a
+    qualitatively different form of the general solution. In the mass-spring context,
+    each case also has a physical name that describes how heavily the system is damped.
+    The size of the damping constant <m>c</m> relative to <m>m</m> and <m>k</m> is
+    what determines which case we are in.
+  </p>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       DEFINITION: THE THREE DAMPING CASES
+       ═══════════════════════════════════════════════════════════ -->
+
+  <definition xml:id="def-damping-cases">
+    <title>The Three Damping Cases</title>
+    <statement>
+      <p>
+        For free damped motion <m>mx'' + cx' + kx = 0</m> with <m>m, k, c > 0</m>,
+        the system falls into one of three cases depending on the discriminant
+        <m>D = c^2 - 4km</m>:
+      </p>
+      <p>
+        <ul>
+          <li><p>
+            <alert>Overdamped</alert> (<m>c^2 > 4km</m>): two distinct real roots.
+            The damping constant <m>c</m> is large relative to <m>m</m> and <m>k</m>,
+            so the system is slowed down the most.
+          </p></li>
+          <li><p>
+            <alert>Critically damped</alert> (<m>c^2 = 4km</m>): one repeated real root.
+            This is the borderline case, the exact value of <m>c</m> that sits between
+            overdamped and underdamped.
+          </p></li>
+          <li><p>
+            <alert>Underdamped</alert> (<m>0 &lt; c^2 &lt; 4km</m>): complex conjugate roots.
+            The damping constant <m>c</m> is small, so the system still oscillates,
+            just with decaying amplitude.
+          </p></li>
+        </ul>
+      </p>
+      <p>
+        In all three cases <m>c > 0</m>, so the system is damped. When <m>c = 0</m>
+        we recover the undamped system <m>mx'' + kx = 0</m> from
+        <xref ref="sec-undamped-mass-spring"/>.
+      </p>
+    </statement>
+  </definition>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       KEY TAKEAWAYS
+       ═══════════════════════════════════════════════════════════ -->
+
+  <conclusion>
+    <title>Key Takeaways</title>
+    <p>
+      <ul>
+        <li><p>
+          <alert>The ODE:</alert> Adding a dashpot gives <m>mx'' + cx' + kx = 0</m>,
+          called free damped motion. The new term <m>cx'</m> models friction proportional
+          to velocity.
+        </p></li>
+        <li><p>
+          <alert>The discriminant:</alert> The sign of <m>D = c^2 - 4km</m> determines
+          the type of roots of the characteristic equation and therefore the qualitative
+          behavior of solutions.
+        </p></li>
+        <li><p>
+          <alert>Three cases:</alert> Overdamped (<m>c^2 > 4km</m>), critically damped
+          (<m>c^2 = 4km</m>), and underdamped (<m>0 &lt; c^2 &lt; 4km</m>). Larger <m>c</m>
+          means more damping.
+        </p></li>
+      </ul>
+    </p>
+  </conclusion>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       VIDEO + QUESTION FORM
+       ═══════════════════════════════════════════════════════════ -->
+
+  <figure xml:id="video-damped-spring-intro">
+    <caption>This video goes through the content of this page.</caption>
+    <video youtube="V8iM9zqkx4I" width="100%" preview="default"/>
+  </figure>
+
+  <interactive xml:id="question-form-3-3-1"
+    iframe="question-form.html?section=3.3.1"
+    width="100%" aspect="2:1"/>
+
+</section>

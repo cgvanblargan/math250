@@ -108,7 +108,7 @@
         <p>
           <m>P(t) = \dfrac{12}{2 + 4e^{-12t}}</m>. As <m>t \to \infty</m>,
           <m>e^{-12t} \to 0</m>, so <m>P(t) \to \dfrac{12}{2} = 6 = M</m>.
-          The population grows and levels off at the carrying capacity.
+          The population approaches carrying capacity as time goes to infinity.
         </p>
       </answer>
     </task>
@@ -124,7 +124,7 @@
         <p>
           <m>P(t) = \dfrac{54}{9 - 3e^{-12t}}</m>. As <m>t \to \infty</m>,
           <m>e^{-12t} \to 0</m>, so <m>P(t) \to \dfrac{54}{9} = 6 = M</m>.
-          The population decreases and levels off at the carrying capacity.
+          The population approaches the carrying capacity.
         </p>
       </answer>
     </task>
@@ -138,7 +138,7 @@
       </statement>
       <answer>
         <p>
-          <m>P(t) = 6</m> for all <m>t</m> — this is the equilibrium solution.
+          <m>P(t) = 6</m> for all <m>t</m> (this is the equilibrium solution).
           
         </p>
       </answer>
