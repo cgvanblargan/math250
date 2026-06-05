@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Period Explorer: cos(ω t)</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jsxgraph/1.6.0/jsxgraph.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jsxgraph/1.6.0/jsxgraphcore.js"></script>
+<style>
+  body { margin: 0; padding: 10px; font-family: serif; background: transparent; overflow: hidden; }
+
+  #eq-display {
+    text-align: center;
+    font-size: 16px;
+    font-family: serif;
+    color: #2c3e50;
+    margin-bottom: 6px;
+  }
+  #eq-display .eq-omega { color: #922b21; font-weight: bold; }
+
+  #jxgbox {
+    width: 100%;
+    height: 200px;
+    border: 1px solid #bdc3c7;
+  }
+
+  #controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 8px;
+    font-size: 15px;
+    font-family: serif;
+    color: #2c3e50;
+  }
+
+  #controls label { font-weight: bold; }
+  #controls input[type=range] { width: 200px; accent-color: #922b21; }
+  #omegavalue { font-weight: bold; color: #922b21; min-width: 35px; }
+
+  #period-display {
+    text-align: center;
+    font-size: 15px;
+    font-family: serif;
+    color: #2c3e50;
+    margin-top: 8px;
+    min-height: 22px;
+  }
+  #period-display .pd-val { color: #1a5276; font-weight: bold; }
+
+  #info {
+    text-align: center;
+    font-size: 13px;
+    font-family: serif;
+    color: #555;
+    margin-top: 4px;
+  }
+</style>
+</head>
+<body>
+
+<div id="eq-display" aria-live="polite" aria-label="Current function">
+  <i>x</i>(<i>t</i>) = 2cos(<span class="eq-omega" id="eq-omega-str">&omega;<sub>0</sub></span><i>t</i>)
+  &nbsp; with &nbsp;
+  <i>&omega;</i><sub>0</sub> = <span class="eq-omega" id="eq-omega-val">1</span>
+</div>
+
+<div id="jxgbox"
+  role="img"
+  aria-label="Graph of 2 cosine of omega times t. The blue shaded region marks one full period. Red dashed vertical lines mark the start and end of one period. A label shows the period length. Moving the omega slider changes how quickly the curve oscillates."
+  aria-live="polite">
+</div>
+
+<div id="controls" role="group" aria-label="Adjust omega">
+  <label for="omegaslider"><i>&omega;</i><sub>0</sub> =</label>
+  <input type="range" id="omegaslider" min="0.5" max="4" step="0.25" value="1"
+    aria-label="omega naught: controls oscillation frequency. Larger values make oscillations faster and the period shorter.">
+  <span id="omegavalue">1</span>
+</div>
+
+<div id="period-display" role="status" aria-live="polite">
+  Period = 2&pi; / <i>&omega;</i><sub>0</sub> = <span class="pd-val" id="pd-val">2&pi; &asymp; 6.28</span>
+</div>
+
+<div id="info">
+  Move the slider to change &omega;<sub>0</sub>. Watch how the period changes!
+</div>
+
+<script>
+  var omega = 1;
+  var T_MAX = 16;
+
+  var board = JXG.JSXGraph.initBoard('jxgbox', {
+    boundingbox: [-0.3, 2.8, T_MAX, -2.8],
+    axis: true,
+    showCopyright: false,
+    showNavigation: false,
+    pan: { enabled: false },
+    zoom: { enabled: false }
+  });
+
+  // Axis labels
+  board.create('text', [T_MAX - 0.3, 0.25, 't'], {
+    fontSize: 13, fontFamily: 'serif', color: '#2c3e50',
+    anchorX: 'right', fixed: true
+  });
+  board.create('text', [0.15, 2.6, 'x'], {
+    fontSize: 13, fontFamily: 'serif', color: '#2c3e50',
+    anchorX: 'left', fixed: true
+  });
+
+  // Shaded one-period region (dynamically updated)
+  // We use a polygon; we'll update via board.update
+  var shadePts = [
+    board.create('point', [0, -2.7], { visible: false, fixed: false }),
+    board.create('point', [0, 2.7],  { visible: false, fixed: false }),
+    board.create('point', [0, 2.7],  { visible: false, fixed: false }),
+    board.create('point', [0, -2.7], { visible: false, fixed: false })
+  ];
+
+  var shadePoly = board.create('polygon', shadePts, {
+    fillColor: '#d6eaf8',
+    fillOpacity: 0.4,
+    strokeWidth: 0,
+    vertices: { visible: false },
+    borders: { strokeWidth: 0 }
+  });
+
+  // Left and right dashed vertical period markers
+  var leftLine = board.create('segment', [[0, -2.7], [0, 2.7]], {
+    strokeColor: '#922b21',
+    strokeWidth: 1.5,
+    dash: 2
+  });
+  var rightLine = board.create('segment', [[0, -2.7], [0, 2.7]], {
+    strokeColor: '#922b21',
+    strokeWidth: 1.5,
+    dash: 2
+  });
+
+  // Period bracket label
+  var periodLabel = board.create('text', [0, 2.4, ''], {
+    fontSize: 12,
+    fontFamily: 'serif',
+    color: '#1a5276',
+    anchorX: 'middle',
+    anchorY: 'top'
+  });
+
+  // Horizontal double-arrow line for period
+  var arrowLeft = board.create('segment', [[0, 2.2], [0, 2.2]], {
+    strokeColor: '#1a5276',
+    strokeWidth: 1.5,
+    lastArrow: true,
+    firstArrow: true
+  });
+
+  // Main curve
+  var curveXs = [], curveYs = [];
+  var mainCurve = board.create('curve', [curveXs, curveYs], {
+    strokeColor: '#1a5276',
+    strokeWidth: 2.5
+  });
+
+  function xVal(t) { return 2 * Math.cos(omega * t); }
+
+  function rebuildCurve() {
+    curveXs.length = 0;
+    curveYs.length = 0;
+    var steps = 500;
+    for (var i = 0; i <= steps; i++) {
+      var t = (T_MAX * i) / steps;
+      curveXs.push(t);
+      curveYs.push(xVal(t));
+    }
+    mainCurve.dataX = curveXs;
+    mainCurve.dataY = curveYs;
+  }
+
+  function updatePeriodViz() {
+    var T = 2 * Math.PI / omega;
+    var Tdisp = T.toFixed(2);
+
+    // Shade region [0, T]
+    shadePts[0].setPosition(JXG.COORDS_BY_USER, [0,  -2.7]);
+    shadePts[1].setPosition(JXG.COORDS_BY_USER, [0,   2.7]);
+    shadePts[2].setPosition(JXG.COORDS_BY_USER, [T,   2.7]);
+    shadePts[3].setPosition(JXG.COORDS_BY_USER, [T,  -2.7]);
+
+    // Dashed verticals
+    leftLine.point1.setPosition(JXG.COORDS_BY_USER,  [0, -2.7]);
+    leftLine.point2.setPosition(JXG.COORDS_BY_USER,  [0,  2.7]);
+    rightLine.point1.setPosition(JXG.COORDS_BY_USER, [T, -2.7]);
+    rightLine.point2.setPosition(JXG.COORDS_BY_USER, [T,  2.7]);
+
+    // Label at midpoint
+    var mid = T / 2;
+    periodLabel.setPosition(JXG.COORDS_BY_USER, [mid, 2.4]);
+    periodLabel.setText('T = 2\u03c0/\u03c9\u2080 \u2248 ' + Tdisp);
+
+    // Arrow
+    arrowLeft.point1.setPosition(JXG.COORDS_BY_USER, [0.05, 2.1]);
+    arrowLeft.point2.setPosition(JXG.COORDS_BY_USER, [T - 0.05, 2.1]);
+
+    // Period display below
+    var omegaStr = (omega % 1 === 0) ? String(omega) : omega.toFixed(2);
+    document.getElementById('pd-val').textContent =
+      '2\u03c0 / ' + omegaStr + ' \u2248 ' + Tdisp;
+    document.getElementById('eq-omega-val').textContent = omegaStr;
+    document.getElementById('eq-omega-str').textContent = omegaStr;
+    document.getElementById('omegavalue').textContent = omegaStr;
+
+    // Update aria label
+    document.getElementById('jxgbox').setAttribute('aria-label',
+      'Graph of 2 cosine of ' + omegaStr + ' times t. One full period is shaded in blue, spanning from t equals 0 to t equals ' + Tdisp + '. The period is 2 pi divided by omega naught, approximately ' + Tdisp + '.');
+  }
+
+  function redraw() {
+    rebuildCurve();
+    updatePeriodViz();
+    board.update();
+  }
+
+  document.getElementById('omegaslider').addEventListener('input', function() {
+    omega = parseFloat(this.value);
+    redraw();
+  });
+
+  redraw();
+</script>
+</body>
+</html>

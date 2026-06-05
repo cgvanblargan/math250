@@ -2269,6 +2269,708 @@ var ptx_lunr_docs = [
   "body": " A Semi-Stable Population   A bacteria colony in a lab is modelled by where is the population (in millions) at time (in hours).     Find all equilibrium solutions, draw the phase diagram, and classify the stability of each equilibrium.    Equilibria: (semi-stable), (unstable).      The colony currently has million bacteria. A scientist can instantly reduce the colony size by adding an antibiotic.  If the antibiotic reduces the population to , what happens to the colony in the long run?  If the antibiotic reduces the population to , what happens to the colony in the long run?  What is significant about the equilibrium at in this context?         : falls in , arrow left so is decreasing and converges to the semi-stable equilibrium . The colony shrinks but does not die out.   : falls in , arrow left so is decreasing and moves away from , heading toward . The colony dies out.  The semi-stable equilibrium at acts as a threshold: reducing the population to below 4 million guarantees extinction, but reducing it to above 4 million only shrinks the colony to 4 million — it survives. The antibiotic must be strong enough to push the population strictly below this threshold to eliminate the colony entirely.      "
 },
 {
+  "id": "sec-2nd-linear-intro",
+  "level": "1",
+  "url": "sec-2nd-linear-intro.html",
+  "type": "Section",
+  "number": "3.1.1",
+  "title": "Introduction to Second-Order Linear ODEs",
+  "body": " Introduction to Second-Order Linear ODEs   So far we've been working with first-order ODEs. But second-order ODEs show up naturally in many applications. We'll actually see an interesting example with the mass-spring system later in this chapter, where the second derivative appears because of acceleration. Before we get to the fun stuff, we need to spend this section understanding the mathematics of the ODE and learning how to fully solve a simple case!    Second-Order Linear ODE   A second-order linear differential equation can be written in the form: where , , , and are functions of .    For example, the equation is a second-order linear ODE, with the coefficient functions and right-hand side labeled. Also, notice that if you remove the term, you are left with a first-order linear ODE! You can extend this definition to a linear ODE of any order, but for our own sanity we will stop at second-order.     Select all equations that are second-order linear ODEs.       Correct! This fits the form with , , , and .        Correct! This is not in standard form, but rearranging gives , which fits the form with , , .        Not quite. The term is a product of with its second derivative, which makes this equation nonlinear.       Not quite. The term means appears to a power higher than 1, so this equation is nonlinear.       This is linear, but only first-order. There is no term.        Homogeneous Second-Order Linear ODE   A second-order linear ODE is called homogeneous when . That is, it has the form:     Here's a quick way to see the difference: Same left-hand side, but setting the right-hand side to zero makes it homogeneous.   We now arrive at a very consequential observation regarding linear ODEs. We state it for second-order, but it is true for any linear ODE, and it is part of what makes linear ODEs so nice to work with.   The Principle of Superposition  If and are both solutions to a second-order linear homogeneous ODE, then is also a solution, for any constants and .   You can skim through the proof below and come back to it if you're curious.   Proof of Superposition (can skim)  Suppose and both satisfy . Let . We check that satisfies the ODE: So satisfies the ODE.     It is important to understand that the principle of superposition requires the ODE to be both linear and homogeneous. If either fails, we cannot expect this principle to hold. In the following example, we show that it can fail in the nonlinear case.   Superposition Can Fail for Nonlinear ODEs   The superposition principle requires the ODE to be both linear and homogeneous. Let's see what happens when it's not. Show that and are both solutions to but their sum is not a solution.    Can skim for now   Checking : We have and , so:    Checking : We have and , so:    Checking : We have and , so: So the sum is not a solution. This makes sense: superposition only applies to linear homogeneous ODEs, and is nonlinear.     We end with one more example, this time confirming that the principle of superposition works in a specific case. By the way, this is not just a random homogeneous linear ODE. We will be studying ODEs of this type extensively for the rest of this section.   Superposition in Action   It is easy to check that and are both solutions to the second-order linear homogeneous ODE: By the superposition principle, any combination should also be a solution. Let's confirm this for .    We compute the derivatives of : Now substitute into : Superposition works (as it should!).    Notice in the example above how the terms collected together and the terms collected together, each summing to zero independently. The fact that the ODE was linear was key for splitting the expressions over the sum, and it being homogeneous is why both parts summed to 0. This is at the heart of why superposition principle works.   Key Takeaways    Second-order linear ODE: Has the form . It is homogeneous when .  Superposition: If and are solutions to a linear homogeneous ODE, then so is for any constants and .  Linearity matters for superposition: Superposition can fail for nonlinear ODEs, as we saw in the counterexample. The homogeneous condition is required as well.       This video goes through the content of this page.     "
+},
+{
+  "id": "def-second-order-linear",
+  "level": "2",
+  "url": "sec-2nd-linear-intro.html#def-second-order-linear",
+  "type": "Definition",
+  "number": "3.1.1",
+  "title": "Second-Order Linear ODE.",
+  "body": " Second-Order Linear ODE   A second-order linear differential equation can be written in the form: where , , , and are functions of .   "
+},
+{
+  "id": "ex-mc-identify-linear",
+  "level": "2",
+  "url": "sec-2nd-linear-intro.html#ex-mc-identify-linear",
+  "type": "Checkpoint",
+  "number": "3.1.2",
+  "title": "",
+  "body": "  Select all equations that are second-order linear ODEs.       Correct! This fits the form with , , , and .        Correct! This is not in standard form, but rearranging gives , which fits the form with , , .        Not quite. The term is a product of with its second derivative, which makes this equation nonlinear.       Not quite. The term means appears to a power higher than 1, so this equation is nonlinear.       This is linear, but only first-order. There is no term.     "
+},
+{
+  "id": "def-homogeneous-second-order",
+  "level": "2",
+  "url": "sec-2nd-linear-intro.html#def-homogeneous-second-order",
+  "type": "Definition",
+  "number": "3.1.3",
+  "title": "Homogeneous Second-Order Linear ODE.",
+  "body": " Homogeneous Second-Order Linear ODE   A second-order linear ODE is called homogeneous when . That is, it has the form:    "
+},
+{
+  "id": "obs-superposition",
+  "level": "2",
+  "url": "sec-2nd-linear-intro.html#obs-superposition",
+  "type": "Observation",
+  "number": "3.1.4",
+  "title": "The Principle of Superposition.",
+  "body": " The Principle of Superposition  If and are both solutions to a second-order linear homogeneous ODE, then is also a solution, for any constants and .  "
+},
+{
+  "id": "sec-2nd-linear-intro-11",
+  "level": "2",
+  "url": "sec-2nd-linear-intro.html#sec-2nd-linear-intro-11",
+  "type": "Proof",
+  "number": "3.1.1.1",
+  "title": "Proof of Superposition (can skim).",
+  "body": " Proof of Superposition (can skim)  Suppose and both satisfy . Let . We check that satisfies the ODE: So satisfies the ODE.   "
+},
+{
+  "id": "ex-superposition-fails-nonlinear",
+  "level": "2",
+  "url": "sec-2nd-linear-intro.html#ex-superposition-fails-nonlinear",
+  "type": "Example",
+  "number": "3.1.5",
+  "title": "Superposition Can Fail for Nonlinear ODEs.",
+  "body": " Superposition Can Fail for Nonlinear ODEs   The superposition principle requires the ODE to be both linear and homogeneous. Let's see what happens when it's not. Show that and are both solutions to but their sum is not a solution.    Can skim for now   Checking : We have and , so:    Checking : We have and , so:    Checking : We have and , so: So the sum is not a solution. This makes sense: superposition only applies to linear homogeneous ODEs, and is nonlinear.   "
+},
+{
+  "id": "ex-superposition-confirm",
+  "level": "2",
+  "url": "sec-2nd-linear-intro.html#ex-superposition-confirm",
+  "type": "Example",
+  "number": "3.1.6",
+  "title": "Superposition in Action.",
+  "body": " Superposition in Action   It is easy to check that and are both solutions to the second-order linear homogeneous ODE: By the superposition principle, any combination should also be a solution. Let's confirm this for .    We compute the derivatives of : Now substitute into : Superposition works (as it should!).   "
+},
+{
+  "id": "video-2nd-linear-intro",
+  "level": "2",
+  "url": "sec-2nd-linear-intro.html#video-2nd-linear-intro",
+  "type": "Figure",
+  "number": "3.1.7",
+  "title": "",
+  "body": " This video goes through the content of this page.   "
+},
+{
+  "id": "sec-characteristic-equation",
+  "level": "1",
+  "url": "sec-characteristic-equation.html",
+  "type": "Section",
+  "number": "3.1.2",
+  "title": "The Characteristic Equation",
+  "body": " The Characteristic Equation  Let's continue looking at the ODE from the previous page. Notice that this is a 2nd-order linear homogeneous ODE. However, it is a pretty simple one as the coefficient functions are all constant. More precisely, , , and . These types of ODEs will be the focus for the rest of this chapter, and are perhaps the most fun ones to solve yet!   Second-Order Linear Homogeneous ODE with Constant Coefficients   A second-order linear homogeneous ODE with constant coefficients has the form where , , and are constants.    On the previous page we saw that and are solutions to , and by superposition, is also a solution for any constants . How do we know if this is all of the solutions?   General Solution of a Second-Order Linear Homogeneous ODE   Suppose and are two linearly independent solutions to a second-order linear homogeneous ODE (meaning for any constant ). Then is the general solution to the ODE (meaning this family of solutions contains all possible solutions).    We won't prove this theorem in this course, but we will be making heavy use of it. For example, now we can say for certain that gives every solution to as we vary over all real numbers for and .    It turns out that and are two solutions to . What is the general solution?       Exactly! Since and are solutions that are also linearly independent (not constant multiples of each other), the general solution is . Every solution to this ODE can be written this way.        Close, but this is just one specific solution (with ). The general solution needs arbitrary constants and to capture all possible solutions.       Not quite. The general solution uses a sum of the two solutions, not a product. Superposition tells us is a solution, not .       This only has one arbitrary constant, so it can't be the general solution to a second-order ODE. We always need two linearly independent solutions and two constants.      So the theorem tells us that finding two linearly independent solutions is the whole game. But how do we actually find solutions in the first place? We will explore this below, and soon we will have a way to systematically solve these ODEs.   Where Do Solutions Come From? Trying   Consider the ODE . From the previous page, we might guess that some solutions take the form . Let's suppose for some unknown constant , and figure out which values of make it a solution (this should look familiar from chapter 1!).    Step 1: Find and   If , what are and ?          Step 2: Substitute into the ODE   Substitute , , into and factor out . Which equation do you get?       Exactly right! Substituting gives:        Not quite. The right-hand side of the ODE is , so after substituting we should have on the right, not .       Almost, but check the term. Since , the first term should contribute , not .       Step 3: The Key Observation   We have . Since for any value of , what must be true?       Yes! Since is never zero, the only way the product can equal zero is if the other factor equals zero. So must satisfy . This is called the characteristic equation .        Actually, for any real : exponentials are always positive! So this factor can never be zero.     There are no solutions of the form .   Not quite: we just need to hold. If we can find values of satisfying this, then is indeed a solution.       Step 4: Solve for   Factor and solve . What are the two values of , and what are the corresponding solutions and ?    Factoring: , so or . The two solutions are: Since these are not multiples of each other, they are linearly independent, and the general solution is:      Let's summarize the main findings of this exploration. We were looking to find solutions in the form to We solved for the that worked by solving the algebraic equation: Do you see the similarities between the ODE and the quadratic equation above? This turns out to be fundamental to solving 2nd-order linear homogeneous ODEs with constant coefficients. We call it the characteristic equation .   Characteristic Equation   The characteristic equation of the second-order linear homogeneous ODE with constant coefficients is the quadratic equation     If you look through the exploration we just did, it should be clear that this process will lead to the same conclusion for any ODE in the form . That is, any time is a root of the characteristic equation , then is a solution to the ODE. Even more, if there are two distinct real roots, that gives us two solutions from which we can form the general solution!   Two Distinct Real Roots  If and are two distinct real roots of the characteristic equation , then are two linearly independent solutions to , and the general solution is:    Note that this observation only applies when there are two distinct real roots to the characteristic equation. We will be looking at other cases on the next page! Let's quickly apply this to an example.   Solving   Let's revisit the ODE from the previous page. This time, instead of being told that and are solutions, let's find them ourselves using the characteristic equation. Find the general solution to .    Write down the characteristic equation by replacing with , with , and with . Then factor and solve for .    The characteristic equation is: Factoring: , so and . These are two distinct real roots, so the general solution is: Just as we found on the previous page!     Key Takeaways     General solution: If and are two linearly independent solutions to a second-order linear homogeneous ODE, then is the general solution, meaning every solution can be written this way.   Characteristic equation: For the characteristic equation is . Each root gives a solution .   Distinct real roots: If the characteristic equation has two distinct real roots and , then and are linearly independent, and the general solution is .      There is no separate video for this page.    "
+},
+{
+  "id": "def-constant-coeff-homogeneous",
+  "level": "2",
+  "url": "sec-characteristic-equation.html#def-constant-coeff-homogeneous",
+  "type": "Definition",
+  "number": "3.1.1",
+  "title": "Second-Order Linear Homogeneous ODE with Constant Coefficients.",
+  "body": " Second-Order Linear Homogeneous ODE with Constant Coefficients   A second-order linear homogeneous ODE with constant coefficients has the form where , , and are constants.   "
+},
+{
+  "id": "thm-general-solution-homogeneous",
+  "level": "2",
+  "url": "sec-characteristic-equation.html#thm-general-solution-homogeneous",
+  "type": "Theorem",
+  "number": "3.1.2",
+  "title": "General Solution of a Second-Order Linear Homogeneous ODE.",
+  "body": " General Solution of a Second-Order Linear Homogeneous ODE   Suppose and are two linearly independent solutions to a second-order linear homogeneous ODE (meaning for any constant ). Then is the general solution to the ODE (meaning this family of solutions contains all possible solutions).   "
+},
+{
+  "id": "ex-mc-general-solution-2",
+  "level": "2",
+  "url": "sec-characteristic-equation.html#ex-mc-general-solution-2",
+  "type": "Checkpoint",
+  "number": "3.1.3",
+  "title": "",
+  "body": "  It turns out that and are two solutions to . What is the general solution?       Exactly! Since and are solutions that are also linearly independent (not constant multiples of each other), the general solution is . Every solution to this ODE can be written this way.        Close, but this is just one specific solution (with ). The general solution needs arbitrary constants and to capture all possible solutions.       Not quite. The general solution uses a sum of the two solutions, not a product. Superposition tells us is a solution, not .       This only has one arbitrary constant, so it can't be the general solution to a second-order ODE. We always need two linearly independent solutions and two constants.     "
+},
+{
+  "id": "explore-characteristic-equation",
+  "level": "2",
+  "url": "sec-characteristic-equation.html#explore-characteristic-equation",
+  "type": "Exploration",
+  "number": "3.1.1",
+  "title": "Where Do Solutions Come From? Trying <span class=\"process-math\">\\(y = e^{rx}\\)<\/span>.",
+  "body": " Where Do Solutions Come From? Trying   Consider the ODE . From the previous page, we might guess that some solutions take the form . Let's suppose for some unknown constant , and figure out which values of make it a solution (this should look familiar from chapter 1!).    Step 1: Find and   If , what are and ?          Step 2: Substitute into the ODE   Substitute , , into and factor out . Which equation do you get?       Exactly right! Substituting gives:        Not quite. The right-hand side of the ODE is , so after substituting we should have on the right, not .       Almost, but check the term. Since , the first term should contribute , not .       Step 3: The Key Observation   We have . Since for any value of , what must be true?       Yes! Since is never zero, the only way the product can equal zero is if the other factor equals zero. So must satisfy . This is called the characteristic equation .        Actually, for any real : exponentials are always positive! So this factor can never be zero.     There are no solutions of the form .   Not quite: we just need to hold. If we can find values of satisfying this, then is indeed a solution.       Step 4: Solve for   Factor and solve . What are the two values of , and what are the corresponding solutions and ?    Factoring: , so or . The two solutions are: Since these are not multiples of each other, they are linearly independent, and the general solution is:     "
+},
+{
+  "id": "def-characteristic-equation",
+  "level": "2",
+  "url": "sec-characteristic-equation.html#def-characteristic-equation",
+  "type": "Definition",
+  "number": "3.1.4",
+  "title": "Characteristic Equation.",
+  "body": " Characteristic Equation   The characteristic equation of the second-order linear homogeneous ODE with constant coefficients is the quadratic equation    "
+},
+{
+  "id": "obs-distinct-real-roots",
+  "level": "2",
+  "url": "sec-characteristic-equation.html#obs-distinct-real-roots",
+  "type": "Observation",
+  "number": "3.1.5",
+  "title": "Two Distinct Real Roots.",
+  "body": " Two Distinct Real Roots  If and are two distinct real roots of the characteristic equation , then are two linearly independent solutions to , and the general solution is:   "
+},
+{
+  "id": "ex-char-eq-distinct",
+  "level": "2",
+  "url": "sec-characteristic-equation.html#ex-char-eq-distinct",
+  "type": "Example",
+  "number": "3.1.6",
+  "title": "Solving <span class=\"process-math\">\\(y'' - 5y' + 6y = 0\\)<\/span>.",
+  "body": " Solving   Let's revisit the ODE from the previous page. This time, instead of being told that and are solutions, let's find them ourselves using the characteristic equation. Find the general solution to .    Write down the characteristic equation by replacing with , with , and with . Then factor and solve for .    The characteristic equation is: Factoring: , so and . These are two distinct real roots, so the general solution is: Just as we found on the previous page!   "
+},
+{
+  "id": "remark-no-video-3-1-2",
+  "level": "2",
+  "url": "sec-characteristic-equation.html#remark-no-video-3-1-2",
+  "type": "Remark",
+  "number": "3.1.7",
+  "title": "",
+  "body": " There is no separate video for this page.  "
+},
+{
+  "id": "sec-all-three-cases",
+  "level": "1",
+  "url": "sec-all-three-cases.html",
+  "type": "Section",
+  "number": "3.1.3",
+  "title": "All Three Cases of the Characteristic Equation",
+  "body": " All Three Cases of the Characteristic Equation  When solving , we always start by looking at the characteristic equation . We saw exactly how this played out in when there were two distinct real roots. Unfortunately, we won't always be in this case. Recall from algebra that the roots of a quadratic can fall into three cases:  Two distinct real roots  One repeated real root  Two complex conjugate roots  The observation from the previous page only covers the first case. When there is only one real root, that gives us just one solution of the form , which isn't enough to form the general solution. And when there are complex roots, and would be complex-valued, which is not what we want in this course. We will need to extract two real-valued solutions from the complex ones in that case.  For now, we'll just state what to do in all three cases in the theorem below to get some quick practice. We will provide justification for cases 2 and 3 on the following pages. In this page, we are just getting acquainted with cases two and three before we move on to some more interesting problems!   Solving : All Three Cases   Consider the characteristic equation . In each case below, we find two linearly independent solutions and .      Two distinct real roots  :      One repeated real root  :      Two complex conjugate roots  :    In each case, the general solution is .    The next example demonstrates the repeated root case.   Solving   Find the general solution to .    Notice the characteristic equation is . This factors as , meaning the factor shows up twice , so this is a repeated root.    The characteristic equation is , which factors as: This gives a single repeated root . By the theorem, the two linearly independent solutions are: So the general solution is:     We end with applying the theorem to the complex root case.   Solving   Find the general solution to .    Notice the characteristic equation is . This does not factor easily, so use the quadratic formula: You should find complex roots in this case!    The characteristic equation is . Applying the quadratic formula with , , : So we have complex roots with and . By the theorem, the two linearly independent solutions are: So the general solution is:       After applying the quadratic formula to a characteristic equation, you find: What is the general solution?         Exactly! From we read off and . The general solution is .          Close, but and are swapped. From , the real part is (goes in the exponent) and the imaginary part is (goes inside the trig functions).         Don't forget the factor out front! Since , we need multiplying the trig terms.         This would be the solution if we used the complex roots directly, but we want a real-valued solution. The theorem tells us to use and instead.       Key Takeaways     Distinct real roots  : general solution .   Repeated root  : general solution .   Complex roots  : general solution .      There is no separate video for this page.    "
+},
+{
+  "id": "thm-three-cases-char-eq",
+  "level": "2",
+  "url": "sec-all-three-cases.html#thm-three-cases-char-eq",
+  "type": "Theorem",
+  "number": "3.1.1",
+  "title": "Solving <span class=\"process-math\">\\(ay'' + by' + cy = 0\\text{:}\\)<\/span> All Three Cases.",
+  "body": " Solving : All Three Cases   Consider the characteristic equation . In each case below, we find two linearly independent solutions and .      Two distinct real roots  :      One repeated real root  :      Two complex conjugate roots  :    In each case, the general solution is .   "
+},
+{
+  "id": "ex-repeated-root",
+  "level": "2",
+  "url": "sec-all-three-cases.html#ex-repeated-root",
+  "type": "Example",
+  "number": "3.1.2",
+  "title": "Solving <span class=\"process-math\">\\(y'' - 6y' + 9y = 0\\)<\/span>.",
+  "body": " Solving   Find the general solution to .    Notice the characteristic equation is . This factors as , meaning the factor shows up twice , so this is a repeated root.    The characteristic equation is , which factors as: This gives a single repeated root . By the theorem, the two linearly independent solutions are: So the general solution is:    "
+},
+{
+  "id": "ex-complex-roots",
+  "level": "2",
+  "url": "sec-all-three-cases.html#ex-complex-roots",
+  "type": "Example",
+  "number": "3.1.3",
+  "title": "Solving <span class=\"process-math\">\\(y'' + 4y' + 5y = 0\\)<\/span>.",
+  "body": " Solving   Find the general solution to .    Notice the characteristic equation is . This does not factor easily, so use the quadratic formula: You should find complex roots in this case!    The characteristic equation is . Applying the quadratic formula with , , : So we have complex roots with and . By the theorem, the two linearly independent solutions are: So the general solution is:    "
+},
+{
+  "id": "ex-mc-complex-roots-identify",
+  "level": "2",
+  "url": "sec-all-three-cases.html#ex-mc-complex-roots-identify",
+  "type": "Checkpoint",
+  "number": "3.1.4",
+  "title": "",
+  "body": "  After applying the quadratic formula to a characteristic equation, you find: What is the general solution?         Exactly! From we read off and . The general solution is .          Close, but and are swapped. From , the real part is (goes in the exponent) and the imaginary part is (goes inside the trig functions).         Don't forget the factor out front! Since , we need multiplying the trig terms.         This would be the solution if we used the complex roots directly, but we want a real-valued solution. The theorem tells us to use and instead.     "
+},
+{
+  "id": "remark-no-video-3-1-3",
+  "level": "2",
+  "url": "sec-all-three-cases.html#remark-no-video-3-1-3",
+  "type": "Remark",
+  "number": "3.1.5",
+  "title": "",
+  "body": " There is no separate video for this page.  "
+},
+{
+  "id": "sec-practice-real-roots",
+  "level": "1",
+  "url": "sec-practice-real-roots.html",
+  "type": "Section",
+  "number": "3.1.4",
+  "title": "Practice: Real Roots",
+  "body": " Practice: Real Roots  Recall that for , if the characteristic equation has:  Two distinct real roots  : general solution  One repeated real root  : general solution  We justified the distinct roots case on a previous page. Let's justify the repeated root case now.   Why Does the Repeated Root Case Give ?   If is a repeated root of , then and are two linearly independent solutions to .    Justification (can skim)  Since is a repeated root, the characteristic equation factors as , which means and . We already know is a solution. We need to verify is also a solution.  Computing the derivatives of : Substituting into : Since is a root: . And since it is a repeated root: . So both terms vanish: Finally, and are not constant multiples of each other, so they are linearly independent.    These first two cases are straightforward enough, but the activity below has some fun twists where it may not be immediately obvious how to proceed.   Practice: Real Roots   Solve   Find the general solution to .    The characteristic equation is . Try factoring it!    The characteristic equation is , which factors as: This gives a repeated root . The general solution is:      Solve   Find the general solution to .    The characteristic equation is . Factor out an .    The characteristic equation is , which factors as: So and . These are two distinct real roots, giving: The general solution is: Notice that as a root just gives a constant solution: perfectly valid!     Solve   Find the general solution to .    The characteristic equation is . What are the roots?    The characteristic equation is , giving a repeated root . By the repeated root case: The general solution is: This makes sense: if the second derivative is zero, the function must be linear!      Key Takeaways     The method always applies: any ODE of the form has a characteristic equation . Even when the ODE looks unusual, like or , you can always identify , , and and proceed the same way.   Watch for surprises: a root of just gives a constant or linear solution, which is perfectly valid.      This video goes through the content of this page.     "
+},
+{
+  "id": "thm-repeated-root-justification",
+  "level": "2",
+  "url": "sec-practice-real-roots.html#thm-repeated-root-justification",
+  "type": "Theorem",
+  "number": "3.1.1",
+  "title": "Why Does the Repeated Root Case Give <span class=\"process-math\">\\(xe^{r_1 x}\\text{?}\\)<\/span>",
+  "body": " Why Does the Repeated Root Case Give ?   If is a repeated root of , then and are two linearly independent solutions to .    Justification (can skim)  Since is a repeated root, the characteristic equation factors as , which means and . We already know is a solution. We need to verify is also a solution.  Computing the derivatives of : Substituting into : Since is a root: . And since it is a repeated root: . So both terms vanish: Finally, and are not constant multiples of each other, so they are linearly independent.   "
+},
+{
+  "id": "act-real-roots-practice",
+  "level": "2",
+  "url": "sec-practice-real-roots.html#act-real-roots-practice",
+  "type": "Activity",
+  "number": "3.1.1",
+  "title": "Practice: Real Roots.",
+  "body": " Practice: Real Roots   Solve   Find the general solution to .    The characteristic equation is . Try factoring it!    The characteristic equation is , which factors as: This gives a repeated root . The general solution is:      Solve   Find the general solution to .    The characteristic equation is . Factor out an .    The characteristic equation is , which factors as: So and . These are two distinct real roots, giving: The general solution is: Notice that as a root just gives a constant solution: perfectly valid!     Solve   Find the general solution to .    The characteristic equation is . What are the roots?    The characteristic equation is , giving a repeated root . By the repeated root case: The general solution is: This makes sense: if the second derivative is zero, the function must be linear!    "
+},
+{
+  "id": "video-real-roots-practice",
+  "level": "2",
+  "url": "sec-practice-real-roots.html#video-real-roots-practice",
+  "type": "Figure",
+  "number": "3.1.2",
+  "title": "",
+  "body": " This video goes through the content of this page.   "
+},
+{
+  "id": "sec-complex-roots-practice",
+  "level": "1",
+  "url": "sec-complex-roots-practice.html",
+  "type": "Section",
+  "number": "3.1.5",
+  "title": "Complex Roots and Practice",
+  "body": " Complex Roots and Practice  Recall that for , if the characteristic equation has complex roots , the general solution is:    Why Does the Complex Root Case Give Sines and Cosines?   If the characteristic equation has complex roots , then and are two linearly independent real-valued solutions.    Justification (can skim for now)  From the complex roots , we formally get complex solutions and . Using Euler's formula  : Taking the sum and difference of these two complex solutions (and dividing by appropriate constants) gives two real-valued solutions: These are linearly independent since one involves cosine and the other sine, and neither is a constant multiple of the other (assuming ).    A key difference in the solution for this case is that it involves and . Let's explore a simple case to see how these trig functions naturally appear. It is tempting to jump straight to the characteristic equation, but solving this one by inspection actually gives you stronger intuition for why the solution involves trig functions. Even more, ODEs similar to the following example appear often in applications we will explore later, and it is useful to be able to jump straight to the solution without using the characteristic equation.   Exploring   Consider the ODE , or equivalently . This is asking: what functions have a second derivative equal to the negative of themselves? Let's find the general solution two different ways.    Part 1: By Inspection   We're looking for functions whose second derivative equals the negative of the function itself. Can you think of two functions that satisfy this?    Think about what you know from calculus. Which familiar functions have the property that their second derivative is the negative of themselves?    We know from calculus that: So both and satisfy . Since they are not constant multiples of each other, they are linearly independent, and the general solution is:      Part 2: Via the Characteristic Equation   Now let's arrive at the same answer using the characteristic equation for .    The characteristic equation is . This doesn't factor easily, but you don't need the quadratic formula either. Just solve directly for !    The characteristic equation is . Solving directly: So the roots are , giving and . The general solution is: Just as we found by inspection!     Solving the ODE by inspection came naturally from understanding how the derivatives of sine and cosine work. Furthermore, when we solved the characteristic equation, the real part of the root was 0, which is precisely why there was no exponential in the final answer. In general, when the roots are , the real part shows up in the exponential and the imaginary part appears inside the cosine and sine.  If you worked through the example above but replaced with any equation of the form , you would arrive at a very similar result, stated in the observation below.   The ODE  For any constant , the ODE has characteristic equation , giving roots (so , ). The general solution is:    With this observation, you should be able to solve the following checkpoint question with almost no work!    Using the observation above, what is the general solution to ?       Exactly! This fits the form with , so the general solution is .        This would be the solution to , not . The positive sign on the term gives complex roots, not real ones. Always check the sign before deciding which case you're in!      Now for some more practice! Pay close attention to the difference between parts (c) and (d).   Practice: All Cases   Solve   Find the general solution to .    The characteristic equation is . This does not factor easily, so use the quadratic formula.    The characteristic equation is . Applying the quadratic formula: So and . The general solution is:      Solve   Find the general solution to .    The characteristic equation is . Try factoring first!    The characteristic equation is , which factors as: So and . The general solution is:      Solve   Find the general solution to .    Notice this fits the form from . Just identify and write down the solution.    This fits the form with . By , the general solution is:      Solve   Find the general solution to .    Notice this does not follow from , since the coefficient of is , not . Find the roots of the characteristic equation: you may be surprised which case you're in!    The characteristic equation is , which factors as: So and , which are two distinct real roots, not complex! The general solution is:        In part (d) above, looks similar to from part (c), yet the solutions look completely different. Why can't we apply to ?      The observation requires the coefficient of to be positive. Since has a negative coefficient, the characteristic equation has real roots, not complex ones, so trig functions do not appear.    Exactly. applies only when the ODE has the form with a positive coefficient. A negative coefficient means the characteristic equation has real roots, giving exponentials instead of trig functions.       The observation only applies when the coefficient of is exactly 9.    Not quite. The observation applies for any positive , not just 9. The issue with is the sign, not the specific value.      The observation does apply, but the answer happens to come out as exponentials anyway.    The observation does not apply here. It requires a positive coefficient on , which gives complex roots and trig functions. With a negative coefficient the characteristic equation has real roots from the start, so exponentials are the correct form.       Key Takeaways     Complex roots : the general solution is . The real part goes in the exponential, the imaginary part goes inside the trig.   Know this one cold: the ODE has general solution . You should be able to write this down immediately without touching the characteristic equation.   Sign matters:  gives trig functions, but gives exponentials. Always check the sign of the coefficient before assuming which case you're in.      This video goes through the content of this page.     "
+},
+{
+  "id": "thm-complex-roots-justification",
+  "level": "2",
+  "url": "sec-complex-roots-practice.html#thm-complex-roots-justification",
+  "type": "Theorem",
+  "number": "3.1.1",
+  "title": "Why Does the Complex Root Case Give Sines and Cosines?",
+  "body": " Why Does the Complex Root Case Give Sines and Cosines?   If the characteristic equation has complex roots , then and are two linearly independent real-valued solutions.    Justification (can skim for now)  From the complex roots , we formally get complex solutions and . Using Euler's formula  : Taking the sum and difference of these two complex solutions (and dividing by appropriate constants) gives two real-valued solutions: These are linearly independent since one involves cosine and the other sine, and neither is a constant multiple of the other (assuming ).   "
+},
+{
+  "id": "explore-yprimeprime-neg-y",
+  "level": "2",
+  "url": "sec-complex-roots-practice.html#explore-yprimeprime-neg-y",
+  "type": "Exploration",
+  "number": "3.1.1",
+  "title": "Exploring <span class=\"process-math\">\\(y'' = -y\\)<\/span>.",
+  "body": " Exploring   Consider the ODE , or equivalently . This is asking: what functions have a second derivative equal to the negative of themselves? Let's find the general solution two different ways.    Part 1: By Inspection   We're looking for functions whose second derivative equals the negative of the function itself. Can you think of two functions that satisfy this?    Think about what you know from calculus. Which familiar functions have the property that their second derivative is the negative of themselves?    We know from calculus that: So both and satisfy . Since they are not constant multiples of each other, they are linearly independent, and the general solution is:      Part 2: Via the Characteristic Equation   Now let's arrive at the same answer using the characteristic equation for .    The characteristic equation is . This doesn't factor easily, but you don't need the quadratic formula either. Just solve directly for !    The characteristic equation is . Solving directly: So the roots are , giving and . The general solution is: Just as we found by inspection!    "
+},
+{
+  "id": "obs-simple-harmonic-ode",
+  "level": "2",
+  "url": "sec-complex-roots-practice.html#obs-simple-harmonic-ode",
+  "type": "Observation",
+  "number": "3.1.2",
+  "title": "The ODE <span class=\"process-math\">\\(y'' + \\omega^2 y = 0\\)<\/span>.",
+  "body": " The ODE  For any constant , the ODE has characteristic equation , giving roots (so , ). The general solution is:   "
+},
+{
+  "id": "ex-mc-simple-harmonic-16",
+  "level": "2",
+  "url": "sec-complex-roots-practice.html#ex-mc-simple-harmonic-16",
+  "type": "Checkpoint",
+  "number": "3.1.3",
+  "title": "",
+  "body": "  Using the observation above, what is the general solution to ?       Exactly! This fits the form with , so the general solution is .        This would be the solution to , not . The positive sign on the term gives complex roots, not real ones. Always check the sign before deciding which case you're in!     "
+},
+{
+  "id": "act-mixed-practice",
+  "level": "2",
+  "url": "sec-complex-roots-practice.html#act-mixed-practice",
+  "type": "Activity",
+  "number": "3.1.2",
+  "title": "Practice: All Cases.",
+  "body": " Practice: All Cases   Solve   Find the general solution to .    The characteristic equation is . This does not factor easily, so use the quadratic formula.    The characteristic equation is . Applying the quadratic formula: So and . The general solution is:      Solve   Find the general solution to .    The characteristic equation is . Try factoring first!    The characteristic equation is , which factors as: So and . The general solution is:      Solve   Find the general solution to .    Notice this fits the form from . Just identify and write down the solution.    This fits the form with . By , the general solution is:      Solve   Find the general solution to .    Notice this does not follow from , since the coefficient of is , not . Find the roots of the characteristic equation: you may be surprised which case you're in!    The characteristic equation is , which factors as: So and , which are two distinct real roots, not complex! The general solution is:     "
+},
+{
+  "id": "ex-mc-why-no-trig",
+  "level": "2",
+  "url": "sec-complex-roots-practice.html#ex-mc-why-no-trig",
+  "type": "Checkpoint",
+  "number": "3.1.4",
+  "title": "",
+  "body": "  In part (d) above, looks similar to from part (c), yet the solutions look completely different. Why can't we apply to ?      The observation requires the coefficient of to be positive. Since has a negative coefficient, the characteristic equation has real roots, not complex ones, so trig functions do not appear.    Exactly. applies only when the ODE has the form with a positive coefficient. A negative coefficient means the characteristic equation has real roots, giving exponentials instead of trig functions.       The observation only applies when the coefficient of is exactly 9.    Not quite. The observation applies for any positive , not just 9. The issue with is the sign, not the specific value.      The observation does apply, but the answer happens to come out as exponentials anyway.    The observation does not apply here. It requires a positive coefficient on , which gives complex roots and trig functions. With a negative coefficient the characteristic equation has real roots from the start, so exponentials are the correct form.     "
+},
+{
+  "id": "video-complex-roots-practice",
+  "level": "2",
+  "url": "sec-complex-roots-practice.html#video-complex-roots-practice",
+  "type": "Figure",
+  "number": "3.1.5",
+  "title": "",
+  "body": " This video goes through the content of this page.   "
+},
+{
+  "id": "sec-ivp-second-order",
+  "level": "1",
+  "url": "sec-ivp-second-order.html",
+  "type": "Section",
+  "number": "3.1.6",
+  "title": "Initial Value Problems",
+  "body": " Initial Value Problems   So far we have only been finding the general solution to . Just like with first-order ODEs, we can also solve initial value problems . However, there is one noticeable difference. With first-order ODEs, we only had one constant to solve for. For example, solves , and knowing let us solve for .  Now that we have two unknown constants, with a general solution of the form knowing just won't be enough, as we'd have one equation with two unknowns! However, if we also know , we get a system of two equations: and we can uniquely solve for and .    Existence and Uniqueness for Second-Order Linear ODEs   When solving , there exists a unique solution given initial conditions and .    We actually saw this demonstrated earlier in the course in . When given acceleration , we needed to know both and to uniquely determine the position function. In general, we see this theme that a first-order ODE requires 1 initial condition, and a second-order ODE requires 2. This is a theme we'll continue to see as we go.    Solving an IVP: , ,   In , we already found that the general solution to is: Now let's use the initial conditions and to find the unique solution.    First compute . Then plug in into both and to set up the system of equations:     Starting with the general solution and computing : Plugging in the initial conditions: From the system above, we get and .   Algebra for solving the system  We have the system: The first equation gives directly. Substituting into the second: , so .   Plugging in and , we find the unique solution to the IVP is:       Key Takeaways     Two initial conditions: A second-order ODE needs both and to uniquely determine a solution, one for each unknown constant and .   Process: Find the general solution, compute , plug in the initial conditions to get a system of two equations, solve for and .       This video goes through the content of this page starting at 3:35.     "
+},
+{
+  "id": "sec-ivp-second-order-2",
+  "level": "2",
+  "url": "sec-ivp-second-order.html#sec-ivp-second-order-2",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "initial value problems "
+},
+{
+  "id": "thm-existence-uniqueness-second-order",
+  "level": "2",
+  "url": "sec-ivp-second-order.html#thm-existence-uniqueness-second-order",
+  "type": "Theorem",
+  "number": "3.1.1",
+  "title": "Existence and Uniqueness for Second-Order Linear ODEs.",
+  "body": " Existence and Uniqueness for Second-Order Linear ODEs   When solving , there exists a unique solution given initial conditions and .   "
+},
+{
+  "id": "ex-ivp-second-order",
+  "level": "2",
+  "url": "sec-ivp-second-order.html#ex-ivp-second-order",
+  "type": "Example",
+  "number": "3.1.2",
+  "title": "Solving an IVP: <span class=\"process-math\">\\(y'' - 4y' + 5y = 0\\text{,}\\)<\/span> <span class=\"process-math\">\\(y(0) = 1\\text{,}\\)<\/span> <span class=\"process-math\">\\(y'(0) = 5\\)<\/span>.",
+  "body": " Solving an IVP: , ,   In , we already found that the general solution to is: Now let's use the initial conditions and to find the unique solution.    First compute . Then plug in into both and to set up the system of equations:     Starting with the general solution and computing : Plugging in the initial conditions: From the system above, we get and .   Algebra for solving the system  We have the system: The first equation gives directly. Substituting into the second: , so .   Plugging in and , we find the unique solution to the IVP is:    "
+},
+{
+  "id": "video-ivp-second-order",
+  "level": "2",
+  "url": "sec-ivp-second-order.html#video-ivp-second-order",
+  "type": "Figure",
+  "number": "3.1.3",
+  "title": "",
+  "body": " This video goes through the content of this page starting at 3:35.   "
+},
+{
+  "id": "sec-undamped-mass-spring",
+  "level": "1",
+  "url": "sec-undamped-mass-spring.html",
+  "type": "Section",
+  "number": "3.2.1",
+  "title": "The Undamped Mass-Spring System",
+  "body": " The Undamped Mass-Spring System   Alright, so we now have a full understanding of how to solve the ODE This ODE turns out to have a very interesting application to the mass-spring model. The idea behind the model is simple: a block of mass is attached to a spring, and we want to track its position over time.  Press \"Play\" on the animation below to get a feel for how the mass moves. The mass oscillates back and forth between a compressed state and a stretched state, passing through the equilibrium position each time. The equilibrium position is simply where the spring sits at rest with no velocity: if the mass starts there undisturbed, it stays there. But if it starts displaced in either direction, the spring pulls it back, and the oscillation begins.   A horizontal mass-spring system. The block of mass is attached to a spring with spring constant fixed to a wall. We measure position from the equilibrium position (where the spring is neither stretched nor compressed). When the spring is stretched ; when the spring is compressed ; when the mass is at equilibrium. Press Play to watch it oscillate!     Borrowing some facts from physics, we will give a brief derivation of how to obtain an ODE modelling the system. Everything below follows from just Hooke's Law and Newton's second law of motion. Later on we will mostly be focusing on interpreting the behavior of solutions to the ODE and how it relates to the physical reality.   Hooke's Law   The restoring force exerted by a spring is proportional to the displacement from equilibrium: where is the spring constant . The negative sign means the force always pulls the mass back toward equilibrium.     By Newton's second law, the total force on the mass equals , where is the acceleration. Since the only force acting on the mass is the spring force , we have: Rearranging gives us the undamped mass-spring ODE : We can simplify this by dividing through by and letting :   Let's give a quick summary of this below.   Undamped Mass Spring System   The undamped mass-spring ODE is: where is the mass of the object on the spring and is the spring constant in the system. Dividing through by , we can write this as where the constant is called the natural frequency of the system. It depends only on the spring constant and the mass.  This ODE describes free undamped motion . It is free because there is no external driving force, and undamped because there is no friction or damping force slowing the mass down.     Notice that is exactly in the form we saw in . The general solution is: This is called simple harmonic motion : the mass oscillates back and forth forever, with the shape of the solution determined by the initial conditions and .    An Equivalent Form  The solution can also be written as a single cosine function: where is the amplitude (the maximum displacement from equilibrium) and is a phase shift. We will skip the proof, but see the dropdown if you are curious.   Why these two forms are equivalent (can skim)  Using the cosine angle subtraction formula: Setting and , we get , so . The two forms are identical.         Simple harmonic motion. The left panel shows the spring oscillating; the right panel traces the position over time. Adjust , , and to see how the solution changes. Notice that when the spring is stretched, when the mass passes through equilibrium, and when the spring is compressed.     Okay, so we covered a lot of ground on this page! There was quite a bit of set-up with the physics, but we will start getting more familiar with all these terms as we work through more examples. Let's summarize below:   Key Takeaways     The ODE: A mass on a spring with constant satisfies , or equivalently where .   Simple harmonic motion: The general solution is , or equivalently with amplitude .   Free undamped: No external force, no friction. The mass oscillates forever. This changes when we add damping next week!       This video goes through the content of this page.     "
+},
+{
+  "id": "fig-spring-intro",
+  "level": "2",
+  "url": "sec-undamped-mass-spring.html#fig-spring-intro",
+  "type": "Figure",
+  "number": "3.2.1",
+  "title": "",
+  "body": " A horizontal mass-spring system. The block of mass is attached to a spring with spring constant fixed to a wall. We measure position from the equilibrium position (where the spring is neither stretched nor compressed). When the spring is stretched ; when the spring is compressed ; when the mass is at equilibrium. Press Play to watch it oscillate!   "
+},
+{
+  "id": "def-hookes-law",
+  "level": "2",
+  "url": "sec-undamped-mass-spring.html#def-hookes-law",
+  "type": "Fact",
+  "number": "3.2.2",
+  "title": "Hooke’s Law.",
+  "body": " Hooke's Law   The restoring force exerted by a spring is proportional to the displacement from equilibrium: where is the spring constant . The negative sign means the force always pulls the mass back toward equilibrium.   "
+},
+{
+  "id": "sec-undamped-mass-spring-7",
+  "level": "2",
+  "url": "sec-undamped-mass-spring.html#sec-undamped-mass-spring-7",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "undamped mass-spring ODE "
+},
+{
+  "id": "def-natural-frequency",
+  "level": "2",
+  "url": "sec-undamped-mass-spring.html#def-natural-frequency",
+  "type": "Definition",
+  "number": "3.2.3",
+  "title": "Undamped Mass Spring System.",
+  "body": " Undamped Mass Spring System   The undamped mass-spring ODE is: where is the mass of the object on the spring and is the spring constant in the system. Dividing through by , we can write this as where the constant is called the natural frequency of the system. It depends only on the spring constant and the mass.  This ODE describes free undamped motion . It is free because there is no external driving force, and undamped because there is no friction or damping force slowing the mass down.   "
+},
+{
+  "id": "sec-undamped-mass-spring-10",
+  "level": "2",
+  "url": "sec-undamped-mass-spring.html#sec-undamped-mass-spring-10",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "simple harmonic motion "
+},
+{
+  "id": "remark-amplitude-form",
+  "level": "2",
+  "url": "sec-undamped-mass-spring.html#remark-amplitude-form",
+  "type": "Remark",
+  "number": "3.2.4",
+  "title": "An Equivalent Form.",
+  "body": " An Equivalent Form  The solution can also be written as a single cosine function: where is the amplitude (the maximum displacement from equilibrium) and is a phase shift. We will skip the proof, but see the dropdown if you are curious.   Why these two forms are equivalent (can skim)  Using the cosine angle subtraction formula: Setting and , we get , so . The two forms are identical.   "
+},
+{
+  "id": "fig-spring-full",
+  "level": "2",
+  "url": "sec-undamped-mass-spring.html#fig-spring-full",
+  "type": "Figure",
+  "number": "3.2.5",
+  "title": "",
+  "body": " Simple harmonic motion. The left panel shows the spring oscillating; the right panel traces the position over time. Adjust , , and to see how the solution changes. Notice that when the spring is stretched, when the mass passes through equilibrium, and when the spring is compressed.   "
+},
+{
+  "id": "video-undamped-spring",
+  "level": "2",
+  "url": "sec-undamped-mass-spring.html#video-undamped-spring",
+  "type": "Figure",
+  "number": "3.2.6",
+  "title": "",
+  "body": " This video goes through the content of this page.   "
+},
+{
+  "id": "sec-period-frequency",
+  "level": "1",
+  "url": "sec-period-frequency.html",
+  "type": "Section",
+  "number": "3.2.2",
+  "title": "Period and Frequency",
+  "body": " Period and Frequency   From the previous page, we already know how to set up and solve the undamped mass-spring system. As a reminder, when is the mass and is the spring constant of the system, the position function satisfies the ODE where . And the solution is which is called simple harmonic motion   Now at this point, it may feel like we have a full understanding of this ODE model. However, just solving for does not give us the full picture. Often in applications, we want to take this a step further and really understand the behavior of the solutions. A big theme from here on is exploring how the mathematics relates to the physical behavior of the spring.  We begin with a quick example to make sure we understand how to solve the ODE. Then we will explore some more properties.   A 10 kg Mass on a Spring   A block of mass kg is attached to a spring with spring constant N\/m. Find the general solution describing its position.    Plug and into and solve.    Substituting and : Dividing through by 10: So , giving . The general solution is:      As we said at the beginning of this page, we don't just care about the equation We want to understand what is actually happening in the mass-spring system. In particular, we care about the period of the solution: the time it takes to complete one full oscillation. As you play with the interactive below, pay attention to what happens as you change and : does the period change? Also notice how the spring animation on the left relates to the graph on the right.   The solution for our 10 kg mass. The left panel shows the spring; the right panel traces position over time. The shaded blue region marks one full oscillation .    Notice that no matter what you set and to, the shaded region (one full oscillation) always has the same width. The shape of the curve changes, but the time it takes to complete one cycle doesn't. That time is what we call the .  What does affect the period is the natural frequency of the system: . In the graph below, observe what happens to a cosine function as you change the value of .    The function for different values of . The shaded region shows one full period, with the period value updating live as you move the slider. What's the relationship between and the period?    As  increases , the position function oscillates faster , so the period decreases. We know that has a period of . If you make it move twice as fast, as in , then the period is cut in half: . In general, scaling time by a factor of gives a period of:   A related quantity is frequency: how many full oscillations occur per unit time. Bigger means faster oscillation and therefore higher frequency. In fact, frequency is just the reciprocal of the period .  Let's summarize this below.   Period and Frequency of Simple Harmonic Motion  For simple harmonic motion :  The period (time to complete one full oscillation) is:   The frequency (number of oscillations per unit time) is:   Larger means faster oscillation: shorter period, higher frequency.    Now for a quick check!    For the 10 kg mass-spring system from , where , which of the following correctly gives the period and frequency ?      and    Exactly right. With , the period is seconds, and the frequency is oscillations per second.       and    The period is correct, but frequency and period are reciprocals of each other, not equal. Frequency is .      and    The period formula is , not just itself. The comes from the fact that cosine completes one full cycle over an interval of length .      and    Close, but off by a factor of 2. One full oscillation of cosine spans , not , that would only be a half-cycle. The correct period is .        Key Takeaways    Period:  , the time for one complete oscillation. Depends only on , not on how far you pull the mass.   Frequency:  , oscillations per unit time. Larger means higher frequency and shorter period.   Initial conditions don't affect period: changing and changes the shape of the oscillation (amplitude, starting position) but not how fast it oscillates.      This video goes through the content of this page.     "
+},
+{
+  "id": "ex-spring-10kg",
+  "level": "2",
+  "url": "sec-period-frequency.html#ex-spring-10kg",
+  "type": "Example",
+  "number": "3.2.1",
+  "title": "A 10 kg Mass on a Spring.",
+  "body": " A 10 kg Mass on a Spring   A block of mass kg is attached to a spring with spring constant N\/m. Find the general solution describing its position.    Plug and into and solve.    Substituting and : Dividing through by 10: So , giving . The general solution is:    "
+},
+{
+  "id": "fig-spring-sqrt14",
+  "level": "2",
+  "url": "sec-period-frequency.html#fig-spring-sqrt14",
+  "type": "Figure",
+  "number": "3.2.2",
+  "title": "",
+  "body": " The solution for our 10 kg mass. The left panel shows the spring; the right panel traces position over time. The shaded blue region marks one full oscillation .   "
+},
+{
+  "id": "fig-period-explorer",
+  "level": "2",
+  "url": "sec-period-frequency.html#fig-period-explorer",
+  "type": "Figure",
+  "number": "3.2.3",
+  "title": "",
+  "body": " The function for different values of . The shaded region shows one full period, with the period value updating live as you move the slider. What's the relationship between and the period?   "
+},
+{
+  "id": "obs-period-frequency",
+  "level": "2",
+  "url": "sec-period-frequency.html#obs-period-frequency",
+  "type": "Observation",
+  "number": "3.2.4",
+  "title": "Period and Frequency of Simple Harmonic Motion.",
+  "body": " Period and Frequency of Simple Harmonic Motion  For simple harmonic motion :  The period (time to complete one full oscillation) is:   The frequency (number of oscillations per unit time) is:   Larger means faster oscillation: shorter period, higher frequency.  "
+},
+{
+  "id": "ex-mc-period-freq",
+  "level": "2",
+  "url": "sec-period-frequency.html#ex-mc-period-freq",
+  "type": "Checkpoint",
+  "number": "3.2.5",
+  "title": "",
+  "body": "  For the 10 kg mass-spring system from , where , which of the following correctly gives the period and frequency ?      and    Exactly right. With , the period is seconds, and the frequency is oscillations per second.       and    The period is correct, but frequency and period are reciprocals of each other, not equal. Frequency is .      and    The period formula is , not just itself. The comes from the fact that cosine completes one full cycle over an interval of length .      and    Close, but off by a factor of 2. One full oscillation of cosine spans , not , that would only be a half-cycle. The correct period is .     "
+},
+{
+  "id": "video-period-frequency",
+  "level": "2",
+  "url": "sec-period-frequency.html#video-period-frequency",
+  "type": "Figure",
+  "number": "3.2.6",
+  "title": "",
+  "body": " This video goes through the content of this page.   "
+},
+{
+  "id": "sec-equilibrium-crossings",
+  "level": "1",
+  "url": "sec-equilibrium-crossings.html",
+  "type": "Section",
+  "number": "3.2.3",
+  "title": "Passing Through Equilibrium",
+  "body": " Passing Through Equilibrium  As we said on the previous page, from here on out we are exploring the behavior of the solutions to the mass-spring system.  We know the mass oscillates forever in free undamped motion. Let's think about a specific question: how many times does it pass through equilibrium ( ) as time goes to infinity? Play around with the graph below and see what you notice.   Simple harmonic motion with all three parameters adjustable. Each time the mass passes through equilibrium ( ), a green dot appears on the graph and the counter updates. Try different values of , , and . What do you notice?       Based on the graph above, how many times does a mass undergoing free undamped simple harmonic motion pass through equilibrium ( ) as ?     A finite number of times, depending on and .   Try changing and in the interactive above. The mass keeps crossing equilibrium regardless. The amplitude changes, but the oscillation never stops.     A finite number of times, depending on .   Changing makes the mass oscillate faster or slower, but it never stops oscillating. The crossings keep coming, forever.     Infinitely many times, regardless of , , or .   Exactly. Since there's no damping, the amplitude stays fixed and the mass oscillates forever, crossing twice per period, indefinitely.      Zero times. The mass never reaches exactly unless it starts there.   The mass absolutely does pass through ! Watch the counter in the interactive. Unless the solution is identically zero (which requires ), the oscillation crosses equilibrium repeatedly.       Notice that no matter what you set the sliders to (as long as the solution isn't identically zero), the mass oscillates with a fixed amplitude, so it keeps crossing the equilibrium ( ) forever. This is a key feature of undamped motion. There is nothing slowing it down, so the force from the spring has it just repeat the same oscillations for all of time!  While it seems clear from the graph, we should always be able to back this up algebraically. We do this in the following example.   Showing Infinitely Many Equilibrium Crossings   Let be the general solution to an undamped mass-spring system, where and are not both zero. Show that has infinitely many solutions.    Set and solve for .    We want to solve , i.e.:    Case 1: . Then . Since (not both zero), we need , which gives: so . This is a different value of for each , so infinitely many solutions.   Case 2: . Rearranging: Dividing both sides by : Solving for :  Since we need , we take to be whichever non-negative integers keep positive (starting at or depending on the sign of the arctan term). Either way, there are infinitely many valid values of .   Why ? (if unsure: click for a trig review)  Two things are going on here. First, only gives us one solution: it's the inverse of restricted to . So is just the first value of that works.  Second, tangent has period , meaning for any . So if is a solution to , then so is , and , and so on. That's where the comes from, capturing all solutions at once.  (Note: has period , not like sine and cosine. So we add multiples of , not .)   Since ranges over all integers, this gives infinitely many values of , one for each . No matter what , , and are, the mass passes through equilibrium infinitely many times.      Key Takeaways    Graphical observation: free undamped simple harmonic motion oscillates with fixed amplitude forever. So the mass passes through equilibrium ( ) infinitely many times.   Algebraic justification: setting and solving gives (or when ). Either way, there are infinitely many times at which the mass passes through equilibrium.   This is a feature of free undamped motion: no energy is lost, so the oscillation never dies out. When we add damping later, this will change!      This video goes through the content of this page.     "
+},
+{
+  "id": "fig-spring-equilibrium",
+  "level": "2",
+  "url": "sec-equilibrium-crossings.html#fig-spring-equilibrium",
+  "type": "Figure",
+  "number": "3.2.1",
+  "title": "",
+  "body": " Simple harmonic motion with all three parameters adjustable. Each time the mass passes through equilibrium ( ), a green dot appears on the graph and the counter updates. Try different values of , , and . What do you notice?   "
+},
+{
+  "id": "ex-mc-equil-crossings",
+  "level": "2",
+  "url": "sec-equilibrium-crossings.html#ex-mc-equil-crossings",
+  "type": "Checkpoint",
+  "number": "3.2.2",
+  "title": "",
+  "body": "  Based on the graph above, how many times does a mass undergoing free undamped simple harmonic motion pass through equilibrium ( ) as ?     A finite number of times, depending on and .   Try changing and in the interactive above. The mass keeps crossing equilibrium regardless. The amplitude changes, but the oscillation never stops.     A finite number of times, depending on .   Changing makes the mass oscillate faster or slower, but it never stops oscillating. The crossings keep coming, forever.     Infinitely many times, regardless of , , or .   Exactly. Since there's no damping, the amplitude stays fixed and the mass oscillates forever, crossing twice per period, indefinitely.      Zero times. The mass never reaches exactly unless it starts there.   The mass absolutely does pass through ! Watch the counter in the interactive. Unless the solution is identically zero (which requires ), the oscillation crosses equilibrium repeatedly.     "
+},
+{
+  "id": "ex-equil-crossings-algebra",
+  "level": "2",
+  "url": "sec-equilibrium-crossings.html#ex-equil-crossings-algebra",
+  "type": "Example",
+  "number": "3.2.3",
+  "title": "Showing Infinitely Many Equilibrium Crossings.",
+  "body": " Showing Infinitely Many Equilibrium Crossings   Let be the general solution to an undamped mass-spring system, where and are not both zero. Show that has infinitely many solutions.    Set and solve for .    We want to solve , i.e.:    Case 1: . Then . Since (not both zero), we need , which gives: so . This is a different value of for each , so infinitely many solutions.   Case 2: . Rearranging: Dividing both sides by : Solving for :  Since we need , we take to be whichever non-negative integers keep positive (starting at or depending on the sign of the arctan term). Either way, there are infinitely many valid values of .   Why ? (if unsure: click for a trig review)  Two things are going on here. First, only gives us one solution: it's the inverse of restricted to . So is just the first value of that works.  Second, tangent has period , meaning for any . So if is a solution to , then so is , and , and so on. That's where the comes from, capturing all solutions at once.  (Note: has period , not like sine and cosine. So we add multiples of , not .)   Since ranges over all integers, this gives infinitely many values of , one for each . No matter what , , and are, the mass passes through equilibrium infinitely many times.   "
+},
+{
+  "id": "video-equilibrium-crossings",
+  "level": "2",
+  "url": "sec-equilibrium-crossings.html#video-equilibrium-crossings",
+  "type": "Figure",
+  "number": "3.2.4",
+  "title": "",
+  "body": " This video goes through the content of this page.   "
+},
+{
+  "id": "sec-amplitude",
+  "level": "1",
+  "url": "sec-amplitude.html",
+  "type": "Section",
+  "number": "3.2.4",
+  "title": "Distance from Equilibrium",
+  "body": " Distance from Equilibrium   We are not quite done exploring the behavior of solutions to the free undamped model! We know the mass oscillates forever. In this page we explore how far from equilibrium it actually gets. Watch the spring below, and pay attention to when it's at its most stretched and most compressed! How does this connect to what's happening in the graph on the right?   The solution . The dashed horizontal lines on the graph mark the maximum and minimum values. Notice these match the \"max stretched\" and \"max compressed\" moments on the spring.       From the graph above, what is the furthest distance the mass ever gets from equilibrium?       Right: the graph peaks at and bottoms out at , so the mass never gets more than 2 units from equilibrium.        The 3 is , the frequency: it controls how fast the mass oscillates, not how far it goes. Look at the graph: the curve never reaches .       The mass swings between and , so the total distance from one extreme to the other is 4, but the question asks for distance from equilibrium , which is just half of that.       That's the period of ( ), a time, not a distance. Look at the height of the curve on the graph for the maximum distance.       That maximum distance is just the amplitude of the cosine function, which equals the coefficient out front. In general, for any solution of the form , the amplitude is .   Maximum Distance from Equilibrium  If is the position of a mass in a spring-mass system, then the maximum distance the mass ever gets from equilibrium is the amplitude :     Let's put all of this together with an example. We will be exploring an additional question at the end regarding the speed of the spring.   A Mass-Spring System: Amplitude and Speed   Suppose a mass-spring system is described by     Step 1: Solve the IVP  Find .   This is in the form of : identify and write down the general solution, then apply the initial conditions.    The equation is in the form of with , so the general solution is: Applying initial conditions: So the solution is:      Step 2: How far from equilibrium?  What is the furthest the mass gets from equilibrium?   Identify the amplitude .    With and : The mass gets at most units from equilibrium. We can also see this directly: has maximum value 3 and minimum value .     Step 3: Does it slow down over time?   Will the mass move slower as it passes through equilibrium the 5th time compared to the 1st time?      Compute .  Find all times when the mass passes through equilibrium, i.e. solve .  Evaluate the speed at those times and compare.       1. Compute :    2. The mass passes through equilibrium when , i.e. , so , giving:    3. Evaluate the speed at each crossing: Since for all integers , we get: The speed at equilibrium is always exactly 6, whether it's the 1st crossing or the 5th. Free undamped motion has constant amplitude: no energy is lost, so the mass moves just as fast through equilibrium every time.      So there we have it. From the previous pages, we learned how to interpret and determine the frequency and period of mass. Then we explored how it goes back and forth through the equilibrium position infinitely many times as time goes on forever. And now, we understand how to connect the amplitude of with the distance the spring is from the equilibrium. We also explored the slightly more subtle point that the speed at which it passes through equilibrium never changes. This should be clear from the graph though, as is a periodic function that keeps repeating the same motion forever!   Key Takeaways    Amplitude: the maximum distance from equilibrium is . For a pure cosine or sine solution, it's just the coefficient out front.   Speed at equilibrium is constant: since there's no damping, no energy is lost. The mass passes through equilibrium at the same speed every time.   Free undamped motion is perfectly periodic: same amplitude, same speed, same period, forever! Damping changes all of this, as we'll see next.      This video goes through the content of this page.     "
+},
+{
+  "id": "fig-spring-amplitude",
+  "level": "2",
+  "url": "sec-amplitude.html#fig-spring-amplitude",
+  "type": "Figure",
+  "number": "3.2.1",
+  "title": "",
+  "body": " The solution . The dashed horizontal lines on the graph mark the maximum and minimum values. Notice these match the \"max stretched\" and \"max compressed\" moments on the spring.   "
+},
+{
+  "id": "ex-mc-amplitude-2cos3t",
+  "level": "2",
+  "url": "sec-amplitude.html#ex-mc-amplitude-2cos3t",
+  "type": "Checkpoint",
+  "number": "3.2.2",
+  "title": "",
+  "body": "  From the graph above, what is the furthest distance the mass ever gets from equilibrium?       Right: the graph peaks at and bottoms out at , so the mass never gets more than 2 units from equilibrium.        The 3 is , the frequency: it controls how fast the mass oscillates, not how far it goes. Look at the graph: the curve never reaches .       The mass swings between and , so the total distance from one extreme to the other is 4, but the question asks for distance from equilibrium , which is just half of that.       That's the period of ( ), a time, not a distance. Look at the height of the curve on the graph for the maximum distance.     "
+},
+{
+  "id": "obs-amplitude",
+  "level": "2",
+  "url": "sec-amplitude.html#obs-amplitude",
+  "type": "Observation",
+  "number": "3.2.3",
+  "title": "Maximum Distance from Equilibrium.",
+  "body": " Maximum Distance from Equilibrium  If is the position of a mass in a spring-mass system, then the maximum distance the mass ever gets from equilibrium is the amplitude :   "
+},
+{
+  "id": "ex-spring-amplitude-speed",
+  "level": "2",
+  "url": "sec-amplitude.html#ex-spring-amplitude-speed",
+  "type": "Example",
+  "number": "3.2.4",
+  "title": "A Mass-Spring System: Amplitude and Speed.",
+  "body": " A Mass-Spring System: Amplitude and Speed   Suppose a mass-spring system is described by     Step 1: Solve the IVP  Find .   This is in the form of : identify and write down the general solution, then apply the initial conditions.    The equation is in the form of with , so the general solution is: Applying initial conditions: So the solution is:      Step 2: How far from equilibrium?  What is the furthest the mass gets from equilibrium?   Identify the amplitude .    With and : The mass gets at most units from equilibrium. We can also see this directly: has maximum value 3 and minimum value .     Step 3: Does it slow down over time?   Will the mass move slower as it passes through equilibrium the 5th time compared to the 1st time?      Compute .  Find all times when the mass passes through equilibrium, i.e. solve .  Evaluate the speed at those times and compare.       1. Compute :    2. The mass passes through equilibrium when , i.e. , so , giving:    3. Evaluate the speed at each crossing: Since for all integers , we get: The speed at equilibrium is always exactly 6, whether it's the 1st crossing or the 5th. Free undamped motion has constant amplitude: no energy is lost, so the mass moves just as fast through equilibrium every time.    "
+},
+{
+  "id": "video-undamped-spring-examples",
+  "level": "2",
+  "url": "sec-amplitude.html#video-undamped-spring-examples",
+  "type": "Figure",
+  "number": "3.2.5",
+  "title": "",
+  "body": " This video goes through the content of this page.   "
+},
+{
+  "id": "sec-damped-mass-spring",
+  "level": "1",
+  "url": "sec-damped-mass-spring.html",
+  "type": "Section",
+  "number": "3.3.1",
+  "title": "The Damped Mass-Spring System",
+  "body": " The Damped Mass-Spring System   In , we modeled a mass attached to a spring and derived the ODE . That model assumed no friction whatsoever, so the mass oscillated forever. In reality, friction always acts to slow things down. We now add a dashpot to the system to model this frictional resistance.  A dashpot is a mechanical device that resists motion: think of a piston sliding through a cylinder filled with fluid. The spring and dashpot both connect the mass to the wall, as shown in the animation below. Press Play to see how the dashpot changes the behavior compared to the undamped case.   A horizontal mass-spring-dashpot system. The block of mass is connected to the wall by a spring (top) and a dashpot (bottom). Press Play to watch the oscillations die out as the dashpot dissipates energy.     Let's derive the ODE governing this system. As in , we measure position from the equilibrium position, with meaning the spring is stretched and meaning it is compressed. By , the restoring force from the spring is: where is the spring constant. The dashpot contributes a damping force proportional to velocity: where is the damping constant . The negative sign means the dashpot always resists the direction of motion.  By Newton's second law, the total force equals . Since the only forces acting on the mass are and , we have: Rearranging gives the damped mass-spring ODE :     The Damped Mass-Spring System   The position of a mass on a spring with constant and damping constant satisfies: where . This is called free damped motion : free because there is no external driving force, and damped because the dashpot dissipates energy.     To solve , we use the same characteristic equation approach from . The characteristic equation is: By the quadratic formula, the roots are: The expression is the discriminant , and its sign determines which of the three cases from we are in.   You will practice computing these roots directly in the homework exercises.   Let's make sure we remember which sign of gives which type of roots.    For the characteristic equation , which condition on , , and gives two distinct real roots?       Correct! When the discriminant is positive, the square root is real and nonzero, giving two distinct real roots .        When the discriminant is zero the square root vanishes, giving one repeated root , not two distinct roots.       When the discriminant is negative the square root is imaginary, giving complex conjugate roots, not two distinct real roots.       This includes the case , which gives a repeated root, not two distinct roots. Strict inequality is needed.       In general, the three cases for the roots of are:     Two distinct real roots when :    One repeated real root when :    Complex conjugate roots when :      As we saw in , each type of roots leads to a qualitatively different form of the general solution. In the mass-spring context, each case also has a physical name that describes how heavily the system is damped. The size of the damping constant relative to and is what determines which case we are in.    The Three Damping Cases   For free damped motion with , the system falls into one of three cases depending on the discriminant :     Overdamped ( ): two distinct real roots. The damping constant is large relative to and , so the system is slowed down the most.   Critically damped ( ): one repeated real root. This is the borderline case, the exact value of that sits between overdamped and underdamped.   Underdamped ( ): complex conjugate roots. The damping constant is small, so the system still oscillates, just with decaying amplitude.    In all three cases , so the system is damped. When we recover the undamped system from .      Key Takeaways     The ODE: Adding a dashpot gives , called free damped motion. The new term models friction proportional to velocity.   The discriminant: The sign of determines the type of roots of the characteristic equation and therefore the qualitative behavior of solutions.   Three cases: Overdamped ( ), critically damped ( ), and underdamped ( ). Larger means more damping.       This video goes through the content of this page.     "
+},
+{
+  "id": "sec-damped-mass-spring-2",
+  "level": "2",
+  "url": "sec-damped-mass-spring.html#sec-damped-mass-spring-2",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "dashpot "
+},
+{
+  "id": "fig-dashpot-intro",
+  "level": "2",
+  "url": "sec-damped-mass-spring.html#fig-dashpot-intro",
+  "type": "Figure",
+  "number": "3.3.1",
+  "title": "",
+  "body": " A horizontal mass-spring-dashpot system. The block of mass is connected to the wall by a spring (top) and a dashpot (bottom). Press Play to watch the oscillations die out as the dashpot dissipates energy.   "
+},
+{
+  "id": "sec-damped-mass-spring-5",
+  "level": "2",
+  "url": "sec-damped-mass-spring.html#sec-damped-mass-spring-5",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "damping force damping constant "
+},
+{
+  "id": "sec-damped-mass-spring-6",
+  "level": "2",
+  "url": "sec-damped-mass-spring.html#sec-damped-mass-spring-6",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "damped mass-spring ODE "
+},
+{
+  "id": "def-damped-mass-spring",
+  "level": "2",
+  "url": "sec-damped-mass-spring.html#def-damped-mass-spring",
+  "type": "Definition",
+  "number": "3.3.2",
+  "title": "The Damped Mass-Spring System.",
+  "body": " The Damped Mass-Spring System   The position of a mass on a spring with constant and damping constant satisfies: where . This is called free damped motion : free because there is no external driving force, and damped because the dashpot dissipates energy.   "
+},
+{
+  "id": "sec-damped-mass-spring-8",
+  "level": "2",
+  "url": "sec-damped-mass-spring.html#sec-damped-mass-spring-8",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "discriminant "
+},
+{
+  "id": "ex-mc-discriminant-overdamped",
+  "level": "2",
+  "url": "sec-damped-mass-spring.html#ex-mc-discriminant-overdamped",
+  "type": "Checkpoint",
+  "number": "3.3.3",
+  "title": "",
+  "body": "  For the characteristic equation , which condition on , , and gives two distinct real roots?       Correct! When the discriminant is positive, the square root is real and nonzero, giving two distinct real roots .        When the discriminant is zero the square root vanishes, giving one repeated root , not two distinct roots.       When the discriminant is negative the square root is imaginary, giving complex conjugate roots, not two distinct real roots.       This includes the case , which gives a repeated root, not two distinct roots. Strict inequality is needed.     "
+},
+{
+  "id": "def-damping-cases",
+  "level": "2",
+  "url": "sec-damped-mass-spring.html#def-damping-cases",
+  "type": "Definition",
+  "number": "3.3.4",
+  "title": "The Three Damping Cases.",
+  "body": " The Three Damping Cases   For free damped motion with , the system falls into one of three cases depending on the discriminant :     Overdamped ( ): two distinct real roots. The damping constant is large relative to and , so the system is slowed down the most.   Critically damped ( ): one repeated real root. This is the borderline case, the exact value of that sits between overdamped and underdamped.   Underdamped ( ): complex conjugate roots. The damping constant is small, so the system still oscillates, just with decaying amplitude.    In all three cases , so the system is damped. When we recover the undamped system from .   "
+},
+{
+  "id": "video-damped-spring-intro",
+  "level": "2",
+  "url": "sec-damped-mass-spring.html#video-damped-spring-intro",
+  "type": "Figure",
+  "number": "3.3.5",
+  "title": "",
+  "body": " This video goes through the content of this page.   "
+},
+{
   "id": "backmatter-2",
   "level": "1",
   "url": "backmatter-2.html",

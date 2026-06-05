@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Simple Harmonic Motion: Equilibrium Crossings</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jsxgraph/1.6.0/jsxgraph.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jsxgraph/1.6.0/jsxgraphcore.js"></script>
+<style>
+  body { margin: 0; padding: 8px; font-family: serif; background: transparent; overflow: hidden; }
+
+  #eq-display {
+    text-align: center;
+    font-size: 16px;
+    font-family: serif;
+    color: #2c3e50;
+    margin-bottom: 6px;
+    min-height: 24px;
+  }
+  #eq-display .eq-plugged { color: #922b21; font-weight: bold; }
+
+  #panels {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    justify-content: center;
+  }
+
+  #spring-panel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 0 0 240px;
+  }
+
+  #spring-label {
+    font-size: 13px;
+    font-family: serif;
+    color: #2c3e50;
+    margin-bottom: 3px;
+  }
+
+  #spring-canvas {
+    width: 240px;
+    height: 120px;
+    border: 1px solid #bdc3c7;
+    background: #f9f9f9;
+  }
+
+  #graph-panel { flex: 1; min-width: 0; }
+
+  #graph-label {
+    font-size: 13px;
+    font-family: serif;
+    color: #2c3e50;
+    margin-bottom: 3px;
+    text-align: center;
+  }
+
+  #jxgbox { width: 100%; height: 175px; border: 1px solid #bdc3c7; }
+
+  /* Equilibrium counter -- prominent green */
+  #equil-counter {
+    text-align: center;
+    font-size: 15px;
+    font-family: serif;
+    color: #145a32;
+    font-weight: bold;
+    margin-top: 6px;
+    min-height: 22px;
+    letter-spacing: 0.01em;
+  }
+  #equil-counter span {
+    font-size: 18px;
+    color: #145a32;
+  }
+  /* Flash animation for crossing */
+  @keyframes flash-green {
+    0%   { background: #a9dfbf; }
+    100% { background: transparent; }
+  }
+  #equil-counter.flash {
+    animation: flash-green 0.4s ease-out;
+  }
+
+  #controls {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-top: 6px;
+  }
+
+  .control-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-size: 14px;
+    font-family: serif;
+    color: #2c3e50;
+  }
+
+  .control-row label { font-weight: bold; min-width: 55px; text-align: right; }
+  .control-row input[type=range] { width: 140px; accent-color: #922b21; }
+  .control-row span { min-width: 30px; font-weight: bold; color: #922b21; }
+
+  #btnrow {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 6px;
+  }
+
+  #playbtn {
+    background: #1a5276;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    padding: 5px 20px;
+    font-family: serif;
+    font-size: 14px;
+    cursor: pointer;
+    min-width: 80px;
+  }
+  #playbtn:hover { background: #154360; }
+
+  #resetbtn {
+    background: transparent;
+    color: #1a5276;
+    border: 1px solid #1a5276;
+    border-radius: 3px;
+    padding: 5px 12px;
+    font-family: serif;
+    font-size: 14px;
+    cursor: pointer;
+  }
+  #resetbtn:hover { background: #eaf0fb; }
+
+  #info {
+    text-align: center;
+    font-size: 13px;
+    font-family: serif;
+    color: #555;
+    margin-top: 4px;
+    min-height: 18px;
+  }
+</style>
+</head>
+<body>
+
+<div id="eq-display" role="status" aria-live="polite" aria-label="Current equation">
+  <i>x</i>(<i>t</i>) = <i>c</i><sub>1</sub>cos(<i>&omega;</i><sub>0</sub><i>t</i>) + <i>c</i><sub>2</sub>sin(<i>&omega;</i><sub>0</sub><i>t</i>) = <span class="eq-plugged" id="eq-plugged">2cos(<i>t</i>)</span>
+</div>
+
+<div id="panels">
+  <div id="spring-panel">
+    <div id="spring-label">Spring (side view)</div>
+    <canvas id="spring-canvas" width="240" height="120"
+      role="img"
+      aria-label="Animated horizontal spring. The block moves right when x is positive (spring stretched), sits at center when x equals zero (equilibrium, marked by a green dashed line), and moves left when x is negative (spring compressed). The equilibrium line flashes brighter green each time the block passes through.">
+    </canvas>
+  </div>
+  <div id="graph-panel">
+    <div id="graph-label">Position <i>x</i>(<i>t</i>) vs time <i>t</i></div>
+    <div id="jxgbox"
+      role="img"
+      aria-label="Position versus time graph. The dashed gray curve shows the full solution. The blue curve traces what has been animated so far. The red dot marks the current position. Green dots mark each time the curve crosses x equals zero, that is, each time the mass passes through equilibrium.">
+    </div>
+  </div>
+</div>
+
+<div id="equil-counter" role="status" aria-live="polite" aria-atomic="true">
+  Times through equilibrium (<i>x</i> = 0): <span id="cross-count">0</span>
+</div>
+
+<div id="controls" role="group" aria-label="Adjust parameters c1, c2, and omega">
+  <div class="control-row">
+    <label for="c1slider"><i>c</i><sub>1</sub> =</label>
+    <input type="range" id="c1slider" min="-3" max="3" step="0.5" value="2"
+      aria-label="c1: coefficient of cosine term"
+      aria-describedby="c1value">
+    <span id="c1value">2</span>
+  </div>
+  <div class="control-row">
+    <label for="c2slider"><i>c</i><sub>2</sub> =</label>
+    <input type="range" id="c2slider" min="-3" max="3" step="0.5" value="0"
+      aria-label="c2: coefficient of sine term"
+      aria-describedby="c2value">
+    <span id="c2value">0</span>
+  </div>
+  <div class="control-row">
+    <label for="omegaslider"><i>&omega;</i><sub>0</sub> =</label>
+    <input type="range" id="omegaslider" min="0.5" max="3" step="0.5" value="1"
+      aria-label="omega naught: natural frequency"
+      aria-describedby="omegavalue">
+    <span id="omegavalue">1</span>
+  </div>
+</div>
+
+<div id="btnrow">
+  <button id="playbtn" aria-label="Play or pause animation">&#9654; Play</button>
+  <button id="resetbtn" aria-label="Reset animation">Reset</button>
+</div>
+
+<div id="info" aria-live="polite">Press Play to watch the spring oscillate!</div>
+
+<script>
+  var c1 = 2, c2 = 0, omega = 1;
+  var tNow = 0;
+  var playing = false;
+  var animInterval = null;
+  var T_MAX = 4 * Math.PI;
+
+  var crossCount = 0;
+  var prevSign = 0;       // sign of xVal at previous frame
+  var equilFlashTimer = 0; // frames remaining for equilibrium line flash
+
+  // Canvas
+  var canvas = document.getElementById('spring-canvas');
+  var ctx = canvas.getContext('2d');
+  var CW = canvas.width, CH = canvas.height;
+  var wallX = 28;
+  var equilibriumX = 120;
+  var blockW = 34, blockH = 34;
+  var springCoils = 9;
+  var AMP_PX = 65;
+
+  function drawSpring(blockX, flash) {
+    ctx.clearRect(0, 0, CW, CH);
+    var cy = CH / 2;
+
+    // Bottom labels
+    var labelY = CH - 22;
+    var leftLabelX  = equilibriumX - AMP_PX * 1.1;
+    var rightLabelX = equilibriumX + AMP_PX * 1.1;
+    ctx.textBaseline = 'top';
+
+    ctx.font = 'bold 10px serif';
+    ctx.fillStyle = '#1a5276';
+    ctx.textAlign = 'center';
+    ctx.fillText('x < 0', leftLabelX, labelY);
+    ctx.font = '9px serif';
+    ctx.fillText('(compressed)', leftLabelX, labelY + 12);
+
+    ctx.font = 'bold 10px serif';
+    ctx.fillStyle = '#145a32';
+    ctx.textAlign = 'center';
+    ctx.fillText('x = 0', equilibriumX, labelY);
+    ctx.font = '9px serif';
+    ctx.fillText('(equilibrium)', equilibriumX, labelY + 12);
+
+    ctx.font = 'bold 10px serif';
+    ctx.fillStyle = '#922b21';
+    ctx.textAlign = 'center';
+    ctx.fillText('x > 0', rightLabelX, labelY);
+    ctx.font = '9px serif';
+    ctx.fillText('(stretched)', rightLabelX, labelY + 12);
+
+    // Wall
+    ctx.fillStyle = '#bdc3c7';
+    ctx.fillRect(wallX - 12, cy - 38, 12, 76);
+    ctx.strokeStyle = '#95a5a6';
+    ctx.lineWidth = 1;
+    for (var i = -32; i <= 32; i += 11) {
+      ctx.beginPath();
+      ctx.moveTo(wallX - 12, cy + i);
+      ctx.lineTo(wallX - 1, cy + i - 9);
+      ctx.stroke();
+    }
+    ctx.strokeStyle = '#2c3e50';
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    ctx.moveTo(wallX, cy - 38);
+    ctx.lineTo(wallX, cy + 38);
+    ctx.stroke();
+
+    // Spring zigzag
+    var springEndX = blockX - blockW / 2;
+    var sLen = Math.max(springEndX - wallX, 5);
+    var cw = sLen / (springCoils + 1);
+    var ch = 12;
+    ctx.strokeStyle = '#566573';
+    ctx.lineWidth = 1.8;
+    ctx.beginPath();
+    ctx.moveTo(wallX, cy);
+    ctx.lineTo(wallX + cw * 0.4, cy);
+    for (var n = 0; n < springCoils; n++) {
+      var bx = wallX + cw * (0.4 + n);
+      ctx.lineTo(bx + cw * 0.3, cy - ch);
+      ctx.lineTo(bx + cw * 0.8, cy + ch);
+    }
+    ctx.lineTo(springEndX, cy);
+    ctx.stroke();
+
+    // Block
+    ctx.fillStyle = '#1a5276';
+    ctx.fillRect(blockX - blockW/2, cy - blockH/2, blockW, blockH);
+    ctx.strokeStyle = '#154360';
+    ctx.lineWidth = 1.5;
+    ctx.strokeRect(blockX - blockW/2, cy - blockH/2, blockW, blockH);
+    ctx.fillStyle = '#fff';
+    ctx.font = 'bold 13px serif';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillText('m', blockX, cy);
+
+    // Equilibrium dashed line -- brighter + thicker when flashing
+    ctx.setLineDash([4, 3]);
+    ctx.strokeStyle = flash ? '#1e8449' : '#145a32';
+    ctx.lineWidth = flash ? 2.5 : 1.5;
+    ctx.beginPath();
+    ctx.moveTo(equilibriumX, cy - 40);
+    ctx.lineTo(equilibriumX, cy + 40);
+    ctx.stroke();
+    ctx.setLineDash([]);
+
+    // Flash glow circle at equilibrium when crossing
+    if (flash) {
+      ctx.beginPath();
+      ctx.arc(equilibriumX, cy, 10, 0, 2 * Math.PI);
+      ctx.fillStyle = 'rgba(39, 174, 96, 0.25)';
+      ctx.fill();
+    }
+  }
+
+  // Equation display
+  function formatNum(v) {
+    return Number.isInteger(v) ? String(Math.abs(v)) : String(Math.abs(v));
+  }
+  function formatOmega(w) {
+    return w === 1 ? '' : (Number.isInteger(w) ? String(w) : String(w));
+  }
+  function buildEqString() {
+    var wStr = formatOmega(omega);
+    var parts = [];
+    if (c1 !== 0) {
+      var sign = c1 < 0 ? '&minus;' : '';
+      var abs = Math.abs(c1);
+      parts.push(sign + (abs === 1 ? '' : formatNum(abs)) + 'cos(' + wStr + '<i>t</i>)');
+    }
+    if (c2 !== 0) {
+      var sign2 = c2 < 0 ? ' &minus; ' : (parts.length ? ' + ' : '');
+      var abs2 = Math.abs(c2);
+      parts.push(sign2 + (abs2 === 1 ? '' : formatNum(abs2)) + 'sin(' + wStr + '<i>t</i>)');
+    }
+    if (parts.length === 0) parts.push('0');
+    return parts.join('');
+  }
+  function updateEqDisplay() {
+    document.getElementById('eq-plugged').innerHTML = buildEqString();
+  }
+
+  // JSXGraph board
+  var board = JXG.JSXGraph.initBoard('jxgbox', {
+    boundingbox: [-0.2, 3.8, T_MAX + 0.2, -3.8],
+    axis: true,
+    showCopyright: false,
+    showNavigation: false,
+    pan: { enabled: false },
+    zoom: { enabled: false }
+  });
+
+  // x=0 axis line emphasis
+  board.create('line', [[-1, 0], [T_MAX + 1, 0]], {
+    strokeColor: '#145a32',
+    strokeWidth: 1.2,
+    dash: 0,
+    straightFirst: false,
+    straightLast: false,
+    fixed: true
+  });
+
+  // Ghost curve
+  var ghostXs = [], ghostYs = [];
+  var ghostCurve = board.create('curve', [ghostXs, ghostYs], {
+    strokeColor: '#aab7b8',
+    strokeWidth: 1.5,
+    dash: 2
+  });
+
+  // Live traced curve
+  var liveXs = [], liveYs = [];
+  var liveCurve = board.create('curve', [liveXs, liveYs], {
+    strokeColor: '#1a5276',
+    strokeWidth: 2.5
+  });
+
+  // Moving dot
+  var dot = board.create('point', [0, 2], {
+    size: 5,
+    fillColor: '#922b21',
+    strokeColor: '#922b21',
+    fixed: true,
+    withLabel: false
+  });
+
+  // Pool of equilibrium crossing markers (green dots on graph)
+  var crossDots = [];
+  function getOrCreateCrossDot(idx) {
+    if (!crossDots[idx]) {
+      crossDots[idx] = board.create('point', [0, 0], {
+        size: 5,
+        fillColor: '#145a32',
+        strokeColor: '#145a32',
+        fixed: true,
+        withLabel: false,
+        visible: false
+      });
+    }
+    return crossDots[idx];
+  }
+
+  function xVal(t) {
+    return c1 * Math.cos(omega * t) + c2 * Math.sin(omega * t);
+  }
+
+  function rebuildGhost() {
+    ghostXs.length = 0;
+    ghostYs.length = 0;
+    var steps = 300;
+    for (var i = 0; i <= steps; i++) {
+      var t = (T_MAX * i) / steps;
+      ghostXs.push(t);
+      ghostYs.push(xVal(t));
+    }
+    ghostCurve.dataX = ghostXs;
+    ghostCurve.dataY = ghostYs;
+  }
+
+  function triggerCrossing(t) {
+    crossCount++;
+    document.getElementById('cross-count').textContent = crossCount;
+
+    // Flash counter div
+    var el = document.getElementById('equil-counter');
+    el.classList.remove('flash');
+    void el.offsetWidth; // reflow to restart animation
+    el.classList.add('flash');
+
+    // Place green dot on graph
+    var cdot = getOrCreateCrossDot(crossCount - 1);
+    cdot.setPosition(JXG.COORDS_BY_USER, [t, 0]);
+    cdot.setAttribute({ visible: true });
+
+    equilFlashTimer = 8; // flash spring for 8 frames
+  }
+
+  function updateFrame(t) {
+    var xv = xVal(t);
+
+    // Detect zero crossing (sign change, not including t=0 start)
+    var curSign = xv > 0 ? 1 : (xv < 0 ? -1 : 0);
+    if (t > 0.05 && prevSign !== 0 && curSign !== 0 && curSign !== prevSign) {
+      triggerCrossing(t);
+    }
+    if (curSign !== 0) prevSign = curSign;
+
+    if (equilFlashTimer > 0) equilFlashTimer--;
+
+    var clamped = Math.max(-3.0, Math.min(3.0, xv));
+    var blockX = equilibriumX + (clamped / 3.0) * AMP_PX;
+    drawSpring(blockX, equilFlashTimer > 0);
+
+    dot.setPosition(JXG.COORDS_BY_USER, [t, xv]);
+    liveXs.push(t);
+    liveYs.push(xv);
+    liveCurve.dataX = liveXs;
+    liveCurve.dataY = liveYs;
+    board.update();
+
+    document.getElementById('info').textContent =
+      crossCount === 0
+        ? 'Watch for when the block crosses x = 0!'
+        : 'Crossed equilibrium ' + crossCount + ' time' + (crossCount === 1 ? '' : 's') + ' so far...';
+  }
+
+  function stopAnim() {
+    if (animInterval) { clearInterval(animInterval); animInterval = null; }
+    playing = false;
+    document.getElementById('playbtn').innerHTML = '&#9654; Play';
+  }
+
+  function resetAll() {
+    stopAnim();
+    tNow = 0;
+    crossCount = 0;
+    prevSign = 0;
+    equilFlashTimer = 0;
+    document.getElementById('cross-count').textContent = '0';
+    document.getElementById('equil-counter').classList.remove('flash');
+
+    liveXs.length = 0;
+    liveYs.length = 0;
+    liveCurve.dataX = liveXs;
+    liveCurve.dataY = liveYs;
+
+    // Hide all cross dots
+    for (var i = 0; i < crossDots.length; i++) {
+      if (crossDots[i]) crossDots[i].setAttribute({ visible: false });
+    }
+
+    rebuildGhost();
+    var x0 = xVal(0);
+    dot.setPosition(JXG.COORDS_BY_USER, [0, x0]);
+    var clamped = Math.max(-3.0, Math.min(3.0, x0));
+    drawSpring(equilibriumX + (clamped / 3.0) * AMP_PX, false);
+    board.update();
+    updateEqDisplay();
+    document.getElementById('info').textContent = 'Press Play to watch the spring oscillate!';
+    document.getElementById('playbtn').innerHTML = '&#9654; Play';
+  }
+
+  function startAnim() {
+    stopAnim();
+    if (tNow >= T_MAX) {
+      tNow = 0;
+      liveXs.length = 0;
+      liveYs.length = 0;
+      crossCount = 0;
+      prevSign = 0;
+      document.getElementById('cross-count').textContent = '0';
+      for (var i = 0; i < crossDots.length; i++) {
+        if (crossDots[i]) crossDots[i].setAttribute({ visible: false });
+      }
+    }
+    playing = true;
+    prevSign = xVal(tNow) >= 0 ? 1 : -1;
+    document.getElementById('playbtn').innerHTML = '&#9646;&#9646; Pause';
+
+    animInterval = setInterval(function() {
+      if (tNow > T_MAX) {
+        stopAnim();
+        document.getElementById('info').textContent =
+          'Done! Crossed equilibrium ' + crossCount + ' times so far -- what happens as time goes on forever?';
+        return;
+      }
+      updateFrame(tNow);
+      tNow += 0.04;
+    }, 30);
+  }
+
+  document.getElementById('c1slider').addEventListener('input', function() {
+    c1 = parseFloat(this.value);
+    document.getElementById('c1value').textContent = c1;
+    resetAll();
+  });
+  document.getElementById('c2slider').addEventListener('input', function() {
+    c2 = parseFloat(this.value);
+    document.getElementById('c2value').textContent = c2;
+    resetAll();
+  });
+  document.getElementById('omegaslider').addEventListener('input', function() {
+    omega = parseFloat(this.value);
+    document.getElementById('omegavalue').textContent = omega;
+    resetAll();
+  });
+  document.getElementById('playbtn').addEventListener('click', function() {
+    if (playing) { stopAnim(); } else { startAnim(); }
+  });
+  document.getElementById('resetbtn').addEventListener('click', resetAll);
+
+  resetAll();
+</script>
+</body>
+</html>
