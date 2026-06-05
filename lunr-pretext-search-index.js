@@ -1825,7 +1825,7 @@ var ptx_lunr_docs = [
   "type": "Exercises",
   "number": "2.1.4",
   "title": "Exercises for Section 2.1",
-  "body": " Exercises for Section 2.1   Nothing in these exercises should require solving a differential equation from scratch. The focus is on setting up models and understanding long-term behavior.     Setting Up Population Models   For each of the following, write a differential equation for the population using the principle where is the birth rate per person and is the death rate per person. Do not solve.      The birth rate is the constant 5 and the death rate is proportional to with proportionality constant 2.           The birth rate is proportional to with constant , and the death rate is proportional to with constant , where .           A population has birth rate (decreasing as the population grows) and a constant death rate . Write the ODE and identify it as a logistic equation by writing it in the form . What are and ?     This is logistic with and .       Long-Term Behavior: Logistic Equation ( )   Consider the logistic equation which has carrying capacity . The general solution in terms of the initial population is   The following three parts cover the cases , , and .     Suppose . Write the specific solution and compute . What does this mean for the population?     . As , , so . The population grows and levels off at the carrying capacity.      Suppose . Write the specific solution and compute . What does this mean for the population?     . As , , so . The population decreases and levels off at the carrying capacity.      Suppose . What is for all ?     for all — this is the equilibrium solution.       Long-Term Behavior: Doomsday vs Extinction ( )   Now consider the same equation with : which has threshold . The general solution in terms of is   The following three parts cover the cases , , and . Notice how dramatically different the behavior is compared to Q2, even though the ODE differs only by the sign of .     Suppose . Write the specific solution and compute . What does this mean for the population?     . As , , so . The population goes extinct.      Suppose . Write the specific solution. Find the finite time at which the denominator equals zero, and determine what happens to as . What is this called?     . Denominator zero when . As , . This is doomsday .      Suppose . What is for all ?     for all .       Long-Term Behavior: Newton's Law of Cooling   Recall from that a cake removed from an oven at F and left in a room at F satisfies Newton's law of cooling with specific solution Compute and explain what this means physically.     F. The cake cools to room temperature.     "
+  "body": " Exercises for Section 2.1   Nothing in these exercises should require solving a differential equation from scratch. The focus is on setting up models and understanding long-term behavior.     Setting Up Population Models   For each of the following, write a differential equation for the population using the principle where is the birth rate per person and is the death rate per person. Do not solve.      The birth rate is the constant 5 and the death rate is proportional to with proportionality constant 2.           The birth rate is proportional to with constant , and the death rate is proportional to with constant , where .           A population has birth rate (decreasing as the population grows) and a constant death rate . Write the ODE and identify it as a logistic equation by writing it in the form . What are and ?     This is logistic with and .       Long-Term Behavior: Logistic Equation ( )   Consider the logistic equation which has carrying capacity . The general solution in terms of the initial population is   The following three parts cover the cases , , and .     Suppose . Write the specific solution and compute . What does this mean for the population?     . As , , so . The population approaches carrying capacity as time goes to infinity.      Suppose . Write the specific solution and compute . What does this mean for the population?     . As , , so . The population approaches the carrying capacity.      Suppose . What is for all ?     for all (this is the equilibrium solution).       Long-Term Behavior: Doomsday vs Extinction ( )   Now consider the same equation with : which has threshold . The general solution in terms of is   The following three parts cover the cases , , and . Notice how dramatically different the behavior is compared to Q2, even though the ODE differs only by the sign of .     Suppose . Write the specific solution and compute . What does this mean for the population?     . As , , so . The population goes extinct.      Suppose . Write the specific solution. Find the finite time at which the denominator equals zero, and determine what happens to as . What is this called?     . Denominator zero when . As , . This is doomsday .      Suppose . What is for all ?     for all .       Long-Term Behavior: Newton's Law of Cooling   Recall from that a cake removed from an oven at F and left in a room at F satisfies Newton's law of cooling with specific solution Compute and explain what this means physically.     F. The cake cools to room temperature.     "
 },
 {
   "id": "ex-2-1-1",
@@ -1843,7 +1843,7 @@ var ptx_lunr_docs = [
   "type": "Exercise",
   "number": "2.1.4.2",
   "title": "Long-Term Behavior: Logistic Equation (<span class=\"process-math\">\\(k \\gt 0\\)<\/span>).",
-  "body": " Long-Term Behavior: Logistic Equation ( )   Consider the logistic equation which has carrying capacity . The general solution in terms of the initial population is   The following three parts cover the cases , , and .     Suppose . Write the specific solution and compute . What does this mean for the population?     . As , , so . The population grows and levels off at the carrying capacity.      Suppose . Write the specific solution and compute . What does this mean for the population?     . As , , so . The population decreases and levels off at the carrying capacity.      Suppose . What is for all ?     for all — this is the equilibrium solution.    "
+  "body": " Long-Term Behavior: Logistic Equation ( )   Consider the logistic equation which has carrying capacity . The general solution in terms of the initial population is   The following three parts cover the cases , , and .     Suppose . Write the specific solution and compute . What does this mean for the population?     . As , , so . The population approaches carrying capacity as time goes to infinity.      Suppose . Write the specific solution and compute . What does this mean for the population?     . As , , so . The population approaches the carrying capacity.      Suppose . What is for all ?     for all (this is the equilibrium solution).    "
 },
 {
   "id": "ex-2-1-3",
@@ -2212,7 +2212,7 @@ var ptx_lunr_docs = [
   "type": "Exercises",
   "number": "2.2.7",
   "title": "Exercises for Section 2.2",
-  "body": " Exercises for Section 2.2   Nothing in these exercises should require solving a differential equation explicitly. When in doubt, draw a phase diagram to get started!     Reading Stability from Solution Curves   The figure below shows solution trajectories for a first-order autonomous ODE . The equilibrium solutions are shown as bold green horizontal lines. Blue curves show non-equilibrium solution trajectories.   Solution trajectories for an autonomous ODE with equilibria at , , and .       Identify the equilibrium solutions and classify the stability of each.     : stable. : unstable. : semi-stable.      Draw the phase diagram consistent with the solution curves above.    Arrows: left for , left for , right for , left for .       Phase Diagrams and Stability    Consider the autonomous differential equation Find all equilibrium solutions, draw the phase diagram, and classify the stability of each equilibrium.    Equilibria: (unstable), (stable).      Now consider Find all equilibrium solutions, draw the phase diagram, and classify the stability of each equilibrium.    Equilibria: (stable), (semi-stable).       Deer Population   A deer population in a wildlife reserve is modelled by where is the population (in hundreds) at time (in years).     Draw the phase diagram. Then determine whether is increasing or decreasing, and what converges to as , for each of:        Equilibria: , , . : decreasing, converges to . : increasing, converges to .      For which initial values is an increasing function?     .       The Fish Population   A fish population in a lake is modelled by where is the population (in thousands) at time (in years). There are currently 200 thousand fish in the lake, so . A fishery manager would like the population to decrease to zero over time.     Using a phase diagram, determine whether the population will decrease to zero when .    No. Since , the population is increasing and will not decrease to zero.      A fishing crew can remove any number of fish instantly. What is the minimum number of fish (in thousands) they must remove to guarantee the population will eventually decrease to zero? Justify your answer using the phase diagram.    More than 150 thousand fish must be removed, bringing the population strictly below .       Rabbit Population with Variable Carrying Capacity   A wildlife reserve manages a rabbit population modelled by where is the population (in hundreds) at time , and is the carrying capacity, which the reserve can control by adjusting the amount of food and vegetation available. Currently hundred rabbits.     For which values of will the rabbit population be increasing?    Find the equilibrium solutions in terms of and draw the phase diagram. Then consider where falls relative to the equilibria, which this depends on whether is greater than, equal to, or less than 8.     .       A Semi-Stable Population   A bacteria colony in a lab is modelled by where is the population (in millions) at time (in hours).     Find all equilibrium solutions, draw the phase diagram, and classify the stability of each equilibrium.    Equilibria: (semi-stable), (unstable).      The colony currently has million bacteria. A scientist can instantly reduce the colony size by adding an antibiotic.  If the antibiotic reduces the population to , what happens to the colony in the long run?  If the antibiotic reduces the population to , what happens to the colony in the long run?  What is significant about the equilibrium at in this context?         : falls in , arrow left so is decreasing and converges to the semi-stable equilibrium . The colony shrinks but does not die out.   : falls in , arrow left so is decreasing and moves away from , heading toward . The colony dies out.  The semi-stable equilibrium at acts as a threshold: reducing the population to below 4 million guarantees extinction, but reducing it to above 4 million only shrinks the colony to 4 million — it survives. The antibiotic must be strong enough to push the population strictly below this threshold to eliminate the colony entirely.        "
+  "body": " Exercises for Section 2.2   Nothing in these exercises should require solving a differential equation explicitly. When in doubt, draw a phase diagram to get started!     Reading Stability from Solution Curves   The figure below shows solution trajectories for a first-order autonomous ODE . The equilibrium solutions are shown as bold green horizontal lines. Blue curves show non-equilibrium solution trajectories.   Solution trajectories for an autonomous ODE with equilibria at , , and .       Identify the equilibrium solutions and classify the stability of each.     : stable. : unstable. : semi-stable.      Draw the phase diagram consistent with the solution curves above.    Arrows: left for , left for , right for , left for .       Phase Diagrams and Stability    Consider the autonomous differential equation Find all equilibrium solutions, draw the phase diagram, and classify the stability of each equilibrium.    Equilibria: (stable), (unstable).      Now consider Find all equilibrium solutions, draw the phase diagram, and classify the stability of each equilibrium.    Equilibria: (unstable), (semi-stable).       Deer Population   A deer population in a wildlife reserve is modelled by where is the population (in hundreds) at time (in years).     Draw the phase diagram. Then determine whether is increasing or decreasing, and what converges to as , for each of:        Equilibria: , , . : decreasing, converges to . : increasing, converges to .      For which initial values is an increasing function?     .       The Fish Population   A fish population in a lake is modelled by where is the population (in thousands) at time (in years). There are currently 200 thousand fish in the lake, so . A fishery manager would like the population to decrease to zero over time.     Using a phase diagram, determine whether the population will decrease to zero when .    No. Since , the population is increasing and will not decrease to zero.      A fishing crew can remove any number of fish instantly. What is the minimum number of fish (in thousands) they must remove to guarantee the population will eventually decrease to zero? Justify your answer using the phase diagram.    More than 150 thousand fish must be removed, bringing the population strictly below .       Rabbit Population with Variable Carrying Capacity   A wildlife reserve manages a rabbit population modelled by where is the population (in hundreds) at time , and is the carrying capacity, which the reserve can control by adjusting the amount of food and vegetation available. Currently hundred rabbits.     For which values of will the rabbit population be increasing?    Find the equilibrium solutions in terms of and draw the phase diagram. Then consider where falls relative to the equilibria, which this depends on whether is greater than, equal to, or less than 8.     .       A Semi-Stable Population   A bacteria colony in a lab is modelled by where is the population (in millions) at time (in hours).     Find all equilibrium solutions, draw the phase diagram, and classify the stability of each equilibrium.    Equilibria: (semi-stable), (unstable).      The colony currently has million bacteria. A scientist can instantly reduce the colony size by adding an antibiotic.  If the antibiotic reduces the population to , what happens to the colony in the long run?  If the antibiotic reduces the population to , what happens to the colony in the long run?  What is significant about the equilibrium at in this context?         : falls in , arrow left so is decreasing and converges to the semi-stable equilibrium . The colony shrinks but does not die out.   : falls in , arrow left so is decreasing and moves away from , heading toward . The colony dies out.  The semi-stable equilibrium at acts as a threshold: reducing the population to below 4 million guarantees extinction, but reducing it to above 4 million only shrinks the colony to 4 million — it survives. The antibiotic must be strong enough to push the population strictly below this threshold to eliminate the colony entirely.        "
 },
 {
   "id": "ex-2-2-1",
@@ -2230,7 +2230,7 @@ var ptx_lunr_docs = [
   "type": "Exercise",
   "number": "2.2.7.2",
   "title": "Phase Diagrams and Stability.",
-  "body": " Phase Diagrams and Stability    Consider the autonomous differential equation Find all equilibrium solutions, draw the phase diagram, and classify the stability of each equilibrium.    Equilibria: (unstable), (stable).      Now consider Find all equilibrium solutions, draw the phase diagram, and classify the stability of each equilibrium.    Equilibria: (stable), (semi-stable).    "
+  "body": " Phase Diagrams and Stability    Consider the autonomous differential equation Find all equilibrium solutions, draw the phase diagram, and classify the stability of each equilibrium.    Equilibria: (stable), (unstable).      Now consider Find all equilibrium solutions, draw the phase diagram, and classify the stability of each equilibrium.    Equilibria: (unstable), (semi-stable).    "
 },
 {
   "id": "ex-2-2-3",
@@ -2877,96 +2877,6 @@ var ptx_lunr_docs = [
   "url": "sec-amplitude.html#video-undamped-spring-examples",
   "type": "Figure",
   "number": "3.2.5",
-  "title": "",
-  "body": " This video goes through the content of this page.   "
-},
-{
-  "id": "sec-damped-mass-spring",
-  "level": "1",
-  "url": "sec-damped-mass-spring.html",
-  "type": "Section",
-  "number": "3.3.1",
-  "title": "The Damped Mass-Spring System",
-  "body": " The Damped Mass-Spring System   In , we modeled a mass attached to a spring and derived the ODE . That model assumed no friction whatsoever, so the mass oscillated forever. In reality, friction always acts to slow things down. We now add a dashpot to the system to model this frictional resistance.  A dashpot is a mechanical device that resists motion: think of a piston sliding through a cylinder filled with fluid. The spring and dashpot both connect the mass to the wall, as shown in the animation below. Press Play to see how the dashpot changes the behavior compared to the undamped case.   A horizontal mass-spring-dashpot system. The block of mass is connected to the wall by a spring (top) and a dashpot (bottom). Press Play to watch the oscillations die out as the dashpot dissipates energy.     Let's derive the ODE governing this system. As in , we measure position from the equilibrium position, with meaning the spring is stretched and meaning it is compressed. By , the restoring force from the spring is: where is the spring constant. The dashpot contributes a damping force proportional to velocity: where is the damping constant . The negative sign means the dashpot always resists the direction of motion.  By Newton's second law, the total force equals . Since the only forces acting on the mass are and , we have: Rearranging gives the damped mass-spring ODE :     The Damped Mass-Spring System   The position of a mass on a spring with constant and damping constant satisfies: where . This is called free damped motion : free because there is no external driving force, and damped because the dashpot dissipates energy.     To solve , we use the same characteristic equation approach from . The characteristic equation is: By the quadratic formula, the roots are: The expression is the discriminant , and its sign determines which of the three cases from we are in.   You will practice computing these roots directly in the homework exercises.   Let's make sure we remember which sign of gives which type of roots.    For the characteristic equation , which condition on , , and gives two distinct real roots?       Correct! When the discriminant is positive, the square root is real and nonzero, giving two distinct real roots .        When the discriminant is zero the square root vanishes, giving one repeated root , not two distinct roots.       When the discriminant is negative the square root is imaginary, giving complex conjugate roots, not two distinct real roots.       This includes the case , which gives a repeated root, not two distinct roots. Strict inequality is needed.       In general, the three cases for the roots of are:     Two distinct real roots when :    One repeated real root when :    Complex conjugate roots when :      As we saw in , each type of roots leads to a qualitatively different form of the general solution. In the mass-spring context, each case also has a physical name that describes how heavily the system is damped. The size of the damping constant relative to and is what determines which case we are in.    The Three Damping Cases   For free damped motion with , the system falls into one of three cases depending on the discriminant :     Overdamped ( ): two distinct real roots. The damping constant is large relative to and , so the system is slowed down the most.   Critically damped ( ): one repeated real root. This is the borderline case, the exact value of that sits between overdamped and underdamped.   Underdamped ( ): complex conjugate roots. The damping constant is small, so the system still oscillates, just with decaying amplitude.    In all three cases , so the system is damped. When we recover the undamped system from .      Key Takeaways     The ODE: Adding a dashpot gives , called free damped motion. The new term models friction proportional to velocity.   The discriminant: The sign of determines the type of roots of the characteristic equation and therefore the qualitative behavior of solutions.   Three cases: Overdamped ( ), critically damped ( ), and underdamped ( ). Larger means more damping.       This video goes through the content of this page.     "
-},
-{
-  "id": "sec-damped-mass-spring-2",
-  "level": "2",
-  "url": "sec-damped-mass-spring.html#sec-damped-mass-spring-2",
-  "type": "Paragraph (with a defined term)",
-  "number": "",
-  "title": "",
-  "body": "dashpot "
-},
-{
-  "id": "fig-dashpot-intro",
-  "level": "2",
-  "url": "sec-damped-mass-spring.html#fig-dashpot-intro",
-  "type": "Figure",
-  "number": "3.3.1",
-  "title": "",
-  "body": " A horizontal mass-spring-dashpot system. The block of mass is connected to the wall by a spring (top) and a dashpot (bottom). Press Play to watch the oscillations die out as the dashpot dissipates energy.   "
-},
-{
-  "id": "sec-damped-mass-spring-5",
-  "level": "2",
-  "url": "sec-damped-mass-spring.html#sec-damped-mass-spring-5",
-  "type": "Paragraph (with a defined term)",
-  "number": "",
-  "title": "",
-  "body": "damping force damping constant "
-},
-{
-  "id": "sec-damped-mass-spring-6",
-  "level": "2",
-  "url": "sec-damped-mass-spring.html#sec-damped-mass-spring-6",
-  "type": "Paragraph (with a defined term)",
-  "number": "",
-  "title": "",
-  "body": "damped mass-spring ODE "
-},
-{
-  "id": "def-damped-mass-spring",
-  "level": "2",
-  "url": "sec-damped-mass-spring.html#def-damped-mass-spring",
-  "type": "Definition",
-  "number": "3.3.2",
-  "title": "The Damped Mass-Spring System.",
-  "body": " The Damped Mass-Spring System   The position of a mass on a spring with constant and damping constant satisfies: where . This is called free damped motion : free because there is no external driving force, and damped because the dashpot dissipates energy.   "
-},
-{
-  "id": "sec-damped-mass-spring-8",
-  "level": "2",
-  "url": "sec-damped-mass-spring.html#sec-damped-mass-spring-8",
-  "type": "Paragraph (with a defined term)",
-  "number": "",
-  "title": "",
-  "body": "discriminant "
-},
-{
-  "id": "ex-mc-discriminant-overdamped",
-  "level": "2",
-  "url": "sec-damped-mass-spring.html#ex-mc-discriminant-overdamped",
-  "type": "Checkpoint",
-  "number": "3.3.3",
-  "title": "",
-  "body": "  For the characteristic equation , which condition on , , and gives two distinct real roots?       Correct! When the discriminant is positive, the square root is real and nonzero, giving two distinct real roots .        When the discriminant is zero the square root vanishes, giving one repeated root , not two distinct roots.       When the discriminant is negative the square root is imaginary, giving complex conjugate roots, not two distinct real roots.       This includes the case , which gives a repeated root, not two distinct roots. Strict inequality is needed.     "
-},
-{
-  "id": "def-damping-cases",
-  "level": "2",
-  "url": "sec-damped-mass-spring.html#def-damping-cases",
-  "type": "Definition",
-  "number": "3.3.4",
-  "title": "The Three Damping Cases.",
-  "body": " The Three Damping Cases   For free damped motion with , the system falls into one of three cases depending on the discriminant :     Overdamped ( ): two distinct real roots. The damping constant is large relative to and , so the system is slowed down the most.   Critically damped ( ): one repeated real root. This is the borderline case, the exact value of that sits between overdamped and underdamped.   Underdamped ( ): complex conjugate roots. The damping constant is small, so the system still oscillates, just with decaying amplitude.    In all three cases , so the system is damped. When we recover the undamped system from .   "
-},
-{
-  "id": "video-damped-spring-intro",
-  "level": "2",
-  "url": "sec-damped-mass-spring.html#video-damped-spring-intro",
-  "type": "Figure",
-  "number": "3.3.5",
   "title": "",
   "body": " This video goes through the content of this page.   "
 },
