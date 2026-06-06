@@ -121,8 +121,8 @@
           <statement><p><m>P_0 \gt 4</m> only</p></statement>
           <feedback>
             <p>
-              Not quite. Check the arrow direction for <m>P \lt 2</m> as well —
-              it also points right, so solutions there are also growing.
+              Not quite. Check the arrow direction for <m>P \lt 2</m> as well. 
+              It also points right, so solutions there are also growing.
             </p>
           </feedback>
         </choice>
@@ -235,7 +235,7 @@
           <statement><p><m>P_0 \gt 10</m> only</p></statement>
           <feedback>
             <p>
-              Not quite. Check the arrow direction for <m>P \gt 10</m> — it points
+              Not quite. Check the arrow direction for <m>P \gt 10</m>. It points
               left, so solutions there are actually decreasing.
             </p>
           </feedback>
@@ -244,7 +244,7 @@
           <statement><p><m>P_0 \in (0, \infty)</m></p></statement>
           <feedback>
             <p>
-              Close, but check the arrow direction for <m>P \gt 10</m> — it points
+              Close, but check the arrow direction for <m>P \gt 10</m>. It points
               left, so solutions starting above <m>10</m> are decreasing, not growing.
             </p>
           </feedback>

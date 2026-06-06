@@ -9,13 +9,13 @@
 
   <p>
     In the previous page we solved the logistic equation <m>\dfrac{dP}{dt} = kP(M-P)</m>
-    with <m>k \gt 0</m> and found beautifully predictable behavior: no matter where the
-    population starts, it always levels off at the carrying capacity <m>M</m>. Now we ask
+    with <m>k \gt 0</m> and found quite nice and predictable behavior: no matter where the
+    population starts, it always levels off towards the carrying capacity <m>M</m>. Now we ask
     what happens when <m>k \lt 0</m>. The formula for the general solution looks almost
     identical, but the behavior is shockingly different, and it depends heavily on the
-    initial condition. Our goal here is not to dwell on the algebra of solving, but to
-    understand what the solutions actually <em>do</em>, because this will motivate
-    everything in the next section.
+    initial condition. Just like in the previous page, our goal here is not to spend too much time
+     on the algebra of solving it, but to
+    understand what the solutions actually <em>do</em> long-term.
   </p>
 
   <!-- ═══════════════════════════════════════════════════════════
@@ -234,12 +234,13 @@
   <p>
     In finite time <m>T = \dfrac{\ln 6}{20}</m> years, the population explodes to infinity.
     When applying this to population modelling, the model completely breaks down at <m>t = T</m>.
-    We call this <term>doomsday</term>: a population explosion in finite time.
+    We call this <term>doomsday</term>: a population explosion in finite time. This is actually a wild thing to occur if you think about it!
+     In finite time, if the population goes to infinity, does this mean the world ends??
   </p>
 
   <p>
     Let's explore what is happening with these two limits in the graph below. You can change
-    the value <m>P(0)</m> and press play to see how the population changes with time. 
+    the value <m>P(0)</m> and press "play" to see how the population changes with time. 
     Notice how dramatically different the behavior
     is, even though the ODE is the same and the initial conditions differ by only a small amount
     relative to <m>M = 10</m>. 
@@ -248,7 +249,7 @@
  <figure xml:id="fig-doomsday-extinction">
   <caption>
     Solutions to <m>\dfrac{dP}{dt} = -2P(10-P)</m> for different initial populations.
-    Use the slider to set <m>P(0)</m> and press Play to watch the solution evolve.
+    Use the slider to set <m>P(0)</m> and press "play" to watch the solution evolve.
     When <m>P(0) \lt M = 10</m>, the population goes extinct.
     When <m>P(0) \gt M = 10</m>, the population explodes to infinity in finite time <m>T</m>
     (marked by the vertical dashed line).

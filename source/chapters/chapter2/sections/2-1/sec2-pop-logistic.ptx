@@ -11,9 +11,14 @@
     In the previous page we set up the logistic equation
     <m>\dfrac{dP}{dt} = kP(M - P)</m>
     as a model for population growth that accounts for crowding and resource limits.
-    Now let's actually solve it. The algebra is a workout, so we have organized things
-    so you can read the big picture first and dig into the details later when you need
-    them for homework.
+    It's time to actually solve it! 
+  </p>
+
+  <p>
+    It's just a separable ODE, so nothing in the solving is new, but it is
+     quite tedious. So this page is organized to allow you to skim over many of the details
+      in actually solving it. The real point of this page comes later when we look at the limiting behavior of the population 
+      (i.e. what happens as time to goes to infinity).
   </p>
 
   <!-- ═══════════════════════════════════════════════════════════
@@ -65,7 +70,7 @@
     </p>
 
     <solution>
-      <title>Full LHS integration with partial fractions (can skim for now, useful for homework)</title>
+      <title>Full LHS integration with partial fractions (can skim for now)</title>
       <p>
         We use partial fractions. Write
         <me>\frac{1}{P(5-P)} = \frac{A}{P} + \frac{B}{5-P}.</me>
@@ -114,7 +119,7 @@
   <p>
     Now that we have an explicit formula for <m>P(t)</m>, one of the most important
     questions in population modelling is: what happens in the long run?
-    Does the population grow forever, crash to zero, or stabilize at some value?
+    Does the population grow forever, go extinct, or stabilize at some value?
   </p>
 
   <!-- ═══════════════════════════════════════════════════════════
@@ -177,9 +182,7 @@
     For the logistic equation with <m>k \gt 0</m>, every solution with <m>P(0) \gt 0</m> satisfies
     <me>\lim_{t \to \infty} P(t) = M.</me>
     No matter where the population starts, it always levels off at the carrying capacity. 
-    Also notice that <m>P(0) = 0</m> we recover one of the equilibrium solutions: if the population starts at zero, it stays there.
-    A similar thing happens for <m>P(0) = 5</m>!
-    This is exactly the realistic, well-behaved growth we were hoping to model.
+    Also notice that if <m>P(0) = 0</m> we recover one of the equilibrium solutions: if the population starts at zero, it stays there.
   </p>
 <figure xml:id="fig-logistic-curves">
   <caption>

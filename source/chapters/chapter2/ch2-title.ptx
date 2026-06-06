@@ -6,8 +6,8 @@
   <introduction>
     <p>
       In this chapter we study first order autonomous ODEs, which are equations where the rate of change
-      depends only on the current state, not explicitly on time. We explore three important
-      applications: resistive forces, population modelling, and the stability of equilibrium solutions.
+      depends only on the current state, not explicitly on time. We study it further in the context of
+       population modelling and the stability of equilibrium solutions.
     </p>
   </introduction>
 

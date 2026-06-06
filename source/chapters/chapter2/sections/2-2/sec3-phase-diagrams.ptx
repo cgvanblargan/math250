@@ -10,8 +10,8 @@
   <p>
     We now develop a tool for classifying the stability of equilibrium solutions
     without having to solve the ODE explicitly. Some of what we say here will be
-    justified more carefully in the next section — for now, let's build intuition
-    through an example.
+    justified more carefully in the next section. In this page, we are going to just make sure
+     we understand how to draw and interpret phase diagrams. 
   </p>
 
   <!-- ═══════════════════════════════════════════════════════════
@@ -26,9 +26,9 @@
 
   <p>
     The figure below shows the solution curves with each region labeled.
-    Notice that solutions starting in a region stay in that region — they get
-    <em>trapped</em> between the equilibrium solutions and can only increase or
-    decrease monotonically. We will justify this precisely in the next section.
+    Notice that solutions starting in a region stay in that region. They get
+    <em>trapped</em> between the equilibrium solutions and will either be
+    increasing or decreasing forever! We will justify why this always happens in the next section.
   </p>
 
   <figure xml:id="fig-phase-intro">
@@ -83,7 +83,7 @@
  
   <p>
     From the directions of the arrows, we can read off the stability directly.
-    At <m>P = 10</m>: arrows on both sides point <em>toward</em> it — solutions
+    At <m>P = 10</m>: arrows on both sides point <em>toward</em> it, so solutions
     approaching from below are increasing toward 10, and solutions above are
     decreasing toward 10. So <m>P = 10</m> is <term>stable</term>.
     At <m>P = 0</m>: the arrow to the left points away, and the arrow to the right

@@ -13,6 +13,13 @@
     our stability analysis is reliable.
   </p>
 
+  <p>
+    <alert>Note. </alert> This page does get a bit more theoretical than we typically do in this class. 
+    It's okay if you don't 100% get the theory the first time you learn this. The important thing for this page is to get 
+    the "gist" so that you can build intuition on why phase diagrams work. Going forward, you need to understand
+     how to apply these results in the pages that follow.
+  </p>
+
   <theorem xml:id="thm-existence-uniqueness-autonomous">
     <title>Existence and Uniqueness for First-Order Autonomous DEs</title>
     <statement>
@@ -66,7 +73,7 @@
           pass through a point on an equilibrium.
         </p></li>
         <li><p>
-          <alert>Solutions grow or decrease forever.</alert>
+          <alert>Solutions increase or decrease forever.</alert>
           Since the sign of <m>f(y)</m> is constant within each zone between equilibria,
           and solutions cannot intersect one another, a solution that starts out
           increasing stays increasing for its entire interval of existence,
@@ -164,7 +171,7 @@
   </remark>
 
   <p>
-    Before we move onto more complicated examples, let's make sure we understand how deduce some behavior
+    Before we move onto more complicated examples, let's make sure we understand how to deduce some behavior
      from a phase diagram. Consider the phase diagram below for a population model <m>\dfrac{dP}{dt} = f(P)</m>.
   </p>
 
@@ -196,7 +203,7 @@
         <statement><p><m>P(0) \in (-\infty, 0) \cup (10, \infty)</m></p></statement>
         <feedback>
           <p>
-            Not quite. Check the arrow directions in those regions — do they point
+            Not quite. Check the arrow directions in those regions. Do they point
             right (increasing) or left (decreasing)?
           </p>
         </feedback>
@@ -216,7 +223,7 @@
         <statement><p><m>P(0) \in (0, \infty)</m></p></statement>
         <feedback>
           <p>
-            Not quite. Look at what happens for <m>P(0) \gt 10</m> — the arrow
+            Not quite. Look at what happens for <m>P(0) \gt 10</m>. The arrow
             points left, meaning solutions are decreasing there.
           </p>
         </feedback>
@@ -225,7 +232,7 @@
         <statement><p>No solution grows forever.</p></statement>
         <feedback>
           <p>
-            Not quite. Look at the arrow in the middle region — it points right,
+            Not quite. Look at the arrow in the middle region. It points right,
             meaning solutions there are increasing for their entire interval of existence.
           </p>
         </feedback>

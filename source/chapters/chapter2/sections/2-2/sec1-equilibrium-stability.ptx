@@ -13,7 +13,7 @@
     In <xref ref="sec-pop-logistic"/> and <xref ref="sec-pop-doomsday"/>, we found
     that both population models had equilibrium solutions at <m>P(t) = 0</m> and
     <m>P(t) = M</m>. But what made those two pages interesting was not the equilibrium
-    solutions themselves, it was what happened to all the other solutions nearby.
+    solutions themselves, but how it related to all the other solutions nearby.
   </p>
 
   <p>
@@ -21,7 +21,7 @@
     started (above or below <m>M = 5</m>), it converged to <m>M</m> as <m>t \to \infty</m>, as long as <m>P(0)>0</m>.
     The equilibrium at <m>P = 5</m> acted like a magnet. The equilibrium at <m>P = 0</m>
     behaved very differently: solutions that started nearby drifted away from it.
-    We want language to describe this difference.
+     We will be exploring this type of behavior for the rest of this section.
   </p>
 
   <!-- ═══════════════════════════════════════════════════════════
@@ -142,8 +142,8 @@
       <feedback>
         <p>
           Correct! Solutions starting near <m>P = 0</m> decay toward it, while solutions
-          starting near <m>P = 10</m> move away — either to extinction or doomsday
-          depending on which side they start.
+          starting near <m>P = 10</m> move away (either to extinction or doomsday
+          depending on which side they star).
         </p>
       </feedback>
     </choice>
@@ -151,7 +151,7 @@
       <statement><p><m>P = 0</m> is unstable and <m>P = 10</m> is stable.</p></statement>
       <feedback>
         <p>
-          Not quite — that describes the logistic case from the first graph.
+          Not quite. That describes the logistic case from the first graph.
           Look at what happens to solutions that start near <m>P = 10</m> in the second graph.
           Do they converge to 10 or move away from it?
         </p>

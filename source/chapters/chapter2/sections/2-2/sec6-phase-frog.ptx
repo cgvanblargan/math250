@@ -90,7 +90,7 @@
       </statement>
       <choices randomize="no">
         <choice correct="yes">
-          <statement><p>Yes  the population will decrease to zero.</p></statement>
+          <statement><p>Yes, the population will decrease to zero.</p></statement>
           <feedback>
             <p>
               Correct! With <m>P(0) = 20</m>, the initial value falls in the
@@ -106,8 +106,8 @@
           <statement><p>No, the population will still increase.</p></statement>
           <feedback>
             <p>
-              Not quite. Check the phase diagram from part 1 again —
-              which direction does the arrow point in the region
+              Not quite. Check the phase diagram from part 1 again. 
+              Which direction does the arrow point in the region
               <m>0 \lt P \lt 30</m>?
             </p>
           </feedback>
@@ -126,7 +126,7 @@
           <feedback>
             <p>
               The constant <m>k = 4</m> affects the speed of change but not
-              the direction — that is determined entirely by the sign of
+              the direction. That is determined entirely by the sign of
               <m>f(P)</m>, which the phase diagram captures. The phase diagram
               is all we need.
             </p>
