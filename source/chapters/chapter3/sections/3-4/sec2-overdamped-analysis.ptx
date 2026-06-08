@@ -1,0 +1,413 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-overdamped-analysis" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Analyzing Overdamped and Critically Damped Motion</title>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       SUMMARY ASSEMBLAGE: OVERDAMPED + CRITICALLY DAMPED
+       ═══════════════════════════════════════════════════════════ -->
+
+  <p>
+    Overdamped and critically damped systems share the same qualitative behavior:
+    the mass returns to equilibrium without oscillating, passing through it at most once.
+  </p>
+
+  <assemblage xml:id="assemblage-overdamped-critical-summary">
+    <title>Summary: Overdamped and Critically Damped Cases of <m>mx'' + cx' + kx = 0</m></title>
+    <tabular halign="left" row-headers="yes">
+      <col width="22%"/>
+      <col width="36%"/>
+      <col width="20%"/>
+      <col width="22%"/>
+      <row header="yes" bottom="medium">
+        <cell>Case</cell>
+        <cell>Discriminant and roots</cell>
+        <cell>Crossings of <m>x=0</m></cell>
+        <cell><m>\displaystyle\lim_{t\to\infty} x(t)</m></cell>
+      </row>
+      <row bottom="minor">
+        <cell><term>Overdamped</term> (larger <m>c</m>)</cell>
+        <cell><m>c^2 > 4km</m> (two distinct real roots)</cell>
+        <cell>At most once</cell>
+        <cell><m>0</m></cell>
+      </row>
+      <row bottom="minor">
+        <cell><term>Critically damped</term> (borderline)</cell>
+        <cell><m>c^2 = 4km</m> (one repeated real root)</cell>
+        <cell>At most once</cell>
+        <cell><m>0</m></cell>
+      </row>
+    </tabular>
+  </assemblage>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       SETUP: INTRODUCE THE EXAMPLE FUNCTION
+       ═══════════════════════════════════════════════════════════ -->
+
+  <p>
+    For the rest of this page we analyze the position function
+    <me>x(t) = 4e^{-2t} - 10e^{-t}.</me>
+    We will use information about this function to build a complete picture
+    of the motion.
+  </p>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       EXPLORATION
+       ═══════════════════════════════════════════════════════════ -->
+
+  <exploration xml:id="exploration-overdamped-analysis">
+    <title>Building a Picture of the Motion</title>
+
+    <introduction>
+      <p>
+        Throughout this exploration, <m>x(t) = 4e^{-2t} - 10e^{-t}</m>.
+      </p>
+    </introduction>
+
+    <!-- Task 1: Which damping case -->
+
+    <task xml:id="task-overdamped-which-case">
+      <title>Which Damping Case?</title>
+      <statement>
+        <p>
+          Based on the form of <m>x(t) = 4e^{-2t} - 10e^{-t}</m>,
+          which damping case are we in?
+        </p>
+      </statement>
+      <choices randomize="no">
+        <choice correct="yes">
+          <statement><p>Overdamped</p></statement>
+          <feedback>
+            <p>
+              Correct! The solution is a sum of two distinct decaying exponentials,
+              <m>x(t) = c_1 e^{r_1 t} + c_2 e^{r_2 t}</m> with <m>r_1 = -2</m>
+              and <m>r_2 = -1</m>. Two distinct real roots means <m>c^2 > 4km</m>,
+              which is the overdamped case. <m>\checkmark</m>
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement><p>Critically damped</p></statement>
+          <feedback>
+            <p>
+              Not quite. A critically damped solution has the form
+              <m>x(t) = c_1 e^{-at} + c_2 t e^{-at}</m>, with one exponential
+              and one multiplied by <m>t</m>. Here we have two different
+              exponential rates, so the roots are distinct, not repeated.
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement><p>Underdamped</p></statement>
+          <feedback>
+            <p>
+              Not quite. An underdamped solution has the form
+              <m>x(t) = e^{-pt}(c_1\cos(\omega t) + c_2\sin(\omega t))</m>,
+              which involves oscillating trig terms. This solution has no
+              trig functions, so it decays without oscillating.
+            </p>
+          </feedback>
+        </choice>
+      </choices>
+    </task>
+
+    <!-- Task 2: Equilibrium crossing -->
+
+    <task xml:id="task-overdamped-equilibrium">
+      <title>Does the Mass Pass Through Equilibrium?</title>
+      <statement>
+        <p>
+          Will the mass ever pass through the equilibrium position <m>x = 0</m>?
+        </p>
+      </statement>
+      <hint>
+        <p>
+          Set <m>x(t) = 0</m> and solve for <m>t</m>. Remember that
+          only <m>t \geq 0</m> is physically meaningful.
+        </p>
+      </hint>
+      <solution>
+        <details>
+          <summary>Full solution</summary>
+          <p>
+            We solve <m>4e^{-2t} - 10e^{-t} = 0</m>.
+            Since <m>e^{-t} \neq 0</m>, divide both sides by <m>e^{-t}</m>:
+            <me>4e^{-t} - 10 = 0 \implies e^{-t} = \frac{10}{4} = \frac{5}{2}
+               \implies t = -\ln\!\left(\tfrac{5}{2}\right) \approx -0.92.</me>
+            Since <m>t \lt 0</m>, this is not a valid time. The mass
+            <alert>never passes through equilibrium</alert> for <m>t \geq 0</m>.
+          </p>
+        </details>
+      </solution>
+    </task>
+
+    <!-- Task 3: Initial conditions -->
+
+    <task xml:id="task-overdamped-initial">
+      <title>Initial Position and Velocity</title>
+      <statement>
+        <p>
+          Compute <m>x(0)</m> and <m>x'(0)</m>. What do these tell you about
+          where the mass starts and which direction it initially moves?
+        </p>
+      </statement>
+      <hint>
+        <p>
+          Recall: <m>x(0) > 0</m> means stretched, <m>x(0) \lt 0</m> means compressed.
+          <m>x'(0) > 0</m> means moving in the positive direction (toward equilibrium
+          when compressed), <m>x'(0) \lt 0</m> means moving in the negative direction.
+        </p>
+      </hint>
+      <solution>
+        <details>
+          <summary>Work</summary>
+          <p>
+            <alert>Initial position:</alert>
+            <me>x(0) = 4 - 10 = -6.</me>
+            Since <m>x(0) = -6 \lt 0</m>, the mass starts <alert>compressed</alert>.
+          </p>
+          <p>
+            <alert>Initial velocity:</alert> Differentiating,
+            <me>x'(t) = -8e^{-2t} + 10e^{-t},</me>
+            so <m>x'(0) = -8 + 10 = 2 > 0</m>.
+            The mass is initially moving in the <alert>positive direction</alert>,
+            that is, toward the equilibrium position.
+          </p>
+          <p>
+            Together: the mass starts compressed at <m>x = -6</m>, moves
+            toward equilibrium, but (from Task 2) never reaches it.
+            So the mass stays compressed for all <m>t \geq 0</m>.
+          </p>
+        </details>
+      </solution>
+    </task>
+
+    <!-- Task 4: Matching -->
+
+    <task xml:id="task-overdamped-matching">
+      <title>Sketch the Graph</title>
+      <statement>
+        <p>
+          From Task 3 we observed that <m>x(0) = -6</m> and <m>x'(0) = 2 > 0</m>, so:
+          <ul>
+            <li><p><m>x(0) \lt 0</m>: the mass starts <alert>compressed</alert>, and</p></li>
+            <li><p><m>x'(0) = 2 > 0</m>: it is initially moving in the <alert>positive direction</alert>.</p></li>
+          </ul>
+          Using this, together with the fact that the mass never crosses equilibrium
+          (Task 2), determine which graph below matches <m>x(t) = 4e^{-2t} - 10e^{-t}</m>.
+        </p>
+
+        <figure xml:id="fig-overdamped-matching">
+          <caption>
+            Three candidate graphs for <m>x(t) = 4e^{-2t} - 10e^{-t}</m>.
+            The dashed green line marks the equilibrium <m>x = 0</m>.
+            The red dot marks the starting position at <m>t = 0</m>.
+          </caption>
+          <interactive xml:id="interactive-overdamped-matching"
+            iframe="ch3-graph/static-overdamped-matching.html"
+            width="100%" aspect="5:2">
+            <description>
+              Three side-by-side candidate graphs labeled (a), (b), and (c),
+              each with a dashed green equilibrium line at x equals zero and
+              a red dot marking the starting position at t equals zero.
+              Graph (a): starts below zero (compressed), initially moves further
+              below zero becoming more compressed, then turns around and increases
+              back toward zero from below, never crossing the equilibrium.
+              Graph (b): starts below zero (compressed), immediately moves toward
+              zero in the positive direction, approaching the equilibrium from
+              below without ever crossing it.
+              Graph (c): starts below zero and oscillates above and below the
+              equilibrium line multiple times with decreasing amplitude,
+              eventually approaching zero.
+            </description>
+          </interactive>
+        </figure>
+      </statement>
+      <choices randomize="no">
+        <choice>
+          <statement><p>Graph (a)</p></statement>
+          <feedback>
+            <p>
+              Graph (a) does start compressed, which is correct. However, it then
+              moves further from equilibrium before turning around, meaning
+              <m>x'(0) \lt 0</m> initially. But we found <m>x'(0) = 2 > 0</m>,
+              so the mass is moving toward equilibrium from the very start,
+              not away from it.
+            </p>
+          </feedback>
+        </choice>
+        <choice correct="yes">
+          <statement><p>Graph (b)</p></statement>
+          <feedback>
+            <p>
+              Correct! Graph (b) starts below zero (compressed), moves in the
+              positive direction toward equilibrium, and never crosses <m>x = 0</m>,
+              exactly matching what we found in Tasks 2 and 3. <m>\checkmark</m>
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement><p>Graph (c)</p></statement>
+          <feedback>
+            <p>
+              Graph (c) shows oscillations, which is the behavior of an underdamped
+              system. But <m>x(t) = 4e^{-2t} - 10e^{-t}</m> has two distinct real
+              exponential terms with no trig functions, so it is overdamped and
+              does not oscillate.
+            </p>
+          </feedback>
+        </choice>
+      </choices>
+    </task>
+
+  </exploration>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       EXAMPLE
+       ═══════════════════════════════════════════════════════════ -->
+
+  <example xml:id="ex-overdamped-analysis">
+    <title>Analyzing <m>x(t) = 4e^{-2t} - 10e^{-t}</m></title>
+    <statement>
+      <p>
+        Suppose the position function of a mass in a spring-mass-dashpot system is
+        <me>x(t) = 4e^{-2t} - 10e^{-t}, \quad t \geq 0.</me>
+      </p>
+      <p>
+        <ol>
+          <li><p>Will the mass pass through the equilibrium position?</p></li>
+          <li><p>When is the spring most stretched?</p></li>
+          <li><p>When is the spring most compressed?</p></li>
+        </ol>
+      </p>
+    </statement>
+
+    <task xml:id="ex-task-overdamped-equil">
+      <title>Will the mass pass through equilibrium?</title>
+      <hint>
+        <p>
+          This was solved in <xref ref="task-overdamped-equilibrium"/> of the exploration.
+        </p>
+      </hint>
+      <solution>
+        <p>
+          From <xref ref="task-overdamped-equilibrium"/>: the only solution to
+          <m>x(t) = 0</m> occurs at <m>t = -\ln(5/2) \approx -0.92 \lt 0</m>,
+          which is not a valid time. The mass <alert>never passes through equilibrium</alert>.
+        </p>
+      </solution>
+    </task>
+
+    <task xml:id="ex-task-overdamped-stretched">
+      <title>When is the spring most stretched?</title>
+      <hint>
+        <p>
+          What can you deduce from the sketch of the graph in the exploration?
+          Think about what the initial conditions and the equilibrium crossing
+          result together tell you about whether the spring is ever stretched.
+        </p>
+      </hint>
+      <solution>
+        <p>
+          From the exploration: the mass starts compressed (<m>x(0) = -6 \lt 0</m>)
+          and never crosses the equilibrium position. Therefore <m>x(t) \lt 0</m>
+          for all <m>t \geq 0</m>, so the spring is <alert>never stretched</alert>.
+          This is confirmed by the graph below, which stays entirely below <m>x = 0</m>.
+        </p>
+        <figure xml:id="fig-overdamped-stretched">
+          <caption>
+            The graph of <m>x(t) = 4e^{-2t} - 10e^{-t}</m> stays below zero for
+            all <m>t \geq 0</m>. The spring is never stretched.
+          </caption>
+          <interactive xml:id="interactive-overdamped-stretched"
+            iframe="ch3-graph/static-overdamped-example.html"
+            width="100%" aspect="5:2">
+            <description>
+              Graph of x of t equals 4 e to the negative 2t minus 10 e to the
+              negative t, for t from 0 to 6. The curve starts at x equals
+              negative 6, increases toward the equilibrium dashed line at x equals
+              zero, and approaches zero from below without ever crossing it.
+            </description>
+          </interactive>
+        </figure>
+      </solution>
+    </task>
+
+    <task xml:id="ex-task-overdamped-compressed">
+      <title>When is the spring most compressed?</title>
+      <hint>
+        <p>
+          What can you deduce from the sketch of the graph that used knowledge
+          of <m>x(0)</m> and <m>x'(0)</m>? Think about the direction of motion
+          from the very start.
+        </p>
+      </hint>
+      <solution>
+        <p>
+          From the exploration: <m>x(0) = -6</m> and <m>x'(0) = 2 > 0</m>,
+          so the mass starts compressed and is already moving toward equilibrium
+          at <m>t = 0</m>. Since it never crosses equilibrium, it moves closer
+          to zero for all <m>t > 0</m>. Therefore <m>x(0) = -6</m> is the
+          most negative value, and the spring is <alert>most compressed at <m>t = 0</m></alert>.
+          The graph confirms this: the curve starts at its lowest point and
+          increases from there.
+        </p>
+        <figure xml:id="fig-overdamped-compressed">
+          <caption>
+            The spring is most compressed at <m>t = 0</m>, where <m>x(0) = -6</m>
+            is the minimum. The mass moves toward equilibrium for all <m>t > 0</m>.
+          </caption>
+          <interactive xml:id="interactive-overdamped-compressed"
+            iframe="ch3-graph/static-overdamped-example.html"
+            width="100%" aspect="5:2">
+            <description>
+              Same graph of x of t equals 4 e to the negative 2t minus 10 e to
+              the negative t. The red dot at t equals 0, x equals negative 6
+              marks the most compressed position. The curve increases from
+              there toward zero.
+            </description>
+          </interactive>
+        </figure>
+      </solution>
+    </task>
+
+  </example>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       KEY TAKEAWAYS
+       ═══════════════════════════════════════════════════════════ -->
+
+  <conclusion>
+    <title>Key Takeaways</title>
+    <p>
+      To answer questions about the behavior of the mass, we should often begin by finding:
+      <ul>
+        <li><p>
+          <alert>Does it pass through equilibrium, and how many times?</alert>
+          For overdamped and critically damped systems, at most once.
+        </p></li>
+        <li><p>
+          <alert>What are <m>x(0)</m> and <m>x'(0)</m>?</alert>
+          These tell us where the mass starts and which direction it initially moves.
+        </p></li>
+      </ul>
+      From these two pieces of information we can always construct a rough sketch
+      of the graph, which in turn lets us answer qualitative questions about the
+      behavior of the system.
+    </p>
+  </conclusion>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       VIDEO + QUESTION FORM
+       ═══════════════════════════════════════════════════════════ -->
+
+  <figure xml:id="video-overdamped-analysis">
+    <caption>This video goes through the content of this page.</caption>
+    <video youtube="4zwhMFCQJyc" width="100%" preview="default"/>
+  </figure>
+
+  <interactive xml:id="question-form-3-4-2"
+    iframe="question-form.html?section=3.4.2"
+    width="100%" aspect="2:1"/>
+
+</section>

@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-overdamped" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Behavior of Overdamped Solutions</title>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       OBSERVATION: SOLUTION FORM
+       ═══════════════════════════════════════════════════════════ -->
+
+  <observation xml:id="obs-overdamped-form">
+    <title>Overdamped Solution Form</title>
+    <p>
+      When <m>c^2 > 4km</m>, the characteristic equation has two distinct real roots
+      <m>r_1</m> and <m>r_2</m>, and the system is <term>overdamped</term>.
+      Since <m>m, c, k > 0</m>, both roots are negative.
+      The general solution takes the form:
+      <me>x(t) = c_1 e^{r_1 t} + c_2 e^{r_2 t},</me>
+      where <m>r_1 \lt 0</m> and <m>r_2 \lt 0</m>.
+    </p>
+  </observation>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       PROSE: SUM OF TWO DECAYING EXPONENTIALS
+       ═══════════════════════════════════════════════════════════ -->
+
+  <p>
+    Unlike the underdamped case in <xref ref="sec-underdamped"/>, there are no
+    trigonometric functions here. The solution is a sum of two purely exponentially
+    decaying terms. This means position function is not oscillating. 
+  </p>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       INTERACTIVE 1: SPRING ANIMATION + x(t) GRAPH
+       ═══════════════════════════════════════════════════════════ -->
+
+  <figure xml:id="fig-overdamped-spring">
+    <caption>
+      An overdamped spring with <m>r_1 = -0.5</m>, <m>r_2 = -2</m>,
+      <m>c_1 = -2</m>, <m>c_2 = 3</m>, so
+      <m>x(t) = -2e^{-0.5t} + 3e^{-2t}</m>.
+      Press Play and notice the mass crosses equilibrium once then decays
+      back without oscillating.
+    </caption>
+    <interactive xml:id="interactive-overdamped-spring"
+      iframe="ch3-graph/interactive-overdamped-spring.html"
+      width="100%" aspect="5:2.2">
+      <description>
+        On the left, an animation of an overdamped mass on a spring and dashpot.
+        The mass starts compressed, shoots through the equilibrium position once
+        with momentum, peaks on the stretched side, then decays back toward zero
+        without oscillating. On the right, the corresponding graph of x of t is
+        traced in real time.
+      </description>
+    </interactive>
+  </figure>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       PROSE: RAISE THE EQUILIBRIUM QUESTION
+       ═══════════════════════════════════════════════════════════ -->
+
+  <p>
+    In the animation above the mass crossed equilibrium exactly once. But does that
+    always happen, or does it depend on <m>c_1</m> and <m>c_2</m>?
+    Explore the graph below by trying different values.
+  </p>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       INTERACTIVE 2: EXPLORER (GRAPH ONLY, c1/c2 SLIDERS)
+       ═══════════════════════════════════════════════════════════ -->
+
+  <figure xml:id="fig-overdamped-explore">
+    <caption>
+      The overdamped solution <m>x(t) = c_1 e^{-0.5t} + c_2 e^{-2t}</m> with
+      <m>r_1 = -0.5</m> and <m>r_2 = -2</m> fixed.
+      Drag the sliders to change <m>c_1</m> and <m>c_2</m> and observe how many
+      times the curve crosses <m>x = 0</m>.
+    </caption>
+    <interactive xml:id="interactive-overdamped-explore"
+      iframe="ch3-graph/interactive-overdamped-explore.html"
+      width="100%" aspect="5:2.9">
+      <description>
+        A graph of the overdamped solution with sliders for c1 and c2.
+        The graph updates immediately as sliders move and a message reports
+        how many times the curve crosses x equals 0. Students discover that
+        the curve crosses at most once regardless of c1 and c2.
+      </description>
+    </interactive>
+  </figure>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       MC CHECKPOINT
+       ═══════════════════════════════════════════════════════════ -->
+
+  <exercise xml:id="ex-mc-overdamped-crossings">
+    <statement>
+      <p>
+        Based on your exploration above, what are the possibilities for how many
+        times the mass passes through the equilibrium position <m>x = 0</m> in
+        an overdamped system?
+      </p>
+    </statement>
+    <choices randomize="no">
+      <choice correct="yes">
+        <statement><p>Never or exactly once.</p></statement>
+        <feedback>
+          <p>
+            Correct! The mass passes through equilibrium at most once. Depending on
+            the values of <m>c_1</m> and <m>c_2</m>, it may cross once or never
+            cross at all. <m>\checkmark</m>
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement><p>Exactly once, always.</p></statement>
+        <feedback>
+          <p>
+            Not always. Try <m>c_1 = 2</m> and <m>c_2 = 1</m> in the explorer above.
+            The curve never crosses <m>x = 0</m>.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement><p>Infinitely many times.</p></statement>
+        <feedback>
+          <p>
+            That is the underdamped case. In an overdamped system there is no
+            oscillation, so the curve cannot cross equilibrium infinitely many times.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement><p>Exactly twice.</p></statement>
+        <feedback>
+          <p>
+            Try as many values of <m>c_1</m> and <m>c_2</m> as you like in the
+            explorer. You will not find a case where the curve crosses twice.
+          </p>
+        </feedback>
+      </choice>
+    </choices>
+  </exercise>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       EXAMPLE: ALGEBRAIC PROOF OF AT MOST ONCE
+       ═══════════════════════════════════════════════════════════ -->
+
+  <example xml:id="ex-overdamped-crossings-algebra">
+    <title>At Most One Equilibrium Crossing</title>
+    <statement>
+      <p>
+        Show that the mass in an overdamped system passes through the equilibrium
+        position at most one time.
+      </p>
+    </statement>
+    <solution>
+      <p>
+        We want to find all times <m>t \geq 0</m> where <m>x(t) = 0</m>.
+        Setting the general solution equal to zero:
+        <me>c_1 e^{r_1 t} + c_2 e^{r_2 t} = 0.</me>
+        Since <m>e^{r_2 t} \neq 0</m> for all <m>t</m>, we can divide both sides by
+        <m>e^{r_2 t}</m>:
+        <me>c_1 e^{(r_1 - r_2)t} + c_2 = 0,</me>
+        so
+        <me>e^{(r_1 - r_2)t} = -\frac{c_2}{c_1}.</me>
+        Taking the natural log of both sides (when the right side is positive):
+        <me>t = \frac{1}{r_1 - r_2} \ln\!\left(-\frac{c_2}{c_1}\right).</me>
+        This is at most one value of <m>t</m>. It gives a valid crossing only when
+        <m>-c_2/c_1 > 0</m> and the resulting <m>t \geq 0</m>. Otherwise the mass
+        never crosses equilibrium at all.
+      </p>
+    </solution>
+  </example>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       OBSERVATION: LONG TERM BEHAVIOR
+       ═══════════════════════════════════════════════════════════ -->
+
+  <observation xml:id="obs-overdamped-limit">
+    <p>
+      Since both <m>r_1 \lt 0</m> and <m>r_2 \lt 0</m>, both exponential terms
+      decay to zero:
+      <me>
+        \lim_{t \to \infty} x(t)
+        = \lim_{t \to \infty}
+          \Bigl(
+            \underbrace{c_1 e^{r_1 t}}_{\to\, 0}
+            +
+            \underbrace{c_2 e^{r_2 t}}_{\to\, 0}
+          \Bigr)
+        = 0.
+      </me>
+      The mass always approaches equilibrium in the long run, crossing it at most once
+      along the way.
+    </p>
+  </observation>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       KEY TAKEAWAYS
+       ═══════════════════════════════════════════════════════════ -->
+
+  <conclusion>
+    <title>Key Takeaways</title>
+    <p>
+      <ul>
+        <li><p>
+          <alert>Solution form:</alert> Overdamped solutions have the form
+          <m>x(t) = c_1 e^{r_1 t} + c_2 e^{r_2 t}</m> where <m>r_1, r_2 \lt 0</m>
+          are two distinct real roots.
+        </p></li>
+        <li><p>
+          <alert>No oscillation:</alert> The solution is a sum of two decaying
+          exponentials with no trigonometric part, so there is no oscillation.
+        </p></li>
+        <li><p>
+          <alert>Equilibrium crossings:</alert> The mass passes through <m>x = 0</m>
+          at most once. Depending on <m>c_1</m> and <m>c_2</m>, it may cross once
+          or never.
+        </p></li>
+        <li><p>
+          <alert>Long-term behavior:</alert>
+          <m>\displaystyle\lim_{t \to \infty} x(t) = 0</m>.
+        </p></li>
+      </ul>
+    </p>
+  </conclusion>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       VIDEO + QUESTION FORM
+       ═══════════════════════════════════════════════════════════ -->
+
+  <figure xml:id="video-overdamped">
+    <caption>This video goes through the content of this page.</caption>
+    <video youtube="fiAtzdJhd1k" width="100%" preview="default"/>
+  </figure>
+
+  <interactive xml:id="question-form-3-3-3"
+    iframe="question-form.html?section=3.3.3"
+    width="100%" aspect="2:1"/>
+
+</section>

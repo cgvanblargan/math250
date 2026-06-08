@@ -1,0 +1,387 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-critically-damped-analysis" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Analyzing a Critically Damped System</title>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       SUMMARY ASSEMBLAGE
+       ═══════════════════════════════════════════════════════════ -->
+
+  <p>
+    We continue analyzing overdamped and critically damped systems.
+    Recall the shared behavior of these two cases.
+  </p>
+
+  <assemblage xml:id="assemblage-crit-summary">
+    <title>Summary: Overdamped and Critically Damped Cases of <m>mx'' + cx' + kx = 0</m></title>
+    <tabular halign="left" row-headers="yes">
+      <col width="22%"/>
+      <col width="36%"/>
+      <col width="20%"/>
+      <col width="22%"/>
+      <row header="yes" bottom="medium">
+        <cell>Case</cell>
+        <cell>Discriminant and roots</cell>
+        <cell>Crossings of <m>x=0</m></cell>
+        <cell><m>\displaystyle\lim_{t\to\infty} x(t)</m></cell>
+      </row>
+      <row bottom="minor">
+        <cell><term>Overdamped</term> (larger <m>c</m>)</cell>
+        <cell><m>c^2 > 4km</m> (two distinct real roots)</cell>
+        <cell>At most once</cell>
+        <cell><m>0</m></cell>
+      </row>
+      <row bottom="minor">
+        <cell><term>Critically damped</term> (borderline)</cell>
+        <cell><m>c^2 = 4km</m> (one repeated real root)</cell>
+        <cell>At most once</cell>
+        <cell><m>0</m></cell>
+      </row>
+    </tabular>
+  </assemblage>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       SETUP: ODE AND SOLUTION
+       ═══════════════════════════════════════════════════════════ -->
+
+  <p>
+    Consider the spring-mass-dashpot system with <m>m = 1</m>, <m>c = 4</m>,
+    <m>k = 4</m>, set in motion at <m>t = 0</m> with <m>x(0) = 1</m> and
+    <m>x'(0) = 2</m>. Substituting these parameters gives the IVP:
+    <me>x'' + 4x' + 4x = 0, \quad x(0) = 1, \quad x'(0) = 2.</me>
+    The solution to this IVP is:
+    <me>x(t) = e^{-2t}(1 + 4t).</me>
+  </p>
+
+  <solution>
+    <title>Work: Solution to the IVP (can skim)</title>
+    <p>
+      With <m>m=1</m>, <m>c=4</m>, <m>k=4</m> the characteristic equation is
+      <m>r^2 + 4r + 4 = 0</m>, which factors as <m>(r+2)^2 = 0</m>.
+      This gives one repeated root <m>r = -2</m>, confirming the system is
+      critically damped. The general solution is:
+      <me>x(t) = e^{-2t}(c_1 + c_2 t).</me>
+      Applying <m>x(0) = 1</m>: <m>c_1 = 1</m>.
+      Differentiating:
+      <me>x'(t) = -2e^{-2t}(c_1 + c_2 t) + e^{-2t}(c_2).</me>
+      Applying <m>x'(0) = 2</m>:
+      <me>x'(0) = -2c_1 + c_2 = 2 \implies c_2 = 2 + 2(1) = 4.</me>
+      So <m>x(t) = e^{-2t}(1 + 4t)</m>.
+    </p>
+  </solution>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       EXAMPLE: SKETCHING THE GRAPH
+       ═══════════════════════════════════════════════════════════ -->
+
+  <example xml:id="ex-critically-damped-sketch">
+    <title>Sketching the Graph from Initial Conditions</title>
+    <statement>
+      <p>
+        We continue analyzing the same position function from above,
+        <me>x(t) = e^{-2t}(1 + 4t),</me>
+        using the same method as in <xref ref="exploration-overdamped-analysis"/>
+        to build a picture of the motion.
+      </p>
+    </statement>
+
+    <task xml:id="ex-sketch-task-equil">
+      <title>Does the Mass Pass Through Equilibrium?</title>
+      <statement>
+        <p>
+          Does the mass ever pass through the equilibrium position <m>x = 0</m>
+          for <m>t \geq 0</m>?
+        </p>
+      </statement>
+      <hint>
+        <p>
+          Set <m>x(t) = 0</m> and solve for <m>t</m>. Since <m>e^{-2t} \neq 0</m>,
+          focus on the other factor. Remember that only <m>t \geq 0</m> is
+          physically meaningful.
+        </p>
+      </hint>
+      <solution>
+        <p>
+          We solve <m>e^{-2t}(1 + 4t) = 0</m>.
+          Since <m>e^{-2t} \neq 0</m>, we need <m>1 + 4t = 0</m>,
+          giving <m>t = -\tfrac{1}{4} \lt 0</m>.
+          Since this is not a valid time, the mass <alert>never passes
+          through equilibrium</alert> for <m>t \geq 0</m>.
+        </p>
+      </solution>
+    </task>
+
+    <task xml:id="ex-sketch-task-initial">
+      <title>What Do the Initial Conditions Tell Us?</title>
+      <statement>
+        <p>
+          What do the initial conditions <m>x(0) = 1</m> and <m>x'(0) = 2</m>
+          tell us about the behavior of the mass?
+        </p>
+      </statement>
+      <hint>
+        <p>
+          We were given <m>x(0)</m> and <m>x'(0)</m> in the problem setup.
+          Are they positive or negative? Recall that <m>x > 0</m> means stretched
+          and <m>x \lt 0</m> means compressed, while the sign of <m>x'</m> tells
+          us the direction of motion.
+        </p>
+      </hint>
+      <solution>
+        <p>
+          Since <m>x(0) = 1 > 0</m>, the mass starts <alert>stretched</alert>.
+          Since <m>x'(0) = 2 > 0</m>, the mass is initially moving in the
+          positive direction, meaning it is becoming <alert>even more stretched</alert>
+          at first. Together with the result of the previous task, the mass starts
+          stretched, moves further from equilibrium, and then approaches zero
+          from above without ever crossing it.
+        </p>
+      </solution>
+    </task>
+
+    <task xml:id="ex-sketch-task-graph">
+      <title>Putting It Together</title>
+      <statement>
+        <p>
+          Combining the two observations above: the mass starts stretched,
+          initially moves further from equilibrium, never crosses <m>x = 0</m>,
+          and eventually approaches zero from above.
+          This gives the following graph.
+        </p>
+
+        <figure xml:id="fig-critically-damped-sketch">
+          <caption>
+            Graph of <m>x(t) = e^{-2t}(1+4t)</m>. The mass starts at
+            <m>x(0) = 1</m> (stretched), increases further, then decays
+            toward zero without ever crossing the equilibrium.
+          </caption>
+          <interactive xml:id="interactive-critically-damped-sketch"
+            iframe="ch3-graph/static-critically-damped-graph.html"
+            width="100%" aspect="5:2">
+            <description>
+              Graph of x of t equals e to the negative 2t times the quantity
+              1 plus 4t, for t from 0 to 4. The curve starts at x equals 1
+              when t equals 0, increases to a peak above 1, then decreases
+              and approaches zero from above as t increases. A dashed green
+              horizontal line marks the equilibrium at x equals zero. The
+              curve stays entirely above zero. A red dot marks the starting
+              point at t equals 0, x equals 1.
+            </description>
+          </interactive>
+        </figure>
+      </statement>
+    </task>
+
+  </example>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       ACTIVITY: ANSWER QUESTIONS ABOUT THE BEHAVIOR
+       ═══════════════════════════════════════════════════════════ -->
+
+  <activity xml:id="activity-critically-damped-questions">
+    <title>Analyzing the Behavior</title>
+
+    <introduction>
+      <p>
+        We continue with the same position function,
+        <me>x(t) = e^{-2t}(1 + 4t).</me>
+        Now that we have a complete picture of the motion, we use it to answer
+        questions about the system.
+        <alert>Make sure to reference the previous example to help answer the
+        following questions.</alert>
+      </p>
+    </introduction>
+
+    <!-- Task 1: Never compressed -->
+
+    <task xml:id="act-task-never-compressed">
+      <title>Is the Spring Ever Compressed?</title>
+      <statement>
+        <p>
+          Explain how you can tell the spring is never compressed.
+        </p>
+      </statement>
+      <choices randomize="no">
+        <choice correct="yes">
+          <statement>
+            <p>
+              <m>x(0) > 0</m> and the mass never crosses the equilibrium position,
+              so <m>x(t) > 0</m> for all <m>t \geq 0</m>.
+            </p>
+          </statement>
+          <feedback>
+            <p>
+              Correct! Since <m>x(0) = 1 > 0</m> (starts stretched) and the mass
+              never reaches <m>x = 0</m>, it stays on the stretched side for all
+              time. <m>\checkmark</m>
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement>
+            <p>
+              <m>x'(0) > 0</m>, so the mass is moving away from the compressed region.
+            </p>
+          </statement>
+          <feedback>
+            <p>
+              The sign of <m>x'(0)</m> tells us the initial direction of motion,
+              but alone it does not guarantee the spring is never compressed.
+              The key facts are that <m>x(0) > 0</m> and the mass never crosses
+              equilibrium.
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement>
+            <p>
+              The system is critically damped, so it cannot become compressed.
+            </p>
+          </statement>
+          <feedback>
+            <p>
+              The damping case alone does not determine whether the spring is
+              compressed. A critically damped system can start compressed and
+              remain so. What matters here is the combination of initial conditions
+              and the equilibrium crossing result.
+            </p>
+          </feedback>
+        </choice>
+      </choices>
+    </task>
+
+    <!-- Task 2: Find the critical point -->
+
+    <task xml:id="act-task-find-max">
+      <title>Find the Time of Maximum Stretch</title>
+      <statement>
+        <p>
+          Find the exact time at which the mass is farthest from the equilibrium position.
+        </p>
+      </statement>
+      <hint>
+        <p>
+          The maximum stretch occurs either at:
+          <ul>
+            <li><p><m>t = 0</m>, or</p></li>
+            <li><p>a critical point where <m>x'(t) = 0</m>.</p></li>
+          </ul>
+          Looking back at the graph from the previous example, can you deduce which one it is?
+        </p>
+      </hint>
+
+      <solution>
+        <p>
+          Since <m>x'(0) = 2 > 0</m>, the mass is still moving away from equilibrium
+          at <m>t = 0</m>, so the maximum stretch does <em>not</em> occur at <m>t = 0</m>.
+          It must occur at a critical point where <m>x'(t) = 0</m>.
+        </p>
+
+        <p>
+          So, we compute <m>x'(t):</m>
+          <me>x'(t)= e^{-2t}(2 - 8t). </me>
+        </p>
+
+        <solution>
+          <title>Step 1: Compute <m>x'(t)</m></title>
+          <p>
+            Using the product rule on <m>x(t) = e^{-2t}(1 + 4t)</m>:
+            <md>
+              <mrow>x'(t) \amp= -2e^{-2t}(1 + 4t) + e^{-2t}(4)</mrow>
+              <mrow>\amp= e^{-2t}(-2 - 8t + 4)</mrow>
+              <mrow>\amp= e^{-2t}(2 - 8t).</mrow>
+            </md>
+          </p>
+        </solution>
+
+        <p>
+          Now we set <m>x'(t) = 0</m> and solve.
+        </p>
+
+        <solution>
+          <title>Step 2: Solve <m>x'(t) = 0</m></title>
+          <p>
+            We need to solve: 
+             <me>x'(t)= e^{-2t}(2 - 8t)=0 </me>
+            Since <m>e^{-2t} \neq 0</m>, we need:
+            <me>2 - 8t = 0 \implies t = \frac{1}{4}.</me>
+            So the maximum stretch occurs at <m>t = \tfrac{1}{4}</m>,
+            where <m>x\!\left(\tfrac{1}{4}\right) = e^{-1/2}(1 + 1) = 2e^{-1/2} \approx 1.21</m>.
+          </p>
+        </solution>
+
+        <p>
+          The graph below shows the maximum stretch marked at <m>t = \tfrac{1}{4}</m>.
+        </p>
+
+        <figure xml:id="fig-critically-damped-max">
+          <caption>
+            The maximum stretch occurs at <m>t = \tfrac{1}{4}</m>,
+            where <m>x = 2e^{-1/2} \approx 1.21</m>.
+            After this point the mass moves back toward equilibrium.
+          </caption>
+          <interactive xml:id="interactive-critically-damped-max"
+            iframe="ch3-graph/static-critically-damped-graph-max.html"
+            width="100%" aspect="5:2">
+            <description>
+              Graph of x of t equals e to the negative 2t times the quantity
+              1 plus 4t. The curve starts at x equals 1 at t equals 0,
+              rises to a maximum at t equals one quarter where x equals
+              2 e to the negative one half, approximately 1.21, then decreases
+              toward zero from above. The maximum point is marked with a filled
+              red circle labeled max stretch. A vertical dashed red line drops
+              from the maximum to the t axis, where t equals one quarter is
+              labeled. The starting point x equals 1 is marked in blue.
+            </description>
+          </interactive>
+        </figure>
+      </solution>
+    </task>
+
+  </activity>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       KEY TAKEAWAYS
+       ═══════════════════════════════════════════════════════════ -->
+
+  <conclusion>
+    <title>Key Takeaways</title>
+    <p>
+      <ul>
+        <li><p>
+          <alert>Does it pass through equilibrium, and how many times?</alert>
+          Combined with the sign of <m>x(0)</m>, this tells us whether the
+          spring is always stretched, always compressed, or crosses sides.
+        </p></li>
+        <li><p>
+          <alert>What are <m>x(0)</m> and <m>x'(0)</m>?</alert>
+          These tell us where the mass starts and which direction it initially moves.
+          The farthest point from equilibrium occurs either at <m>t = 0</m> or
+          at a critical point where <m>x'(t) = 0</m>. Since the mass here
+          initially moved <em>further</em> from equilibrium (<m>x'(0) > 0</m>
+          on the stretched side), the maximum must occur at a later critical point,
+          not at <m>t = 0</m>.
+        </p></li>
+        <li><p>
+          <alert>From a rough sketch to exact answers:</alert>
+          once we have the sketch, we can answer qualitative questions directly,
+          and use calculus (solve <m>x'(t) = 0</m>) to find exact critical points.
+        </p></li>
+      </ul>
+    </p>
+  </conclusion>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       VIDEO + QUESTION FORM
+       ═══════════════════════════════════════════════════════════ -->
+
+  <figure xml:id="video-critically-damped-analysis">
+    <caption>This video goes through the content of this page.</caption>
+    <video youtube="AGjmBNuJSvU" width="100%" preview="default"/>
+  </figure>
+
+  <interactive xml:id="question-form-3-4-4"
+    iframe="question-form.html?section=3.4.4"
+    width="100%" aspect="2:1"/>
+
+</section>

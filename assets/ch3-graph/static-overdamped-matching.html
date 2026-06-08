@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Graph Matching: Overdamped</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jsxgraph/1.6.0/jsxgraph.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jsxgraph/1.6.0/jsxgraphcore.js"></script>
+<style>
+  body { margin: 0; padding: 10px; font-family: serif; background: transparent; overflow: hidden; }
+  #title-display {
+    text-align: center;
+    font-size: 14px;
+    font-family: serif;
+    color: #2c3e50;
+    margin-bottom: 6px;
+  }
+  #jxgbox {
+    width: 100%;
+    height: 220px;
+    border: 1px solid #bdc3c7;
+  }
+</style>
+</head>
+<body>
+
+<div id="title-display">Three candidate graphs for <i>x</i>(<i>t</i>) = 4<i>e</i><sup>&minus;2<i>t</i></sup> &minus; 10<i>e</i><sup>&minus;<i>t</i></sup></div>
+
+<div id="jxgbox"
+  role="img"
+  aria-label="Three side-by-side candidate graphs labeled (a), (b), and (c), each showing a curve with a dashed green equilibrium line at x equals zero and a red dot marking the starting position at t equals zero.
+  Graph (a): starts below zero (compressed), initially moves further below zero becoming more compressed, then turns around and increases back toward zero from below, never crossing the equilibrium.
+  Graph (b): starts below zero (compressed), immediately moves toward zero in the positive direction, approaching the equilibrium from below without ever crossing it.
+  Graph (c): starts below zero and oscillates above and below the equilibrium line multiple times with decreasing amplitude, eventually approaching zero.">
+</div>
+
+<script>
+  var board = JXG.JSXGraph.initBoard('jxgbox', {
+    boundingbox: [0, 3.5, 18, -8],
+    axis: false,
+    grid: false,
+    showNavigation: false,
+    showCopyright: false,
+    pan: { enabled: false },
+    zoom: { enabled: false }
+  });
+
+  // Three panels: x in [0,5], [6.5,11.5], [13,18]
+  var panels = [
+    {
+      xlo: 0, xhi: 5,
+      label: '(a)',
+      // Starts compressed at ~-3, dips further to ~-6, then returns toward 0
+      fn: function(s) { return (-3 - 8*s)*Math.exp(-0.9*s); },
+      y0: -3
+    },
+    {
+      xlo: 6.5, xhi: 11.5,
+      label: '(b)',
+      // Correct: starts at -6, increases toward 0, never crosses
+      fn: function(s) { return 4*Math.exp(-2*s) - 10*Math.exp(-s); },
+      y0: -6
+    },
+    {
+      xlo: 13, xhi: 18,
+      label: '(c)',
+      // Underdamped: oscillates above and below zero
+      fn: function(s) { return Math.exp(-0.4*s)*(-6*Math.cos(1.8*s)); },
+      y0: -6
+    }
+  ];
+
+  var YMIN = -7.5, YMAX = 3.2;
+  var STEPS = 300;
+
+  panels.forEach(function(p) {
+    var span = p.xhi - p.xlo;
+
+    // Panel border
+    board.create('polygon', [
+      [p.xlo, YMIN+0.3], [p.xhi, YMIN+0.3],
+      [p.xhi, YMAX-0.3], [p.xlo, YMAX-0.3]
+    ], {
+      fillColor: 'none', strokeColor: '#bdc3c7',
+      strokeWidth: 1, vertices: { visible: false },
+      highlight: false, fixed: true
+    });
+
+    // x-axis
+    board.create('segment', [[p.xlo, 0], [p.xhi, 0]], {
+      strokeColor: '#2c3e50', strokeWidth: 1.5,
+      fixed: true, highlight: false
+    });
+
+    // y-axis
+    board.create('segment', [[p.xlo, YMIN+0.3], [p.xlo, YMAX-0.3]], {
+      strokeColor: '#2c3e50', strokeWidth: 1.5,
+      fixed: true, highlight: false
+    });
+
+    // Equilibrium dashed line
+    board.create('segment', [[p.xlo, 0], [p.xhi, 0]], {
+      strokeColor: '#145a32', strokeWidth: 1.2, dash: 3,
+      fixed: true, highlight: false
+    });
+
+    // t label
+    board.create('text', [p.xhi - 0.1, 0.3, 't'], {
+      anchorX: 'right', anchorY: 'bottom',
+      fontSize: 11, fontFamily: 'serif', color: '#2c3e50',
+      fixed: true, highlight: false
+    });
+
+    // x label
+    board.create('text', [p.xlo + 0.15, YMAX - 0.5, 'x'], {
+      anchorX: 'left', anchorY: 'top',
+      fontSize: 11, fontFamily: 'serif', color: '#2c3e50',
+      fixed: true, highlight: false
+    });
+
+    // Panel label (a), (b), (c)
+    board.create('text', [(p.xlo + p.xhi)/2, YMIN + 0.7, p.label], {
+      anchorX: 'middle', anchorY: 'bottom',
+      fontSize: 13, fontFamily: 'serif', color: '#2c3e50',
+      fixed: true, highlight: false
+    });
+
+    // Start dot — compute actual y0 from fn(0)
+    var actualY0 = Math.max(YMIN+0.3, Math.min(YMAX-0.3, p.fn(0)));
+    board.create('point', [p.xlo, actualY0], {
+      size: 3, color: '#922b21', fixed: true, highlight: false,
+      name: '', label: { visible: false }
+    });
+
+    // Curve
+    var xs = [], ys = [];
+    for (var i = 0; i <= STEPS; i++) {
+      var s = span * i / STEPS;
+      var v = p.fn(s);
+      v = Math.max(YMIN + 0.3, Math.min(YMAX - 0.3, v));
+      xs.push(p.xlo + s);
+      ys.push(v);
+    }
+    board.create('curve', [xs, ys], {
+      strokeColor: '#1a5276', strokeWidth: 2.2,
+      highlight: false
+    });
+  });
+</script>
+</body>
+</html>

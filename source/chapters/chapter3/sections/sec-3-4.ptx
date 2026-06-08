@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-3-4" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Interpreting solutions in the mass-spring system</title>
+
+  <introduction>
+    <p>
+    We are still looking at the mass-spring system, but we will get a little deeper into analyzing solutions 
+    and interpreting solutions
+     </p>
+  </introduction>
+
+  <xi:include href="./3-4/sec1-underdamped-direction.ptx"/>
+  <xi:include href="./3-4/sec2-overdamped-analysis.ptx"/>
+   <xi:include href="./3-4/sec3-overdamped-never-stretched.ptx"/>
+<xi:include href="./3-4/sec4-critically-damped-analysis.ptx"/>
+<xi:include href="./3-4/sec5-critically-damped-crossing.ptx"/>
+
+</section>

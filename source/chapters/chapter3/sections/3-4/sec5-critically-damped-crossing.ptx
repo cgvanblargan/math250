@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec3-critically-damped-crossing" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Analyzing a Critically Damped System: Finding Maximum Stretch</title>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       SETUP: ODE AND SOLUTION
+       ═══════════════════════════════════════════════════════════ -->
+
+  <p>
+    Consider the spring-mass-dashpot system with position function
+    <me>x(t) = -9e^{-t} + 3te^{-t}, \quad t \geq 0.</me>
+    As usual, <m>x(t) > 0</m> means the spring is stretched and <m>x(t) \lt 0</m>
+    means it is compressed.
+  </p>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       EXAMPLE
+       ═══════════════════════════════════════════════════════════ -->
+
+  <example xml:id="ex-critically-damped-crossing">
+    <title>Finding the Time of Maximum Stretch</title>
+    <statement>
+      <p>
+        For <m>x(t) = -9e^{-t} + 3te^{-t}</m>, find the time at which the
+        spring is maximally stretched, or explain why the spring is never stretched.
+      </p>
+    </statement>
+    <hint>
+      <p>
+        Work through the following steps:
+        <ol>
+          <li><p>Find <m>x(0)</m> and <m>x'(0)</m>. Does the mass start compressed or stretched?</p></li>
+          <li><p>Solve <m>x(t) = 0</m> for <m>t > 0</m>. Does the mass ever become stretched by crossing the equilibrium?</p></li>
+          <li><p>Since the mass starts compressed but does become stretched, the maximum stretch cannot occur at <m>t = 0</m>. Where must it occur?</p></li>
+          <li><p>Solve <m>x'(t) = 0</m> to find the exact time.</p></li>
+        </ol>
+      </p>
+    </hint>
+
+    <solution>
+
+      <p>
+        <alert>Step 1:</alert> The mass starts <alert>compressed</alert>.
+      </p>
+      <solution>
+        <title>Work for Step 1</title>
+        <p>
+          We compute <m>x(0)</m> and <m>x'(0)</m>:
+          <me>x(0) = -9e^0 + 3(0)e^0 = -9 \lt 0,</me>
+          so the mass starts compressed. Differentiating using the product rule:
+          <me>x'(t) = -(-9e^{-t}) + 3e^{-t} + 3t(-e^{-t}) = 9e^{-t} + 3e^{-t} - 3te^{-t} = e^{-t}(12 - 3t),</me>
+          so <m>x'(0) = e^0(12) = 12 > 0</m>. The mass starts compressed and is
+          initially moving in the positive direction, toward the equilibrium.
+        </p>
+      </solution>
+
+      <p>
+        <alert>Step 2:</alert> The mass crosses the equilibrium at <alert><m>t = 3</m></alert>,
+        so it does eventually become stretched.
+      </p>
+      <solution>
+        <title>Work for Step 2</title>
+        <p>
+          We solve <m>x(t) = 0</m>:
+          <me>-9e^{-t} + 3te^{-t} = 0 \implies e^{-t}(-9 + 3t) = 0.</me>
+          Since <m>e^{-t} \neq 0</m>, we need <m>-9 + 3t = 0</m>, giving <m>t = 3</m>.
+          Since <m>t = 3 > 0</m>, this is a valid crossing time. The mass crosses
+          the equilibrium exactly once, at <m>t = 3</m>.
+        </p>
+      </solution>
+
+      <p>
+        <alert>Step 3:</alert> The maximum stretch occurs at a <alert>critical point</alert> where <m>x'(t) = 0</m>.
+      </p>
+      <solution>
+        <title>Reasoning for Step 3</title>
+        <p>
+          The maximum stretch occurs either at <m>t = 0</m> or at a critical point
+          where <m>x'(t) = 0</m>. Since the mass starts compressed (<m>x(0) = -9 \lt 0</m>),
+          the maximum stretch cannot occur at <m>t = 0</m>. The mass crosses the
+          equilibrium at <m>t = 3</m> and becomes stretched, so the maximum stretch
+          must occur at some <m>t > 3</m>. Since it is a local maximum at a valid
+          time, it must be a critical point.
+        </p>
+      </solution>
+
+      <p>
+        <alert>Step 4:</alert> The maximum stretch occurs at <alert><m>t = 4</m></alert>.
+      </p>
+      <solution>
+        <title>Work for Step 4</title>
+        <p>
+          We solve <m>x'(t) = 0</m>. From Step 1 we have
+          <m>x'(t) = e^{-t}(12 - 3t)</m>.
+          Since <m>e^{-t} \neq 0</m>:
+          <me>12 - 3t = 0 \implies t = 4.</me>
+          So the maximum stretch occurs at <m>t = 4</m>, where
+          <me>x(4) = -9e^{-4} + 3(4)e^{-4} = e^{-4}(-9 + 12) = 3e^{-4} \approx 0.055.</me>
+        </p>
+      </solution>
+
+    </solution>
+  </example>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       PROSE SUMMARY + GRAPH
+       ═══════════════════════════════════════════════════════════ -->
+
+  <p>
+    Notice that we have determined the following about the motion:
+    <ul>
+      <li><p>The mass starts <alert>compressed</alert> (since <m>x(0) = -9 \lt 0</m>).</p></li>
+      <li><p>The mass crosses the equilibrium at <alert><m>t = 3</m></alert> (the only solution to <m>x(t) = 0</m> for <m>t > 0</m>).</p></li>
+      <li><p>Maximum stretch occurs at <alert><m>t = 4</m></alert> (occurs at the only critical point where <m>x'(t) = 0</m>).</p></li>
+      <li><p>After <m>t = 4</m>, the mass never crosses the equilibrium again, but we know <m>\displaystyle\lim_{t \to \infty} x(t) = 0</m>.</p></li>
+    </ul>
+    Now that you have had a lot of practice building pictures of motion,
+    try sketching the graph yourself using the information above before
+    answering the checkpoint below.
+  </p>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       MC CHECKPOINT
+       ═══════════════════════════════════════════════════════════ -->
+
+  <task xml:id="task-critically-damped-crossing-mc">
+    <title>Behavior After Crossing Equilibrium</title>
+    <statement>
+      <p>
+        Based on the graph and the work above, which best describes what
+        the mass does after crossing the equilibrium at <m>t = 3</m>?
+      </p>
+    </statement>
+    <choices randomize="no">
+      <choice correct="yes">
+        <statement>
+          <p>
+            The mass becomes more and more stretched until it reaches maximum
+            stretch at <m>t = 4</m>, then gradually becomes less stretched as
+            it slowly approaches the equilibrium, never crossing it again.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            Correct! After crossing at <m>t = 3</m> the mass is on the stretched
+            side. It continues stretching until the critical point at <m>t = 4</m>,
+            then slowly decays back toward the equilibrium. Since
+            <m>\lim_{t \to \infty} x(t) = 0</m> and the mass never crosses
+            equilibrium again, it approaches but never reaches it again. <m>\checkmark</m>
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            The mass immediately starts returning to equilibrium after crossing,
+            reaching it again shortly after <m>t = 3</m>.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            Not quite. After crossing at <m>t = 3</m>, the mass continues moving
+            in the positive direction (it is still stretching) until the critical
+            point at <m>t = 4</m>. It does not immediately turn around.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            The mass oscillates above and below the equilibrium multiple times
+            before settling at zero.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            This is the behavior of an underdamped system. Since
+            <m>x(t) = -9e^{-t} + 3te^{-t}</m> is critically damped, it crosses
+            the equilibrium at most once and does not oscillate.
+          </p>
+        </feedback>
+      </choice>
+    </choices>
+  </task>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       VIDEO + QUESTION FORM
+       ═══════════════════════════════════════════════════════════ -->
+
+  <figure xml:id="video-critically-damped-crossing">
+    <caption>This video goes through the content of this page.</caption>
+    <video youtube="cWbmgDXJwCk" width="100%" preview="default"/>
+  </figure>
+
+  <interactive xml:id="question-form-3-4-5"
+    iframe="question-form.html?section=3.4.5"
+    width="100%" aspect="2:1"/>
+
+</section>

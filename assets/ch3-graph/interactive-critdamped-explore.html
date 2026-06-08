@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Critically Damped Explorer</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jsxgraph/1.6.0/jsxgraph.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jsxgraph/1.6.0/jsxgraphcore.js"></script>
+<style>
+  body { margin: 0; padding: 8px; font-family: serif; background: transparent; overflow: hidden; }
+  #eq-display { text-align: center; font-size: 14px; font-family: serif; color: #2c3e50; margin-bottom: 5px; min-height: 22px; }
+  #jxgbox { width: 100%; height: 200px; border: 1px solid #bdc3c7; }
+  #controls { margin-top: 8px; display: flex; flex-direction: column; gap: 5px; align-items: center; }
+  .ctrl-row { display: flex; align-items: center; gap: 8px; font-size: 13px; font-family: serif; color: #2c3e50; }
+  .ctrl-row label { font-weight: bold; min-width: 55px; text-align: right; }
+  .ctrl-row input[type=range] { width: 160px; accent-color: #1a5276; }
+  .ctrl-row .val { min-width: 38px; }
+  #info { text-align: center; font-size: 12px; font-family: serif; color: #2c3e50; margin-top: 6px; min-height: 16px; }
+</style>
+</head>
+<body>
+
+<div id="eq-display" aria-live="polite" aria-atomic="true">
+  <i>x</i>(<i>t</i>) = <span id="eq-text">1.0 <i>e</i><sup>&minus;0.5<i>t</i></sup> + 1.0 <i>t</i> <i>e</i><sup>&minus;0.5<i>t</i></sup></span>
+</div>
+
+<div id="jxgbox"
+  role="img"
+  aria-label="Graph of the critically damped solution x of t equals c1 times e to the negative 0.5t plus c2 times t times e to the negative 0.5t. Sliders control c1 and c2. The graph updates as sliders move and a message reports how many times the curve crosses x equals 0."
+  aria-describedby="info">
+</div>
+
+<div id="controls">
+  <div class="ctrl-row">
+    <label for="c1-slider"><i>c</i><sub>1</sub> =</label>
+    <input type="range" id="c1-slider" min="-3" max="3" step="0.5" value="1"
+      title="c1 coefficient"
+      aria-label="Slider for c1, the coefficient of e to the negative 2t in the critically damped solution."
+      aria-describedby="info">
+    <span class="val" id="c1-val" aria-live="polite" aria-atomic="true">1.0</span>
+  </div>
+  <div class="ctrl-row">
+    <label for="c2-slider"><i>c</i><sub>2</sub> =</label>
+    <input type="range" id="c2-slider" min="-3" max="3" step="0.5" value="1"
+      title="c2 coefficient"
+      aria-label="Slider for c2, the coefficient of t times e to the negative 2t in the critically damped solution."
+      aria-describedby="info">
+    <span class="val" id="c2-val" aria-live="polite" aria-atomic="true">1.0</span>
+  </div>
+</div>
+
+<div id="info" role="status" aria-live="polite">Try different values of c1 and c2. How many times can you make the curve cross x = 0?</div>
+
+<script>
+  var r  = -0.5;
+  var c1 = 1.0, c2 = 1.0;
+  var T_MAX = 14;
+  var yMax  = 3.5;
+
+  function xVal(t) { return (c1 + c2 * t) * Math.exp(r * t); }
+
+  // Format a coefficient nicely for the equation display
+  function fmtCoeff(val) {
+    return (val >= 0 ? '' : '\u2212') + Math.abs(val).toFixed(1);
+  }
+
+  function updateEqDisplay() {
+    var c1str = fmtCoeff(c1);
+    var c2str = fmtCoeff(Math.abs(c2));
+    var c2sign = c2 >= 0 ? '+' : '\u2212';
+    document.getElementById('eq-text').innerHTML =
+      c1str + ' <i>e</i><sup>&minus;0.5<i>t</i></sup> ' +
+      c2sign + ' ' + c2str + ' <i>t</i>\u202f<i>e</i><sup>&minus;0.5<i>t</i></sup>';
+  }
+
+  var board = JXG.JSXGraph.initBoard('jxgbox', {
+    boundingbox: [-0.15, yMax, T_MAX + 0.15, -yMax],
+    axis: true, showCopyright: false, showNavigation: false,
+    pan: { enabled: false }, zoom: { enabled: false },
+    defaultAxes: {
+      x: { ticks: { insertTicks: true, ticksDistance: 1, label: { fontSize: 11, fontFamily: 'serif' } } },
+      y: { ticks: { insertTicks: true, ticksDistance: 1, label: { fontSize: 11, fontFamily: 'serif' } } }
+    }
+  });
+
+  function buildPoints() {
+    var xs = [], ys = [];
+    for (var i = 0; i <= 600; i++) {
+      var t = (T_MAX * i) / 600;
+      xs.push(t); ys.push(xVal(t));
+    }
+    return [xs, ys];
+  }
+
+  var pts = buildPoints();
+  var curve = board.create('curve', [pts[0], pts[1]], { strokeColor: '#1a5276', strokeWidth: 2.5 });
+
+  function countCrossings() {
+    var crosses = 0;
+    var steps = 1000;
+    var prev = xVal(0);
+    for (var i = 1; i <= steps; i++) {
+      var t = (T_MAX * i) / steps;
+      var curr = xVal(t);
+      if (prev * curr < 0) crosses++;
+      prev = curr;
+    }
+    return crosses;
+  }
+
+  function updateGraph() {
+    var pts = buildPoints();
+    curve.dataX = pts[0]; curve.dataY = pts[1];
+    board.update();
+    updateEqDisplay();
+    var n = countCrossings();
+    var msg = n === 0
+      ? 'The curve never crosses x = 0 with these values.'
+      : n === 1
+      ? 'The curve crosses x = 0 exactly once with these values.'
+      : 'The curve crosses x = 0 ' + n + ' times with these values.';
+    document.getElementById('info').textContent = msg;
+  }
+
+  document.getElementById('c1-slider').addEventListener('input', function() {
+    c1 = parseFloat(this.value);
+    document.getElementById('c1-val').textContent = c1.toFixed(1);
+    updateGraph();
+  });
+  document.getElementById('c2-slider').addEventListener('input', function() {
+    c2 = parseFloat(this.value);
+    document.getElementById('c2-val').textContent = c2.toFixed(1);
+    updateGraph();
+  });
+
+  updateGraph();
+</script>
+</body>
+</html>

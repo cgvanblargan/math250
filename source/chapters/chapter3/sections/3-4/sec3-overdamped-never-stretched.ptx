@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec3-overdamped-never-stretched" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Analyzing an Overdamped System: Is the Spring Ever Stretched?</title>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       SUMMARY ASSEMBLAGE
+       ═══════════════════════════════════════════════════════════ -->
+
+  <p>
+    We continue analyzing overdamped and critically damped systems.
+    Recall the shared behavior of these two cases.
+  </p>
+
+  <assemblage xml:id="assemblage-overdamped-never-stretched-summary">
+    <title>Summary: Overdamped and Critically Damped Cases of <m>mx'' + cx' + kx = 0</m></title>
+    <tabular halign="left" row-headers="yes">
+      <col width="22%"/>
+      <col width="36%"/>
+      <col width="20%"/>
+      <col width="22%"/>
+      <row header="yes" bottom="medium">
+        <cell>Case</cell>
+        <cell>Discriminant and roots</cell>
+        <cell>Crossings of <m>x=0</m></cell>
+        <cell><m>\displaystyle\lim_{t\to\infty} x(t)</m></cell>
+      </row>
+      <row bottom="minor">
+        <cell><term>Overdamped</term> (larger <m>c</m>)</cell>
+        <cell><m>c^2 > 4km</m> (two distinct real roots)</cell>
+        <cell>At most once</cell>
+        <cell><m>0</m></cell>
+      </row>
+      <row bottom="minor">
+        <cell><term>Critically damped</term> (borderline)</cell>
+        <cell><m>c^2 = 4km</m> (one repeated real root)</cell>
+        <cell>At most once</cell>
+        <cell><m>0</m></cell>
+      </row>
+    </tabular>
+  </assemblage>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       SETUP: ODE AND SOLUTION
+       ═══════════════════════════════════════════════════════════ -->
+
+  <p>
+    Consider the spring-mass-dashpot system with <m>m = 1</m>, <m>c = 3</m>,
+    <m>k = 2</m>, set in motion at <m>t = 0</m> with <m>x(0) = 0</m> and
+    <m>x'(0) = -2</m>. Substituting these parameters gives the IVP:
+    <me>x'' + 3x' + 2x = 0, \quad x(0) = 0, \quad x'(0) = -2.</me>
+    The solution to this IVP is:
+    <me>x(t) = -2e^{-t} + 2e^{-2t}.</me>
+  </p>
+
+  <solution>
+    <title>Work: Solution to the IVP (can skim)</title>
+    <p>
+      With <m>m=1</m>, <m>c=3</m>, <m>k=2</m> the characteristic equation is
+      <m>r^2 + 3r + 2 = 0</m>, which factors as <m>(r+1)(r+2) = 0</m>.
+      This gives two distinct real roots <m>r_1 = -1</m> and <m>r_2 = -2</m>,
+      confirming the system is overdamped. The general solution is:
+      <me>x(t) = c_1 e^{-t} + c_2 e^{-2t}.</me>
+      Applying <m>x(0) = 0</m>:
+      <me>c_1 + c_2 = 0 \implies c_2 = -c_1.</me>
+      Differentiating:
+      <me>x'(t) = -c_1 e^{-t} - 2c_2 e^{-2t}.</me>
+      Applying <m>x'(0) = -2</m>:
+      <me>-c_1 - 2c_2 = -2 \implies -c_1 + 2c_1 = -2 \implies c_1 = -2.</me>
+      So <m>c_1 = -2</m>, <m>c_2 = 2</m>, and <m>x(t) = -2e^{-t} + 2e^{-2t}</m>.
+    </p>
+  </solution>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       FRAMING: GOAL OF THE ACTIVITY
+       ═══════════════════════════════════════════════════════════ -->
+
+  <p>
+    Our goal is to determine whether the spring is ever stretched. Before we
+    answer that question directly, we work through the following activity to
+    map out the behavior of the system.
+  </p>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       ACTIVITY: BUILDING THE PICTURE
+       ═══════════════════════════════════════════════════════════ -->
+
+  <activity xml:id="activity-overdamped-never-stretched">
+    <title>Building a Picture of the Motion</title>
+
+    <introduction>
+      <p>
+        Throughout this activity, <m>x(t) = -2e^{-t} + 2e^{-2t}</m>.
+      </p>
+    </introduction>
+
+    <!-- Task 1: Which damping case -->
+
+    <task xml:id="act-never-stretched-which-case">
+      <title>Which Damping Case?</title>
+      <statement>
+        <p>
+          Based on the form of <m>x(t) = -2e^{-t} + 2e^{-2t}</m>,
+          which damping case are we in?
+        </p>
+      </statement>
+      <choices randomize="no">
+        <choice correct="yes">
+          <statement><p>Overdamped</p></statement>
+          <feedback>
+            <p>
+              Correct! The solution is a sum of two distinct decaying exponentials
+              with roots <m>r_1 = -1</m> and <m>r_2 = -2</m>. Two distinct real
+              roots means <m>c^2 > 4km</m>, which is the overdamped case.
+              <m>\checkmark</m>
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement><p>Critically damped</p></statement>
+          <feedback>
+            <p>
+              Not quite. A critically damped solution has the form
+              <m>x(t) = c_1 e^{-at} + c_2 t e^{-at}</m>, with a repeated
+              exponential rate. Here we have two different rates, so the
+              roots are distinct, not repeated.
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement><p>Underdamped</p></statement>
+          <feedback>
+            <p>
+              Not quite. An underdamped solution involves oscillating trig
+              terms. This solution has no trig functions, so it decays
+              without oscillating.
+            </p>
+          </feedback>
+        </choice>
+      </choices>
+    </task>
+
+    <!-- Task 2: Equilibrium crossing -->
+
+    <task xml:id="act-never-stretched-equilibrium">
+      <title>Does the Mass Cross the Equilibrium for <m>t > 0</m>?</title>
+      <statement>
+        <p>
+          Does the mass ever cross the equilibrium position <m>x = 0</m>
+          for <m>t > 0</m>?
+        </p>
+      </statement>
+      <hint>
+        <p>
+          Set <m>x(t) = 0</m> and determine whether there are any solutions
+          with <m>t > 0</m>. Since <m>x(0) = 0</m> we already know <m>t = 0</m>
+          is one solution. We want to know if there are any others.
+        </p>
+      </hint>
+      <solution>
+        <p>
+          We solve <m>-2e^{-t} + 2e^{-2t} = 0</m>.
+          Factoring out <m>2e^{-2t}</m> (which is never zero):
+          <me>2e^{-2t}(-e^{t} + 1) = 0 \implies e^{t} = 1 \implies t = 0.</me>
+          The only solution is <m>t = 0</m>. The mass <alert>never crosses
+          the equilibrium</alert> for <m>t > 0</m>. Note that the mass does
+          slowly approach zero as <m>t \to \infty</m>, but it never actually
+          reaches or crosses it again.
+        </p>
+      </solution>
+    </task>
+
+    <!-- Task 3: Initial conditions checkpoint -->
+
+    <task xml:id="act-never-stretched-initial">
+      <title>Which Way Does the Mass Immediately Move?</title>
+      <statement>
+        <p>
+          We are given <m>x(0) = 0</m> and <m>x'(0) = -2</m>. The mass starts
+          exactly at the equilibrium position. Based on the initial velocity,
+          does the spring immediately become compressed or stretched?
+        </p>
+      </statement>
+      <choices randomize="no">
+        <choice correct="yes">
+          <statement><p>Compressed, because <m>x'(0) = -2 \lt 0</m> means the mass immediately moves in the negative direction.</p></statement>
+          <feedback>
+            <p>
+              Correct! Since <m>x'(0) \lt 0</m>, the mass moves in the negative
+              direction right away, meaning <m>x(t) \lt 0</m> for small <m>t > 0</m>,
+              which is the compressed side. <m>\checkmark</m>
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement><p>Stretched, because the mass starts at equilibrium and must move somewhere.</p></statement>
+          <feedback>
+            <p>
+              The initial velocity tells us which direction the mass moves.
+              Since <m>x'(0) = -2 \lt 0</m>, it moves in the negative (compressed)
+              direction, not the positive (stretched) direction.
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement><p>We cannot tell from the initial conditions alone.</p></statement>
+          <feedback>
+            <p>
+              We can tell. The sign of <m>x'(0)</m> tells us the direction of
+              motion immediately after <m>t = 0</m>. Since <m>x'(0) = -2 \lt 0</m>,
+              the mass moves in the negative (compressed) direction.
+            </p>
+          </feedback>
+        </choice>
+      </choices>
+    </task>
+
+  </activity>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       PROSE CHECKPOINT: GRAPH MATCHING
+       ═══════════════════════════════════════════════════════════ -->
+
+  <p>
+    Now that we have worked through the activity, we have determined the following:
+    <ul>
+      <li><p>The system is <alert>overdamped</alert>: no oscillations, the mass decays smoothly toward zero.</p></li>
+      <li><p>The mass <alert>starts at equilibrium</alert> (<m>x(0) = 0</m>) and <alert>immediately becomes compressed</alert> (<m>x'(0) = -2 \lt 0</m>).</p></li>
+      <li><p>The mass <alert>never crosses the equilibrium</alert> for <m>t > 0</m>.</p></li>
+    </ul>
+    Using these three facts, match the graph of <m>x(t) = -2e^{-t} + 2e^{-2t}</m> below.
+  </p>
+
+  <figure xml:id="fig-overdamped-never-stretched-matching">
+    <caption>
+      Three candidate graphs for <m>x(t) = -2e^{-t} + 2e^{-2t}</m>.
+      The dashed green line marks the equilibrium <m>x = 0</m>.
+      The red dot marks the starting position at <m>t = 0</m>.
+    </caption>
+    <interactive xml:id="interactive-overdamped-never-stretched-matching"
+      iframe="ch3-graph/static-overdamped-never-stretched-matching.html"
+      width="100%" aspect="5:2">
+      <description>
+        Three side-by-side candidate graphs labeled (a), (b), and (c),
+        each with a dashed green equilibrium line at x equals zero and
+        a red dot marking the starting position at t equals zero, which
+        is on the equilibrium line for all three graphs.
+        Graph (a): starts at zero, immediately moves below zero into
+        compressed territory, reaches a minimum, then turns around and
+        crosses the equilibrium line, going above zero before eventually
+        returning toward zero from above.
+        Graph (b): starts at zero, immediately moves below zero into
+        compressed territory, reaches a minimum, then increases back
+        toward zero from below without ever crossing the equilibrium line.
+        Graph (c): starts at zero and oscillates above and below the
+        equilibrium line multiple times with decreasing amplitude,
+        eventually approaching zero.
+      </description>
+    </interactive>
+  </figure>
+
+  <task xml:id="task-never-stretched-matching">
+    <title>Match the Graph</title>
+    <statement>
+      <p>
+        Which graph matches <m>x(t) = -2e^{-t} + 2e^{-2t}</m>?
+      </p>
+    </statement>
+    <choices randomize="no">
+      <choice>
+        <statement><p>Graph (a)</p></statement>
+        <feedback>
+          <p>
+            Graph (a) does start at zero and immediately becomes compressed,
+            which is correct. However, it then crosses the equilibrium line
+            and becomes stretched. We showed in the activity that the mass
+            never crosses the equilibrium for <m>t > 0</m>, so this cannot
+            be correct.
+          </p>
+        </feedback>
+      </choice>
+      <choice correct="yes">
+        <statement><p>Graph (b)</p></statement>
+        <feedback>
+          <p>
+            Correct! Graph (b) starts at zero, immediately becomes compressed,
+            reaches a minimum, and then slowly approaches zero from below without
+            ever crossing the equilibrium, exactly matching what we found
+            in the activity. <m>\checkmark</m>
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement><p>Graph (c)</p></statement>
+        <feedback>
+          <p>
+            Graph (c) shows oscillations, which is the behavior of an
+            underdamped system. Since <m>x(t) = -2e^{-t} + 2e^{-2t}</m>
+            has two distinct real exponential terms and no trig functions,
+            the system is overdamped and does not oscillate.
+          </p>
+        </feedback>
+      </choice>
+    </choices>
+  </task>
+
+  <p>
+    Notice that in graph (b), the mass starts at zero, immediately becomes
+    compressed, and then slowly approaches the equilibrium from below as
+    <m>t \to \infty</m>. It gets closer and closer to zero but never actually
+    crosses it again. Since the mass starts at <m>x = 0</m>, immediately moves
+    into compressed territory, and never crosses the equilibrium, we can
+    conclude the spring is <alert>never stretched</alert> for any <m>t > 0</m>.
+  </p>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       VIDEO + QUESTION FORM
+       ═══════════════════════════════════════════════════════════ -->
+
+  <figure xml:id="video-overdamped-never-stretched">
+    <caption>This video goes through the content of this page.</caption>
+    <video youtube="cmy5o1ydrE8" width="100%" preview="default"/>
+  </figure>
+
+  <interactive xml:id="question-form-3-4-3"
+    iframe="question-form.html?section=3.4.3"
+    width="100%" aspect="2:1"/>
+
+</section>

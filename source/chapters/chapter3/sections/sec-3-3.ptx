@@ -10,6 +10,9 @@
   </introduction>
 
   <xi:include href="./3-3/sec1-damped-mass-spring.ptx"/>
-  
+  <xi:include href="./3-3/sec2-underdamped.ptx"/>
+   <xi:include href="./3-3/sec3-overdamped.ptx"/>
+    <xi:include href="./3-3/sec4-critically-damped.ptx"/>
+     <xi:include href="./3-3/sec5-summary.ptx"/>
 
 </section>

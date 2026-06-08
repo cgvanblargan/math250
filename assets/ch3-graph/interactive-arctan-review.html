@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Graph of arctan</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jsxgraph/1.6.0/jsxgraph.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jsxgraph/1.6.0/jsxgraphcore.js"></script>
+<style>
+  body { margin: 0; padding: 10px; font-family: serif; background: transparent; overflow: hidden; }
+  #title-display {
+    text-align: center;
+    font-size: 15px;
+    font-family: serif;
+    color: #2c3e50;
+    margin-bottom: 6px;
+  }
+  #jxgbox {
+    width: 100%;
+    height: 200px;
+    border: 1px solid #bdc3c7;
+  }
+  #caption {
+    text-align: center;
+    font-size: 13px;
+    font-family: serif;
+    color: #555;
+    margin-top: 6px;
+  }
+</style>
+</head>
+<body>
+
+<div id="title-display">The graph of <i>&theta;</i> = arctan(<i>A</i>)</div>
+
+<div id="jxgbox"
+  role="img"
+  aria-label="Static graph of theta equals arctan of A. The curve increases from just above negative pi over 2 to just below positive pi over 2 as A increases from negative infinity to positive infinity. Two horizontal red dashed asymptotes are drawn at theta equals pi over 2 (above) and theta equals negative pi over 2 (below), labeled accordingly. The output of arctan is always strictly between negative pi over 2 and pi over 2.">
+</div>
+
+<div id="caption">
+  Output always lies in (&minus;&pi;/2,&nbsp;&pi;/2).
+  When <i>A</i> &ge; 0, arctan(<i>A</i>) &ge; 0.
+  When <i>A</i> &lt; 0, arctan(<i>A</i>) &lt; 0.
+</div>
+
+<script>
+  var board = JXG.JSXGraph.initBoard('jxgbox', {
+    boundingbox: [-8, 2.2, 8, -2.2],
+    axis: false,
+    grid: false,
+    showNavigation: false,
+    showCopyright: false,
+    pan: { enabled: false },
+    zoom: { enabled: false }
+  });
+
+  // ── Axes ──────────────────────────────────────────────────────
+  board.create('axis', [[0,0],[1,0]], {
+    strokeColor: '#2c3e50', strokeWidth: 1.5,
+    lastArrow: { type: 1, size: 6 },
+    ticks: {
+      ticksDistance: 2,
+      label: { fontSize: 12, fontFamily: 'serif', color: '#2c3e50', offset: [0, -12] },
+      minorTicks: 0,
+      strokeColor: '#2c3e50'
+    }
+  });
+  board.create('axis', [[0,0],[0,1]], {
+    strokeColor: '#2c3e50', strokeWidth: 1.5,
+    lastArrow: { type: 1, size: 6 },
+    ticks: { visible: false }
+  });
+
+  // ── Axis labels ───────────────────────────────────────────────
+  board.create('text', [8.3, 0, 'A'], {
+    anchorX: 'left', anchorY: 'middle',
+    fontSize: 13, fontFamily: 'serif', color: '#2c3e50',
+    fixed: true, highlight: false
+  });
+  board.create('text', [0.25, 2.1, '\u03b8'], {
+    anchorX: 'left', anchorY: 'middle',
+    fontSize: 13, fontFamily: 'serif', color: '#2c3e50',
+    fixed: true, highlight: false
+  });
+
+  // ── Asymptotes ────────────────────────────────────────────────
+  var piOver2 = Math.PI / 2;
+
+  board.create('segment', [[-8, piOver2],[8, piOver2]], {
+    strokeColor: '#c0392b', strokeWidth: 1.5, dash: 3,
+    fixed: true, highlight: false
+  });
+  board.create('segment', [[-8, -piOver2],[8, -piOver2]], {
+    strokeColor: '#c0392b', strokeWidth: 1.5, dash: 3,
+    fixed: true, highlight: false
+  });
+
+  // ── Asymptote labels ──────────────────────────────────────────
+  board.create('text', [7.5, piOver2 + 0.15, '\u03b8 = \u03c0/2'], {
+    anchorX: 'right', anchorY: 'bottom',
+    fontSize: 12, fontFamily: 'serif', color: '#c0392b',
+    fixed: true, highlight: false
+  });
+  board.create('text', [7.5, -piOver2 - 0.15, '\u03b8 = \u2212\u03c0/2'], {
+    anchorX: 'right', anchorY: 'top',
+    fontSize: 12, fontFamily: 'serif', color: '#c0392b',
+    fixed: true, highlight: false
+  });
+
+  // ── y-axis tick marks at ±π/2 ─────────────────────────────────
+  board.create('point', [0, piOver2], {
+    size: 2, color: '#2c3e50', fixed: true, highlight: false,
+    name: '\u03c0/2',
+    label: { offset: [-30, 0], fontSize: 12, fontFamily: 'serif', color: '#2c3e50' }
+  });
+  board.create('point', [0, -piOver2], {
+    size: 2, color: '#2c3e50', fixed: true, highlight: false,
+    name: '\u2212\u03c0/2',
+    label: { offset: [-38, 0], fontSize: 12, fontFamily: 'serif', color: '#2c3e50' }
+  });
+
+  // ── arctan curve ──────────────────────────────────────────────
+  board.create('functiongraph', [Math.atan, -8, 8], {
+    strokeColor: '#1a5276',
+    strokeWidth: 2.5,
+    highlight: false
+  });
+</script>
+</body>
+</html>

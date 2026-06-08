@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-critically-damped" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Behavior of Critically Damped Solutions</title>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       OBSERVATION: SOLUTION FORM
+       ═══════════════════════════════════════════════════════════ -->
+
+  <observation xml:id="obs-critdamped-form">
+    <title>Critically Damped Solution Form</title>
+    <p>
+      When <m>c^2 = 4km</m>, the characteristic equation has one repeated real root
+      <m>r = -c/(2m) \lt 0</m>, and the system is <term>critically damped</term>.
+      The general solution takes the form:
+      <me>x(t) = c_1 e^{rt} + c_2 t e^{rt},</me>
+      where <m>r \lt 0</m>.
+    </p>
+  </observation>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       PROSE
+       ═══════════════════════════════════════════════════════════ -->
+
+  <p>
+    Like the overdamped case in <xref ref="sec-overdamped"/>, there are no
+    trigonometric functions, so there is no oscillation. The new feature here
+    is the <m>te^{rt}</m> term, which we saw arise from the repeated root structure
+    in <xref ref="sec-all-three-cases"/>.
+  </p>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       INTERACTIVE 1: SPRING ANIMATION + x(t) GRAPH
+       ═══════════════════════════════════════════════════════════ -->
+
+  <figure xml:id="fig-critdamped-spring">
+    <caption>
+      A critically damped spring with <m>r = -0.5</m>, <m>c_1 = -1</m>,
+      <m>c_2 = -2</m>, so <m>x(t) = -e^{-0.5t} - 2te^{-0.5t}</m>.
+      Press Play and notice the mass starts compressed, becomes
+      more compressed before turning around, then slowly approaches equilibrium
+      without ever crossing it.
+    </caption>
+    <interactive xml:id="interactive-critdamped-spring"
+      iframe="ch3-graph/interactive-critdamped-spring.html"
+      width="100%" aspect="5:2">
+      <description>
+        On the left, an animation of a critically damped mass on a spring and dashpot.
+        The mass starts compressed, moves further into compression, then turns around
+        and slowly approaches equilibrium from the compressed side without crossing it.
+        On the right, the corresponding graph of x of t is traced in real time.
+      </description>
+    </interactive>
+  </figure>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       PROSE: RAISE THE EQUILIBRIUM QUESTION
+       ═══════════════════════════════════════════════════════════ -->
+
+  <p>
+    In the animation above the mass never crossed equilibrium. But as with the
+    overdamped case, whether or not it crosses depends on <m>c_1</m> and <m>c_2</m>.
+    Explore below to find out what is possible.
+  </p>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       INTERACTIVE 2: EXPLORER (GRAPH ONLY, c1/c2 SLIDERS)
+       ═══════════════════════════════════════════════════════════ -->
+
+  <figure xml:id="fig-critdamped-explore">
+    <caption>
+      The critically damped solution <m>x(t) = c_1 e^{-0.5t} + c_2 t e^{-0.5t}</m>
+      with <m>r = -0.5</m> fixed.
+      Drag the sliders to change <m>c_1</m> and <m>c_2</m> and observe how many
+      times the curve crosses <m>x = 0</m>.
+    </caption>
+    <interactive xml:id="interactive-critdamped-explore"
+      iframe="ch3-graph/interactive-critdamped-explore.html"
+      width="100%" aspect="5:2">
+      <description>
+        A graph of the critically damped solution with sliders for c1 and c2.
+        The equation display updates in real time to show the current function.
+        The graph updates immediately as sliders move and a message reports
+        how many times the curve crosses x equals 0. Students discover that
+        the curve crosses at most once regardless of c1 and c2.
+      </description>
+    </interactive>
+  </figure>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       MC CHECKPOINT
+       ═══════════════════════════════════════════════════════════ -->
+
+  <exercise xml:id="ex-mc-critdamped-crossings">
+    <statement>
+      <p>
+        Based on your exploration above, what are the possibilities for how many
+        times the mass passes through the equilibrium position <m>x = 0</m> in
+        a critically damped system?
+      </p>
+    </statement>
+    <choices randomize="no">
+      <choice correct="yes">
+        <statement><p>Never or exactly once.</p></statement>
+        <feedback>
+          <p>
+            Correct! Just like the overdamped case, the mass passes through equilibrium
+            at most once. <m>\checkmark</m>
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement><p>Exactly once, always.</p></statement>
+        <feedback>
+          <p>
+            Not always. Try <m>c_1 = 1</m> and <m>c_2 = 1</m> in the explorer above.
+            The curve never crosses <m>x = 0</m>.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement><p>Infinitely many times.</p></statement>
+        <feedback>
+          <p>
+            That is the underdamped case. Critically damped systems have no oscillation.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement><p>Exactly twice.</p></statement>
+        <feedback>
+          <p>
+            Try as many values of <m>c_1</m> and <m>c_2</m> as you like in the
+            explorer. You will not find a case where the curve crosses twice.
+          </p>
+        </feedback>
+      </choice>
+    </choices>
+  </exercise>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       EXAMPLE: ALGEBRAIC PROOF OF AT MOST ONCE
+       ═══════════════════════════════════════════════════════════ -->
+
+  <example xml:id="ex-critdamped-crossings-algebra">
+    <title>At Most One Equilibrium Crossing</title>
+    <statement>
+      <p>
+        Show that the mass in a critically damped system passes through the equilibrium
+        position at most one time. What is the long-term behavior?
+      </p>
+    </statement>
+    <solution>
+      <p>
+        We want to find all <m>t \geq 0</m> where <m>x(t) = 0</m>. Setting the
+        general solution equal to zero:
+        <me>c_1 e^{rt} + c_2 t e^{rt} = 0.</me>
+        Since <m>e^{rt} \neq 0</m> for all <m>t</m>, we can divide both sides by
+        <m>e^{rt}</m>:
+        <me>c_1 + c_2 t = 0,</me>
+        so
+        <me>t = -\frac{c_1}{c_2}.</me>
+        This is at most one value of <m>t</m>. It gives a valid crossing only when
+        <m>-c_1/c_2 \geq 0</m>. Otherwise the mass never crosses equilibrium at all.
+      </p>
+      <p>
+        For the long-term behavior, since <m>r \lt 0</m>:
+        <me>
+          \lim_{t \to \infty} x(t)
+          = \lim_{t \to \infty}
+            \underbrace{e^{rt}}_{\to\, 0}
+            \cdot
+            \underbrace{(c_1 + c_2 t)}_{\text{grows}}
+          = 0,
+        </me>
+        where the exponential decay beats the linear growth by L'Hopital's rule.
+      </p>
+    </solution>
+  </example>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       OBSERVATION: LONG TERM BEHAVIOR
+       ═══════════════════════════════════════════════════════════ -->
+
+  <observation xml:id="obs-critdamped-limit">
+    <p>
+      Even though <m>c_1 + c_2 t</m> grows without bound, the exponential decay
+      wins:
+      <me>
+        \lim_{t \to \infty} x(t)
+        = \lim_{t \to \infty}
+          \underbrace{(c_1 + c_2 t)}_{\text{grows}}
+          \cdot
+          \underbrace{e^{rt}}_{\to\, 0}
+        = 0.
+      </me>
+      The mass always approaches equilibrium in the long run.
+    </p>
+  </observation>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       KEY TAKEAWAYS
+       ═══════════════════════════════════════════════════════════ -->
+
+  <conclusion>
+    <title>Key Takeaways</title>
+    <p>
+      <ul>
+        <li><p>
+          <alert>Solution form:</alert> Critically damped solutions have the form
+          <m>x(t) = c_1 e^{rt} + c_2 t e^{rt}</m> where <m>r \lt 0</m> is the
+          one repeated root.
+        </p></li>
+        <li><p>
+          <alert>No oscillation:</alert> Like the overdamped case, there is no
+          trigonometric part and therefore no oscillation.
+        </p></li>
+        <li><p>
+          <alert>Equilibrium crossings:</alert> The mass passes through <m>x = 0</m>
+          at most once, the same as the overdamped case.
+        </p></li>
+        <li><p>
+          <alert>Long-term behavior:</alert>
+          <m>\displaystyle\lim_{t \to \infty} x(t) = 0</m>,
+          since the exponential decay beats the linear growth in <m>c_1 + c_2 t</m>.
+        </p></li>
+        <li><p>
+          <alert>Similarity to overdamped:</alert> Critically damped and overdamped
+          solutions behave qualitatively the same way: no oscillation, at most one
+          equilibrium crossing, and <m>x(t) \to 0</m>. The difference is in the
+          form of the solution and which value of <m>c</m> produces each case.
+        </p></li>
+      </ul>
+    </p>
+  </conclusion>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       VIDEO + QUESTION FORM
+       ═══════════════════════════════════════════════════════════ -->
+
+  <figure xml:id="video-critdamped">
+    <caption>This video goes through the content of this page.</caption>
+    <video youtube="LTN_Mysoi2M" width="100%" preview="default"/>
+  </figure>
+
+  <interactive xml:id="question-form-3-3-4"
+    iframe="question-form.html?section=3.3.4"
+    width="100%" aspect="2:1"/>
+
+</section>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Graph of x(t) = 4e^{-2t} - 10e^{-t}</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jsxgraph/1.6.0/jsxgraph.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jsxgraph/1.6.0/jsxgraphcore.js"></script>
+<style>
+  body { margin: 0; padding: 10px; font-family: serif; background: transparent; overflow: hidden; }
+  #title-display {
+    text-align: center;
+    font-size: 15px;
+    font-family: serif;
+    color: #2c3e50;
+    margin-bottom: 6px;
+  }
+  #jxgbox {
+    width: 100%;
+    height: 220px;
+    border: 1px solid #bdc3c7;
+  }
+  #caption {
+    text-align: center;
+    font-size: 13px;
+    font-family: serif;
+    color: #555;
+    margin-top: 6px;
+  }
+</style>
+</head>
+<body>
+
+<div id="title-display"><i>x</i>(<i>t</i>) = 4<i>e</i><sup>&minus;2<i>t</i></sup> &minus; 10<i>e</i><sup>&minus;<i>t</i></sup></div>
+
+<div id="jxgbox"
+  role="img"
+  aria-label="Graph of x of t equals 4 e to the negative 2t minus 10 e to the negative t, for t from 0 to 6. The curve starts at x equals negative 6 when t equals 0, increases toward zero, and approaches zero from below as t increases, never crossing the equilibrium position x equals 0. A dashed horizontal line marks the equilibrium at x equals 0. The point at t equals 0 is marked, showing x of 0 equals negative 6.">
+</div>
+
+<div id="caption">
+  Starts at <i>x</i>(0) = &minus;6 (compressed). Increases toward equilibrium, never crosses. <i>x</i>(<i>t</i>) &rarr; 0 as <i>t</i> &rarr; &infin;.
+</div>
+
+<script>
+  var board = JXG.JSXGraph.initBoard('jxgbox', {
+    boundingbox: [-0.2, 1.5, 6.5, -7.5],
+    axis: false,
+    grid: false,
+    showNavigation: false,
+    showCopyright: false,
+    pan: { enabled: false },
+    zoom: { enabled: false }
+  });
+
+  // ── Axes ──────────────────────────────────────────────────────
+  board.create('axis', [[0,0],[1,0]], {
+    strokeColor: '#2c3e50', strokeWidth: 1.5,
+    lastArrow: { type: 1, size: 6 },
+    ticks: {
+      ticksDistance: 1,
+      label: { fontSize: 11, fontFamily: 'serif', color: '#2c3e50', offset: [0, -12] },
+      minorTicks: 0,
+      strokeColor: '#2c3e50'
+    }
+  });
+  board.create('axis', [[0,0],[0,1]], {
+    strokeColor: '#2c3e50', strokeWidth: 1.5,
+    lastArrow: { type: 1, size: 6 },
+    ticks: {
+      ticksDistance: 2,
+      label: { fontSize: 11, fontFamily: 'serif', color: '#2c3e50', offset: [-18, 0] },
+      minorTicks: 0,
+      strokeColor: '#2c3e50'
+    }
+  });
+
+  // ── Axis labels ───────────────────────────────────────────────
+  board.create('text', [6.6, 0, 't'], {
+    anchorX: 'left', anchorY: 'middle',
+    fontSize: 13, fontFamily: 'serif', color: '#2c3e50',
+    fixed: true, highlight: false
+  });
+  board.create('text', [0.15, 1.35, 'x'], {
+    anchorX: 'left', anchorY: 'middle',
+    fontSize: 13, fontFamily: 'serif', color: '#2c3e50',
+    fixed: true, highlight: false
+  });
+
+  // ── Equilibrium dashed line ───────────────────────────────────
+  board.create('segment', [[0, 0], [6.5, 0]], {
+    strokeColor: '#145a32', strokeWidth: 1.5, dash: 3,
+    fixed: true, highlight: false
+  });
+  board.create('text', [6.2, 0.15, 'x = 0'], {
+    anchorX: 'right', anchorY: 'bottom',
+    fontSize: 11, fontFamily: 'serif', color: '#145a32',
+    fixed: true, highlight: false
+  });
+
+  // ── Curve ─────────────────────────────────────────────────────
+  function xVal(t) { return 4*Math.exp(-2*t) - 10*Math.exp(-t); }
+
+  var xs = [], ys = [];
+  var steps = 400;
+  for (var i = 0; i <= steps; i++) {
+    var t = 6.0 * i / steps;
+    xs.push(t);
+    ys.push(xVal(t));
+  }
+  board.create('curve', [xs, ys], {
+    strokeColor: '#1a5276',
+    strokeWidth: 2.5,
+    highlight: false
+  });
+
+  // ── Mark x(0) = -6 ───────────────────────────────────────────
+  board.create('point', [0, -6], {
+    size: 4, color: '#922b21', fixed: true, highlight: false,
+    name: 'x(0) = \u22126',
+    label: {
+      offset: [10, -4], fontSize: 12, fontFamily: 'serif', color: '#922b21',
+      anchorX: 'left', anchorY: 'top'
+    }
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-underdamped" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Behavior of Underdamped Solutions</title>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       OBSERVATION: SOLUTION FORM
+       ═══════════════════════════════════════════════════════════ -->
+
+  <observation xml:id="obs-underdamped-form">
+    <title>Underdamped Solution Form</title>
+    <p>
+      When <m>c^2 \lt 4km</m>, the characteristic equation has complex conjugate roots
+      and the system is <term>underdamped</term>. The general solution takes the form:
+      <me>x(t) = e^{\alpha t}\bigl(c_1 \cos(\omega t) + c_2 \sin(\omega t)\bigr),</me>
+      where <m>\alpha \lt 0</m> and <m>\omega \gt 0</m> are determined by <m>m</m>, <m>c</m>, and <m>k</m>.
+    </p>
+  </observation>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       PROSE: DECAYING ENVELOPE
+       ═══════════════════════════════════════════════════════════ -->
+
+  <p>
+    Notice that this solution is the product of two pieces: an exponentially decaying
+    factor <m>e^{\alpha t}</m> (with <m>\alpha \lt 0</m>) and an oscillating
+    trigonometric expression <m>c_1 \cos(\omega t) + c_2 \sin(\omega t)</m>.
+    The exponential factor acts as a shrinking envelope that squeezes the oscillations
+    toward zero over time.
+  </p>
+
+  <p>
+    To see how <m>\alpha</m> affects the solution, the graph below compares the pure
+    trig part (no decay) to the full underdamped solution. Move the slider to change
+    the decay rate.
+  </p>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       INTERACTIVE 1: COMPARE TRIG VS DAMPED TRIG
+       ═══════════════════════════════════════════════════════════ -->
+
+  <figure xml:id="fig-underdamped-compare">
+    <caption>
+      Left: the oscillating factor <m>3\sin(2t) + \cos(2t)</m> alone.
+      Right: the full underdamped solution <m>e^{\alpha t}(3\sin(2t) + \cos(2t))</m>.
+      The red curves show the decaying amplitude envelope <m>\pm e^{\alpha t} \cdot A</m>.
+      Move the slider to change <m>\alpha</m>. At <m>\alpha = 0</m> the two graphs match.
+    </caption>
+    <interactive xml:id="interactive-underdamped-compare"
+      iframe="ch3-graph/interactive-underdamped-compare.html"
+      width="100%" aspect="5:3">
+      <description>
+        Two side by side graphs. The left graph shows x of t equals 3 sine of 2t plus
+        cosine of 2t, oscillating with constant amplitude. The right graph shows
+        e to the alpha t times the same expression, with a slider to control alpha
+        between negative 0.5 and 0. As alpha becomes more negative the oscillations
+        decay faster. At alpha equals 0 the right graph matches the left.
+      </description>
+    </interactive>
+  </figure>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       REMARK: CONNECTION TO UNDAMPED, RAISES EQUILIBRIUM QUESTION
+       ═══════════════════════════════════════════════════════════ -->
+
+  <remark xml:id="remark-underdamped-vs-undamped">
+    <p>
+      Notice that the shape of the underdamped solution is very similar to the undamped
+      case from <xref ref="sec-undamped-mass-spring"/>: both oscillate and cross the
+      equilibrium position repeatedly. The key difference is that the amplitude is
+      decaying because of the factor <m>e^{\alpha t}</m> with <m>\alpha \lt 0</m>.
+      Physically, the dashpot is continuously removing energy from the system, causing
+      the oscillations to shrink.
+    </p>
+    <p>
+      This raises a natural question: does the amplitude decay so much that the mass
+      eventually stops crossing the equilibrium altogether? Explore the animation below.
+    </p>
+  </remark>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       INTERACTIVE 2: SPRING ANIMATION + x(t) GRAPH
+       ═══════════════════════════════════════════════════════════ -->
+
+  <figure xml:id="fig-underdamped-spring">
+    <caption>
+      The underdamped spring with <m>\alpha = -0.2</m> and <m>\omega = 3</m>.
+      The position function is <m>x(t) = e^{-0.2t}(c_1 \cos(3t) + c_2 \sin(3t))</m>.
+      Use the sliders to change <m>c_1</m> and <m>c_2</m> and press Play.
+    </caption>
+    <interactive xml:id="interactive-underdamped-spring"
+      iframe="ch3-graph/interactive-underdamped-spring.html"
+      width="100%" aspect="5:3">
+      <description>
+        On the left, an animation of a mass on a spring and dashpot system. On the right,
+        the corresponding graph of x of t traced in real time. The decay rate alpha is
+        fixed at negative 0.2 and omega is fixed at 3. Sliders control c1 and c2.
+        As the animation plays the oscillations visibly shrink toward zero.
+      </description>
+    </interactive>
+  </figure>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       MC CHECKPOINT
+       ═══════════════════════════════════════════════════════════ -->
+
+  <exercise xml:id="ex-mc-underdamped-crossings">
+    <statement>
+      <p>
+        By observing the graph above, what can we deduce about how many times the mass
+        passes through the equilibrium position <m>x = 0</m> as time goes on forever?
+      </p>
+    </statement>
+    <choices randomize="no">
+      <choice correct="yes">
+        <statement><p>Infinitely many times.</p></statement>
+        <feedback>
+          <p>
+            Correct! The oscillations never fully stop in finite time. No matter how
+            large <m>t</m> gets, the curve continues to cross <m>x = 0</m>. <m>\checkmark</m>
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement><p>Exactly once.</p></statement>
+        <feedback>
+          <p>
+            Look again at the graph. The curve crosses <m>x = 0</m> many times, not just once.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement><p>At most once.</p></statement>
+        <feedback>
+          <p>
+            This is the behavior of overdamped and critically damped systems, not underdamped.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement><p>Never.</p></statement>
+        <feedback>
+          <p>
+            The graph shows the curve oscillating back and forth across <m>x = 0</m> repeatedly.
+          </p>
+        </feedback>
+      </choice>
+    </choices>
+  </exercise>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       EXAMPLE: ALGEBRAIC ARGUMENT (HOMEWORK)
+       ═══════════════════════════════════════════════════════════ -->
+
+  <example xml:id="ex-underdamped-crossings-algebra">
+    <title>How Many Times Does the Mass Cross Equilibrium?</title>
+    <statement>
+      <p>
+        For an underdamped system, show algebraically that the mass passes through
+        the equilibrium position <m>x = 0</m> infinitely many times.
+      </p>
+    </statement>
+    <solution>
+      <p>
+        This is a homework problem. The argument is very similar to the one in
+        <xref ref="ex-equil-crossings-algebra"/> for the undamped case, so reviewing
+        that example first is a good starting point. We already know from the graph
+        above that the answer should be infinitely many times, and on the homework
+        you will justify this algebraically.
+      </p>
+      <p>
+        <em>Hint:</em> start with <m>x(t) = 0</m> and use the fact that
+        <m>e^{\alpha t} \neq 0</m> for all <m>t</m>.
+      </p>
+    </solution>
+  </example>
+<p>
+  Now a key idea here was that the exponential decay may make the amplitude very tiny, but it never actually becomes 0. 
+  So, even though the amplitude is decaying, we will observe the mass is oscillating back and forth forever. 
+</p>
+  <!-- ═══════════════════════════════════════════════════════════
+       KEY TAKEAWAYS
+       ═══════════════════════════════════════════════════════════ -->
+<observation xml:id="obs-underdamped-limit">
+  <p>
+    Even though the mass passes through equilibrium infinitely many times, the
+    damping causes the oscillations to shrink down to zero:
+    <me>
+      \lim_{t \to \infty} x(t)
+      = \lim_{t \to \infty}
+        \underbrace{e^{\alpha t}}_{\to\, 0}
+        \cdot
+        \underbrace{\bigl(c_1 \cos(\omega t) + c_2 \sin(\omega t)\bigr)}_{\text{bounded}}
+      = 0.
+    </me>
+    So the oscillations never fully stop in finite time, but they shrink to zero in
+    the long run.
+  </p>
+</observation>
+
+  <conclusion>
+    <title>Key Takeaways</title>
+    <p>
+      <ul>
+        <li><p>
+          <alert>Solution form:</alert> Underdamped solutions have the form
+          <m>x(t) = e^{\alpha t}(c_1 \cos(\omega t) + c_2 \sin(\omega t))</m>
+          with <m>\alpha \lt 0</m>.
+        </p></li>
+        <li><p>
+          <alert>Decaying envelope:</alert> The factor <m>e^{\alpha t}</m> shrinks the
+          amplitude of the oscillations toward zero. A more negative <m>\alpha</m> means
+          faster decay.
+        </p></li>
+        <li><p>
+          <alert>Equilibrium crossings:</alert> The mass passes through <m>x = 0</m>
+          infinitely many times.
+        </p></li>
+        <li><p>
+          <alert>Long-term behavior:</alert> <m>\displaystyle\lim_{t \to \infty} x(t) = 0</m>.
+          The mass approaches equilibrium but oscillates forever while doing so.
+        </p></li>
+      </ul>
+    </p>
+  </conclusion>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       VIDEO + QUESTION FORM
+       ═══════════════════════════════════════════════════════════ -->
+
+  <figure xml:id="video-underdamped">
+    <caption>This video goes through the content of this page.</caption>
+    <video youtube="v4Vf86FNtws" width="100%" preview="default"/>
+  </figure>
+
+  <interactive xml:id="question-form-3-3-2"
+    iframe="question-form.html?section=3.3.2"
+    width="100%" aspect="2:1"/>
+
+</section>
