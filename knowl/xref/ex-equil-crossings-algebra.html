@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="example example-like"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.2.3</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Showing Infinitely Many Equilibrium Crossings.</span>
+</h3>
+<div class="introduction"><div class="para">Let <span class="process-math">\(x(t) = c_1\cos(\omega_0 t) + c_2\sin(\omega_0 t)\)</span> be the general solution to an undamped mass-spring system, where <span class="process-math">\(\omega_0 \gt 0\)</span> and <span class="process-math">\(c_1, c_2\)</span> are not both zero. Show that <span class="process-math">\(x(t) = 0\)</span> has infinitely many solutions.<div class="autopermalink" data-description="Paragraph"><a href="#ex-equil-crossings-algebra-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></div>
+<details class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="hint solution-like knowl__content">
+<div class="para">Set <span class="process-math">\(x(t) = 0\)</span> and solve for <span class="process-math">\(t\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex-equil-crossings-algebra-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Hint 3.2.3.1"><a href="#ex-equil-crossings-algebra-3" title="Copy heading and permalink for Hint 3.2.3.1" aria-label="Copy heading and permalink for Hint 3.2.3.1">🔗</a></div>
+</div></details><details class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical">
+<div class="para">We want to solve <span class="process-math">\(x(t) = 0\text{,}\)</span> i.e.:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+c_1\cos(\omega_0 t) + c_2\sin(\omega_0 t) = 0.
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-equil-crossings-algebra-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical">
+<div class="para">
+<em class="alert">Case 1: <span class="process-math">\(c_2 = 0\text{.}\)</span></em> Then <span class="process-math">\(x(t) = c_1\cos(\omega_0 t) = 0\text{.}\)</span> Since <span class="process-math">\(c_1 \neq 0\)</span> (not both zero), we need <span class="process-math">\(\cos(\omega_0 t) = 0\text{,}\)</span> which gives:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\omega_0 t = \frac{\pi}{2} + n\pi, \qquad n = 0, 1, 2, 3, \ldots
+\end{equation*}
+</div>
+<div class="para">so <span class="process-math">\(t = \dfrac{1}{\omega_0}\!\left(\dfrac{\pi}{2} + n\pi\right)\text{.}\)</span> This is a different value of <span class="process-math">\(t\)</span> for each <span class="process-math">\(n\text{,}\)</span> so infinitely many solutions.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-equil-crossings-algebra-4-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical">
+<div class="para">
+<em class="alert">Case 2: <span class="process-math">\(c_2 \neq 0\text{.}\)</span></em> Rearranging:</div>
+<div class="displaymath process-math">
+\begin{align*}
+c_1\cos(\omega_0 t) \amp= -c_2\sin(\omega_0 t).
+\end{align*}
+</div>
+<div class="para">Dividing both sides by <span class="process-math">\(c_2\cos(\omega_0 t)\text{:}\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\tan(\omega_0 t) = -\frac{c_1}{c_2}.
+\end{equation*}
+</div>
+<div class="para">Solving for <span class="process-math">\(t\text{:}\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\omega_0 t = \arctan\!\left(-\frac{c_1}{c_2}\right) + n\pi
+\end{equation*}
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+t = \frac{1}{\omega_0}\left[\arctan\!\left(-\frac{c_1}{c_2}\right) + n\pi\right].
+\end{equation*}
+</div>
+<div class="para">Since we need <span class="process-math">\(t \geq 0\text{,}\)</span> we take <span class="process-math">\(n\)</span> to be whichever non-negative integers keep <span class="process-math">\(t\)</span> positive (starting at <span class="process-math">\(n = 0\)</span> or <span class="process-math">\(n = 1\)</span> depending on the sign of the arctan term). Either way, there are infinitely many valid values of <span class="process-math">\(t\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-equil-crossings-algebra-4-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Why <span class="process-math">\(+ \, n\pi\text{?}\)</span> (if unsure: click for a trig review)</span></summary><div class="solution solution-like knowl__content">
+<div class="para">Two things are going on here. First, <span class="process-math">\(\arctan\)</span> only gives us one solution: it’s the inverse of <span class="process-math">\(\tan\)</span> restricted to <span class="process-math">\((-\pi/2, \pi/2)\text{.}\)</span> So <span class="process-math">\(\arctan(-c_1/c_2)\)</span> is just the <em class="emphasis">first</em> value of <span class="process-math">\(\omega_0 t\)</span> that works.<div class="autopermalink" data-description="Paragraph"><a href="#ex-equil-crossings-algebra-4-4-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para">Second, tangent has period <span class="process-math">\(\pi\text{,}\)</span> meaning <span class="process-math">\(\tan(\theta) = \tan(\theta + \pi)\)</span> for any <span class="process-math">\(\theta\text{.}\)</span> So if <span class="process-math">\(\omega_0 t = \theta_0\)</span> is a solution to <span class="process-math">\(\tan(\omega_0 t) = -c_1/c_2\text{,}\)</span> then so is <span class="process-math">\(\omega_0 t = \theta_0 + \pi\text{,}\)</span> and <span class="process-math">\(\theta_0 + 2\pi\text{,}\)</span> and so on. That’s where the <span class="process-math">\(+ \, n\pi\)</span> comes from, capturing all solutions at once.<div class="autopermalink" data-description="Paragraph"><a href="#ex-equil-crossings-algebra-4-4-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para">(Note: <span class="process-math">\(\tan\)</span> has period <span class="process-math">\(\pi\text{,}\)</span> not <span class="process-math">\(2\pi\)</span> like sine and cosine. So we add multiples of <span class="process-math">\(\pi\text{,}\)</span> not <span class="process-math">\(2\pi\text{.}\)</span>)<div class="autopermalink" data-description="Paragraph"><a href="#ex-equil-crossings-algebra-4-4-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 3.2.3.1.1: Why + \, n\pi (if unsure: click for a trig review)"><a href="#ex-equil-crossings-algebra-4-4" title="Copy heading and permalink for Solution 3.2.3.1.1: Why + \, n\pi (if unsure: click for a trig review)" aria-label="Copy heading and permalink for Solution 3.2.3.1.1: Why + \, n\pi (if unsure: click for a trig review)">🔗</a></div>
+</div></details><div class="para">Since <span class="process-math">\(n\)</span> ranges over all integers, this gives infinitely many values of <span class="process-math">\(t\text{,}\)</span> one for each <span class="process-math">\(n\text{.}\)</span> No matter what <span class="process-math">\(c_1\text{,}\)</span> <span class="process-math">\(c_2\text{,}\)</span> and <span class="process-math">\(\omega_0\)</span> are, the mass passes through equilibrium infinitely many times.<div class="autopermalink" data-description="Paragraph"><a href="#ex-equil-crossings-algebra-4-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 3.2.3.1"><a href="#ex-equil-crossings-algebra-4" title="Copy heading and permalink for Solution 3.2.3.1" aria-label="Copy heading and permalink for Solution 3.2.3.1">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Example 3.2.3: Showing Infinitely Many Equilibrium Crossings"><a href="#ex-equil-crossings-algebra" title="Copy heading and permalink for Example 3.2.3: Showing Infinitely Many Equilibrium Crossings" aria-label="Copy heading and permalink for Example 3.2.3: Showing Infinitely Many Equilibrium Crossings">🔗</a></div></article><span class="incontext"><a class="internal" href="sec-equilibrium-crossings.html#ex-equil-crossings-algebra">in-context</a></span>
+</body>
+</html>

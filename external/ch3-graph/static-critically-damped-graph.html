@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Graph of x(t) = e^{-2t}(1+4t)</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jsxgraph/1.6.0/jsxgraph.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jsxgraph/1.6.0/jsxgraphcore.js"></script>
+<style>
+  body { margin: 0; padding: 10px; font-family: serif; background: transparent; overflow: hidden; }
+  #title-display {
+    text-align: center;
+    font-size: 15px;
+    font-family: serif;
+    color: #2c3e50;
+    margin-bottom: 6px;
+  }
+  #jxgbox {
+    width: 100%;
+    height: 220px;
+    border: 1px solid #bdc3c7;
+  }
+  #caption {
+    text-align: center;
+    font-size: 13px;
+    font-family: serif;
+    color: #555;
+    margin-top: 6px;
+  }
+</style>
+</head>
+<body>
+
+<div id="title-display"><i>x</i>(<i>t</i>) = <i>e</i><sup>&minus;2<i>t</i></sup>(1 + 4<i>t</i>)</div>
+
+<div id="jxgbox"
+  role="img"
+  aria-label="Graph of x of t equals e to the negative 2t times the quantity 1 plus 4t, for t from 0 to 4. The curve starts at x equals 1 when t equals 0, labeled x of 0 equals 1 which is greater than 0, indicating the mass starts stretched. A label above the curve near t equals 0 reads x prime of 0 equals 2 which is greater than 0, indicating the mass initially moves further from equilibrium. The curve increases to a peak then decreases and approaches zero from above as t increases. A dashed green horizontal line marks the equilibrium at x equals zero. The curve stays entirely above zero, never crossing the equilibrium.">
+</div>
+
+<div id="caption">
+  Starts at <i>x</i>(0) = 1 (stretched), initially moving further from equilibrium. Never crosses equilibrium.
+</div>
+
+<script>
+  var board = JXG.JSXGraph.initBoard('jxgbox', {
+    boundingbox: [-0.2, 2.0, 4.5, -0.3],
+    axis: false,
+    grid: false,
+    showNavigation: false,
+    showCopyright: false,
+    pan: { enabled: false },
+    zoom: { enabled: false }
+  });
+
+  // Axes
+  board.create('axis', [[0,0],[1,0]], {
+    strokeColor: '#2c3e50', strokeWidth: 1.5,
+    lastArrow: { type: 1, size: 6 },
+    ticks: {
+      ticksDistance: 1,
+      label: { fontSize: 11, fontFamily: 'serif', color: '#2c3e50', offset: [0, -12] },
+      minorTicks: 0,
+      strokeColor: '#2c3e50'
+    }
+  });
+  board.create('axis', [[0,0],[0,1]], {
+    strokeColor: '#2c3e50', strokeWidth: 1.5,
+    lastArrow: { type: 1, size: 6 },
+    ticks: {
+      ticksDistance: 0.5,
+      label: { fontSize: 11, fontFamily: 'serif', color: '#2c3e50', offset: [-18, 0] },
+      minorTicks: 0,
+      strokeColor: '#2c3e50'
+    }
+  });
+
+  // Axis labels
+  board.create('text', [4.6, 0, 't'], {
+    anchorX: 'left', anchorY: 'middle',
+    fontSize: 13, fontFamily: 'serif', color: '#2c3e50',
+    fixed: true, highlight: false
+  });
+  board.create('text', [0.1, 1.9, 'x'], {
+    anchorX: 'left', anchorY: 'middle',
+    fontSize: 13, fontFamily: 'serif', color: '#2c3e50',
+    fixed: true, highlight: false
+  });
+
+  // Equilibrium dashed line
+  board.create('segment', [[0, 0], [4.5, 0]], {
+    strokeColor: '#145a32', strokeWidth: 1.5, dash: 3,
+    fixed: true, highlight: false
+  });
+  board.create('text', [4.3, 0.08, 'x = 0'], {
+    anchorX: 'right', anchorY: 'bottom',
+    fontSize: 11, fontFamily: 'serif', color: '#145a32',
+    fixed: true, highlight: false
+  });
+
+  // Curve
+  function xVal(t) { return Math.exp(-2*t) * (1 + 4*t); }
+  var xs = [], ys = [];
+  for (var i = 0; i <= 400; i++) {
+    var t = 4.3 * i / 400;
+    xs.push(t);
+    ys.push(xVal(t));
+  }
+  board.create('curve', [xs, ys], {
+    strokeColor: '#1a5276', strokeWidth: 2.5, highlight: false
+  });
+
+  // Start point dot
+  board.create('point', [0, 1], {
+    size: 4, color: '#922b21', fixed: true, highlight: false,
+    name: '', label: { visible: false }
+  });
+
+  // x(0) = 1 > 0 label at the dot
+  board.create('text', [0.08, 1, 'x(0) = 1 > 0'], {
+    anchorX: 'left', anchorY: 'middle',
+    fontSize: 12, fontFamily: 'serif', color: '#922b21',
+    fixed: true, highlight: false
+  });
+
+  // x'(0) = 2 > 0 label above the curve near t=0
+  board.create('text', [0.08, 1.55, "x\u2032(0) = 2 > 0"], {
+    anchorX: 'left', anchorY: 'middle',
+    fontSize: 12, fontFamily: 'serif', color: '#145a32',
+    fixed: true, highlight: false
+  });
+</script>
+</body>
+</html>

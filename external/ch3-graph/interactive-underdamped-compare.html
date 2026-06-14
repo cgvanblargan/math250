@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Underdamped: Trig vs Damped Trig</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jsxgraph/1.6.0/jsxgraph.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jsxgraph/1.6.0/jsxgraphcore.js"></script>
+<style>
+  body { margin: 0; padding: 8px; font-family: serif; background: transparent; overflow: hidden; }
+
+  #eq-display {
+    text-align: center;
+    font-size: 14px;
+    font-family: serif;
+    color: #2c3e50;
+    margin-bottom: 6px;
+  }
+
+  #panels {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    justify-content: center;
+  }
+
+  .panel { flex: 1; min-width: 0; }
+
+  .panel-label {
+    font-size: 13px;
+    font-family: serif;
+    color: #2c3e50;
+    text-align: center;
+    margin-bottom: 3px;
+    min-height: 20px;
+  }
+
+  #jxgbox-left  { width: 100%; height: 180px; border: 1px solid #bdc3c7; }
+  #jxgbox-right { width: 100%; height: 180px; border: 1px solid #bdc3c7; }
+
+  #controls {
+    margin-top: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-size: 14px;
+    font-family: serif;
+    color: #2c3e50;
+  }
+
+  #controls label { font-weight: bold; }
+  #controls input[type=range] { width: 160px; accent-color: #922b21; }
+
+  #info {
+    text-align: center;
+    font-size: 13px;
+    font-family: serif;
+    color: #2c3e50;
+    margin-top: 5px;
+    min-height: 18px;
+  }
+</style>
+</head>
+<body>
+
+<div id="eq-display">
+  Left: <i>x</i>(<i>t</i>) = 3 sin(2<i>t</i>) + cos(2<i>t</i>)
+  &nbsp;&nbsp;&nbsp;
+  Right: <i>x</i>(<i>t</i>) = <i>e</i><sup>&alpha;<i>t</i></sup>(3 sin(2<i>t</i>) + cos(2<i>t</i>))
+</div>
+
+<div id="panels">
+  <div class="panel">
+    <div class="panel-label">No damping (&alpha; = 0)</div>
+    <div id="jxgbox-left" role="img"
+      aria-label="Graph of x of t equals 3 sin of 2t plus cosine of 2t. The curve oscillates with constant amplitude, never decaying."
+      aria-describedby="info"></div>
+  </div>
+  <div class="panel">
+    <div class="panel-label" id="right-label">With damping (&alpha; = <span id="alpha-display">-0.3</span>)</div>
+    <div id="jxgbox-right" role="img"
+      aria-label="Graph of e to the alpha t times the quantity 3 sin of 2t plus cosine of 2t. The curve oscillates but with amplitude shrinking toward zero as t increases. A slider controls alpha."
+      aria-describedby="info"></div>
+  </div>
+</div>
+
+<div id="controls">
+  <label for="alpha-slider">&alpha; =</label>
+  <input type="range" id="alpha-slider" min="-0.5" max="0" step="0.05" value="-0.3"
+    title="Decay rate alpha"
+    aria-label="Slider for alpha, the decay rate. More negative means faster decay. At alpha equals 0 this recovers the undamped case."
+    aria-describedby="info">
+  <span id="alpha-display2">-0.30</span>
+</div>
+
+<div id="info" role="status" aria-live="polite">Move the slider to change the decay rate.</div>
+
+<script>
+  var alpha = -0.3;
+  var T_MAX = 10;
+  var yMax  = 4.0;
+
+  function f(t)       { return 3 * Math.sin(2*t) + Math.cos(2*t); }
+  function fDamped(t) { return Math.exp(alpha * t) * f(t); }
+  function envPos(t)  { return Math.exp(alpha * t) * Math.sqrt(3*3 + 1*1); }  // amplitude envelope
+  function envNeg(t)  { return -envPos(t); }
+
+  // Build point arrays for a curve
+  function buildPoints(fn, steps) {
+    var xs = [], ys = [];
+    for (var i = 0; i <= steps; i++) {
+      var t = (T_MAX * i) / steps;
+      xs.push(t);
+      ys.push(fn(t));
+    }
+    return [xs, ys];
+  }
+
+  // Left board: static, just the trig function
+  var boardL = JXG.JSXGraph.initBoard('jxgbox-left', {
+    boundingbox: [-0.2, yMax, T_MAX + 0.2, -yMax],
+    axis: true,
+    showCopyright: false,
+    showNavigation: false,
+    pan: { enabled: false },
+    zoom: { enabled: false },
+    defaultAxes: {
+      x: { ticks: { insertTicks: true, ticksDistance: 2, label: { fontSize: 11, fontFamily: 'serif' } } },
+      y: { ticks: { insertTicks: true, ticksDistance: 1, label: { fontSize: 11, fontFamily: 'serif' } } }
+    }
+  });
+
+  var ptsL = buildPoints(f, 600);
+  boardL.create('curve', [ptsL[0], ptsL[1]], {
+    strokeColor: '#1a5276',
+    strokeWidth: 2.5
+  });
+
+  // Right board: damped, updates with slider
+  var boardR = JXG.JSXGraph.initBoard('jxgbox-right', {
+    boundingbox: [-0.2, yMax, T_MAX + 0.2, -yMax],
+    axis: true,
+    showCopyright: false,
+    showNavigation: false,
+    pan: { enabled: false },
+    zoom: { enabled: false },
+    defaultAxes: {
+      x: { ticks: { insertTicks: true, ticksDistance: 2, label: { fontSize: 11, fontFamily: 'serif' } } },
+      y: { ticks: { insertTicks: true, ticksDistance: 1, label: { fontSize: 11, fontFamily: 'serif' } } }
+    }
+  });
+
+  // Envelope curves (upper and lower)
+  var envPtsPos = buildPoints(envPos, 300);
+  var envPtsNeg = buildPoints(envNeg, 300);
+
+  var envCurvePos = boardR.create('curve', [envPtsPos[0].slice(), envPtsPos[1].slice()], {
+    strokeColor: '#922b21',
+    strokeWidth: 1.5,
+    strokeOpacity: 0.5
+  });
+  var envCurveNeg = boardR.create('curve', [envPtsNeg[0].slice(), envPtsNeg[1].slice()], {
+    strokeColor: '#922b21',
+    strokeWidth: 1.5,
+    strokeOpacity: 0.5
+  });
+
+  // Main damped curve
+  var dampedPts = buildPoints(fDamped, 600);
+  var dampedCurve = boardR.create('curve', [dampedPts[0].slice(), dampedPts[1].slice()], {
+    strokeColor: '#1a5276',
+    strokeWidth: 2.5
+  });
+
+  function updateRight() {
+    // Damped curve
+    var pts = buildPoints(fDamped, 600);
+    dampedCurve.dataX = pts[0];
+    dampedCurve.dataY = pts[1];
+
+    // Envelope
+    var ep = buildPoints(envPos, 300);
+    var en = buildPoints(envNeg, 300);
+    envCurvePos.dataX = ep[0];
+    envCurvePos.dataY = ep[1];
+    envCurveNeg.dataX = en[0];
+    envCurveNeg.dataY = en[1];
+
+    boardR.update();
+  }
+
+  function updateLabels() {
+    var aStr = alpha.toFixed(2);
+    document.getElementById('alpha-display2').textContent = aStr;
+    var rightLabel = document.getElementById('right-label');
+    if (alpha === 0) {
+      rightLabel.innerHTML = 'Undamped case (&alpha; = 0)';
+    } else {
+      rightLabel.innerHTML = 'With damping (&alpha; = <span id="alpha-display">' + aStr + '</span>)';
+    }
+    var speed = alpha === 0 ? 'no decay (undamped)' : Math.abs(alpha) < 0.2 ? 'slow decay' : 'faster decay';
+    document.getElementById('info').textContent =
+      'alpha = ' + aStr + ': ' + speed + '. The red curves show the decaying amplitude envelope.';
+  }
+
+  document.getElementById('alpha-slider').addEventListener('input', function() {
+    alpha = parseFloat(this.value);
+    updateLabels();
+    updateRight();
+  });
+
+  updateLabels();
+  updateRight();
+</script>
+</body>
+</html>

@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Analyzing Overdamped and Critically Damped Motion</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+<link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/ol-markers.css" rel="stylesheet" type="text/css">
+<script>
+var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  "tex": {
+    "inlineMath": [
+      [
+        "\\(",
+        "\\)"
+      ]
+    ],
+    "tags": "none",
+    "tagSide": "right",
+    "tagIndent": ".8em",
+    "packages": {
+      "[+]": [
+        "base",
+        "extpfeil",
+        "ams",
+        "amscd",
+        "color",
+        "newcommand",
+        "knowl"
+      ]
+    }
+  },
+  "options": {
+    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
+    "processHtmlClass": "process-math"
+  },
+  "chtml": {
+    "scale": 0.98,
+    "mtextInheritFont": true
+  },
+  "loader": {
+    "load": [
+      "input/asciimath",
+      "[tex]/extpfeil",
+      "[tex]/amscd",
+      "[tex]/color",
+      "[tex]/newcommand",
+      "[pretext]/mathjaxknowl3.js"
+    ],
+    "paths": {
+      "pretext": "_static/pretext/js"
+    }
+  },
+  "startup": {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  }
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Differential Equations: Interactive Notes for Math 250">
+<meta property="book:author" content="Caroline VanBlargan">
+<script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<!--** Runestone components to run locally in reader's browser **-->
+<!--** No external communication:                              **-->
+<!--**     log level is 0, Runestone Services are disabled     **-->
+<script type="text/javascript">
+eBookConfig = {};
+eBookConfig.useRunestoneServices = false;
+eBookConfig.host = 'http://127.0.0.1:8000';
+eBookConfig.course = 'PTX_Course_Title_Here';
+eBookConfig.basecourse = 'PTX_Base_Course';
+eBookConfig.isLoggedIn = false;
+eBookConfig.email = '';
+eBookConfig.isInstructor = false;
+eBookConfig.logLevel = 0;
+eBookConfig.username = '';
+eBookConfig.readings = null;
+eBookConfig.activities = null;
+eBookConfig.downloadsEnabled = false;
+eBookConfig.allow_pairs = false;
+eBookConfig.enableScratchAC = false;
+eBookConfig.build_info = "";
+eBookConfig.python3 = null;
+eBookConfig.runestone_version = '8.1.2';
+eBookConfig.jobehost = '';
+eBookConfig.proxyuri_runs = '';
+eBookConfig.proxyuri_files = '';
+eBookConfig.enable_chatcodes =  false;
+</script>
+<!--*** Runestone Services ***-->
+<script src="_static/prefix-runtime.d0616b3d72ab3b06.bundle.js"></script><script src="_static/prefix-713.de0ab26248766350.bundle.js"></script><script src="_static/prefix-runestone.af9055d29ed602c4.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-713.f43ced6a6134ea74.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.87414d180ebeebd6.css">
+<script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script>
+</head>
+<body id="vanblargan-de-math250" class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
+<h1 class="heading"><a href="my-great-book.html"><span class="title">Differential Equations: Interactive Notes for Math 250</span> <span class="subtitle">Penn State University</span></a></h1>
+<p class="byline">Caroline VanBlargan</p>
+</div></div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
+<button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="searchbox">
+<div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
+<div class="search-results-controls">
+<input aria-label="Search term" id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search term"><button title="Close search" id="closesearchresults" class="closesearchresults"><span class="material-symbols-outlined">close</span></button>
+</div>
+<h2 class="search-results-heading">Search Results: </h2>
+<div id="searchempty" class="searchempty"><span>No results.</span></div>
+<ol id="searchresults" class="searchresults"></ol>
+</div>
+</div>
+<span class="nav-other-controls"><button id="light-dark-button" class="light-dark-button button" title="Dark Mode"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span class="name">Dark Mode</span></button></span><span class="treebuttons"><a class="previous-button button" href="sec-underdamped-direction-changes.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="sec-3-4.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="sec3-overdamped-never-stretched.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
+</div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\N}{\mathbb N} \newcommand{\Z}{\mathbb Z} \newcommand{\Q}{\mathbb Q} \newcommand{\R}{\mathbb R}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth3 focused" data-preexpanded-levels="0" data-max-levels="3"><ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-frontmatter">
+<div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-colophon"><div class="toc-title-box"><a href="front-colophon.html" class="internal"><span class="title">Colophon</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="preface.html" class="internal"><span class="title">Preface</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-chapter-title.html" class="internal"><span class="codenumber">1</span> <span class="title">The Fundamentals of Differential Equations</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-intro-to-des.html" class="internal"><span class="codenumber">1.1</span> <span class="title">Introduction to Differential Equations</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-what-is-de.html" class="internal"><span class="codenumber">1.1.1</span> <span class="title">What is a Differential Equation?</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-gensolns-initialvalues.html" class="internal"><span class="codenumber">1.1.2</span> <span class="title">General Solutions and Initial Value Problems</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-setting-up-des.html" class="internal"><span class="codenumber">1.1.3</span> <span class="title">Setting Up Differential Equations</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-verifying-solutions.html" class="internal"><span class="codenumber">1.1.4</span> <span class="title">Verifying Solutions</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-equilibrium-solutions.html" class="internal"><span class="codenumber">1.1.5</span> <span class="title">Equilibrium Solutions</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="exercises-1-1.html" class="internal"><span class="codenumber">1.1.6</span> <span class="title">Exercises for Section 1.1</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-integral-solutions.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Integrals as Solutions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-integrating-to-get-solutions.html" class="internal"><span class="codenumber">1.2.1</span> <span class="title">Integrating to solve <span class="process-math">\(\frac{dy}{dx} = f(x)\)</span></span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-positionvelocity.html" class="internal"><span class="codenumber">1.2.2</span> <span class="title">Velocity and Acceleration</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="exercises-1-2.html" class="internal"><span class="codenumber">1.2.3</span> <span class="title">Exercises for Section 1.2</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-slopefields.html" class="internal"><span class="codenumber">1.3</span> <span class="title">Section 1.3: Slope fields</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-slope-fields-intro.html" class="internal"><span class="codenumber">1.3.1</span> <span class="title">Slope Fields</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-slopefield-matching.html" class="internal"><span class="codenumber">1.3.2</span> <span class="title">Reading and Matching Slope Fields</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="exercises-1-3.html" class="internal"><span class="codenumber">1.3.3</span> <span class="title">Exercises for Section 1.3</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-separabble.html" class="internal"><span class="codenumber">1.4</span> <span class="title">Separable Differential Equations</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="subsec-intr-separable.html" class="internal"><span class="codenumber">1.4.1</span> <span class="title">Introduction to Separable ODEs</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="subsec-sepofvar.html" class="internal"><span class="codenumber">1.4.2</span> <span class="title">Separation of Variables</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="subsec-sep-exp.html" class="internal"><span class="codenumber">1.4.3</span> <span class="title">Separation of Variables: Important Example with Exponentials</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="subsec-sep-minussign.html" class="internal"><span class="codenumber">1.4.4</span> <span class="title">Separation of Variables: Some Subtle Points</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="subsec-sep-completingsquare.html" class="internal"><span class="codenumber">1.4.5</span> <span class="title">Separation of Variables: Solving Explicitly Tricks</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-1-4-radiocarbon.html" class="internal"><span class="codenumber">1.4.6</span> <span class="title">Radiocarbon Dating</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-1-4-newton.html" class="internal"><span class="codenumber">1.4.7</span> <span class="title">Newton’s Law of Cooling</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="exercises-1-4.html" class="internal"><span class="codenumber">1.4.8</span> <span class="title">Exercises for Section 1.4</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-first-order-linear.html" class="internal"><span class="codenumber">1.5</span> <span class="title">First-Order Linear ODEs</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-linear-first-order-intro.html" class="internal"><span class="codenumber">1.5.1</span> <span class="title">Definition of 1st Order Linear ODEs</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-solving-first-order-linear.html" class="internal"><span class="codenumber">1.5.2</span> <span class="title">Solving First-Order Linear ODEs</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-linear-standard-examples.html" class="internal"><span class="codenumber">1.5.3</span> <span class="title">First-Order Linear ODEs: Standard Examples</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-linear-harder.html" class="internal"><span class="codenumber">1.5.4</span> <span class="title">First-Order Linear ODEs: A Harder Example</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="exercises-1-5.html" class="internal"><span class="codenumber">1.5.5</span> <span class="title">Exercises for Section 1.5</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-mixing-intro.html" class="internal"><span class="codenumber">1.6</span> <span class="title">Mixing problems</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-mixing-teaser.html" class="internal"><span class="codenumber">1.6.1</span> <span class="title">Setting Up Mixing Problems: Rate In, Rate Out</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-mixing-constant-volume.html" class="internal"><span class="codenumber">1.6.2</span> <span class="title">Mixing Problem: Constant Volume</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-mixing-volume-changing.html" class="internal"><span class="codenumber">1.6.3</span> <span class="title">Mixing Problem: Changing Volume</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="exercises-1-6.html" class="internal"><span class="codenumber">1.6.4</span> <span class="title">Exercises for Section 1.6</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-first-order-autonomous.html" class="internal"><span class="codenumber">2</span> <span class="title">First Order Autonomous ODEs and Applications</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-pop.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Population Modelling</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-pop-setup.html" class="internal"><span class="codenumber">2.1.1</span> <span class="title">Setting Up Population Models</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-pop-logistic.html" class="internal"><span class="codenumber">2.1.2</span> <span class="title">Solving the Logistic Equation</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-pop-doomsday.html" class="internal"><span class="codenumber">2.1.3</span> <span class="title">Doomsday vs Extinction</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="exercises-2-1.html" class="internal"><span class="codenumber">2.1.4</span> <span class="title">Exercises for Section 2.1</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-stability.html" class="internal"><span class="codenumber">2.2</span> <span class="title">Stability of Equilibrium Solutions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-equilibrium-stability.html" class="internal"><span class="codenumber">2.2.1</span> <span class="title">Stability of Equilibrium Solutions</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-autonomous-odes.html" class="internal"><span class="codenumber">2.2.2</span> <span class="title">Autonomous Differential Equations</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-phase-diagrams.html" class="internal"><span class="codenumber">2.2.3</span> <span class="title">Analyzing Stability with Phase Diagrams</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-existence-uniqueness.html" class="internal"><span class="codenumber">2.2.4</span> <span class="title">Consequences of Existence and Uniqueness</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-phase-applications.html" class="internal"><span class="codenumber">2.2.5</span> <span class="title">Applying Phase Diagrams to Population Models</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-frog-question.html" class="internal"><span class="codenumber">2.2.6</span> <span class="title">Applying Phase Diagrams: The Frog Question</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="exercises-2-2.html" class="internal"><span class="codenumber">2.2.7</span> <span class="title">Exercises for Section 2.2</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter contains-active">
+<div class="toc-title-box"><a href="ch-second-order.html" class="internal"><span class="codenumber">3</span> <span class="title">2nd Order ODEs and the Mass-Spring System</span></a></div>
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-3-1.html" class="internal"><span class="codenumber">3.1</span> <span class="title">2nd Order Linear ODEs</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-2nd-linear-intro.html" class="internal"><span class="codenumber">3.1.1</span> <span class="title">Introduction to Second-Order Linear ODEs</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-characteristic-equation.html" class="internal"><span class="codenumber">3.1.2</span> <span class="title">The Characteristic Equation</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-all-three-cases.html" class="internal"><span class="codenumber">3.1.3</span> <span class="title">All Three Cases of the Characteristic Equation</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-practice-real-roots.html" class="internal"><span class="codenumber">3.1.4</span> <span class="title">Practice: Real Roots</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-complex-roots-practice.html" class="internal"><span class="codenumber">3.1.5</span> <span class="title">Complex Roots and Practice</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-ivp-second-order.html" class="internal"><span class="codenumber">3.1.6</span> <span class="title">Initial Value Problems</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="exercises-3-1.html" class="internal"><span class="codenumber">3.1.7</span> <span class="title">Exercises for Section 3.1</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-3-2.html" class="internal"><span class="codenumber">3.2</span> <span class="title">The mass-spring system (undamped)</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-undamped-mass-spring.html" class="internal"><span class="codenumber">3.2.1</span> <span class="title">The Undamped Mass-Spring System</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-period-frequency.html" class="internal"><span class="codenumber">3.2.2</span> <span class="title">Period and Frequency</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-equilibrium-crossings.html" class="internal"><span class="codenumber">3.2.3</span> <span class="title">Passing Through Equilibrium</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-amplitude.html" class="internal"><span class="codenumber">3.2.4</span> <span class="title">Distance from Equilibrium</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="exercises-3-2.html" class="internal"><span class="codenumber">3.2.5</span> <span class="title">Exercises for Section 3.2</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-3-3.html" class="internal"><span class="codenumber">3.3</span> <span class="title">The mass-spring-dashpot system (damped)</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-damped-mass-spring.html" class="internal"><span class="codenumber">3.3.1</span> <span class="title">The Damped Mass-Spring System</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-underdamped.html" class="internal"><span class="codenumber">3.3.2</span> <span class="title">Behavior of Underdamped Solutions</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-overdamped.html" class="internal"><span class="codenumber">3.3.3</span> <span class="title">Behavior of Overdamped Solutions</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-critically-damped.html" class="internal"><span class="codenumber">3.3.4</span> <span class="title">Behavior of Critically Damped Solutions</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-damping-summary.html" class="internal"><span class="codenumber">3.3.5</span> <span class="title">Damping cases and the constants c, m, k</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section contains-active">
+<div class="toc-title-box"><a href="sec-3-4.html" class="internal"><span class="codenumber">3.4</span> <span class="title">Interpreting solutions in the mass-spring system</span></a></div>
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-underdamped-direction-changes.html" class="internal"><span class="codenumber">3.4.1</span> <span class="title">Analyzing Underdamped Motion</span></a></div></li>
+<li class="toc-item toc-section active"><div class="toc-title-box"><a href="sec-overdamped-analysis.html" class="internal"><span class="codenumber">3.4.2</span> <span class="title">Analyzing Overdamped and Critically Damped Motion</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec3-overdamped-never-stretched.html" class="internal"><span class="codenumber">3.4.3</span> <span class="title">Analyzing an Overdamped System: Is the Spring Ever Stretched?</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-critically-damped-analysis.html" class="internal"><span class="codenumber">3.4.4</span> <span class="title">Analyzing a Critically Damped System</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec3-critically-damped-crossing.html" class="internal"><span class="codenumber">3.4.5</span> <span class="title">Analyzing a Critically Damped System: Finding Maximum Stretch</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-backmatter">
+<div class="toc-title-box"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-solutions"><div class="toc-title-box"><a href="backmatter-2.html" class="internal"><span class="codenumber">A</span> <span class="title">Answers to Exercises</span></a></div></li>
+<li class="toc-item toc-colophon"><div class="toc-title-box"><a href="back-colophon.html" class="internal"><span class="title">Colophon</span></a></div></li>
+</ul>
+</li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec-overdamped-analysis"><h2 class="heading hide-type">
+<span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.4.2</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Analyzing Overdamped and Critically Damped Motion</span>
+</h2>
+<div class="para" id="sec-overdamped-analysis-2">Overdamped and critically damped systems share the same qualitative behavior: the mass returns to equilibrium without oscillating, passing through it at most once.<div class="autopermalink" data-description="Paragraph"><a href="#sec-overdamped-analysis-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="assemblage assemblage-like" id="assemblage-overdamped-critical-summary"><h3 class="heading"><span class="title">Summary: Overdamped and Critically Damped Cases of <span class="process-math">\(mx'' + cx' + kx = 0\)</span>.</span></h3>
+<div class="tabular-box natural-width"><table class="tabular">
+<tr class="header-horizontal">
+<th scope="col" class="l m b2 r0 l0 t0 lines">Case</th>
+<th scope="col" class="l m b2 r0 l0 t0 lines">Discriminant and roots</th>
+<th scope="col" class="l m b2 r0 l0 t0 lines">Crossings of <span class="process-math">\(x=0\)</span>
+</th>
+<th scope="col" class="l m b2 r0 l0 t0 lines"><span class="process-math">\(\displaystyle\lim_{t\to\infty} x(t)\)</span></th>
+</tr>
+<tr>
+<th scope="row" class="l m b1 r0 l0 t0 lines">
+<dfn class="terminology">Overdamped</dfn> (larger <span class="process-math">\(c\)</span>)</th>
+<td class="l m b1 r0 l0 t0 lines">
+<span class="process-math">\(c^2 &gt; 4km\)</span> (two distinct real roots)</td>
+<td class="l m b1 r0 l0 t0 lines">At most once</td>
+<td class="l m b1 r0 l0 t0 lines"><span class="process-math">\(0\)</span></td>
+</tr>
+<tr>
+<th scope="row" class="l m b1 r0 l0 t0 lines">
+<dfn class="terminology">Critically damped</dfn> (borderline)</th>
+<td class="l m b1 r0 l0 t0 lines">
+<span class="process-math">\(c^2 = 4km\)</span> (one repeated real root)</td>
+<td class="l m b1 r0 l0 t0 lines">At most once</td>
+<td class="l m b1 r0 l0 t0 lines"><span class="process-math">\(0\)</span></td>
+</tr>
+</table></div>
+<div class="autopermalink" data-description="Assemblage: Summary: Overdamped and Critically Damped Cases of mx'' + cx' + kx = 0"><a href="#assemblage-overdamped-critical-summary" title="Copy heading and permalink for Assemblage: Summary: Overdamped and Critically Damped Cases of mx'' + cx' + kx = 0" aria-label="Copy heading and permalink for Assemblage: Summary: Overdamped and Critically Damped Cases of mx'' + cx' + kx = 0">🔗</a></div></article><div class="para logical" id="sec-overdamped-analysis-4">
+<div class="para">For the rest of this page we analyze the position function</div>
+<div class="displaymath process-math" id="sec-overdamped-analysis-4-1">
+\begin{equation*}
+x(t) = 4e^{-2t} - 10e^{-t}.
+\end{equation*}
+</div>
+<div class="para">We will use information about this function to build a complete picture of the motion.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec-overdamped-analysis-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="exploration project-like" id="exploration-overdamped-analysis"><h3 class="heading">
+<span class="type">Exploration</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.4.1</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Building a Picture of the Motion.</span>
+</h3>
+<div class="introduction" id="exploration-overdamped-analysis-2"><div class="para" id="exploration-overdamped-analysis-2-1">Throughout this exploration, <span class="process-math">\(x(t) = 4e^{-2t} - 10e^{-t}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#exploration-overdamped-analysis-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></div>
+<article class="task exercise-like" id="task-overdamped-which-case"><h4 class="heading">
+<span class="codenumber">(a)</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Which Damping Case?</span>
+</h4>
+<div class="ptx-runestone-container"><div class="runestone multiplechoice_section">
+<div class="exercise-statement"><div class="para" id="task-overdamped-which-case-2-1">Based on the form of <span class="process-math">\(x(t) = 4e^{-2t} - 10e^{-t}\text{,}\)</span> which damping case are we in?<div class="autopermalink" data-description="Paragraph"><a href="#task-overdamped-which-case-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></div>
+<ul data-component="multiplechoice" class="exercise-interactives" id="rs-task-overdamped-which-case" data-multipleanswers="false">
+<li data-component="answer" id="rs-task-overdamped-which-case_opt_a" data-correct=""><div class="para" id="task-overdamped-which-case-3-1-1-1">Overdamped</div></li>
+<li data-component="feedback" id="rs-task-overdamped-which-case_opt_a"><div class="para" id="task-overdamped-which-case-3-1-2-1">Correct! The solution is a sum of two distinct decaying exponentials, <span class="process-math">\(x(t) = c_1 e^{r_1 t} + c_2 e^{r_2 t}\)</span> with <span class="process-math">\(r_1 = -2\)</span> and <span class="process-math">\(r_2 = -1\text{.}\)</span> Two distinct real roots means <span class="process-math">\(c^2 &gt; 4km\text{,}\)</span> which is the overdamped case. <span class="process-math">\(\checkmark\)</span>
+</div></li>
+<li data-component="answer" id="rs-task-overdamped-which-case_opt_b"><div class="para" id="task-overdamped-which-case-3-2-1-1">Critically damped</div></li>
+<li data-component="feedback" id="rs-task-overdamped-which-case_opt_b"><div class="para" id="task-overdamped-which-case-3-2-2-1">Not quite. A critically damped solution has the form <span class="process-math">\(x(t) = c_1 e^{-at} + c_2 t e^{-at}\text{,}\)</span> with one exponential and one multiplied by <span class="process-math">\(t\text{.}\)</span> Here we have two different exponential rates, so the roots are distinct, not repeated.</div></li>
+<li data-component="answer" id="rs-task-overdamped-which-case_opt_c"><div class="para" id="task-overdamped-which-case-3-3-1-1">Underdamped</div></li>
+<li data-component="feedback" id="rs-task-overdamped-which-case_opt_c"><div class="para" id="task-overdamped-which-case-3-3-2-1">Not quite. An underdamped solution has the form <span class="process-math">\(x(t) = e^{-pt}(c_1\cos(\omega t) + c_2\sin(\omega t))\text{,}\)</span> which involves oscillating trig terms. This solution has no trig functions, so it decays without oscillating.</div></li>
+</ul>
+</div></div>
+<div class="autopermalink" data-description="Task 3.4.1.a: Which Damping Case?"><a href="#task-overdamped-which-case" title="Copy heading and permalink for Task 3.4.1.a: Which Damping Case?" aria-label="Copy heading and permalink for Task 3.4.1.a: Which Damping Case?">🔗</a></div></article><article class="task exercise-like" id="task-overdamped-equilibrium"><h4 class="heading">
+<span class="codenumber">(b)</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Does the Mass Pass Through Equilibrium?</span>
+</h4>
+<div class="para" id="task-overdamped-equilibrium-2-1">Will the mass ever pass through the equilibrium position <span class="process-math">\(x = 0\text{?}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#task-overdamped-equilibrium-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="task-overdamped-equilibrium-3" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="hint solution-like knowl__content">
+<div class="para" id="task-overdamped-equilibrium-3-1">Set <span class="process-math">\(x(t) = 0\)</span> and solve for <span class="process-math">\(t\text{.}\)</span> Remember that only <span class="process-math">\(t \geq 0\)</span> is physically meaningful.<div class="autopermalink" data-description="Paragraph"><a href="#task-overdamped-equilibrium-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Hint 3.4.1.b.1"><a href="#task-overdamped-equilibrium-3" title="Copy heading and permalink for Hint 3.4.1.b.1" aria-label="Copy heading and permalink for Hint 3.4.1.b.1">🔗</a></div>
+</div></details><details id="task-overdamped-equilibrium-4" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">Full solution <div class="para logical" id="task-overdamped-equilibrium-4-1-2">
+<div class="para">We solve <span class="process-math">\(4e^{-2t} - 10e^{-t} = 0\text{.}\)</span> Since <span class="process-math">\(e^{-t} \neq 0\text{,}\)</span> divide both sides by <span class="process-math">\(e^{-t}\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="task-overdamped-equilibrium-4-1-2-4">
+\begin{equation*}
+4e^{-t} - 10 = 0 \implies e^{-t} = \frac{10}{4} = \frac{5}{2}
+\implies t = -\ln\!\left(\tfrac{5}{2}\right) \approx -0.92.
+\end{equation*}
+</div>
+<div class="para">Since <span class="process-math">\(t \lt 0\text{,}\)</span> this is not a valid time. The mass <em class="alert">never passes through equilibrium</em> for <span class="process-math">\(t \geq 0\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#task-overdamped-equilibrium-4-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 3.4.1.b.1"><a href="#task-overdamped-equilibrium-4" title="Copy heading and permalink for Solution 3.4.1.b.1" aria-label="Copy heading and permalink for Solution 3.4.1.b.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Task 3.4.1.b: Does the Mass Pass Through Equilibrium?"><a href="#task-overdamped-equilibrium" title="Copy heading and permalink for Task 3.4.1.b: Does the Mass Pass Through Equilibrium?" aria-label="Copy heading and permalink for Task 3.4.1.b: Does the Mass Pass Through Equilibrium?">🔗</a></div></article><article class="task exercise-like" id="task-overdamped-initial"><h4 class="heading">
+<span class="codenumber">(c)</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Initial Position and Velocity.</span>
+</h4>
+<div class="para" id="task-overdamped-initial-2-1">Compute <span class="process-math">\(x(0)\)</span> and <span class="process-math">\(x'(0)\text{.}\)</span> What do these tell you about where the mass starts and which direction it initially moves?<div class="autopermalink" data-description="Paragraph"><a href="#task-overdamped-initial-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="task-overdamped-initial-3" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="hint solution-like knowl__content">
+<div class="para" id="task-overdamped-initial-3-1">Recall: <span class="process-math">\(x(0) &gt; 0\)</span> means stretched, <span class="process-math">\(x(0) \lt 0\)</span> means compressed. <span class="process-math">\(x'(0) &gt; 0\)</span> means moving in the positive direction (toward equilibrium when compressed), <span class="process-math">\(x'(0) \lt 0\)</span> means moving in the negative direction.<div class="autopermalink" data-description="Paragraph"><a href="#task-overdamped-initial-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Hint 3.4.1.c.1"><a href="#task-overdamped-initial-3" title="Copy heading and permalink for Hint 3.4.1.c.1" aria-label="Copy heading and permalink for Hint 3.4.1.c.1">🔗</a></div>
+</div></details><details id="task-overdamped-initial-4" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">Work <div class="para logical" id="task-overdamped-initial-4-1-2">
+<div class="para"><em class="alert">Initial position:</em></div>
+<div class="displaymath process-math" id="task-overdamped-initial-4-1-2-2">
+\begin{equation*}
+x(0) = 4 - 10 = -6.
+\end{equation*}
+</div>
+<div class="para">Since <span class="process-math">\(x(0) = -6 \lt 0\text{,}\)</span> the mass starts <em class="alert">compressed</em>.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#task-overdamped-initial-4-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para logical" id="task-overdamped-initial-4-1-3">
+<div class="para">
+<em class="alert">Initial velocity:</em> Differentiating,</div>
+<div class="displaymath process-math" id="task-overdamped-initial-4-1-3-2">
+\begin{equation*}
+x'(t) = -8e^{-2t} + 10e^{-t},
+\end{equation*}
+</div>
+<div class="para">so <span class="process-math">\(x'(0) = -8 + 10 = 2 &gt; 0\text{.}\)</span> The mass is initially moving in the <em class="alert">positive direction</em>, that is, toward the equilibrium position.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#task-overdamped-initial-4-1-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="task-overdamped-initial-4-1-4">Together: the mass starts compressed at <span class="process-math">\(x = -6\text{,}\)</span> moves toward equilibrium, but (from Task 2) never reaches it. So the mass stays compressed for all <span class="process-math">\(t \geq 0\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#task-overdamped-initial-4-1-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 3.4.1.c.1"><a href="#task-overdamped-initial-4" title="Copy heading and permalink for Solution 3.4.1.c.1" aria-label="Copy heading and permalink for Solution 3.4.1.c.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Task 3.4.1.c: Initial Position and Velocity"><a href="#task-overdamped-initial" title="Copy heading and permalink for Task 3.4.1.c: Initial Position and Velocity" aria-label="Copy heading and permalink for Task 3.4.1.c: Initial Position and Velocity">🔗</a></div></article><article class="task exercise-like" id="task-overdamped-matching"><h4 class="heading">
+<span class="codenumber">(d)</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Sketch the Graph.</span>
+</h4>
+<div class="ptx-runestone-container"><div class="runestone multiplechoice_section">
+<div class="exercise-statement">
+<div class="para logical" id="task-overdamped-matching-2-1">
+<div class="para">From Task 3 we observed that <span class="process-math">\(x(0) = -6\)</span> and <span class="process-math">\(x'(0) = 2 &gt; 0\text{,}\)</span> so:</div>
+<ul class="disc" id="task-overdamped-matching-2-1-3">
+<li id="task-overdamped-matching-2-1-3-1">
+<div class="para" id="task-overdamped-matching-2-1-3-1-1">
+<span class="process-math">\(x(0) \lt 0\text{:}\)</span> the mass starts <em class="alert">compressed</em>, and<div class="autopermalink" data-description="Paragraph"><a href="#task-overdamped-matching-2-1-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#task-overdamped-matching-2-1-3-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="task-overdamped-matching-2-1-3-2">
+<div class="para" id="task-overdamped-matching-2-1-3-2-1">
+<span class="process-math">\(x'(0) = 2 &gt; 0\text{:}\)</span> it is initially moving in the <em class="alert">positive direction</em>.<div class="autopermalink" data-description="Paragraph"><a href="#task-overdamped-matching-2-1-3-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#task-overdamped-matching-2-1-3-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+</ul>
+<div class="para">Using this, together with the fact that the mass never crosses equilibrium (Task 2), determine which graph below matches <span class="process-math">\(x(t) = 4e^{-2t} - 10e^{-t}\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#task-overdamped-matching-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <figure class="figure figure-like" id="fig-overdamped-matching"><div class="interactive-iframe-container"><iframe src="external/ch3-graph/static-overdamped-matching.html" id="interactive-overdamped-matching" style="width:600px; height:240px; display: block; "></iframe></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.4.1<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Three candidate graphs for <span class="process-math">\(x(t) = 4e^{-2t} - 10e^{-t}\text{.}\)</span> The dashed green line marks the equilibrium <span class="process-math">\(x = 0\text{.}\)</span> The red dot marks the starting position at <span class="process-math">\(t = 0\text{.}\)</span><div class="autopermalink" data-description="Figure 3.4.1"><a href="#fig-overdamped-matching" title="Copy heading and permalink for Figure 3.4.1" aria-label="Copy heading and permalink for Figure 3.4.1">🔗</a></div></figcaption></figure>
+</div>
+<ul data-component="multiplechoice" class="exercise-interactives" id="rs-task-overdamped-matching" data-multipleanswers="false">
+<li data-component="answer" id="rs-task-overdamped-matching_opt_a"><div class="para" id="task-overdamped-matching-3-1-1-1">Graph (a)</div></li>
+<li data-component="feedback" id="rs-task-overdamped-matching_opt_a"><div class="para" id="task-overdamped-matching-3-1-2-1">Graph (a) does start compressed, which is correct. However, it then moves further from equilibrium before turning around, meaning <span class="process-math">\(x'(0) \lt 0\)</span> initially. But we found <span class="process-math">\(x'(0) = 2 &gt; 0\text{,}\)</span> so the mass is moving toward equilibrium from the very start, not away from it.</div></li>
+<li data-component="answer" id="rs-task-overdamped-matching_opt_b" data-correct=""><div class="para" id="task-overdamped-matching-3-2-1-1">Graph (b)</div></li>
+<li data-component="feedback" id="rs-task-overdamped-matching_opt_b"><div class="para" id="task-overdamped-matching-3-2-2-1">Correct! Graph (b) starts below zero (compressed), moves in the positive direction toward equilibrium, and never crosses <span class="process-math">\(x = 0\text{,}\)</span> exactly matching what we found in Tasks 2 and 3. <span class="process-math">\(\checkmark\)</span>
+</div></li>
+<li data-component="answer" id="rs-task-overdamped-matching_opt_c"><div class="para" id="task-overdamped-matching-3-3-1-1">Graph (c)</div></li>
+<li data-component="feedback" id="rs-task-overdamped-matching_opt_c"><div class="para" id="task-overdamped-matching-3-3-2-1">Graph (c) shows oscillations, which is the behavior of an underdamped system. But <span class="process-math">\(x(t) = 4e^{-2t} - 10e^{-t}\)</span> has two distinct real exponential terms with no trig functions, so it is overdamped and does not oscillate.</div></li>
+</ul>
+</div></div>
+<div class="autopermalink" data-description="Task 3.4.1.d: Sketch the Graph"><a href="#task-overdamped-matching" title="Copy heading and permalink for Task 3.4.1.d: Sketch the Graph" aria-label="Copy heading and permalink for Task 3.4.1.d: Sketch the Graph">🔗</a></div></article><div class="autopermalink" data-description="Exploration 3.4.1: Building a Picture of the Motion"><a href="#exploration-overdamped-analysis" title="Copy heading and permalink for Exploration 3.4.1: Building a Picture of the Motion" aria-label="Copy heading and permalink for Exploration 3.4.1: Building a Picture of the Motion">🔗</a></div></article><article class="example example-like" id="ex-overdamped-analysis"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.4.2</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Analyzing <span class="process-math">\(x(t) = 4e^{-2t} - 10e^{-t}\)</span>.</span>
+</h3>
+<article class="task exercise-like" id="ex-task-overdamped-equil"><h4 class="heading">
+<span class="codenumber">(a)</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Will the mass pass through equilibrium?</span>
+</h4>
+<details id="ex-task-overdamped-equil-2" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="hint solution-like knowl__content">
+<div class="para" id="ex-task-overdamped-equil-2-1">This was solved in <a href="sec-overdamped-analysis.html#task-overdamped-equilibrium" class="xref" data-knowl="./knowl/xref/task-overdamped-equilibrium.html" data-reveal-label="Reveal" data-close-label="Close" title="Task 3.4.1.b: Does the Mass Pass Through Equilibrium?">Task 3.4.1.b</a> of the exploration.<div class="autopermalink" data-description="Paragraph"><a href="#ex-task-overdamped-equil-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Hint 3.4.2.a.1"><a href="#ex-task-overdamped-equil-2" title="Copy heading and permalink for Hint 3.4.2.a.1" aria-label="Copy heading and permalink for Hint 3.4.2.a.1">🔗</a></div>
+</div></details><details id="ex-task-overdamped-equil-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para" id="ex-task-overdamped-equil-3-1">From <a href="sec-overdamped-analysis.html#task-overdamped-equilibrium" class="xref" data-knowl="./knowl/xref/task-overdamped-equilibrium.html" data-reveal-label="Reveal" data-close-label="Close" title="Task 3.4.1.b: Does the Mass Pass Through Equilibrium?">Task 3.4.1.b</a>: the only solution to <span class="process-math">\(x(t) = 0\)</span> occurs at <span class="process-math">\(t = -\ln(5/2) \approx -0.92 \lt 0\text{,}\)</span> which is not a valid time. The mass <em class="alert">never passes through equilibrium</em>.<div class="autopermalink" data-description="Paragraph"><a href="#ex-task-overdamped-equil-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 3.4.2.a.1"><a href="#ex-task-overdamped-equil-3" title="Copy heading and permalink for Solution 3.4.2.a.1" aria-label="Copy heading and permalink for Solution 3.4.2.a.1">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Task 3.4.2.a: Will the mass pass through equilibrium?"><a href="#ex-task-overdamped-equil" title="Copy heading and permalink for Task 3.4.2.a: Will the mass pass through equilibrium?" aria-label="Copy heading and permalink for Task 3.4.2.a: Will the mass pass through equilibrium?">🔗</a></div></article><article class="task exercise-like" id="ex-task-overdamped-stretched"><h4 class="heading">
+<span class="codenumber">(b)</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">When is the spring most stretched?</span>
+</h4>
+<details id="ex-task-overdamped-stretched-2" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="hint solution-like knowl__content">
+<div class="para" id="ex-task-overdamped-stretched-2-1">What can you deduce from the sketch of the graph in the exploration? Think about what the initial conditions and the equilibrium crossing result together tell you about whether the spring is ever stretched.<div class="autopermalink" data-description="Paragraph"><a href="#ex-task-overdamped-stretched-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Hint 3.4.2.b.1"><a href="#ex-task-overdamped-stretched-2" title="Copy heading and permalink for Hint 3.4.2.b.1" aria-label="Copy heading and permalink for Hint 3.4.2.b.1">🔗</a></div>
+</div></details><details id="ex-task-overdamped-stretched-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para" id="ex-task-overdamped-stretched-3-1">From the exploration: the mass starts compressed (<span class="process-math">\(x(0) = -6 \lt 0\)</span>) and never crosses the equilibrium position. Therefore <span class="process-math">\(x(t) \lt 0\)</span> for all <span class="process-math">\(t \geq 0\text{,}\)</span> so the spring is <em class="alert">never stretched</em>. This is confirmed by the graph below, which stays entirely below <span class="process-math">\(x = 0\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex-task-overdamped-stretched-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="fig-overdamped-stretched"><div class="interactive-iframe-container"><iframe src="external/ch3-graph/static-overdamped-example.html" id="interactive-overdamped-stretched" style="width:600px; height:240px; display: block; "></iframe></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.4.3<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The graph of <span class="process-math">\(x(t) = 4e^{-2t} - 10e^{-t}\)</span> stays below zero for all <span class="process-math">\(t \geq 0\text{.}\)</span> The spring is never stretched.<div class="autopermalink" data-description="Figure 3.4.3"><a href="#fig-overdamped-stretched" title="Copy heading and permalink for Figure 3.4.3" aria-label="Copy heading and permalink for Figure 3.4.3">🔗</a></div></figcaption></figure><div class="autopermalink" data-description="Solution 3.4.2.b.1"><a href="#ex-task-overdamped-stretched-3" title="Copy heading and permalink for Solution 3.4.2.b.1" aria-label="Copy heading and permalink for Solution 3.4.2.b.1">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Task 3.4.2.b: When is the spring most stretched?"><a href="#ex-task-overdamped-stretched" title="Copy heading and permalink for Task 3.4.2.b: When is the spring most stretched?" aria-label="Copy heading and permalink for Task 3.4.2.b: When is the spring most stretched?">🔗</a></div></article><article class="task exercise-like" id="ex-task-overdamped-compressed"><h4 class="heading">
+<span class="codenumber">(c)</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">When is the spring most compressed?</span>
+</h4>
+<details id="ex-task-overdamped-compressed-2" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="hint solution-like knowl__content">
+<div class="para" id="ex-task-overdamped-compressed-2-1">What can you deduce from the sketch of the graph that used knowledge of <span class="process-math">\(x(0)\)</span> and <span class="process-math">\(x'(0)\text{?}\)</span> Think about the direction of motion from the very start.<div class="autopermalink" data-description="Paragraph"><a href="#ex-task-overdamped-compressed-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Hint 3.4.2.c.1"><a href="#ex-task-overdamped-compressed-2" title="Copy heading and permalink for Hint 3.4.2.c.1" aria-label="Copy heading and permalink for Hint 3.4.2.c.1">🔗</a></div>
+</div></details><details id="ex-task-overdamped-compressed-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para" id="ex-task-overdamped-compressed-3-1">From the exploration: <span class="process-math">\(x(0) = -6\)</span> and <span class="process-math">\(x'(0) = 2 &gt; 0\text{,}\)</span> so the mass starts compressed and is already moving toward equilibrium at <span class="process-math">\(t = 0\text{.}\)</span> Since it never crosses equilibrium, it moves closer to zero for all <span class="process-math">\(t &gt; 0\text{.}\)</span> Therefore <span class="process-math">\(x(0) = -6\)</span> is the most negative value, and the spring is <em class="alert">most compressed at <span class="process-math">\(t = 0\)</span></em>. The graph confirms this: the curve starts at its lowest point and increases from there.<div class="autopermalink" data-description="Paragraph"><a href="#ex-task-overdamped-compressed-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="fig-overdamped-compressed"><div class="interactive-iframe-container"><iframe src="external/ch3-graph/static-overdamped-example.html" id="interactive-overdamped-compressed" style="width:600px; height:240px; display: block; "></iframe></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.4.4<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The spring is most compressed at <span class="process-math">\(t = 0\text{,}\)</span> where <span class="process-math">\(x(0) = -6\)</span> is the minimum. The mass moves toward equilibrium for all <span class="process-math">\(t &gt; 0\text{.}\)</span><div class="autopermalink" data-description="Figure 3.4.4"><a href="#fig-overdamped-compressed" title="Copy heading and permalink for Figure 3.4.4" aria-label="Copy heading and permalink for Figure 3.4.4">🔗</a></div></figcaption></figure><div class="autopermalink" data-description="Solution 3.4.2.c.1"><a href="#ex-task-overdamped-compressed-3" title="Copy heading and permalink for Solution 3.4.2.c.1" aria-label="Copy heading and permalink for Solution 3.4.2.c.1">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Task 3.4.2.c: When is the spring most compressed?"><a href="#ex-task-overdamped-compressed" title="Copy heading and permalink for Task 3.4.2.c: When is the spring most compressed?" aria-label="Copy heading and permalink for Task 3.4.2.c: When is the spring most compressed?">🔗</a></div></article><div class="autopermalink" data-description="Example 3.4.2: Analyzing x(t) = 4e^{-2t} - 10e^{-t}"><a href="#ex-overdamped-analysis" title="Copy heading and permalink for Example 3.4.2: Analyzing x(t) = 4e^{-2t} - 10e^{-t}" aria-label="Copy heading and permalink for Example 3.4.2: Analyzing x(t) = 4e^{-2t} - 10e^{-t}">🔗</a></div></article><section class="conclusion" id="sec-overdamped-analysis-7"><h3 class="heading">Key Takeaways.<span></span>
+</h3>
+<div class="para logical" id="sec-overdamped-analysis-7-2">
+<div class="para">To answer questions about the behavior of the mass, we should often begin by finding:</div>
+<ul class="disc" id="sec-overdamped-analysis-7-2-1">
+<li id="sec-overdamped-analysis-7-2-1-1">
+<div class="para" id="sec-overdamped-analysis-7-2-1-1-1">
+<em class="alert">Does it pass through equilibrium, and how many times?</em> For overdamped and critically damped systems, at most once.<div class="autopermalink" data-description="Paragraph"><a href="#sec-overdamped-analysis-7-2-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#sec-overdamped-analysis-7-2-1-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="sec-overdamped-analysis-7-2-1-2">
+<div class="para" id="sec-overdamped-analysis-7-2-1-2-1">
+<em class="alert">What are <span class="process-math">\(x(0)\)</span> and <span class="process-math">\(x'(0)\text{?}\)</span></em> These tell us where the mass starts and which direction it initially moves.<div class="autopermalink" data-description="Paragraph"><a href="#sec-overdamped-analysis-7-2-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#sec-overdamped-analysis-7-2-1-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+</ul>
+<div class="para">From these two pieces of information we can always construct a rough sketch of the graph, which in turn lets us answer qualitative questions about the behavior of the system.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec-overdamped-analysis-7-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></section><figure class="figure figure-like" id="video-overdamped-analysis"><div class="video-box" style="width: 100%;padding-top: 56.25%; margin-left: 0%; margin-right: 0%;"><iframe class="video" allowfullscreen="" src="https://www.youtube-nocookie.com/embed/4zwhMFCQJyc?&amp;modestbranding=1&amp;rel=0" id="video-overdamped-analysis-2"></iframe></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.4.5<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>This video goes through the content of this page.<div class="autopermalink" data-description="Figure 3.4.5"><a href="#video-overdamped-analysis" title="Copy heading and permalink for Figure 3.4.5" aria-label="Copy heading and permalink for Figure 3.4.5">🔗</a></div></figcaption></figure><div class="interactive-iframe-container"><iframe src="external/question-form.html?section=3.4.2" id="question-form-3-4-2" style="width:600px; height:300px; display: block; "></iframe></div>
+<div class="autopermalink" data-description="Section 3.4.2: Analyzing Overdamped and Critically Damped Motion"><a href="#sec-overdamped-analysis" title="Copy heading and permalink for Section 3.4.2: Analyzing Overdamped and Critically Damped Motion" aria-label="Copy heading and permalink for Section 3.4.2: Analyzing Overdamped and Critically Damped Motion">🔗</a></div></section></div>
+<div id="ptx-content-footer" class="ptx-content-footer">
+<a class="previous-button button" href="sec-underdamped-direction-changes.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="sec3-overdamped-never-stretched.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="338 3000 8772 6866" role="img"><title>PreTeXt logo</title><g style="stroke-width:.025in; stroke:currentColor; fill:none"><polyline points="472,3590 472,9732 " style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png" alt="Runstone Academy logo"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png" alt="MathJax logo"></a>
+</div>
+</body>
+</html>

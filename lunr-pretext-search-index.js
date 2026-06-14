@@ -2068,7 +2068,7 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "2.2.4",
   "title": "Consequences of Existence and Uniqueness",
-  "body": " Consequences of Existence and Uniqueness  The phase diagram method we developed on the previous page is powerful, but you might be wondering why it actually works. Why does the sign of tell us the long-term behavior of solutions? Why can't a solution just jump from one region to another? The answer comes from a fundamental theorem about autonomous differential equations. We aren't going to dwell on the theorem itself, but we need to understand how its consequences give us a much cleaner picture of the behavior of solutions and why our stability analysis is reliable.   Note. This page does get a bit more theoretical than we typically do in this class. It's okay if you don't 100% get the theory the first time you learn this. The important thing for this page is to get the \"gist\" so that you can build intuition on why phase diagrams work. Going forward, you need to understand how to apply these results in the pages that follow.   Existence and Uniqueness for First-Order Autonomous DEs   Suppose we are solving the first-order autonomous DE , where and are continuous. Then given any initial value :  A solution exists.  The solution is unique.  Solutions do not intersect.       Optional: full technical statement  The theorem above is somewhat simplified. The full statement is: suppose and are continuous on some open region of the -plane containing the point . Then there exists an interval for some on which a unique solution to with exists. Since our equation is autonomous (no on the right-hand side), we can take without loss of generality.   The video below walks through the reasoning behind each of the consequences listed here. We will not write out all the reasoning in the notes — what matters most is understanding and applying the results, which we do on this page immediately after the video.   This video explains how the theorem implies the consequences below, which is not contained in the notes.     Consequences of Existence and Uniqueness  In a first-order autonomous ODE , the following apply to continuous solutions :   A solution that starts at an equilibrium value stays there. If is an equilibrium solution, then the only solution with is itself. No other solution can pass through a point on an equilibrium.   Solutions increase or decrease forever. Since the sign of is constant within each zone between equilibria, and solutions cannot intersect one another, a solution that starts out increasing stays increasing for its entire interval of existence, and similarly for decreasing solutions.   Solutions are trapped between equilibria. Because solutions are continuous and cannot cross an equilibrium (by consequence 1), a solution that starts between two adjacent equilibria stays between them for its entire interval of existence.   Convergence to stable equilibria. A solution that is increasing and trapped below an equilibrium (with no other equilibrium between them) must converge to as . Similarly, a decreasing solution trapped above an equilibrium must converge to it.     These consequences show that the phase diagram is useful for determining the long-term behavior of solutions. For example, in consequence 2, we see that determining whether a continuous solution is growing or decreasing forever is determined purely by which region falls in. For : if or , then grows forever. If , then decreases forever.   Long-term behavior of solutions to based on initial value.    We can also read stability directly from the phase diagram, which relates to consequence 4. If arrows on both sides of an equilibrium point toward it, the equilibrium is stable, meaning nearby solutions converge to it. If arrows on both sides point away, it is unstable. For this example, is stable and is unstable.   Stability of equilibrium solutions to read from the phase diagram.     A Note on \"Growing Forever\" and the Doomsday Case  When we say a solution \"grows forever,\" the doomsday example from deserves a careful look. In that example, the solution with starts above the upper equilibrium and is increasing. The solution remains continuous and stays above on its entire interval of existence , and it blows up to infinity as . So it does grow forever, but only up to time , and the model breaks down at doomsday.  For , if we allow discontinuous solutions, the formula continues to give values, but the solution jumps from to large negative values at , which is physically meaningless for a population and not a continuous solution. In particular, it is not accurate to say as .  In the stability analysis that follows, we will classify solutions starting above an upper non-stable equilibrium as \"growing forever\" without distinguishing the finite-time blowup case from true growth to infinity. The phase diagram correctly captures the direction of this behavior either way.   Before we move onto more complicated examples, let's make sure we understand how to deduce some behavior from a phase diagram. Consider the phase diagram below for a population model .   Phase diagram for a population model with equilibria at and .      In the phase diagram above: for which values of does the solution grow forever?       Not quite. Check the arrow directions in those regions. Do they point right (increasing) or left (decreasing)?       Correct! In the region , the arrow points right, so solutions are increasing and grow forever. By consequence 4, since the solution is trapped below and increasing, it converges to . So it grows forever, just not without bound.       Not quite. Look at what happens for . The arrow points left, meaning solutions are decreasing there.     No solution grows forever.   Not quite. Look at the arrow in the middle region. It points right, meaning solutions there are increasing for their entire interval of existence.      Notice that in this case, grows forever but not without bound. It converges to the stable equilibrium while it increases for all . This is different from the doomsday case, where solutions grow forever and blow up to infinity in finite time.   "
+  "body": " Consequences of Existence and Uniqueness  The phase diagram method we developed on the previous page is powerful, but you might be wondering why it actually works. Why does the sign of tell us the long-term behavior of solutions? Why can't a solution just jump from one region to another? The answer comes from a fundamental theorem about autonomous differential equations. We aren't going to dwell on the theorem itself, but we need to understand how its consequences give us a much cleaner picture of the behavior of solutions and why our stability analysis is reliable.   Note. This page does get a bit more theoretical than we typically do in this class. It's okay if you don't 100% get the theory the first time you learn this. The important thing for this page is to get the \"gist\" so that you can build intuition on why phase diagrams work. Going forward, you need to understand how to apply these results in the pages that follow.   Existence and Uniqueness for First-Order Autonomous DEs   Suppose we are solving the first-order autonomous DE , where and are continuous. Then given any initial value :  A solution exists.  The solution is unique.  Solutions do not intersect.       Optional: full technical statement  The theorem above is somewhat simplified. The full statement is: suppose and are continuous on some open region of the -plane containing the point . Then there exists an interval for some on which a unique solution to with exists. Since our equation is autonomous (no on the right-hand side), we can take without loss of generality.   The video below walks through the reasoning behind each of the consequences listed here. We will not write out all the reasoning in the notes. What matters most is understanding and applying the results, which we do on this page immediately after the video.   This video explains how the theorem implies the consequences below, which is not contained in the notes.     Consequences of Existence and Uniqueness  In a first-order autonomous ODE , the following apply to continuous solutions :   A solution that starts at an equilibrium value stays there. If is an equilibrium solution, then the only solution with is itself. No other solution can pass through a point on an equilibrium.   Solutions increase or decrease forever. Since the sign of is constant within each zone between equilibria, and solutions cannot intersect one another, a solution that starts out increasing stays increasing for its entire interval of existence, and similarly for decreasing solutions.   Solutions are trapped between equilibria. Because solutions are continuous and cannot cross an equilibrium (by consequence 1), a solution that starts between two adjacent equilibria stays between them for its entire interval of existence.   Convergence to stable equilibria. A solution that is increasing and trapped below an equilibrium (with no other equilibrium between them) must converge to as . Similarly, a decreasing solution trapped above an equilibrium must converge to it.     These consequences show that the phase diagram is useful for determining the long-term behavior of solutions. For example, in consequence 2, we see that determining whether a continuous solution is growing or decreasing forever is determined purely by which region falls in. For : if or , then grows forever. If , then decreases forever.   Long-term behavior of solutions to based on initial value.    We can also read stability directly from the phase diagram, which relates to consequence 4. If arrows on both sides of an equilibrium point toward it, the equilibrium is stable, meaning nearby solutions converge to it. If arrows on both sides point away, it is unstable. For this example, is stable and is unstable.   Stability of equilibrium solutions to read from the phase diagram.     A Note on \"Growing Forever\" and the Doomsday Case  When we say a solution \"grows forever,\" the doomsday example from deserves a careful look. In that example, the solution with starts above the upper equilibrium and is increasing. The solution remains continuous and stays above on its entire interval of existence , and it blows up to infinity as . So it does grow forever, but only up to time , and the model breaks down at doomsday.  For , if we allow discontinuous solutions, the formula continues to give values, but the solution jumps from to large negative values at , which is physically meaningless for a population and not a continuous solution. In particular, it is not accurate to say as .  In the stability analysis that follows, we will classify solutions starting above an upper non-stable equilibrium as \"growing forever\" without distinguishing the finite-time blowup case from true growth to infinity. The phase diagram correctly captures the direction of this behavior either way.   Before we move onto more complicated examples, let's make sure we understand how to deduce some behavior from a phase diagram. Consider the phase diagram below for a population model .   Phase diagram for a population model with equilibria at and .      In the phase diagram above: for which values of does the solution grow forever?       Not quite. Check the arrow directions in those regions. Do they point right (increasing) or left (decreasing)?       Correct! In the region , the arrow points right, so solutions are increasing and grow forever. By consequence 4, since the solution is trapped below and increasing, it converges to . So it grows forever, just not without bound.       Not quite. Look at what happens for . The arrow points left, meaning solutions are decreasing there.     No solution grows forever.   Not quite. Look at the arrow in the middle region. It points right, meaning solutions there are increasing for their entire interval of existence.      Notice that in this case, grows forever but not without bound. It converges to the stable equilibrium while it increases for all . This is different from the doomsday case, where solutions grow forever and blow up to infinity in finite time.   "
 },
 {
   "id": "thm-existence-uniqueness-autonomous",
@@ -2638,6 +2638,87 @@ var ptx_lunr_docs = [
   "body": " This video goes through the content of this page starting at 3:35.   "
 },
 {
+  "id": "exercises-3-1",
+  "level": "1",
+  "url": "exercises-3-1.html",
+  "type": "Exercises",
+  "number": "3.1.7",
+  "title": "Exercises for Section 3.1",
+  "body": " Exercises for Section 3.1     Find the general solution of the differential equation.             Find the general solution of the differential equation.             Find the general solution of the differential equation.             Solve the initial value problem.     General solution:   Particular solution:       From a General Solution Back to the ODE   Suppose the general solution to a second-order linear homogeneous ODE with constant coefficients (with ) is      What are the roots and of the characteristic equation?           Write the characteristic equation in the factored form , then expand it into the form .    Recall that for , the characteristic equation is , and it factors as when are the roots. With , just expand the product.           Using part (b), write down the ODE that has as its general solution.            Practice: From Solution to ODE   Use the same method as in to find the ODE with the given general solution.                              The Discriminant   Recall the quadratic formula: for , The expression under the square root, , is called the discriminant , and its sign determines which of the three root cases we are in.     Without solving for the roots, state which case (two distinct real roots, one repeated real root, or two complex conjugate roots) corresponds to , , and .     : two distinct real roots. : one repeated real root. : two complex conjugate roots.      For the ODE , find all values of for which the general solution involves and (i.e., the characteristic equation has complex roots).    The characteristic equation is , so . The roots are complex exactly when . Solve this inequality for .            Complex Roots Come in Conjugate Pairs   Consider with .     Use the quadratic formula to write the two roots in the form , identifying and in terms of , , and .    Start from . Since , write so that . Then split the fraction into a real part and an imaginary part.           Explain why the two roots and must be complex conjugates of each other.    From part (a), and for the same real numbers and : they have the same real part and opposite imaginary parts, so .      "
+},
+{
+  "id": "ex-3-1-2",
+  "level": "2",
+  "url": "exercises-3-1.html#ex-3-1-2",
+  "type": "Exercise",
+  "number": "3.1.7.1",
+  "title": "",
+  "body": "  Find the general solution of the differential equation.         "
+},
+{
+  "id": "ex-3-1-3",
+  "level": "2",
+  "url": "exercises-3-1.html#ex-3-1-3",
+  "type": "Exercise",
+  "number": "3.1.7.2",
+  "title": "",
+  "body": "  Find the general solution of the differential equation.         "
+},
+{
+  "id": "ex-3-1-4",
+  "level": "2",
+  "url": "exercises-3-1.html#ex-3-1-4",
+  "type": "Exercise",
+  "number": "3.1.7.3",
+  "title": "",
+  "body": "  Find the general solution of the differential equation.         "
+},
+{
+  "id": "ex-3-1-5",
+  "level": "2",
+  "url": "exercises-3-1.html#ex-3-1-5",
+  "type": "Exercise",
+  "number": "3.1.7.4",
+  "title": "",
+  "body": "  Solve the initial value problem.     General solution:   Particular solution:    "
+},
+{
+  "id": "ex-3-1-6",
+  "level": "2",
+  "url": "exercises-3-1.html#ex-3-1-6",
+  "type": "Exercise",
+  "number": "3.1.7.5",
+  "title": "From a General Solution Back to the ODE.",
+  "body": " From a General Solution Back to the ODE   Suppose the general solution to a second-order linear homogeneous ODE with constant coefficients (with ) is      What are the roots and of the characteristic equation?           Write the characteristic equation in the factored form , then expand it into the form .    Recall that for , the characteristic equation is , and it factors as when are the roots. With , just expand the product.           Using part (b), write down the ODE that has as its general solution.         "
+},
+{
+  "id": "ex-3-1-7",
+  "level": "2",
+  "url": "exercises-3-1.html#ex-3-1-7",
+  "type": "Exercise",
+  "number": "3.1.7.6",
+  "title": "Practice: From Solution to ODE.",
+  "body": " Practice: From Solution to ODE   Use the same method as in to find the ODE with the given general solution.                           "
+},
+{
+  "id": "ex-3-1-8",
+  "level": "2",
+  "url": "exercises-3-1.html#ex-3-1-8",
+  "type": "Exercise",
+  "number": "3.1.7.7",
+  "title": "The Discriminant.",
+  "body": " The Discriminant   Recall the quadratic formula: for , The expression under the square root, , is called the discriminant , and its sign determines which of the three root cases we are in.     Without solving for the roots, state which case (two distinct real roots, one repeated real root, or two complex conjugate roots) corresponds to , , and .     : two distinct real roots. : one repeated real root. : two complex conjugate roots.      For the ODE , find all values of for which the general solution involves and (i.e., the characteristic equation has complex roots).    The characteristic equation is , so . The roots are complex exactly when . Solve this inequality for .         "
+},
+{
+  "id": "ex-3-1-9",
+  "level": "2",
+  "url": "exercises-3-1.html#ex-3-1-9",
+  "type": "Exercise",
+  "number": "3.1.7.8",
+  "title": "Complex Roots Come in Conjugate Pairs.",
+  "body": " Complex Roots Come in Conjugate Pairs   Consider with .     Use the quadratic formula to write the two roots in the form , identifying and in terms of , , and .    Start from . Since , write so that . Then split the fraction into a real part and an imaginary part.           Explain why the two roots and must be complex conjugates of each other.    From part (a), and for the same real numbers and : they have the same real part and opposite imaginary parts, so .    "
+},
+{
   "id": "sec-undamped-mass-spring",
   "level": "1",
   "url": "sec-undamped-mass-spring.html",
@@ -2879,6 +2960,42 @@ var ptx_lunr_docs = [
   "number": "3.2.5",
   "title": "",
   "body": " This video goes through the content of this page.   "
+},
+{
+  "id": "exercises-3-2",
+  "level": "1",
+  "url": "exercises-3-2.html",
+  "type": "Exercises",
+  "number": "3.2.5",
+  "title": "Exercises for Section 3.2",
+  "body": " Exercises for Section 3.2     Determine the period and frequency of the simple harmonic motion of a -kg mass on the end of a spring with spring constant N\/m.    First find , then use and from .    Period: s. Frequency: Hz.      Passing Through Equilibrium   A kg mass is attached to a spring with spring constant N\/m. The mass is pulled m from equilibrium and released from rest, so and .     Write down the ODE for this system, then simplify it to the form . What is ?    Plug and into , then identify .     , so .      Solve the IVP for .           Find all times at which the mass passes through equilibrium ( ).    Set , so . For which values of is cosine equal to zero?           Compare the speed of the mass at the 1st time it passes through equilibrium to the speed at the 4th time it passes through equilibrium.    The speed is at both the 1st and 4th crossings: the speed at equilibrium is always the same.       Maximum Distance from Equilibrium   Suppose a mass-spring system is described by the ODE      Solve the IVP for .           What is the maximum distance the mass ever gets from equilibrium?    Recall the amplitude from .           Find all times at which the mass reaches this maximum distance from equilibrium.    The mass is at maximum distance when , i.e. when . For which values of does cosine equal ?           What is the speed of the mass at these times?     (the mass is momentarily at rest at maximum distance).      "
+},
+{
+  "id": "ex-3-2-1",
+  "level": "2",
+  "url": "exercises-3-2.html#ex-3-2-1",
+  "type": "Exercise",
+  "number": "3.2.5.1",
+  "title": "",
+  "body": "  Determine the period and frequency of the simple harmonic motion of a -kg mass on the end of a spring with spring constant N\/m.    First find , then use and from .    Period: s. Frequency: Hz.   "
+},
+{
+  "id": "ex-3-2-2",
+  "level": "2",
+  "url": "exercises-3-2.html#ex-3-2-2",
+  "type": "Exercise",
+  "number": "3.2.5.2",
+  "title": "Passing Through Equilibrium.",
+  "body": " Passing Through Equilibrium   A kg mass is attached to a spring with spring constant N\/m. The mass is pulled m from equilibrium and released from rest, so and .     Write down the ODE for this system, then simplify it to the form . What is ?    Plug and into , then identify .     , so .      Solve the IVP for .           Find all times at which the mass passes through equilibrium ( ).    Set , so . For which values of is cosine equal to zero?           Compare the speed of the mass at the 1st time it passes through equilibrium to the speed at the 4th time it passes through equilibrium.    The speed is at both the 1st and 4th crossings: the speed at equilibrium is always the same.    "
+},
+{
+  "id": "ex-3-2-3",
+  "level": "2",
+  "url": "exercises-3-2.html#ex-3-2-3",
+  "type": "Exercise",
+  "number": "3.2.5.3",
+  "title": "Maximum Distance from Equilibrium.",
+  "body": " Maximum Distance from Equilibrium   Suppose a mass-spring system is described by the ODE      Solve the IVP for .           What is the maximum distance the mass ever gets from equilibrium?    Recall the amplitude from .           Find all times at which the mass reaches this maximum distance from equilibrium.    The mass is at maximum distance when , i.e. when . For which values of does cosine equal ?           What is the speed of the mass at these times?     (the mass is momentarily at rest at maximum distance).    "
 },
 {
   "id": "backmatter-2",

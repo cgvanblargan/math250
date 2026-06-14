@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Underdamped Spring with x(t) Graph</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jsxgraph/1.6.0/jsxgraph.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jsxgraph/1.6.0/jsxgraphcore.js"></script>
+<style>
+  body { margin: 0; padding: 8px; font-family: serif; background: transparent; overflow: hidden; }
+
+  #eq-display {
+    text-align: center;
+    font-size: 14px;
+    font-family: serif;
+    color: #2c3e50;
+    margin-bottom: 5px;
+  }
+
+  #panels {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    justify-content: center;
+  }
+
+  #spring-panel {
+    flex: 0 0 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  #spring-label {
+    font-size: 12px;
+    font-family: serif;
+    color: #2c3e50;
+    margin-bottom: 3px;
+    text-align: center;
+  }
+  #spring-canvas {
+    width: 200px;
+    height: 130px;
+    border: 1px solid #bdc3c7;
+    background: #f9f9f9;
+  }
+
+  #graph-panel { flex: 1; min-width: 0; }
+  #graph-label {
+    font-size: 12px;
+    font-family: serif;
+    color: #2c3e50;
+    margin-bottom: 3px;
+    text-align: center;
+  }
+  #jxgbox { width: 100%; height: 130px; border: 1px solid #bdc3c7; }
+
+  #controls {
+    margin-top: 7px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    align-items: center;
+  }
+  .ctrl-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    font-family: serif;
+    color: #2c3e50;
+  }
+  .ctrl-row label { font-weight: bold; min-width: 55px; text-align: right; }
+  .ctrl-row input[type=range] { width: 150px; accent-color: #1a5276; }
+  .ctrl-row .val { min-width: 34px; }
+
+  #btnrow {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 6px;
+  }
+  #playbtn {
+    background: #1a5276; color: #fff; border: none; border-radius: 3px;
+    padding: 5px 22px; font-family: serif; font-size: 14px; cursor: pointer; min-width: 80px;
+  }
+  #playbtn:hover { background: #154360; }
+  #resetbtn {
+    background: transparent; color: #1a5276; border: 1px solid #1a5276;
+    border-radius: 3px; padding: 5px 12px; font-family: serif; font-size: 14px; cursor: pointer;
+  }
+  #resetbtn:hover { background: #eaf0fb; }
+
+  #info {
+    text-align: center;
+    font-size: 12px;
+    font-family: serif;
+    color: #2c3e50;
+    margin-top: 5px;
+    min-height: 16px;
+  }
+</style>
+</head>
+<body>
+
+<div id="eq-display" id="eq-disp">
+  <i>x</i>(<i>t</i>) = <i>e</i><sup>&minus;0.2<i>t</i></sup>(<i>c</i><sub>1</sub> cos(3<i>t</i>) + <i>c</i><sub>2</sub> sin(3<i>t</i>))
+</div>
+
+<div id="panels">
+  <div id="spring-panel">
+    <div id="spring-label">Spring position</div>
+    <canvas id="spring-canvas" width="200" height="130"
+      role="img"
+      aria-label="Animation of a mass on a spring and dashpot system. The mass oscillates with amplitude that slowly shrinks over time. Sliders control the initial conditions c1 and c2."
+      aria-describedby="info">
+    </canvas>
+  </div>
+  <div id="graph-panel">
+    <div id="graph-label">Position <i>x</i>(<i>t</i>)</div>
+    <div id="jxgbox" role="img"
+      aria-label="Live graph of x of t as the animation plays. The curve oscillates with slowly decaying amplitude, crossing zero repeatedly."
+      aria-describedby="info"></div>
+  </div>
+</div>
+
+<div id="controls">
+  <div class="ctrl-row">
+    <label for="c1-slider"><i>c</i><sub>1</sub> =</label>
+    <input type="range" id="c1-slider" min="-3" max="3" step="0.5" value="1"
+      title="c1 coefficient"
+      aria-label="Slider for c1, the coefficient of the cosine term in the underdamped solution."
+      aria-describedby="info">
+    <span class="val" id="c1-val" aria-live="polite" aria-atomic="true">1.0</span>
+  </div>
+  <div class="ctrl-row">
+    <label for="c2-slider"><i>c</i><sub>2</sub> =</label>
+    <input type="range" id="c2-slider" min="-3" max="3" step="0.5" value="1"
+      title="c2 coefficient"
+      aria-label="Slider for c2, the coefficient of the sine term in the underdamped solution."
+      aria-describedby="info">
+    <span class="val" id="c2-val" aria-live="polite" aria-atomic="true">1.0</span>
+  </div>
+</div>
+
+<div id="btnrow">
+  <button id="playbtn" aria-label="Play or pause the animation">&#9654; Play</button>
+  <button id="resetbtn" aria-label="Reset the animation">Reset</button>
+</div>
+
+<div id="info" role="status" aria-live="polite">Press Play to watch the underdamped spring.</div>
+
+<script>
+  // Fixed parameters
+  var alpha = -0.2;
+  var omega = 3.0;
+  var c1 = 1.0, c2 = 1.0;
+
+  var T_MAX = 14;
+  var tNow  = 0;
+  var playing = false;
+  var animInterval = null;
+
+  // Spring canvas layout
+  var canvas = document.getElementById('spring-canvas');
+  var ctx    = canvas.getContext('2d');
+  var CW = canvas.width, CH = canvas.height;
+  var wallX        = 30;
+  var equilibriumX = CW / 2 + 10;
+  var AMP_PX       = 60;
+  var cy           = CH / 2 - 8;
+  var blockW = 28, blockH = 28;
+  var springCoils  = 8;
+  var laneSpacing  = 20;
+  var springY      = cy - laneSpacing / 2;
+  var dashpotY     = cy + laneSpacing / 2;
+
+  function xVal(t) {
+    return Math.exp(alpha * t) * (c1 * Math.cos(omega * t) + c2 * Math.sin(omega * t));
+  }
+
+  function drawSpringCanvas(blockX) {
+    ctx.clearRect(0, 0, CW, CH);
+    ctx.setLineDash([]);
+
+    var wallTop    = springY - 32;
+    var wallBottom = dashpotY + 32;
+
+    // Wall
+    ctx.fillStyle = '#bdc3c7';
+    ctx.fillRect(wallX - 12, wallTop, 12, wallBottom - wallTop);
+    ctx.strokeStyle = '#95a5a6';
+    ctx.lineWidth = 1;
+    for (var i = wallTop; i <= wallBottom; i += 10) {
+      ctx.beginPath();
+      ctx.moveTo(wallX - 12, i);
+      ctx.lineTo(wallX - 2, i - 8);
+      ctx.stroke();
+    }
+    ctx.strokeStyle = '#2c3e50';
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    ctx.moveTo(wallX, wallTop);
+    ctx.lineTo(wallX, wallBottom);
+    ctx.stroke();
+
+    // Spring (upper lane)
+    var springEnd = blockX - blockW / 2;
+    var sLen = Math.max(springEnd - wallX, 6);
+    var cw = sLen / (springCoils + 1);
+    var ch = 9;
+    ctx.strokeStyle = '#566573';
+    ctx.lineWidth = 1.8;
+    ctx.setLineDash([]);
+    ctx.beginPath();
+    ctx.moveTo(wallX, springY);
+    ctx.lineTo(wallX + cw * 0.4, springY);
+    for (var n = 0; n < springCoils; n++) {
+      var bx = wallX + cw * (0.4 + n);
+      ctx.lineTo(bx + cw * 0.3, springY - ch);
+      ctx.lineTo(bx + cw * 0.8, springY + ch);
+    }
+    ctx.lineTo(springEnd, springY);
+    ctx.stroke();
+
+    // Dashpot (lower lane)
+    var endX    = blockX - blockW / 2;
+    var tubeH   = 8;
+    var baffleW = 11;
+    var baffleH = tubeH + 4;
+    var baffleX = wallX + (endX - wallX) * 0.50 - baffleW / 2;
+
+    ctx.strokeStyle = '#566573';
+    ctx.lineWidth = 1.8;
+    ctx.beginPath();
+    ctx.moveTo(wallX, dashpotY);
+    ctx.lineTo(baffleX, dashpotY);
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.moveTo(baffleX + baffleW, dashpotY);
+    ctx.lineTo(endX, dashpotY);
+    ctx.stroke();
+
+    var tubeLeft  = wallX + 8;
+    var tubeRight = endX - 3;
+    ctx.strokeStyle = '#566573';
+    ctx.lineWidth = 1.2;
+    ctx.beginPath();
+    ctx.moveTo(tubeLeft, dashpotY - tubeH);
+    ctx.lineTo(tubeRight, dashpotY - tubeH);
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.moveTo(tubeLeft, dashpotY + tubeH);
+    ctx.lineTo(tubeRight, dashpotY + tubeH);
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.moveTo(tubeLeft, dashpotY - tubeH);
+    ctx.lineTo(tubeLeft, dashpotY + tubeH);
+    ctx.stroke();
+
+    ctx.fillStyle = '#7f8c8d';
+    ctx.fillRect(baffleX, dashpotY - baffleH, baffleW, baffleH * 2);
+    ctx.strokeStyle = '#2c3e50';
+    ctx.lineWidth = 1.2;
+    ctx.strokeRect(baffleX, dashpotY - baffleH, baffleW, baffleH * 2);
+
+    // Block
+    ctx.fillStyle = '#1a5276';
+    ctx.fillRect(blockX - blockW/2, cy - blockH/2, blockW, blockH);
+    ctx.strokeStyle = '#154360';
+    ctx.lineWidth = 1.2;
+    ctx.strokeRect(blockX - blockW/2, cy - blockH/2, blockW, blockH);
+    ctx.fillStyle = '#fff';
+    ctx.font = 'bold 12px serif';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillText('m', blockX, cy);
+
+    // Equilibrium line
+    ctx.setLineDash([]);
+    ctx.strokeStyle = '#145a32';
+    ctx.lineWidth = 1.2;
+    ctx.beginPath();
+    ctx.moveTo(equilibriumX, springY - 22);
+    ctx.lineTo(equilibriumX, dashpotY + 22);
+    ctx.stroke();
+  }
+
+  // JSXGraph board
+  var yMax = 3.5;
+  var board = JXG.JSXGraph.initBoard('jxgbox', {
+    boundingbox: [-0.3, yMax, T_MAX + 0.3, -yMax],
+    axis: true,
+    showCopyright: false,
+    showNavigation: false,
+    pan: { enabled: false },
+    zoom: { enabled: false },
+    defaultAxes: {
+      x: { ticks: { insertTicks: true, ticksDistance: 2, label: { fontSize: 10, fontFamily: 'serif' } } },
+      y: { ticks: { insertTicks: true, ticksDistance: 1, label: { fontSize: 10, fontFamily: 'serif' } } }
+    }
+  });
+
+  var ghostXs = [], ghostYs = [];
+  var ghostCurve = board.create('curve', [ghostXs, ghostYs], {
+    strokeColor: '#d0d3d4',
+    strokeWidth: 1.5
+  });
+
+  var liveXs = [], liveYs = [];
+  var liveCurve = board.create('curve', [liveXs, liveYs], {
+    strokeColor: '#1a5276',
+    strokeWidth: 2
+  });
+
+  var dot = board.create('point', [0, 1], {
+    size: 4,
+    fillColor: '#922b21',
+    strokeColor: '#922b21',
+    fixed: true,
+    withLabel: false
+  });
+
+  function rebuildGhost() {
+    ghostXs.length = 0;
+    ghostYs.length = 0;
+    for (var i = 0; i <= 600; i++) {
+      var t = (T_MAX * i) / 600;
+      ghostXs.push(t);
+      ghostYs.push(xVal(t));
+    }
+    ghostCurve.dataX = ghostXs;
+    ghostCurve.dataY = ghostYs;
+    board.update();
+  }
+
+  function stopAnim() {
+    if (animInterval) { clearInterval(animInterval); animInterval = null; }
+    playing = false;
+    document.getElementById('playbtn').innerHTML = '&#9654; Play';
+  }
+
+  function resetAll() {
+    stopAnim();
+    tNow = 0;
+    liveXs.length = 0;
+    liveYs.length = 0;
+    liveCurve.dataX = liveXs;
+    liveCurve.dataY = liveYs;
+    rebuildGhost();
+    var x0 = xVal(0);
+    dot.setPosition(JXG.COORDS_BY_USER, [0, x0]);
+    var clamped = Math.max(-1.0, Math.min(1.0, x0));
+    drawSpringCanvas(equilibriumX + clamped * AMP_PX);
+    board.update();
+    document.getElementById('info').textContent = 'Press Play to watch the underdamped spring.';
+    document.getElementById('playbtn').innerHTML = '&#9654; Play';
+  }
+
+  function startAnim() {
+    stopAnim();
+    if (tNow >= T_MAX) { tNow = 0; liveXs.length = 0; liveYs.length = 0; }
+    playing = true;
+    document.getElementById('playbtn').innerHTML = '&#9646;&#9646; Pause';
+    document.getElementById('info').textContent = 'As time goes on forever, how many times does the mass cross x = 0?';
+
+    animInterval = setInterval(function() {
+      if (tNow > T_MAX) {
+        stopAnim();
+        document.getElementById('info').textContent = 'As time goes on forever, how many times does the mass cross x = 0?';
+        return;
+      }
+      var xv = xVal(tNow);
+      var clamped = Math.max(-1.0, Math.min(1.0, xv));
+      drawSpringCanvas(equilibriumX + clamped * AMP_PX);
+      dot.setPosition(JXG.COORDS_BY_USER, [tNow, xv]);
+      liveXs.push(tNow);
+      liveYs.push(xv);
+      liveCurve.dataX = liveXs;
+      liveCurve.dataY = liveYs;
+      board.update();
+      tNow += 0.04;
+    }, 30);
+  }
+
+  document.getElementById('c1-slider').addEventListener('input', function() {
+    c1 = parseFloat(this.value);
+    document.getElementById('c1-val').textContent = c1.toFixed(1);
+    resetAll();
+  });
+  document.getElementById('c2-slider').addEventListener('input', function() {
+    c2 = parseFloat(this.value);
+    document.getElementById('c2-val').textContent = c2.toFixed(1);
+    resetAll();
+  });
+  document.getElementById('playbtn').addEventListener('click', function() {
+    if (playing) { stopAnim(); } else { startAnim(); }
+  });
+  document.getElementById('resetbtn').addEventListener('click', resetAll);
+
+  resetAll();
+</script>
+</body>
+</html>

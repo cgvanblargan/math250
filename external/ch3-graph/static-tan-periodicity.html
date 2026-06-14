@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Periodicity of tan</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jsxgraph/1.6.0/jsxgraph.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jsxgraph/1.6.0/jsxgraphcore.js"></script>
+<style>
+  body { margin: 0; padding: 10px; font-family: serif; background: transparent; overflow: hidden; }
+  #title-display {
+    text-align: center;
+    font-size: 15px;
+    font-family: serif;
+    color: #2c3e50;
+    margin-bottom: 6px;
+  }
+  #jxgbox {
+    width: 100%;
+    height: 210px;
+    border: 1px solid #bdc3c7;
+  }
+  #caption {
+    text-align: center;
+    font-size: 13px;
+    font-family: serif;
+    color: #555;
+    margin-top: 6px;
+  }
+</style>
+</head>
+<body>
+
+<div id="title-display">The graph of <i>&theta;</i> = tan(<i>&theta;</i>) has period <i>&pi;</i></div>
+
+<div id="jxgbox"
+  role="img"
+  aria-label="Graph of y equals tan of theta over three periods. The curve has vertical asymptotes at negative 3 pi over 2, negative pi over 2, pi over 2, and 3 pi over 2, shown as red dashed lines. Each branch increases from negative infinity to positive infinity between consecutive asymptotes. A horizontal blue dashed line at a sample output value A crosses each branch exactly once per period, illustrating that tan of theta equals A has one solution per period, spaced pi apart. The three intersection points are highlighted.">
+</div>
+
+<div id="caption">
+  tan(<i>&theta;</i>) = <i>A</i> has one solution per period of length <i>&pi;</i>.
+  Solutions are spaced exactly <i>&pi;</i> apart.
+</div>
+
+<script>
+  var A_VAL = 0.7;   // sample horizontal line height
+  var YMAX  = 4.2;
+  var XMIN  = -3*Math.PI/2 - 0.4;
+  var XMAX  =  3*Math.PI/2 + 0.4;
+
+  var board = JXG.JSXGraph.initBoard('jxgbox', {
+    boundingbox: [XMIN, YMAX, XMAX, -YMAX],
+    axis: false,
+    grid: false,
+    showNavigation: false,
+    showCopyright: false,
+    pan:  { enabled: false },
+    zoom: { enabled: false }
+  });
+
+  // ── Axes ──────────────────────────────────────────────────────
+  board.create('axis', [[0,0],[1,0]], {
+    strokeColor: '#2c3e50', strokeWidth: 1.5,
+    lastArrow: { type: 1, size: 6 },
+    ticks: { visible: false }
+  });
+  board.create('axis', [[0,0],[0,1]], {
+    strokeColor: '#2c3e50', strokeWidth: 1.5,
+    lastArrow: { type: 1, size: 6 },
+    ticks: { visible: false }
+  });
+
+  // ── Axis labels ───────────────────────────────────────────────
+  board.create('text', [XMAX + 0.05, 0, '\u03b8'], {
+    anchorX: 'left', anchorY: 'middle',
+    fontSize: 13, fontFamily: 'serif', color: '#2c3e50',
+    fixed: true, highlight: false
+  });
+  board.create('text', [0.12, YMAX - 0.2, 'y'], {
+    anchorX: 'left', anchorY: 'middle',
+    fontSize: 13, fontFamily: 'serif', color: '#2c3e50',
+    fixed: true, highlight: false
+  });
+
+  // ── x-axis tick labels: multiples of π/2 ─────────────────────
+  var piOver2 = Math.PI / 2;
+  var xTicks = [
+    [-3*piOver2, '\u22123\u03c0/2'],
+    [-piOver2,   '\u2212\u03c0/2'],
+    [ piOver2,   '\u03c0/2'],
+    [ 3*piOver2, '3\u03c0/2']
+  ];
+  xTicks.forEach(function(pair) {
+    board.create('point', [pair[0], 0], {
+      size: 2, color: '#2c3e50', fixed: true, highlight: false,
+      name: pair[1],
+      label: { offset: [0, -16], fontSize: 11, fontFamily: 'serif', color: '#2c3e50' }
+    });
+  });
+  // Also mark π and −π on axis
+  var piTicks = [[-Math.PI, '\u2212\u03c0'], [Math.PI, '\u03c0']];
+  piTicks.forEach(function(pair) {
+    board.create('point', [pair[0], 0], {
+      size: 2, color: '#2c3e50', fixed: true, highlight: false,
+      name: pair[1],
+      label: { offset: [0, -16], fontSize: 11, fontFamily: 'serif', color: '#2c3e50' }
+    });
+  });
+
+  // ── Vertical asymptotes ───────────────────────────────────────
+  var asymptotes = [-3*piOver2, -piOver2, piOver2, 3*piOver2];
+  asymptotes.forEach(function(x) {
+    board.create('segment', [[x, -YMAX + 0.3], [x, YMAX - 0.3]], {
+      strokeColor: '#c0392b', strokeWidth: 1.5, dash: 3,
+      fixed: true, highlight: false
+    });
+  });
+
+  // ── Three branches of tan ─────────────────────────────────────
+  // Branch centres at -π, 0, π — each runs from its left asymptote to right asymptote
+  var branches = [
+    [-3*piOver2, -piOver2],
+    [-piOver2,    piOver2],
+    [ piOver2,  3*piOver2]
+  ];
+  var CLIP = 3.9;
+
+  branches.forEach(function(range) {
+    var xs = [], ys = [];
+    var steps = 300;
+    var lo = range[0] + 0.01, hi = range[1] - 0.01;
+    for (var i = 0; i <= steps; i++) {
+      var t = lo + (hi - lo) * i / steps;
+      var v = Math.tan(t);
+      if (v < -CLIP || v > CLIP) continue;
+      xs.push(t);
+      ys.push(v);
+    }
+    board.create('curve', [xs, ys], {
+      strokeColor: '#1a5276',
+      strokeWidth: 2.5,
+      highlight: false
+    });
+  });
+
+  // ── Horizontal line y = A ─────────────────────────────────────
+  board.create('segment', [[XMIN, A_VAL], [XMAX, A_VAL]], {
+    strokeColor: '#1a5276', strokeWidth: 1.5, dash: 2,
+    fixed: true, highlight: false
+  });
+  board.create('text', [XMAX - 0.15, A_VAL + 0.25, 'y = A'], {
+    anchorX: 'right', anchorY: 'bottom',
+    fontSize: 12, fontFamily: 'serif', color: '#1a5276',
+    fixed: true, highlight: false
+  });
+
+  // ── Intersection points (one per branch) ─────────────────────
+  // tan(θ) = A_VAL  ⟹  θ = arctan(A_VAL) + nπ  for n = -1, 0, 1
+  var theta0 = Math.atan(A_VAL);
+  [-1, 0, 1].forEach(function(n) {
+    var tx = theta0 + n * Math.PI;
+    board.create('point', [tx, A_VAL], {
+      size: 4, color: '#922b21', fixed: true, highlight: false,
+      name: '', label: { visible: false }
+    });
+    // small vertical tick down to axis
+    board.create('segment', [[tx, 0], [tx, A_VAL]], {
+      strokeColor: '#922b21', strokeWidth: 1, dash: 2,
+      fixed: true, highlight: false
+    });
+  });
+
+  // ── π-spacing annotation ──────────────────────────────────────
+  // arrow between n=0 and n=1 solutions
+  var x0 = theta0, x1 = theta0 + Math.PI;
+  var arrowY = A_VAL + 0.55;
+  board.create('segment', [[x0 + 0.05, arrowY], [x1 - 0.05, arrowY]], {
+    strokeColor: '#145a32', strokeWidth: 1.5,
+    firstArrow: true, lastArrow: true,
+    fixed: true, highlight: false
+  });
+  board.create('text', [(x0 + x1) / 2, arrowY + 0.2, '\u03c0'], {
+    anchorX: 'middle', anchorY: 'bottom',
+    fontSize: 13, fontFamily: 'serif', color: '#145a32',
+    fixed: true, highlight: false
+  });
+</script>
+</body>
+</html>

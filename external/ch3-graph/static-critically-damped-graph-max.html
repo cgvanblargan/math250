@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Graph of x(t) = e^{-2t}(1+4t) with max marked</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jsxgraph/1.6.0/jsxgraph.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jsxgraph/1.6.0/jsxgraphcore.js"></script>
+<style>
+  body { margin: 0; padding: 10px; font-family: serif; background: transparent; overflow: hidden; }
+  #title-display {
+    text-align: center;
+    font-size: 15px;
+    font-family: serif;
+    color: #2c3e50;
+    margin-bottom: 6px;
+  }
+  #jxgbox {
+    width: 100%;
+    height: 220px;
+    border: 1px solid #bdc3c7;
+  }
+  #caption {
+    text-align: center;
+    font-size: 13px;
+    font-family: serif;
+    color: #555;
+    margin-top: 6px;
+  }
+</style>
+</head>
+<body>
+
+<div id="title-display"><i>x</i>(<i>t</i>) = <i>e</i><sup>&minus;2<i>t</i></sup>(1 + 4<i>t</i>)</div>
+
+<div id="jxgbox"
+  role="img"
+  aria-label="Graph of x of t equals e to the negative 2t times the quantity 1 plus 4t. The curve starts at x equals 1 at t equals 0, rises to a maximum at t equals one quarter where x equals 2 e to the negative one half, approximately 1.21, then decreases toward zero from above. A dashed green horizontal line marks the equilibrium at x equals zero. The maximum point is marked with a filled red circle. Next to the maximum point a label reads x prime of t equals 0, indicating this is a critical point. A vertical dashed red line drops from the maximum to the t axis where t equals one quarter is labeled. After the maximum the mass moves back toward equilibrium.">
+</div>
+
+<div id="caption">
+  Maximum stretch at <i>t</i> = 1/4, where <i>x</i>'(<i>t</i>) = 0.
+  After this the mass moves back toward equilibrium.
+</div>
+
+<script>
+  var board = JXG.JSXGraph.initBoard('jxgbox', {
+    boundingbox: [-0.2, 2.0, 4.5, -0.3],
+    axis: false,
+    grid: false,
+    showNavigation: false,
+    showCopyright: false,
+    pan: { enabled: false },
+    zoom: { enabled: false }
+  });
+
+  // Axes
+  board.create('axis', [[0,0],[1,0]], {
+    strokeColor: '#2c3e50', strokeWidth: 1.5,
+    lastArrow: { type: 1, size: 6 },
+    ticks: {
+      ticksDistance: 1,
+      label: { fontSize: 11, fontFamily: 'serif', color: '#2c3e50', offset: [0, -12] },
+      minorTicks: 0,
+      strokeColor: '#2c3e50'
+    }
+  });
+  board.create('axis', [[0,0],[0,1]], {
+    strokeColor: '#2c3e50', strokeWidth: 1.5,
+    lastArrow: { type: 1, size: 6 },
+    ticks: {
+      ticksDistance: 0.5,
+      label: { fontSize: 11, fontFamily: 'serif', color: '#2c3e50', offset: [-18, 0] },
+      minorTicks: 0,
+      strokeColor: '#2c3e50'
+    }
+  });
+
+  // Axis labels
+  board.create('text', [4.6, 0, 't'], {
+    anchorX: 'left', anchorY: 'middle',
+    fontSize: 13, fontFamily: 'serif', color: '#2c3e50',
+    fixed: true, highlight: false
+  });
+  board.create('text', [0.1, 1.9, 'x'], {
+    anchorX: 'left', anchorY: 'middle',
+    fontSize: 13, fontFamily: 'serif', color: '#2c3e50',
+    fixed: true, highlight: false
+  });
+
+  // Equilibrium dashed line
+  board.create('segment', [[0, 0], [4.5, 0]], {
+    strokeColor: '#145a32', strokeWidth: 1.5, dash: 3,
+    fixed: true, highlight: false
+  });
+  board.create('text', [4.3, 0.08, 'x = 0'], {
+    anchorX: 'right', anchorY: 'bottom',
+    fontSize: 11, fontFamily: 'serif', color: '#145a32',
+    fixed: true, highlight: false
+  });
+
+  // Curve
+  function xVal(t) { return Math.exp(-2*t) * (1 + 4*t); }
+  var xs = [], ys = [];
+  for (var i = 0; i <= 400; i++) {
+    var t = 4.3 * i / 400;
+    xs.push(t);
+    ys.push(xVal(t));
+  }
+  board.create('curve', [xs, ys], {
+    strokeColor: '#1a5276', strokeWidth: 2.5, highlight: false
+  });
+
+  // Max point at t = 1/4
+  var tMax = 0.25;
+  var xMax = Math.exp(-2*tMax) * (1 + 4*tMax);
+
+  // Vertical dashed line from max to t-axis
+  board.create('segment', [[tMax, 0], [tMax, xMax]], {
+    strokeColor: '#922b21', strokeWidth: 1.2, dash: 2,
+    fixed: true, highlight: false
+  });
+
+  // t = 1/4 tick label on x-axis
+  board.create('point', [tMax, 0], {
+    size: 2, color: '#922b21', fixed: true, highlight: false,
+    name: 't = 1/4',
+    label: {
+      offset: [0, -16], fontSize: 11, fontFamily: 'serif', color: '#922b21',
+      anchorX: 'middle', anchorY: 'top'
+    }
+  });
+
+  // Max point dot
+  board.create('point', [tMax, xMax], {
+    size: 4, color: '#922b21', fixed: true, highlight: false,
+    name: '', label: { visible: false }
+  });
+
+  // Label next to max point: "max stretch, x'(t) = 0"
+  board.create('text', [tMax + 0.12, xMax, "max stretch, x\u2032(t) = 0"], {
+    anchorX: 'left', anchorY: 'middle',
+    fontSize: 12, fontFamily: 'serif', color: '#922b21',
+    fixed: true, highlight: false
+  });
+</script>
+</body>
+</html>

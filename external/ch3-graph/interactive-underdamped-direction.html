@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Underdamped Direction Changes</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jsxgraph/1.6.0/jsxgraph.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jsxgraph/1.6.0/jsxgraphcore.js"></script>
+<style>
+  body { margin: 0; padding: 8px; font-family: serif; background: transparent; overflow: hidden; }
+  #eq-display { text-align: center; font-size: 13px; font-family: serif; color: #2c3e50; margin-bottom: 5px; }
+  #panels { display: flex; gap: 10px; align-items: flex-start; justify-content: center; }
+
+  #spring-wrap { flex: 0 0 300px; display: flex; flex-direction: column; align-items: center; position: relative; }
+  #spring-label { font-size: 12px; font-family: serif; color: #2c3e50; margin-bottom: 3px; text-align: center; }
+  #spring-canvas { width: 300px; height: 160px; border: 1px solid #bdc3c7; background: #f9f9f9; }
+
+  #flash {
+    position: absolute;
+    bottom: 4px;
+    left: 0; right: 0;
+    text-align: center;
+    font-size: 28px;
+    font-family: serif;
+    font-weight: bold;
+    color: #922b21;
+    background: rgba(255,255,255,0.92);
+    padding: 3px 0;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 10;
+  }
+  #flash.show { opacity: 1; }
+
+  #graph-wrap { flex: 1; min-width: 0; }
+  #graph-label { font-size: 12px; font-family: serif; color: #2c3e50; margin-bottom: 3px; text-align: center; }
+  #jxgbox { width: 100%; height: 160px; border: 1px solid #bdc3c7; }
+
+  #slider-row {
+    margin-top: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-size: 13px;
+    font-family: serif;
+    color: #2c3e50;
+  }
+  #slider-row label { font-weight: bold; }
+  #slider-row input[type=range] { width: 200px; accent-color: #1a5276; }
+  #t-val { min-width: 32px; }
+
+  #slope-display {
+    text-align: center;
+    font-size: 13px;
+    font-family: serif;
+    color: #2c3e50;
+    margin-top: 4px;
+    min-height: 18px;
+  }
+</style>
+</head>
+<body>
+
+<div id="eq-display">
+  <i>x</i>(<i>t</i>) = <i>e</i><sup>&minus;0.15<i>t</i></sup>(2cos(<i>t</i>) + 2sin(<i>t</i>))
+  &nbsp; (slower decay used for visibility)
+</div>
+
+<div id="panels">
+  <div id="spring-wrap">
+    <div id="spring-label">Spring position</div>
+    <canvas id="spring-canvas" width="300" height="160"
+      role="img"
+      aria-label="Animation of an underdamped spring. The block position updates as the t slider moves. When the mass changes direction the label change in direction appears."
+      aria-describedby="slope-display">
+    </canvas>
+    <div id="flash" aria-live="assertive">Change in Direction!</div>
+  </div>
+  <div id="graph-wrap">
+    <div id="graph-label">Position <i>x</i>(<i>t</i>) with tangent line</div>
+    <div id="jxgbox"
+      role="img"
+      aria-label="Graph of x of t for the underdamped system with m=1, c=4, k=5. A point moves along the curve as the t slider changes. A tangent line at the point shows the slope x prime of t. When the slope is zero the mass is changing direction."
+      aria-describedby="slope-display">
+    </div>
+  </div>
+</div>
+
+<div id="slider-row">
+  <label for="t-slider"><i>t</i> =</label>
+  <input type="range" id="t-slider" min="0" max="15" step="0.18" value="0"
+    title="Time t"
+    aria-label="Slider for time t. Move to see how the spring position and slope of x of t change over time."
+    aria-describedby="slope-display">
+  <span id="t-val">0.00</span>
+</div>
+
+<div id="slope-display" role="status" aria-live="polite">
+  Move the slider to explore. Watch the slope of the tangent line.
+</div>
+
+<script>
+  // Slower decay for visual clarity — see notes for explanation
+  // x(t) = e^{-0.15t}(2cos(t) + 2sin(t))
+  // x'(t) = e^{-0.15t}(1.7cos(t) - 2.3sin(t))
+  function xVal(t)  { return Math.exp(-0.15*t) * (2*Math.cos(t) + 2*Math.sin(t)); }
+  function xPrime(t){ return Math.exp(-0.15*t) * (1.7*Math.cos(t) - 2.3*Math.sin(t)); }
+
+  var T_MAX = 15;
+  var tNow  = 0;
+  // Exact critical points where x'(t) = 0
+  var CRITICAL_PTS = [0.6365, 3.7781, 6.9197, 10.0613, 13.2029];
+  var SNAP_RADIUS  = 0.28;   // snap if within this distance
+
+  function snapToNearest(t) {
+    for (var i = 0; i < CRITICAL_PTS.length; i++) {
+      if (Math.abs(t - CRITICAL_PTS[i]) < SNAP_RADIUS) return CRITICAL_PTS[i];
+    }
+    return t;
+  }
+
+  var SLOPE_THRESH = 0.06;  // threshold for "slope is zero"
+
+  // Spring canvas
+  var canvas = document.getElementById('spring-canvas');
+  var ctx    = canvas.getContext('2d');
+  var CW = canvas.width, CH = canvas.height;
+  var wallX        = 28;
+  var equilibriumX = CW / 2 + 10;
+  var AMP_PX       = 95;
+  var cy           = CH / 2 - 6;
+  var blockW = 32, blockH = 32;
+  var springCoils  = 9;
+  var laneSpacing  = 22;
+  var springY      = cy - laneSpacing / 2;
+  var dashpotY     = cy + laneSpacing / 2;
+
+  function drawSpringCanvas(blockX) {
+    ctx.clearRect(0, 0, CW, CH);
+    ctx.setLineDash([]);
+    var wallTop = springY - 30, wallBottom = dashpotY + 30;
+
+    // Wall
+    ctx.fillStyle = '#bdc3c7';
+    ctx.fillRect(wallX - 11, wallTop, 11, wallBottom - wallTop);
+    ctx.strokeStyle = '#95a5a6'; ctx.lineWidth = 1;
+    for (var i = wallTop; i <= wallBottom; i += 10) {
+      ctx.beginPath(); ctx.moveTo(wallX - 11, i); ctx.lineTo(wallX - 2, i - 8); ctx.stroke();
+    }
+    ctx.strokeStyle = '#2c3e50'; ctx.lineWidth = 2;
+    ctx.beginPath(); ctx.moveTo(wallX, wallTop); ctx.lineTo(wallX, wallBottom); ctx.stroke();
+
+    // Spring
+    var springEnd = blockX - blockW / 2;
+    var sLen = Math.max(springEnd - wallX, 6);
+    var cw = sLen / (springCoils + 1), ch = 8;
+    ctx.strokeStyle = '#566573'; ctx.lineWidth = 1.8; ctx.setLineDash([]);
+    ctx.beginPath(); ctx.moveTo(wallX, springY); ctx.lineTo(wallX + cw * 0.4, springY);
+    for (var n = 0; n < springCoils; n++) {
+      var bx = wallX + cw * (0.4 + n);
+      ctx.lineTo(bx + cw * 0.3, springY - ch);
+      ctx.lineTo(bx + cw * 0.8, springY + ch);
+    }
+    ctx.lineTo(springEnd, springY); ctx.stroke();
+
+    // Dashpot
+    var endX = blockX - blockW / 2;
+    var tubeH = 7, baffleW = 10, baffleH = tubeH + 4;
+    var baffleX = wallX + (endX - wallX) * 0.50 - baffleW / 2;
+    ctx.strokeStyle = '#566573'; ctx.lineWidth = 1.6;
+    ctx.beginPath(); ctx.moveTo(wallX, dashpotY); ctx.lineTo(baffleX, dashpotY); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(baffleX + baffleW, dashpotY); ctx.lineTo(endX, dashpotY); ctx.stroke();
+    var tubeLeft = wallX + 7, tubeRight = endX - 3;
+    ctx.strokeStyle = '#566573'; ctx.lineWidth = 1.1;
+    ctx.beginPath(); ctx.moveTo(tubeLeft, dashpotY - tubeH); ctx.lineTo(tubeRight, dashpotY - tubeH); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(tubeLeft, dashpotY + tubeH); ctx.lineTo(tubeRight, dashpotY + tubeH); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(tubeLeft, dashpotY - tubeH); ctx.lineTo(tubeLeft, dashpotY + tubeH); ctx.stroke();
+    ctx.fillStyle = '#7f8c8d';
+    ctx.fillRect(baffleX, dashpotY - baffleH, baffleW, baffleH * 2);
+    ctx.strokeStyle = '#2c3e50'; ctx.lineWidth = 1.1;
+    ctx.strokeRect(baffleX, dashpotY - baffleH, baffleW, baffleH * 2);
+
+    // Block
+    ctx.fillStyle = '#1a5276';
+    ctx.fillRect(blockX - blockW/2, cy - blockH/2, blockW, blockH);
+    ctx.strokeStyle = '#154360'; ctx.lineWidth = 1.2;
+    ctx.strokeRect(blockX - blockW/2, cy - blockH/2, blockW, blockH);
+    ctx.fillStyle = '#fff'; ctx.font = 'bold 11px serif';
+    ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+    ctx.fillText('m', blockX, cy);
+
+    // Equilibrium line
+    ctx.setLineDash([]); ctx.strokeStyle = '#145a32'; ctx.lineWidth = 1.2;
+    ctx.beginPath(); ctx.moveTo(equilibriumX, springY - 20); ctx.lineTo(equilibriumX, dashpotY + 20); ctx.stroke();
+  }
+
+  // JSXGraph board
+  var yMax = 3.2;
+  var board = JXG.JSXGraph.initBoard('jxgbox', {
+    boundingbox: [-0.2, yMax, T_MAX + 0.2, -yMax],
+    axis: true, showCopyright: false, showNavigation: false,
+    pan: { enabled: false }, zoom: { enabled: false },
+    defaultAxes: {
+      x: { ticks: { insertTicks: true, ticksDistance: 2, label: { fontSize: 10, fontFamily: 'serif' } } },
+      y: { ticks: { insertTicks: true, ticksDistance: 1, label: { fontSize: 10, fontFamily: 'serif' } } }
+    }
+  });
+
+  // Full curve
+  var xs = [], ys = [];
+  for (var i = 0; i <= 600; i++) {
+    var tt = (T_MAX * i) / 600;
+    xs.push(tt); ys.push(xVal(tt));
+  }
+  board.create('curve', [xs, ys], { strokeColor: '#1a5276', strokeWidth: 2 });
+
+  // Moving point
+  var movingPt = board.create('point', [0, xVal(0)], {
+    size: 5, fillColor: '#922b21', strokeColor: '#922b21',
+    fixed: true, withLabel: false
+  });
+
+  // Tangent line through moving point
+  var TANGENT_HALF = 1.2;
+  var tangentXs = [0 - TANGENT_HALF, 0 + TANGENT_HALF];
+  var tangentYs = [xVal(0) - TANGENT_HALF * xPrime(0), xVal(0) + TANGENT_HALF * xPrime(0)];
+  var tangentLine = board.create('curve', [tangentXs, tangentYs], {
+    strokeColor: '#145a32', strokeWidth: 1.8
+  });
+
+  // Slope label near point — larger
+  var slopeText = board.create('text', [0.2, xVal(0) + 0.3, "x'(t) = 0.00"], {
+    fontSize: 12, fontFamily: 'serif', color: '#145a32', fixed: true
+  });
+
+  var flashTimeout = null;
+
+  function showFlash() {
+    document.getElementById('flash').classList.add('show');
+  }
+
+  function hideFlash() {
+    document.getElementById('flash').classList.remove('show');
+  }
+
+  function update(t) {
+    var xv = xVal(t);
+    var xp = xPrime(t);
+    var isZero = false;
+    for (var i = 0; i < CRITICAL_PTS.length; i++) {
+      if (Math.abs(t - CRITICAL_PTS[i]) < 0.01) { isZero = true; break; }
+    }
+
+    // Spring canvas
+    var clamped = Math.max(-1.0, Math.min(1.0, xv));
+    drawSpringCanvas(equilibriumX + clamped * AMP_PX);
+
+    // Moving point
+    movingPt.setPosition(JXG.COORDS_BY_USER, [t, xv]);
+
+    // Tangent line
+    tangentLine.dataX = [t - TANGENT_HALF, t + TANGENT_HALF];
+    tangentLine.dataY = [xv - TANGENT_HALF * xp, xv + TANGENT_HALF * xp];
+
+    // Slope label
+    var slopeStr = isZero ? '0' : xp.toFixed(2);
+    slopeText.setCoords(t + 0.15, xv + 0.28);
+    slopeText.setText("x'(t) = " + slopeStr);
+
+    board.update();
+
+    // Flash and slope display
+    if (isZero) {
+      showFlash();
+      document.getElementById('slope-display').textContent =
+        't = ' + t.toFixed(2) + ': slope is 0. The mass is changing direction!';
+    } else {
+      hideFlash();
+      var dir = xp > 0 ? 'moving right (stretching)' : 'moving left (compressing)';
+      document.getElementById('slope-display').textContent =
+        't = ' + t.toFixed(2) + ': x\'(t) = ' + xp.toFixed(3) + ', ' + dir + '.';
+    }
+  }
+
+  document.getElementById('t-slider').addEventListener('input', function() {
+    tNow = snapToNearest(parseFloat(this.value));
+    document.getElementById('t-val').textContent = tNow.toFixed(2);
+    update(tNow);
+  });
+
+  update(0);
+</script>
+</body>
+</html>

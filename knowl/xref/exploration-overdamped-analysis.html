@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="exploration project-like"><h3 class="heading">
+<span class="type">Exploration</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.4.1</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Building a Picture of the Motion.</span>
+</h3>
+<div class="introduction"><div class="para">Throughout this exploration, <span class="process-math">\(x(t) = 4e^{-2t} - 10e^{-t}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#exploration-overdamped-analysis-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></div>
+<article class="task exercise-like"><h4 class="heading">
+<span class="codenumber">(a)</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Which Damping Case?</span>
+</h4>
+<div class="ptx-runestone-container"><div class="runestone multiplechoice_section">
+<div class="exercise-statement"><div class="para" id="task-overdamped-which-case-2-1">Based on the form of <span class="process-math">\(x(t) = 4e^{-2t} - 10e^{-t}\text{,}\)</span> which damping case are we in?<div class="autopermalink" data-description="Paragraph"><a href="#task-overdamped-which-case-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></div>
+<ul data-component="multiplechoice" class="exercise-interactives" id="rs-task-overdamped-which-case" data-multipleanswers="false">
+<li data-component="answer" id="rs-task-overdamped-which-case_opt_a" data-correct=""><div class="para" id="task-overdamped-which-case-3-1-1-1">Overdamped</div></li>
+<li data-component="feedback" id="rs-task-overdamped-which-case_opt_a"><div class="para" id="task-overdamped-which-case-3-1-2-1">Correct! The solution is a sum of two distinct decaying exponentials, <span class="process-math">\(x(t) = c_1 e^{r_1 t} + c_2 e^{r_2 t}\)</span> with <span class="process-math">\(r_1 = -2\)</span> and <span class="process-math">\(r_2 = -1\text{.}\)</span> Two distinct real roots means <span class="process-math">\(c^2 &gt; 4km\text{,}\)</span> which is the overdamped case. <span class="process-math">\(\checkmark\)</span>
+</div></li>
+<li data-component="answer" id="rs-task-overdamped-which-case_opt_b"><div class="para" id="task-overdamped-which-case-3-2-1-1">Critically damped</div></li>
+<li data-component="feedback" id="rs-task-overdamped-which-case_opt_b"><div class="para" id="task-overdamped-which-case-3-2-2-1">Not quite. A critically damped solution has the form <span class="process-math">\(x(t) = c_1 e^{-at} + c_2 t e^{-at}\text{,}\)</span> with one exponential and one multiplied by <span class="process-math">\(t\text{.}\)</span> Here we have two different exponential rates, so the roots are distinct, not repeated.</div></li>
+<li data-component="answer" id="rs-task-overdamped-which-case_opt_c"><div class="para" id="task-overdamped-which-case-3-3-1-1">Underdamped</div></li>
+<li data-component="feedback" id="rs-task-overdamped-which-case_opt_c"><div class="para" id="task-overdamped-which-case-3-3-2-1">Not quite. An underdamped solution has the form <span class="process-math">\(x(t) = e^{-pt}(c_1\cos(\omega t) + c_2\sin(\omega t))\text{,}\)</span> which involves oscillating trig terms. This solution has no trig functions, so it decays without oscillating.</div></li>
+</ul>
+</div></div>
+<div class="autopermalink" data-description="Task 3.4.1.a: Which Damping Case?"><a href="#task-overdamped-which-case" title="Copy heading and permalink for Task 3.4.1.a: Which Damping Case?" aria-label="Copy heading and permalink for Task 3.4.1.a: Which Damping Case?">🔗</a></div></article><article class="task exercise-like"><h4 class="heading">
+<span class="codenumber">(b)</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Does the Mass Pass Through Equilibrium?</span>
+</h4>
+<div class="para">Will the mass ever pass through the equilibrium position <span class="process-math">\(x = 0\text{?}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#task-overdamped-equilibrium-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="hint solution-like knowl__content">
+<div class="para">Set <span class="process-math">\(x(t) = 0\)</span> and solve for <span class="process-math">\(t\text{.}\)</span> Remember that only <span class="process-math">\(t \geq 0\)</span> is physically meaningful.<div class="autopermalink" data-description="Paragraph"><a href="#task-overdamped-equilibrium-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Hint 3.4.1.b.1"><a href="#task-overdamped-equilibrium-3" title="Copy heading and permalink for Hint 3.4.1.b.1" aria-label="Copy heading and permalink for Hint 3.4.1.b.1">🔗</a></div>
+</div></details><details class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">Full solution <div class="para logical">
+<div class="para">We solve <span class="process-math">\(4e^{-2t} - 10e^{-t} = 0\text{.}\)</span> Since <span class="process-math">\(e^{-t} \neq 0\text{,}\)</span> divide both sides by <span class="process-math">\(e^{-t}\text{:}\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+4e^{-t} - 10 = 0 \implies e^{-t} = \frac{10}{4} = \frac{5}{2}
+\implies t = -\ln\!\left(\tfrac{5}{2}\right) \approx -0.92.
+\end{equation*}
+</div>
+<div class="para">Since <span class="process-math">\(t \lt 0\text{,}\)</span> this is not a valid time. The mass <em class="alert">never passes through equilibrium</em> for <span class="process-math">\(t \geq 0\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#task-overdamped-equilibrium-4-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 3.4.1.b.1"><a href="#task-overdamped-equilibrium-4" title="Copy heading and permalink for Solution 3.4.1.b.1" aria-label="Copy heading and permalink for Solution 3.4.1.b.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Task 3.4.1.b: Does the Mass Pass Through Equilibrium?"><a href="#task-overdamped-equilibrium" title="Copy heading and permalink for Task 3.4.1.b: Does the Mass Pass Through Equilibrium?" aria-label="Copy heading and permalink for Task 3.4.1.b: Does the Mass Pass Through Equilibrium?">🔗</a></div></article><article class="task exercise-like"><h4 class="heading">
+<span class="codenumber">(c)</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Initial Position and Velocity.</span>
+</h4>
+<div class="para">Compute <span class="process-math">\(x(0)\)</span> and <span class="process-math">\(x'(0)\text{.}\)</span> What do these tell you about where the mass starts and which direction it initially moves?<div class="autopermalink" data-description="Paragraph"><a href="#task-overdamped-initial-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="hint solution-like knowl__content">
+<div class="para">Recall: <span class="process-math">\(x(0) &gt; 0\)</span> means stretched, <span class="process-math">\(x(0) \lt 0\)</span> means compressed. <span class="process-math">\(x'(0) &gt; 0\)</span> means moving in the positive direction (toward equilibrium when compressed), <span class="process-math">\(x'(0) \lt 0\)</span> means moving in the negative direction.<div class="autopermalink" data-description="Paragraph"><a href="#task-overdamped-initial-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Hint 3.4.1.c.1"><a href="#task-overdamped-initial-3" title="Copy heading and permalink for Hint 3.4.1.c.1" aria-label="Copy heading and permalink for Hint 3.4.1.c.1">🔗</a></div>
+</div></details><details class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">Work <div class="para logical">
+<div class="para"><em class="alert">Initial position:</em></div>
+<div class="displaymath process-math">
+\begin{equation*}
+x(0) = 4 - 10 = -6.
+\end{equation*}
+</div>
+<div class="para">Since <span class="process-math">\(x(0) = -6 \lt 0\text{,}\)</span> the mass starts <em class="alert">compressed</em>.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#task-overdamped-initial-4-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para logical">
+<div class="para">
+<em class="alert">Initial velocity:</em> Differentiating,</div>
+<div class="displaymath process-math">
+\begin{equation*}
+x'(t) = -8e^{-2t} + 10e^{-t},
+\end{equation*}
+</div>
+<div class="para">so <span class="process-math">\(x'(0) = -8 + 10 = 2 &gt; 0\text{.}\)</span> The mass is initially moving in the <em class="alert">positive direction</em>, that is, toward the equilibrium position.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#task-overdamped-initial-4-1-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para">Together: the mass starts compressed at <span class="process-math">\(x = -6\text{,}\)</span> moves toward equilibrium, but (from Task 2) never reaches it. So the mass stays compressed for all <span class="process-math">\(t \geq 0\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#task-overdamped-initial-4-1-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 3.4.1.c.1"><a href="#task-overdamped-initial-4" title="Copy heading and permalink for Solution 3.4.1.c.1" aria-label="Copy heading and permalink for Solution 3.4.1.c.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Task 3.4.1.c: Initial Position and Velocity"><a href="#task-overdamped-initial" title="Copy heading and permalink for Task 3.4.1.c: Initial Position and Velocity" aria-label="Copy heading and permalink for Task 3.4.1.c: Initial Position and Velocity">🔗</a></div></article><article class="task exercise-like"><h4 class="heading">
+<span class="codenumber">(d)</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Sketch the Graph.</span>
+</h4>
+<div class="ptx-runestone-container"><div class="runestone multiplechoice_section">
+<div class="exercise-statement">
+<div class="para logical" id="task-overdamped-matching-2-1">
+<div class="para">From Task 3 we observed that <span class="process-math">\(x(0) = -6\)</span> and <span class="process-math">\(x'(0) = 2 &gt; 0\text{,}\)</span> so:</div>
+<ul class="disc" id="task-overdamped-matching-2-1-3">
+<li id="task-overdamped-matching-2-1-3-1">
+<div class="para" id="task-overdamped-matching-2-1-3-1-1">
+<span class="process-math">\(x(0) \lt 0\text{:}\)</span> the mass starts <em class="alert">compressed</em>, and<div class="autopermalink" data-description="Paragraph"><a href="#task-overdamped-matching-2-1-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#task-overdamped-matching-2-1-3-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="task-overdamped-matching-2-1-3-2">
+<div class="para" id="task-overdamped-matching-2-1-3-2-1">
+<span class="process-math">\(x'(0) = 2 &gt; 0\text{:}\)</span> it is initially moving in the <em class="alert">positive direction</em>.<div class="autopermalink" data-description="Paragraph"><a href="#task-overdamped-matching-2-1-3-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#task-overdamped-matching-2-1-3-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+</ul>
+<div class="para">Using this, together with the fact that the mass never crosses equilibrium (Task 2), determine which graph below matches <span class="process-math">\(x(t) = 4e^{-2t} - 10e^{-t}\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#task-overdamped-matching-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <figure class="figure figure-like" id="fig-overdamped-matching"><div class="interactive-iframe-container"><iframe src="external/ch3-graph/static-overdamped-matching.html" id="interactive-overdamped-matching" style="width:600px; height:240px; display: block; "></iframe></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.4.1<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Three candidate graphs for <span class="process-math">\(x(t) = 4e^{-2t} - 10e^{-t}\text{.}\)</span> The dashed green line marks the equilibrium <span class="process-math">\(x = 0\text{.}\)</span> The red dot marks the starting position at <span class="process-math">\(t = 0\text{.}\)</span><div class="autopermalink" data-description="Figure 3.4.1"><a href="#fig-overdamped-matching" title="Copy heading and permalink for Figure 3.4.1" aria-label="Copy heading and permalink for Figure 3.4.1">🔗</a></div></figcaption></figure>
+</div>
+<ul data-component="multiplechoice" class="exercise-interactives" id="rs-task-overdamped-matching" data-multipleanswers="false">
+<li data-component="answer" id="rs-task-overdamped-matching_opt_a"><div class="para" id="task-overdamped-matching-3-1-1-1">Graph (a)</div></li>
+<li data-component="feedback" id="rs-task-overdamped-matching_opt_a"><div class="para" id="task-overdamped-matching-3-1-2-1">Graph (a) does start compressed, which is correct. However, it then moves further from equilibrium before turning around, meaning <span class="process-math">\(x'(0) \lt 0\)</span> initially. But we found <span class="process-math">\(x'(0) = 2 &gt; 0\text{,}\)</span> so the mass is moving toward equilibrium from the very start, not away from it.</div></li>
+<li data-component="answer" id="rs-task-overdamped-matching_opt_b" data-correct=""><div class="para" id="task-overdamped-matching-3-2-1-1">Graph (b)</div></li>
+<li data-component="feedback" id="rs-task-overdamped-matching_opt_b"><div class="para" id="task-overdamped-matching-3-2-2-1">Correct! Graph (b) starts below zero (compressed), moves in the positive direction toward equilibrium, and never crosses <span class="process-math">\(x = 0\text{,}\)</span> exactly matching what we found in Tasks 2 and 3. <span class="process-math">\(\checkmark\)</span>
+</div></li>
+<li data-component="answer" id="rs-task-overdamped-matching_opt_c"><div class="para" id="task-overdamped-matching-3-3-1-1">Graph (c)</div></li>
+<li data-component="feedback" id="rs-task-overdamped-matching_opt_c"><div class="para" id="task-overdamped-matching-3-3-2-1">Graph (c) shows oscillations, which is the behavior of an underdamped system. But <span class="process-math">\(x(t) = 4e^{-2t} - 10e^{-t}\)</span> has two distinct real exponential terms with no trig functions, so it is overdamped and does not oscillate.</div></li>
+</ul>
+</div></div>
+<div class="autopermalink" data-description="Task 3.4.1.d: Sketch the Graph"><a href="#task-overdamped-matching" title="Copy heading and permalink for Task 3.4.1.d: Sketch the Graph" aria-label="Copy heading and permalink for Task 3.4.1.d: Sketch the Graph">🔗</a></div></article><div class="autopermalink" data-description="Exploration 3.4.1: Building a Picture of the Motion"><a href="#exploration-overdamped-analysis" title="Copy heading and permalink for Exploration 3.4.1: Building a Picture of the Motion" aria-label="Copy heading and permalink for Exploration 3.4.1: Building a Picture of the Motion">🔗</a></div></article><span class="incontext"><a class="internal" href="sec-overdamped-analysis.html#exploration-overdamped-analysis">in-context</a></span>
+</body>
+</html>
