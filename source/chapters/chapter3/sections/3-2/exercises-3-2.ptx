@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<exercises xml:id="exercises-3-2">
+  <title>Exercises for Section 3.2</title>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       Q1: Period and frequency from m and k
+       ═══════════════════════════════════════════════════════════ -->
+
+  <exercise xml:id="ex-3-2-1">
+    <statement>
+      <p>
+        Determine the period and frequency of the simple harmonic motion of a
+        <m>2</m>-kg mass on the end of a spring with spring constant <m>k = 8</m> N/m.
+      </p>
+    </statement>
+    <hint>
+      <p>
+        First find <m>\omega_0 = \sqrt{k/m}</m>, then use
+        <m>T = \dfrac{2\pi}{\omega_0}</m> and <m>f = \dfrac{1}{T}</m> from
+        <xref ref="obs-period-frequency"/>.
+      </p>
+    </hint>
+    <answer>
+      <p>
+        Period: <m>T = \pi</m> s. Frequency: <m>f = \dfrac{1}{\pi}</m> Hz.
+      </p>
+    </answer>
+  </exercise>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       Q2: Equilibrium crossings
+       ═══════════════════════════════════════════════════════════ -->
+
+  <exercise xml:id="ex-3-2-2">
+    <title>Passing Through Equilibrium</title>
+    <introduction>
+      <p>
+        A <m>1</m> kg mass is attached to a spring with spring constant
+        <m>k = 9</m> N/m. The mass is pulled <m>1</m> m from equilibrium and
+        released from rest, so <m>x(0) = -1</m> and <m>x'(0) = 0</m>.
+      </p>
+    </introduction>
+
+    <task xml:id="ex-3-2-2a">
+      <statement>
+        <p>
+          Write down the ODE <m>mx'' + kx = 0</m> for this system, then
+          simplify it to the form <m>x'' + \omega_0^2 x = 0</m>. What is <m>\omega_0</m>?
+        </p>
+      </statement>
+      <hint>
+        <p>
+          Plug <m>m = 1</m> and <m>k = 9</m> into <m>mx'' + kx = 0</m>, then
+          identify <m>\omega_0^2</m>.
+        </p>
+      </hint>
+      <answer>
+        <p>
+          <m>x'' + 9x = 0</m>, so <m>\omega_0 = 3</m>.
+        </p>
+      </answer>
+    </task>
+
+    <task xml:id="ex-3-2-2b">
+      <statement>
+        <p>
+          Solve the IVP for <m>x(t)</m>.
+        </p>
+      </statement>
+      <answer>
+        <p>
+          <m>x(t) = -\cos(3t)</m>
+        </p>
+      </answer>
+    </task>
+
+    <task xml:id="ex-3-2-2c">
+      <statement>
+        <p>
+          Find all times <m>t \geq 0</m> at which the mass passes through
+          equilibrium (<m>x(t) = 0</m>).
+        </p>
+      </statement>
+      <hint>
+        <p>
+          Set <m>x(t) = -\cos(3t) = 0</m>, so <m>\cos(3t) = 0</m>. For which
+          values of <m>3t</m> is cosine equal to zero?
+        </p>
+      </hint>
+      <answer>
+        <p>
+          <m>t = \dfrac{\pi}{6} + \dfrac{n\pi}{3}, \qquad n = 0, 1, 2, \ldots</m>
+        </p>
+      </answer>
+    </task>
+
+    <task xml:id="ex-3-2-2d">
+      <statement>
+        <p>
+          Compare the speed of the mass at the 1st time it passes through
+          equilibrium to the speed at the 4th time it passes through equilibrium.
+        </p>
+      </statement>
+      <answer>
+        <p>
+          The speed is <m>|x'(t)| = 3</m> at both the 1st and 4th crossings:
+          the speed at equilibrium is always the same.
+        </p>
+      </answer>
+    </task>
+
+  </exercise>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       Q3: Max distance from equilibrium
+       ═══════════════════════════════════════════════════════════ -->
+
+  <exercise xml:id="ex-3-2-3">
+    <title>Maximum Distance from Equilibrium</title>
+    <introduction>
+      <p>
+        Suppose a mass-spring system is described by the ODE
+        <me>y'' + 4y = 0, \qquad y(0) = 5, \quad y'(0) = 0.</me>
+      </p>
+    </introduction>
+
+    <task xml:id="ex-3-2-3a">
+      <statement>
+        <p>
+          Solve the IVP for <m>y(t)</m>.
+        </p>
+      </statement>
+      <answer>
+        <p>
+          <m>y(t) = 5\cos(2t)</m>
+        </p>
+      </answer>
+    </task>
+
+    <task xml:id="ex-3-2-3b">
+      <statement>
+        <p>
+          What is the maximum distance the mass ever gets from equilibrium?
+        </p>
+      </statement>
+      <hint>
+        <p>
+          Recall the amplitude <m>A = \sqrt{c_1^2+c_2^2}</m> from
+          <xref ref="obs-amplitude"/>.
+        </p>
+      </hint>
+      <answer>
+        <p>
+          <m>5</m>
+        </p>
+      </answer>
+    </task>
+
+    <task xml:id="ex-3-2-3c">
+      <statement>
+        <p>
+          Find all times <m>t \geq 0</m> at which the mass reaches this
+          maximum distance from equilibrium.
+        </p>
+      </statement>
+      <hint>
+        <p>
+          The mass is at maximum distance when <m>|y(t)| = 5</m>, i.e. when
+          <m>\cos(2t) = \pm 1</m>. For which values of <m>2t</m> does cosine
+          equal <m>\pm 1</m>?
+        </p>
+      </hint>
+      <answer>
+        <p>
+          <m>t = \dfrac{n\pi}{2}, \qquad n = 0, 1, 2, \ldots</m>
+        </p>
+      </answer>
+    </task>
+
+    <task xml:id="ex-3-2-3d">
+      <statement>
+        <p>
+          What is the speed of the mass at these times?
+        </p>
+      </statement>
+      <answer>
+        <p>
+          <m>0</m> (the mass is momentarily at rest at maximum distance).
+        </p>
+      </answer>
+    </task>
+
+  </exercise>
+
+  <interactive xml:id="question-form-3-2-ex" iframe="question-form.html?section=3.2 exercises" width="100%" aspect="2:1"/>
+
+</exercises>

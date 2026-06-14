@@ -13,5 +13,6 @@
     <xi:include href="./3-2/sec2-period-frequency.ptx"/>
  <xi:include href="./3-2/sec3-equilibrium-crossings.ptx"/>
  <xi:include href="./3-2/sec4-amplitude.ptx"/>
+  <xi:include href="./3-2/exercises-3-2.ptx"/>
 
 </section>

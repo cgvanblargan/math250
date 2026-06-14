@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<exercises xml:id="exercises-3-1">
+  <title>Exercises for Section 3.1</title>
+
+
+    
+
+  <!-- ═══════════════════════════════════════════════════════════
+       Q2: Distinct real roots, general solution
+       ═══════════════════════════════════════════════════════════ -->
+
+  <exercise xml:id="ex-3-1-2">
+    <statement>
+      <p>
+        Find the general solution of the differential equation.
+        <me>y'' - 3y' - 18y = 0</me>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>y(t) = c_1 e^{6t} + c_2 e^{-3t}</m>
+      </p>
+    </answer>
+  </exercise>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       Q3: Repeated root, general solution
+       ═══════════════════════════════════════════════════════════ -->
+
+  <exercise xml:id="ex-3-1-3">
+    <statement>
+      <p>
+        Find the general solution of the differential equation.
+        <me>81w'' + 180w' + 100w = 0</me>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>w(t) = c_1 e^{-\frac{10}{9}t} + c_2 t e^{-\frac{10}{9}t}</m>
+      </p>
+    </answer>
+  </exercise>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       Q4: Complex roots, general solution
+       ═══════════════════════════════════════════════════════════ -->
+
+  <exercise xml:id="ex-3-1-4">
+    <statement>
+      <p>
+        Find the general solution of the differential equation.
+        <me>y'' - 8y' + 52y = 0</me>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>y(t) = e^{4t}\left(c_1\cos(6t) + c_2\sin(6t)\right)</m>
+      </p>
+    </answer>
+  </exercise>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       Q5: IVP with complex roots
+       ═══════════════════════════════════════════════════════════ -->
+
+  <exercise xml:id="ex-3-1-5">
+    <statement>
+      <p>
+        Solve the initial value problem.
+        <me>y'' + 4y' + 29y = 0, \qquad y(0) = 4, \quad y'(0) = -4</me>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        General solution: <m>y(t) = e^{-2t}\left(c_1\cos(5t) + c_2\sin(5t)\right)</m>
+      </p>
+      <p>
+        Particular solution: <m>y(t) = e^{-2t}\left(4\cos(5t) + \dfrac{4}{5}\sin(5t)\right)</m>
+      </p>
+    </answer>
+  </exercise>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       Q6: Scaffolded solution -> roots -> char eq -> ODE (distinct real)
+       ═══════════════════════════════════════════════════════════ -->
+
+  <exercise xml:id="ex-3-1-6">
+    <title>From a General Solution Back to the ODE</title>
+    <introduction>
+      <p>
+        Suppose the general solution to a second-order linear homogeneous ODE
+        with constant coefficients <m>ay'' + by' + cy = 0</m> (with <m>a=1</m>) is
+        <me>y(x) = c_1 e^{8x} + c_2 e^{-8x}.</me>
+      </p>
+    </introduction>
+
+    <task xml:id="ex-3-1-6a">
+      <statement>
+        <p>
+          What are the roots <m>r_1</m> and <m>r_2</m> of the characteristic equation?
+        </p>
+      </statement>
+      <answer>
+        <p>
+          <m>r_1 = 8, \quad r_2 = -8</m>
+        </p>
+      </answer>
+    </task>
+
+    <task xml:id="ex-3-1-6b">
+      <statement>
+        <p>
+          Write the characteristic equation in the factored form <m>(r - r_1)(r - r_2) = 0</m>,
+          then expand it into the form <m>r^2 + br + c = 0</m>.
+        </p>
+      </statement>
+      <hint>
+        <p>
+          Recall that for <m>ay'' + by' + cy = 0</m>, the characteristic equation is
+          <m>ar^2 + br + c = 0</m>, and it factors as <m>a(r-r_1)(r-r_2) = 0</m> when
+          <m>r_1, r_2</m> are the roots. With <m>a = 1</m>, just expand the product.
+        </p>
+      </hint>
+      <answer>
+        <p>
+          <m>(r-8)(r+8) = 0 \quad\Longrightarrow\quad r^2 - 64 = 0</m>
+        </p>
+      </answer>
+    </task>
+
+    <task xml:id="ex-3-1-6c">
+      <statement>
+        <p>
+          Using part (b), write down the ODE <m>y'' + by' + cy = 0</m> that has
+          <m>y(x) = c_1 e^{8x} + c_2 e^{-8x}</m> as its general solution.
+        </p>
+      </statement>
+      <answer>
+        <p>
+          <m>y'' - 64y = 0</m>
+        </p>
+      </answer>
+    </task>
+
+  </exercise>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       Q7: Apply the method - repeated and complex root cases
+       ═══════════════════════════════════════════════════════════ -->
+
+  <exercise xml:id="ex-3-1-7">
+    <title>Practice: From Solution to ODE</title>
+    <introduction>
+      <p>
+        Use the same method as in <xref ref="ex-3-1-6"/> to find the ODE
+        <m>y'' + by' + cy = 0</m> with the given general solution.
+      </p>
+    </introduction>
+
+    <task xml:id="ex-3-1-7a">
+      <statement>
+        <p>
+          <m>y(x) = c_1 e^{9x} + c_2 x e^{9x}</m>
+        </p>
+      </statement>
+      <answer>
+        <p>
+          <m>y'' - 18y' + 81y = 0</m>
+        </p>
+      </answer>
+    </task>
+
+    <task xml:id="ex-3-1-7b">
+      <statement>
+        <p>
+          <m>y(x) = e^{2x}\left(c_1\cos(3x) + c_2\sin(3x)\right)</m>
+        </p>
+      </statement>
+      <answer>
+        <p>
+          <m>y'' - 4y' + 13y = 0</m>
+        </p>
+      </answer>
+    </task>
+
+  </exercise>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       Q8: The discriminant
+       ═══════════════════════════════════════════════════════════ -->
+
+  <exercise xml:id="ex-3-1-8">
+    <title>The Discriminant</title>
+    <introduction>
+      <p>
+        Recall the quadratic formula: for <m>ar^2 + br + c = 0</m>,
+        <me>r = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}.</me>
+        The expression under the square root, <m>D = b^2 - 4ac</m>, is called the
+        <term>discriminant</term>, and its sign determines which of the three root
+        cases we are in.
+      </p>
+    </introduction>
+
+    <task xml:id="ex-3-1-8a">
+      <statement>
+        <p>
+          Without solving for the roots, state which case (two distinct real roots,
+          one repeated real root, or two complex conjugate roots) corresponds to
+          <m>D \gt 0</m>, <m>D = 0</m>, and <m>D \lt 0</m>.
+        </p>
+      </statement>
+      <answer>
+        <p>
+          <m>D \gt 0</m>: two distinct real roots. <m>D = 0</m>: one repeated real root.
+          <m>D \lt 0</m>: two complex conjugate roots.
+        </p>
+      </answer>
+    </task>
+
+    <task xml:id="ex-3-1-8b">
+      <statement>
+        <p>
+          For the ODE <m>y'' + ky' + 9y = 0</m>, find all values of <m>k</m> for which the
+          general solution involves <m>\sin</m> and <m>\cos</m> (i.e., the characteristic
+          equation has complex roots).
+        </p>
+      </statement>
+      <hint>
+        <p>
+          The characteristic equation is <m>r^2 + kr + 9 = 0</m>, so
+          <m>D = k^2 - 36</m>. The roots are complex exactly when <m>D \lt 0</m>.
+          Solve this inequality for <m>k</m>.
+        </p>
+      </hint>
+      <answer>
+        <p>
+          <m>-6 \lt k \lt 6</m>
+        </p>
+      </answer>
+    </task>
+
+  </exercise>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       Q9: Complex roots are conjugates
+       ═══════════════════════════════════════════════════════════ -->
+
+  <exercise xml:id="ex-3-1-9">
+    <title>Complex Roots Come in Conjugate Pairs</title>
+    <introduction>
+      <p>
+        Consider <m>ar^2 + br + c = 0</m> with <m>b^2 - 4ac \lt 0</m>.
+      </p>
+    </introduction>
+
+    <task xml:id="ex-3-1-9a">
+      <statement>
+        <p>
+          Use the quadratic formula to write the two roots in the form
+          <m>\alpha \pm \beta i</m>, identifying <m>\alpha</m> and <m>\beta</m>
+          in terms of <m>a</m>, <m>b</m>, and <m>c</m>.
+        </p>
+      </statement>
+      <hint>
+        <p>
+          Start from <m>r = \dfrac{-b \pm \sqrt{b^2-4ac}}{2a}</m>. Since
+          <m>b^2 - 4ac \lt 0</m>, write <m>b^2 - 4ac = -(4ac - b^2)</m> so that
+          <m>\sqrt{b^2-4ac} = \sqrt{-(4ac-b^2)} = i\sqrt{4ac - b^2}</m>. Then split
+          the fraction into a real part and an imaginary part.
+        </p>
+      </hint>
+      <answer>
+        <p>
+          <m>\alpha = -\dfrac{b}{2a}, \qquad \beta = \dfrac{\sqrt{4ac - b^2}}{2a}</m>
+        </p>
+      </answer>
+    </task>
+
+    <task xml:id="ex-3-1-9b">
+      <statement>
+        <p>
+          Explain why the two roots <m>r_1</m> and <m>r_2</m> must be complex
+          conjugates of each other.
+        </p>
+      </statement>
+      <answer>
+        <p>
+          From part (a), <m>r_1 = \alpha + \beta i</m> and <m>r_2 = \alpha - \beta i</m>
+          for the same real numbers <m>\alpha</m> and <m>\beta</m>: they have the same
+          real part and opposite imaginary parts, so <m>r_2 = \overline{r_1}</m>.
+        </p>
+      </answer>
+    </task>
+
+  </exercise>
+
+  <interactive xml:id="question-form-3-1-ex" iframe="question-form.html?section=3.1 exercises" width="100%" aspect="2:1"/>
+
+</exercises>

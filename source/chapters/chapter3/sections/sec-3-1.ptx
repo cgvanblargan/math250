@@ -16,5 +16,7 @@
      <xi:include href="./3-1/sec4-practice-real-roots.ptx"/>
 <xi:include href="./3-1/sec5-complex-roots-practice.ptx"/>
 <xi:include href="./3-1/sec6-ivp-second-order.ptx"/>
+<xi:include href="./3-1/exercises-3-1.ptx"/>
+
 
 </section>
