@@ -6,14 +6,44 @@
   <!-- ═══════════════════════════════════════════════════════════
        OBSERVATION: SOLUTION FORM
        ═══════════════════════════════════════════════════════════ -->
+<p>
+  Recall from the previous page that we are in the underdamped case when
+  <m>0 \lt c^2 \lt 4km</m>. Solving the characteristic equation
+  <m>mr^2+cr+k=0</m> in this case gives complex roots <m>r = \alpha \pm \omega i</m>,
+  which leads to the general solution
+  <me>x(t) = e^{\alpha t}\bigl(c_1\cos(\omega t) + c_2\sin(\omega t)\bigr).</me>
+  If you want to see exactly where <m>\alpha</m> and <m>\omega</m> come from, check
+  out the dropdown below.
+</p>
 
+<justification>
+  <title>Where do alpha and omega come from? (can skim)</title>
+  <p>
+    By the quadratic formula, the roots of <m>mr^2+cr+k=0</m> are
+    <me>
+      r=\frac{-c \pm \sqrt{c^2-4km}}{2m} = \frac{-c}{2m}\pm\frac{\sqrt{c^2-4km}}{2m}.
+    </me>
+    Since <m>c^2 \lt 4km</m>, the quantity under the square root is negative, so we can write
+    <m>\sqrt{c^2-4km} = i\sqrt{4km-c^2}</m>. This means the roots are complex,
+    <m>r = \alpha \pm \omega i</m>, where
+    <me>\alpha = \frac{-c}{2m} \quad \text{and} \quad \omega = \frac{\sqrt{4km-c^2}}{2m}.</me>
+    Note that <m>\alpha \lt 0</m>, since <m>c, m \gt 0</m> means <m>-c/(2m)</m> is always negative.
+  </p>
+</justification>
   <observation xml:id="obs-underdamped-form">
     <title>Underdamped Solution Form</title>
     <p>
       When <m>c^2 \lt 4km</m>, the characteristic equation has complex conjugate roots
       and the system is <term>underdamped</term>. The general solution takes the form:
       <me>x(t) = e^{\alpha t}\bigl(c_1 \cos(\omega t) + c_2 \sin(\omega t)\bigr),</me>
-      where <m>\alpha \lt 0</m> and <m>\omega \gt 0</m> are determined by <m>m</m>, <m>c</m>, and <m>k</m>.
+      where <m>\alpha </m> and <m>\omega</m> are determined by <m>m</m>, <m>c</m>, and <m>k</m>.
+
+    
+    </p>
+
+    <p>
+      And since <m>m</m>, <m>c</m>, and <m>k</m> are all positive, <m>\alpha</m> is always
+      negative, so the factor <m>e^{\alpha t}</m> is always exponentially decaying.
     </p>
   </observation>
 
@@ -22,11 +52,11 @@
        ═══════════════════════════════════════════════════════════ -->
 
   <p>
-    Notice that this solution is the product of two pieces: an exponentially decaying
+    Notice this solution has two pieces working together: an exponentially decaying
     factor <m>e^{\alpha t}</m> (with <m>\alpha \lt 0</m>) and an oscillating
-    trigonometric expression <m>c_1 \cos(\omega t) + c_2 \sin(\omega t)</m>.
-    The exponential factor acts as a shrinking envelope that squeezes the oscillations
-    toward zero over time.
+    trig expression <m>c_1 \cos(\omega t) + c_2 \sin(\omega t)</m>. Think of the
+    exponential as a shrinking envelope that squeezes the oscillations toward zero
+    as time goes on.
   </p>
 
   <p>
@@ -63,20 +93,21 @@
        REMARK: CONNECTION TO UNDAMPED, RAISES EQUILIBRIUM QUESTION
        ═══════════════════════════════════════════════════════════ -->
 
-  <remark xml:id="remark-underdamped-vs-undamped">
+  
     <p>
-      Notice that the shape of the underdamped solution is very similar to the undamped
-      case from <xref ref="sec-undamped-mass-spring"/>: both oscillate and cross the
-      equilibrium position repeatedly. The key difference is that the amplitude is
-      decaying because of the factor <m>e^{\alpha t}</m> with <m>\alpha \lt 0</m>.
-      Physically, the dashpot is continuously removing energy from the system, causing
-      the oscillations to shrink.
+      The shape of the underdamped solution is very similar to the undamped case from
+      <xref ref="sec-undamped-mass-spring"/>: both oscillate and cross the equilibrium
+      position repeatedly. The key difference is the decaying amplitude, driven by the
+      factor <m>e^{\alpha t}</m> with <m>\alpha \lt 0</m>. Physically, the dashpot is
+      continuously removing energy from the system, causing the oscillations to shrink.
     </p>
     <p>
-      This raises a natural question: does the amplitude decay so much that the mass
-      eventually stops crossing the equilibrium altogether? Explore the animation below.
+      This raises a natural question: does the mass keep oscillating back
+      and forth across equilibrium, as in the undamped case? Or does it eventually settle
+      on one side, either compressed or stretched?
+      Explore the animation below to see if you can determine what happens!
     </p>
-  </remark>
+
 
   <!-- ═══════════════════════════════════════════════════════════
        INTERACTIVE 2: SPRING ANIMATION + x(t) GRAPH
@@ -148,9 +179,12 @@
     </choices>
   </exercise>
 
-  <!-- ═══════════════════════════════════════════════════════════
-       EXAMPLE: ALGEBRAIC ARGUMENT (HOMEWORK)
-       ═══════════════════════════════════════════════════════════ -->
+ 
+    
+    <p>
+      Okay, so we now have an intuitive feel for how often it crosses the equilibrium position. However, to prove it without a doubt,
+      we will go into the equation for the position function itself and show it algebraically.
+    </p>   
 
   <example xml:id="ex-underdamped-crossings-algebra">
     <title>How Many Times Does the Mass Cross Equilibrium?</title>
@@ -164,9 +198,7 @@
       <p>
         This is a homework problem. The argument is very similar to the one in
         <xref ref="ex-equil-crossings-algebra"/> for the undamped case, so reviewing
-        that example first is a good starting point. We already know from the graph
-        above that the answer should be infinitely many times, and on the homework
-        you will justify this algebraically.
+        that example first is a good starting point.
       </p>
       <p>
         <em>Hint:</em> start with <m>x(t) = 0</m> and use the fact that
@@ -174,29 +206,42 @@
       </p>
     </solution>
   </example>
-<p>
-  Now a key idea here was that the exponential decay may make the amplitude very tiny, but it never actually becomes 0. 
-  So, even though the amplitude is decaying, we will observe the mass is oscillating back and forth forever. 
-</p>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       BRIDGE TO LIMIT: AMPLITUDE NEVER ZERO, BUT DOES IT VANISH?
+       ═══════════════════════════════════════════════════════════ -->
+
+  <p>
+    So the mass keeps crossing equilibrium forever, no matter how small the oscillations
+    get! This is because the trig functions make the position function oscillate as in
+    the undamped case, and the decay factor <m>e^{\alpha t}</m> is never exactly zero.
+    But the amplitude is still shrinking the whole time.
+  </p>
+
+  <p>
+    Unlike the undamped case, the amplitude here is shrinking, so even though the mass
+    keeps crossing equilibrium, it is also approaching equilibrium in the long run.
+  </p>
+
   <!-- ═══════════════════════════════════════════════════════════
        KEY TAKEAWAYS
        ═══════════════════════════════════════════════════════════ -->
-<observation xml:id="obs-underdamped-limit">
-  <p>
-    Even though the mass passes through equilibrium infinitely many times, the
-    damping causes the oscillations to shrink down to zero:
-    <me>
-      \lim_{t \to \infty} x(t)
-      = \lim_{t \to \infty}
-        \underbrace{e^{\alpha t}}_{\to\, 0}
-        \cdot
-        \underbrace{\bigl(c_1 \cos(\omega t) + c_2 \sin(\omega t)\bigr)}_{\text{bounded}}
-      = 0.
-    </me>
-    So the oscillations never fully stop in finite time, but they shrink to zero in
-    the long run.
-  </p>
-</observation>
+  <observation xml:id="obs-underdamped-limit">
+    <p>
+      Even though the mass passes through equilibrium infinitely many times, the
+      damping causes the oscillations to shrink down to zero:
+      <me>
+        \lim_{t \to \infty} x(t)
+        = \lim_{t \to \infty}
+          \underbrace{e^{\alpha t}}_{\to\, 0}
+          \cdot
+          \underbrace{\bigl(c_1 \cos(\omega t) + c_2 \sin(\omega t)\bigr)}_{\text{bounded}}
+        = 0.
+      </me>
+      So the oscillations never fully stop in finite time, but they shrink to zero in
+      the long run.
+    </p>
+  </observation>
 
   <conclusion>
     <title>Key Takeaways</title>

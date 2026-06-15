@@ -4,8 +4,26 @@
   <title>Behavior of Critically Damped Solutions</title>
 
   <!-- ═══════════════════════════════════════════════════════════
-       OBSERVATION: SOLUTION FORM
+       INTRO + OBSERVATION: SOLUTION FORM
        ═══════════════════════════════════════════════════════════ -->
+
+  <p>
+    Finally, let's look at the borderline case sitting right between the previous
+    two. When <m>c^2 = 4km</m>, the characteristic equation has one repeated real
+    root <m>r = -c/(2m)</m>, and the system is called <term>critically damped</term>.
+    The general solution takes the form:
+    <me>x(t) = c_1 e^{rt} + c_2 t e^{rt}.</me>
+    If this setup feels familiar, that's because it is, this page will closely
+    mirror the overdamped page, just with a repeated root instead of two distinct ones.
+  </p>
+
+  <justification>
+    <title>Why is the root negative? (can skim)</title>
+    <p>
+      The repeated root is <m>r = -c/(2m)</m>. Since <m>c > 0</m> and <m>m > 0</m>,
+      the numerator is negative and the denominator is positive, so <m>r \lt 0</m>.
+    </p>
+  </justification>
 
   <observation xml:id="obs-critdamped-form">
     <title>Critically Damped Solution Form</title>
@@ -24,9 +42,9 @@
 
   <p>
     Like the overdamped case in <xref ref="sec-overdamped"/>, there are no
-    trigonometric functions, so there is no oscillation. The new feature here
-    is the <m>te^{rt}</m> term, which we saw arise from the repeated root structure
-    in <xref ref="sec-all-three-cases"/>.
+    trig functions anywhere in sight, so there is no oscillation. The new feature
+    here is the <m>te^{rt}</m> term, which we saw arise from the repeated root
+    structure in <xref ref="sec-all-three-cases"/>.
   </p>
 
   <!-- ═══════════════════════════════════════════════════════════
@@ -58,9 +76,9 @@
        ═══════════════════════════════════════════════════════════ -->
 
   <p>
-    In the animation above the mass never crossed equilibrium. But as with the
+    In the animation above, the mass never crossed equilibrium. But just like the
     overdamped case, whether or not it crosses depends on <m>c_1</m> and <m>c_2</m>.
-    Explore below to find out what is possible.
+    Play around with the explorer below and see what you notice.
   </p>
 
   <!-- ═══════════════════════════════════════════════════════════
@@ -142,6 +160,12 @@
        EXAMPLE: ALGEBRAIC PROOF OF AT MOST ONCE
        ═══════════════════════════════════════════════════════════ -->
 
+  <p>
+    The explorer suggests the mass crosses equilibrium at most once, no matter what
+    <m>c_1</m> and <m>c_2</m> are. Let's confirm this by digging into the algebra,
+    and figure out the long-term behavior along the way.
+  </p>
+
   <example xml:id="ex-critdamped-crossings-algebra">
     <title>At Most One Equilibrium Crossing</title>
     <statement>
@@ -181,6 +205,11 @@
   <!-- ═══════════════════════════════════════════════════════════
        OBSERVATION: LONG TERM BEHAVIOR
        ═══════════════════════════════════════════════════════════ -->
+
+  <p>
+    So at most one crossing along the way, but where does the mass end up after all
+    that?
+  </p>
 
   <observation xml:id="obs-critdamped-limit">
     <p>

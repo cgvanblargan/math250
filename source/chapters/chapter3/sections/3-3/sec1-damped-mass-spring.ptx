@@ -16,8 +16,7 @@
   </p>
 
   <p>
-    A dashpot is a mechanical device that resists motion: think of a piston sliding
-    through a cylinder filled with fluid. The spring and dashpot both connect the mass
+    A dashpot is a mechanical device that resists motion. The spring and dashpot both connect the mass
     to the wall, as shown in the animation below. Press Play to see how the dashpot
     changes the behavior compared to the undamped case.
   </p>
@@ -46,7 +45,14 @@
        ═══════════════════════════════════════════════════════════ -->
 
   <p>
-    Let's derive the ODE governing this system.
+    Let's spend a moment deriving the ODE for this system using a bit of physics. Once we have
+    it, we can put all our solving techniques to use and dig into what the solutions actually
+    look like. We'll go through the derivation once here, then mostly just work with the ODE
+    itself from here on.
+  </p>
+  <p>
+
+
     As in <xref ref="sec-undamped-mass-spring"/>, we measure position <m>x(t)</m>
     from the equilibrium position, with <m>x > 0</m> meaning the spring is stretched
     and <m>x &lt; 0</m> meaning it is compressed.
@@ -96,23 +102,20 @@
     By the quadratic formula, the roots are:
     <me>r = \frac{-c \pm \sqrt{c^2 - 4km}}{2m}.</me>
     The expression <m>D = c^2 - 4km</m> is the <term>discriminant</term>, and its
-    sign determines which of the three cases from
-    <xref ref="thm-three-cases-char-eq"/> we are in.
+    sign tells us which of the three cases from
+    <xref ref="thm-three-cases-char-eq"/> we're dealing with.
+
   </p>
 
-  <p>
-    <!-- PLACEHOLDER: reference a homework exercise here where students verify
-         the discriminant D = c^2 - 4km and the quadratic formula roots explicitly
-         for a specific example of mx'' + cx' + kx = 0. -->
-    You will practice computing these roots directly in the homework exercises.
-  </p>
+ 
 
   <!-- ═══════════════════════════════════════════════════════════
        MC CHECKPOINT: WHICH CASE GIVES TWO DISTINCT REAL ROOTS
        ═══════════════════════════════════════════════════════════ -->
 
   <p>
-    Let's make sure we remember which sign of <m>D</m> gives which type of roots.
+    You've already seen how the sign of the discriminant determines the type of roots back in
+    <xref ref="ex-3-1-8"/>; let's make sure that's fresh in your mind.
   </p>
 
   <exercise xml:id="ex-mc-discriminant-overdamped">
@@ -121,6 +124,9 @@
         For the characteristic equation <m>mr^2 + cr + k = 0</m>,
         which condition on <m>c</m>, <m>m</m>, and <m>k</m> gives
         two distinct real roots?
+      </p>
+      <p>
+        Note that the discriminant is <m>D=c^2-4km</m>.
       </p>
     </statement>
     <choices randomize="yes">
@@ -164,31 +170,6 @@
     </choices>
   </exercise>
 
-  <!-- ═══════════════════════════════════════════════════════════
-       THE THREE CASES (OL)
-       ═══════════════════════════════════════════════════════════ -->
-
-  <p>
-    In general, the three cases for the roots of <m>mr^2 + cr + k = 0</m> are:
-  </p>
-
-  <p>
-    <ol>
-      <li><p>
-        <alert>Two distinct real roots</alert> when <m>c^2 - 4km > 0</m>:
-        <me>r_1 = \frac{-c + \sqrt{c^2 - 4km}}{2m}, \qquad
-           r_2 = \frac{-c - \sqrt{c^2 - 4km}}{2m}.</me>
-      </p></li>
-      <li><p>
-        <alert>One repeated real root</alert> when <m>c^2 - 4km = 0</m>:
-        <me>r = \frac{-c}{2m}.</me>
-      </p></li>
-      <li><p>
-        <alert>Complex conjugate roots</alert> when <m>c^2 - 4km &lt; 0</m>:
-        <me>r = \frac{-c}{2m} \pm i\,\frac{\sqrt{4km - c^2}}{2m}.</me>
-      </p></li>
-    </ol>
-  </p>
 
   <!-- ═══════════════════════════════════════════════════════════
        BRIDGE PROSE: EACH CASE HAS A NAME
@@ -197,9 +178,8 @@
   <p>
     As we saw in <xref ref="thm-three-cases-char-eq"/>, each type of roots leads to a
     qualitatively different form of the general solution. In the mass-spring context,
-    each case also has a physical name that describes how heavily the system is damped.
-    The size of the damping constant <m>c</m> relative to <m>m</m> and <m>k</m> is
-    what determines which case we are in.
+    each case also has a physical name that describes how heavily the system is damped,
+    depending on the size of the damping constant <m>c</m> relative to <m>m</m> and <m>k</m>.
   </p>
 
   <!-- ═══════════════════════════════════════════════════════════
@@ -223,8 +203,8 @@
           </p></li>
           <li><p>
             <alert>Critically damped</alert> (<m>c^2 = 4km</m>): one repeated real root.
-            This is the borderline case, the exact value of <m>c</m> that sits between
-            overdamped and underdamped.
+            This is the borderline case: the exact value of <m>c</m> that separates
+            overdamped from underdamped.
           </p></li>
           <li><p>
             <alert>Underdamped</alert> (<m>0 &lt; c^2 &lt; 4km</m>): complex conjugate roots.

@@ -4,6 +4,16 @@
   <title>Damping cases and the constants c, m, k</title>
 
   <!-- ═══════════════════════════════════════════════════════════
+       INTRO PROSE
+       ═══════════════════════════════════════════════════════════ -->
+
+  <p>
+    We've now seen all three damping cases, underdamped, overdamped, and
+    critically damped, plus the undamped case from before. Now that we have done
+    the hard work, we can summarize all of the behavior we discovered!
+  </p>
+
+  <!-- ═══════════════════════════════════════════════════════════
        ASSEMBLAGE: SUMMARY TABLE
        ═══════════════════════════════════════════════════════════ -->
 
@@ -53,8 +63,8 @@
       </row>
     </tabular>
     <p>
-      In all <em>damped</em> cases (<m>c > 0</m>), the mass eventually returns
-      to equilibrium: <m>\lim_{t\to\infty} x(t) = 0</m>. In the undamped case
+      In all <em>damped</em> cases (<m>c > 0</m>), the mass eventually approaches
+      equilibrium: <m>\lim_{t\to\infty} x(t) = 0</m>. In the undamped case
       (<m>c = 0</m>) the mass oscillates forever with constant amplitude.
     </p>
   </assemblage>
@@ -62,6 +72,12 @@
   <!-- ═══════════════════════════════════════════════════════════
        MC 1: IDENTIFY CASE FROM NUMERICAL m, c, k
        ═══════════════════════════════════════════════════════════ -->
+
+  <p>
+    As seen in the second column, you can determine what case we are in
+    simply by knowing <m>m</m>, <m>c</m>, and <m>k</m>. See if you can apply this
+    to the next question!
+  </p>
 
   <exercise xml:id="ex-mc-identify-case">
     <statement>
@@ -113,6 +129,11 @@
        MC 2: WHICH CASES GIVE INFINITELY MANY CROSSINGS
        ═══════════════════════════════════════════════════════════ -->
 
+  <p>
+    Now let's go the other direction: starting from the behavior of the system, can we
+    narrow down which cases are possible?
+  </p>
+
   <exercise xml:id="ex-mc-infinitely-many-crossings">
     <statement>
       <p>
@@ -160,78 +181,96 @@
   </exercise>
 
   <!-- ═══════════════════════════════════════════════════════════
-       MC 3: COMPLEX ROOTS MEANS UNDAMPED OR UNDERDAMPED
+       EXAMPLE: TWO PARTS (PAGE 28), NOW SPLIT INTO TWO TASKS
        ═══════════════════════════════════════════════════════════ -->
 
-  
-
-  <!-- ═══════════════════════════════════════════════════════════
-       EXAMPLE: TWO PARTS (PAGE 28)
-       ═══════════════════════════════════════════════════════════ -->
+  <p>
+    Let's combine these ideas into a more involved example, where we have to
+    work backward from the desired behavior to figure out which values of
+    <m>c</m> make it happen.
+  </p>
 
   <example xml:id="ex-damping-identify-c">
     <title>Identifying the Damping Case</title>
-    <statement>
+    <introduction>
       <p>
         Suppose that the position of a mass in a spring-mass-dashpot system is
         modeled by the ODE:
         <me>x'' + cx' + 4x = 0, \quad x(0) = 1,\quad x'(0) = 0.</me>
       </p>
-      <p>
-        <ol>
-          <li><p>
-            For what values of <m>c</m> will the mass oscillate and pass through
-            the equilibrium position infinitely many times?
-          </p></li>
-          <li><p>
-            Suppose <m>c = 4</m>. Can you make the mass oscillate and pass through
-            the equilibrium position infinitely many times by choosing a different
-            value for <m>x'(0)</m>?
-          </p></li>
-        </ol>
-      </p>
-    </statement>
-    <hint>
-      <p>
-        For part (a): which damping cases cause the mass to pass through equilibrium
-        infinitely many times? What conditions on <m>c</m> correspond to those cases?
-      </p>
-      <p>
-        For part (b): the damping case depends only on an inequality involving
-        <m>c</m>, <m>m</m>, and <m>k</m>. If these are fixed, does changing the
-        initial conditions affect which case we are in?
-      </p>
-    </hint>
-    <solution>
-      <p>
-        <em>Part (a).</em> From the summary above, the mass passes through
-        equilibrium infinitely many times when the system is underdamped or undamped.
-        Here <m>m = 1</m> and <m>k = 4</m>, so the discriminant is
-        <m>D = c^2 - 4km = c^2 - 16</m>.
-      </p>
-      <p>
-        Underdamped requires <m>0 \lt c^2 \lt 4km</m>, i.e. <m>0 \lt c^2 \lt 16</m>,
-        which gives <m>0 \lt c \lt 4</m>.
-        Undamped requires <m>c = 0</m>.
-        Combining, the mass oscillates infinitely many times when
-        <me>0 \leq c \lt 4.</me>
-      </p>
-      <p>
-        <em>Part (b).</em> No. The damping case is determined entirely by
-        <m>c^2 - 4km</m>, which depends only on <m>m</m>, <m>c</m>, and <m>k</m>.
-        With <m>c = 4</m>, <m>m = 1</m>, <m>k = 4</m> we have
-        <m>D = 16 - 16 = 0</m>, so the system is critically damped regardless
-        of the initial conditions. A critically damped system passes through
-        equilibrium at most once, so no choice of <m>x'(0)</m> can produce
-        infinitely many crossings.
-      </p>
-    </solution>
+    </introduction>
+
+    <task xml:id="task-damping-identify-c-a">
+      <statement>
+        <p>
+          For what values of <m>c</m> will the mass oscillate and pass through
+          the equilibrium position infinitely many times?
+        </p>
+      </statement>
+      <hint>
+        <p>
+          Which damping cases cause the mass to pass through equilibrium
+          infinitely many times? What conditions on <m>c</m> correspond to those
+          cases?
+        </p>
+      </hint>
+      <solution>
+        <p>
+          From the summary above, the mass passes through equilibrium infinitely
+          many times when the system is underdamped or undamped.
+          Here <m>m = 1</m> and <m>k = 4</m>, so the discriminant is
+          <m>D = c^2 - 4km = c^2 - 16</m>.
+        </p>
+        <p>
+          Underdamped requires <m>0 \lt c^2 \lt 4km</m>, i.e. <m>0 \lt c^2 \lt 16</m>,
+          which gives <m>0 \lt c \lt 4</m>.
+          Undamped requires <m>c = 0</m>.
+          Combining, the mass oscillates infinitely many times when
+          <me>0 \leq c \lt 4.</me>
+        </p>
+      </solution>
+    </task>
+
+    <task xml:id="task-damping-identify-c-b">
+      <statement>
+        <p>
+          Suppose <m>c = 4</m>. Can you make the mass oscillate and pass through
+          the equilibrium position infinitely many times by choosing a different
+          value for <m>x'(0)</m>?
+        </p>
+      </statement>
+      <hint>
+        <p>
+          The damping case depends only on an inequality involving <m>c</m>,
+          <m>m</m>, and <m>k</m>. If these are fixed, does changing the initial
+          conditions affect which case we are in?
+        </p>
+      </hint>
+      <solution>
+        <p>
+          No. The damping case is determined entirely by <m>c^2 - 4km</m>, which
+          depends only on <m>m</m>, <m>c</m>, and <m>k</m>.
+          With <m>c = 4</m>, <m>m = 1</m>, <m>k = 4</m> we have
+          <m>D = 16 - 16 = 0</m>, so the system is critically damped regardless
+          of the initial conditions. A critically damped system passes through
+          equilibrium at most once, so no choice of <m>x'(0)</m> can produce
+          infinitely many crossings.
+        </p>
+      </solution>
+    </task>
   </example>
 
   <!-- ═══════════════════════════════════════════════════════════
-       KEY TAKEAWAYS
+       MC: COMPLEX ROOTS MEANS UNDAMPED OR UNDERDAMPED
        ═══════════════════════════════════════════════════════════ -->
-<exercise xml:id="ex-mc-complex-roots-cases">
+
+  <p>
+    The second part of that example hints at something worth pinning down more
+    carefully: the type of roots alone doesn't always tell us a unique case.
+    Let's see this in action with complex roots.
+  </p>
+
+  <exercise xml:id="ex-mc-complex-roots-cases">
     <statement>
       <p>
         The characteristic equation of a spring-mass system has complex roots.
@@ -281,30 +320,41 @@
       </choice>
     </choices>
   </exercise>
- <conclusion>
-  <title>Key Takeaways</title>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       KEY TAKEAWAYS
+       ═══════════════════════════════════════════════════════════ -->
+
   <p>
-    <ul>
-      <li><p>
-        <alert>The damping case tells us:</alert> how many times the mass crosses
-        the equilibrium position and the long-term behavior <m>\lim_{t\to\infty} x(t)</m>.
-      </p></li>
-      <li><p>
-        <alert>The damping case is determined by the type of roots of the characteristic equation,</alert>
-        which can be found by computing the discriminant <m>D = c^2 - 4km</m>.
-      </p></li>
-      <li><p>
-        <alert>Initial conditions do not change the case:</alert> <m>m</m>, <m>c</m>,
-        and <m>k</m> alone determine whether the system is overdamped, critically damped, or underdamped.
-      </p></li>
-      <li><p>
-        <alert>Complex roots arise in two cases:</alert> purely imaginary roots
-        (<m>c = 0</m>, undamped) and complex roots with negative real part
-        (<m>c > 0</m> and <m>c^2 \lt 4km</m>, underdamped).
-      </p></li>
-    </ul>
+    Okay, so we now have a solid understanding of the different types of solutions.
+    In the next section, we take this a step further and analyze the behavior of
+    solutions in more detail!
   </p>
-</conclusion>
+
+  <conclusion>
+    <title>Key Takeaways</title>
+    <p>
+      <ul>
+        <li><p>
+          <alert>The damping case tells us:</alert> how many times the mass crosses
+          the equilibrium position and the long-term behavior <m>\lim_{t\to\infty} x(t)</m>.
+        </p></li>
+        <li><p>
+          <alert>The damping case is determined by the type of roots of the characteristic equation,</alert>
+          which can be found by computing the discriminant <m>D = c^2 - 4km</m>.
+        </p></li>
+        <li><p>
+          <alert>Initial conditions do not change the case:</alert> <m>m</m>, <m>c</m>,
+          and <m>k</m> alone determine whether the system is overdamped, critically damped, or underdamped.
+        </p></li>
+        <li><p>
+          <alert>Complex roots arise in two cases:</alert> purely imaginary roots
+          (<m>c = 0</m>, undamped) and complex roots with negative real part
+          (<m>c > 0</m> and <m>c^2 \lt 4km</m>, underdamped).
+        </p></li>
+      </ul>
+    </p>
+  </conclusion>
 
   <!-- ═══════════════════════════════════════════════════════════
        VIDEO + QUESTION FORM

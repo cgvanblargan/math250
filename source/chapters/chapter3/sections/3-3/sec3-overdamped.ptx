@@ -7,13 +7,35 @@
        OBSERVATION: SOLUTION FORM
        ═══════════════════════════════════════════════════════════ -->
 
+  <p>
+    Now let's swing to the other extreme. When <m>c^2 > 4km</m>, the damping is so
+    strong that the characteristic equation has two distinct real roots <m>r_1</m>
+    and <m>r_2</m>, and the system is called <term>overdamped</term>. The general
+    solution takes the form:
+    <me>x(t) = c_1 e^{r_1 t} + c_2 e^{r_2 t}.</me>
+    If you want to see why both roots are negative, check out the dropdown below.
+  </p>
+
+  <justification>
+    <title>Why are both roots negative? (can skim)</title>
+    <p>
+      By the quadratic formula, the roots of <m>mr^2+cr+k=0</m> are
+      <me>r = \frac{-c \pm \sqrt{c^2-4km}}{2m}.</me>
+      Since <m>c^2 > 4km</m>, the quantity under the square root is positive, but
+      it is also smaller than <m>c^2</m>, so <m>\sqrt{c^2-4km} \lt c</m>. That means
+      both <m>-c + \sqrt{c^2-4km}</m> and <m>-c - \sqrt{c^2-4km}</m> are negative
+      numbers. Dividing by <m>2m > 0</m> keeps them negative, so both
+      <m>r_1</m> and <m>r_2</m> are negative.
+    </p>
+  </justification>
+
   <observation xml:id="obs-overdamped-form">
     <title>Overdamped Solution Form</title>
     <p>
       When <m>c^2 > 4km</m>, the characteristic equation has two distinct real roots
       <m>r_1</m> and <m>r_2</m>, and the system is <term>overdamped</term>.
-      Since <m>m, c, k > 0</m>, both roots are negative.
-      The general solution takes the form:
+      Since <m>m, c, k > 0</m>, both roots are negative. The general solution takes
+      the form:
       <me>x(t) = c_1 e^{r_1 t} + c_2 e^{r_2 t},</me>
       where <m>r_1 \lt 0</m> and <m>r_2 \lt 0</m>.
     </p>
@@ -25,14 +47,16 @@
 
   <p>
     Unlike the underdamped case in <xref ref="sec-underdamped"/>, there are no
-    trigonometric functions here. The solution is a sum of two purely exponentially
-    decaying terms. This means position function is not oscillating. 
+    trig functions anywhere in sight. The solution is just a sum of two decaying
+    exponentials, with no oscillation at all.
   </p>
 
   <!-- ═══════════════════════════════════════════════════════════
        INTERACTIVE 1: SPRING ANIMATION + x(t) GRAPH
        ═══════════════════════════════════════════════════════════ -->
-
+<p>
+  Take a look at the animation below to see how quickly the mass slows down in this case!
+</p>
   <figure xml:id="fig-overdamped-spring">
     <caption>
       An overdamped spring with <m>r_1 = -0.5</m>, <m>r_2 = -2</m>,
@@ -59,9 +83,10 @@
        ═══════════════════════════════════════════════════════════ -->
 
   <p>
-    In the animation above the mass crossed equilibrium exactly once. But does that
-    always happen, or does it depend on <m>c_1</m> and <m>c_2</m>?
-    Explore the graph below by trying different values.
+    In the animation above, the mass crossed equilibrium exactly once on its way
+    to rest. But is that guaranteed every time, or does it depend on the values of
+    <m>c_1</m> and <m>c_2</m>? Play around with the explorer below and see what
+    you notice.
   </p>
 
   <!-- ═══════════════════════════════════════════════════════════
@@ -144,6 +169,11 @@
        EXAMPLE: ALGEBRAIC PROOF OF AT MOST ONCE
        ═══════════════════════════════════════════════════════════ -->
 
+  <p>
+    The explorer suggests the mass crosses equilibrium at most once, no matter what
+    <m>c_1</m> and <m>c_2</m> are. Let's confirm this by digging into the algebra.
+  </p>
+
   <example xml:id="ex-overdamped-crossings-algebra">
     <title>At Most One Equilibrium Crossing</title>
     <statement>
@@ -175,6 +205,11 @@
        OBSERVATION: LONG TERM BEHAVIOR
        ═══════════════════════════════════════════════════════════ -->
 
+  <p>
+    So at most one crossing along the way, but where does the mass end up after all
+    that?
+  </p>
+
   <observation xml:id="obs-overdamped-limit">
     <p>
       Since both <m>r_1 \lt 0</m> and <m>r_2 \lt 0</m>, both exponential terms
@@ -189,8 +224,8 @@
           \Bigr)
         = 0.
       </me>
-      The mass always approaches equilibrium in the long run, crossing it at most once
-      along the way.
+      The mass always approaches equilibrium in the long run, crossing it at
+      most once on the way there.
     </p>
   </observation>
 
