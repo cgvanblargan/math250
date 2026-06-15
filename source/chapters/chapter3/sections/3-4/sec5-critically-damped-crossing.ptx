@@ -4,6 +4,18 @@
   <title>Analyzing a Critically Damped System: Finding Maximum Stretch</title>
 
   <!-- ═══════════════════════════════════════════════════════════
+       INTRO PROSE
+       ═══════════════════════════════════════════════════════════ -->
+
+  <p>
+    We now work through a harder example of the same type from
+    <xref ref="sec-critically-damped-analysis"/>. This time the mass starts
+    compressed but <em>does</em> cross the equilibrium, so we need to track
+    down both the crossing time and the later critical point to find the
+    maximum stretch.
+  </p>
+
+  <!-- ═══════════════════════════════════════════════════════════
        SETUP: ODE AND SOLUTION
        ═══════════════════════════════════════════════════════════ -->
 
@@ -49,7 +61,10 @@
           We compute <m>x(0)</m> and <m>x'(0)</m>:
           <me>x(0) = -9e^0 + 3(0)e^0 = -9 \lt 0,</me>
           so the mass starts compressed. Differentiating using the product rule:
-          <me>x'(t) = -(-9e^{-t}) + 3e^{-t} + 3t(-e^{-t}) = 9e^{-t} + 3e^{-t} - 3te^{-t} = e^{-t}(12 - 3t),</me>
+          <md>
+            <mrow>x'(t) \amp= 9e^{-t} + 3e^{-t} - 3te^{-t}</mrow>
+            <mrow>\amp= e^{-t}(12 - 3t),</mrow>
+          </md>
           so <m>x'(0) = e^0(12) = 12 > 0</m>. The mass starts compressed and is
           initially moving in the positive direction, toward the equilibrium.
         </p>
@@ -80,8 +95,8 @@
           where <m>x'(t) = 0</m>. Since the mass starts compressed (<m>x(0) = -9 \lt 0</m>),
           the maximum stretch cannot occur at <m>t = 0</m>. The mass crosses the
           equilibrium at <m>t = 3</m> and becomes stretched, so the maximum stretch
-          must occur at some <m>t > 3</m>. Since it is a local maximum at a valid
-          time, it must be a critical point.
+          must occur at some <m>t > 3</m>. Since <m>x(t)</m> is differentiable,
+          any local maximum must occur at a critical point where <m>x'(t) = 0</m>.
         </p>
       </solution>
 
@@ -104,7 +119,7 @@
   </example>
 
   <!-- ═══════════════════════════════════════════════════════════
-       PROSE SUMMARY + GRAPH
+       PROSE SUMMARY + SKETCH PROMPT
        ═══════════════════════════════════════════════════════════ -->
 
   <p>
@@ -112,12 +127,15 @@
     <ul>
       <li><p>The mass starts <alert>compressed</alert> (since <m>x(0) = -9 \lt 0</m>).</p></li>
       <li><p>The mass crosses the equilibrium at <alert><m>t = 3</m></alert> (the only solution to <m>x(t) = 0</m> for <m>t > 0</m>).</p></li>
-      <li><p>Maximum stretch occurs at <alert><m>t = 4</m></alert> (occurs at the only critical point where <m>x'(t) = 0</m>).</p></li>
-      <li><p>After <m>t = 4</m>, the mass never crosses the equilibrium again, but we know <m>\displaystyle\lim_{t \to \infty} x(t) = 0</m>.</p></li>
+      <li><p>Maximum stretch occurs at <alert><m>t = 4</m></alert> (the only critical point where <m>x'(t) = 0</m>).</p></li>
+      <li><p>After <m>t = 4</m>, the mass never crosses the equilibrium again, but <m>\displaystyle\lim_{t \to \infty} x(t) = 0</m>.</p></li>
     </ul>
-    Now that you have had a lot of practice building pictures of motion,
-    try sketching the graph yourself using the information above before
-    answering the checkpoint below.
+  </p>
+
+  <p>
+    <alert>Before looking at the checkpoint below, try sketching the graph
+    yourself using the four facts above. No graph is provided here on purpose,
+    since sketching it yourself is the best way to check your understanding.</alert>
   </p>
 
   <!-- ═══════════════════════════════════════════════════════════
@@ -183,6 +201,23 @@
       </choice>
     </choices>
   </task>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       KEY TAKEAWAYS
+       ═══════════════════════════════════════════════════════════ -->
+<conclusion>
+    <title>Key Takeaways</title>
+    <p>
+      <ul>
+        <li><p>
+          <alert>The four-step approach:</alert> find <m>x(0)</m> and <m>x'(0)</m>,
+          check for equilibrium crossings, determine where the maximum occurs
+          (at <m>t = 0</m> or a critical point), then solve <m>x'(t) = 0</m>
+          if needed. A sketch ties all four steps together.
+        </p></li>
+      </ul>
+    </p>
+  </conclusion>
 
   <!-- ═══════════════════════════════════════════════════════════
        VIDEO + QUESTION FORM

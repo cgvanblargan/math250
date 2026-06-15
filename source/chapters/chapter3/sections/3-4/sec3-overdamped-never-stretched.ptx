@@ -4,6 +4,19 @@
   <title>Analyzing an Overdamped System: Is the Spring Ever Stretched?</title>
 
   <!-- ═══════════════════════════════════════════════════════════
+       INTRO: STATE THE GUIDING QUESTION
+       ═══════════════════════════════════════════════════════════ -->
+
+  <p>
+    In <xref ref="sec-overdamped-analysis"/> we used the sign of <m>x(0)</m>, the sign
+    of <m>x'(0)</m>, and whether the mass crosses equilibrium to build a complete
+    picture of the motion. In this section, we put that same approach to work on a
+    new question: for the system below, is the spring <alert>ever stretched</alert>?
+    We'll work through an activity to build up the picture, then come back to this
+    question at the end.
+  </p>
+
+  <!-- ═══════════════════════════════════════════════════════════
        SUMMARY ASSEMBLAGE
        ═══════════════════════════════════════════════════════════ -->
 
@@ -76,8 +89,7 @@
        ═══════════════════════════════════════════════════════════ -->
 
   <p>
-    Our goal is to determine whether the spring is ever stretched. Before we
-    answer that question directly, we work through the following activity to
+    With that question in mind, let's work through the following activity to
     map out the behavior of the system.
   </p>
 

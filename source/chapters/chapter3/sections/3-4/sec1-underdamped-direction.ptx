@@ -4,7 +4,18 @@
   <title>Analyzing Underdamped Motion</title>
 
   <!-- ═══════════════════════════════════════════════════════════
-       PREREQ REMARK: ARCTAN REVIEW
+       INTRO PROSE
+       ═══════════════════════════════════════════════════════════ -->
+
+  <p>
+    Before we begin the main content of this page, let's review a couple of facts
+    about trig equations that we'll need later on. We'll start with these
+    prerequisites, and then come back to them when we work through
+    <xref ref="task-direction-solve"/>.
+  </p>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       PREREQ REMARK: ARCTAN REVIEW, TWO PARTS
        ═══════════════════════════════════════════════════════════ -->
 
   <remark xml:id="remark-arctan-review">
@@ -37,28 +48,36 @@
 
         <li>
           <p>
-            <alert>Solving <m>\tan(at) = A</m> — which values of <m>n</m> give <m>t \geq 0</m>?</alert>
-            Setting <m>\theta = at</m> and applying the result above:
-            <me>t = \frac{\arctan(A) + n\pi}{a}, \quad n = 0, \pm 1, \pm 2, \ldots</me>
-            Since we need <m>t \geq 0</m>, we keep only values of <m>n</m> that make
-            the right-hand side nonnegative. The key fact is that
-            <m>\arctan(A)</m> always has the same sign as <m>A</m>,
-            with output in <m>(-\pi/2,\, \pi/2)</m>. This gives two cases:
-            <ul>
-              <li><p>
-                <alert>Case 1: <m>A \geq 0</m>.</alert>
-                Then <m>\arctan(A) \geq 0</m>, so <m>\arctan(A) + n\pi \geq 0</m>
-                for all <m>n \geq 0</m>. Valid solutions: <m>n = 0, 1, 2, \ldots</m>
-              </p></li>
-              <li><p>
-                <alert>Case 2: <m>A \lt 0</m>.</alert>
-                Then <m>\arctan(A) \in (-\pi/2, 0)</m>, so <m>n = 0</m> gives
-                a negative value of <m>t</m> (not valid). But since
-                <m>|\arctan(A)| \lt \pi/2 \lt \pi</m>, adding one full period
-                gives <m>\arctan(A) + \pi > 0</m>. Valid solutions: <m>n = 1, 2, 3, \ldots</m>
-              </p></li>
-            </ul>
+            <alert>Restricting to <m>t \geq 0</m>.</alert>
+            Continuing from part 1 with <m>\tan(t) = A</m>, we have
+            <m>t = \arctan(A) + n\pi</m>, and we want to know which values of
+            <m>n</m> give <m>t \geq 0</m>. There are two cases:
+            <ol>
+              <li><p><m>A \geq 0</m>: valid solutions start at <m>n = 0</m>.</p></li>
+              <li><p><m>A \lt 0</m>: valid solutions start at <m>n = 1</m>.</p></li>
+            </ol>
           </p>
+          <justification>
+            <title>Why n = 0 or n = 1? (can skim)</title>
+            <p>
+              The key fact is that <m>\arctan(A) \in (-\pi/2, \pi/2)</m> always
+              has the same sign as <m>A</m>.
+            </p>
+            <p>
+              <alert>Case 1: <m>A \geq 0</m>.</alert>
+              Then <m>\arctan(A) \geq 0</m>, so <m>\arctan(A) + n\pi \geq 0</m>
+              for all <m>n \geq 0</m>. Since negative <m>n</m> would give
+              <m>\arctan(A) + n\pi \lt 0</m>, the valid solutions start at
+              <m>n = 0</m>: <m>n = 0, 1, 2, \ldots</m>
+            </p>
+            <p>
+              <alert>Case 2: <m>A \lt 0</m>.</alert>
+              Then <m>\arctan(A) \in (-\pi/2, 0)</m>, so <m>n = 0</m> gives
+              a negative value of <m>t</m> (not valid). But since
+              <m>|\arctan(A)| \lt \pi/2 \lt \pi</m>, adding one full period
+              gives <m>\arctan(A) + \pi > 0</m>. Valid solutions: <m>n = 1, 2, 3, \ldots</m>
+            </p>
+          </justification>
         </li>
       </ol>
     </p>
@@ -70,8 +89,8 @@
        ═══════════════════════════════════════════════════════════ -->
 
   <p>
-    We now focus on the underdamped case, where the mass oscillates with
-    decaying amplitude.
+    Okay now let's turn to the underdamped case, where
+    the mass oscillates with decaying amplitude.
   </p>
 
   <assemblage xml:id="assemblage-underdamped-summary">
@@ -101,6 +120,11 @@
        ═══════════════════════════════════════════════════════════ -->
 
   <p>
+    To make things concrete, let's fix a specific underdamped system and work
+    with it for the rest of this page.
+  </p>
+
+  <p>
     Consider the underdamped system with <m>m = 1</m>, <m>c = 4</m>, <m>k = 5</m>,
     <m>x(0) = 2</m>, <m>x'(0) = -2</m>. Substituting these parameters gives the IVP:
     <me>x'' + 4x' + 5x = 0, \quad x(0) = 2,\quad x'(0) = -2.</me>
@@ -127,6 +151,11 @@
   <!-- ═══════════════════════════════════════════════════════════
        EXPLORATION: DIRECTION CHANGES
        ═══════════════════════════════════════════════════════════ -->
+
+  <p>
+    Now let's think about what this solution actually looks like in motion, and
+    in particular, when the mass changes direction.
+  </p>
 
   <exploration xml:id="exploration-direction-changes">
     <title>When Does the Mass Change Direction?</title>
@@ -237,7 +266,8 @@
       </hint>
       <solution>
         <p>
-          Since <m>x'(t) = 0</m> at every direction change, we compute and solve.
+          Since <m>x'(t) = 0</m> at every direction change, we compute <m>x'(t)</m>
+          and solve.
         </p>
         <solution>
           <title>Step 1: Compute <m>x'(t)</m></title>
@@ -251,20 +281,32 @@
           </p>
         </solution>
         <p>
-          Now we set <m>x'(t) = 0</m> and solve.
+          So <m>x'(t) = e^{-2t}(-2\cos(t) - 6\sin(t))</m>. Now we set this equal
+          to zero and solve.
         </p>
         <solution>
           <title>Step 2: Solve <m>x'(t) = 0</m></title>
           <p>
             Since <m>e^{-2t} \neq 0</m>, we need:
-            <me>-2\cos(t) - 6\sin(t) = 0 \implies \tan(t) = -\frac{1}{3}.</me>
-            Using the prerequisite remark above with <m>A = -1/3</m>:
-            <me>t = \arctan\!\left(-\tfrac{1}{3}\right) + n\pi.</me>
-            Since <m>A = -1/3 \lt 0</m> (Case 2), valid
-            solutions require <m>n = 1, 2, 3, \ldots</m>, giving:
-            <me>t = \arctan\!\left(-\tfrac{1}{3}\right) + n\pi, \quad n = 1, 2, 3, \ldots</me>
+            <md>
+              <mrow>-2\cos(t) - 6\sin(t) \amp= 0</mrow>
+              <mrow>-6\sin(t) \amp= 2\cos(t)</mrow>
+              <mrow>\frac{\sin(t)}{\cos(t)} \amp= -\frac{2}{6}</mrow>
+              <mrow>\tan(t) \amp= -\frac{1}{3}.</mrow>
+            </md>
+            By part 1 of <xref ref="remark-arctan-review"/> with <m>A = -1/3</m>,
+            every solution has the form:
+            <me>t = \arctan\!\left(-\tfrac{1}{3}\right) + n\pi, \quad n = 0, \pm 1, \pm 2, \ldots</me>
+            By part 2 of <xref ref="remark-arctan-review"/>, since
+            <m>A = -1/3 \lt 0</m>, the valid solutions with <m>t \geq 0</m> start
+            at <m>n = 1</m>.
           </p>
         </solution>
+        <p>
+          So starting at <m>n = 1</m> ensures every value of <m>t</m> is
+          nonnegative, and the mass changes direction at:
+          <me>t = \arctan\!\left(-\tfrac{1}{3}\right) + n\pi, \quad n = 1, 2, 3, \ldots</me>
+        </p>
       </solution>
     </task>
 
@@ -301,14 +343,14 @@
         <li><p>
           <alert>Direction changes correspond to critical points:</alert>
           the mass changes direction exactly when <m>x'(t) = 0</m>.
-          For underdamped systems every critical point is a direction change.
+          
         </p></li>
         <li><p>
           <alert>Solving <m>x'(t) = 0</m>:</alert> after computing <m>x'(t)</m>
           and dividing out <m>e^{\alpha t}</m>, we arrive at
           <m>\tan(t) = A</m> for some constant <m>A</m>, giving
-          <m>t = \arctan(A) + n\pi</m>. Use the sign of <m>A</m>
-          to determine which values of <m>n</m> give <m>t \geq 0</m>.
+          <m>t = \arctan(A) + n\pi</m>. To get <m>t \geq 0</m>: if <m>A \geq 0</m>,
+          start at <m>n = 0</m>; if <m>A \lt 0</m>, start at <m>n = 1</m>.
         </p></li>
       </ul>
     </p>

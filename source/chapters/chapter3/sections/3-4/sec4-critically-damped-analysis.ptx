@@ -274,12 +274,8 @@
         <p>
           Since <m>x'(0) = 2 > 0</m>, the mass is still moving away from equilibrium
           at <m>t = 0</m>, so the maximum stretch does <em>not</em> occur at <m>t = 0</m>.
-          It must occur at a critical point where <m>x'(t) = 0</m>.
-        </p>
-
-        <p>
-          So, we compute <m>x'(t):</m>
-          <me>x'(t)= e^{-2t}(2 - 8t). </me>
+          It must occur at a critical point where <m>x'(t) = 0</m>, so we compute
+          <m>x'(t)</m> and solve.
         </p>
 
         <solution>
@@ -295,14 +291,14 @@
         </solution>
 
         <p>
-          Now we set <m>x'(t) = 0</m> and solve.
+          So <m>x'(t) = e^{-2t}(2 - 8t)</m>. Now we set this equal to zero and solve.
         </p>
 
         <solution>
           <title>Step 2: Solve <m>x'(t) = 0</m></title>
           <p>
-            We need to solve: 
-             <me>x'(t)= e^{-2t}(2 - 8t)=0 </me>
+            We need to solve:
+            <me>e^{-2t}(2 - 8t) = 0.</me>
             Since <m>e^{-2t} \neq 0</m>, we need:
             <me>2 - 8t = 0 \implies t = \frac{1}{4}.</me>
             So the maximum stretch occurs at <m>t = \tfrac{1}{4}</m>,
@@ -349,28 +345,30 @@
     <p>
       <ul>
         <li><p>
-          <alert>Does it pass through equilibrium, and how many times?</alert>
-          Combined with the sign of <m>x(0)</m>, this tells us whether the
-          spring is always stretched, always compressed, or crosses sides.
+          <alert>Finding the farthest point from equilibrium:</alert>
+          this always happens either at <m>t = 0</m> or at a critical point
+          where <m>x'(t) = 0</m>.
         </p></li>
         <li><p>
-          <alert>What are <m>x(0)</m> and <m>x'(0)</m>?</alert>
-          These tell us where the mass starts and which direction it initially moves.
-          The farthest point from equilibrium occurs either at <m>t = 0</m> or
-          at a critical point where <m>x'(t) = 0</m>. Since the mass here
-          initially moved <em>further</em> from equilibrium (<m>x'(0) > 0</m>
-          on the stretched side), the maximum must occur at a later critical point,
-          not at <m>t = 0</m>.
+          <alert>How to tell which one:</alert> you can determine this from a
+          sketch of the graph. In particular, check the sign of <m>x'(0)</m>:
+          if the mass is moving <em>toward</em> equilibrium at <m>t = 0</m>,
+          then <m>t = 0</m> is already the farthest point. But if the mass is
+          moving <em>away</em> from equilibrium, as in this example
+          (<m>x'(0) = 2 > 0</m> on the stretched side), then it gets even
+          farther before turning around, so the farthest point occurs at a
+          later critical point, which we find by solving <m>x'(t) = 0</m>.
         </p></li>
         <li><p>
-          <alert>From a rough sketch to exact answers:</alert>
-          once we have the sketch, we can answer qualitative questions directly,
-          and use calculus (solve <m>x'(t) = 0</m>) to find exact critical points.
+          <alert>Note for underdamped systems:</alert> the same logic applies,
+          but since underdamped solutions oscillate, there are infinitely many
+          critical points, one at each direction change. The farthest point from
+          equilibrium is still either <m>t = 0</m> or the first critical point,
+          but the mass continues changing direction forever after that.
         </p></li>
       </ul>
     </p>
   </conclusion>
-
   <!-- ═══════════════════════════════════════════════════════════
        VIDEO + QUESTION FORM
        ═══════════════════════════════════════════════════════════ -->

@@ -261,11 +261,25 @@
     </task>
 
   </exploration>
-
-  <!-- ═══════════════════════════════════════════════════════════
-       EXAMPLE
+<!-- ═══════════════════════════════════════════════════════════
+       TRANSITION TO EXAMPLE
        ═══════════════════════════════════════════════════════════ -->
 
+  <p>
+    The key idea here was using the following information:
+    <ol>
+      <li><p>the sign of <m>x(0)</m> (does it start compressed, stretched, or at equilibrium?),</p></li>
+      <li><p>the sign of <m>x'(0)</m> (is it initially moving left or right?), and</p></li>
+      <li><p>whether the mass ever crosses the equilibrium position.</p></li>
+    </ol>
+    These three pieces of information will always allow you to give a sketch of the graph,
+    as we did in part (c).
+  </p>
+
+  <p>
+    Now that we have a clear picture of the motion, let's use what we found to
+    answer some more specific questions about the spring's behavior.
+  </p>
   <example xml:id="ex-overdamped-analysis">
     <title>Analyzing <m>x(t) = 4e^{-2t} - 10e^{-t}</m></title>
     <statement>
@@ -276,8 +290,8 @@
       <p>
         <ol>
           <li><p>Will the mass pass through the equilibrium position?</p></li>
-          <li><p>When is the spring most stretched?</p></li>
-          <li><p>When is the spring most compressed?</p></li>
+          <li><p>When is the spring most stretched, if at all?</p></li>
+          <li><p>When is the spring most compressed, if at all?</p></li>
         </ol>
       </p>
     </statement>
@@ -376,24 +390,28 @@
   <!-- ═══════════════════════════════════════════════════════════
        KEY TAKEAWAYS
        ═══════════════════════════════════════════════════════════ -->
-
-  <conclusion>
+<conclusion>
     <title>Key Takeaways</title>
     <p>
-      To answer questions about the behavior of the mass, we should often begin by finding:
-      <ul>
+      To sketch the graph of <m>x(t)</m> and answer questions about the motion,
+      we should begin by finding:
+      <ol>
         <li><p>
-          <alert>Does it pass through equilibrium, and how many times?</alert>
-          For overdamped and critically damped systems, at most once.
+          <alert>The sign of <m>x(0)</m>:</alert> does the mass start compressed,
+          stretched, or at equilibrium?
         </p></li>
         <li><p>
-          <alert>What are <m>x(0)</m> and <m>x'(0)</m>?</alert>
-          These tell us where the mass starts and which direction it initially moves.
+          <alert>The sign of <m>x'(0)</m>:</alert> which direction does the mass
+          initially move?
         </p></li>
-      </ul>
-      From these two pieces of information we can always construct a rough sketch
-      of the graph, which in turn lets us answer qualitative questions about the
-      behavior of the system.
+        <li><p>
+          <alert>Whether the mass ever crosses equilibrium:</alert> for overdamped
+          and critically damped systems, this happens at most once.
+        </p></li>
+      </ol>
+      These three pieces of information are enough to sketch the graph of
+      <m>x(t)</m>, and from that sketch we can answer qualitative questions
+      about the behavior of the system.
     </p>
   </conclusion>
 
