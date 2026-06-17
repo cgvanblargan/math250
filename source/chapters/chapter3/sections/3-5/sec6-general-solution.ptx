@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-general-solution-nonhomogeneous" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>The General Solution</title>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       EXPLORATION: BUILDING THE GENERAL SOLUTION
+       ═══════════════════════════════════════════════════════════ -->
+
+  <exploration xml:id="exploration-general-solution">
+    <title>Finding the General Solution to a Non-Homogeneous Equation</title>
+
+    <introduction>
+      <p>
+        Our goal is to find the <em>general solution</em> to the non-homogeneous equation
+        <me>y'' - 3y' + 2y = 2\cos(2t) - 4\sin(2t).</me>
+        To do this, it turns out we need two ingredients: a <term>particular solution</term> <m>y_p</m>
+        to the non-homogeneous equation, and the <term>complementary function</term> <m>y_c</m>,
+        which is the general solution to the associated homogeneous equation.
+      </p>
+      <p>
+        The point of this exploration is to see why the sum <m>y_p + y_c</m> will always form a solution to the
+        non-homogeneous ODE. You can skim the computations for <m>y_p</m> and <m>y_c</m>, but pay close attention to parts
+        (c) and (d)!
+      </p>
+    </introduction>
+
+    <!-- ── Part (a): Find yp ── -->
+
+    <task xml:id="task-gensol-find-yp">
+      <title>Find a particular solution <m>y_p</m></title>
+      <statement>
+        <p>
+          Use the method of undetermined coefficients to find a particular solution <m>y_p</m> to
+          <me>y'' - 3y' + 2y = 2\cos(2t) - 4\sin(2t).</me>
+        </p>
+        <p>
+          <alert>Answer:</alert>
+          <me>y_p = -\frac{7}{10}\cos(2t) - \frac{1}{10}\sin(2t).</me>
+        </p>
+      </statement>
+      <solution>
+        <title>Full computation (can skim)</title>
+        <p>
+          The right-hand side has frequency <m>k = 2</m>, and the coefficient of <m>y</m>
+          is <m>2 \neq k^2 = 4</m>, so this is the normal case. We guess
+          <me>y_p = A\cos(2t) + B\sin(2t).</me>
+          Computing derivatives:
+          <md>
+            <mrow>y_p' \amp= -2A\sin(2t) + 2B\cos(2t)</mrow>
+            <mrow>y_p'' \amp= -4A\cos(2t) - 4B\sin(2t)</mrow>
+          </md>
+          Substituting into <m>y'' - 3y' + 2y</m> and collecting:
+          <md>
+            <mrow>\amp(-4A\cos(2t) - 4B\sin(2t))</mrow>
+            <mrow>\amp\quad - 3(-2A\sin(2t) + 2B\cos(2t))</mrow>
+            <mrow>\amp\quad + 2(A\cos(2t) + B\sin(2t))</mrow>
+            <mrow>= \amp(-2A - 6B)\cos(2t) + (6A - 2B)\sin(2t).</mrow>
+          </md>
+          Matching coefficients with the right-hand side <m>2\cos(2t) - 4\sin(2t)</m>:
+          <md>
+            <mrow>-2A - 6B \amp= 2</mrow>
+            <mrow>6A - 2B \amp= -4</mrow>
+          </md>
+        </p>
+        <solution>
+          <title>Solving the system (can skim)</title>
+          <p>
+            Multiply the first equation by <m>3</m> and add to the second:
+            <md>
+              <mrow>-6A - 18B \amp= 6</mrow>
+              <mrow>6A - 2B \amp= -4</mrow>
+              <mrow>\hline -20B \amp= 2 \implies B = -\tfrac{1}{10}.</mrow>
+            </md>
+            Substituting back: <m>6A - 2(-\tfrac{1}{10}) = -4 \implies 6A = -4 - \tfrac{1}{5} = -\tfrac{21}{5} \implies A = -\tfrac{7}{10}.</m>
+          </p>
+        </solution>
+        <p>
+          So the particular solution is
+          <me>y_p = -\frac{7}{10}\cos(2t) - \frac{1}{10}\sin(2t).</me>
+        </p>
+      </solution>
+    </task>
+
+    <!-- ── Part (b): Find yc ── -->
+
+    <task xml:id="task-gensol-find-yc">
+      <title>Find the complementary function <m>y_c</m></title>
+      <statement>
+        <p>
+          Find the general solution <m>y_c</m> to the associated homogeneous equation
+          <me>y'' - 3y' + 2y = 0.</me>
+        </p>
+        <p>
+          <alert>Answer:</alert>
+          <me>y_c = c_1 e^{t} + c_2 e^{2t}.</me>
+        </p>
+      </statement>
+      <solution>
+        <title>Full computation (can skim; see <xref ref="sec-characteristic-equation"/>)</title>
+        <p>
+          We solved equations like this in <xref ref="sec-characteristic-equation"/>.
+          The characteristic equation is
+          <me>r^2 - 3r + 2 = 0 \implies (r-1)(r-2) = 0 \implies r = 1,\ 2.</me>
+          Two distinct real roots give the general solution
+          <me>y_c = c_1 e^{t} + c_2 e^{2t}.</me>
+        </p>
+      </solution>
+    </task>
+
+    <!-- ── Part (c): Show yc + yp is a solution ── -->
+
+    <task xml:id="task-gensol-verify">
+      <title>Checking that <m>y_c + y_p</m> is a solution</title>
+      <statement>
+        <p>
+          Now let's verify that <m>y = y_c + y_p</m> actually satisfies the
+          non-homogeneous equation. Substituting into the left-hand side and
+          grouping the <m>y_c</m> and <m>y_p</m> terms together:
+          <md>
+            <mrow>
+              \amp (y_c + y_p)'' - 3(y_c + y_p)' + 2(y_c + y_p)
+            </mrow>
+            <mrow>
+              = \amp \underbrace{(y_c'' - 3y_c' + 2y_c)}_{= \, 0}
+                + \underbrace{(y_p'' - 3y_p' + 2y_p)}_{= \, 2\cos(2t) - 4\sin(2t)}
+            </mrow>
+            <mrow>
+              = \amp \; 2\cos(2t) - 4\sin(2t). \checkmark
+            </mrow>
+          </md>
+          The <m>y_c</m> group is zero because <m>y_c</m> solves the homogeneous equation;
+          the <m>y_p</m> group equals the right-hand side because <m>y_p</m> is a particular solution.
+          So <m>y_c + y_p</m> is a solution for <em>any</em> values of <m>c_1</m> and <m>c_2</m>.
+        </p>
+      </statement>
+    </task>
+
+    <!-- ── Part (d): MC checkpoint ── -->
+
+    <task xml:id="task-gensol-mc">
+      <title>The key idea</title>
+      <statement>
+        <p>
+          Looking back at the verification above, why does <m>y_c + y_p</m> solve
+          the non-homogeneous equation <m>y'' - 3y' + 2y = 2\cos(2t) - 4\sin(2t)</m>?
+        </p>
+      </statement>
+      <choices randomize="yes">
+        <choice correct="yes">
+          <statement>
+            <p>
+              When you plug in <m>y_c + y_p</m>, the <m>y_c</m> part cancels to zero
+              (since it solves the homogeneous equation), and the <m>y_p</m> part
+              produces exactly the right-hand side (since it's a particular solution).
+              The sum is therefore equal to the right-hand side.
+            </p>
+          </statement>
+          <feedback>
+            <p>
+              Exactly! The two pieces play complementary roles: <m>y_p</m> does the
+              job of matching the right-hand side, while <m>y_c</m> quietly disappears.
+              <m>\checkmark</m>
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement>
+            <p>
+              Both <m>y_c</m> and <m>y_p</m> individually solve the non-homogeneous
+              equation, so their sum does too.
+            </p>
+          </statement>
+          <feedback>
+            <p>
+              Not quite. <m>y_c</m> solves the <em>homogeneous</em> equation
+              (right-hand side zero), not the non-homogeneous one. It's specifically
+              because they solve <em>different</em> equations that the sum works.
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement>
+            <p>
+              The constants <m>c_1</m> and <m>c_2</m> can always be chosen to make
+              any function satisfy the equation.
+            </p>
+          </statement>
+          <feedback>
+            <p>
+              The constants <m>c_1</m> and <m>c_2</m> give flexibility, but they
+              don't make an arbitrary function a solution. The reason <m>y_c + y_p</m>
+              works is specifically because of what <m>y_c</m> and <m>y_p</m> each solve,
+              not because of the free constants.
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement>
+            <p>
+              Adding two functions always produces a solution to the original equation.
+            </p>
+          </statement>
+          <feedback>
+            <p>
+              This isn't true in general. The sum of two random functions won't
+              usually satisfy a given ODE. The key is that <m>y_c</m> and <m>y_p</m>
+              are carefully chosen to solve related equations whose contributions
+              add up to the right-hand side.
+            </p>
+          </feedback>
+        </choice>
+      </choices>
+    </task>
+
+  </exploration>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       BRIDGE PROSE: WRITE OUT GENERAL SOLUTION + CONSTANTS NOTE
+       ═══════════════════════════════════════════════════════════ -->
+
+  <p>
+    So we've shown that <m>y_c + y_p</m> is always a solution. For our example, that gives the general solution
+    <me>y = \underbrace{c_1 e^{t} + c_2 e^{2t}}_{y_c} + \underbrace{\left(-\frac{7}{10}\cos(2t) - \frac{1}{10}\sin(2t)\right)}_{y_p}.</me>
+    The two free constants <m>c_1</m> and <m>c_2</m> live entirely in <m>y_c</m> and can be
+    determined by initial conditions, just as in the homogeneous case. The particular solution
+    <m>y_p</m> is a single fixed function with no free parameters; it just does the job of
+    matching the right-hand side.
+  </p>
+  <p>
+    In fact, <m>y_c + y_p</m> turns out to be <em>all</em> solutions. That is, every solution
+    to the non-homogeneous equation can be written in this form. Showing this rigorously requires
+    more theory regarding existence and uniqueness of solutions to 2nd order linear ODEs than we
+    present in this course, so we'll take it as given and state the result:
+  </p>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       THEOREM: GENERAL SOLUTION
+       ═══════════════════════════════════════════════════════════ -->
+
+  <theorem xml:id="thm-general-solution-nonhomogeneous">
+    <title>General Solution to the Non-Homogeneous Equation</title>
+    <statement>
+      <p>
+        Suppose <m>y_p</m> is a particular solution to
+        <me>ay'' + by' + cy = g(t),</me>
+        and <m>y_c</m> is the general solution to the associated homogeneous equation
+        <me>ay'' + by' + cy = 0.</me>
+        Then the general solution to <m>ay'' + by' + cy = g(t)</m> is
+        <me>y = y_c + y_p.</me>
+      </p>
+    </statement>
+  </theorem>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       KEY TAKEAWAYS
+       ═══════════════════════════════════════════════════════════ -->
+
+  <conclusion>
+    <title>Key Takeaways</title>
+    <p>
+      <ul>
+        <li><p>
+          <alert>Two parts of the general solution:</alert> To solve a non-homogeneous equation,
+          find <m>y_p</m> (one particular solution, using undetermined coefficients)
+          and <m>y_c</m> (the general solution to the associated homogeneous equation,
+          using the characteristic equation). The general solution is <m>y = y_c + y_p</m>.
+        </p></li>
+        <li><p>
+          <alert>Why it works:</alert> When you substitute <m>y_c + y_p</m>,
+          the <m>y_c</m> terms cancel to zero and the <m>y_p</m> terms produce
+          the right-hand side, so the sum satisfies the full non-homogeneous equation.
+        </p></li>
+      </ul>
+    </p>
+  </conclusion>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       VIDEO + QUESTION FORM
+       ═══════════════════════════════════════════════════════════ -->
+
+  <figure xml:id="video-general-solution-nonhomogeneous">
+    <caption>This video goes through the content of this page.</caption>
+    <video youtube="NfmTAlZMAlo" width="100%" preview="default"/>
+  </figure>
+
+  <interactive xml:id="question-form-3-5-6"
+    iframe="question-form.html?section=3.5.6"
+    width="100%" aspect="2:1"/>
+
+</section>

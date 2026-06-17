@@ -14,6 +14,8 @@
   <xi:include href="./3-5/sec2-undetermined-part-2.ptx"/>
    <xi:include href="./3-5/sec3-undetermined-duplication.ptx"/>
       <xi:include href="./3-5/sec4-undetermined-dup-example.ptx"/>
-
+       <xi:include href="./3-5/sec5-guess-practice.ptx"/>
+         <xi:include href="./3-5/sec6-general-solution.ptx"/>
+<xi:include href="./3-5/sec7-nonhomogeneous-ivp.ptx"/>
 
 </section>

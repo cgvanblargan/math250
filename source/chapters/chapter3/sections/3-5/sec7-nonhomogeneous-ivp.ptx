@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-nonhomogeneous-ivp" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Solving an IVP with a Non-Homogeneous Equation</title>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       INTRO PROSE: REMIND OF GENERAL SOLUTION
+       ═══════════════════════════════════════════════════════════ -->
+
+  <p>
+    On the previous page we found the general solution to
+    <me>y'' - 3y' + 2y = 2\cos(2t) - 4\sin(2t),</me>
+    which is
+    <me>y = \underbrace{c_1 e^{t} + c_2 e^{2t}}_{y_c} + \underbrace{\left(-\frac{7}{10}\cos(2t) - \frac{1}{10}\sin(2t)\right)}_{y_p}.</me>
+    Now we go one step further: given initial conditions, we can solve for <m>c_1</m> and
+    <m>c_2</m> to find the unique solution to an IVP.
+  </p>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       EXAMPLE: IVP
+       ═══════════════════════════════════════════════════════════ -->
+
+  <example xml:id="example-nonhomogeneous-ivp">
+    <title>Solving an IVP for a Non-Homogeneous Equation</title>
+
+    <introduction>
+      <p>
+        Find the specific solution to
+        <me>y'' - 3y' + 2y = 2\cos(2t) - 4\sin(2t)</me>
+        satisfying <m>y(0) = 0</m> and <m>y'(0) = 2</m>.
+      </p>
+    </introduction>
+
+    <!-- ── Part (a): MC checkpoint on where ICs go ── -->
+
+    <task xml:id="task-ivp-where-ics-go">
+      <title>Where do the initial conditions go?</title>
+      <statement>
+        <p>
+          We know the general solution is <m>y = y_c + y_p</m>, where <m>y_c = c_1 e^t + c_2 e^{2t}</m>
+          and <m>y_p = -\frac{7}{10}\cos(2t) - \frac{1}{10}\sin(2t)</m>.
+          To find <m>c_1</m> and <m>c_2</m>, which expression should we plug the initial conditions into?
+        </p>
+      </statement>
+      <choices randomize="no">
+        <choice correct="yes">
+          <statement><p>The full general solution <m>y = y_c + y_p</m>.</p></statement>
+          <feedback>
+            <p>
+              Correct! The initial conditions must be satisfied by the actual solution <m>y</m>,
+              which is the full <m>y_c + y_p</m>. Plugging into just <m>y_c</m> would ignore
+              the contribution of <m>y_p</m> at <m>t = 0</m> and give the wrong values of
+              <m>c_1</m> and <m>c_2</m>. <m>\checkmark</m>
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement><p>Just <m>y_c = c_1 e^t + c_2 e^{2t}</m>, since that's where <m>c_1</m> and <m>c_2</m> live.</p></statement>
+          <feedback>
+            <p>
+              This is a very common mistake! It's true that <m>c_1</m> and <m>c_2</m> appear
+              only in <m>y_c</m>, but the initial conditions must be satisfied by the full solution
+              <m>y = y_c + y_p</m>. Ignoring <m>y_p</m> when applying the ICs will give
+              incorrect values of <m>c_1</m> and <m>c_2</m>.
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement><p>Just <m>y_p</m>, since it's the solution to the non-homogeneous equation.</p></statement>
+          <feedback>
+            <p>
+              <m>y_p</m> is a particular solution but it has no free constants, so we can't
+              adjust it to satisfy arbitrary initial conditions. We need the full <m>y = y_c + y_p</m>.
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement><p>Plug the ICs into <m>y_c</m> first to find <m>c_1</m> and <m>c_2</m>, then add <m>y_p</m>.</p></statement>
+          <feedback>
+            <p>
+              This gets the order wrong. We first write out the full <m>y = y_c + y_p</m>,
+              then plug the ICs into that. Solving <m>y_c</m> alone for <m>c_1</m> and <m>c_2</m>
+              and adding <m>y_p</m> afterward will not produce a solution that satisfies the ICs.
+            </p>
+          </feedback>
+        </choice>
+      </choices>
+    </task>
+
+
+
+    <!-- ── Part (b): Find c1 and c2, solve IVP ── -->
+
+    <task xml:id="task-ivp-solve">
+      <title>Finding <m>c_1</m> and <m>c_2</m></title>
+      <statement>
+        <p>
+          Use the initial conditions <m>y(0) = 0</m> and <m>y'(0) = 2</m> to find
+          <m>c_1</m> and <m>c_2</m>, and state the specific solution to the IVP.
+        </p>
+        <p>
+          <alert>Answer:</alert>
+          <me>y = -\frac{4}{5}e^{t} + \frac{3}{2}e^{2t} - \frac{7}{10}\cos(2t) - \frac{1}{10}\sin(2t).</me>
+        </p>
+      </statement>
+      <hint>
+        <p>
+          Start with the general solution and its derivative:
+          <ul>
+            <li><p><m>y = c_1 e^{t} + c_2 e^{2t} - \dfrac{7}{10}\cos(2t) - \dfrac{1}{10}\sin(2t)</m></p></li>
+            <li><p><m>y'(t) = c_1 e^{t} + 2c_2 e^{2t} + \dfrac{7}{5}\sin(2t) - \dfrac{1}{5}\cos(2t)</m></p></li>
+          </ul>
+          Then plug in <m>t = 0</m> using each initial condition to get a system of two equations in <m>c_1</m> and <m>c_2</m>:
+          <ul>
+            <li><p>From <m>y(0) = 0</m>: plug <m>t=0</m> into <m>y</m> and set equal to <m>0</m>.</p></li>
+            <li><p>From <m>y'(0) = 2</m>: plug <m>t=0</m> into <m>y'</m> and set equal to <m>2</m>.</p></li>
+          </ul>
+          Solve the resulting system for <m>c_1</m> and <m>c_2</m>.
+        </p>
+      </hint>
+      <solution>
+        <title>Full solution</title>
+        <p>
+          We start with the general solution and its derivative:
+          <md>
+            <mrow>y \amp= c_1 e^{t} + c_2 e^{2t} - \frac{7}{10}\cos(2t) - \frac{1}{10}\sin(2t)</mrow>
+            <mrow>y'(t) \amp= c_1 e^{t} + 2c_2 e^{2t} + \frac{7}{5}\sin(2t) - \frac{1}{5}\cos(2t)</mrow>
+          </md>
+          Plugging in <m>t = 0</m> and applying each initial condition:
+          <md>
+            <mrow>y(0) = 0 \amp\implies c_1 + c_2 - \frac{7}{10} = 0 \implies c_1 + c_2 = \frac{7}{10}</mrow>
+            <mrow>y'(0) = 2 \amp\implies c_1 + 2c_2 - \frac{1}{5} = 2 \implies c_1 + 2c_2 = \frac{11}{5}</mrow>
+          </md>
+          So we need to solve the system:
+          <md>
+            <mrow>c_1 + c_2 \amp= \frac{7}{10}</mrow>
+            <mrow>c_1 + 2c_2 \amp= \frac{11}{5}</mrow>
+          </md>
+        </p>
+        <solution>
+          <title>Solving the system for <m>c_1</m> and <m>c_2</m> (can skim)</title>
+          <p>
+            We subtract the first equation from the second to eliminate <m>c_1</m>:
+            <md>
+              <mrow>(c_1 + 2c_2) - (c_1 + c_2) \amp= \frac{11}{5} - \frac{7}{10}</mrow>
+              <mrow>c_2 \amp= \frac{22}{10} - \frac{7}{10} = \frac{15}{10} = \frac{3}{2}.</mrow>
+            </md>
+            Substituting <m>c_2 = \frac{3}{2}</m> back into the first equation:
+            <md>
+              <mrow>c_1 + \frac{3}{2} \amp= \frac{7}{10}</mrow>
+              <mrow>c_1 \amp= \frac{7}{10} - \frac{15}{10} = -\frac{4}{5}.</mrow>
+            </md>
+          </p>
+        </solution>
+        <p>
+          This gives <m>c_1 = -\dfrac{4}{5}</m> and <m>c_2 = \dfrac{3}{2}</m>, so the specific solution to the IVP is:
+          <me>y = \underbrace{-\frac{4}{5}}_{c_1}e^{t} + \underbrace{\frac{3}{2}}_{c_2}e^{2t} + \underbrace{\left(-\frac{7}{10}\cos(2t) - \frac{1}{10}\sin(2t)\right)}_{y_p}.</me>
+        </p>
+      </solution>
+    </task>
+
+  </example>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       KEY TAKEAWAYS
+       ═══════════════════════════════════════════════════════════ -->
+
+  <conclusion>
+    <title>Key Takeaways</title>
+    <p>
+      <ul>
+        <li><p>
+          <alert>The full process:</alert> To solve an IVP for a non-homogeneous equation,
+          first find the general solution <m>y = y_c + y_p</m>, then plug the initial
+          conditions into the <em>full</em> <m>y = y_c + y_p</m> (not just <m>y_c</m>)
+          to solve for <m>c_1</m> and <m>c_2</m>.
+        </p></li>
+        <li><p>
+          <alert>Common mistake:</alert> Applying initial conditions to <m>y_c</m> alone
+          ignores the constant value of <m>y_p</m> at <m>t = 0</m> and gives the wrong
+          constants.
+        </p></li>
+      </ul>
+    </p>
+  </conclusion>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       VIDEO + QUESTION FORM
+       ═══════════════════════════════════════════════════════════ -->
+
+  <remark>
+    <p>
+      Note: there is a small typo in the video for this page; the final answer should have
+      <m>c_1 = -\frac{4}{5}</m>, not <m>c_1 = \frac{4}{5}</m>.
+    </p>
+  </remark>
+
+  <figure xml:id="video-nonhomogeneous-ivp">
+    <caption>This video goes through the content of this page.</caption>
+    <video youtube="8QipUN00lRg" width="100%" preview="default"/>
+  </figure>
+
+  <interactive xml:id="question-form-3-5-7"
+    iframe="question-form.html?section=3.5.7"
+    width="100%" aspect="2:1"/>
+
+</section>

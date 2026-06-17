@@ -1,0 +1,394 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-undetermined-guess-practice" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Practice: Finding the Right Guess for <m>y_p</m></title>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       INTRO PROSE: REMIND OF THE TWO CASES
+       ═══════════════════════════════════════════════════════════ -->
+
+  <p>
+    Before we put together a full general solution, let's make sure we're
+    comfortable identifying the correct guess for <m>y_p</m>. We have two
+    cases to keep in mind, summarized below.
+  </p>
+
+  <assemblage>
+    <title>Choosing the Guess for <m>y_p</m></title>
+    <p>
+      Given <m>ay'' + by' + cy = m_1\cos(kt) + m_2\sin(kt)</m>:
+    </p>
+    <p>
+      <ul>
+        <li><p>
+          <alert>Normal case</alert> (from <xref ref="obs-undetermined-strategy"/>):
+          use the guess <m>y_p = A\cos(kt) + B\sin(kt)</m>.
+        </p></li>
+        <li><p>
+          <alert>Case of duplication</alert> (from <xref ref="thm-case-of-duplication"/>):
+          if the ODE can be written as <m>y'' + k^2 y = m_1\cos(kt) + m_2\sin(kt)</m>
+          (same <m>k</m> on both sides, no <m>y'</m> term), use the modified guess
+          <m>y_p = t\bigl(A\cos(kt) + B\sin(kt)\bigr)</m>.
+        </p></li>
+      </ul>
+    </p>
+    <p>
+      The key step in identifying the case of duplication: write the ODE in
+      standard form (divide through so the leading coefficient is <m>1</m>) and
+      check whether the coefficient of <m>y</m> equals <m>k^2</m>.
+    </p>
+  </assemblage>
+
+  <p>
+    The questions below give you practice at just this identification step; you
+    don't need to solve for <m>A</m> and <m>B</m>, just state the correct form of
+    the guess.
+  </p>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       ACTIVITY: 4 CHECKPOINT QUESTIONS
+       ═══════════════════════════════════════════════════════════ -->
+
+  <activity xml:id="activity-guess-practice">
+    <title>Identifying the Correct Guess</title>
+
+    <!-- ── Q1: Standard normal case ── -->
+
+    <task xml:id="task-guess-practice-normal">
+      <title>A standard example</title>
+      <statement>
+        <p>
+          What is the correct form of the guess <m>y_p</m> for finding a
+          particular solution to
+          <me>y'' + 3y' - 10y = 4\cos(6t) - 7\sin(6t)?</me>
+        </p>
+      </statement>
+      <choices randomize="no">
+        <choice correct="yes">
+          <statement><p><m>y_p = A\cos(6t) + B\sin(6t)</m></p></statement>
+          <feedback>
+            <p>
+              Correct! Both terms on the right-hand side share frequency <m>k = 6</m>,
+              so the guess uses <m>\cos(6t)</m> and <m>\sin(6t)</m>. The coefficient
+              of <m>y</m> is <m>-10 \neq 36 = k^2</m>, so this is the normal case,
+              no extra <m>t</m> needed. <m>\checkmark</m>
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement><p><m>y_p = A\cos(6t) - B\sin(6t)</m></p></statement>
+          <feedback>
+            <p>
+              The minus sign on the right-hand side doesn't change the form of
+              the guess. We always write <m>y_p = A\cos(6t) + B\sin(6t)</m> and
+              let the algebra determine the signs of <m>A</m> and <m>B</m> when
+              we solve; one of them may turn out to be negative.
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement><p><m>y_p = t\bigl(A\cos(6t) + B\sin(6t)\bigr)</m></p></statement>
+          <feedback>
+            <p>
+              This is the case-of-duplication guess, but we're not in that case here.
+              Duplication occurs only when the ODE has the form <m>y'' + k^2 y = \ldots</m>
+              with the same <m>k</m> on both sides. Here the coefficient of <m>y</m>
+              is <m>-10 \neq 36 = k^2</m>, so we don't need the extra <m>t</m>.
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement><p><m>y_p = A\cos(6t) + B\sin(6t) + C\cos(6t) + D\sin(6t)</m></p></statement>
+          <feedback>
+            <p>
+              Since both terms on the right have the same frequency, we only need
+              one pair of undetermined coefficients. The guess <m>A\cos(6t) + B\sin(6t)</m>
+              already has enough flexibility to match both the cosine and sine parts
+              of the right-hand side simultaneously.
+            </p>
+          </feedback>
+        </choice>
+      </choices>
+    </task>
+
+    <!-- ── Q2: Easy duplication case ── -->
+
+    <task xml:id="task-guess-practice-dup-easy">
+      <title>A case of duplication</title>
+      <statement>
+        <p>
+          What is the correct form of the guess <m>y_p</m> for finding a
+          particular solution to
+          <me>y'' + 25y = 3\cos(5t) + 8\sin(5t)?</me>
+        </p>
+      </statement>
+      <choices randomize="no">
+        <choice correct="yes">
+          <statement><p><m>y_p = t\bigl(A\cos(5t) + B\sin(5t)\bigr)</m></p></statement>
+          <feedback>
+            <p>
+              Correct! Both terms on the right-hand side have frequency <m>k = 5</m>,
+              and the coefficient of <m>y</m> is <m>25 = 5^2 = k^2</m>. This is the
+              case of duplication, so we multiply the usual guess by <m>t</m>.
+              <m>\checkmark</m>
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement><p><m>y_p = A\cos(5t) + B\sin(5t)</m></p></statement>
+          <feedback>
+            <p>
+              This is the usual guess, but it will fail here. The ODE
+              <m>y'' + 25y = 0</m> has characteristic equation
+              <m>r^2 + 25 = 0</m>, giving roots <m>r = \pm 5i</m>, so the
+              homogeneous solution is <m>c_1\cos(5t) + c_2\sin(5t)</m>. Our
+              guess is already a solution to the homogeneous equation, so plugging
+              it in gives <m>0</m> on the left, never matching the right-hand
+              side.
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement><p><m>y_p = A\cos(5t)</m></p></statement>
+          <feedback>
+            <p>
+              Even setting aside the duplication issue, a cosine-only guess
+              won't work for a right-hand side that includes <m>\sin(5t)</m>.
+              And since we're in the case of duplication, we need the
+              <m>t</m>-multiplied form as well.
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement><p><m>y_p = t\cdot A\cos(5t)</m></p></statement>
+          <feedback>
+            <p>
+              We're in the case of duplication, so we do need the extra
+              <m>t</m>, but the full guess must include both <m>\cos(5t)</m>
+              and <m>\sin(5t)</m> inside, not just the cosine.
+            </p>
+          </feedback>
+        </choice>
+      </choices>
+    </task>
+
+    <!-- ── Q3: Negative coefficient trap (NOT duplication) ── -->
+
+    <task xml:id="task-guess-practice-negative">
+      <title>Watch out for a negative coefficient</title>
+      <statement>
+        <p>
+          What is the correct form of the guess <m>y_p</m> for finding a
+          particular solution to
+          <me>y'' - 9y = 5\cos(3t) - 2\sin(3t)?</me>
+        </p>
+      </statement>
+      <choices randomize="no">
+        <choice correct="yes">
+          <statement><p><m>y_p = A\cos(3t) + B\sin(3t)</m></p></statement>
+          <feedback>
+            <p>
+              Correct! Even though <m>k = 3</m> and <m>3^2 = 9</m>, the
+              coefficient of <m>y</m> is <m>-9</m>, not <m>+9</m>. The case
+              of duplication requires the coefficient of <m>y</m> to be
+              <m>+k^2</m>, which means the homogeneous solutions are
+              <m>\cos(kt)</m> and <m>\sin(kt)</m>. Here the characteristic
+              equation is <m>r^2 - 9 = 0</m>, giving real roots <m>r = \pm 3</m>
+              and homogeneous solution <m>c_1 e^{3t} + c_2 e^{-3t}</m>, with no
+              trig at all! So the usual guess works fine, with both terms
+              covered by a single pair <m>A, B</m>. <m>\checkmark</m>
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement><p><m>y_p = t\bigl(A\cos(3t) + B\sin(3t)\bigr)</m></p></statement>
+          <feedback>
+            <p>
+              It's tempting to see <m>k = 3</m> and the number <m>9 = 3^2</m>
+              and call this duplication, but the sign matters! The coefficient
+              of <m>y</m> is <m>-9</m>, not <m>+9</m>. The homogeneous equation
+              <m>y'' - 9y = 0</m> has real exponential solutions
+              <m>e^{3t}</m> and <m>e^{-3t}</m>, not trig functions. The usual
+              guess is not a homogeneous solution, so the extra <m>t</m> is not
+              needed.
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement><p><m>y_p = Ae^{3t} + Be^{-3t}</m></p></statement>
+          <feedback>
+            <p>
+              These are the homogeneous solutions, not a form that can match
+              <m>5\cos(3t) - 2\sin(3t)</m> on the right-hand side. The guess should mirror
+              the form of <m>g(t)</m>.
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement><p><m>y_p = A\cos(3t)</m></p></statement>
+          <feedback>
+            <p>
+              The right-hand side has both a cosine and a sine term, so a
+              cosine-only guess can't possibly match both. We always need
+              <m>y_p = A\cos(3t) + B\sin(3t)</m> when <m>g(t)</m> involves
+              trig at frequency <m>k</m>.
+            </p>
+          </feedback>
+        </choice>
+      </choices>
+    </task>
+
+    <!-- ── Q4: Divide through first ── -->
+
+    <task xml:id="task-guess-practice-divide-first">
+      <title>Remember to put the ODE in standard form first</title>
+      <statement>
+        <p>
+          What is the correct form of the guess <m>y_p</m> for finding a
+          particular solution to
+          <me>2y'' + 18y = \cos(3t) + 4\sin(3t)?</me>
+        </p>
+      </statement>
+      <choices randomize="no">
+        <choice correct="yes">
+          <statement><p><m>y_p = t\bigl(A\cos(3t) + B\sin(3t)\bigr)</m></p></statement>
+          <feedback>
+            <p>
+              Correct! The trick here is to put the ODE in standard form first
+              by dividing through by <m>2</m>:
+              <me>y'' + 9y = \tfrac{1}{2}\cos(3t) + 2\sin(3t).</me>
+              Now the coefficient of <m>y</m> is <m>9 = 3^2 = k^2</m>, so we
+              are in the case of duplication. The modified guess is
+              <m>y_p = t(A\cos(3t) + B\sin(3t))</m>. <m>\checkmark</m>
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement><p><m>y_p = A\cos(3t) + B\sin(3t)</m></p></statement>
+          <feedback>
+            <p>
+              This looks right at first glance, but don't forget to put the
+              ODE in standard form first. Dividing by <m>2</m> gives
+              <m>y'' + 9y = \frac{1}{2}\cos(3t) + 2\sin(3t)</m>, and now
+              <m>9 = 3^2 = k^2</m>, so this is the case of duplication.
+              The usual guess will give <m>0</m> on the left-hand side.
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement><p><m>y_p = t\bigl(A\cos(3t) + B\sin(3t)\bigr)</m>, but first replace the right-hand side with <m>\cos(3t) + 4\sin(3t)</m> since we'll divide by 2 later.</p></statement>
+          <feedback>
+            <p>
+              Dividing by <m>2</m> changes the right-hand side too, giving
+              <m>\tfrac{1}{2}\cos(3t) + 2\sin(3t)</m>, not the original. But
+              the form of the guess is otherwise correct:
+              <m>y_p = t(A\cos(3t) + B\sin(3t))</m>.
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement><p><m>y_p = t\bigl(A\cos(18t) + B\sin(18t)\bigr)</m></p></statement>
+          <feedback>
+            <p>
+              The frequency in the guess always comes from the right-hand side
+              of the ODE. Both <m>\cos(3t)</m> and <m>\sin(3t)</m> on the right
+              have frequency <m>k = 3</m>. The coefficient <m>18</m> is from the
+              left-hand side and doesn't set the frequency.
+            </p>
+          </feedback>
+        </choice>
+      </choices>
+    </task>
+
+    <!-- ── Q5: Near-duplication trap ── -->
+
+    <task xml:id="task-guess-practice-near-dup">
+      <title>A subtle one</title>
+      <statement>
+        <p>
+          What is the correct form of the guess <m>y_p</m> for finding a
+          particular solution to
+          <me>y'' + 4y = \cos(4t) + 3\sin(4t)?</me>
+        </p>
+      </statement>
+      <choices randomize="no">
+        <choice correct="yes">
+          <statement><p><m>y_p = A\cos(4t) + B\sin(4t)</m></p></statement>
+          <feedback>
+            <p>
+              Correct! It's tempting to see the <m>4</m> in <m>y'' + 4y</m> and
+              the <m>4t</m> on the right and call this duplication, but check
+              carefully. The frequency is <m>k = 4</m>, so we need the coefficient
+              of <m>y</m> to equal <m>k^2 = 16</m> for duplication. Here the
+              coefficient is only <m>4 \neq 16</m>, so this is the normal case.
+              <m>\checkmark</m>
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement><p><m>y_p = t\bigl(A\cos(4t) + B\sin(4t)\bigr)</m></p></statement>
+          <feedback>
+            <p>
+              This is the most natural wrong answer here! The <m>4</m> in <m>y'' + 4y</m>
+              and the <m>4t</m> on the right look like they match, but duplication requires
+              the coefficient of <m>y</m> to equal <m>k^2</m>, not <m>k</m>.
+              Since <m>k = 4</m>, we need the coefficient to be <m>16</m>, not <m>4</m>.
+              The homogeneous equation <m>y'' + 4y = 0</m> has solutions
+              <m>\cos(2t)</m> and <m>\sin(2t)</m> (frequency <m>2</m>, not <m>4</m>),
+              so the guess doesn't duplicate anything.
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement><p><m>y_p = A\cos(2t) + B\sin(2t)</m></p></statement>
+          <feedback>
+            <p>
+              The frequency in the guess must match the right-hand side, which
+              has frequency <m>k = 4</m>. The <m>2</m> here comes from solving
+              the homogeneous equation <m>y'' + 4y = 0</m> (whose solutions
+              oscillate at frequency <m>\sqrt{4} = 2</m>), but that's not where
+              the guess frequency comes from.
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement><p><m>y_p = t\bigl(A\cos(2t) + B\sin(2t)\bigr)</m></p></statement>
+          <feedback>
+            <p>
+              Neither the frequency nor the duplication call is right here.
+              The guess frequency should match the right-hand side (<m>k = 4</m>),
+              and since the coefficient of <m>y</m> is <m>4 \neq 16 = k^2</m>,
+              we're not in the case of duplication and don't need the extra <m>t</m>.
+            </p>
+          </feedback>
+        </choice>
+      </choices>
+    </task>
+
+  </activity>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       BRIDGE TO NEXT PAGE
+       ═══════════════════════════════════════════════════════════ -->
+
+  <p>
+    Now that we can reliably identify the right guess, the next step is to use
+    it to build the full general solution: not just a particular solution, but
+    the complete picture including the complementary function.
+  </p>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       NO VIDEO + QUESTION FORM
+       ═══════════════════════════════════════════════════════════ -->
+
+  <remark>
+    <p>
+      There is no video associated with this page.
+    </p>
+  </remark>
+
+  <interactive xml:id="question-form-3-5-5"
+    iframe="question-form.html?section=3.5.5"
+    width="100%" aspect="2:1"/>
+
+</section>
