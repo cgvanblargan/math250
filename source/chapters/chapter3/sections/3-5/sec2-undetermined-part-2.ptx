@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-undetermined-part-2" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>The Guess That Works</title>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       INTRO PROSE: CONTINUE FROM LAST PAGE
+       ═══════════════════════════════════════════════════════════ -->
+
+  <p>
+    We continue with the example from <xref ref="sec-undetermined-part-1"/>.
+    Recall we were trying to find a particular solution to
+    <me>3y'' + 4y' - 2y = 2\cos(t).</me>
+    We tried the guess <m>y_p = A\cos(t)</m>, but it failed: the <m>y'</m> term
+    introduced a <m>\sin(t)</m> that had nowhere to cancel. We need a guess
+    flexible enough to absorb both sine and cosine terms.
+  </p>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       EXAMPLE: THE FIXED GUESS
+       ═══════════════════════════════════════════════════════════ -->
+
+  <example xml:id="example-undetermined-AB-guess">
+    <title>Finding a Particular Solution with <m>y_p = A\cos(t) + B\sin(t)</m></title>
+
+    <!-- ── Part (a): MC on the guess ── -->
+
+    <task xml:id="task-undet2-guess">
+      <title>Choosing the guess</title>
+      <statement>
+        <p>
+          Our last guess <m>y_p = A\cos(t)</m> failed because differentiating it
+          produced a <m>\sin(t)</m> term we couldn't cancel. What modification
+          to the guess might give us the flexibility to handle that?
+          (Give it a shot — we will see in the next part why the right answer works!)
+        </p>
+      </statement>
+      <choices randomize="no">
+        <choice correct="yes">
+          <statement><p><m>y_p = A\cos(t) + B\sin(t)</m></p></statement>
+          <feedback>
+            <p>
+              Good instinct! In the next part we will see that including both
+              <m>\cos(t)</m> and <m>\sin(t)</m> in the guess gives us enough
+              room to cancel the sine term that appears when we differentiate.
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement><p><m>y_p = A\cos(t) + Bt</m></p></statement>
+          <feedback>
+            <p>
+              A polynomial term like <m>Bt</m> would introduce powers of <m>t</m>
+              that have no match on the right-hand side. We need something that
+              stays in the world of sines and cosines.
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement><p><m>y_p = Ae^t\cos(t)</m></p></statement>
+          <feedback>
+            <p>
+              An exponential factor would survive differentiation and produce
+              terms with <m>e^t</m> that can't match the right-hand side.
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement><p><m>y_p = (A + Bt)\cos(t)</m></p></statement>
+          <feedback>
+            <p>
+              This would produce polynomial-times-trig terms after differentiation,
+              which is more complicated than we need here. A simpler modification works.
+            </p>
+          </feedback>
+        </choice>
+      </choices>
+    </task>
+
+    <!-- ── Part (b): Plug in and solve for A and B ── -->
+
+    <task xml:id="task-undet2-solve">
+      <title>Plugging in and solving for <m>A</m> and <m>B</m></title>
+      <statement>
+        <p>
+          Use the guess <m>y_p = A\cos(t) + B\sin(t)</m>. Its derivatives are:
+          <ul>
+            <li><p><m>y_p' = -A\sin(t) + B\cos(t)</m></p></li>
+            <li><p><m>y_p'' = -A\cos(t) - B\sin(t)</m></p></li>
+          </ul>
+          Substitute into <m>3y'' + 4y' - 2y = 2\cos(t)</m> and solve for
+          <m>A</m> and <m>B</m> to find <m>y_p</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Substituting:
+          <md>
+            <mrow>
+              \underbrace{3(-A\cos(t) - B\sin(t))}_{3y''}
+              \amp+ \underbrace{4(-A\sin(t) + B\cos(t))}_{4y'}
+            </mrow>
+            <mrow>
+              \amp+ \underbrace{(-2)(A\cos(t) + B\sin(t))}_{-2y}
+              = 2\cos(t).
+            </mrow>
+          </md>
+          Collecting the sine and cosine terms separately:
+          <me>
+            \underbrace{\textcolor{blue}{(-4A - 5B)\sin(t)}}_{\textcolor{blue}{\sin(t)\text{ terms}}}
+            + \underbrace{\textcolor{red}{(-5A + 4B)\cos(t)}}_{\textcolor{red}{\cos(t)\text{ terms}}}
+            = \underbrace{\textcolor{blue}{0 \cdot \sin(t)}}_{\textcolor{blue}{\sin(t)\text{ terms}}}
+            + \underbrace{\textcolor{red}{2\cos(t)}}_{\textcolor{red}{\cos(t)\text{ terms}}}.
+          </me>
+          Since <m>\sin(t)</m> and <m>\cos(t)</m> are independent, their coefficients
+          must match on both sides, giving the system:
+          <md>
+            <mrow>\textcolor{blue}{-4A - 5B} \amp\textcolor{blue}{= 0}</mrow>
+            <mrow>\textcolor{red}{-5A + 4B} \amp\textcolor{red}{= 2}</mrow>
+          </md>
+          <solution>
+            <title>Solving for <m>A</m> and <m>B</m></title>
+            <p>
+              From the first equation: <m>B = -\dfrac{4}{5}A</m>.
+              Substituting into the second:
+              <md>
+                <mrow>-5A + 4\!\left(-\frac{4}{5}A\right) \amp= 2</mrow>
+                <mrow>-5A - \frac{16}{5}A \amp= 2</mrow>
+                <mrow>-\frac{41}{5}A \amp= 2</mrow>
+                <mrow>A \amp= -\frac{10}{41}.</mrow>
+              </md>
+              Then <m>B = -\dfrac{4}{5}\cdot\left(-\dfrac{10}{41}\right) = \dfrac{8}{41}</m>.
+            </p>
+          </solution>
+          So <m>A = -\dfrac{10}{41}</m> and <m>B = \dfrac{8}{41}</m>, giving the particular solution:
+          <me>y_p = \underbrace{-\frac{10}{41}}_{A}\cos(t) + \underbrace{\frac{8}{41}}_{B}\sin(t).</me>
+        </p>
+      </solution>
+    </task>
+
+  </example>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       BRIDGE PROSE: WORKS IN MOST CASES, NOT ALL
+       ═══════════════════════════════════════════════════════════ -->
+
+  <p>
+    The guess <m>y_p = A\cos(kt) + B\sin(kt)</m> worked here, and it will work
+    in most cases. However, there is one special situation where this guess fails:
+    when the guess itself looks like part of the homogeneous solution. We call
+    this the <term>case of duplication</term>, and we will need a different guess
+    there. That case is coming up on the next page.
+  </p>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       OBSERVATION BLOCK: USEFUL STRATEGY
+       ═══════════════════════════════════════════════════════════ -->
+
+  <observation xml:id="obs-undetermined-strategy">
+    <title>A Useful Strategy for Non-Homogeneous Equations</title>
+    <p>
+      To find a particular solution <m>y_p</m> to
+      <me>ay'' + by' + cy = m_1\cos(kt) + m_2\sin(kt),</me>
+      guess
+      <me>y_p = A\cos(kt) + B\sin(kt),</me>
+      substitute into the ODE, match coefficients of <m>\sin(kt)</m> and
+      <m>\cos(kt)</m> on both sides, and solve for <m>A</m> and <m>B</m>.
+      This works in most cases (see note above about duplication).
+    </p>
+  </observation>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       PROSE: WHERE DOES k COME FROM?
+       ═══════════════════════════════════════════════════════════ -->
+
+  <p>
+    One thing to be clear about: the <m>k</m> in the guess comes directly from
+    the right-hand side of the ODE. For example, in
+    <me>ay'' + by' + cy = m_1\cos\underbrace{(4t)}_{k=4} + m_2\sin\underbrace{(4t)}_{k=4},</me>
+    whatever frequency appears in the non-homogeneous term <m>g(t)</m> is the same frequency you use in your guess
+    <m>y_p = A\cos(kt)+B\sin(kt) </m>.
+  </p>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       MC CHECKPOINT: IDENTIFY THE GUESS
+       ═══════════════════════════════════════════════════════════ -->
+
+  <exercise xml:id="ex-mc-undet-guess">
+    <statement>
+      <p>
+        Which of the following is the correct form of the guess <m>y_p</m>
+        for finding a particular solution to
+        <me>y'' + 3y' + 2y = 5\cos(4t)?</me>
+      </p>
+    </statement>
+    <choices randomize="yes">
+      <choice correct="yes">
+        <statement><p><m>y_p = A\cos(4t) + B\sin(4t)</m></p></statement>
+        <feedback>
+          <p>
+            Correct! The right-hand side has frequency <m>k = 4</m>, so the
+            guess uses <m>\cos(4t)</m> and <m>\sin(4t)</m>. <m>\checkmark</m>
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement><p><m>y_p = A\cos(t) + B\sin(t)</m></p></statement>
+        <feedback>
+          <p>
+            Close in form, but the frequency is wrong. The right-hand side has
+            <m>\cos(4t)</m>, so the guess should use frequency <m>k = 4</m>, not <m>k = 1</m>.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement><p><m>y_p = A\cos(4t)</m></p></statement>
+        <feedback>
+          <p>
+            This was our first instinct on the previous page, and it ran into trouble
+            when the <m>y'</m> term introduced a sine. We need both <m>\cos(4t)</m>
+            and <m>\sin(4t)</m> in the guess.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement><p><m>y_p = A\cos(2t) + B\sin(2t)</m></p></statement>
+        <feedback>
+          <p>
+            The frequency <m>k = 2</m> doesn't match the right-hand side.
+            The <m>2</m> here comes from the coefficient of <m>y</m> in the ODE,
+            not from <m>g(t)</m>. Always look at the right-hand side for <m>k</m>.
+          </p>
+        </feedback>
+      </choice>
+    </choices>
+  </exercise>
+
+  <conclusion>
+    <title>Key Takeaways</title>
+    <p>
+      <ul>
+        <li><p>
+          <alert>The strategy:</alert> To find a particular solution to
+          <m>ay'' + by' + cy = m_1\cos(kt) + m_2\sin(kt)</m>,
+          guess <m>y_p = A\cos(kt) + B\sin(kt)</m>, plug in, match
+          coefficients of sine and cosine separately, and solve for
+          <m>A</m> and <m>B</m>.
+        </p></li>
+        <li><p>
+          <alert>Coming up:</alert> On the next page we will see the
+          case of duplication, where the guess <m>y_p = A\cos(kt) + B\sin(kt)</m>
+          fails and a different approach is needed.
+        </p></li>
+      </ul>
+    </p>
+  </conclusion>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       VIDEO + QUESTION FORM
+       ═══════════════════════════════════════════════════════════ -->
+
+  <figure xml:id="video-undetermined-part-2">
+    <caption>This video goes through the content of this page.</caption>
+    <video youtube="w7_vjQG3KBs" width="100%" preview="default"/>
+  </figure>
+
+  <interactive xml:id="question-form-3-5-2"
+    iframe="question-form.html?section=3.5.2"
+    width="100%" aspect="2:1"/>
+
+</section>

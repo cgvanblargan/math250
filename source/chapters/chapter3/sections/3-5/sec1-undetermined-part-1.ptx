@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-undetermined-part-1" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>A First Look at Non-Homogeneous Equations</title>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       INTRO PROSE: SETUP + MOTIVATION
+       ═══════════════════════════════════════════════════════════ -->
+
+  <p>
+    So far we have only solved 2nd order, constant-coefficient DEs where the
+    right-hand side is zero:
+    <me>ay'' + by' + cy = 0.</me>
+    These are called <term>homogeneous</term> equations. Now we turn to the
+    <term>non-homogeneous</term> case, where the right-hand side is a nonzero
+    function of <m>t</m>:
+    <me>ay'' + by' + cy = g(t).</me>
+  </p>
+
+  <p>
+    Solving this in full generality is hard. But for certain simple, well-behaved
+    choices of <m>g(t)</m>, we can make progress with a clever strategy. On this
+    page we focus on functions of the form
+    <me>g(t) = a\cos(kt) + b\sin(kt),</me>
+    and we will discover the method by working through examples, so treat
+    this as an exploration, not a formula to memorize yet.
+  </p>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       EXPLORATION 1: THE GUESS WORKS
+       ═══════════════════════════════════════════════════════════ -->
+
+  <exploration xml:id="exploration-undetermined-first-example">
+    <title>Example 1: Finding a Particular Solution</title>
+
+    <introduction>
+      <p>
+        We want to find a <term>particular solution</term> <m>y_p</m> to
+        <me>y'' + 4y = 10\cos(3t).</me>
+        That means: a single specific function <m>y_p(t)</m> that makes this
+        equation true.
+      </p>
+    </introduction>
+
+    <!-- ── Part 1: The guess ── -->
+
+    <task xml:id="task-undet-guess-form">
+      <title>What should we guess for <m>y_p</m>?</title>
+      <statement>
+        <p>
+          We need <m>y_p'' + 4y_p = 10\cos(3t)</m>. The right-hand side is
+          <m>10\cos(3t)</m>, so we need a function whose second derivative
+          is also a multiple of <m>\cos(3t)</m>. Which of the following is the
+          most natural guess? (Don't worry, we haven't learned a rule for this yet.
+          Go with your gut!)
+        </p>
+      </statement>
+      <choices randomize="no">
+        <choice correct="yes">
+          <statement><p><m>y_p = A\cos(3t)</m></p></statement>
+          <feedback>
+            <p>
+              Yes! Since <m>\frac{d^2}{dt^2}[\cos(3t)] = -9\cos(3t)</m>, differentiating
+              twice brings back a cosine, which is exactly what we need on the left to match
+              <m>10\cos(3t)</m> on the right. We just have to find the right value of <m>A</m>.
+              <m>\checkmark</m>
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement><p><m>y_p = Ae^{3t}</m></p></statement>
+          <feedback>
+            <p>
+              An exponential would give <m>y_p'' = 9Ae^{3t}</m>, so the left side
+              becomes <m>13Ae^{3t}</m>, with no cosines anywhere. We can't match
+              <m>10\cos(3t)</m> this way.
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement><p><m>y_p = At</m></p></statement>
+          <feedback>
+            <p>
+              A linear function gives <m>y_p'' = 0</m>, so the left side is just
+              <m>4At</m>, a polynomial and not a cosine. This won't work.
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement><p><m>y_p = A\sin(3t)</m></p></statement>
+          <feedback>
+            <p>
+              Close in spirit! A sine would give <m>y_p'' = -9A\sin(3t)</m>,
+              so the left side is <m>-9A\sin(3t) + 4A\sin(3t) = -5A\sin(3t)</m>.
+              That's a sine, but the right-hand side is a cosine, so they can't be equal
+              for any value of <m>A</m>.
+            </p>
+          </feedback>
+        </choice>
+      </choices>
+    </task>
+
+    <!-- ── Part 2: Solve for A (shown work, no dropdown) ── -->
+
+    <task xml:id="task-undet-solve-for-A">
+      <title>Plugging in and solving for <m>A</m></title>
+      <statement>
+        <p>
+          Now we plug the guess <m>y_p = A\cos(3t)</m> into <m>y'' + 4y = 10\cos(3t)</m>
+          and solve for <m>A</m>. Computing derivatives:
+          <md>
+            <mrow>y_p' \amp= -3A\sin(3t)</mrow>
+            <mrow>y_p'' \amp= -9A\cos(3t)</mrow>
+          </md>
+          Substituting:
+          <me>\underbrace{-9A\cos(3t)}_{y''} + \underbrace{4A\cos(3t)}_{4y} = 10\cos(3t).</me>
+          Every term has a factor of <m>\cos(3t)</m>, so we divide through by it:
+          <me>-9A + 4A = 10 \implies -5A = 10 \implies A = -2.</me>
+          A particular solution is:
+          <me>y_p = -2\cos(3t).</me>
+        </p>
+      </statement>
+    </task>
+
+  </exploration>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       BRIDGE PROSE BETWEEN EXPLORATIONS
+       ═══════════════════════════════════════════════════════════ -->
+
+  <p>
+    So for the ODE <m>y'' + 4y = 10\cos(3t)</m>, we took the guess
+    <m>y_p = A\cos(3t)</m>. Plugging it in gave us the equation
+    <m>-5A = 10</m>, and solving gave <m>A = -2</m>, so the particular
+    solution is <m>y_p = -2\cos(3t)</m>.
+  </p>
+
+  <p>
+    We now try a similar example, but this time the ODE includes a
+    <m>y'</m> term. Let's see what happens when we try the same type of guess.
+  </p>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       EXPLORATION 2: THE GUESS FAILS
+       ═══════════════════════════════════════════════════════════ -->
+
+  <exploration xml:id="exploration-undetermined-guess-fails">
+    <title>Example 2: When the Same Guess Doesn't Work</title>
+
+    <introduction>
+      <p>
+        Now try the same strategy on a different equation:
+        <me>3y'' + 4y' - 2y = 2\cos(t).</me>
+        Guess <m>y_p = A\cos(t)</m> and see what happens.
+      </p>
+    </introduction>
+
+    <!-- ── Part 1: Plug in, dropdown ── -->
+
+    <task xml:id="task-undet-plug-in-fail">
+      <title>Plugging in</title>
+      <statement>
+        <p>
+          With <m>y_p = A\cos(t)</m>, compute <m>y_p'</m> and <m>y_p''</m>,
+          substitute into <m>3y'' + 4y' - 2y = 2\cos(t)</m>, and simplify
+          as much as you can. What do you get?
+        </p>
+      </statement>
+      <hint>
+        <p>
+          You'll get both <m>\sin(t)</m> and <m>\cos(t)</m> terms on the left side.
+          Collect them separately.
+        </p>
+      </hint>
+      <solution>
+        <p>
+          With <m>y_p = A\cos(t)</m>:
+          <md>
+            <mrow>y_p' \amp= -A\sin(t)</mrow>
+            <mrow>y_p'' \amp= -A\cos(t)</mrow>
+          </md>
+          Substituting:
+          <me>\underbrace{3(-A\cos(t))}_{3y''} + \underbrace{4(-A\sin(t))}_{4y'} + \underbrace{(-2)(A\cos(t))}_{-2y} = 2\cos(t).</me>
+          Collecting like terms:
+          <me>-5A\cos(t) - 4A\sin(t) = 2\cos(t).</me>
+          Rearranging:
+          <me>-4A\sin(t) = (2 + 5A)\cos(t).</me>
+        </p>
+      </solution>
+    </task>
+
+    <!-- ── Part 2: Why we're stuck, no dropdown ── -->
+
+    <task xml:id="task-undet-stuck">
+      <title>Why we're stuck</title>
+      <statement>
+        <p>
+          We need <m>-4A\sin(t) = (2 + 5A)\cos(t)</m> to hold for every value of <m>t</m>.
+          But a sine and a cosine can never be equal for all <m>t</m> unless both sides
+          are zero. No matter what value we pick for <m>A</m>, the left side is a
+          sine and the right side is a cosine — there is no way to make them match.
+          Our guess has failed.
+        </p>
+      </statement>
+    </task>
+
+    <!-- ── Part 3: MC what went wrong ── -->
+
+    <task xml:id="task-undet-what-went-wrong">
+      <title>What went wrong?</title>
+      <statement>
+        <p>
+          After substituting <m>y_p = A\cos(t)</m> we ended up with a
+          <m>\sin(t)</m> term stuck on the left side that couldn't be cancelled.
+          Why did this happen? (This is exploratory, so take your best shot!)
+        </p>
+      </statement>
+      <choices randomize="yes">
+        <choice correct="yes">
+          <statement>
+            <p>
+              The <m>y'</m> term in the ODE. Differentiating <m>A\cos(t)</m>
+              gives <m>-A\sin(t)</m>, and that sine got multiplied by the
+              coefficient of <m>y'</m>, leaving a sine term with no way to cancel it.
+            </p>
+          </statement>
+          <feedback>
+            <p>
+              Exactly! In Example 1, there was no <m>y'</m> term, so differentiating
+              <m>A\cos(3t)</m> produced a <m>\sin(3t)</m> that immediately disappeared
+              again. Here the <m>4y'</m> term keeps that sine alive, and our guess
+              has no sine to absorb it. <m>\checkmark</m>
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement><p>The ODE has a <m>y</m> term with a negative coefficient (<m>-2y</m>).</p></statement>
+          <feedback>
+            <p>
+              The sign on <m>y</m> doesn't cause the problem. Even with a positive
+              coefficient, differentiating <m>A\cos(t)</m> would still produce a
+              <m>\sin(t)</m> via the <m>y'</m> term.
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement><p>The right-hand side is <m>2\cos(t)</m> instead of a higher frequency like <m>10\cos(3t)</m>.</p></statement>
+          <feedback>
+            <p>
+              The frequency of the right-hand side doesn't cause the trouble here.
+              The issue appears regardless of whether we have <m>\cos(t)</m> or
+              <m>\cos(3t)</m> on the right.
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement><p>We should have included a coefficient on the guess, like <m>y_p = 2A\cos(t)</m>.</p></statement>
+          <feedback>
+            <p>
+              The extra factor of 2 doesn't help — it's still just a constant times
+              <m>\cos(t)</m>, and the <m>y'</m> term will still produce an uncancelled
+              <m>\sin(t)</m>.
+            </p>
+          </feedback>
+        </choice>
+      </choices>
+    </task>
+
+  </exploration>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       CLIFFHANGER PROSE
+       ═══════════════════════════════════════════════════════════ -->
+
+  <p>
+    So the guess <m>y_p = A\cos(t)</m> failed because the <m>y'</m> term
+    introduced a <m>\sin(t)</m> that had nowhere to go. We need a guess
+    with enough flexibility to absorb both sine and cosine terms.
+    Before moving on: can you think of how to modify the guess to fix this?
+    We will work it out on the next page.
+  </p>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       KEY TAKEAWAYS
+       ═══════════════════════════════════════════════════════════ -->
+
+  <conclusion>
+    <title>Key Takeaways</title>
+    <p>
+      <ul>
+        <li><p>
+          <alert>The method:</alert> To find a particular solution to a
+          non-homogeneous equation, we can <em>guess</em> the form of
+          <m>y_p</m>, plug it in, and solve for the unknown constants.
+          Because the constants are initially unknown, this approach is called
+          the <term>method of undetermined coefficients</term>.
+        </p></li>
+        <li><p>
+          <alert>The guess matters:</alert> As seen in Example 2, guessing
+          <m>y_p = A\cos(t)</m> alone won't always work. Differentiating
+          a cosine produces a sine, and if the ODE has a <m>y'</m> term,
+          that sine has nowhere to go. On the next page we'll see what
+          guess <em>does</em> always work for sinusoidal right-hand sides.
+        </p></li>
+      </ul>
+    </p>
+  </conclusion>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       VIDEO + QUESTION FORM
+       ═══════════════════════════════════════════════════════════ -->
+
+  <figure xml:id="video-undetermined-part-1">
+    <caption>This video goes through the content of this page.</caption>
+    <video youtube="vvcsPIvvvsg" width="100%" preview="default"/>
+  </figure>
+
+  <interactive xml:id="question-form-3-5-1"
+    iframe="question-form.html?section=3.5.1"
+    width="100%" aspect="2:1"/>
+
+</section>

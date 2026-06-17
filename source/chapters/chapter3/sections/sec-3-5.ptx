@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-3-5" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>The Method of Undetermined Coefficients</title>
+
+  <introduction>
+    <p>
+   Now we look at non-homogeneous 2nd Order constant coefficient ODEs, which are in the form
+   <me>ay''+by'+cy=g(t). </me>
+     </p>
+  </introduction>
+
+  <xi:include href="./3-5/sec1-undetermined-part-1.ptx"/>
+  <xi:include href="./3-5/sec2-undetermined-part-2.ptx"/>
+   <xi:include href="./3-5/sec3-undetermined-duplication.ptx"/>
+      <xi:include href="./3-5/sec4-undetermined-dup-example.ptx"/>
+
+
+</section>

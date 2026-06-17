@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-undetermined-duplication" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>The Case of Duplication</title>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       EXPLORATION: WHY THE TYPICAL GUESS FAILS
+       ═══════════════════════════════════════════════════════════ -->
+
+  <exploration xml:id="exploration-duplication">
+    <title>When the Usual Guess Breaks Down</title>
+
+    <introduction>
+      <p>
+        Let's try to find a particular solution to
+        <me>y'' + 4y = \cos(2t).</me>
+        We will follow the strategy from <xref ref="obs-undetermined-strategy"/>
+        and see what happens.
+      </p>
+    </introduction>
+
+    <!-- ── Part (a): State the typical guess, no dropdown ── -->
+
+    <task xml:id="task-dup-guess">
+      <title>The typical guess</title>
+      <statement>
+        <p>
+          Based on the strategy from the previous page, the right-hand side
+          is <m>\cos(2t)</m>, so <m>k = 2</m> and the typical guess is:
+          <me>y_p = A\cos(2t) + B\sin(2t).</me>
+          Its derivatives are:
+          <md>
+            <mrow>y_p' \amp= -2A\sin(2t) + 2B\cos(2t)</mrow>
+            <mrow>y_p'' \amp= -4A\cos(2t) - 4B\sin(2t)</mrow>
+          </md>
+          Let's plug this in and see what happens.
+        </p>
+      </statement>
+    </task>
+
+    <!-- ── Part (b): Plug in, show everything cancels, no dropdown ── -->
+
+    <task xml:id="task-dup-plug-in">
+      <title>Plugging in</title>
+      <statement>
+        <p>
+          Substituting into <m>y'' + 4y = \cos(2t)</m>:
+          <me>
+            \underbrace{(-4A\cos(2t) - 4B\sin(2t))}_{y''}
+            + \underbrace{4(A\cos(2t) + B\sin(2t))}_{4y}
+            = \cos(2t).
+          </me>
+          Expanding the right bracket and collecting:
+          <me>
+            (-4A + 4A)\cos(2t) + (-4B + 4B)\sin(2t) = \cos(2t).
+          </me>
+          Everything cancels:
+          <me>0 = \cos(2t).</me>
+          This is never true. No values of <m>A</m> and <m>B</m> can make
+          this work.
+        </p>
+      </statement>
+    </task>
+
+    <!-- ── Part (c): MC checkpoint ── -->
+
+    <task xml:id="task-dup-mc">
+      <title>What went wrong?</title>
+      <statement>
+        <p>
+          The left side collapsed to <m>0</m> no matter what <m>A</m> and
+          <m>B</m> are. Why did this happen?
+          (This is exploratory, so take your best shot!)
+        </p>
+      </statement>
+      <choices randomize="yes">
+        <choice correct="yes">
+          <statement>
+            <p>
+              The guess <m>y_p = A\cos(2t) + B\sin(2t)</m> is itself a solution
+              to the corresponding homogeneous equation <m>y'' + 4y = 0</m>,
+              so when we substitute it in, the left side always simplifies to <m>0</m>.
+            </p>
+          </statement>
+          <feedback>
+            <p>
+              Exactly! Since <m>A\cos(2t) + B\sin(2t)</m> solves <m>y'' + 4y = 0</m>,
+              plugging it into <m>y'' + 4y</m> always gives <m>0</m>, never
+              <m>\cos(2t)</m>. The guess is "invisible" to the left-hand side operator.
+              <m>\checkmark</m>
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement><p>We made an error computing <m>y_p''</m>.</p></statement>
+          <feedback>
+            <p>
+              The derivatives are correct: differentiating <m>A\cos(2t) + B\sin(2t)</m>
+              twice gives <m>-4A\cos(2t) - 4B\sin(2t)</m>. The cancellation is real,
+              not a mistake.
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement><p>The equation <m>y'' + 4y = \cos(2t)</m> has no particular solution.</p></statement>
+          <feedback>
+            <p>
+              The equation does have a particular solution. The problem is with
+              our guess, not the equation itself.
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement><p>We should have used <m>k = 4</m> in the guess since the coefficient of <m>y</m> is <m>4</m>.</p></statement>
+          <feedback>
+            <p>
+              The <m>k</m> in the guess always comes from the right-hand side,
+              not from the coefficients of the ODE. Here <m>g(t) = \cos(2t)</m>,
+              so <m>k = 2</m> is correct.
+            </p>
+          </feedback>
+        </choice>
+      </choices>
+    </task>
+
+  </exploration>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       TRANSITION PROSE + CHECKPOINT BEFORE THEOREM
+       ═══════════════════════════════════════════════════════════ -->
+
+  <p>
+    The guess failed because <m>A\cos(2t) + B\sin(2t)</m> already solves the
+    homogeneous equation <m>y'' + 4y = 0</m>. This is the <term>case of duplication</term>:
+    the guess we would normally use is a solution to the corresponding homogeneous ODE,
+    so substituting it in always gives <m>0</m> on the left, making it impossible
+    to match the right-hand side.
+  </p>
+
+ 
+
+  <exercise xml:id="ex-mc-dup-recognize">
+    <statement>
+      <p>
+        We are in the case of duplication when, in the ODE
+        <me>ay'' + by' + cy = m_1\cos(kt) + m_2\sin(kt),</me>
+        the typical guess <m>y_p = A\cos(kt) + B\sin(kt)</m> already solves
+        the corresponding homogeneous equation <m>ay'' + by' + cy = 0</m>.
+        What would the ODE need to look like for this to happen?
+      </p>
+    </statement>
+    <choices randomize="no">
+      <choice correct="yes">
+        <statement><p><m>y'' + k^2 y = m_1\cos(kt) + m_2\sin(kt)</m></p></statement>
+        <feedback>
+          <p>
+            Correct! Since <m>\frac{d^2}{dt^2}[\cos(kt)] = -k^2\cos(kt)</m>,
+            we get <m>-k^2\cos(kt) + k^2\cos(kt) = 0</m>, and similarly for
+            <m>\sin(kt)</m>, so <m>A\cos(kt) + B\sin(kt)</m> solves <m>y'' + k^2y = 0</m>.
+            <m>\checkmark</m>
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement><p><m>y'' - k^2 y = m_1\cos(kt) + m_2\sin(kt)</m></p></statement>
+        <feedback>
+          <p>
+            The homogeneous version <m>y'' - k^2y = 0</m> has characteristic roots
+            <m>r = \pm k</m>, giving exponential solutions <m>e^{kt}</m> and
+            <m>e^{-kt}</m>, not sines and cosines.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement><p><m>y'' + ky = m_1\cos(kt) + m_2\sin(kt)</m></p></statement>
+        <feedback>
+          <p>
+            Close in form, but the coefficient of <m>y</m> needs to be <m>k^2</m>,
+            not <m>k</m>. Since <m>\frac{d^2}{dt^2}[\cos(kt)] = -k^2\cos(kt)</m>,
+            we need the coefficient of <m>y</m> to be exactly <m>k^2</m> for the
+            cancellation to happen.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement><p><m>y'' + by' + k^2 y = m_1\cos(kt) + m_2\sin(kt)</m></p></statement>
+        <feedback>
+          <p>
+            If there is a <m>y'</m> term, differentiating <m>A\cos(kt) + B\sin(kt)</m>
+            produces a sine or cosine that does not cancel, so the guess does not
+            solve the homogeneous equation. Duplication only occurs when <m>b = 0</m>.
+          </p>
+        </feedback>
+      </choice>
+    </choices>
+  </exercise>
+
+  <p>
+  Note that the coefficient of <m>y''</m> does not need to be 1.
+  If the ODE is <m>ay'' + ak^2 y = m_1\cos(kt) + m_2\sin(kt)</m>,
+  dividing through by <m>a</m> gives <m>y'' + k^2 y = \cdots</m>,
+  which is still the case of duplication.
+</p>
+  <p>
+    To handle the case of duplication, we need a modified guess whose left-hand side does not collapse to zero.
+    It turns out that multiplying the usual guess by <m>t</m> does the trick:
+    the <m>t</m> factor disrupts the cancellation so that <m>y_p'' + 4y_p</m>
+    simplifies to a combination of <m>\sin(2t)</m> and <m>\cos(2t)</m> terms
+    rather than <m>0</m>.
+  </p>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       THEOREM: CASE OF DUPLICATION
+       ═══════════════════════════════════════════════════════════ -->
+
+  <theorem xml:id="thm-case-of-duplication">
+    <title>Case of Duplication</title>
+    <statement>
+      <p>
+        Suppose the homogeneous equation <m>ay'' + by' + cy = 0</m> has
+        general solution containing <m>c_1\cos(kt) + c_2\sin(kt)</m>.
+        Then the guess <m>y_p = A\cos(kt) + B\sin(kt)</m> will always
+        give <m>0</m> on the left-hand side of
+        <me>ay'' + by' + cy = m_1\cos(kt) + m_2\sin(kt).</me>
+        This occurs specifically when the ODE can be written in the form:
+        <me>y'' + k^2y  = m_1\cos(kt) + m_2\sin(kt).</me>
+        In this case, use the modified guess:
+        <me>y_p = t\bigl(A\cos(kt) + B\sin(kt)\bigr).</me>
+      </p>
+    </statement>
+  </theorem>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       BRIEF EXPLANATION + JUSTIFICATION DROPDOWN
+       ═══════════════════════════════════════════════════════════ -->
+
+  <p>
+    The reason this works: when we differentiate <m>y_p = t(A\cos(kt) + B\sin(kt))</m>
+    using the product rule, we get two types of terms — terms with a factor of <m>t</m>,
+    and terms without. When we substitute into the ODE, the terms with <m>t</m> cancel
+    out (since <m>A\cos(kt) + B\sin(kt)</m> solves the homogeneous equation). What
+    remains are the terms without <m>t</m>: plain <m>\cos(kt)</m> and <m>\sin(kt)</m>
+    terms that we can match to the right-hand side.
+  </p>
+
+  <justification>
+    <title>Why does multiplying by <m>t</m> fix things? (can skim)</title>
+    <p>
+      We work with our specific example <m>y'' + 4y = \cos(2t)</m> and
+      <m>y_p = t(A\cos(2t) + B\sin(2t))</m>.
+      Differentiating with the product rule:
+      <md>
+        <mrow>y_p' \amp= (A\cos(2t) + B\sin(2t)) + t(-2A\sin(2t) + 2B\cos(2t))</mrow>
+        <mrow>y_p'' \amp= (-2A\sin(2t) + 2B\cos(2t)) + (-2A\sin(2t) + 2B\cos(2t))</mrow>
+        <mrow>\amp\quad + t(-4A\cos(2t) - 4B\sin(2t))</mrow>
+        <mrow>\amp= (-4A\sin(2t) + 4B\cos(2t)) + t(-4A\cos(2t) - 4B\sin(2t)).</mrow>
+      </md>
+      Now substitute into <m>y'' + 4y</m>:
+      <md>
+        <mrow>y_p'' + 4y_p
+          \amp= \bigl[(-4A\sin(2t) + 4B\cos(2t)) + \textcolor{blue}{t(-4A\cos(2t) - 4B\sin(2t))}\bigr]</mrow>
+        <mrow>\amp\quad + 4\bigl[\textcolor{blue}{t(A\cos(2t) + B\sin(2t))}\bigr].</mrow>
+      </md>
+      The <m>\textcolor{blue}{t}</m> terms cancel:
+      <me>\textcolor{blue}{-4At\cos(2t) - 4Bt\sin(2t) + 4At\cos(2t) + 4Bt\sin(2t)} = 0.</me>
+      What remains are the terms without <m>t</m>:
+      <me>y_p'' + 4y_p = -4A\sin(2t) + 4B\cos(2t).</me>
+      This is a genuine combination of <m>\sin(2t)</m> and <m>\cos(2t)</m> that
+      we can match to <m>\cos(2t)</m> on the right-hand side to solve for
+      <m>A</m> and <m>B</m>.
+    </p>
+  </justification>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       KEY TAKEAWAYS
+       ═══════════════════════════════════════════════════════════ -->
+
+  <conclusion>
+    <title>Key Takeaways</title>
+    <p>
+      <ul>
+        <li><p>
+          <alert>Case of duplication:</alert> If the usual guess
+          <m>y_p = A\cos(kt) + B\sin(kt)</m> is already a solution to the
+          corresponding homogeneous equation, substituting it in gives
+          <m>0</m> on the left, so it can never work as a particular solution.
+        </p></li>
+        <li><p>
+          <alert>When does it happen:</alert> The case of duplication occurs
+          when the homogeneous ODE has the form <m>y'' + k^2 y = 0</m>,
+          since <m>\cos(kt)</m> and <m>\sin(kt)</m> are exactly the homogeneous
+          solutions in that case. Equivalently, the frequency <m>k</m> on the
+          right-hand side matches the coefficient of <m>y</m> in the ODE
+          (since the coefficient is <m>k^2</m>).
+        </p></li>
+        <li><p>
+          <alert>The fix:</alert> Multiply the usual guess by <m>t</m>, giving
+          <m>y_p = t(A\cos(kt) + B\sin(kt))</m>. On the next page we will
+          use this modified guess to actually solve an example in this case.
+        </p></li>
+      </ul>
+    </p>
+  </conclusion>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       VIDEO + QUESTION FORM
+       ═══════════════════════════════════════════════════════════ -->
+
+  <figure xml:id="video-undetermined-duplication">
+    <caption>This video goes through the content of this page.</caption>
+    <video youtube="iiJClAUxXZI" width="100%" preview="default"/>
+  </figure>
+
+  <interactive xml:id="question-form-3-5-3"
+    iframe="question-form.html?section=3.5.3"
+    width="100%" aspect="2:1"/>
+
+</section>

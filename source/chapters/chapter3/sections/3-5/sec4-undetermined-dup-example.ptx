@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-undetermined-dup-example" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Example with the Case of Duplication</title>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       INTRO PROSE: REMIND OF CASE OF DUPLICATION
+       ═══════════════════════════════════════════════════════════ -->
+
+  <p>
+    Recall from <xref ref="thm-case-of-duplication"/> that when the ODE has the form
+    <me>y'' + k^2 y = m_1\cos(kt) + m_2\sin(kt),</me>
+    the usual guess <m>y_p = A\cos(kt) + B\sin(kt)</m> fails because it solves
+    the homogeneous equation. In this case we use the modified guess
+    <me>y_p = t\bigl(A\cos(kt) + B\sin(kt)\bigr).</me>
+    Let's work through a full example.
+  </p>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       EXAMPLE
+       ═══════════════════════════════════════════════════════════ -->
+
+  <example xml:id="example-dup-full">
+    <title>Finding a Particular Solution in the Case of Duplication</title>
+
+    <introduction>
+      <p>
+        Find a particular solution to
+        <me>y'' + 9y = 12\cos(3t) + 16\sin(3t).</me>
+      </p>
+    </introduction>
+
+    <!-- ── Part (a): Recognize case of duplication, MC ── -->
+
+    <task xml:id="task-dup-ex-recognize">
+      <title>Recognizing the case of duplication</title>
+      <statement>
+        <p>
+          Notice that the coefficient of <m>y</m> is <m>9</m>, and the
+          right-hand side has frequency <m>k = 3</m>. Since <m>k^2 = 9</m>
+          matches the coefficient of <m>y</m>, we are in the case of duplication.
+          What is the correct guess for <m>y_p</m>?
+        </p>
+      </statement>
+      <choices randomize="yes">
+        <choice correct="yes">
+          <statement><p><m>y_p = t\bigl(A\cos(3t) + B\sin(3t)\bigr)</m></p></statement>
+          <feedback>
+            <p>
+              Correct! Since we are in the case of duplication, we multiply
+              the usual guess by <m>t</m>. <m>\checkmark</m>
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement><p><m>y_p = A\cos(3t) + B\sin(3t)</m></p></statement>
+          <feedback>
+            <p>
+              This is the usual guess, but we just established we are in the
+              case of duplication. This guess solves <m>y'' + 9y = 0</m>,
+              so substituting it in gives <m>0</m> on the left, not
+              <m>12\cos(3t) + 16\sin(3t)</m>.
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement><p><m>y_p = t\bigl(A\cos(9t) + B\sin(9t)\bigr)</m></p></statement>
+          <feedback>
+            <p>
+              The frequency in the guess should match the right-hand side,
+              which has <m>k = 3</m>, not <m>k = 9</m>.
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement><p><m>y_p = t^2\bigl(A\cos(3t) + B\sin(3t)\bigr)</m></p></statement>
+          <feedback>
+            <p>
+              Multiplying by <m>t</m> is enough to fix the duplication.
+              We only need <m>t^2</m> in more advanced cases not covered here.
+            </p>
+          </feedback>
+        </choice>
+      </choices>
+    </task>
+
+    <!-- ── Part (b): Work it out ── -->
+
+    <task xml:id="task-dup-ex-solve">
+      <title>Finding <m>A</m> and <m>B</m></title>
+      <statement>
+        <p>
+          Use the guess <m>y_p = t\bigl(A\cos(3t) + B\sin(3t)\bigr)</m>.
+          Substitute into <m>y'' + 9y = 12\cos(3t) + 16\sin(3t)</m> and
+          solve for <m>A</m> and <m>B</m>.
+        </p>
+      </statement>
+      <hint>
+        <p>
+          Using the product rule:
+          <ul>
+            <li><p><m>y_p = t\bigl(A\cos(3t) + B\sin(3t)\bigr)</m></p></li>
+            <li><p><m>y_p' = \bigl(A\cos(3t) + B\sin(3t)\bigr) + t\bigl(-3A\sin(3t) + 3B\cos(3t)\bigr)</m></p></li>
+            <li><p><m>y_p'' = \bigl(6B\cos(3t) - 6A\sin(3t)\bigr) + t\bigl(-9A\cos(3t) - 9B\sin(3t)\bigr)</m></p></li>
+          </ul>
+          Plug these into <m>y'' + 9y</m> and solve for <m>A</m> and <m>B</m>.
+        </p>
+      </hint>
+      <solution>
+        <p>
+          We have:
+          <ul>
+            <li><p><m>y_p = t\bigl(A\cos(3t) + B\sin(3t)\bigr)</m></p></li>
+            <li><p><m>y_p' = \bigl(A\cos(3t) + B\sin(3t)\bigr) + t\bigl(-3A\sin(3t) + 3B\cos(3t)\bigr)</m></p></li>
+            <li><p><m>y_p'' = ?? </m></p></li>
+          </ul>
+          <solution>
+            <title>Computing <m>y_p''</m> via product rule</title>
+            <p>
+              Differentiating <m>y_p'</m> with the product rule:
+              <md>
+                <mrow>y_p'' \amp= \bigl(-3A\sin(3t) + 3B\cos(3t)\bigr)</mrow>
+                <mrow>\amp\quad + \bigl(-3A\sin(3t) + 3B\cos(3t)\bigr)</mrow>
+                <mrow>\amp\quad + t\bigl(-9A\cos(3t) - 9B\sin(3t)\bigr)</mrow>
+                <mrow>\amp= \bigl(6B\cos(3t) - 6A\sin(3t)\bigr) + t\bigl(-9A\cos(3t) - 9B\sin(3t)\bigr).</mrow>
+              </md>
+            </p>
+          </solution>
+          So:
+          <me>y_p'' = \underbrace{\bigl(6B\cos(3t) - 6A\sin(3t)\bigr)}_{\text{terms without }t} + \textcolor{blue}{\underbrace{t\bigl(-9A\cos(3t) - 9B\sin(3t)\bigr)}_{\text{terms with }t}}.</me>
+          Now substituting into <m>y'' + 9y</m>:
+          <solution>
+            <title>Substituting and cancelling the <m>t</m> terms</title>
+            <p>
+              <md>
+                <mrow>y_p'' + 9y_p
+                  \amp= \underbrace{6B\cos(3t) - 6A\sin(3t)}_{\text{terms from }y_p''\text{ without }t}
+                  + \textcolor{blue}{\underbrace{t(-9A\cos(3t) - 9B\sin(3t))}_{\text{terms from }y_p''\text{ with }t}}</mrow>
+                <mrow>\amp\quad + \textcolor{blue}{\underbrace{9t(A\cos(3t) + B\sin(3t))}_{\text{all terms from }9y_p}}.</mrow>
+              </md>
+              The <m>\textcolor{blue}{t}</m> terms cancel:
+              <me>\textcolor{blue}{-9At\cos(3t) - 9Bt\sin(3t) + 9At\cos(3t) + 9Bt\sin(3t) = 0.}</me>
+            </p>
+          </solution>
+          After cancellation, our ODE becomes:
+          <me>\underbrace{6B\cos(3t) - 6A\sin(3t)}_{y_p''+9y_p \text{ after cancellation}} = \underbrace{12\cos(3t) + 16\sin(3t)}_{\text{original RHS}}.</me>
+          Now we solve for <m>A</m> and <m>B</m>:
+          <solution>
+            <title>Solving for <m>A</m> and <m>B</m></title>
+            <p>
+              Matching coefficients in
+              <me>\textcolor{red}{6B\cos(3t)} \textcolor{blue}{- 6A\sin(3t)} = \textcolor{red}{12\cos(3t)} + \textcolor{blue}{16\sin(3t)}:</me>
+              <md>
+                <mrow>\textcolor{blue}{-6A} \amp\textcolor{blue}{= 16} \amp\implies A \amp= -\frac{8}{3}</mrow>
+                <mrow>\textcolor{red}{6B} \amp\textcolor{red}{= 12} \amp\implies B \amp= 2</mrow>
+              </md>
+            </p>
+          </solution>
+          So <m>A = -\dfrac{8}{3}</m> and <m>B = 2</m>, giving the particular solution:
+          <me>y_p = t\!\left(\underbrace{-\frac{8}{3}}_{A}\cos(3t) + \underbrace{2}_{B}\sin(3t)\right).</me>
+        </p>
+      </solution>
+    </task>
+
+  </example>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       PROSE: T TERMS ALWAYS CANCEL
+       ═══════════════════════════════════════════════════════════ -->
+
+  <p>
+    Notice what happened with the <m>t</m> terms when we substituted in.
+    In this example, the terms with <m>t</m> were
+    <m>t(-9A\cos(3t) - 9B\sin(3t))</m> from <m>y_p''</m> and
+    <m>9t(A\cos(3t) + B\sin(3t))</m> from <m>9y_p</m>. These cancelled
+    exactly because <m>A\cos(3t) + B\sin(3t)</m> solves the homogeneous
+    equation <m>y'' + 9y = 0</m>, which is precisely the definition of
+    the case of duplication. This is not a coincidence: the <m>t</m> terms
+    will always cancel when we are in the case of duplication, for exactly
+    this reason. So in practice, once you compute <m>y_p''</m>, you can
+    immediately drop the <m>t</m> terms and just work with what remains.
+  </p>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       KEY TAKEAWAYS
+       ═══════════════════════════════════════════════════════════ -->
+
+  <conclusion>
+    <title>Key Takeaways</title>
+    <p>
+      <ul>
+        <li><p>
+          <alert>Recognizing duplication:</alert> Check whether <m>k^2</m>
+          matches the coefficient of <m>y</m> in the ODE. If so, use the
+          modified guess <m>y_p = t(A\cos(kt) + B\sin(kt))</m>.
+        </p></li>
+        <li><p>
+          <alert>The <m>t</m> terms always cancel:</alert> When substituting
+          the modified guess into the ODE, the terms with a factor of <m>t</m>
+          will always cancel out. You are left with only plain
+          <m>\cos(kt)</m> and <m>\sin(kt)</m> terms to match against the
+          right-hand side.
+        </p></li>
+      </ul>
+    </p>
+  </conclusion>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       VIDEO + QUESTION FORM
+       ═══════════════════════════════════════════════════════════ -->
+
+  <figure xml:id="video-undetermined-dup-example">
+    <caption>This video goes through the content of this page.</caption>
+    <video youtube="CmgRIQoYjBs" width="100%" preview="default"/>
+  </figure>
+
+  <interactive xml:id="question-form-3-5-4"
+    iframe="question-form.html?section=3.5.4"
+    width="100%" aspect="2:1"/>
+
+</section>
