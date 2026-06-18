@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-external-force-setup" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Setting Up the Forced Undamped System</title>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       INTRO PROSE: RECAP FREE UNDAMPED SYSTEM
+       ═══════════════════════════════════════════════════════════ -->
+
+  <p>
+    In <xref ref="sec-undamped-mass-spring"/>, we modeled a mass <m>m</m> attached
+    to a spring with spring constant <m>k</m>, with no friction or damping. Newton's
+    second law gave the <term>free undamped</term> mass-spring ODE:
+    <me>mx'' + kx = 0,</me>
+    or equivalently, writing <m>\omega_0 = \sqrt{k/m}</m>
+    (see <xref ref="def-natural-frequency"/>),
+    <me>x'' + \omega_0^2 x = 0.</me>
+  </p>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       MC CHECKPOINT: SOLUTION TO FREE UNDAMPED ODE
+       ═══════════════════════════════════════════════════════════ -->
+
+  <p>
+    Before adding anything new, let's make sure the solution to this equation
+    is fresh. Recall <xref ref="obs-simple-harmonic-ode"/> if you need a reminder.
+  </p>
+
+  <exercise xml:id="ex-mc-free-undamped-solution">
+    <statement>
+      <p>
+        What is the general solution to <m>x'' + \omega_0^2 x = 0</m>?
+      </p>
+    </statement>
+    <choices randomize="yes">
+      <choice correct="yes">
+        <statement>
+          <p><m>x = c_1\cos(\omega_0 t) + c_2\sin(\omega_0 t)</m></p>
+        </statement>
+        <feedback>
+          <p>
+            Correct! The characteristic equation is <m>r^2 + \omega_0^2 = 0</m>,
+            giving complex roots <m>r = \pm\omega_0 i</m>, so the general solution
+            is a combination of cosine and sine at frequency <m>\omega_0</m>.
+            <m>\checkmark</m>
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p><m>x = c_1 e^{\omega_0 t} + c_2 e^{-\omega_0 t}</m></p>
+        </statement>
+        <feedback>
+          <p>
+            Exponentials would arise from real roots, but the characteristic equation
+            <m>r^2 + \omega_0^2 = 0</m> gives <m>r = \pm\omega_0 i</m> — purely
+            imaginary roots. That means trig functions, not exponentials.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p><m>x = c_1\cos(\omega_0^2 t) + c_2\sin(\omega_0^2 t)</m></p>
+        </statement>
+        <feedback>
+          <p>
+            Close, but the frequency inside the trig functions is <m>\omega_0</m>,
+            not <m>\omega_0^2</m>. The roots are <m>r = \pm\omega_0 i</m>,
+            so the argument is <m>\omega_0 t</m>.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p><m>x = c_1\cos(t) + c_2\sin(t)</m></p>
+        </statement>
+        <feedback>
+          <p>
+            This would be the solution to <m>x'' + x = 0</m> (with <m>\omega_0 = 1</m>).
+            In general <m>\omega_0 = \sqrt{k/m}</m> is not necessarily 1, so
+            the frequency inside the trig functions must be <m>\omega_0</m>.
+          </p>
+        </feedback>
+      </choice>
+    </choices>
+  </exercise>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       BRIDGE PROSE: ADD EXTERNAL FORCE, DERIVE ODE
+       ═══════════════════════════════════════════════════════════ -->
+
+  <p>
+    That was <em>free</em> motion: the only forces acting on the mass were
+    the spring restoring force <m>F_S = -kx</m> and (in the damped case) friction.
+    Now suppose an additional external force <m>F_E(t)</m> is applied to the mass 
+    (think of someone pushing and pulling the block rhythmically). Newton's second
+    law now reads
+    <me>ma = F_S + F_E,</me>
+    and since <m>F_S = -kx</m> and <m>a = x''</m>, rearranging gives
+    <me>mx'' + kx = F_E(t).</me>
+    We focus on the <term>undamped</term> case (no dashpot, so <m>c = 0</m>),
+    and we take the external force to be sinusoidal:
+    <me>F_E(t) = F_0\cos(\omega t) + G_0\sin(\omega t),</me>
+    where <m>F_0</m>, <m>G_0</m>, and <m>\omega</m> are constants.
+  </p>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       DEFINITION: THE FORCED UNDAMPED ODE
+       ═══════════════════════════════════════════════════════════ -->
+
+  <definition xml:id="def-forced-undamped-ode">
+    <title>The Forced Undamped Mass-Spring ODE</title>
+    <statement>
+      <p>
+        The position <m>x(t)</m> of an undamped mass-spring system subject to
+        a sinusoidal external force satisfies:
+        <me>mx'' + kx = F_0\cos(\omega t) + G_0\sin(\omega t).</me>
+        Dividing both sides by <m>m</m> and writing <m>\omega_0 = \sqrt{k/m}</m>:
+        <me>x'' + \omega_0^2 x = \frac{F_0}{m}\cos(\omega t) + \frac{G_0}{m}\sin(\omega t).</me>
+        Here:
+        <ul>
+          <li><p>
+            <m>\omega_0 = \sqrt{k/m}</m> is the <term>natural frequency</term> of
+            the system: the frequency it oscillates at when left alone.
+          </p></li>
+          <li><p>
+            <m>\omega</m> is the <term>forcing frequency</term>: the frequency of
+            the applied external force.
+          </p></li>
+        </ul>
+      </p>
+    </statement>
+  </definition>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       PROSE: x_c AND WHY omega_0 IS "NATURAL"
+       ═══════════════════════════════════════════════════════════ -->
+
+  <p>
+    Since this is a non-homogeneous ODE (just like in
+    <xref ref="sec-general-solution-nonhomogeneous"/>), its general solution
+    will have the form <m>x = x_c + x_p</m>, where <m>x_p</m> is a particular
+    solution and <m>x_c</m> is the <term>complementary solution</term>: the
+general solution to the homogeneous equation
+<m>x'' + \omega_0^2 x = 0</m>, i.e., the system <em>with no external force</em>.
+    From the checkpoint above:
+    <me>x_c = c_1\cos(\omega_0 t) + c_2\sin(\omega_0 t).</me>
+    This is exactly why <m>\omega_0</m> is called the <em>natural</em> frequency:
+    it is the frequency at which the system freely oscillates on its own,
+    with no outside influence. The forcing frequency <m>\omega</m>, by contrast,
+    is imposed from the outside.
+  </p>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       REMARK: CIRCULAR FREQUENCY
+       ═══════════════════════════════════════════════════════════ -->
+
+  <remark xml:id="remark-circular-frequency">
+    <title>Circular vs. ordinary frequency</title>
+    <p>
+      Technically, <m>\omega_0</m> and <m>\omega</m> are <term>circular frequencies</term>,
+      measured in radians per unit time rather than cycles per unit time (which
+      would require a factor of <m>2\pi</m>). In this context we will simply
+      say <q>frequency</q> and mean the circular version throughout.
+    </p>
+  </remark>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       KEY TAKEAWAYS
+       ═══════════════════════════════════════════════════════════ -->
+
+  <conclusion>
+    <title>Key Takeaways</title>
+    <p>
+      <ul>
+        <li><p>
+          <alert>The ODE:</alert> Adding a sinusoidal external force to the
+          undamped mass-spring system gives
+          <m>x'' + \omega_0^2 x = \frac{F_0}{m}\cos(\omega t) + \frac{G_0}{m}\sin(\omega t)</m>,
+          a non-homogeneous ODE we now have the tools to solve.
+        </p></li>
+        <li><p>
+          <alert>Two frequencies:</alert> <m>\omega_0 = \sqrt{k/m}</m> is the
+          natural frequency (how the system oscillates freely);
+          <m>\omega</m> is the forcing frequency (the rhythm imposed from outside).
+          Whether these are equal or not will turn out to matter enormously.
+        </p></li>
+        <li><p>
+          <alert>Complementary solution:</alert>
+          <m>x_c = c_1\cos(\omega_0 t) + c_2\sin(\omega_0 t)</m> comes from the
+          free system, and <m>x_p</m> will come from the external force via
+          undetermined coefficients. We find <m>x_p</m> on the next page.
+        </p></li>
+      </ul>
+    </p>
+  </conclusion>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       VIDEO + QUESTION FORM
+       ═══════════════════════════════════════════════════════════ -->
+
+  <figure xml:id="video-external-force-setup">
+    <caption>This video goes through the content of this page.</caption>
+    <video youtube="G_ezQb7C09c" width="100%" preview="default"/>
+  </figure>
+
+  <interactive xml:id="question-form-3-6-1"
+    iframe="question-form.html?section=3.6.1"
+    width="100%" aspect="2:1"/>
+
+</section>

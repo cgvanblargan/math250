@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-3-6" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>External Forces and Resonance</title>
+
+  <introduction>
+    <p>
+      We now apply the method of undetermined coefficients to a physical setting:
+      a mass-spring system driven by a sinusoidal external force. The behavior of
+      the solution depends critically on whether the forcing frequency matches the
+      system's natural frequency, a a phenomenon called <term>resonance</term>.
+    </p>
+  </introduction>
+
+  <xi:include href="./3-6/sec1-external-force-setup.ptx"/>
+  <xi:include href="./3-6/sec2-external-force-examples.ptx"/>
+  <xi:include href="./3-6/sec3-resonance.ptx"/>
+
+</section>

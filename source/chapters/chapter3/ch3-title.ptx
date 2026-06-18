@@ -14,6 +14,7 @@
      <xi:include href="./sections/sec-3-3.ptx" />
        <xi:include href="./sections/sec-3-4.ptx" />
          <xi:include href="./sections/sec-3-5.ptx" />
+               <xi:include href="./sections/sec-3-6.ptx" />
 
 
   

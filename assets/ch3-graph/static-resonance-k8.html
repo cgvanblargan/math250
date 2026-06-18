@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Non-resonance solution: k=8</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jsxgraph/1.6.0/jsxgraph.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jsxgraph/1.6.0/jsxgraphcore.js"></script>
+<style>
+  body { margin: 0; padding: 10px 10px 10px 30px; font-family: serif; background: transparent; overflow: hidden; }
+  #title-display {
+    text-align: center;
+    font-size: 15px;
+    font-family: serif;
+    color: #2c3e50;
+    margin-bottom: 6px;
+  }
+  #jxgbox {
+    width: 100%;
+    height: 220px;
+    border: 1px solid #bdc3c7;
+  }
+  #caption {
+    text-align: center;
+    font-size: 13px;
+    font-family: serif;
+    color: #555;
+    margin-top: 6px;
+  }
+</style>
+</head>
+<body>
+
+<div id="title-display">
+  <i>x</i>(<i>t</i>) = cos(&#8730;8 &middot; <i>t</i>) &minus; 50 cos(3<i>t</i>)
+  &nbsp;&nbsp;(<i>c</i><sub>1</sub> = 1, <i>c</i><sub>2</sub> = 0)
+</div>
+
+<div id="jxgbox"
+  role="img"
+  aria-label="Graph of the non-resonance solution x of t equals cosine of square root 8 times t minus 50 cosine of 3t, for t from 0 to 14. The curve oscillates with roughly constant amplitude, showing the superposition of two sinusoidal functions at different frequencies. The amplitude stays bounded throughout, neither growing nor decaying.">
+</div>
+
+<div id="caption">
+  The solution oscillates with bounded amplitude: a superposition of two sinusoids at different frequencies <i>&#969;</i><sub>0</sub> = &#8730;8 and <i>&#969;</i> = 3.
+</div>
+
+<script>
+  var board = JXG.JSXGraph.initBoard('jxgbox', {
+    boundingbox: [-1.2, 55, 10.5, -55],
+    axis: false,
+    grid: false,
+    showNavigation: false,
+    showCopyright: false,
+    pan: { enabled: false },
+    zoom: { enabled: false }
+  });
+
+  // Axes
+  board.create('axis', [[0,0],[1,0]], {
+    strokeColor: '#2c3e50', strokeWidth: 1.5,
+    lastArrow: { type: 1, size: 6 },
+    ticks: {
+      ticksDistance: 2,
+      label: { fontSize: 11, fontFamily: 'serif', color: '#2c3e50', offset: [0, -12] },
+      minorTicks: 0,
+      strokeColor: '#2c3e50'
+    }
+  });
+  board.create('axis', [[0,0],[0,1]], {
+    strokeColor: '#2c3e50', strokeWidth: 1.5,
+    lastArrow: { type: 1, size: 6 },
+    ticks: {
+      ticksDistance: 20,
+      label: { fontSize: 11, fontFamily: 'serif', color: '#2c3e50', offset: [-22, 0] },
+      minorTicks: 0,
+      strokeColor: '#2c3e50'
+    }
+  });
+
+  // Axis labels
+  board.create('text', [10.7, 0, 't'], {
+    anchorX: 'left', anchorY: 'middle',
+    fontSize: 13, fontFamily: 'serif', color: '#2c3e50',
+    fixed: true, highlight: false
+  });
+  board.create('text', [0.2, 52, 'x'], {
+    anchorX: 'left', anchorY: 'middle',
+    fontSize: 13, fontFamily: 'serif', color: '#2c3e50',
+    fixed: true, highlight: false
+  });
+
+  // Solution curve
+  function xVal(t) {
+    return Math.cos(Math.sqrt(8) * t) - 50 * Math.cos(3 * t);
+  }
+
+  var xs = [], ys = [];
+  for (var i = 0; i <= 800; i++) {
+    var t = 10.0 * i / 800;
+    xs.push(t);
+    ys.push(xVal(t));
+  }
+  board.create('curve', [xs, ys], {
+    strokeColor: '#1a5276',
+    strokeWidth: 2,
+    highlight: false
+  });
+</script>
+</body>
+</html>

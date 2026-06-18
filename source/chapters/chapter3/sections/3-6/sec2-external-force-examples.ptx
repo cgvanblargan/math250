@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-external-force-examples" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Two Examples of the Forced System</title>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       INTRO PROSE
+       ═══════════════════════════════════════════════════════════ -->
+
+  <p>
+    We now solve the forced undamped system for two different values of the spring
+    constant <m>k</m>. The method is undetermined coefficients, which you practiced
+    in <xref ref="sec-undetermined-duplication"/> and surrounding sections, so feel
+    free to skim the algebraic details in parts (b) and (c). What matters most is
+    understanding which case you are in and what the general solution looks like at the end.
+  </p>
+
+  <p>
+    Throughout both examples we use <m>m = 1</m>, <m>F_0 = 50</m>, <m>G_0 = 0</m>,
+    and <m>\omega = 3</m>, so the ODE is
+    <me>x'' + kx = 50\cos(3t),</me>
+    and we find the general solution for two choices of <m>k</m>: first <m>k = 8</m>,
+    then <m>k = 9</m>.
+  </p>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       ACTIVITY
+       ═══════════════════════════════════════════════════════════ -->
+
+  <activity xml:id="activity-forced-examples">
+    <title>Solving the Forced System for Two Values of <m>k</m></title>
+
+    <!-- ── Part (a): MC on which case is duplication ── -->
+
+    <task xml:id="task-forced-which-case">
+      <title>Part (a): Which example is the case of duplication?</title>
+      <statement>
+        <p>
+          Which of the two examples is in the case of duplication?
+          (See <xref ref="thm-case-of-duplication"/> for a reminder.)
+        </p>
+      </statement>
+      <choices randomize="yes">
+        <choice correct="yes">
+          <statement>
+            <p>
+              The example with <m>k = 9</m>, because the homogeneous equation becomes
+              <m>x'' + 9x = 0</m>, i.e. <m>x'' + 3^2 x = 0</m>, so <m>x_c</m> contains
+              <m>\cos(3t)</m> and <m>\sin(3t)</m>. The standard guess <m>A\cos(3t) + B\sin(3t)</m>
+              already solves the homogeneous equation, giving us the case of duplication.
+            </p>
+          </statement>
+          <feedback>
+            <p>
+              Correct! When <m>k = 9</m> the homogeneous equation is <m>x'' + 3^2 x = 0</m>,
+              so <m>x_c</m> already contains <m>\cos(3t)</m> and <m>\sin(3t)</m>. The standard
+              guess duplicates <m>x_c</m> and we must multiply by <m>t</m>.
+              Note that this happened because <m>\omega_0 = \sqrt{9} = 3 = \omega</m>:
+              the natural frequency equals the forcing frequency.
+              <m>\checkmark</m>
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement>
+            <p>
+              The example with <m>k = 8</m>, because <m>\omega_0 = \sqrt{8} \neq 3</m>
+              makes the algebra messier.
+            </p>
+          </statement>
+          <feedback>
+            <p>
+              Messier algebra does not mean duplication. The case of duplication is about
+              whether the guess for <m>x_p</m> already appears in <m>x_c</m>, which depends
+              on whether <m>\omega_0 = \omega</m>, not on how clean the numbers are.
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement>
+            <p>
+              Both examples are cases of duplication, since both have cosine on the right-hand side.
+            </p>
+          </statement>
+          <feedback>
+            <p>
+              Having cosine on the right-hand side is not enough to cause duplication.
+              Duplication happens only when the frequency of that cosine matches
+              <m>\omega_0</m>. That only occurs when <m>k = 9</m>.
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement>
+            <p>
+              Neither example is a case of duplication.
+            </p>
+          </statement>
+          <feedback>
+            <p>
+              When <m>k = 9</m>, the natural frequency is <m>\omega_0 = 3</m>, which equals
+              the forcing frequency <m>\omega = 3</m>. So <m>\cos(3t)</m> and <m>\sin(3t)</m>
+              already appear in <m>x_c</m>, and we do have duplication.
+            </p>
+          </feedback>
+        </choice>
+      </choices>
+    </task>
+
+    <p>
+      Notice what triggered the duplication: the natural frequency <m>\omega_0</m> and the
+      forcing frequency <m>\omega</m> happened to be equal when <m>k = 9</m>. When they differ,
+      as with <m>k = 8</m>, there is no duplication and the standard guess works fine.
+      Keep this in mind as you work through the solutions below.
+    </p>
+
+    <!-- ── Part (b): Full solution for k=8 ── -->
+
+    <task xml:id="task-forced-solve-k8">
+      <title>Part (b): General solution when <m>k = 8</m></title>
+      <statement>
+        <p>
+          Find the general solution to <m>x'' + 8x = 50\cos(3t)</m>.
+        </p>
+        <p>
+          <alert>Complementary solution:</alert>
+          <me>x_c = c_1\cos(\sqrt{8}\,t) + c_2\sin(\sqrt{8}\,t).</me>
+        </p>
+        <p>
+          <alert>Particular solution:</alert>
+          <me>x_p = -50\cos(3t).</me>
+        </p>
+        <p>
+          <alert>General solution:</alert>
+          <me>x(t) = c_1\cos(\sqrt{8}\,t) + c_2\sin(\sqrt{8}\,t) - 50\cos(3t).</me>
+        </p>
+      </statement>
+      <solution>
+        <title>Finding <m>x_p</m> (can skim)</title>
+        <p>
+          Since <m>\omega_0 = \sqrt{8} \neq 3 = \omega</m>, this is the normal case.
+          We guess <m>x_p = A\cos(3t) + B\sin(3t)</m> and compute:
+          <md>
+            <mrow>x_p' \amp= -3A\sin(3t) + 3B\cos(3t)</mrow>
+            <mrow>x_p'' \amp= -9A\cos(3t) - 9B\sin(3t)</mrow>
+          </md>
+          Substituting into <m>x'' + 8x</m> and collecting:
+          <me>-A\cos(3t) - B\sin(3t) = 50\cos(3t).</me>
+        </p>
+        <solution>
+          <title>Matching coefficients (can skim)</title>
+          <p>
+            <md>
+              <mrow>-A \amp= 50 \implies A = -50</mrow>
+              <mrow>-B \amp= 0 \implies B = 0</mrow>
+            </md>
+          </p>
+        </solution>
+        <p>
+          So <m>x_p = -50\cos(3t)</m>. Note that <m>B = 0</m> because there is no
+          <m>x'</m> term in the ODE and the right-hand side has no sine.
+        </p>
+      </solution>
+    </task>
+
+    <!-- ── Part (c): Full solution for k=9 ── -->
+
+    <task xml:id="task-forced-solve-k9">
+      <title>Part (c): General solution when <m>k = 9</m></title>
+      <statement>
+        <p>
+          Find the general solution to <m>x'' + 9x = 50\cos(3t)</m>.
+        </p>
+        <p>
+          <alert>Complementary solution:</alert>
+          <me>x_c = c_1\cos(3t) + c_2\sin(3t).</me>
+        </p>
+        <p>
+          <alert>Particular solution:</alert>
+          <me>x_p = \frac{50}{6}\,t\sin(3t).</me>
+        </p>
+        <p>
+          <alert>General solution:</alert>
+          <me>x(t) = c_1\cos(3t) + c_2\sin(3t) + \frac{50}{6}\,t\sin(3t).</me>
+        </p>
+      </statement>
+      <solution>
+        <title>Finding <m>x_p</m> (can skim)</title>
+        <p>
+          Since <m>\omega_0 = 3 = \omega</m>, we have duplication. The modified guess is
+          <m>x_p = t\bigl(A\cos(3t) + B\sin(3t)\bigr)</m>. Computing derivatives by the product rule:
+          <md>
+            <mrow>x_p' \amp= \bigl(A\cos(3t) + B\sin(3t)\bigr) + t\bigl(-3A\sin(3t) + 3B\cos(3t)\bigr)</mrow>
+            <mrow>x_p'' \amp= -6A\sin(3t) + 6B\cos(3t) + t\bigl(-9A\cos(3t) - 9B\sin(3t)\bigr)</mrow>
+          </md>
+          Substituting into <m>x'' + 9x</m>, the <m>t</m> terms cancel and we get:
+          <me>-6A\sin(3t) + 6B\cos(3t) = 50\cos(3t).</me>
+        </p>
+        <solution>
+          <title>Matching coefficients (can skim)</title>
+          <p>
+            <md>
+              <mrow>6B \amp= 50 \implies B = \tfrac{50}{6}</mrow>
+              <mrow>-6A \amp= 0 \implies A = 0</mrow>
+            </md>
+          </p>
+        </solution>
+        <p>
+          So <m>x_p = \tfrac{50}{6}\,t\sin(3t)</m>.
+        </p>
+      </solution>
+    </task>
+
+  </activity>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       CLOSING MC: COMPARING THE TWO EXAMPLES
+       ═══════════════════════════════════════════════════════════ -->
+
+  <p>
+    Look at the two general solutions side by side:
+    <md>
+      <mrow>k = 8: \quad x(t) \amp= c_1\cos(\sqrt{8}\,t) + c_2\sin(\sqrt{8}\,t) - 50\cos(3t)</mrow>
+      <mrow>k = 9: \quad x(t) \amp= c_1\cos(3t) + c_2\sin(3t) + \tfrac{50}{6}\,t\sin(3t)</mrow>
+    </md>
+    They look quite different. What was it about the setup that caused this?
+  </p>
+
+  <exercise xml:id="ex-mc-frequency-comparison">
+    <statement>
+      <p>
+        What is fundamentally different between the two examples that led to such different solutions?
+      </p>
+    </statement>
+    <choices randomize="yes">
+      <choice correct="yes">
+        <statement>
+          <p>
+            In the first example <m>\omega = 3</m> and <m>\omega_0 = \sqrt{8}</m> are different,
+            so we get a standard particular solution. In the second example <m>\omega = \omega_0 = 3</m>,
+            which puts us in the case of duplication and introduces the factor of <m>t</m> in <m>x_p</m>.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            Exactly. When <m>\omega \neq \omega_0</m> (as with <m>k = 8</m>) we get
+            the standard case and a bounded particular solution. When <m>\omega = \omega_0</m>
+            (as with <m>k = 9</m>) the homogeneous equation takes the form
+            <m>x'' + \omega^2 x = 0</m>, so the standard guess already solves it:
+            we are in the case of duplication, the factor of <m>t</m> appears in <m>x_p</m>,
+            and the two solutions look completely different. On the next page we see
+            what this means physically.
+            <m>\checkmark</m>
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            The second example had a larger value of <m>k</m>, which made the ODE harder to solve.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            The size of <m>k</m> alone is not what caused the difference. What mattered
+            was the relationship between <m>\omega_0 = \sqrt{k}</m> and the forcing
+            frequency <m>\omega</m>: specifically, whether they were equal or not.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            The second example required the duplication rule because the right-hand side
+            was more complicated.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            The right-hand side is <m>50\cos(3t)</m> in both examples. The duplication
+            arose because the natural frequency <m>\omega_0 = 3</m> happened to match
+            the forcing frequency <m>\omega = 3</m>, not because of anything different
+            about the right-hand side.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            In the first example <m>B = 0</m> dropped out, making it a simpler calculation.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            That <m>B = 0</m> in the first example is a nice simplification, but it is
+            not the fundamental difference between the two cases. The real distinction
+            is whether the forcing frequency matches the natural frequency.
+          </p>
+        </feedback>
+      </choice>
+    </choices>
+  </exercise>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       KEY TAKEAWAYS
+       ═══════════════════════════════════════════════════════════ -->
+
+  <conclusion>
+    <title>Key Takeaways</title>
+    <p>
+      <ul>
+        <li><p>
+          <alert>Two cases:</alert> When the forcing frequency <m>\omega</m> and the
+          natural frequency <m>\omega_0</m> are different, undetermined coefficients
+          works in the standard way. When <m>\omega = \omega_0</m>, we hit the case of
+          duplication and must multiply the guess by <m>t</m>.
+        </p></li>
+        <li><p>
+          <alert>Frequencies are the key:</alert> The case of duplication is not about
+          the algebra being harder; it arises precisely because the external force is
+          driving the system at its own natural frequency. On the next page we see what
+          this means physically.
+        </p></li>
+      </ul>
+    </p>
+  </conclusion>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       VIDEO + QUESTION FORM
+       ═══════════════════════════════════════════════════════════ -->
+
+  <figure xml:id="video-external-force-examples">
+    <caption>This video goes through the content of this page.</caption>
+    <video youtube="CarmrtOzbgo" width="100%" preview="default"/>
+  </figure>
+
+  <interactive xml:id="question-form-3-6-2"
+    iframe="question-form.html?section=3.6.2"
+    width="100%" aspect="2:1"/>
+
+</section>

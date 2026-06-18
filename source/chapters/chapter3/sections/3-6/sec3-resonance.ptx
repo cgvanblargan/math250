@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-resonance" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Resonance</title>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       INTRO PROSE: RECALL AND NAME RESONANCE
+       ═══════════════════════════════════════════════════════════ -->
+
+  <p>
+    In <xref ref="sec-external-force-examples"/> we found two general solutions
+    to <m>x'' + kx = 50\cos(3t)</m>:
+    <md>
+      <mrow>k = 8: \quad x(t) \amp= \underbrace{c_1\cos(\sqrt{8}\,t) + c_2\sin(\sqrt{8}\,t)}_{x_c}
+        + \underbrace{-50\cos(3t)}_{x_p}</mrow>
+      <mrow>k = 9: \quad x(t) \amp= \underbrace{c_1\cos(3t) + c_2\sin(3t)}_{x_c}
+        + \underbrace{\tfrac{50}{6}\,t\sin(3t)}_{x_p}</mrow>
+    </md>
+    As you noticed, the <m>k = 9</m> case landed in the case of duplication because
+    the natural frequency <m>\omega_0 = \sqrt{9} = 3</m> equaled the forcing frequency
+    <m>\omega = 3</m>. When the natural and forcing frequencies align like this,
+    we say the system is in <alert>resonance</alert>.
+    We will see shortly what this means physically.
+  </p>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       THEOREM: GENERAL SOLUTION IN BOTH CASES
+       ═══════════════════════════════════════════════════════════ -->
+
+  <p>
+    Putting together what we know from undetermined coefficients,
+    the general solution to the forced undamped system looks quite
+    different depending on whether resonance occurs.
+  </p>
+
+  <theorem xml:id="thm-resonance-solution">
+    <title>General Solution: Resonance vs. Non-Resonance</title>
+    <statement>
+      <p>
+        Consider the forced undamped system
+        <me>mx'' + kx = F_0\cos(\omega t) + G_0\sin(\omega t), \quad \omega_0 = \sqrt{\frac{k}{m}}.</me>
+      </p>
+      <p>
+        <ul>
+          <li><p>
+            <alert>Non-resonance</alert> (<m>\omega \neq \omega_0</m>):
+            <me>x(t) = \underbrace{c_1\cos(\omega_0 t) + c_2\sin(\omega_0 t)}_{x_c}
+              + \underbrace{A\cos(\omega t) + B\sin(\omega t)}_{x_p}.</me>
+          </p></li>
+          <li><p>
+            <alert>Resonance</alert> (<m>\omega = \omega_0</m>):
+            <me>x(t) = \underbrace{c_1\cos(\omega_0 t) + c_2\sin(\omega_0 t)}_{x_c}
+              + \underbrace{t\bigl(A\cos(\omega_0 t) + B\sin(\omega_0 t)\bigr)}_{x_p}.</me>
+          </p></li>
+        </ul>
+      </p>
+    </statement>
+  </theorem>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       NON-RESONANCE CASE: PROSE + STATIC GRAPH
+       ═══════════════════════════════════════════════════════════ -->
+
+  <p>
+    In the non-resonance case, both <m>x_c</m> and <m>x_p</m> are pure sinusoidal functions,
+    just at different frequencies (<m>\omega_0</m> and <m>\omega</m> respectively).
+    Their sum oscillates with bounded amplitude forever. Here is the <m>k = 8</m>
+    solution from the previous page:
+  </p>
+
+  <figure xml:id="fig-nonresonance-graph">
+    <caption>
+      The non-resonance solution <m>x(t) = \cos(\sqrt{8}\,t) - 50\cos(3t)</m>
+      (with <m>c_1 = 1</m>, <m>c_2 = 0</m>). Two sinusoidal functions at different frequencies
+      add together; the amplitude stays bounded.
+    </caption>
+    <interactive xml:id="interactive-nonresonance-graph"
+      iframe="ch3-graph/static-resonance-k8.html"
+      width="100%" aspect="5:2">
+      <description>
+        A graph of x of t equals cosine of square root 8 times t minus 50 cosine of 3t,
+        for t from 0 to 10. The curve oscillates with roughly constant amplitude,
+        showing the superposition of two sinusoidal functions at different frequencies.
+        The amplitude stays bounded throughout, neither growing nor decaying.
+      </description>
+    </interactive>
+  </figure>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       MC CHECKPOINT: WHAT HAPPENS AS t GETS LARGE?
+       ═══════════════════════════════════════════════════════════ -->
+
+  <p>
+    Now look at the resonance case. The particular solution is
+    <m>x_p = \frac{50}{6}\,t\sin(3t)</m>. Before looking at the graph, take a guess.
+  </p>
+
+  <exercise xml:id="ex-mc-resonance-behavior">
+    <statement>
+      <p>
+        As <m>t</m> gets larger and larger, what happens to the resonance solution?
+      </p>
+    </statement>
+    <choices randomize="yes">
+      <choice correct="yes">
+        <statement>
+          <p>The oscillations get larger and larger; the amplitude grows without bound.</p>
+        </statement>
+        <feedback>
+          <p>
+            Yes! The factor of <m>t</m> in <m>x_p</m> acts like a growing envelope:
+            the amplitude of the oscillations scales with <m>t</m>, so it grows
+            without bound as <m>t \to \infty</m>.
+            <m>\checkmark</m>
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>The oscillations stay roughly the same size.</p>
+        </statement>
+        <feedback>
+          <p>
+            This would be true if <m>x_p</m> were a pure sinusoidal function. But the factor
+            of <m>t</m> means the amplitude scales with time, so it cannot stay bounded.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>The oscillations gradually die out and <m>x(t) \to 0</m>.</p>
+        </statement>
+        <feedback>
+          <p>
+            Decaying oscillations would require a negative exponential factor like
+            <m>e^{-\alpha t}</m>. Here we have a factor of <m>t</m> growing in the positive
+            direction, so the amplitude increases rather than decreases.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>The solution eventually becomes periodic and repeats.</p>
+        </statement>
+        <feedback>
+          <p>
+            A periodic solution would require a bounded, repeating pattern.
+            The factor of <m>t</m> prevents that: each cycle is bigger than the last,
+            so the solution never repeats.
+          </p>
+        </feedback>
+      </choice>
+    </choices>
+  </exercise>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       POST-MC PROSE: EXPLAIN t FACTOR, THEN GRAPH
+       ═══════════════════════════════════════════════════════════ -->
+
+  <p>
+    In the resonance case the particular solution is
+    <me>x_p = \underbrace{t\bigl(A\cos(\omega_0 t) + B\sin(\omega_0 t)\bigr)}_{\text{factor of } t \text{ out front}}.</me>
+    The factor of <m>t</m> multiplies the sinusoidal part, so as <m>t</m> grows
+    the amplitude grows with it. The complementary solution <m>x_c</m> is just
+    a bounded sinusoidal function riding on top, so the full solution
+    <m>x = x_c + x_p</m> is dominated by the growing <m>x_p</m>.
+  </p>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       ANIMATED RESONANCE GRAPH
+       ═══════════════════════════════════════════════════════════ -->
+
+  <figure xml:id="fig-resonance-animated">
+    <caption>
+      The full resonance solution <m>x(t) = \cos(3t) + \frac{50}{6}\,t\sin(3t)</m>
+      (with <m>c_1 = 1</m>, <m>c_2 = 0</m>).
+      The dashed red curves show the envelope <m>\pm\frac{50}{6}\,t</m> from <m>x_p</m>.
+      Press Play to watch the amplitude grow.
+    </caption>
+    <interactive xml:id="interactive-resonance-animated"
+      iframe="ch3-graph/interactive-resonance-full.html"
+      width="100%" aspect="5:3.2">
+      <description>
+        An animated graph of the full resonance solution x of t equals cosine of 3t
+        plus 50 over 6 times t times sine of 3t, with c1 equals 1 and c2 equals 0.
+        As the animation plays the curve traces out from left to right. Early on the
+        bounded complementary solution is visible, but the growing particular solution
+        quickly dominates. Dashed red envelope curves equal to plus and minus 50 over 6
+        times t spread outward, and by t equals 10 the amplitude is much larger than
+        at the start, illustrating that resonance causes unbounded growth.
+      </description>
+    </interactive>
+  </figure>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       EXAMPLE: FINDING THE RESONANCE FREQUENCY
+       ═══════════════════════════════════════════════════════════ -->
+
+  <example xml:id="example-resonance-frequency">
+    <title>Finding the Resonance Frequency</title>
+    <statement>
+      <p>
+        Suppose <m>m = 1</m>, <m>k = 16</m>, and the external force is
+        <m>F_0\cos(\omega t)</m>. For what forcing frequency <m>\omega</m>
+        does resonance occur?
+      </p>
+    </statement>
+    <hint>
+      <p>
+        Resonance occurs when the forcing frequency equals the natural frequency
+        of the system, <m>\omega = \omega_0 = \sqrt{k/m}</m>.
+        What value of <m>\omega</m> makes this true for the given <m>m</m> and <m>k</m>?
+      </p>
+    </hint>
+    <solution>
+      <p>
+        Resonance occurs when <m>\omega = \omega_0 = \sqrt{k/m} = \sqrt{16} = 4</m>.
+        So we need <m>\omega = 4</m> (taking the positive value).
+      </p>
+      <p>
+        Note that <m>\omega = 4</m> is the circular frequency. The ordinary frequency
+        (in cycles per unit time) is <m>\frac{\omega}{2\pi} = \frac{4}{2\pi} = \frac{2}{\pi}</m>.
+      </p>
+    </solution>
+  </example>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       KEY TAKEAWAYS
+       ═══════════════════════════════════════════════════════════ -->
+
+  <conclusion>
+    <title>Key Takeaways</title>
+    <p>
+      <ul>
+        <li><p>
+          <alert>Resonance</alert> occurs when the forcing frequency <m>\omega</m>
+          equals the natural frequency <m>\omega_0 = \sqrt{k/m}</m>. Mathematically,
+          this is exactly the case of duplication for undetermined coefficients.
+        </p></li>
+        <li><p>
+          <alert>Non-resonance</alert> (<m>\omega \neq \omega_0</m>): the solution is a
+          bounded superposition of pure sinusoidal functions at different frequencies.
+          The amplitude stays constant forever.
+        </p></li>
+        <li><p>
+          <alert>Resonance</alert> (<m>\omega = \omega_0</m>): the particular solution
+          picks up a factor of <m>t</m>, which forces the amplitude to grow without bound
+          as <m>t \to \infty</m>. In a physical system this means the oscillations grow
+          larger and larger over time with no limit.
+        </p></li>
+      </ul>
+    </p>
+  </conclusion>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       VIDEO + QUESTION FORM
+       ═══════════════════════════════════════════════════════════ -->
+
+  <figure xml:id="video-resonance">
+    <caption>This video goes through the content of this page.</caption>
+    <video youtube="NrKaZTAfGn8" width="100%" preview="default"/>
+  </figure>
+
+  <interactive xml:id="question-form-3-6-3"
+    iframe="question-form.html?section=3.6.3"
+    width="100%" aspect="2:1"/>
+
+</section>
