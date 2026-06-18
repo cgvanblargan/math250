@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resonance: full solution animated</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jsxgraph/1.6.0/jsxgraph.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jsxgraph/1.6.0/jsxgraphcore.js"></script>
+<style>
+  body { margin: 0; padding: 10px; font-family: serif; background: transparent; overflow: hidden; }
+
+  #title-display {
+    text-align: center;
+    font-size: 15px;
+    font-family: serif;
+    color: #2c3e50;
+    margin-bottom: 6px;
+  }
+
+  #jxgbox {
+    width: 100%;
+    height: 220px;
+    border: 1px solid #bdc3c7;
+  }
+
+  #controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    margin-top: 8px;
+    font-family: serif;
+    font-size: 14px;
+    color: #2c3e50;
+  }
+
+  #play-btn {
+    padding: 5px 18px;
+    font-size: 14px;
+    font-family: serif;
+    background: #922b21;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  #play-btn:hover { background: #7b241c; }
+
+  #big-text {
+    text-align: center;
+    font-size: 22px;
+    font-weight: bold;
+    font-family: serif;
+    color: #922b21;
+    letter-spacing: 1px;
+    min-height: 30px;
+    margin-top: 4px;
+    visibility: hidden;
+  }
+
+  #caption {
+    text-align: center;
+    font-size: 13px;
+    font-family: serif;
+    color: #555;
+    margin-top: 4px;
+  }
+</style>
+</head>
+<body>
+
+<div id="title-display">
+  <i>x</i>(<i>t</i>) = cos(3<i>t</i>) + (50/6)<i>t</i> sin(3<i>t</i>)
+  &nbsp;&nbsp;(<i>c</i><sub>1</sub> = 1, <i>c</i><sub>2</sub> = 0)
+</div>
+
+<div id="jxgbox"
+  role="img"
+  aria-label="Animated graph of the full resonance solution x of t equals cosine of 3t plus 50 over 6 times t times sine of 3t. As time progresses the oscillations grow larger and larger due to the t sin 3t term, with the amplitude envelope shown as dashed red curves. The complementary solution contributes a small bounded oscillation but the particular solution dominates and grows without bound."
+  aria-live="polite"
+  aria-describedby="anim-status">
+</div>
+
+<div id="controls">
+  <button id="play-btn" aria-label="Play animation showing full resonance solution growth">Play</button>
+  <span id="anim-status" role="status" aria-live="polite">Press Play to watch the full resonance solution.</span>
+</div>
+
+<div id="big-text" aria-live="assertive">AMPLITUDE IS GETTING HUGE!</div>
+
+<div id="caption">
+  Dashed red: envelope &plusmn;(50/6)<i>t</i> from <i>x<sub>p</sub></i>.
+  The bounded <i>x<sub>c</sub></i> = cos(3<i>t</i>) is swamped by the growing <i>x<sub>p</sub></i>.
+</div>
+
+<script>
+  var T_MAX = 10;
+  var Y_MAX = 60;
+
+  var board = JXG.JSXGraph.initBoard('jxgbox', {
+    boundingbox: [-0.4, Y_MAX, T_MAX + 0.4, -Y_MAX],
+    axis: false,
+    grid: false,
+    showNavigation: false,
+    showCopyright: false,
+    pan: { enabled: false },
+    zoom: { enabled: false }
+  });
+
+  // Axes
+  board.create('axis', [[0,0],[1,0]], {
+    strokeColor: '#2c3e50', strokeWidth: 1.5,
+    lastArrow: { type: 1, size: 6 },
+    ticks: {
+      ticksDistance: 2,
+      label: { fontSize: 11, fontFamily: 'serif', color: '#2c3e50', offset: [0, -12] },
+      minorTicks: 0,
+      strokeColor: '#2c3e50'
+    }
+  });
+  board.create('axis', [[0,0],[0,1]], {
+    strokeColor: '#2c3e50', strokeWidth: 1.5,
+    lastArrow: { type: 1, size: 6 },
+    ticks: {
+      ticksDistance: 20,
+      label: { fontSize: 11, fontFamily: 'serif', color: '#2c3e50', offset: [-22, 0] },
+      minorTicks: 0,
+      strokeColor: '#2c3e50'
+    }
+  });
+
+  board.create('text', [T_MAX + 0.6, 0, 't'], {
+    anchorX: 'left', anchorY: 'middle',
+    fontSize: 13, fontFamily: 'serif', color: '#2c3e50',
+    fixed: true, highlight: false
+  });
+  board.create('text', [0.3, Y_MAX - 4, 'x'], {
+    anchorX: 'left', anchorY: 'middle',
+    fontSize: 13, fontFamily: 'serif', color: '#2c3e50',
+    fixed: true, highlight: false
+  });
+
+  function xFull(t)  { return Math.cos(3*t) + (50/6)*t*Math.sin(3*t); }
+  function xp(t)     { return (50/6)*t*Math.sin(3*t); }
+  function envPos(t) { return  (50/6)*t; }
+  function envNeg(t) { return -(50/6)*t; }
+
+  function buildCurve(fn, tEnd, steps) {
+    var xs = [], ys = [];
+    for (var i = 0; i <= steps; i++) {
+      var t = tEnd * i / steps;
+      xs.push(t);
+      ys.push(fn(t));
+    }
+    return [xs, ys];
+  }
+
+  var mainCurve = board.create('curve', [[], []], {
+    strokeColor: '#1a5276',
+    strokeWidth: 2.5,
+    highlight: false
+  });
+  var envCurvePos = board.create('curve', [[], []], {
+    strokeColor: '#922b21',
+    strokeWidth: 1.5,
+    dash: 2,
+    strokeOpacity: 0.7,
+    highlight: false
+  });
+  var envCurveNeg = board.create('curve', [[], []], {
+    strokeColor: '#922b21',
+    strokeWidth: 1.5,
+    dash: 2,
+    strokeOpacity: 0.7,
+    highlight: false
+  });
+
+  // Label xp and xc on the graph
+  var labelXp = board.create('text', [0, 0, 'x\u2099'], {
+    anchorX: 'left', anchorY: 'middle',
+    fontSize: 12, fontFamily: 'serif', color: '#922b21',
+    fixed: true, highlight: false, visible: false
+  });
+
+  var animating = false;
+  var tCurrent = 0;
+  var animInterval = null;
+  var FRAME_MS = 30;
+
+  function drawUpTo(tEnd) {
+    var steps = Math.round(tEnd * 40);
+    var pts  = buildCurve(xFull,  tEnd, steps);
+    var pPos = buildCurve(envPos, tEnd, Math.round(tEnd * 15));
+    var pNeg = buildCurve(envNeg, tEnd, Math.round(tEnd * 15));
+
+    mainCurve.dataX   = pts[0];  mainCurve.dataY   = pts[1];
+    envCurvePos.dataX = pPos[0]; envCurvePos.dataY = pPos[1];
+    envCurveNeg.dataX = pNeg[0]; envCurveNeg.dataY = pNeg[1];
+    board.update();
+  }
+
+  function step() {
+    tCurrent += T_MAX / (T_MAX * 1000 / FRAME_MS);
+    if (tCurrent >= T_MAX) {
+      tCurrent = T_MAX;
+      drawUpTo(tCurrent);
+      clearInterval(animInterval);
+      animating = false;
+      document.getElementById('play-btn').textContent = 'Replay';
+      document.getElementById('anim-status').textContent =
+        'Animation complete. The amplitude has grown without bound.';
+      return;
+    }
+    drawUpTo(tCurrent);
+
+    if (tCurrent > 6) {
+      document.getElementById('big-text').style.visibility = 'visible';
+    }
+
+    if (Math.round(tCurrent * 10) % 20 === 0) {
+      document.getElementById('anim-status').textContent =
+        'Animating resonance. Current time t equals ' + tCurrent.toFixed(1) + '.';
+    }
+  }
+
+  document.getElementById('play-btn').addEventListener('click', function() {
+    if (animating) return;
+    tCurrent = 0;
+    document.getElementById('big-text').style.visibility = 'hidden';
+    document.getElementById('anim-status').textContent = 'Animation playing.';
+    document.getElementById('play-btn').textContent = 'Playing...';
+    drawUpTo(0);
+    animating = true;
+    animInterval = setInterval(step, FRAME_MS);
+  });
+</script>
+</body>
+</html>

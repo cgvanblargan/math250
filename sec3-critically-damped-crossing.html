@@ -130,7 +130,7 @@ eBookConfig.enable_chatcodes =  false;
 <ol id="searchresults" class="searchresults"></ol>
 </div>
 </div>
-<span class="nav-other-controls"><button id="light-dark-button" class="light-dark-button button" title="Dark Mode"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span class="name">Dark Mode</span></button></span><span class="treebuttons"><a class="previous-button button" href="sec-critically-damped-analysis.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="sec-3-4.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="backmatter.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
+<span class="nav-other-controls"><button id="light-dark-button" class="light-dark-button button" title="Dark Mode"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span class="name">Dark Mode</span></button></span><span class="treebuttons"><a class="previous-button button" href="sec-critically-damped-analysis.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="sec-3-4.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="sec-3-5.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
 </div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\N}{\mathbb N} \newcommand{\Z}{\mathbb Z} \newcommand{\Q}{\mathbb Q} \newcommand{\R}{\mathbb R}
 \newcommand{\lt}{&lt;}
 \newcommand{\gt}{&gt;}
@@ -282,6 +282,26 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-section active"><div class="toc-title-box"><a href="sec3-critically-damped-crossing.html" class="internal"><span class="codenumber">3.4.5</span> <span class="title">Analyzing a Critically Damped System: Finding Maximum Stretch</span></a></div></li>
 </ul>
 </li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-3-5.html" class="internal"><span class="codenumber">3.5</span> <span class="title">The Method of Undetermined Coefficients</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-undetermined-part-1.html" class="internal"><span class="codenumber">3.5.1</span> <span class="title">A First Look at Non-Homogeneous Equations</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-undetermined-part-2.html" class="internal"><span class="codenumber">3.5.2</span> <span class="title">The Guess That Works</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-undetermined-duplication.html" class="internal"><span class="codenumber">3.5.3</span> <span class="title">The Case of Duplication</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-undetermined-dup-example.html" class="internal"><span class="codenumber">3.5.4</span> <span class="title">Example with the Case of Duplication</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-undetermined-guess-practice.html" class="internal"><span class="codenumber">3.5.5</span> <span class="title">Practice: Finding the Right Guess for <span class="process-math">\(y_p\)</span></span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-general-solution-nonhomogeneous.html" class="internal"><span class="codenumber">3.5.6</span> <span class="title">The General Solution</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-nonhomogeneous-ivp.html" class="internal"><span class="codenumber">3.5.7</span> <span class="title">Solving an IVP with a Non-Homogeneous Equation</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-3-6.html" class="internal"><span class="codenumber">3.6</span> <span class="title">External Forces and Resonance</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-external-force-setup.html" class="internal"><span class="codenumber">3.6.1</span> <span class="title">Setting Up the Forced Undamped System</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-external-force-examples.html" class="internal"><span class="codenumber">3.6.2</span> <span class="title">Two Examples of the Forced System</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-resonance.html" class="internal"><span class="codenumber">3.6.3</span> <span class="title">Resonance</span></a></div></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toc-item toc-backmatter">
@@ -295,15 +315,17 @@ eBookConfig.enable_chatcodes =  false;
 <main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec3-critically-damped-crossing"><h2 class="heading hide-type">
 <span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.4.5</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Analyzing a Critically Damped System: Finding Maximum Stretch</span>
 </h2>
-<div class="para logical" id="sec3-critically-damped-crossing-2">
+<div class="para" id="sec3-critically-damped-crossing-2">We now work through a harder example of the same type from <a href="sec-critically-damped-analysis.html" class="internal" title="Section 3.4.4: Analyzing a Critically Damped System">Section 3.4.4</a>. This time the mass starts compressed but <em class="emphasis">does</em> cross the equilibrium, so we need to track down both the crossing time and the later critical point to find the maximum stretch.<div class="autopermalink" data-description="Paragraph"><a href="#sec3-critically-damped-crossing-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="sec3-critically-damped-crossing-3">
 <div class="para">Consider the spring-mass-dashpot system with position function</div>
-<div class="displaymath process-math" id="sec3-critically-damped-crossing-2-1">
+<div class="displaymath process-math" id="sec3-critically-damped-crossing-3-1">
 \begin{equation*}
 x(t) = -9e^{-t} + 3te^{-t}, \quad t \geq 0.
 \end{equation*}
 </div>
 <div class="para">As usual, <span class="process-math">\(x(t) &gt; 0\)</span> means the spring is stretched and <span class="process-math">\(x(t) \lt 0\)</span> means it is compressed.</div>
-<div class="autopermalink" data-description="Paragraph"><a href="#sec3-critically-damped-crossing-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec3-critically-damped-crossing-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="example example-like" id="ex-critically-damped-crossing"><h3 class="heading">
 <span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.4.1</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Finding the Time of Maximum Stretch.</span>
@@ -354,9 +376,10 @@ x(0) = -9e^0 + 3(0)e^0 = -9 \lt 0,
 </div>
 <div class="para">so the mass starts compressed. Differentiating using the product rule:</div>
 <div class="displaymath process-math" id="ex-critically-damped-crossing-4-2-2-4">
-\begin{equation*}
-x'(t) = -(-9e^{-t}) + 3e^{-t} + 3t(-e^{-t}) = 9e^{-t} + 3e^{-t} - 3te^{-t} = e^{-t}(12 - 3t),
-\end{equation*}
+\begin{align*}
+x'(t) \amp= 9e^{-t} + 3e^{-t} - 3te^{-t}\\
+\amp= e^{-t}(12 - 3t),
+\end{align*}
 </div>
 <div class="para">so <span class="process-math">\(x'(0) = e^0(12) = 12 &gt; 0\text{.}\)</span> The mass starts compressed and is initially moving in the positive direction, toward the equilibrium.</div>
 <div class="autopermalink" data-description="Paragraph"><a href="#ex-critically-damped-crossing-4-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
@@ -383,7 +406,7 @@ x'(t) = -(-9e^{-t}) + 3e^{-t} + 3t(-e^{-t}) = 9e^{-t} + 3e^{-t} - 3te^{-t} = e^{
 <em class="alert">Step 3:</em> The maximum stretch occurs at a <em class="alert">critical point</em> where <span class="process-math">\(x'(t) = 0\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex-critically-damped-crossing-4-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <details id="ex-critically-damped-crossing-4-6" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Reasoning for Step 3</span></summary><div class="solution solution-like knowl__content">
-<div class="para" id="ex-critically-damped-crossing-4-6-2">The maximum stretch occurs either at <span class="process-math">\(t = 0\)</span> or at a critical point where <span class="process-math">\(x'(t) = 0\text{.}\)</span> Since the mass starts compressed (<span class="process-math">\(x(0) = -9 \lt 0\)</span>), the maximum stretch cannot occur at <span class="process-math">\(t = 0\text{.}\)</span> The mass crosses the equilibrium at <span class="process-math">\(t = 3\)</span> and becomes stretched, so the maximum stretch must occur at some <span class="process-math">\(t &gt; 3\text{.}\)</span> Since it is a local maximum at a valid time, it must be a critical point.<div class="autopermalink" data-description="Paragraph"><a href="#ex-critically-damped-crossing-4-6-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="ex-critically-damped-crossing-4-6-2">The maximum stretch occurs either at <span class="process-math">\(t = 0\)</span> or at a critical point where <span class="process-math">\(x'(t) = 0\text{.}\)</span> Since the mass starts compressed (<span class="process-math">\(x(0) = -9 \lt 0\)</span>), the maximum stretch cannot occur at <span class="process-math">\(t = 0\text{.}\)</span> The mass crosses the equilibrium at <span class="process-math">\(t = 3\)</span> and becomes stretched, so the maximum stretch must occur at some <span class="process-math">\(t &gt; 3\text{.}\)</span> Since <span class="process-math">\(x(t)\)</span> is differentiable, any local maximum must occur at a critical point where <span class="process-math">\(x'(t) = 0\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex-critically-damped-crossing-4-6-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Solution 3.4.1.1.3: Reasoning for Step 3"><a href="#ex-critically-damped-crossing-4-6" title="Copy heading and permalink for Solution 3.4.1.1.3: Reasoning for Step 3" aria-label="Copy heading and permalink for Solution 3.4.1.1.3: Reasoning for Step 3">🔗</a></div>
 </div></details><div class="para" id="ex-critically-damped-crossing-4-7">
@@ -410,32 +433,34 @@ x(4) = -9e^{-4} + 3(4)e^{-4} = e^{-4}(-9 + 12) = 3e^{-4} \approx 0.055.
 </div></details><div class="autopermalink" data-description="Solution 3.4.1.1"><a href="#ex-critically-damped-crossing-4" title="Copy heading and permalink for Solution 3.4.1.1" aria-label="Copy heading and permalink for Solution 3.4.1.1">🔗</a></div>
 </div></details>
 </div>
-<div class="autopermalink" data-description="Example 3.4.1: Finding the Time of Maximum Stretch"><a href="#ex-critically-damped-crossing" title="Copy heading and permalink for Example 3.4.1: Finding the Time of Maximum Stretch" aria-label="Copy heading and permalink for Example 3.4.1: Finding the Time of Maximum Stretch">🔗</a></div></article><div class="para logical" id="sec3-critically-damped-crossing-4">
+<div class="autopermalink" data-description="Example 3.4.1: Finding the Time of Maximum Stretch"><a href="#ex-critically-damped-crossing" title="Copy heading and permalink for Example 3.4.1: Finding the Time of Maximum Stretch" aria-label="Copy heading and permalink for Example 3.4.1: Finding the Time of Maximum Stretch">🔗</a></div></article><div class="para logical" id="sec3-critically-damped-crossing-5">
 <div class="para">Notice that we have determined the following about the motion:</div>
-<ul class="disc" id="sec3-critically-damped-crossing-4-1">
-<li id="sec3-critically-damped-crossing-4-1-1">
-<div class="para" id="sec3-critically-damped-crossing-4-1-1-1">The mass starts <em class="alert">compressed</em> (since <span class="process-math">\(x(0) = -9 \lt 0\)</span>).<div class="autopermalink" data-description="Paragraph"><a href="#sec3-critically-damped-crossing-4-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<ul class="disc" id="sec3-critically-damped-crossing-5-1">
+<li id="sec3-critically-damped-crossing-5-1-1">
+<div class="para" id="sec3-critically-damped-crossing-5-1-1-1">The mass starts <em class="alert">compressed</em> (since <span class="process-math">\(x(0) = -9 \lt 0\)</span>).<div class="autopermalink" data-description="Paragraph"><a href="#sec3-critically-damped-crossing-5-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Item"><a href="#sec3-critically-damped-crossing-4-1-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+<div class="autopermalink" data-description="Item"><a href="#sec3-critically-damped-crossing-5-1-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
 </li>
-<li id="sec3-critically-damped-crossing-4-1-2">
-<div class="para" id="sec3-critically-damped-crossing-4-1-2-1">The mass crosses the equilibrium at <em class="alert"><span class="process-math">\(t = 3\)</span></em> (the only solution to <span class="process-math">\(x(t) = 0\)</span> for <span class="process-math">\(t &gt; 0\)</span>).<div class="autopermalink" data-description="Paragraph"><a href="#sec3-critically-damped-crossing-4-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<li id="sec3-critically-damped-crossing-5-1-2">
+<div class="para" id="sec3-critically-damped-crossing-5-1-2-1">The mass crosses the equilibrium at <em class="alert"><span class="process-math">\(t = 3\)</span></em> (the only solution to <span class="process-math">\(x(t) = 0\)</span> for <span class="process-math">\(t &gt; 0\)</span>).<div class="autopermalink" data-description="Paragraph"><a href="#sec3-critically-damped-crossing-5-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Item"><a href="#sec3-critically-damped-crossing-4-1-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+<div class="autopermalink" data-description="Item"><a href="#sec3-critically-damped-crossing-5-1-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
 </li>
-<li id="sec3-critically-damped-crossing-4-1-3">
-<div class="para" id="sec3-critically-damped-crossing-4-1-3-1">Maximum stretch occurs at <em class="alert"><span class="process-math">\(t = 4\)</span></em> (occurs at the only critical point where <span class="process-math">\(x'(t) = 0\)</span>).<div class="autopermalink" data-description="Paragraph"><a href="#sec3-critically-damped-crossing-4-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<li id="sec3-critically-damped-crossing-5-1-3">
+<div class="para" id="sec3-critically-damped-crossing-5-1-3-1">Maximum stretch occurs at <em class="alert"><span class="process-math">\(t = 4\)</span></em> (the only critical point where <span class="process-math">\(x'(t) = 0\)</span>).<div class="autopermalink" data-description="Paragraph"><a href="#sec3-critically-damped-crossing-5-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Item"><a href="#sec3-critically-damped-crossing-4-1-3" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+<div class="autopermalink" data-description="Item"><a href="#sec3-critically-damped-crossing-5-1-3" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
 </li>
-<li id="sec3-critically-damped-crossing-4-1-4">
-<div class="para" id="sec3-critically-damped-crossing-4-1-4-1">After <span class="process-math">\(t = 4\text{,}\)</span> the mass never crosses the equilibrium again, but we know <span class="process-math">\(\displaystyle\lim_{t \to \infty} x(t) = 0\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec3-critically-damped-crossing-4-1-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<li id="sec3-critically-damped-crossing-5-1-4">
+<div class="para" id="sec3-critically-damped-crossing-5-1-4-1">After <span class="process-math">\(t = 4\text{,}\)</span> the mass never crosses the equilibrium again, but <span class="process-math">\(\displaystyle\lim_{t \to \infty} x(t) = 0\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec3-critically-damped-crossing-5-1-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Item"><a href="#sec3-critically-damped-crossing-4-1-4" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+<div class="autopermalink" data-description="Item"><a href="#sec3-critically-damped-crossing-5-1-4" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
 </li>
 </ul>
-<div class="para">Now that you have had a lot of practice building pictures of motion, try sketching the graph yourself using the information above before answering the checkpoint below.</div>
-<div class="autopermalink" data-description="Paragraph"><a href="#sec3-critically-damped-crossing-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec3-critically-damped-crossing-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="sec3-critically-damped-crossing-6">
+<em class="alert">Before looking at the checkpoint below, try sketching the graph yourself using the four facts above. No graph is provided here on purpose, since sketching it yourself is the best way to check your understanding.</em><div class="autopermalink" data-description="Paragraph"><a href="#sec3-critically-damped-crossing-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="task exercise-like" id="task-critically-damped-crossing-mc"><h3 class="heading">
 <span class="codenumber">(a)</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Behavior After Crossing Equilibrium.</span>
@@ -454,11 +479,21 @@ x(4) = -9e^{-4} + 3(4)e^{-4} = e^{-4}(-9 + 12) = 3e^{-4} \approx 0.055.
 <li data-component="feedback" id="rs-task-critically-damped-crossing-mc_opt_c"><div class="para" id="task-critically-damped-crossing-mc-3-3-2-1">This is the behavior of an underdamped system. Since <span class="process-math">\(x(t) = -9e^{-t} + 3te^{-t}\)</span> is critically damped, it crosses the equilibrium at most once and does not oscillate.</div></li>
 </ul>
 </div></div>
-<div class="autopermalink" data-description="Task 3.4.5.a: Behavior After Crossing Equilibrium"><a href="#task-critically-damped-crossing-mc" title="Copy heading and permalink for Task 3.4.5.a: Behavior After Crossing Equilibrium" aria-label="Copy heading and permalink for Task 3.4.5.a: Behavior After Crossing Equilibrium">🔗</a></div></article><figure class="figure figure-like" id="video-critically-damped-crossing"><div class="video-box" style="width: 100%;padding-top: 56.25%; margin-left: 0%; margin-right: 0%;"><iframe class="video" allowfullscreen="" src="https://www.youtube-nocookie.com/embed/cWbmgDXJwCk?&amp;modestbranding=1&amp;rel=0" id="video-critically-damped-crossing-2"></iframe></div>
+<div class="autopermalink" data-description="Task 3.4.5.a: Behavior After Crossing Equilibrium"><a href="#task-critically-damped-crossing-mc" title="Copy heading and permalink for Task 3.4.5.a: Behavior After Crossing Equilibrium" aria-label="Copy heading and permalink for Task 3.4.5.a: Behavior After Crossing Equilibrium">🔗</a></div></article><section class="conclusion" id="sec3-critically-damped-crossing-8"><h3 class="heading">Key Takeaways.<span></span>
+</h3>
+<div class="para logical" id="sec3-critically-damped-crossing-8-2">
+<ul class="disc" id="sec3-critically-damped-crossing-8-2-1"><li id="sec3-critically-damped-crossing-8-2-1-1">
+<div class="para" id="sec3-critically-damped-crossing-8-2-1-1-1">
+<em class="alert">The four-step approach:</em> find <span class="process-math">\(x(0)\)</span> and <span class="process-math">\(x'(0)\text{,}\)</span> check for equilibrium crossings, determine where the maximum occurs (at <span class="process-math">\(t = 0\)</span> or a critical point), then solve <span class="process-math">\(x'(t) = 0\)</span> if needed. A sketch ties all four steps together.<div class="autopermalink" data-description="Paragraph"><a href="#sec3-critically-damped-crossing-8-2-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#sec3-critically-damped-crossing-8-2-1-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li></ul>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec3-critically-damped-crossing-8-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></section><figure class="figure figure-like" id="video-critically-damped-crossing"><div class="video-box" style="width: 100%;padding-top: 56.25%; margin-left: 0%; margin-right: 0%;"><iframe class="video" allowfullscreen="" src="https://www.youtube-nocookie.com/embed/cWbmgDXJwCk?&amp;modestbranding=1&amp;rel=0" id="video-critically-damped-crossing-2"></iframe></div>
 <figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.4.2<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>This video goes through the content of this page.<div class="autopermalink" data-description="Figure 3.4.2"><a href="#video-critically-damped-crossing" title="Copy heading and permalink for Figure 3.4.2" aria-label="Copy heading and permalink for Figure 3.4.2">🔗</a></div></figcaption></figure><div class="interactive-iframe-container"><iframe src="external/question-form.html?section=3.4.5" id="question-form-3-4-5" style="width:600px; height:300px; display: block; "></iframe></div>
 <div class="autopermalink" data-description="Section 3.4.5: Analyzing a Critically Damped System: Finding Maximum Stretch"><a href="#sec3-critically-damped-crossing" title="Copy heading and permalink for Section 3.4.5: Analyzing a Critically Damped System: Finding Maximum Stretch" aria-label="Copy heading and permalink for Section 3.4.5: Analyzing a Critically Damped System: Finding Maximum Stretch">🔗</a></div></section></div>
 <div id="ptx-content-footer" class="ptx-content-footer">
-<a class="previous-button button" href="sec-critically-damped-analysis.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="backmatter.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+<a class="previous-button button" href="sec-critically-damped-analysis.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="sec-3-5.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
 </div></main>
 </div>
 <div id="ptx-page-footer" class="ptx-page-footer">

@@ -282,6 +282,26 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="sec3-critically-damped-crossing.html" class="internal"><span class="codenumber">3.4.5</span> <span class="title">Analyzing a Critically Damped System: Finding Maximum Stretch</span></a></div></li>
 </ul>
 </li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-3-5.html" class="internal"><span class="codenumber">3.5</span> <span class="title">The Method of Undetermined Coefficients</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-undetermined-part-1.html" class="internal"><span class="codenumber">3.5.1</span> <span class="title">A First Look at Non-Homogeneous Equations</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-undetermined-part-2.html" class="internal"><span class="codenumber">3.5.2</span> <span class="title">The Guess That Works</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-undetermined-duplication.html" class="internal"><span class="codenumber">3.5.3</span> <span class="title">The Case of Duplication</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-undetermined-dup-example.html" class="internal"><span class="codenumber">3.5.4</span> <span class="title">Example with the Case of Duplication</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-undetermined-guess-practice.html" class="internal"><span class="codenumber">3.5.5</span> <span class="title">Practice: Finding the Right Guess for <span class="process-math">\(y_p\)</span></span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-general-solution-nonhomogeneous.html" class="internal"><span class="codenumber">3.5.6</span> <span class="title">The General Solution</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-nonhomogeneous-ivp.html" class="internal"><span class="codenumber">3.5.7</span> <span class="title">Solving an IVP with a Non-Homogeneous Equation</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-3-6.html" class="internal"><span class="codenumber">3.6</span> <span class="title">External Forces and Resonance</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-external-force-setup.html" class="internal"><span class="codenumber">3.6.1</span> <span class="title">Setting Up the Forced Undamped System</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-external-force-examples.html" class="internal"><span class="codenumber">3.6.2</span> <span class="title">Two Examples of the Forced System</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-resonance.html" class="internal"><span class="codenumber">3.6.3</span> <span class="title">Resonance</span></a></div></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toc-item toc-backmatter">
@@ -295,7 +315,19 @@ eBookConfig.enable_chatcodes =  false;
 <main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec-critically-damped"><h2 class="heading hide-type">
 <span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.3.4</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Behavior of Critically Damped Solutions</span>
 </h2>
-<article class="observation remark-like" id="obs-critdamped-form"><h3 class="heading">
+<div class="para logical" id="sec-critically-damped-2">
+<div class="para">Finally, let’s look at the borderline case sitting right between the previous two. When <span class="process-math">\(c^2 = 4km\text{,}\)</span> the characteristic equation has one repeated real root <span class="process-math">\(r = -c/(2m)\text{,}\)</span> and the system is called <dfn class="terminology">critically damped</dfn>. The general solution takes the form:</div>
+<div class="displaymath process-math" id="sec-critically-damped-2-4">
+\begin{equation*}
+x(t) = c_1 e^{rt} + c_2 t e^{rt}.
+\end{equation*}
+</div>
+<div class="para">If this setup feels familiar, that’s because it is, this page will closely mirror the overdamped page, just with a repeated root instead of two distinct ones.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec-critically-damped-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="sec-critically-damped-3" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h3 class="heading"><span class="title">Why is the root negative? (can skim).</span></h3></summary><article class="hiddenproof knowl__content"><div class="para" id="sec-critically-damped-3-2">The repeated root is <span class="process-math">\(r = -c/(2m)\text{.}\)</span> Since <span class="process-math">\(c &gt; 0\)</span> and <span class="process-math">\(m &gt; 0\text{,}\)</span> the numerator is negative and the denominator is positive, so <span class="process-math">\(r \lt 0\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-critically-damped-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Justification 3.3.4.1: Why is the root negative? (can skim)"><a href="#sec-critically-damped-3" title="Copy heading and permalink for Justification 3.3.4.1: Why is the root negative? (can skim)" aria-label="Copy heading and permalink for Justification 3.3.4.1: Why is the root negative? (can skim)">🔗</a></div></article></details><article class="observation remark-like" id="obs-critdamped-form"><h3 class="heading">
 <span class="type">Observation</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.3.1</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Critically Damped Solution Form.</span>
 </h3>
 <div class="para logical" id="obs-critdamped-form-2">
@@ -309,10 +341,10 @@ x(t) = c_1 e^{rt} + c_2 t e^{rt},
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#obs-critdamped-form-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Observation 3.3.1: Critically Damped Solution Form"><a href="#obs-critdamped-form" title="Copy heading and permalink for Observation 3.3.1: Critically Damped Solution Form" aria-label="Copy heading and permalink for Observation 3.3.1: Critically Damped Solution Form">🔗</a></div></article><div class="para" id="sec-critically-damped-3">Like the overdamped case in <a href="sec-overdamped.html" class="internal" title="Section 3.3.3: Behavior of Overdamped Solutions">Section 3.3.3</a>, there are no trigonometric functions, so there is no oscillation. The new feature here is the <span class="process-math">\(te^{rt}\)</span> term, which we saw arise from the repeated root structure in <a href="sec-all-three-cases.html" class="internal" title="Section 3.1.3: All Three Cases of the Characteristic Equation">Section 3.1.3</a>.<div class="autopermalink" data-description="Paragraph"><a href="#sec-critically-damped-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Observation 3.3.1: Critically Damped Solution Form"><a href="#obs-critdamped-form" title="Copy heading and permalink for Observation 3.3.1: Critically Damped Solution Form" aria-label="Copy heading and permalink for Observation 3.3.1: Critically Damped Solution Form">🔗</a></div></article><div class="para" id="sec-critically-damped-5">Like the overdamped case in <a href="sec-overdamped.html" class="internal" title="Section 3.3.3: Behavior of Overdamped Solutions">Section 3.3.3</a>, there are no trig functions anywhere in sight, so there is no oscillation. The new feature here is the <span class="process-math">\(te^{rt}\)</span> term, which we saw arise from the repeated root structure in <a href="sec-all-three-cases.html" class="internal" title="Section 3.1.3: All Three Cases of the Characteristic Equation">Section 3.1.3</a>.<div class="autopermalink" data-description="Paragraph"><a href="#sec-critically-damped-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <figure class="figure figure-like" id="fig-critdamped-spring"><div class="interactive-iframe-container"><iframe src="external/ch3-graph/interactive-critdamped-spring.html" id="interactive-critdamped-spring" style="width:600px; height:240px; display: block; "></iframe></div>
-<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.3.2<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>A critically damped spring with <span class="process-math">\(r = -0.5\text{,}\)</span> <span class="process-math">\(c_1 = -1\text{,}\)</span> <span class="process-math">\(c_2 = -2\text{,}\)</span> so <span class="process-math">\(x(t) = -e^{-0.5t} - 2te^{-0.5t}\text{.}\)</span> Press Play and notice the mass starts compressed, becomes more compressed before turning around, then slowly approaches equilibrium without ever crossing it.<div class="autopermalink" data-description="Figure 3.3.2"><a href="#fig-critdamped-spring" title="Copy heading and permalink for Figure 3.3.2" aria-label="Copy heading and permalink for Figure 3.3.2">🔗</a></div></figcaption></figure><div class="para" id="sec-critically-damped-5">In the animation above the mass never crossed equilibrium. But as with the overdamped case, whether or not it crosses depends on <span class="process-math">\(c_1\)</span> and <span class="process-math">\(c_2\text{.}\)</span> Explore below to find out what is possible.<div class="autopermalink" data-description="Paragraph"><a href="#sec-critically-damped-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.3.2<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>A critically damped spring with <span class="process-math">\(r = -0.5\text{,}\)</span> <span class="process-math">\(c_1 = -1\text{,}\)</span> <span class="process-math">\(c_2 = -2\text{,}\)</span> so <span class="process-math">\(x(t) = -e^{-0.5t} - 2te^{-0.5t}\text{.}\)</span> Press Play and notice the mass starts compressed, becomes more compressed before turning around, then slowly approaches equilibrium without ever crossing it.<div class="autopermalink" data-description="Figure 3.3.2"><a href="#fig-critdamped-spring" title="Copy heading and permalink for Figure 3.3.2" aria-label="Copy heading and permalink for Figure 3.3.2">🔗</a></div></figcaption></figure><div class="para" id="sec-critically-damped-7">In the animation above, the mass never crossed equilibrium. But just like the overdamped case, whether or not it crosses depends on <span class="process-math">\(c_1\)</span> and <span class="process-math">\(c_2\text{.}\)</span> Play around with the explorer below and see what you notice.<div class="autopermalink" data-description="Paragraph"><a href="#sec-critically-damped-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <figure class="figure figure-like" id="fig-critdamped-explore"><div class="interactive-iframe-container"><iframe src="external/ch3-graph/interactive-critdamped-explore.html" id="interactive-critdamped-explore" style="width:600px; height:240px; display: block; "></iframe></div>
 <figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.3.3<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The critically damped solution <span class="process-math">\(x(t) = c_1 e^{-0.5t} + c_2 t e^{-0.5t}\)</span> with <span class="process-math">\(r = -0.5\)</span> fixed. Drag the sliders to change <span class="process-math">\(c_1\)</span> and <span class="process-math">\(c_2\)</span> and observe how many times the curve crosses <span class="process-math">\(x = 0\text{.}\)</span><div class="autopermalink" data-description="Figure 3.3.3"><a href="#fig-critdamped-explore" title="Copy heading and permalink for Figure 3.3.3" aria-label="Copy heading and permalink for Figure 3.3.3">🔗</a></div></figcaption></figure><article class="exercise exercise-like" id="ex-mc-critdamped-crossings"><h3 class="heading">
@@ -334,7 +366,9 @@ x(t) = c_1 e^{rt} + c_2 t e^{rt},
 <li data-component="feedback" id="rs-ex-mc-critdamped-crossings_opt_d"><div class="para" id="ex-mc-critdamped-crossings-2-4-2-1">Try as many values of <span class="process-math">\(c_1\)</span> and <span class="process-math">\(c_2\)</span> as you like in the explorer. You will not find a case where the curve crosses twice.</div></li>
 </ul>
 </div></div>
-<div class="autopermalink" data-description="Checkpoint 3.3.4"><a href="#ex-mc-critdamped-crossings" title="Copy heading and permalink for Checkpoint 3.3.4" aria-label="Copy heading and permalink for Checkpoint 3.3.4">🔗</a></div></article><article class="example example-like" id="ex-critdamped-crossings-algebra"><h3 class="heading">
+<div class="autopermalink" data-description="Checkpoint 3.3.4"><a href="#ex-mc-critdamped-crossings" title="Copy heading and permalink for Checkpoint 3.3.4" aria-label="Copy heading and permalink for Checkpoint 3.3.4">🔗</a></div></article><div class="para" id="sec-critically-damped-10">The explorer suggests the mass crosses equilibrium at most once, no matter what <span class="process-math">\(c_1\)</span> and <span class="process-math">\(c_2\)</span> are. Let’s confirm this by digging into the algebra, and figure out the long-term behavior along the way.<div class="autopermalink" data-description="Paragraph"><a href="#sec-critically-damped-10" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="example example-like" id="ex-critdamped-crossings-algebra"><h3 class="heading">
 <span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.3.5</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">At Most One Equilibrium Crossing.</span>
 </h3>
 <div class="para" id="ex-critdamped-crossings-algebra-2-1">Show that the mass in a critically damped system passes through the equilibrium position at most one time. What is the long-term behavior?<div class="autopermalink" data-description="Paragraph"><a href="#ex-critdamped-crossings-algebra-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
@@ -381,7 +415,9 @@ t = -\frac{c_1}{c_2}.
 </div>
 <div class="autopermalink" data-description="Solution 3.3.5.1"><a href="#ex-critdamped-crossings-algebra-3" title="Copy heading and permalink for Solution 3.3.5.1" aria-label="Copy heading and permalink for Solution 3.3.5.1">🔗</a></div>
 </div></details></div>
-<div class="autopermalink" data-description="Example 3.3.5: At Most One Equilibrium Crossing"><a href="#ex-critdamped-crossings-algebra" title="Copy heading and permalink for Example 3.3.5: At Most One Equilibrium Crossing" aria-label="Copy heading and permalink for Example 3.3.5: At Most One Equilibrium Crossing">🔗</a></div></article><article class="observation remark-like" id="obs-critdamped-limit"><h3 class="heading">
+<div class="autopermalink" data-description="Example 3.3.5: At Most One Equilibrium Crossing"><a href="#ex-critdamped-crossings-algebra" title="Copy heading and permalink for Example 3.3.5: At Most One Equilibrium Crossing" aria-label="Copy heading and permalink for Example 3.3.5: At Most One Equilibrium Crossing">🔗</a></div></article><div class="para" id="sec-critically-damped-12">So at most one crossing along the way, but where does the mass end up after all that?<div class="autopermalink" data-description="Paragraph"><a href="#sec-critically-damped-12" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="observation remark-like" id="obs-critdamped-limit"><h3 class="heading">
 <span class="type">Observation</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.3.6</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h3>
 <div class="para logical" id="obs-critdamped-limit-1">
@@ -399,42 +435,42 @@ t = -\frac{c_1}{c_2}.
 <div class="para">The mass always approaches equilibrium in the long run.</div>
 <div class="autopermalink" data-description="Paragraph"><a href="#obs-critdamped-limit-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Observation 3.3.6"><a href="#obs-critdamped-limit" title="Copy heading and permalink for Observation 3.3.6" aria-label="Copy heading and permalink for Observation 3.3.6">🔗</a></div></article><section class="conclusion" id="sec-critically-damped-10"><h3 class="heading">Key Takeaways.<span></span>
+<div class="autopermalink" data-description="Observation 3.3.6"><a href="#obs-critdamped-limit" title="Copy heading and permalink for Observation 3.3.6" aria-label="Copy heading and permalink for Observation 3.3.6">🔗</a></div></article><section class="conclusion" id="sec-critically-damped-14"><h3 class="heading">Key Takeaways.<span></span>
 </h3>
-<div class="para logical" id="sec-critically-damped-10-2">
-<ul class="disc" id="sec-critically-damped-10-2-1">
-<li id="sec-critically-damped-10-2-1-1">
-<div class="para" id="sec-critically-damped-10-2-1-1-1">
-<em class="alert">Solution form:</em> Critically damped solutions have the form <span class="process-math">\(x(t) = c_1 e^{rt} + c_2 t e^{rt}\)</span> where <span class="process-math">\(r \lt 0\)</span> is the one repeated root.<div class="autopermalink" data-description="Paragraph"><a href="#sec-critically-damped-10-2-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para logical" id="sec-critically-damped-14-2">
+<ul class="disc" id="sec-critically-damped-14-2-1">
+<li id="sec-critically-damped-14-2-1-1">
+<div class="para" id="sec-critically-damped-14-2-1-1-1">
+<em class="alert">Solution form:</em> Critically damped solutions have the form <span class="process-math">\(x(t) = c_1 e^{rt} + c_2 t e^{rt}\)</span> where <span class="process-math">\(r \lt 0\)</span> is the one repeated root.<div class="autopermalink" data-description="Paragraph"><a href="#sec-critically-damped-14-2-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Item"><a href="#sec-critically-damped-10-2-1-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+<div class="autopermalink" data-description="Item"><a href="#sec-critically-damped-14-2-1-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
 </li>
-<li id="sec-critically-damped-10-2-1-2">
-<div class="para" id="sec-critically-damped-10-2-1-2-1">
-<em class="alert">No oscillation:</em> Like the overdamped case, there is no trigonometric part and therefore no oscillation.<div class="autopermalink" data-description="Paragraph"><a href="#sec-critically-damped-10-2-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<li id="sec-critically-damped-14-2-1-2">
+<div class="para" id="sec-critically-damped-14-2-1-2-1">
+<em class="alert">No oscillation:</em> Like the overdamped case, there is no trigonometric part and therefore no oscillation.<div class="autopermalink" data-description="Paragraph"><a href="#sec-critically-damped-14-2-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Item"><a href="#sec-critically-damped-10-2-1-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+<div class="autopermalink" data-description="Item"><a href="#sec-critically-damped-14-2-1-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
 </li>
-<li id="sec-critically-damped-10-2-1-3">
-<div class="para" id="sec-critically-damped-10-2-1-3-1">
-<em class="alert">Equilibrium crossings:</em> The mass passes through <span class="process-math">\(x = 0\)</span> at most once, the same as the overdamped case.<div class="autopermalink" data-description="Paragraph"><a href="#sec-critically-damped-10-2-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<li id="sec-critically-damped-14-2-1-3">
+<div class="para" id="sec-critically-damped-14-2-1-3-1">
+<em class="alert">Equilibrium crossings:</em> The mass passes through <span class="process-math">\(x = 0\)</span> at most once, the same as the overdamped case.<div class="autopermalink" data-description="Paragraph"><a href="#sec-critically-damped-14-2-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Item"><a href="#sec-critically-damped-10-2-1-3" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+<div class="autopermalink" data-description="Item"><a href="#sec-critically-damped-14-2-1-3" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
 </li>
-<li id="sec-critically-damped-10-2-1-4">
-<div class="para" id="sec-critically-damped-10-2-1-4-1">
-<em class="alert">Long-term behavior:</em> <span class="process-math">\(\displaystyle\lim_{t \to \infty} x(t) = 0\text{,}\)</span> since the exponential decay beats the linear growth in <span class="process-math">\(c_1 + c_2 t\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-critically-damped-10-2-1-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<li id="sec-critically-damped-14-2-1-4">
+<div class="para" id="sec-critically-damped-14-2-1-4-1">
+<em class="alert">Long-term behavior:</em> <span class="process-math">\(\displaystyle\lim_{t \to \infty} x(t) = 0\text{,}\)</span> since the exponential decay beats the linear growth in <span class="process-math">\(c_1 + c_2 t\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-critically-damped-14-2-1-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Item"><a href="#sec-critically-damped-10-2-1-4" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+<div class="autopermalink" data-description="Item"><a href="#sec-critically-damped-14-2-1-4" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
 </li>
-<li id="sec-critically-damped-10-2-1-5">
-<div class="para" id="sec-critically-damped-10-2-1-5-1">
-<em class="alert">Similarity to overdamped:</em> Critically damped and overdamped solutions behave qualitatively the same way: no oscillation, at most one equilibrium crossing, and <span class="process-math">\(x(t) \to 0\text{.}\)</span> The difference is in the form of the solution and which value of <span class="process-math">\(c\)</span> produces each case.<div class="autopermalink" data-description="Paragraph"><a href="#sec-critically-damped-10-2-1-5-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<li id="sec-critically-damped-14-2-1-5">
+<div class="para" id="sec-critically-damped-14-2-1-5-1">
+<em class="alert">Similarity to overdamped:</em> Critically damped and overdamped solutions behave qualitatively the same way: no oscillation, at most one equilibrium crossing, and <span class="process-math">\(x(t) \to 0\text{.}\)</span> The difference is in the form of the solution and which value of <span class="process-math">\(c\)</span> produces each case.<div class="autopermalink" data-description="Paragraph"><a href="#sec-critically-damped-14-2-1-5-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Item"><a href="#sec-critically-damped-10-2-1-5" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+<div class="autopermalink" data-description="Item"><a href="#sec-critically-damped-14-2-1-5" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
 </li>
 </ul>
-<div class="autopermalink" data-description="Paragraph"><a href="#sec-critically-damped-10-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec-critically-damped-14-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div></section><figure class="figure figure-like" id="video-critdamped"><div class="video-box" style="width: 100%;padding-top: 56.25%; margin-left: 0%; margin-right: 0%;"><iframe class="video" allowfullscreen="" src="https://www.youtube-nocookie.com/embed/LTN_Mysoi2M?&amp;modestbranding=1&amp;rel=0" id="video-critdamped-2"></iframe></div>
 <figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.3.7<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>This video goes through the content of this page.<div class="autopermalink" data-description="Figure 3.3.7"><a href="#video-critdamped" title="Copy heading and permalink for Figure 3.3.7" aria-label="Copy heading and permalink for Figure 3.3.7">🔗</a></div></figcaption></figure><div class="interactive-iframe-container"><iframe src="external/question-form.html?section=3.3.4" id="question-form-3-3-4" style="width:600px; height:300px; display: block; "></iframe></div>
 <div class="autopermalink" data-description="Section 3.3.4: Behavior of Critically Damped Solutions"><a href="#sec-critically-damped" title="Copy heading and permalink for Section 3.3.4: Behavior of Critically Damped Solutions" aria-label="Copy heading and permalink for Section 3.3.4: Behavior of Critically Damped Solutions">🔗</a></div></section></div>

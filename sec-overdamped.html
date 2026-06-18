@@ -282,6 +282,26 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="sec3-critically-damped-crossing.html" class="internal"><span class="codenumber">3.4.5</span> <span class="title">Analyzing a Critically Damped System: Finding Maximum Stretch</span></a></div></li>
 </ul>
 </li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-3-5.html" class="internal"><span class="codenumber">3.5</span> <span class="title">The Method of Undetermined Coefficients</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-undetermined-part-1.html" class="internal"><span class="codenumber">3.5.1</span> <span class="title">A First Look at Non-Homogeneous Equations</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-undetermined-part-2.html" class="internal"><span class="codenumber">3.5.2</span> <span class="title">The Guess That Works</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-undetermined-duplication.html" class="internal"><span class="codenumber">3.5.3</span> <span class="title">The Case of Duplication</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-undetermined-dup-example.html" class="internal"><span class="codenumber">3.5.4</span> <span class="title">Example with the Case of Duplication</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-undetermined-guess-practice.html" class="internal"><span class="codenumber">3.5.5</span> <span class="title">Practice: Finding the Right Guess for <span class="process-math">\(y_p\)</span></span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-general-solution-nonhomogeneous.html" class="internal"><span class="codenumber">3.5.6</span> <span class="title">The General Solution</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-nonhomogeneous-ivp.html" class="internal"><span class="codenumber">3.5.7</span> <span class="title">Solving an IVP with a Non-Homogeneous Equation</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-3-6.html" class="internal"><span class="codenumber">3.6</span> <span class="title">External Forces and Resonance</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-external-force-setup.html" class="internal"><span class="codenumber">3.6.1</span> <span class="title">Setting Up the Forced Undamped System</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-external-force-examples.html" class="internal"><span class="codenumber">3.6.2</span> <span class="title">Two Examples of the Forced System</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-resonance.html" class="internal"><span class="codenumber">3.6.3</span> <span class="title">Resonance</span></a></div></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toc-item toc-backmatter">
@@ -295,7 +315,27 @@ eBookConfig.enable_chatcodes =  false;
 <main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec-overdamped"><h2 class="heading hide-type">
 <span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.3.3</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Behavior of Overdamped Solutions</span>
 </h2>
-<article class="observation remark-like" id="obs-overdamped-form"><h3 class="heading">
+<div class="para logical" id="sec-overdamped-2">
+<div class="para">Now let’s swing to the other extreme. When <span class="process-math">\(c^2 &gt; 4km\text{,}\)</span> the damping is so strong that the characteristic equation has two distinct real roots <span class="process-math">\(r_1\)</span> and <span class="process-math">\(r_2\text{,}\)</span> and the system is called <dfn class="terminology">overdamped</dfn>. The general solution takes the form:</div>
+<div class="displaymath process-math" id="sec-overdamped-2-5">
+\begin{equation*}
+x(t) = c_1 e^{r_1 t} + c_2 e^{r_2 t}.
+\end{equation*}
+</div>
+<div class="para">If you want to see why both roots are negative, check out the dropdown below.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec-overdamped-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="sec-overdamped-3" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h3 class="heading"><span class="title">Why are both roots negative? (can skim).</span></h3></summary><article class="hiddenproof knowl__content"><div class="para logical" id="sec-overdamped-3-2">
+<div class="para">By the quadratic formula, the roots of <span class="process-math">\(mr^2+cr+k=0\)</span> are</div>
+<div class="displaymath process-math" id="sec-overdamped-3-2-2">
+\begin{equation*}
+r = \frac{-c \pm \sqrt{c^2-4km}}{2m}.
+\end{equation*}
+</div>
+<div class="para">Since <span class="process-math">\(c^2 &gt; 4km\text{,}\)</span> the quantity under the square root is positive, but it is also smaller than <span class="process-math">\(c^2\text{,}\)</span> so <span class="process-math">\(\sqrt{c^2-4km} \lt c\text{.}\)</span> That means both <span class="process-math">\(-c + \sqrt{c^2-4km}\)</span> and <span class="process-math">\(-c - \sqrt{c^2-4km}\)</span> are negative numbers. Dividing by <span class="process-math">\(2m &gt; 0\)</span> keeps them negative, so both <span class="process-math">\(r_1\)</span> and <span class="process-math">\(r_2\)</span> are negative.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec-overdamped-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Justification 3.3.3.1: Why are both roots negative? (can skim)"><a href="#sec-overdamped-3" title="Copy heading and permalink for Justification 3.3.3.1: Why are both roots negative? (can skim)" aria-label="Copy heading and permalink for Justification 3.3.3.1: Why are both roots negative? (can skim)">🔗</a></div></article></details><article class="observation remark-like" id="obs-overdamped-form"><h3 class="heading">
 <span class="type">Observation</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.3.1</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Overdamped Solution Form.</span>
 </h3>
 <div class="para logical" id="obs-overdamped-form-2">
@@ -309,10 +349,12 @@ x(t) = c_1 e^{r_1 t} + c_2 e^{r_2 t},
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#obs-overdamped-form-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Observation 3.3.1: Overdamped Solution Form"><a href="#obs-overdamped-form" title="Copy heading and permalink for Observation 3.3.1: Overdamped Solution Form" aria-label="Copy heading and permalink for Observation 3.3.1: Overdamped Solution Form">🔗</a></div></article><div class="para" id="sec-overdamped-3">Unlike the underdamped case in <a href="sec-underdamped.html" class="internal" title="Section 3.3.2: Behavior of Underdamped Solutions">Section 3.3.2</a>, there are no trigonometric functions here. The solution is a sum of two purely exponentially decaying terms. This means position function is not oscillating.<div class="autopermalink" data-description="Paragraph"><a href="#sec-overdamped-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Observation 3.3.1: Overdamped Solution Form"><a href="#obs-overdamped-form" title="Copy heading and permalink for Observation 3.3.1: Overdamped Solution Form" aria-label="Copy heading and permalink for Observation 3.3.1: Overdamped Solution Form">🔗</a></div></article><div class="para" id="sec-overdamped-5">Unlike the underdamped case in <a href="sec-underdamped.html" class="internal" title="Section 3.3.2: Behavior of Underdamped Solutions">Section 3.3.2</a>, there are no trig functions anywhere in sight. The solution is just a sum of two decaying exponentials, with no oscillation at all.<div class="autopermalink" data-description="Paragraph"><a href="#sec-overdamped-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="sec-overdamped-6">Take a look at the animation below to see how quickly the mass slows down in this case!<div class="autopermalink" data-description="Paragraph"><a href="#sec-overdamped-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <figure class="figure figure-like" id="fig-overdamped-spring"><div class="interactive-iframe-container"><iframe src="external/ch3-graph/interactive-overdamped-spring.html" id="interactive-overdamped-spring" style="width:600px; height:264px; display: block; "></iframe></div>
-<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.3.2<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>An overdamped spring with <span class="process-math">\(r_1 = -0.5\text{,}\)</span> <span class="process-math">\(r_2 = -2\text{,}\)</span> <span class="process-math">\(c_1 = -2\text{,}\)</span> <span class="process-math">\(c_2 = 3\text{,}\)</span> so <span class="process-math">\(x(t) = -2e^{-0.5t} + 3e^{-2t}\text{.}\)</span> Press Play and notice the mass crosses equilibrium once then decays back without oscillating.<div class="autopermalink" data-description="Figure 3.3.2"><a href="#fig-overdamped-spring" title="Copy heading and permalink for Figure 3.3.2" aria-label="Copy heading and permalink for Figure 3.3.2">🔗</a></div></figcaption></figure><div class="para" id="sec-overdamped-5">In the animation above the mass crossed equilibrium exactly once. But does that always happen, or does it depend on <span class="process-math">\(c_1\)</span> and <span class="process-math">\(c_2\text{?}\)</span> Explore the graph below by trying different values.<div class="autopermalink" data-description="Paragraph"><a href="#sec-overdamped-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.3.2<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>An overdamped spring with <span class="process-math">\(r_1 = -0.5\text{,}\)</span> <span class="process-math">\(r_2 = -2\text{,}\)</span> <span class="process-math">\(c_1 = -2\text{,}\)</span> <span class="process-math">\(c_2 = 3\text{,}\)</span> so <span class="process-math">\(x(t) = -2e^{-0.5t} + 3e^{-2t}\text{.}\)</span> Press Play and notice the mass crosses equilibrium once then decays back without oscillating.<div class="autopermalink" data-description="Figure 3.3.2"><a href="#fig-overdamped-spring" title="Copy heading and permalink for Figure 3.3.2" aria-label="Copy heading and permalink for Figure 3.3.2">🔗</a></div></figcaption></figure><div class="para" id="sec-overdamped-8">In the animation above, the mass crossed equilibrium exactly once on its way to rest. But is that guaranteed every time, or does it depend on the values of <span class="process-math">\(c_1\)</span> and <span class="process-math">\(c_2\text{?}\)</span> Play around with the explorer below and see what you notice.<div class="autopermalink" data-description="Paragraph"><a href="#sec-overdamped-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <figure class="figure figure-like" id="fig-overdamped-explore"><div class="interactive-iframe-container"><iframe src="external/ch3-graph/interactive-overdamped-explore.html" id="interactive-overdamped-explore" style="width:600px; height:348px; display: block; "></iframe></div>
 <figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.3.3<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The overdamped solution <span class="process-math">\(x(t) = c_1 e^{-0.5t} + c_2 e^{-2t}\)</span> with <span class="process-math">\(r_1 = -0.5\)</span> and <span class="process-math">\(r_2 = -2\)</span> fixed. Drag the sliders to change <span class="process-math">\(c_1\)</span> and <span class="process-math">\(c_2\)</span> and observe how many times the curve crosses <span class="process-math">\(x = 0\text{.}\)</span><div class="autopermalink" data-description="Figure 3.3.3"><a href="#fig-overdamped-explore" title="Copy heading and permalink for Figure 3.3.3" aria-label="Copy heading and permalink for Figure 3.3.3">🔗</a></div></figcaption></figure><article class="exercise exercise-like" id="ex-mc-overdamped-crossings"><h3 class="heading">
@@ -334,7 +376,9 @@ x(t) = c_1 e^{r_1 t} + c_2 e^{r_2 t},
 <li data-component="feedback" id="rs-ex-mc-overdamped-crossings_opt_d"><div class="para" id="ex-mc-overdamped-crossings-2-4-2-1">Try as many values of <span class="process-math">\(c_1\)</span> and <span class="process-math">\(c_2\)</span> as you like in the explorer. You will not find a case where the curve crosses twice.</div></li>
 </ul>
 </div></div>
-<div class="autopermalink" data-description="Checkpoint 3.3.4"><a href="#ex-mc-overdamped-crossings" title="Copy heading and permalink for Checkpoint 3.3.4" aria-label="Copy heading and permalink for Checkpoint 3.3.4">🔗</a></div></article><article class="example example-like" id="ex-overdamped-crossings-algebra"><h3 class="heading">
+<div class="autopermalink" data-description="Checkpoint 3.3.4"><a href="#ex-mc-overdamped-crossings" title="Copy heading and permalink for Checkpoint 3.3.4" aria-label="Copy heading and permalink for Checkpoint 3.3.4">🔗</a></div></article><div class="para" id="sec-overdamped-11">The explorer suggests the mass crosses equilibrium at most once, no matter what <span class="process-math">\(c_1\)</span> and <span class="process-math">\(c_2\)</span> are. Let’s confirm this by digging into the algebra.<div class="autopermalink" data-description="Paragraph"><a href="#sec-overdamped-11" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="example example-like" id="ex-overdamped-crossings-algebra"><h3 class="heading">
 <span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.3.5</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">At Most One Equilibrium Crossing.</span>
 </h3>
 <div class="para" id="ex-overdamped-crossings-algebra-2-1">Show that the mass in an overdamped system passes through the equilibrium position at most one time.<div class="autopermalink" data-description="Paragraph"><a href="#ex-overdamped-crossings-algebra-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
@@ -371,7 +415,9 @@ t = \frac{1}{r_1 - r_2} \ln\!\left(-\frac{c_2}{c_1}\right).
 </div>
 <div class="autopermalink" data-description="Solution 3.3.5.1"><a href="#ex-overdamped-crossings-algebra-3" title="Copy heading and permalink for Solution 3.3.5.1" aria-label="Copy heading and permalink for Solution 3.3.5.1">🔗</a></div>
 </div></details></div>
-<div class="autopermalink" data-description="Example 3.3.5: At Most One Equilibrium Crossing"><a href="#ex-overdamped-crossings-algebra" title="Copy heading and permalink for Example 3.3.5: At Most One Equilibrium Crossing" aria-label="Copy heading and permalink for Example 3.3.5: At Most One Equilibrium Crossing">🔗</a></div></article><article class="observation remark-like" id="obs-overdamped-limit"><h3 class="heading">
+<div class="autopermalink" data-description="Example 3.3.5: At Most One Equilibrium Crossing"><a href="#ex-overdamped-crossings-algebra" title="Copy heading and permalink for Example 3.3.5: At Most One Equilibrium Crossing" aria-label="Copy heading and permalink for Example 3.3.5: At Most One Equilibrium Crossing">🔗</a></div></article><div class="para" id="sec-overdamped-13">So at most one crossing along the way, but where does the mass end up after all that?<div class="autopermalink" data-description="Paragraph"><a href="#sec-overdamped-13" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="observation remark-like" id="obs-overdamped-limit"><h3 class="heading">
 <span class="type">Observation</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.3.6</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h3>
 <div class="para logical" id="obs-overdamped-limit-1">
@@ -388,39 +434,39 @@ t = \frac{1}{r_1 - r_2} \ln\!\left(-\frac{c_2}{c_1}\right).
 = 0.
 \end{equation*}
 </div>
-<div class="para">The mass always approaches equilibrium in the long run, crossing it at most once along the way.</div>
+<div class="para">The mass always approaches equilibrium in the long run, crossing it at most once on the way there.</div>
 <div class="autopermalink" data-description="Paragraph"><a href="#obs-overdamped-limit-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Observation 3.3.6"><a href="#obs-overdamped-limit" title="Copy heading and permalink for Observation 3.3.6" aria-label="Copy heading and permalink for Observation 3.3.6">🔗</a></div></article><section class="conclusion" id="sec-overdamped-10"><h3 class="heading">Key Takeaways.<span></span>
+<div class="autopermalink" data-description="Observation 3.3.6"><a href="#obs-overdamped-limit" title="Copy heading and permalink for Observation 3.3.6" aria-label="Copy heading and permalink for Observation 3.3.6">🔗</a></div></article><section class="conclusion" id="sec-overdamped-15"><h3 class="heading">Key Takeaways.<span></span>
 </h3>
-<div class="para logical" id="sec-overdamped-10-2">
-<ul class="disc" id="sec-overdamped-10-2-1">
-<li id="sec-overdamped-10-2-1-1">
-<div class="para" id="sec-overdamped-10-2-1-1-1">
-<em class="alert">Solution form:</em> Overdamped solutions have the form <span class="process-math">\(x(t) = c_1 e^{r_1 t} + c_2 e^{r_2 t}\)</span> where <span class="process-math">\(r_1, r_2 \lt 0\)</span> are two distinct real roots.<div class="autopermalink" data-description="Paragraph"><a href="#sec-overdamped-10-2-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para logical" id="sec-overdamped-15-2">
+<ul class="disc" id="sec-overdamped-15-2-1">
+<li id="sec-overdamped-15-2-1-1">
+<div class="para" id="sec-overdamped-15-2-1-1-1">
+<em class="alert">Solution form:</em> Overdamped solutions have the form <span class="process-math">\(x(t) = c_1 e^{r_1 t} + c_2 e^{r_2 t}\)</span> where <span class="process-math">\(r_1, r_2 \lt 0\)</span> are two distinct real roots.<div class="autopermalink" data-description="Paragraph"><a href="#sec-overdamped-15-2-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Item"><a href="#sec-overdamped-10-2-1-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+<div class="autopermalink" data-description="Item"><a href="#sec-overdamped-15-2-1-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
 </li>
-<li id="sec-overdamped-10-2-1-2">
-<div class="para" id="sec-overdamped-10-2-1-2-1">
-<em class="alert">No oscillation:</em> The solution is a sum of two decaying exponentials with no trigonometric part, so there is no oscillation.<div class="autopermalink" data-description="Paragraph"><a href="#sec-overdamped-10-2-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<li id="sec-overdamped-15-2-1-2">
+<div class="para" id="sec-overdamped-15-2-1-2-1">
+<em class="alert">No oscillation:</em> The solution is a sum of two decaying exponentials with no trigonometric part, so there is no oscillation.<div class="autopermalink" data-description="Paragraph"><a href="#sec-overdamped-15-2-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Item"><a href="#sec-overdamped-10-2-1-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+<div class="autopermalink" data-description="Item"><a href="#sec-overdamped-15-2-1-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
 </li>
-<li id="sec-overdamped-10-2-1-3">
-<div class="para" id="sec-overdamped-10-2-1-3-1">
-<em class="alert">Equilibrium crossings:</em> The mass passes through <span class="process-math">\(x = 0\)</span> at most once. Depending on <span class="process-math">\(c_1\)</span> and <span class="process-math">\(c_2\text{,}\)</span> it may cross once or never.<div class="autopermalink" data-description="Paragraph"><a href="#sec-overdamped-10-2-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<li id="sec-overdamped-15-2-1-3">
+<div class="para" id="sec-overdamped-15-2-1-3-1">
+<em class="alert">Equilibrium crossings:</em> The mass passes through <span class="process-math">\(x = 0\)</span> at most once. Depending on <span class="process-math">\(c_1\)</span> and <span class="process-math">\(c_2\text{,}\)</span> it may cross once or never.<div class="autopermalink" data-description="Paragraph"><a href="#sec-overdamped-15-2-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Item"><a href="#sec-overdamped-10-2-1-3" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+<div class="autopermalink" data-description="Item"><a href="#sec-overdamped-15-2-1-3" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
 </li>
-<li id="sec-overdamped-10-2-1-4">
-<div class="para" id="sec-overdamped-10-2-1-4-1">
-<em class="alert">Long-term behavior:</em> <span class="process-math">\(\displaystyle\lim_{t \to \infty} x(t) = 0\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-overdamped-10-2-1-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<li id="sec-overdamped-15-2-1-4">
+<div class="para" id="sec-overdamped-15-2-1-4-1">
+<em class="alert">Long-term behavior:</em> <span class="process-math">\(\displaystyle\lim_{t \to \infty} x(t) = 0\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-overdamped-15-2-1-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Item"><a href="#sec-overdamped-10-2-1-4" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+<div class="autopermalink" data-description="Item"><a href="#sec-overdamped-15-2-1-4" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
 </li>
 </ul>
-<div class="autopermalink" data-description="Paragraph"><a href="#sec-overdamped-10-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec-overdamped-15-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div></section><figure class="figure figure-like" id="video-overdamped"><div class="video-box" style="width: 100%;padding-top: 56.25%; margin-left: 0%; margin-right: 0%;"><iframe class="video" allowfullscreen="" src="https://www.youtube-nocookie.com/embed/fiAtzdJhd1k?&amp;modestbranding=1&amp;rel=0" id="video-overdamped-2"></iframe></div>
 <figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.3.7<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>This video goes through the content of this page.<div class="autopermalink" data-description="Figure 3.3.7"><a href="#video-overdamped" title="Copy heading and permalink for Figure 3.3.7" aria-label="Copy heading and permalink for Figure 3.3.7">🔗</a></div></figcaption></figure><div class="interactive-iframe-container"><iframe src="external/question-form.html?section=3.3.3" id="question-form-3-3-3" style="width:600px; height:300px; display: block; "></iframe></div>
 <div class="autopermalink" data-description="Section 3.3.3: Behavior of Overdamped Solutions"><a href="#sec-overdamped" title="Copy heading and permalink for Section 3.3.3: Behavior of Overdamped Solutions" aria-label="Copy heading and permalink for Section 3.3.3: Behavior of Overdamped Solutions">🔗</a></div></section></div>

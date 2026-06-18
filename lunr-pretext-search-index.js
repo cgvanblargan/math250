@@ -2998,6 +2998,1050 @@ var ptx_lunr_docs = [
   "body": " Maximum Distance from Equilibrium   Suppose a mass-spring system is described by the ODE      Solve the IVP for .           What is the maximum distance the mass ever gets from equilibrium?    Recall the amplitude from .           Find all times at which the mass reaches this maximum distance from equilibrium.    The mass is at maximum distance when , i.e. when . For which values of does cosine equal ?           What is the speed of the mass at these times?     (the mass is momentarily at rest at maximum distance).    "
 },
 {
+  "id": "sec-damped-mass-spring",
+  "level": "1",
+  "url": "sec-damped-mass-spring.html",
+  "type": "Section",
+  "number": "3.3.1",
+  "title": "The Damped Mass-Spring System",
+  "body": " The Damped Mass-Spring System   In , we modeled a mass attached to a spring and derived the ODE . That model assumed no friction whatsoever, so the mass oscillated forever. In reality, friction always acts to slow things down. We now add a dashpot to the system to model this frictional resistance.  A dashpot is a mechanical device that resists motion. The spring and dashpot both connect the mass to the wall, as shown in the animation below. Press Play to see how the dashpot changes the behavior compared to the undamped case.   A horizontal mass-spring-dashpot system. The block of mass is connected to the wall by a spring (top) and a dashpot (bottom). Press Play to watch the oscillations die out as the dashpot dissipates energy.     Let's spend a moment deriving the ODE for this system using a bit of physics. Once we have it, we can put all our solving techniques to use and dig into what the solutions actually look like. We'll go through the derivation once here, then mostly just work with the ODE itself from here on.  As in , we measure position from the equilibrium position, with meaning the spring is stretched and meaning it is compressed. By , the restoring force from the spring is: where is the spring constant. The dashpot contributes a damping force proportional to velocity: where is the damping constant . The negative sign means the dashpot always resists the direction of motion.  By Newton's second law, the total force equals . Since the only forces acting on the mass are and , we have: Rearranging gives the damped mass-spring ODE :     The Damped Mass-Spring System   The position of a mass on a spring with constant and damping constant satisfies: where . This is called free damped motion : free because there is no external driving force, and damped because the dashpot dissipates energy.     To solve , we use the same characteristic equation approach from . The characteristic equation is: By the quadratic formula, the roots are: The expression is the discriminant , and its sign tells us which of the three cases from we're dealing with.   You've already seen how the sign of the discriminant determines the type of roots back in ; let's make sure that's fresh in your mind.    For the characteristic equation , which condition on , , and gives two distinct real roots?  Note that the discriminant is .       Correct! When the discriminant is positive, the square root is real and nonzero, giving two distinct real roots .        When the discriminant is zero the square root vanishes, giving one repeated root , not two distinct roots.       When the discriminant is negative the square root is imaginary, giving complex conjugate roots, not two distinct real roots.       This includes the case , which gives a repeated root, not two distinct roots. Strict inequality is needed.       As we saw in , each type of roots leads to a qualitatively different form of the general solution. In the mass-spring context, each case also has a physical name that describes how heavily the system is damped, depending on the size of the damping constant relative to and .    The Three Damping Cases   For free damped motion with , the system falls into one of three cases depending on the discriminant :     Overdamped ( ): two distinct real roots. The damping constant is large relative to and , so the system is slowed down the most.   Critically damped ( ): one repeated real root. This is the borderline case: the exact value of that separates overdamped from underdamped.   Underdamped ( ): complex conjugate roots. The damping constant is small, so the system still oscillates, just with decaying amplitude.    In all three cases , so the system is damped. When we recover the undamped system from .      Key Takeaways     The ODE: Adding a dashpot gives , called free damped motion. The new term models friction proportional to velocity.   The discriminant: The sign of determines the type of roots of the characteristic equation and therefore the qualitative behavior of solutions.   Three cases: Overdamped ( ), critically damped ( ), and underdamped ( ). Larger means more damping.       This video goes through the content of this page.     "
+},
+{
+  "id": "sec-damped-mass-spring-2",
+  "level": "2",
+  "url": "sec-damped-mass-spring.html#sec-damped-mass-spring-2",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "dashpot "
+},
+{
+  "id": "fig-dashpot-intro",
+  "level": "2",
+  "url": "sec-damped-mass-spring.html#fig-dashpot-intro",
+  "type": "Figure",
+  "number": "3.3.1",
+  "title": "",
+  "body": " A horizontal mass-spring-dashpot system. The block of mass is connected to the wall by a spring (top) and a dashpot (bottom). Press Play to watch the oscillations die out as the dashpot dissipates energy.   "
+},
+{
+  "id": "sec-damped-mass-spring-6",
+  "level": "2",
+  "url": "sec-damped-mass-spring.html#sec-damped-mass-spring-6",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "damping force damping constant "
+},
+{
+  "id": "sec-damped-mass-spring-7",
+  "level": "2",
+  "url": "sec-damped-mass-spring.html#sec-damped-mass-spring-7",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "damped mass-spring ODE "
+},
+{
+  "id": "def-damped-mass-spring",
+  "level": "2",
+  "url": "sec-damped-mass-spring.html#def-damped-mass-spring",
+  "type": "Definition",
+  "number": "3.3.2",
+  "title": "The Damped Mass-Spring System.",
+  "body": " The Damped Mass-Spring System   The position of a mass on a spring with constant and damping constant satisfies: where . This is called free damped motion : free because there is no external driving force, and damped because the dashpot dissipates energy.   "
+},
+{
+  "id": "sec-damped-mass-spring-9",
+  "level": "2",
+  "url": "sec-damped-mass-spring.html#sec-damped-mass-spring-9",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "discriminant "
+},
+{
+  "id": "ex-mc-discriminant-overdamped",
+  "level": "2",
+  "url": "sec-damped-mass-spring.html#ex-mc-discriminant-overdamped",
+  "type": "Checkpoint",
+  "number": "3.3.3",
+  "title": "",
+  "body": "  For the characteristic equation , which condition on , , and gives two distinct real roots?  Note that the discriminant is .       Correct! When the discriminant is positive, the square root is real and nonzero, giving two distinct real roots .        When the discriminant is zero the square root vanishes, giving one repeated root , not two distinct roots.       When the discriminant is negative the square root is imaginary, giving complex conjugate roots, not two distinct real roots.       This includes the case , which gives a repeated root, not two distinct roots. Strict inequality is needed.     "
+},
+{
+  "id": "def-damping-cases",
+  "level": "2",
+  "url": "sec-damped-mass-spring.html#def-damping-cases",
+  "type": "Definition",
+  "number": "3.3.4",
+  "title": "The Three Damping Cases.",
+  "body": " The Three Damping Cases   For free damped motion with , the system falls into one of three cases depending on the discriminant :     Overdamped ( ): two distinct real roots. The damping constant is large relative to and , so the system is slowed down the most.   Critically damped ( ): one repeated real root. This is the borderline case: the exact value of that separates overdamped from underdamped.   Underdamped ( ): complex conjugate roots. The damping constant is small, so the system still oscillates, just with decaying amplitude.    In all three cases , so the system is damped. When we recover the undamped system from .   "
+},
+{
+  "id": "video-damped-spring-intro",
+  "level": "2",
+  "url": "sec-damped-mass-spring.html#video-damped-spring-intro",
+  "type": "Figure",
+  "number": "3.3.5",
+  "title": "",
+  "body": " This video goes through the content of this page.   "
+},
+{
+  "id": "sec-underdamped",
+  "level": "1",
+  "url": "sec-underdamped.html",
+  "type": "Section",
+  "number": "3.3.2",
+  "title": "Behavior of Underdamped Solutions",
+  "body": " Behavior of Underdamped Solutions   Recall from the previous page that we are in the underdamped case when . Solving the characteristic equation in this case gives complex roots , which leads to the general solution If you want to see exactly where and come from, check out the dropdown below.   Where do alpha and omega come from? (can skim)  By the quadratic formula, the roots of are Since , the quantity under the square root is negative, so we can write . This means the roots are complex, , where Note that , since means is always negative.    Underdamped Solution Form  When , the characteristic equation has complex conjugate roots and the system is underdamped . The general solution takes the form: where and are determined by , , and .  And since , , and are all positive, is always negative, so the factor is always exponentially decaying.    Notice this solution has two pieces working together: an exponentially decaying factor (with ) and an oscillating trig expression . Think of the exponential as a shrinking envelope that squeezes the oscillations toward zero as time goes on.  To see how affects the solution, the graph below compares the pure trig part (no decay) to the full underdamped solution. Move the slider to change the decay rate.    Left: the oscillating factor alone. Right: the full underdamped solution . The red curves show the decaying amplitude envelope . Move the slider to change . At the two graphs match.     The shape of the underdamped solution is very similar to the undamped case from : both oscillate and cross the equilibrium position repeatedly. The key difference is the decaying amplitude, driven by the factor with . Physically, the dashpot is continuously removing energy from the system, causing the oscillations to shrink.  This raises a natural question: does the mass keep oscillating back and forth across equilibrium, as in the undamped case? Or does it eventually settle on one side, either compressed or stretched? Explore the animation below to see if you can determine what happens!    The underdamped spring with and . The position function is . Use the sliders to change and and press Play.       By observing the graph above, what can we deduce about how many times the mass passes through the equilibrium position as time goes on forever?     Infinitely many times.   Correct! The oscillations never fully stop in finite time. No matter how large gets, the curve continues to cross .      Exactly once.   Look again at the graph. The curve crosses many times, not just once.     At most once.   This is the behavior of overdamped and critically damped systems, not underdamped.     Never.   The graph shows the curve oscillating back and forth across repeatedly.      Okay, so we now have an intuitive feel for how often it crosses the equilibrium position. However, to prove it without a doubt, we will go into the equation for the position function itself and show it algebraically.   How Many Times Does the Mass Cross Equilibrium?   For an underdamped system, show algebraically that the mass passes through the equilibrium position infinitely many times.    This is a homework problem. The argument is very similar to the one in for the undamped case, so reviewing that example first is a good starting point.   Hint: start with and use the fact that for all .     So the mass keeps crossing equilibrium forever, no matter how small the oscillations get! This is because the trig functions make the position function oscillate as in the undamped case, and the decay factor is never exactly zero. But the amplitude is still shrinking the whole time.  Unlike the undamped case, the amplitude here is shrinking, so even though the mass keeps crossing equilibrium, it is also approaching equilibrium in the long run.    Even though the mass passes through equilibrium infinitely many times, the damping causes the oscillations to shrink down to zero: So the oscillations never fully stop in finite time, but they shrink to zero in the long run.    Key Takeaways     Solution form: Underdamped solutions have the form with .   Decaying envelope: The factor shrinks the amplitude of the oscillations toward zero. A more negative means faster decay.   Equilibrium crossings: The mass passes through infinitely many times.   Long-term behavior:  . The mass approaches equilibrium but oscillates forever while doing so.       This video goes through the content of this page.     "
+},
+{
+  "id": "sec-underdamped-3",
+  "level": "2",
+  "url": "sec-underdamped.html#sec-underdamped-3",
+  "type": "Justification",
+  "number": "3.3.2.1",
+  "title": "Where do alpha and omega come from? (can skim).",
+  "body": " Where do alpha and omega come from? (can skim)  By the quadratic formula, the roots of are Since , the quantity under the square root is negative, so we can write . This means the roots are complex, , where Note that , since means is always negative.  "
+},
+{
+  "id": "obs-underdamped-form",
+  "level": "2",
+  "url": "sec-underdamped.html#obs-underdamped-form",
+  "type": "Observation",
+  "number": "3.3.1",
+  "title": "Underdamped Solution Form.",
+  "body": " Underdamped Solution Form  When , the characteristic equation has complex conjugate roots and the system is underdamped . The general solution takes the form: where and are determined by , , and .  And since , , and are all positive, is always negative, so the factor is always exponentially decaying.  "
+},
+{
+  "id": "fig-underdamped-compare",
+  "level": "2",
+  "url": "sec-underdamped.html#fig-underdamped-compare",
+  "type": "Figure",
+  "number": "3.3.2",
+  "title": "",
+  "body": " Left: the oscillating factor alone. Right: the full underdamped solution . The red curves show the decaying amplitude envelope . Move the slider to change . At the two graphs match.   "
+},
+{
+  "id": "fig-underdamped-spring",
+  "level": "2",
+  "url": "sec-underdamped.html#fig-underdamped-spring",
+  "type": "Figure",
+  "number": "3.3.3",
+  "title": "",
+  "body": " The underdamped spring with and . The position function is . Use the sliders to change and and press Play.   "
+},
+{
+  "id": "ex-mc-underdamped-crossings",
+  "level": "2",
+  "url": "sec-underdamped.html#ex-mc-underdamped-crossings",
+  "type": "Checkpoint",
+  "number": "3.3.4",
+  "title": "",
+  "body": "  By observing the graph above, what can we deduce about how many times the mass passes through the equilibrium position as time goes on forever?     Infinitely many times.   Correct! The oscillations never fully stop in finite time. No matter how large gets, the curve continues to cross .      Exactly once.   Look again at the graph. The curve crosses many times, not just once.     At most once.   This is the behavior of overdamped and critically damped systems, not underdamped.     Never.   The graph shows the curve oscillating back and forth across repeatedly.     "
+},
+{
+  "id": "ex-underdamped-crossings-algebra",
+  "level": "2",
+  "url": "sec-underdamped.html#ex-underdamped-crossings-algebra",
+  "type": "Example",
+  "number": "3.3.5",
+  "title": "How Many Times Does the Mass Cross Equilibrium?",
+  "body": " How Many Times Does the Mass Cross Equilibrium?   For an underdamped system, show algebraically that the mass passes through the equilibrium position infinitely many times.    This is a homework problem. The argument is very similar to the one in for the undamped case, so reviewing that example first is a good starting point.   Hint: start with and use the fact that for all .   "
+},
+{
+  "id": "obs-underdamped-limit",
+  "level": "2",
+  "url": "sec-underdamped.html#obs-underdamped-limit",
+  "type": "Observation",
+  "number": "3.3.6",
+  "title": "",
+  "body": " Even though the mass passes through equilibrium infinitely many times, the damping causes the oscillations to shrink down to zero: So the oscillations never fully stop in finite time, but they shrink to zero in the long run.  "
+},
+{
+  "id": "video-underdamped",
+  "level": "2",
+  "url": "sec-underdamped.html#video-underdamped",
+  "type": "Figure",
+  "number": "3.3.7",
+  "title": "",
+  "body": " This video goes through the content of this page.   "
+},
+{
+  "id": "sec-overdamped",
+  "level": "1",
+  "url": "sec-overdamped.html",
+  "type": "Section",
+  "number": "3.3.3",
+  "title": "Behavior of Overdamped Solutions",
+  "body": " Behavior of Overdamped Solutions   Now let's swing to the other extreme. When , the damping is so strong that the characteristic equation has two distinct real roots and , and the system is called overdamped . The general solution takes the form: If you want to see why both roots are negative, check out the dropdown below.   Why are both roots negative? (can skim)  By the quadratic formula, the roots of are Since , the quantity under the square root is positive, but it is also smaller than , so . That means both and are negative numbers. Dividing by keeps them negative, so both and are negative.    Overdamped Solution Form  When , the characteristic equation has two distinct real roots and , and the system is overdamped . Since , both roots are negative. The general solution takes the form: where and .    Unlike the underdamped case in , there are no trig functions anywhere in sight. The solution is just a sum of two decaying exponentials, with no oscillation at all.   Take a look at the animation below to see how quickly the mass slows down in this case!   An overdamped spring with , , , , so . Press Play and notice the mass crosses equilibrium once then decays back without oscillating.     In the animation above, the mass crossed equilibrium exactly once on its way to rest. But is that guaranteed every time, or does it depend on the values of and ? Play around with the explorer below and see what you notice.    The overdamped solution with and fixed. Drag the sliders to change and and observe how many times the curve crosses .       Based on your exploration above, what are the possibilities for how many times the mass passes through the equilibrium position in an overdamped system?     Never or exactly once.   Correct! The mass passes through equilibrium at most once. Depending on the values of and , it may cross once or never cross at all.      Exactly once, always.   Not always. Try and in the explorer above. The curve never crosses .     Infinitely many times.   That is the underdamped case. In an overdamped system there is no oscillation, so the curve cannot cross equilibrium infinitely many times.     Exactly twice.   Try as many values of and as you like in the explorer. You will not find a case where the curve crosses twice.       The explorer suggests the mass crosses equilibrium at most once, no matter what and are. Let's confirm this by digging into the algebra.   At Most One Equilibrium Crossing   Show that the mass in an overdamped system passes through the equilibrium position at most one time.    We want to find all times where . Setting the general solution equal to zero: Since for all , we can divide both sides by : so Taking the natural log of both sides (when the right side is positive): This is at most one value of . It gives a valid crossing only when and the resulting . Otherwise the mass never crosses equilibrium at all.     So at most one crossing along the way, but where does the mass end up after all that?   Since both and , both exponential terms decay to zero: The mass always approaches equilibrium in the long run, crossing it at most once on the way there.     Key Takeaways     Solution form: Overdamped solutions have the form where are two distinct real roots.   No oscillation: The solution is a sum of two decaying exponentials with no trigonometric part, so there is no oscillation.   Equilibrium crossings: The mass passes through at most once. Depending on and , it may cross once or never.   Long-term behavior:  .       This video goes through the content of this page.     "
+},
+{
+  "id": "sec-overdamped-2",
+  "level": "2",
+  "url": "sec-overdamped.html#sec-overdamped-2",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "overdamped "
+},
+{
+  "id": "sec-overdamped-3",
+  "level": "2",
+  "url": "sec-overdamped.html#sec-overdamped-3",
+  "type": "Justification",
+  "number": "3.3.3.1",
+  "title": "Why are both roots negative? (can skim).",
+  "body": " Why are both roots negative? (can skim)  By the quadratic formula, the roots of are Since , the quantity under the square root is positive, but it is also smaller than , so . That means both and are negative numbers. Dividing by keeps them negative, so both and are negative.  "
+},
+{
+  "id": "obs-overdamped-form",
+  "level": "2",
+  "url": "sec-overdamped.html#obs-overdamped-form",
+  "type": "Observation",
+  "number": "3.3.1",
+  "title": "Overdamped Solution Form.",
+  "body": " Overdamped Solution Form  When , the characteristic equation has two distinct real roots and , and the system is overdamped . Since , both roots are negative. The general solution takes the form: where and .  "
+},
+{
+  "id": "fig-overdamped-spring",
+  "level": "2",
+  "url": "sec-overdamped.html#fig-overdamped-spring",
+  "type": "Figure",
+  "number": "3.3.2",
+  "title": "",
+  "body": " An overdamped spring with , , , , so . Press Play and notice the mass crosses equilibrium once then decays back without oscillating.   "
+},
+{
+  "id": "fig-overdamped-explore",
+  "level": "2",
+  "url": "sec-overdamped.html#fig-overdamped-explore",
+  "type": "Figure",
+  "number": "3.3.3",
+  "title": "",
+  "body": " The overdamped solution with and fixed. Drag the sliders to change and and observe how many times the curve crosses .   "
+},
+{
+  "id": "ex-mc-overdamped-crossings",
+  "level": "2",
+  "url": "sec-overdamped.html#ex-mc-overdamped-crossings",
+  "type": "Checkpoint",
+  "number": "3.3.4",
+  "title": "",
+  "body": "  Based on your exploration above, what are the possibilities for how many times the mass passes through the equilibrium position in an overdamped system?     Never or exactly once.   Correct! The mass passes through equilibrium at most once. Depending on the values of and , it may cross once or never cross at all.      Exactly once, always.   Not always. Try and in the explorer above. The curve never crosses .     Infinitely many times.   That is the underdamped case. In an overdamped system there is no oscillation, so the curve cannot cross equilibrium infinitely many times.     Exactly twice.   Try as many values of and as you like in the explorer. You will not find a case where the curve crosses twice.     "
+},
+{
+  "id": "ex-overdamped-crossings-algebra",
+  "level": "2",
+  "url": "sec-overdamped.html#ex-overdamped-crossings-algebra",
+  "type": "Example",
+  "number": "3.3.5",
+  "title": "At Most One Equilibrium Crossing.",
+  "body": " At Most One Equilibrium Crossing   Show that the mass in an overdamped system passes through the equilibrium position at most one time.    We want to find all times where . Setting the general solution equal to zero: Since for all , we can divide both sides by : so Taking the natural log of both sides (when the right side is positive): This is at most one value of . It gives a valid crossing only when and the resulting . Otherwise the mass never crosses equilibrium at all.   "
+},
+{
+  "id": "obs-overdamped-limit",
+  "level": "2",
+  "url": "sec-overdamped.html#obs-overdamped-limit",
+  "type": "Observation",
+  "number": "3.3.6",
+  "title": "",
+  "body": " Since both and , both exponential terms decay to zero: The mass always approaches equilibrium in the long run, crossing it at most once on the way there.  "
+},
+{
+  "id": "video-overdamped",
+  "level": "2",
+  "url": "sec-overdamped.html#video-overdamped",
+  "type": "Figure",
+  "number": "3.3.7",
+  "title": "",
+  "body": " This video goes through the content of this page.   "
+},
+{
+  "id": "sec-critically-damped",
+  "level": "1",
+  "url": "sec-critically-damped.html",
+  "type": "Section",
+  "number": "3.3.4",
+  "title": "Behavior of Critically Damped Solutions",
+  "body": " Behavior of Critically Damped Solutions   Finally, let's look at the borderline case sitting right between the previous two. When , the characteristic equation has one repeated real root , and the system is called critically damped . The general solution takes the form: If this setup feels familiar, that's because it is, this page will closely mirror the overdamped page, just with a repeated root instead of two distinct ones.   Why is the root negative? (can skim)  The repeated root is . Since and , the numerator is negative and the denominator is positive, so .    Critically Damped Solution Form  When , the characteristic equation has one repeated real root , and the system is critically damped . The general solution takes the form: where .    Like the overdamped case in , there are no trig functions anywhere in sight, so there is no oscillation. The new feature here is the term, which we saw arise from the repeated root structure in .    A critically damped spring with , , , so . Press Play and notice the mass starts compressed, becomes more compressed before turning around, then slowly approaches equilibrium without ever crossing it.     In the animation above, the mass never crossed equilibrium. But just like the overdamped case, whether or not it crosses depends on and . Play around with the explorer below and see what you notice.    The critically damped solution with fixed. Drag the sliders to change and and observe how many times the curve crosses .       Based on your exploration above, what are the possibilities for how many times the mass passes through the equilibrium position in a critically damped system?     Never or exactly once.   Correct! Just like the overdamped case, the mass passes through equilibrium at most once.      Exactly once, always.   Not always. Try and in the explorer above. The curve never crosses .     Infinitely many times.   That is the underdamped case. Critically damped systems have no oscillation.     Exactly twice.   Try as many values of and as you like in the explorer. You will not find a case where the curve crosses twice.       The explorer suggests the mass crosses equilibrium at most once, no matter what and are. Let's confirm this by digging into the algebra, and figure out the long-term behavior along the way.   At Most One Equilibrium Crossing   Show that the mass in a critically damped system passes through the equilibrium position at most one time. What is the long-term behavior?    We want to find all where . Setting the general solution equal to zero: Since for all , we can divide both sides by : so This is at most one value of . It gives a valid crossing only when . Otherwise the mass never crosses equilibrium at all.  For the long-term behavior, since : where the exponential decay beats the linear growth by L'Hopital's rule.     So at most one crossing along the way, but where does the mass end up after all that?   Even though grows without bound, the exponential decay wins: The mass always approaches equilibrium in the long run.     Key Takeaways     Solution form: Critically damped solutions have the form where is the one repeated root.   No oscillation: Like the overdamped case, there is no trigonometric part and therefore no oscillation.   Equilibrium crossings: The mass passes through at most once, the same as the overdamped case.   Long-term behavior:  , since the exponential decay beats the linear growth in .   Similarity to overdamped: Critically damped and overdamped solutions behave qualitatively the same way: no oscillation, at most one equilibrium crossing, and . The difference is in the form of the solution and which value of produces each case.       This video goes through the content of this page.     "
+},
+{
+  "id": "sec-critically-damped-2",
+  "level": "2",
+  "url": "sec-critically-damped.html#sec-critically-damped-2",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "critically damped "
+},
+{
+  "id": "sec-critically-damped-3",
+  "level": "2",
+  "url": "sec-critically-damped.html#sec-critically-damped-3",
+  "type": "Justification",
+  "number": "3.3.4.1",
+  "title": "Why is the root negative? (can skim).",
+  "body": " Why is the root negative? (can skim)  The repeated root is . Since and , the numerator is negative and the denominator is positive, so .  "
+},
+{
+  "id": "obs-critdamped-form",
+  "level": "2",
+  "url": "sec-critically-damped.html#obs-critdamped-form",
+  "type": "Observation",
+  "number": "3.3.1",
+  "title": "Critically Damped Solution Form.",
+  "body": " Critically Damped Solution Form  When , the characteristic equation has one repeated real root , and the system is critically damped . The general solution takes the form: where .  "
+},
+{
+  "id": "fig-critdamped-spring",
+  "level": "2",
+  "url": "sec-critically-damped.html#fig-critdamped-spring",
+  "type": "Figure",
+  "number": "3.3.2",
+  "title": "",
+  "body": " A critically damped spring with , , , so . Press Play and notice the mass starts compressed, becomes more compressed before turning around, then slowly approaches equilibrium without ever crossing it.   "
+},
+{
+  "id": "fig-critdamped-explore",
+  "level": "2",
+  "url": "sec-critically-damped.html#fig-critdamped-explore",
+  "type": "Figure",
+  "number": "3.3.3",
+  "title": "",
+  "body": " The critically damped solution with fixed. Drag the sliders to change and and observe how many times the curve crosses .   "
+},
+{
+  "id": "ex-mc-critdamped-crossings",
+  "level": "2",
+  "url": "sec-critically-damped.html#ex-mc-critdamped-crossings",
+  "type": "Checkpoint",
+  "number": "3.3.4",
+  "title": "",
+  "body": "  Based on your exploration above, what are the possibilities for how many times the mass passes through the equilibrium position in a critically damped system?     Never or exactly once.   Correct! Just like the overdamped case, the mass passes through equilibrium at most once.      Exactly once, always.   Not always. Try and in the explorer above. The curve never crosses .     Infinitely many times.   That is the underdamped case. Critically damped systems have no oscillation.     Exactly twice.   Try as many values of and as you like in the explorer. You will not find a case where the curve crosses twice.     "
+},
+{
+  "id": "ex-critdamped-crossings-algebra",
+  "level": "2",
+  "url": "sec-critically-damped.html#ex-critdamped-crossings-algebra",
+  "type": "Example",
+  "number": "3.3.5",
+  "title": "At Most One Equilibrium Crossing.",
+  "body": " At Most One Equilibrium Crossing   Show that the mass in a critically damped system passes through the equilibrium position at most one time. What is the long-term behavior?    We want to find all where . Setting the general solution equal to zero: Since for all , we can divide both sides by : so This is at most one value of . It gives a valid crossing only when . Otherwise the mass never crosses equilibrium at all.  For the long-term behavior, since : where the exponential decay beats the linear growth by L'Hopital's rule.   "
+},
+{
+  "id": "obs-critdamped-limit",
+  "level": "2",
+  "url": "sec-critically-damped.html#obs-critdamped-limit",
+  "type": "Observation",
+  "number": "3.3.6",
+  "title": "",
+  "body": " Even though grows without bound, the exponential decay wins: The mass always approaches equilibrium in the long run.  "
+},
+{
+  "id": "video-critdamped",
+  "level": "2",
+  "url": "sec-critically-damped.html#video-critdamped",
+  "type": "Figure",
+  "number": "3.3.7",
+  "title": "",
+  "body": " This video goes through the content of this page.   "
+},
+{
+  "id": "sec-damping-summary",
+  "level": "1",
+  "url": "sec-damping-summary.html",
+  "type": "Section",
+  "number": "3.3.5",
+  "title": "Damping cases and the constants c, m, k",
+  "body": " Damping cases and the constants c, m, k   We've now seen all three damping cases, underdamped, overdamped, and critically damped, plus the undamped case from before. Now that we have done the hard work, we can summarize all of the behavior we discovered!    Summary of Behavior:  We solve this ODE by solving the roots of the characteristic equation: The behavior of solutions is determined entirely by the discriminant , which controls the type of roots of the characteristic equation.        Case  Discriminant and roots  Crossings of     Overdamped (larger )  (two distinct real roots)  At most once     Critically damped (borderline)  (one repeated real root)  At most once     Underdamped (smaller )  (complex roots with nonzero real part)  Infinitely many     Undamped ( )  (pure imaginary roots)  Infinitely many  DNE    In all damped cases ( ), the mass eventually approaches equilibrium: . In the undamped case ( ) the mass oscillates forever with constant amplitude.    As seen in the second column, you can determine what case we are in simply by knowing , , and . See if you can apply this to the next question!    A spring-mass-dashpot system has , , . Which damping case is this?     Underdamped   Correct! The discriminant is , so the characteristic equation has complex roots and the system is underdamped.      Overdamped   Overdamped requires . Here , so this is not overdamped.     Critically damped   Critically damped requires . Here .     Undamped   Undamped means . Here .       Now let's go the other direction: starting from the behavior of the system, can we narrow down which cases are possible?    The mass passes through the equilibrium position infinitely many times. Select all cases this could correspond to.     Underdamped   Correct! Underdamped solutions oscillate with decaying amplitude and cross infinitely many times.      Undamped   Correct! The undamped system oscillates with constant amplitude and also crosses infinitely many times.      Overdamped   Overdamped solutions pass through equilibrium at most once. They cannot cross infinitely many times.     Critically damped   Critically damped solutions also pass through equilibrium at most once.       Let's combine these ideas into a more involved example, where we have to work backward from the desired behavior to figure out which values of make it happen.   Identifying the Damping Case   Suppose that the position of a mass in a spring-mass-dashpot system is modeled by the ODE:      For what values of will the mass oscillate and pass through the equilibrium position infinitely many times?    Which damping cases cause the mass to pass through equilibrium infinitely many times? What conditions on correspond to those cases?    From the summary above, the mass passes through equilibrium infinitely many times when the system is underdamped or undamped. Here and , so the discriminant is .  Underdamped requires , i.e. , which gives . Undamped requires . Combining, the mass oscillates infinitely many times when       Suppose . Can you make the mass oscillate and pass through the equilibrium position infinitely many times by choosing a different value for ?    The damping case depends only on an inequality involving , , and . If these are fixed, does changing the initial conditions affect which case we are in?    No. The damping case is determined entirely by , which depends only on , , and . With , , we have , so the system is critically damped regardless of the initial conditions. A critically damped system passes through equilibrium at most once, so no choice of can produce infinitely many crossings.      The second part of that example hints at something worth pinning down more carefully: the type of roots alone doesn't always tell us a unique case. Let's see this in action with complex roots.    The characteristic equation of a spring-mass system has complex roots. Which case or cases could this correspond to?     Undamped or underdamped   Correct! Complex roots arise in two situations. When the roots are purely imaginary (zero real part) and the system is undamped. When and the roots have a nonzero negative real part and the system is underdamped. In both cases the roots are complex.      Underdamped only   Underdamped is one correct case, but not the only one. When the characteristic equation also has complex (purely imaginary) roots, giving the undamped case.     Overdamped   Overdamped corresponds to two distinct real roots, not complex roots.     Critically damped   Critically damped corresponds to one repeated real root, not complex roots.       Okay, so we now have a solid understanding of the different types of solutions. In the next section, we take this a step further and analyze the behavior of solutions in more detail!   Key Takeaways     The damping case tells us: how many times the mass crosses the equilibrium position and the long-term behavior .   The damping case is determined by the type of roots of the characteristic equation, which can be found by computing the discriminant .   Initial conditions do not change the case:  , , and alone determine whether the system is overdamped, critically damped, or underdamped.   Complex roots arise in two cases: purely imaginary roots ( , undamped) and complex roots with negative real part ( and , underdamped).       "
+},
+{
+  "id": "ex-mc-identify-case",
+  "level": "2",
+  "url": "sec-damping-summary.html#ex-mc-identify-case",
+  "type": "Checkpoint",
+  "number": "3.3.1",
+  "title": "",
+  "body": "  A spring-mass-dashpot system has , , . Which damping case is this?     Underdamped   Correct! The discriminant is , so the characteristic equation has complex roots and the system is underdamped.      Overdamped   Overdamped requires . Here , so this is not overdamped.     Critically damped   Critically damped requires . Here .     Undamped   Undamped means . Here .     "
+},
+{
+  "id": "ex-mc-infinitely-many-crossings",
+  "level": "2",
+  "url": "sec-damping-summary.html#ex-mc-infinitely-many-crossings",
+  "type": "Checkpoint",
+  "number": "3.3.2",
+  "title": "",
+  "body": "  The mass passes through the equilibrium position infinitely many times. Select all cases this could correspond to.     Underdamped   Correct! Underdamped solutions oscillate with decaying amplitude and cross infinitely many times.      Undamped   Correct! The undamped system oscillates with constant amplitude and also crosses infinitely many times.      Overdamped   Overdamped solutions pass through equilibrium at most once. They cannot cross infinitely many times.     Critically damped   Critically damped solutions also pass through equilibrium at most once.     "
+},
+{
+  "id": "ex-damping-identify-c",
+  "level": "2",
+  "url": "sec-damping-summary.html#ex-damping-identify-c",
+  "type": "Example",
+  "number": "3.3.3",
+  "title": "Identifying the Damping Case.",
+  "body": " Identifying the Damping Case   Suppose that the position of a mass in a spring-mass-dashpot system is modeled by the ODE:      For what values of will the mass oscillate and pass through the equilibrium position infinitely many times?    Which damping cases cause the mass to pass through equilibrium infinitely many times? What conditions on correspond to those cases?    From the summary above, the mass passes through equilibrium infinitely many times when the system is underdamped or undamped. Here and , so the discriminant is .  Underdamped requires , i.e. , which gives . Undamped requires . Combining, the mass oscillates infinitely many times when       Suppose . Can you make the mass oscillate and pass through the equilibrium position infinitely many times by choosing a different value for ?    The damping case depends only on an inequality involving , , and . If these are fixed, does changing the initial conditions affect which case we are in?    No. The damping case is determined entirely by , which depends only on , , and . With , , we have , so the system is critically damped regardless of the initial conditions. A critically damped system passes through equilibrium at most once, so no choice of can produce infinitely many crossings.    "
+},
+{
+  "id": "ex-mc-complex-roots-cases",
+  "level": "2",
+  "url": "sec-damping-summary.html#ex-mc-complex-roots-cases",
+  "type": "Checkpoint",
+  "number": "3.3.4",
+  "title": "",
+  "body": "  The characteristic equation of a spring-mass system has complex roots. Which case or cases could this correspond to?     Undamped or underdamped   Correct! Complex roots arise in two situations. When the roots are purely imaginary (zero real part) and the system is undamped. When and the roots have a nonzero negative real part and the system is underdamped. In both cases the roots are complex.      Underdamped only   Underdamped is one correct case, but not the only one. When the characteristic equation also has complex (purely imaginary) roots, giving the undamped case.     Overdamped   Overdamped corresponds to two distinct real roots, not complex roots.     Critically damped   Critically damped corresponds to one repeated real root, not complex roots.     "
+},
+{
+  "id": "sec-underdamped-direction-changes",
+  "level": "1",
+  "url": "sec-underdamped-direction-changes.html",
+  "type": "Section",
+  "number": "3.4.1",
+  "title": "Analyzing Underdamped Motion",
+  "body": " Analyzing Underdamped Motion   Before we begin the main content of this page, let's review a couple of facts about trig equations that we'll need later on. We'll start with these prerequisites, and then come back to them when we work through .    Prerequisite: Solving      Solving . Taking arctan of both sides gives one solution, , but this is not the only one. Since has period , shifting any solution by gives another solution. The complete solution set is:    Why does this give all solutions?  Because has period , the equation is satisfied by exactly one value of in each interval of length . The function is the inverse of restricted to , so picks out the unique solution in that interval. Every other solution is obtained by adding an integer multiple of , covering all intervals.      Restricting to . Continuing from part 1 with , we have , and we want to know which values of give . There are two cases:  : valid solutions start at .  : valid solutions start at .     Why n = 0 or n = 1? (can skim)  The key fact is that always has the same sign as .   Case 1: . Then , so for all . Since negative would give , the valid solutions start at :    Case 2: . Then , so gives a negative value of (not valid). But since , adding one full period gives . Valid solutions:         Okay now let's turn to the underdamped case, where the mass oscillates with decaying amplitude.   Summary: Underdamped Case of        Case  Discriminant and roots  Crossings of     Underdamped (smaller )  (complex roots with nonzero real part)  Infinitely many       To make things concrete, let's fix a specific underdamped system and work with it for the rest of this page.  Consider the underdamped system with , , , , . Substituting these parameters gives the IVP: The solution to this IVP is:    Work: Solution to the IVP (can skim)  With , , the characteristic equation is . The discriminant is , confirming the system is underdamped. By the quadratic formula: So and , giving general solution: Applying : . Differentiating and applying : So .    Now let's think about what this solution actually looks like in motion, and in particular, when the mass changes direction.   When Does the Mass Change Direction?   Observe the Graph   The interactive below shows an underdamped spring alongside the graph of its position function. A point moves along the curve as you drag the slider, with a tangent line showing the slope at each moment.   Note: to make the direction changes clearly visible, we use a slower decay rate here ( instead of ). The qualitative behavior is the same.   Drag the slider to move along the curve. Watch the slope of the tangent line and the spring position. What happens to the slope at a peak or trough?       Connect to Calculus   Based on your observations above, which equation corresponds exactly to the mass changing direction?       Correct! Direction changes occur exactly at critical points of , where . Note that for underdamped systems, every critical point is a direction change (no saddle points), since the solution oscillates.         means the mass is at the equilibrium position, not that it is changing direction. The mass can pass through equilibrium while still moving.        corresponds to inflection points of , not direction changes.       This equation has no direct physical meaning in this context.       Find All Direction Changes   Now find all times at which the mass changes direction. Recall .     Step 1. Compute using the product rule.   Step 2. Solve . Since , you can factor it out and solve what remains.    Since at every direction change, we compute and solve.   Step 1: Compute  Using the product rule:    So . Now we set this equal to zero and solve.   Step 2: Solve  Since , we need: By part 1 of with , every solution has the form: By part 2 of , since , the valid solutions with start at .   So starting at ensures every value of is nonnegative, and the mass changes direction at:        Direction Changes in the Mass-Spring System  In the mass-spring system, direction changes always correspond to critical points of , i.e., times when .  While in general a function can have critical points that are saddle points (not direction changes), this does not happen in the mass-spring system. When the velocity slows down to zero, the physics of the spring forces the mass to turn in the opposite direction: the spring cannot stretch, slow to zero velocity, and then continue stretching. So every critical point is a genuine direction change.     Key Takeaways     Direction changes correspond to critical points: the mass changes direction exactly when .   Solving : after computing and dividing out , we arrive at for some constant , giving . To get : if , start at ; if , start at .       This video goes through the content of this page.     "
+},
+{
+  "id": "remark-arctan-review",
+  "level": "2",
+  "url": "sec-underdamped-direction-changes.html#remark-arctan-review",
+  "type": "Remark",
+  "number": "3.4.1",
+  "title": "Prerequisite: Solving <span class=\"process-math\">\\(\\tan(\\theta) = A\\)<\/span>.",
+  "body": " Prerequisite: Solving      Solving . Taking arctan of both sides gives one solution, , but this is not the only one. Since has period , shifting any solution by gives another solution. The complete solution set is:    Why does this give all solutions?  Because has period , the equation is satisfied by exactly one value of in each interval of length . The function is the inverse of restricted to , so picks out the unique solution in that interval. Every other solution is obtained by adding an integer multiple of , covering all intervals.      Restricting to . Continuing from part 1 with , we have , and we want to know which values of give . There are two cases:  : valid solutions start at .  : valid solutions start at .     Why n = 0 or n = 1? (can skim)  The key fact is that always has the same sign as .   Case 1: . Then , so for all . Since negative would give , the valid solutions start at :    Case 2: . Then , so gives a negative value of (not valid). But since , adding one full period gives . Valid solutions:       "
+},
+{
+  "id": "exploration-direction-changes",
+  "level": "2",
+  "url": "sec-underdamped-direction-changes.html#exploration-direction-changes",
+  "type": "Exploration",
+  "number": "3.4.1",
+  "title": "When Does the Mass Change Direction?",
+  "body": " When Does the Mass Change Direction?   Observe the Graph   The interactive below shows an underdamped spring alongside the graph of its position function. A point moves along the curve as you drag the slider, with a tangent line showing the slope at each moment.   Note: to make the direction changes clearly visible, we use a slower decay rate here ( instead of ). The qualitative behavior is the same.   Drag the slider to move along the curve. Watch the slope of the tangent line and the spring position. What happens to the slope at a peak or trough?       Connect to Calculus   Based on your observations above, which equation corresponds exactly to the mass changing direction?       Correct! Direction changes occur exactly at critical points of , where . Note that for underdamped systems, every critical point is a direction change (no saddle points), since the solution oscillates.         means the mass is at the equilibrium position, not that it is changing direction. The mass can pass through equilibrium while still moving.        corresponds to inflection points of , not direction changes.       This equation has no direct physical meaning in this context.       Find All Direction Changes   Now find all times at which the mass changes direction. Recall .     Step 1. Compute using the product rule.   Step 2. Solve . Since , you can factor it out and solve what remains.    Since at every direction change, we compute and solve.   Step 1: Compute  Using the product rule:    So . Now we set this equal to zero and solve.   Step 2: Solve  Since , we need: By part 1 of with , every solution has the form: By part 2 of , since , the valid solutions with start at .   So starting at ensures every value of is nonnegative, and the mass changes direction at:     "
+},
+{
+  "id": "obs-direction-changes",
+  "level": "2",
+  "url": "sec-underdamped-direction-changes.html#obs-direction-changes",
+  "type": "Observation",
+  "number": "3.4.3",
+  "title": "Direction Changes in the Mass-Spring System.",
+  "body": " Direction Changes in the Mass-Spring System  In the mass-spring system, direction changes always correspond to critical points of , i.e., times when .  While in general a function can have critical points that are saddle points (not direction changes), this does not happen in the mass-spring system. When the velocity slows down to zero, the physics of the spring forces the mass to turn in the opposite direction: the spring cannot stretch, slow to zero velocity, and then continue stretching. So every critical point is a genuine direction change.  "
+},
+{
+  "id": "video-underdamped-direction",
+  "level": "2",
+  "url": "sec-underdamped-direction-changes.html#video-underdamped-direction",
+  "type": "Figure",
+  "number": "3.4.4",
+  "title": "",
+  "body": " This video goes through the content of this page.   "
+},
+{
+  "id": "sec-overdamped-analysis",
+  "level": "1",
+  "url": "sec-overdamped-analysis.html",
+  "type": "Section",
+  "number": "3.4.2",
+  "title": "Analyzing Overdamped and Critically Damped Motion",
+  "body": " Analyzing Overdamped and Critically Damped Motion   Overdamped and critically damped systems share the same qualitative behavior: the mass returns to equilibrium without oscillating, passing through it at most once.   Summary: Overdamped and Critically Damped Cases of        Case  Discriminant and roots  Crossings of     Overdamped (larger )  (two distinct real roots)  At most once     Critically damped (borderline)  (one repeated real root)  At most once       For the rest of this page we analyze the position function We will use information about this function to build a complete picture of the motion.    Building a Picture of the Motion   Throughout this exploration, .     Which Damping Case?   Based on the form of , which damping case are we in?     Overdamped   Correct! The solution is a sum of two distinct decaying exponentials, with and . Two distinct real roots means , which is the overdamped case.      Critically damped   Not quite. A critically damped solution has the form , with one exponential and one multiplied by . Here we have two different exponential rates, so the roots are distinct, not repeated.     Underdamped   Not quite. An underdamped solution has the form , which involves oscillating trig terms. This solution has no trig functions, so it decays without oscillating.        Does the Mass Pass Through Equilibrium?   Will the mass ever pass through the equilibrium position ?    Set and solve for . Remember that only is physically meaningful.     Full solution  We solve . Since , divide both sides by : Since , this is not a valid time. The mass never passes through equilibrium for .       Initial Position and Velocity   Compute and . What do these tell you about where the mass starts and which direction it initially moves?    Recall: means stretched, means compressed. means moving in the positive direction (toward equilibrium when compressed), means moving in the negative direction.     Work   Initial position:  Since , the mass starts compressed .   Initial velocity: Differentiating, so . The mass is initially moving in the positive direction , that is, toward the equilibrium position.  Together: the mass starts compressed at , moves toward equilibrium, but (from Task 2) never reaches it. So the mass stays compressed for all .       Sketch the Graph   From Task 3 we observed that and , so:  : the mass starts compressed , and  : it is initially moving in the positive direction .  Using this, together with the fact that the mass never crosses equilibrium (Task 2), determine which graph below matches .   Three candidate graphs for . The dashed green line marks the equilibrium . The red dot marks the starting position at .       Graph (a)   Graph (a) does start compressed, which is correct. However, it then moves further from equilibrium before turning around, meaning initially. But we found , so the mass is moving toward equilibrium from the very start, not away from it.     Graph (b)   Correct! Graph (b) starts below zero (compressed), moves in the positive direction toward equilibrium, and never crosses , exactly matching what we found in Tasks 2 and 3.      Graph (c)   Graph (c) shows oscillations, which is the behavior of an underdamped system. But has two distinct real exponential terms with no trig functions, so it is overdamped and does not oscillate.        The key idea here was using the following information:  the sign of (does it start compressed, stretched, or at equilibrium?),  the sign of (is it initially moving left or right?), and  whether the mass ever crosses the equilibrium position.  These three pieces of information will always allow you to give a sketch of the graph, as we did in part (c).  Now that we have a clear picture of the motion, let's use what we found to answer some more specific questions about the spring's behavior.   Analyzing   Suppose the position function of a mass in a spring-mass-dashpot system is     Will the mass pass through the equilibrium position?  When is the spring most stretched, if at all?  When is the spring most compressed, if at all?      Will the mass pass through equilibrium?   This was solved in of the exploration.    From : the only solution to occurs at , which is not a valid time. The mass never passes through equilibrium .     When is the spring most stretched?   What can you deduce from the sketch of the graph in the exploration? Think about what the initial conditions and the equilibrium crossing result together tell you about whether the spring is ever stretched.    From the exploration: the mass starts compressed ( ) and never crosses the equilibrium position. Therefore for all , so the spring is never stretched . This is confirmed by the graph below, which stays entirely below .   The graph of stays below zero for all . The spring is never stretched.       When is the spring most compressed?   What can you deduce from the sketch of the graph that used knowledge of and ? Think about the direction of motion from the very start.    From the exploration: and , so the mass starts compressed and is already moving toward equilibrium at . Since it never crosses equilibrium, it moves closer to zero for all . Therefore is the most negative value, and the spring is most compressed at . The graph confirms this: the curve starts at its lowest point and increases from there.   The spring is most compressed at , where is the minimum. The mass moves toward equilibrium for all .         Key Takeaways  To sketch the graph of and answer questions about the motion, we should begin by finding:   The sign of : does the mass start compressed, stretched, or at equilibrium?   The sign of : which direction does the mass initially move?   Whether the mass ever crosses equilibrium: for overdamped and critically damped systems, this happens at most once.  These three pieces of information are enough to sketch the graph of , and from that sketch we can answer qualitative questions about the behavior of the system.     This video goes through the content of this page.     "
+},
+{
+  "id": "exploration-overdamped-analysis",
+  "level": "2",
+  "url": "sec-overdamped-analysis.html#exploration-overdamped-analysis",
+  "type": "Exploration",
+  "number": "3.4.1",
+  "title": "Building a Picture of the Motion.",
+  "body": " Building a Picture of the Motion   Throughout this exploration, .     Which Damping Case?   Based on the form of , which damping case are we in?     Overdamped   Correct! The solution is a sum of two distinct decaying exponentials, with and . Two distinct real roots means , which is the overdamped case.      Critically damped   Not quite. A critically damped solution has the form , with one exponential and one multiplied by . Here we have two different exponential rates, so the roots are distinct, not repeated.     Underdamped   Not quite. An underdamped solution has the form , which involves oscillating trig terms. This solution has no trig functions, so it decays without oscillating.        Does the Mass Pass Through Equilibrium?   Will the mass ever pass through the equilibrium position ?    Set and solve for . Remember that only is physically meaningful.     Full solution  We solve . Since , divide both sides by : Since , this is not a valid time. The mass never passes through equilibrium for .       Initial Position and Velocity   Compute and . What do these tell you about where the mass starts and which direction it initially moves?    Recall: means stretched, means compressed. means moving in the positive direction (toward equilibrium when compressed), means moving in the negative direction.     Work   Initial position:  Since , the mass starts compressed .   Initial velocity: Differentiating, so . The mass is initially moving in the positive direction , that is, toward the equilibrium position.  Together: the mass starts compressed at , moves toward equilibrium, but (from Task 2) never reaches it. So the mass stays compressed for all .       Sketch the Graph   From Task 3 we observed that and , so:  : the mass starts compressed , and  : it is initially moving in the positive direction .  Using this, together with the fact that the mass never crosses equilibrium (Task 2), determine which graph below matches .   Three candidate graphs for . The dashed green line marks the equilibrium . The red dot marks the starting position at .       Graph (a)   Graph (a) does start compressed, which is correct. However, it then moves further from equilibrium before turning around, meaning initially. But we found , so the mass is moving toward equilibrium from the very start, not away from it.     Graph (b)   Correct! Graph (b) starts below zero (compressed), moves in the positive direction toward equilibrium, and never crosses , exactly matching what we found in Tasks 2 and 3.      Graph (c)   Graph (c) shows oscillations, which is the behavior of an underdamped system. But has two distinct real exponential terms with no trig functions, so it is overdamped and does not oscillate.      "
+},
+{
+  "id": "ex-overdamped-analysis",
+  "level": "2",
+  "url": "sec-overdamped-analysis.html#ex-overdamped-analysis",
+  "type": "Example",
+  "number": "3.4.2",
+  "title": "Analyzing <span class=\"process-math\">\\(x(t) = 4e^{-2t} - 10e^{-t}\\)<\/span>.",
+  "body": " Analyzing   Suppose the position function of a mass in a spring-mass-dashpot system is     Will the mass pass through the equilibrium position?  When is the spring most stretched, if at all?  When is the spring most compressed, if at all?      Will the mass pass through equilibrium?   This was solved in of the exploration.    From : the only solution to occurs at , which is not a valid time. The mass never passes through equilibrium .     When is the spring most stretched?   What can you deduce from the sketch of the graph in the exploration? Think about what the initial conditions and the equilibrium crossing result together tell you about whether the spring is ever stretched.    From the exploration: the mass starts compressed ( ) and never crosses the equilibrium position. Therefore for all , so the spring is never stretched . This is confirmed by the graph below, which stays entirely below .   The graph of stays below zero for all . The spring is never stretched.       When is the spring most compressed?   What can you deduce from the sketch of the graph that used knowledge of and ? Think about the direction of motion from the very start.    From the exploration: and , so the mass starts compressed and is already moving toward equilibrium at . Since it never crosses equilibrium, it moves closer to zero for all . Therefore is the most negative value, and the spring is most compressed at . The graph confirms this: the curve starts at its lowest point and increases from there.   The spring is most compressed at , where is the minimum. The mass moves toward equilibrium for all .      "
+},
+{
+  "id": "video-overdamped-analysis",
+  "level": "2",
+  "url": "sec-overdamped-analysis.html#video-overdamped-analysis",
+  "type": "Figure",
+  "number": "3.4.5",
+  "title": "",
+  "body": " This video goes through the content of this page.   "
+},
+{
+  "id": "sec3-overdamped-never-stretched",
+  "level": "1",
+  "url": "sec3-overdamped-never-stretched.html",
+  "type": "Section",
+  "number": "3.4.3",
+  "title": "Analyzing an Overdamped System: Is the Spring Ever Stretched?",
+  "body": " Analyzing an Overdamped System: Is the Spring Ever Stretched?   In we used the sign of , the sign of , and whether the mass crosses equilibrium to build a complete picture of the motion. In this section, we put that same approach to work on a new question: for the system below, is the spring ever stretched ? We'll work through an activity to build up the picture, then come back to this question at the end.   We continue analyzing overdamped and critically damped systems. Recall the shared behavior of these two cases.   Summary: Overdamped and Critically Damped Cases of        Case  Discriminant and roots  Crossings of     Overdamped (larger )  (two distinct real roots)  At most once     Critically damped (borderline)  (one repeated real root)  At most once       Consider the spring-mass-dashpot system with , , , set in motion at with and . Substituting these parameters gives the IVP: The solution to this IVP is:    Work: Solution to the IVP (can skim)  With , , the characteristic equation is , which factors as . This gives two distinct real roots and , confirming the system is overdamped. The general solution is: Applying : Differentiating: Applying : So , , and .    With that question in mind, let's work through the following activity to map out the behavior of the system.    Building a Picture of the Motion   Throughout this activity, .     Which Damping Case?   Based on the form of , which damping case are we in?     Overdamped   Correct! The solution is a sum of two distinct decaying exponentials with roots and . Two distinct real roots means , which is the overdamped case.      Critically damped   Not quite. A critically damped solution has the form , with a repeated exponential rate. Here we have two different rates, so the roots are distinct, not repeated.     Underdamped   Not quite. An underdamped solution involves oscillating trig terms. This solution has no trig functions, so it decays without oscillating.        Does the Mass Cross the Equilibrium for ?   Does the mass ever cross the equilibrium position for ?    Set and determine whether there are any solutions with . Since we already know is one solution. We want to know if there are any others.    We solve . Factoring out (which is never zero): The only solution is . The mass never crosses the equilibrium for . Note that the mass does slowly approach zero as , but it never actually reaches or crosses it again.      Which Way Does the Mass Immediately Move?   We are given and . The mass starts exactly at the equilibrium position. Based on the initial velocity, does the spring immediately become compressed or stretched?     Compressed, because means the mass immediately moves in the negative direction.   Correct! Since , the mass moves in the negative direction right away, meaning for small , which is the compressed side.      Stretched, because the mass starts at equilibrium and must move somewhere.   The initial velocity tells us which direction the mass moves. Since , it moves in the negative (compressed) direction, not the positive (stretched) direction.     We cannot tell from the initial conditions alone.   We can tell. The sign of tells us the direction of motion immediately after . Since , the mass moves in the negative (compressed) direction.        Now that we have worked through the activity, we have determined the following:  The system is overdamped : no oscillations, the mass decays smoothly toward zero.  The mass starts at equilibrium ( ) and immediately becomes compressed ( ).  The mass never crosses the equilibrium for .  Using these three facts, match the graph of below.   Three candidate graphs for . The dashed green line marks the equilibrium . The red dot marks the starting position at .     Match the Graph   Which graph matches ?     Graph (a)   Graph (a) does start at zero and immediately becomes compressed, which is correct. However, it then crosses the equilibrium line and becomes stretched. We showed in the activity that the mass never crosses the equilibrium for , so this cannot be correct.     Graph (b)   Correct! Graph (b) starts at zero, immediately becomes compressed, reaches a minimum, and then slowly approaches zero from below without ever crossing the equilibrium, exactly matching what we found in the activity.      Graph (c)   Graph (c) shows oscillations, which is the behavior of an underdamped system. Since has two distinct real exponential terms and no trig functions, the system is overdamped and does not oscillate.      Notice that in graph (b), the mass starts at zero, immediately becomes compressed, and then slowly approaches the equilibrium from below as . It gets closer and closer to zero but never actually crosses it again. Since the mass starts at , immediately moves into compressed territory, and never crosses the equilibrium, we can conclude the spring is never stretched for any .    This video goes through the content of this page.     "
+},
+{
+  "id": "activity-overdamped-never-stretched",
+  "level": "2",
+  "url": "sec3-overdamped-never-stretched.html#activity-overdamped-never-stretched",
+  "type": "Activity",
+  "number": "3.4.1",
+  "title": "Building a Picture of the Motion.",
+  "body": " Building a Picture of the Motion   Throughout this activity, .     Which Damping Case?   Based on the form of , which damping case are we in?     Overdamped   Correct! The solution is a sum of two distinct decaying exponentials with roots and . Two distinct real roots means , which is the overdamped case.      Critically damped   Not quite. A critically damped solution has the form , with a repeated exponential rate. Here we have two different rates, so the roots are distinct, not repeated.     Underdamped   Not quite. An underdamped solution involves oscillating trig terms. This solution has no trig functions, so it decays without oscillating.        Does the Mass Cross the Equilibrium for ?   Does the mass ever cross the equilibrium position for ?    Set and determine whether there are any solutions with . Since we already know is one solution. We want to know if there are any others.    We solve . Factoring out (which is never zero): The only solution is . The mass never crosses the equilibrium for . Note that the mass does slowly approach zero as , but it never actually reaches or crosses it again.      Which Way Does the Mass Immediately Move?   We are given and . The mass starts exactly at the equilibrium position. Based on the initial velocity, does the spring immediately become compressed or stretched?     Compressed, because means the mass immediately moves in the negative direction.   Correct! Since , the mass moves in the negative direction right away, meaning for small , which is the compressed side.      Stretched, because the mass starts at equilibrium and must move somewhere.   The initial velocity tells us which direction the mass moves. Since , it moves in the negative (compressed) direction, not the positive (stretched) direction.     We cannot tell from the initial conditions alone.   We can tell. The sign of tells us the direction of motion immediately after . Since , the mass moves in the negative (compressed) direction.      "
+},
+{
+  "id": "fig-overdamped-never-stretched-matching",
+  "level": "2",
+  "url": "sec3-overdamped-never-stretched.html#fig-overdamped-never-stretched-matching",
+  "type": "Figure",
+  "number": "3.4.1",
+  "title": "",
+  "body": " Three candidate graphs for . The dashed green line marks the equilibrium . The red dot marks the starting position at .   "
+},
+{
+  "id": "video-overdamped-never-stretched",
+  "level": "2",
+  "url": "sec3-overdamped-never-stretched.html#video-overdamped-never-stretched",
+  "type": "Figure",
+  "number": "3.4.2",
+  "title": "",
+  "body": " This video goes through the content of this page.   "
+},
+{
+  "id": "sec-critically-damped-analysis",
+  "level": "1",
+  "url": "sec-critically-damped-analysis.html",
+  "type": "Section",
+  "number": "3.4.4",
+  "title": "Analyzing a Critically Damped System",
+  "body": " Analyzing a Critically Damped System   We continue analyzing overdamped and critically damped systems. Recall the shared behavior of these two cases.   Summary: Overdamped and Critically Damped Cases of        Case  Discriminant and roots  Crossings of     Overdamped (larger )  (two distinct real roots)  At most once     Critically damped (borderline)  (one repeated real root)  At most once       Consider the spring-mass-dashpot system with , , , set in motion at with and . Substituting these parameters gives the IVP: The solution to this IVP is:    Work: Solution to the IVP (can skim)  With , , the characteristic equation is , which factors as . This gives one repeated root , confirming the system is critically damped. The general solution is: Applying : . Differentiating: Applying : So .     Sketching the Graph from Initial Conditions   We continue analyzing the same position function from above, using the same method as in to build a picture of the motion.    Does the Mass Pass Through Equilibrium?   Does the mass ever pass through the equilibrium position for ?    Set and solve for . Since , focus on the other factor. Remember that only is physically meaningful.    We solve . Since , we need , giving . Since this is not a valid time, the mass never passes through equilibrium for .     What Do the Initial Conditions Tell Us?   What do the initial conditions and tell us about the behavior of the mass?    We were given and in the problem setup. Are they positive or negative? Recall that means stretched and means compressed, while the sign of tells us the direction of motion.    Since , the mass starts stretched . Since , the mass is initially moving in the positive direction, meaning it is becoming even more stretched at first. Together with the result of the previous task, the mass starts stretched, moves further from equilibrium, and then approaches zero from above without ever crossing it.     Putting It Together   Combining the two observations above: the mass starts stretched, initially moves further from equilibrium, never crosses , and eventually approaches zero from above. This gives the following graph.   Graph of . The mass starts at (stretched), increases further, then decays toward zero without ever crossing the equilibrium.         Analyzing the Behavior   We continue with the same position function, Now that we have a complete picture of the motion, we use it to answer questions about the system. Make sure to reference the previous example to help answer the following questions.      Is the Spring Ever Compressed?   Explain how you can tell the spring is never compressed.       and the mass never crosses the equilibrium position, so for all .    Correct! Since (starts stretched) and the mass never reaches , it stays on the stretched side for all time.        , so the mass is moving away from the compressed region.    The sign of tells us the initial direction of motion, but alone it does not guarantee the spring is never compressed. The key facts are that and the mass never crosses equilibrium.      The system is critically damped, so it cannot become compressed.    The damping case alone does not determine whether the spring is compressed. A critically damped system can start compressed and remain so. What matters here is the combination of initial conditions and the equilibrium crossing result.        Find the Time of Maximum Stretch   Find the exact time at which the mass is farthest from the equilibrium position.    The maximum stretch occurs either at:  , or  a critical point where .  Looking back at the graph from the previous example, can you deduce which one it is?    Since , the mass is still moving away from equilibrium at , so the maximum stretch does not occur at . It must occur at a critical point where , so we compute and solve.   Step 1: Compute  Using the product rule on :    So . Now we set this equal to zero and solve.   Step 2: Solve  We need to solve: Since , we need: So the maximum stretch occurs at , where .   The graph below shows the maximum stretch marked at .   The maximum stretch occurs at , where . After this point the mass moves back toward equilibrium.         Key Takeaways     Finding the farthest point from equilibrium: this always happens either at or at a critical point where .   How to tell which one: you can determine this from a sketch of the graph. In particular, check the sign of : if the mass is moving toward equilibrium at , then is already the farthest point. But if the mass is moving away from equilibrium, as in this example ( on the stretched side), then it gets even farther before turning around, so the farthest point occurs at a later critical point, which we find by solving .   Note for underdamped systems: the same logic applies, but since underdamped solutions oscillate, there are infinitely many critical points, one at each direction change. The farthest point from equilibrium is still either or the first critical point, but the mass continues changing direction forever after that.       This video goes through the content of this page.     "
+},
+{
+  "id": "ex-critically-damped-sketch",
+  "level": "2",
+  "url": "sec-critically-damped-analysis.html#ex-critically-damped-sketch",
+  "type": "Example",
+  "number": "3.4.1",
+  "title": "Sketching the Graph from Initial Conditions.",
+  "body": " Sketching the Graph from Initial Conditions   We continue analyzing the same position function from above, using the same method as in to build a picture of the motion.    Does the Mass Pass Through Equilibrium?   Does the mass ever pass through the equilibrium position for ?    Set and solve for . Since , focus on the other factor. Remember that only is physically meaningful.    We solve . Since , we need , giving . Since this is not a valid time, the mass never passes through equilibrium for .     What Do the Initial Conditions Tell Us?   What do the initial conditions and tell us about the behavior of the mass?    We were given and in the problem setup. Are they positive or negative? Recall that means stretched and means compressed, while the sign of tells us the direction of motion.    Since , the mass starts stretched . Since , the mass is initially moving in the positive direction, meaning it is becoming even more stretched at first. Together with the result of the previous task, the mass starts stretched, moves further from equilibrium, and then approaches zero from above without ever crossing it.     Putting It Together   Combining the two observations above: the mass starts stretched, initially moves further from equilibrium, never crosses , and eventually approaches zero from above. This gives the following graph.   Graph of . The mass starts at (stretched), increases further, then decays toward zero without ever crossing the equilibrium.      "
+},
+{
+  "id": "activity-critically-damped-questions",
+  "level": "2",
+  "url": "sec-critically-damped-analysis.html#activity-critically-damped-questions",
+  "type": "Activity",
+  "number": "3.4.1",
+  "title": "Analyzing the Behavior.",
+  "body": " Analyzing the Behavior   We continue with the same position function, Now that we have a complete picture of the motion, we use it to answer questions about the system. Make sure to reference the previous example to help answer the following questions.      Is the Spring Ever Compressed?   Explain how you can tell the spring is never compressed.       and the mass never crosses the equilibrium position, so for all .    Correct! Since (starts stretched) and the mass never reaches , it stays on the stretched side for all time.        , so the mass is moving away from the compressed region.    The sign of tells us the initial direction of motion, but alone it does not guarantee the spring is never compressed. The key facts are that and the mass never crosses equilibrium.      The system is critically damped, so it cannot become compressed.    The damping case alone does not determine whether the spring is compressed. A critically damped system can start compressed and remain so. What matters here is the combination of initial conditions and the equilibrium crossing result.        Find the Time of Maximum Stretch   Find the exact time at which the mass is farthest from the equilibrium position.    The maximum stretch occurs either at:  , or  a critical point where .  Looking back at the graph from the previous example, can you deduce which one it is?    Since , the mass is still moving away from equilibrium at , so the maximum stretch does not occur at . It must occur at a critical point where , so we compute and solve.   Step 1: Compute  Using the product rule on :    So . Now we set this equal to zero and solve.   Step 2: Solve  We need to solve: Since , we need: So the maximum stretch occurs at , where .   The graph below shows the maximum stretch marked at .   The maximum stretch occurs at , where . After this point the mass moves back toward equilibrium.      "
+},
+{
+  "id": "video-critically-damped-analysis",
+  "level": "2",
+  "url": "sec-critically-damped-analysis.html#video-critically-damped-analysis",
+  "type": "Figure",
+  "number": "3.4.4",
+  "title": "",
+  "body": " This video goes through the content of this page.   "
+},
+{
+  "id": "sec3-critically-damped-crossing",
+  "level": "1",
+  "url": "sec3-critically-damped-crossing.html",
+  "type": "Section",
+  "number": "3.4.5",
+  "title": "Analyzing a Critically Damped System: Finding Maximum Stretch",
+  "body": " Analyzing a Critically Damped System: Finding Maximum Stretch   We now work through a harder example of the same type from . This time the mass starts compressed but does cross the equilibrium, so we need to track down both the crossing time and the later critical point to find the maximum stretch.   Consider the spring-mass-dashpot system with position function As usual, means the spring is stretched and means it is compressed.    Finding the Time of Maximum Stretch   For , find the time at which the spring is maximally stretched, or explain why the spring is never stretched.    Work through the following steps:  Find and . Does the mass start compressed or stretched?  Solve for . Does the mass ever become stretched by crossing the equilibrium?  Since the mass starts compressed but does become stretched, the maximum stretch cannot occur at . Where must it occur?  Solve to find the exact time.       Step 1: The mass starts compressed .   Work for Step 1  We compute and : so the mass starts compressed. Differentiating using the product rule: so . The mass starts compressed and is initially moving in the positive direction, toward the equilibrium.    Step 2: The mass crosses the equilibrium at , so it does eventually become stretched.   Work for Step 2  We solve : Since , we need , giving . Since , this is a valid crossing time. The mass crosses the equilibrium exactly once, at .    Step 3: The maximum stretch occurs at a critical point where .   Reasoning for Step 3  The maximum stretch occurs either at or at a critical point where . Since the mass starts compressed ( ), the maximum stretch cannot occur at . The mass crosses the equilibrium at and becomes stretched, so the maximum stretch must occur at some . Since is differentiable, any local maximum must occur at a critical point where .    Step 4: The maximum stretch occurs at .   Work for Step 4  We solve . From Step 1 we have . Since : So the maximum stretch occurs at , where       Notice that we have determined the following about the motion:  The mass starts compressed (since ).  The mass crosses the equilibrium at (the only solution to for ).  Maximum stretch occurs at (the only critical point where ).  After , the mass never crosses the equilibrium again, but .     Before looking at the checkpoint below, try sketching the graph yourself using the four facts above. No graph is provided here on purpose, since sketching it yourself is the best way to check your understanding.     Behavior After Crossing Equilibrium   Based on the graph and the work above, which best describes what the mass does after crossing the equilibrium at ?      The mass becomes more and more stretched until it reaches maximum stretch at , then gradually becomes less stretched as it slowly approaches the equilibrium, never crossing it again.    Correct! After crossing at the mass is on the stretched side. It continues stretching until the critical point at , then slowly decays back toward the equilibrium. Since and the mass never crosses equilibrium again, it approaches but never reaches it again.       The mass immediately starts returning to equilibrium after crossing, reaching it again shortly after .    Not quite. After crossing at , the mass continues moving in the positive direction (it is still stretching) until the critical point at . It does not immediately turn around.      The mass oscillates above and below the equilibrium multiple times before settling at zero.    This is the behavior of an underdamped system. Since is critically damped, it crosses the equilibrium at most once and does not oscillate.        Key Takeaways     The four-step approach: find and , check for equilibrium crossings, determine where the maximum occurs (at or a critical point), then solve if needed. A sketch ties all four steps together.       This video goes through the content of this page.     "
+},
+{
+  "id": "ex-critically-damped-crossing",
+  "level": "2",
+  "url": "sec3-critically-damped-crossing.html#ex-critically-damped-crossing",
+  "type": "Example",
+  "number": "3.4.1",
+  "title": "Finding the Time of Maximum Stretch.",
+  "body": " Finding the Time of Maximum Stretch   For , find the time at which the spring is maximally stretched, or explain why the spring is never stretched.    Work through the following steps:  Find and . Does the mass start compressed or stretched?  Solve for . Does the mass ever become stretched by crossing the equilibrium?  Since the mass starts compressed but does become stretched, the maximum stretch cannot occur at . Where must it occur?  Solve to find the exact time.       Step 1: The mass starts compressed .   Work for Step 1  We compute and : so the mass starts compressed. Differentiating using the product rule: so . The mass starts compressed and is initially moving in the positive direction, toward the equilibrium.    Step 2: The mass crosses the equilibrium at , so it does eventually become stretched.   Work for Step 2  We solve : Since , we need , giving . Since , this is a valid crossing time. The mass crosses the equilibrium exactly once, at .    Step 3: The maximum stretch occurs at a critical point where .   Reasoning for Step 3  The maximum stretch occurs either at or at a critical point where . Since the mass starts compressed ( ), the maximum stretch cannot occur at . The mass crosses the equilibrium at and becomes stretched, so the maximum stretch must occur at some . Since is differentiable, any local maximum must occur at a critical point where .    Step 4: The maximum stretch occurs at .   Work for Step 4  We solve . From Step 1 we have . Since : So the maximum stretch occurs at , where     "
+},
+{
+  "id": "video-critically-damped-crossing",
+  "level": "2",
+  "url": "sec3-critically-damped-crossing.html#video-critically-damped-crossing",
+  "type": "Figure",
+  "number": "3.4.2",
+  "title": "",
+  "body": " This video goes through the content of this page.   "
+},
+{
+  "id": "sec-undetermined-part-1",
+  "level": "1",
+  "url": "sec-undetermined-part-1.html",
+  "type": "Section",
+  "number": "3.5.1",
+  "title": "A First Look at Non-Homogeneous Equations",
+  "body": " A First Look at Non-Homogeneous Equations   So far we have only solved 2nd order, constant-coefficient DEs where the right-hand side is zero: These are called homogeneous equations. Now we turn to the non-homogeneous case, where the right-hand side is a nonzero function of :   Solving this in full generality is hard. But for certain simple, well-behaved choices of , we can make progress with a clever strategy. On this page we focus on functions of the form and we will discover the method by working through examples, so treat this as an exploration, not a formula to memorize yet.    Example 1: Finding a Particular Solution   We want to find a particular solution  to That means: a single specific function that makes this equation true.     What should we guess for ?   We need . The right-hand side is , so we need a function whose second derivative is also a multiple of . Which of the following is the most natural guess? (Don't worry, we haven't learned a rule for this yet. Go with your gut!)       Yes! Since , differentiating twice brings back a cosine, which is exactly what we need on the left to match on the right. We just have to find the right value of .        An exponential would give , so the left side becomes , with no cosines anywhere. We can't match this way.       A linear function gives , so the left side is just , a polynomial and not a cosine. This won't work.       Close in spirit! A sine would give , so the left side is . That's a sine, but the right-hand side is a cosine, so they can't be equal for any value of .        Plugging in and solving for   Now we plug the guess into and solve for . Computing derivatives: Substituting: Every term has a factor of , so we divide through by it: A particular solution is:       So for the ODE , we took the guess . Plugging it in gave us the equation , and solving gave , so the particular solution is .  We now try a similar example, but this time the ODE includes a term. Let's see what happens when we try the same type of guess.    Example 2: When the Same Guess Doesn't Work   Now try the same strategy on a different equation: Guess and see what happens.     Plugging in   With , compute and , substitute into , and simplify as much as you can. What do you get?    You'll get both and terms on the left side. Collect them separately.    With : Substituting: Collecting like terms: Rearranging:       Why we're stuck   We need to hold for every value of . But a sine and a cosine can never be equal for all unless both sides are zero. No matter what value we pick for , the left side is a sine and the right side is a cosine — there is no way to make them match. Our guess has failed.      What went wrong?   After substituting we ended up with a term stuck on the left side that couldn't be cancelled. Why did this happen? (This is exploratory, so take your best shot!)      The term in the ODE. Differentiating gives , and that sine got multiplied by the coefficient of , leaving a sine term with no way to cancel it.    Exactly! In Example 1, there was no term, so differentiating produced a that immediately disappeared again. Here the term keeps that sine alive, and our guess has no sine to absorb it.      The ODE has a term with a negative coefficient ( ).   The sign on doesn't cause the problem. Even with a positive coefficient, differentiating would still produce a via the term.     The right-hand side is instead of a higher frequency like .   The frequency of the right-hand side doesn't cause the trouble here. The issue appears regardless of whether we have or on the right.     We should have included a coefficient on the guess, like .   The extra factor of 2 doesn't help — it's still just a constant times , and the term will still produce an uncancelled .        So the guess failed because the term introduced a that had nowhere to go. We need a guess with enough flexibility to absorb both sine and cosine terms. Before moving on: can you think of how to modify the guess to fix this? We will work it out on the next page.    Key Takeaways     The method: To find a particular solution to a non-homogeneous equation, we can guess the form of , plug it in, and solve for the unknown constants. Because the constants are initially unknown, this approach is called the method of undetermined coefficients .   The guess matters: As seen in Example 2, guessing alone won't always work. Differentiating a cosine produces a sine, and if the ODE has a term, that sine has nowhere to go. On the next page we'll see what guess does always work for sinusoidal right-hand sides.       This video goes through the content of this page.     "
+},
+{
+  "id": "sec-undetermined-part-1-2",
+  "level": "2",
+  "url": "sec-undetermined-part-1.html#sec-undetermined-part-1-2",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "homogeneous non-homogeneous "
+},
+{
+  "id": "exploration-undetermined-first-example",
+  "level": "2",
+  "url": "sec-undetermined-part-1.html#exploration-undetermined-first-example",
+  "type": "Exploration",
+  "number": "3.5.1",
+  "title": "Example 1: Finding a Particular Solution.",
+  "body": " Example 1: Finding a Particular Solution   We want to find a particular solution  to That means: a single specific function that makes this equation true.     What should we guess for ?   We need . The right-hand side is , so we need a function whose second derivative is also a multiple of . Which of the following is the most natural guess? (Don't worry, we haven't learned a rule for this yet. Go with your gut!)       Yes! Since , differentiating twice brings back a cosine, which is exactly what we need on the left to match on the right. We just have to find the right value of .        An exponential would give , so the left side becomes , with no cosines anywhere. We can't match this way.       A linear function gives , so the left side is just , a polynomial and not a cosine. This won't work.       Close in spirit! A sine would give , so the left side is . That's a sine, but the right-hand side is a cosine, so they can't be equal for any value of .        Plugging in and solving for   Now we plug the guess into and solve for . Computing derivatives: Substituting: Every term has a factor of , so we divide through by it: A particular solution is:     "
+},
+{
+  "id": "exploration-undetermined-guess-fails",
+  "level": "2",
+  "url": "sec-undetermined-part-1.html#exploration-undetermined-guess-fails",
+  "type": "Exploration",
+  "number": "3.5.2",
+  "title": "Example 2: When the Same Guess Doesn’t Work.",
+  "body": " Example 2: When the Same Guess Doesn't Work   Now try the same strategy on a different equation: Guess and see what happens.     Plugging in   With , compute and , substitute into , and simplify as much as you can. What do you get?    You'll get both and terms on the left side. Collect them separately.    With : Substituting: Collecting like terms: Rearranging:       Why we're stuck   We need to hold for every value of . But a sine and a cosine can never be equal for all unless both sides are zero. No matter what value we pick for , the left side is a sine and the right side is a cosine — there is no way to make them match. Our guess has failed.      What went wrong?   After substituting we ended up with a term stuck on the left side that couldn't be cancelled. Why did this happen? (This is exploratory, so take your best shot!)      The term in the ODE. Differentiating gives , and that sine got multiplied by the coefficient of , leaving a sine term with no way to cancel it.    Exactly! In Example 1, there was no term, so differentiating produced a that immediately disappeared again. Here the term keeps that sine alive, and our guess has no sine to absorb it.      The ODE has a term with a negative coefficient ( ).   The sign on doesn't cause the problem. Even with a positive coefficient, differentiating would still produce a via the term.     The right-hand side is instead of a higher frequency like .   The frequency of the right-hand side doesn't cause the trouble here. The issue appears regardless of whether we have or on the right.     We should have included a coefficient on the guess, like .   The extra factor of 2 doesn't help — it's still just a constant times , and the term will still produce an uncancelled .      "
+},
+{
+  "id": "sec-undetermined-part-1-9-2",
+  "level": "2",
+  "url": "sec-undetermined-part-1.html#sec-undetermined-part-1-9-2",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "method of undetermined coefficients "
+},
+{
+  "id": "video-undetermined-part-1",
+  "level": "2",
+  "url": "sec-undetermined-part-1.html#video-undetermined-part-1",
+  "type": "Figure",
+  "number": "3.5.1",
+  "title": "",
+  "body": " This video goes through the content of this page.   "
+},
+{
+  "id": "sec-undetermined-part-2",
+  "level": "1",
+  "url": "sec-undetermined-part-2.html",
+  "type": "Section",
+  "number": "3.5.2",
+  "title": "The Guess That Works",
+  "body": " The Guess That Works   We continue with the example from . Recall we were trying to find a particular solution to We tried the guess , but it failed: the term introduced a that had nowhere to cancel. We need a guess flexible enough to absorb both sine and cosine terms.    Finding a Particular Solution with    Choosing the guess   Our last guess failed because differentiating it produced a term we couldn't cancel. What modification to the guess might give us the flexibility to handle that? (Give it a shot — we will see in the next part why the right answer works!)       Good instinct! In the next part we will see that including both and in the guess gives us enough room to cancel the sine term that appears when we differentiate.       A polynomial term like would introduce powers of that have no match on the right-hand side. We need something that stays in the world of sines and cosines.       An exponential factor would survive differentiation and produce terms with that can't match the right-hand side.       This would produce polynomial-times-trig terms after differentiation, which is more complicated than we need here. A simpler modification works.        Plugging in and solving for and   Use the guess . Its derivatives are:    Substitute into and solve for and to find .    Substituting: Collecting the sine and cosine terms separately: Since and are independent, their coefficients must match on both sides, giving the system:   Solving for and  From the first equation: . Substituting into the second: Then .  So and , giving the particular solution:       The guess worked here, and it will work in most cases. However, there is one special situation where this guess fails: when the guess itself looks like part of the homogeneous solution. We call this the case of duplication , and we will need a different guess there. That case is coming up on the next page.    A Useful Strategy for Non-Homogeneous Equations  To find a particular solution to guess substitute into the ODE, match coefficients of and on both sides, and solve for and . This works in most cases (see note above about duplication).    One thing to be clear about: the in the guess comes directly from the right-hand side of the ODE. For example, in whatever frequency appears in the non-homogeneous term is the same frequency you use in your guess .     Which of the following is the correct form of the guess for finding a particular solution to        Correct! The right-hand side has frequency , so the guess uses and .        Close in form, but the frequency is wrong. The right-hand side has , so the guess should use frequency , not .       This was our first instinct on the previous page, and it ran into trouble when the term introduced a sine. We need both and in the guess.       The frequency doesn't match the right-hand side. The here comes from the coefficient of in the ODE, not from . Always look at the right-hand side for .       Key Takeaways     The strategy: To find a particular solution to , guess , plug in, match coefficients of sine and cosine separately, and solve for and .   Coming up: On the next page we will see the case of duplication, where the guess fails and a different approach is needed.       This video goes through the content of this page.     "
+},
+{
+  "id": "example-undetermined-AB-guess",
+  "level": "2",
+  "url": "sec-undetermined-part-2.html#example-undetermined-AB-guess",
+  "type": "Example",
+  "number": "3.5.1",
+  "title": "Finding a Particular Solution with <span class=\"process-math\">\\(y_p = A\\cos(t) + B\\sin(t)\\)<\/span>.",
+  "body": " Finding a Particular Solution with    Choosing the guess   Our last guess failed because differentiating it produced a term we couldn't cancel. What modification to the guess might give us the flexibility to handle that? (Give it a shot — we will see in the next part why the right answer works!)       Good instinct! In the next part we will see that including both and in the guess gives us enough room to cancel the sine term that appears when we differentiate.       A polynomial term like would introduce powers of that have no match on the right-hand side. We need something that stays in the world of sines and cosines.       An exponential factor would survive differentiation and produce terms with that can't match the right-hand side.       This would produce polynomial-times-trig terms after differentiation, which is more complicated than we need here. A simpler modification works.        Plugging in and solving for and   Use the guess . Its derivatives are:    Substitute into and solve for and to find .    Substituting: Collecting the sine and cosine terms separately: Since and are independent, their coefficients must match on both sides, giving the system:   Solving for and  From the first equation: . Substituting into the second: Then .  So and , giving the particular solution:     "
+},
+{
+  "id": "sec-undetermined-part-2-4",
+  "level": "2",
+  "url": "sec-undetermined-part-2.html#sec-undetermined-part-2-4",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "case of duplication "
+},
+{
+  "id": "obs-undetermined-strategy",
+  "level": "2",
+  "url": "sec-undetermined-part-2.html#obs-undetermined-strategy",
+  "type": "Observation",
+  "number": "3.5.2",
+  "title": "A Useful Strategy for Non-Homogeneous Equations.",
+  "body": " A Useful Strategy for Non-Homogeneous Equations  To find a particular solution to guess substitute into the ODE, match coefficients of and on both sides, and solve for and . This works in most cases (see note above about duplication).  "
+},
+{
+  "id": "ex-mc-undet-guess",
+  "level": "2",
+  "url": "sec-undetermined-part-2.html#ex-mc-undet-guess",
+  "type": "Checkpoint",
+  "number": "3.5.3",
+  "title": "",
+  "body": "  Which of the following is the correct form of the guess for finding a particular solution to        Correct! The right-hand side has frequency , so the guess uses and .        Close in form, but the frequency is wrong. The right-hand side has , so the guess should use frequency , not .       This was our first instinct on the previous page, and it ran into trouble when the term introduced a sine. We need both and in the guess.       The frequency doesn't match the right-hand side. The here comes from the coefficient of in the ODE, not from . Always look at the right-hand side for .     "
+},
+{
+  "id": "video-undetermined-part-2",
+  "level": "2",
+  "url": "sec-undetermined-part-2.html#video-undetermined-part-2",
+  "type": "Figure",
+  "number": "3.5.4",
+  "title": "",
+  "body": " This video goes through the content of this page.   "
+},
+{
+  "id": "sec-undetermined-duplication",
+  "level": "1",
+  "url": "sec-undetermined-duplication.html",
+  "type": "Section",
+  "number": "3.5.3",
+  "title": "The Case of Duplication",
+  "body": " The Case of Duplication    When the Usual Guess Breaks Down   Let's try to find a particular solution to We will follow the strategy from and see what happens.     The typical guess   Based on the strategy from the previous page, the right-hand side is , so and the typical guess is: Its derivatives are: Let's plug this in and see what happens.      Plugging in   Substituting into : Expanding the right bracket and collecting: Everything cancels: This is never true. No values of and can make this work.      What went wrong?   The left side collapsed to no matter what and are. Why did this happen? (This is exploratory, so take your best shot!)      The guess is itself a solution to the corresponding homogeneous equation , so when we substitute it in, the left side always simplifies to .    Exactly! Since solves , plugging it into always gives , never . The guess is \"invisible\" to the left-hand side operator.      We made an error computing .   The derivatives are correct: differentiating twice gives . The cancellation is real, not a mistake.     The equation has no particular solution.   The equation does have a particular solution. The problem is with our guess, not the equation itself.     We should have used in the guess since the coefficient of is .   The in the guess always comes from the right-hand side, not from the coefficients of the ODE. Here , so is correct.        The guess failed because already solves the homogeneous equation . This is the case of duplication : the guess we would normally use is a solution to the corresponding homogeneous ODE, so substituting it in always gives on the left, making it impossible to match the right-hand side.    We are in the case of duplication when, in the ODE the typical guess already solves the corresponding homogeneous equation . What would the ODE need to look like for this to happen?       Correct! Since , we get , and similarly for , so solves .        The homogeneous version has characteristic roots , giving exponential solutions and , not sines and cosines.       Close in form, but the coefficient of needs to be , not . Since , we need the coefficient of to be exactly for the cancellation to happen.       If there is a term, differentiating produces a sine or cosine that does not cancel, so the guess does not solve the homogeneous equation. Duplication only occurs when .      Note that the coefficient of does not need to be 1. If the ODE is , dividing through by gives , which is still the case of duplication.  To handle the case of duplication, we need a modified guess whose left-hand side does not collapse to zero. It turns out that multiplying the usual guess by does the trick: the factor disrupts the cancellation so that simplifies to a combination of and terms rather than .    Case of Duplication   Suppose the homogeneous equation has general solution containing . Then the guess will always give on the left-hand side of This occurs specifically when the ODE can be written in the form: In this case, use the modified guess:      The reason this works: when we differentiate using the product rule, we get two types of terms — terms with a factor of , and terms without. When we substitute into the ODE, the terms with cancel out (since solves the homogeneous equation). What remains are the terms without : plain and terms that we can match to the right-hand side.   Why does multiplying by fix things? (can skim)  We work with our specific example and . Differentiating with the product rule: Now substitute into : The terms cancel: What remains are the terms without : This is a genuine combination of and that we can match to on the right-hand side to solve for and .     Key Takeaways     Case of duplication: If the usual guess is already a solution to the corresponding homogeneous equation, substituting it in gives on the left, so it can never work as a particular solution.   When does it happen: The case of duplication occurs when the homogeneous ODE has the form , since and are exactly the homogeneous solutions in that case. Equivalently, the frequency on the right-hand side matches the coefficient of in the ODE (since the coefficient is ).   The fix: Multiply the usual guess by , giving . On the next page we will use this modified guess to actually solve an example in this case.       This video goes through the content of this page.     "
+},
+{
+  "id": "exploration-duplication",
+  "level": "2",
+  "url": "sec-undetermined-duplication.html#exploration-duplication",
+  "type": "Exploration",
+  "number": "3.5.1",
+  "title": "When the Usual Guess Breaks Down.",
+  "body": " When the Usual Guess Breaks Down   Let's try to find a particular solution to We will follow the strategy from and see what happens.     The typical guess   Based on the strategy from the previous page, the right-hand side is , so and the typical guess is: Its derivatives are: Let's plug this in and see what happens.      Plugging in   Substituting into : Expanding the right bracket and collecting: Everything cancels: This is never true. No values of and can make this work.      What went wrong?   The left side collapsed to no matter what and are. Why did this happen? (This is exploratory, so take your best shot!)      The guess is itself a solution to the corresponding homogeneous equation , so when we substitute it in, the left side always simplifies to .    Exactly! Since solves , plugging it into always gives , never . The guess is \"invisible\" to the left-hand side operator.      We made an error computing .   The derivatives are correct: differentiating twice gives . The cancellation is real, not a mistake.     The equation has no particular solution.   The equation does have a particular solution. The problem is with our guess, not the equation itself.     We should have used in the guess since the coefficient of is .   The in the guess always comes from the right-hand side, not from the coefficients of the ODE. Here , so is correct.      "
+},
+{
+  "id": "sec-undetermined-duplication-3",
+  "level": "2",
+  "url": "sec-undetermined-duplication.html#sec-undetermined-duplication-3",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "case of duplication "
+},
+{
+  "id": "ex-mc-dup-recognize",
+  "level": "2",
+  "url": "sec-undetermined-duplication.html#ex-mc-dup-recognize",
+  "type": "Checkpoint",
+  "number": "3.5.1",
+  "title": "",
+  "body": "  We are in the case of duplication when, in the ODE the typical guess already solves the corresponding homogeneous equation . What would the ODE need to look like for this to happen?       Correct! Since , we get , and similarly for , so solves .        The homogeneous version has characteristic roots , giving exponential solutions and , not sines and cosines.       Close in form, but the coefficient of needs to be , not . Since , we need the coefficient of to be exactly for the cancellation to happen.       If there is a term, differentiating produces a sine or cosine that does not cancel, so the guess does not solve the homogeneous equation. Duplication only occurs when .     "
+},
+{
+  "id": "thm-case-of-duplication",
+  "level": "2",
+  "url": "sec-undetermined-duplication.html#thm-case-of-duplication",
+  "type": "Theorem",
+  "number": "3.5.2",
+  "title": "Case of Duplication.",
+  "body": " Case of Duplication   Suppose the homogeneous equation has general solution containing . Then the guess will always give on the left-hand side of This occurs specifically when the ODE can be written in the form: In this case, use the modified guess:    "
+},
+{
+  "id": "sec-undetermined-duplication-9",
+  "level": "2",
+  "url": "sec-undetermined-duplication.html#sec-undetermined-duplication-9",
+  "type": "Justification",
+  "number": "3.5.3.1",
+  "title": "Why does multiplying by <span class=\"process-math\">\\(t\\)<\/span> fix things? (can skim).",
+  "body": " Why does multiplying by fix things? (can skim)  We work with our specific example and . Differentiating with the product rule: Now substitute into : The terms cancel: What remains are the terms without : This is a genuine combination of and that we can match to on the right-hand side to solve for and .  "
+},
+{
+  "id": "video-undetermined-duplication",
+  "level": "2",
+  "url": "sec-undetermined-duplication.html#video-undetermined-duplication",
+  "type": "Figure",
+  "number": "3.5.3",
+  "title": "",
+  "body": " This video goes through the content of this page.   "
+},
+{
+  "id": "sec-undetermined-dup-example",
+  "level": "1",
+  "url": "sec-undetermined-dup-example.html",
+  "type": "Section",
+  "number": "3.5.4",
+  "title": "Example with the Case of Duplication",
+  "body": " Example with the Case of Duplication   Recall from that when the ODE has the form the usual guess fails because it solves the homogeneous equation. In this case we use the modified guess Let's work through a full example.    Finding a Particular Solution in the Case of Duplication   Find a particular solution to      Recognizing the case of duplication   Notice that the coefficient of is , and the right-hand side has frequency . Since matches the coefficient of , we are in the case of duplication. What is the correct guess for ?       Correct! Since we are in the case of duplication, we multiply the usual guess by .        This is the usual guess, but we just established we are in the case of duplication. This guess solves , so substituting it in gives on the left, not .       The frequency in the guess should match the right-hand side, which has , not .       Multiplying by is enough to fix the duplication. We only need in more advanced cases not covered here.        Finding and   Use the guess . Substitute into and solve for and .    Using the product rule:     Plug these into and solve for and .    We have:       Computing via product rule  Differentiating with the product rule:   So: Now substituting into :  Substituting and cancelling the terms   The terms cancel:   After cancellation, our ODE becomes: Now we solve for and :  Solving for and  Matching coefficients in    So and , giving the particular solution:       Notice what happened with the terms when we substituted in. In this example, the terms with were from and from . These cancelled exactly because solves the homogeneous equation , which is precisely the definition of the case of duplication. This is not a coincidence: the terms will always cancel when we are in the case of duplication, for exactly this reason. So in practice, once you compute , you can immediately drop the terms and just work with what remains.    Key Takeaways     Recognizing duplication: Check whether matches the coefficient of in the ODE. If so, use the modified guess .   The terms always cancel: When substituting the modified guess into the ODE, the terms with a factor of will always cancel out. You are left with only plain and terms to match against the right-hand side.       This video goes through the content of this page.     "
+},
+{
+  "id": "example-dup-full",
+  "level": "2",
+  "url": "sec-undetermined-dup-example.html#example-dup-full",
+  "type": "Example",
+  "number": "3.5.1",
+  "title": "Finding a Particular Solution in the Case of Duplication.",
+  "body": " Finding a Particular Solution in the Case of Duplication   Find a particular solution to      Recognizing the case of duplication   Notice that the coefficient of is , and the right-hand side has frequency . Since matches the coefficient of , we are in the case of duplication. What is the correct guess for ?       Correct! Since we are in the case of duplication, we multiply the usual guess by .        This is the usual guess, but we just established we are in the case of duplication. This guess solves , so substituting it in gives on the left, not .       The frequency in the guess should match the right-hand side, which has , not .       Multiplying by is enough to fix the duplication. We only need in more advanced cases not covered here.        Finding and   Use the guess . Substitute into and solve for and .    Using the product rule:     Plug these into and solve for and .    We have:       Computing via product rule  Differentiating with the product rule:   So: Now substituting into :  Substituting and cancelling the terms   The terms cancel:   After cancellation, our ODE becomes: Now we solve for and :  Solving for and  Matching coefficients in    So and , giving the particular solution:     "
+},
+{
+  "id": "video-undetermined-dup-example",
+  "level": "2",
+  "url": "sec-undetermined-dup-example.html#video-undetermined-dup-example",
+  "type": "Figure",
+  "number": "3.5.2",
+  "title": "",
+  "body": " This video goes through the content of this page.   "
+},
+{
+  "id": "sec-undetermined-guess-practice",
+  "level": "1",
+  "url": "sec-undetermined-guess-practice.html",
+  "type": "Section",
+  "number": "3.5.5",
+  "title": "Practice: Finding the Right Guess for <span class=\"process-math\">\\(y_p\\)<\/span>",
+  "body": " Practice: Finding the Right Guess for   Before we put together a full general solution, let's make sure we're comfortable identifying the correct guess for . We have two cases to keep in mind, summarized below.   Choosing the Guess for  Given :     Normal case (from ): use the guess .   Case of duplication (from ): if the ODE can be written as (same on both sides, no term), use the modified guess .    The key step in identifying the case of duplication: write the ODE in standard form (divide through so the leading coefficient is ) and check whether the coefficient of equals .   The questions below give you practice at just this identification step; you don't need to solve for and , just state the correct form of the guess.    Identifying the Correct Guess    A standard example   What is the correct form of the guess for finding a particular solution to        Correct! Both terms on the right-hand side share frequency , so the guess uses and . The coefficient of is , so this is the normal case, no extra needed.        The minus sign on the right-hand side doesn't change the form of the guess. We always write and let the algebra determine the signs of and when we solve; one of them may turn out to be negative.       This is the case-of-duplication guess, but we're not in that case here. Duplication occurs only when the ODE has the form with the same on both sides. Here the coefficient of is , so we don't need the extra .       Since both terms on the right have the same frequency, we only need one pair of undetermined coefficients. The guess already has enough flexibility to match both the cosine and sine parts of the right-hand side simultaneously.        A case of duplication   What is the correct form of the guess for finding a particular solution to        Correct! Both terms on the right-hand side have frequency , and the coefficient of is . This is the case of duplication, so we multiply the usual guess by .        This is the usual guess, but it will fail here. The ODE has characteristic equation , giving roots , so the homogeneous solution is . Our guess is already a solution to the homogeneous equation, so plugging it in gives on the left, never matching the right-hand side.       Even setting aside the duplication issue, a cosine-only guess won't work for a right-hand side that includes . And since we're in the case of duplication, we need the -multiplied form as well.       We're in the case of duplication, so we do need the extra , but the full guess must include both and inside, not just the cosine.        Watch out for a negative coefficient   What is the correct form of the guess for finding a particular solution to        Correct! Even though and , the coefficient of is , not . The case of duplication requires the coefficient of to be , which means the homogeneous solutions are and . Here the characteristic equation is , giving real roots and homogeneous solution , with no trig at all! So the usual guess works fine, with both terms covered by a single pair .        It's tempting to see and the number and call this duplication, but the sign matters! The coefficient of is , not . The homogeneous equation has real exponential solutions and , not trig functions. The usual guess is not a homogeneous solution, so the extra is not needed.       These are the homogeneous solutions, not a form that can match on the right-hand side. The guess should mirror the form of .       The right-hand side has both a cosine and a sine term, so a cosine-only guess can't possibly match both. We always need when involves trig at frequency .        Remember to put the ODE in standard form first   What is the correct form of the guess for finding a particular solution to        Correct! The trick here is to put the ODE in standard form first by dividing through by : Now the coefficient of is , so we are in the case of duplication. The modified guess is .        This looks right at first glance, but don't forget to put the ODE in standard form first. Dividing by gives , and now , so this is the case of duplication. The usual guess will give on the left-hand side.     , but first replace the right-hand side with since we'll divide by 2 later.   Dividing by changes the right-hand side too, giving , not the original. But the form of the guess is otherwise correct: .       The frequency in the guess always comes from the right-hand side of the ODE. Both and on the right have frequency . The coefficient is from the left-hand side and doesn't set the frequency.        A subtle one   What is the correct form of the guess for finding a particular solution to        Correct! It's tempting to see the in and the on the right and call this duplication, but check carefully. The frequency is , so we need the coefficient of to equal for duplication. Here the coefficient is only , so this is the normal case.        This is the most natural wrong answer here! The in and the on the right look like they match, but duplication requires the coefficient of to equal , not . Since , we need the coefficient to be , not . The homogeneous equation has solutions and (frequency , not ), so the guess doesn't duplicate anything.       The frequency in the guess must match the right-hand side, which has frequency . The here comes from solving the homogeneous equation (whose solutions oscillate at frequency ), but that's not where the guess frequency comes from.       Neither the frequency nor the duplication call is right here. The guess frequency should match the right-hand side ( ), and since the coefficient of is , we're not in the case of duplication and don't need the extra .        Now that we can reliably identify the right guess, the next step is to use it to build the full general solution: not just a particular solution, but the complete picture including the complementary function.    There is no video associated with this page.    "
+},
+{
+  "id": "activity-guess-practice",
+  "level": "2",
+  "url": "sec-undetermined-guess-practice.html#activity-guess-practice",
+  "type": "Activity",
+  "number": "3.5.1",
+  "title": "Identifying the Correct Guess.",
+  "body": " Identifying the Correct Guess    A standard example   What is the correct form of the guess for finding a particular solution to        Correct! Both terms on the right-hand side share frequency , so the guess uses and . The coefficient of is , so this is the normal case, no extra needed.        The minus sign on the right-hand side doesn't change the form of the guess. We always write and let the algebra determine the signs of and when we solve; one of them may turn out to be negative.       This is the case-of-duplication guess, but we're not in that case here. Duplication occurs only when the ODE has the form with the same on both sides. Here the coefficient of is , so we don't need the extra .       Since both terms on the right have the same frequency, we only need one pair of undetermined coefficients. The guess already has enough flexibility to match both the cosine and sine parts of the right-hand side simultaneously.        A case of duplication   What is the correct form of the guess for finding a particular solution to        Correct! Both terms on the right-hand side have frequency , and the coefficient of is . This is the case of duplication, so we multiply the usual guess by .        This is the usual guess, but it will fail here. The ODE has characteristic equation , giving roots , so the homogeneous solution is . Our guess is already a solution to the homogeneous equation, so plugging it in gives on the left, never matching the right-hand side.       Even setting aside the duplication issue, a cosine-only guess won't work for a right-hand side that includes . And since we're in the case of duplication, we need the -multiplied form as well.       We're in the case of duplication, so we do need the extra , but the full guess must include both and inside, not just the cosine.        Watch out for a negative coefficient   What is the correct form of the guess for finding a particular solution to        Correct! Even though and , the coefficient of is , not . The case of duplication requires the coefficient of to be , which means the homogeneous solutions are and . Here the characteristic equation is , giving real roots and homogeneous solution , with no trig at all! So the usual guess works fine, with both terms covered by a single pair .        It's tempting to see and the number and call this duplication, but the sign matters! The coefficient of is , not . The homogeneous equation has real exponential solutions and , not trig functions. The usual guess is not a homogeneous solution, so the extra is not needed.       These are the homogeneous solutions, not a form that can match on the right-hand side. The guess should mirror the form of .       The right-hand side has both a cosine and a sine term, so a cosine-only guess can't possibly match both. We always need when involves trig at frequency .        Remember to put the ODE in standard form first   What is the correct form of the guess for finding a particular solution to        Correct! The trick here is to put the ODE in standard form first by dividing through by : Now the coefficient of is , so we are in the case of duplication. The modified guess is .        This looks right at first glance, but don't forget to put the ODE in standard form first. Dividing by gives , and now , so this is the case of duplication. The usual guess will give on the left-hand side.     , but first replace the right-hand side with since we'll divide by 2 later.   Dividing by changes the right-hand side too, giving , not the original. But the form of the guess is otherwise correct: .       The frequency in the guess always comes from the right-hand side of the ODE. Both and on the right have frequency . The coefficient is from the left-hand side and doesn't set the frequency.        A subtle one   What is the correct form of the guess for finding a particular solution to        Correct! It's tempting to see the in and the on the right and call this duplication, but check carefully. The frequency is , so we need the coefficient of to equal for duplication. Here the coefficient is only , so this is the normal case.        This is the most natural wrong answer here! The in and the on the right look like they match, but duplication requires the coefficient of to equal , not . Since , we need the coefficient to be , not . The homogeneous equation has solutions and (frequency , not ), so the guess doesn't duplicate anything.       The frequency in the guess must match the right-hand side, which has frequency . The here comes from solving the homogeneous equation (whose solutions oscillate at frequency ), but that's not where the guess frequency comes from.       Neither the frequency nor the duplication call is right here. The guess frequency should match the right-hand side ( ), and since the coefficient of is , we're not in the case of duplication and don't need the extra .      "
+},
+{
+  "id": "sec-undetermined-guess-practice-7",
+  "level": "2",
+  "url": "sec-undetermined-guess-practice.html#sec-undetermined-guess-practice-7",
+  "type": "Remark",
+  "number": "3.5.1",
+  "title": "",
+  "body": " There is no video associated with this page.  "
+},
+{
+  "id": "sec-general-solution-nonhomogeneous",
+  "level": "1",
+  "url": "sec-general-solution-nonhomogeneous.html",
+  "type": "Section",
+  "number": "3.5.6",
+  "title": "The General Solution",
+  "body": " The General Solution    Finding the General Solution to a Non-Homogeneous Equation   Our goal is to find the general solution to the non-homogeneous equation To do this, it turns out we need two ingredients: a particular solution  to the non-homogeneous equation, and the complementary function  , which is the general solution to the associated homogeneous equation.  The point of this exploration is to see why the sum will always form a solution to the non-homogeneous ODE. You can skim the computations for and , but pay close attention to parts (c) and (d)!     Find a particular solution   Use the method of undetermined coefficients to find a particular solution to    Answer:      Full computation (can skim)  The right-hand side has frequency , and the coefficient of is , so this is the normal case. We guess Computing derivatives: Substituting into and collecting: Matching coefficients with the right-hand side :    Solving the system (can skim)  Multiply the first equation by and add to the second: Substituting back:    So the particular solution is       Find the complementary function   Find the general solution to the associated homogeneous equation    Answer:      Full computation (can skim; see )  We solved equations like this in . The characteristic equation is Two distinct real roots give the general solution       Checking that is a solution   Now let's verify that actually satisfies the non-homogeneous equation. Substituting into the left-hand side and grouping the and terms together: The group is zero because solves the homogeneous equation; the group equals the right-hand side because is a particular solution. So is a solution for any values of and .      The key idea   Looking back at the verification above, why does solve the non-homogeneous equation ?      When you plug in , the part cancels to zero (since it solves the homogeneous equation), and the part produces exactly the right-hand side (since it's a particular solution). The sum is therefore equal to the right-hand side.    Exactly! The two pieces play complementary roles: does the job of matching the right-hand side, while quietly disappears.       Both and individually solve the non-homogeneous equation, so their sum does too.    Not quite. solves the homogeneous equation (right-hand side zero), not the non-homogeneous one. It's specifically because they solve different equations that the sum works.      The constants and can always be chosen to make any function satisfy the equation.    The constants and give flexibility, but they don't make an arbitrary function a solution. The reason works is specifically because of what and each solve, not because of the free constants.      Adding two functions always produces a solution to the original equation.    This isn't true in general. The sum of two random functions won't usually satisfy a given ODE. The key is that and are carefully chosen to solve related equations whose contributions add up to the right-hand side.        So we've shown that is always a solution. For our example, that gives the general solution The two free constants and live entirely in and can be determined by initial conditions, just as in the homogeneous case. The particular solution is a single fixed function with no free parameters; it just does the job of matching the right-hand side.  In fact, turns out to be all solutions. That is, every solution to the non-homogeneous equation can be written in this form. Showing this rigorously requires more theory regarding existence and uniqueness of solutions to 2nd order linear ODEs than we present in this course, so we'll take it as given and state the result:    General Solution to the Non-Homogeneous Equation   Suppose is a particular solution to and is the general solution to the associated homogeneous equation Then the general solution to is       Key Takeaways     Two parts of the general solution: To solve a non-homogeneous equation, find (one particular solution, using undetermined coefficients) and (the general solution to the associated homogeneous equation, using the characteristic equation). The general solution is .   Why it works: When you substitute , the terms cancel to zero and the terms produce the right-hand side, so the sum satisfies the full non-homogeneous equation.       This video goes through the content of this page.     "
+},
+{
+  "id": "exploration-general-solution",
+  "level": "2",
+  "url": "sec-general-solution-nonhomogeneous.html#exploration-general-solution",
+  "type": "Exploration",
+  "number": "3.5.1",
+  "title": "Finding the General Solution to a Non-Homogeneous Equation.",
+  "body": " Finding the General Solution to a Non-Homogeneous Equation   Our goal is to find the general solution to the non-homogeneous equation To do this, it turns out we need two ingredients: a particular solution  to the non-homogeneous equation, and the complementary function  , which is the general solution to the associated homogeneous equation.  The point of this exploration is to see why the sum will always form a solution to the non-homogeneous ODE. You can skim the computations for and , but pay close attention to parts (c) and (d)!     Find a particular solution   Use the method of undetermined coefficients to find a particular solution to    Answer:      Full computation (can skim)  The right-hand side has frequency , and the coefficient of is , so this is the normal case. We guess Computing derivatives: Substituting into and collecting: Matching coefficients with the right-hand side :    Solving the system (can skim)  Multiply the first equation by and add to the second: Substituting back:    So the particular solution is       Find the complementary function   Find the general solution to the associated homogeneous equation    Answer:      Full computation (can skim; see )  We solved equations like this in . The characteristic equation is Two distinct real roots give the general solution       Checking that is a solution   Now let's verify that actually satisfies the non-homogeneous equation. Substituting into the left-hand side and grouping the and terms together: The group is zero because solves the homogeneous equation; the group equals the right-hand side because is a particular solution. So is a solution for any values of and .      The key idea   Looking back at the verification above, why does solve the non-homogeneous equation ?      When you plug in , the part cancels to zero (since it solves the homogeneous equation), and the part produces exactly the right-hand side (since it's a particular solution). The sum is therefore equal to the right-hand side.    Exactly! The two pieces play complementary roles: does the job of matching the right-hand side, while quietly disappears.       Both and individually solve the non-homogeneous equation, so their sum does too.    Not quite. solves the homogeneous equation (right-hand side zero), not the non-homogeneous one. It's specifically because they solve different equations that the sum works.      The constants and can always be chosen to make any function satisfy the equation.    The constants and give flexibility, but they don't make an arbitrary function a solution. The reason works is specifically because of what and each solve, not because of the free constants.      Adding two functions always produces a solution to the original equation.    This isn't true in general. The sum of two random functions won't usually satisfy a given ODE. The key is that and are carefully chosen to solve related equations whose contributions add up to the right-hand side.      "
+},
+{
+  "id": "thm-general-solution-nonhomogeneous",
+  "level": "2",
+  "url": "sec-general-solution-nonhomogeneous.html#thm-general-solution-nonhomogeneous",
+  "type": "Theorem",
+  "number": "3.5.1",
+  "title": "General Solution to the Non-Homogeneous Equation.",
+  "body": " General Solution to the Non-Homogeneous Equation   Suppose is a particular solution to and is the general solution to the associated homogeneous equation Then the general solution to is    "
+},
+{
+  "id": "video-general-solution-nonhomogeneous",
+  "level": "2",
+  "url": "sec-general-solution-nonhomogeneous.html#video-general-solution-nonhomogeneous",
+  "type": "Figure",
+  "number": "3.5.2",
+  "title": "",
+  "body": " This video goes through the content of this page.   "
+},
+{
+  "id": "sec-nonhomogeneous-ivp",
+  "level": "1",
+  "url": "sec-nonhomogeneous-ivp.html",
+  "type": "Section",
+  "number": "3.5.7",
+  "title": "Solving an IVP with a Non-Homogeneous Equation",
+  "body": " Solving an IVP with a Non-Homogeneous Equation   On the previous page we found the general solution to which is Now we go one step further: given initial conditions, we can solve for and to find the unique solution to an IVP.    Solving an IVP for a Non-Homogeneous Equation   Find the specific solution to satisfying and .     Where do the initial conditions go?   We know the general solution is , where and . To find and , which expression should we plug the initial conditions into?     The full general solution .   Correct! The initial conditions must be satisfied by the actual solution , which is the full . Plugging into just would ignore the contribution of at and give the wrong values of and .      Just , since that's where and live.   This is a very common mistake! It's true that and appear only in , but the initial conditions must be satisfied by the full solution . Ignoring when applying the ICs will give incorrect values of and .     Just , since it's the solution to the non-homogeneous equation.    is a particular solution but it has no free constants, so we can't adjust it to satisfy arbitrary initial conditions. We need the full .     Plug the ICs into first to find and , then add .   This gets the order wrong. We first write out the full , then plug the ICs into that. Solving alone for and and adding afterward will not produce a solution that satisfies the ICs.        Finding and   Use the initial conditions and to find and , and state the specific solution to the IVP.   Answer:      Start with the general solution and its derivative:    Then plug in using each initial condition to get a system of two equations in and :  From : plug into and set equal to .  From : plug into and set equal to .  Solve the resulting system for and .    Full solution  We start with the general solution and its derivative: Plugging in and applying each initial condition: So we need to solve the system:    Solving the system for and (can skim)  We subtract the first equation from the second to eliminate : Substituting back into the first equation:    This gives and , so the specific solution to the IVP is:        Key Takeaways     The full process: To solve an IVP for a non-homogeneous equation, first find the general solution , then plug the initial conditions into the full  (not just ) to solve for and .   Common mistake: Applying initial conditions to alone ignores the constant value of at and gives the wrong constants.       Note: there is a small typo in the video for this page; the final answer should have , not .    This video goes through the content of this page.     "
+},
+{
+  "id": "example-nonhomogeneous-ivp",
+  "level": "2",
+  "url": "sec-nonhomogeneous-ivp.html#example-nonhomogeneous-ivp",
+  "type": "Example",
+  "number": "3.5.1",
+  "title": "Solving an IVP for a Non-Homogeneous Equation.",
+  "body": " Solving an IVP for a Non-Homogeneous Equation   Find the specific solution to satisfying and .     Where do the initial conditions go?   We know the general solution is , where and . To find and , which expression should we plug the initial conditions into?     The full general solution .   Correct! The initial conditions must be satisfied by the actual solution , which is the full . Plugging into just would ignore the contribution of at and give the wrong values of and .      Just , since that's where and live.   This is a very common mistake! It's true that and appear only in , but the initial conditions must be satisfied by the full solution . Ignoring when applying the ICs will give incorrect values of and .     Just , since it's the solution to the non-homogeneous equation.    is a particular solution but it has no free constants, so we can't adjust it to satisfy arbitrary initial conditions. We need the full .     Plug the ICs into first to find and , then add .   This gets the order wrong. We first write out the full , then plug the ICs into that. Solving alone for and and adding afterward will not produce a solution that satisfies the ICs.        Finding and   Use the initial conditions and to find and , and state the specific solution to the IVP.   Answer:      Start with the general solution and its derivative:    Then plug in using each initial condition to get a system of two equations in and :  From : plug into and set equal to .  From : plug into and set equal to .  Solve the resulting system for and .    Full solution  We start with the general solution and its derivative: Plugging in and applying each initial condition: So we need to solve the system:    Solving the system for and (can skim)  We subtract the first equation from the second to eliminate : Substituting back into the first equation:    This gives and , so the specific solution to the IVP is:     "
+},
+{
+  "id": "sec-nonhomogeneous-ivp-5",
+  "level": "2",
+  "url": "sec-nonhomogeneous-ivp.html#sec-nonhomogeneous-ivp-5",
+  "type": "Remark",
+  "number": "3.5.2",
+  "title": "",
+  "body": " Note: there is a small typo in the video for this page; the final answer should have , not .  "
+},
+{
+  "id": "video-nonhomogeneous-ivp",
+  "level": "2",
+  "url": "sec-nonhomogeneous-ivp.html#video-nonhomogeneous-ivp",
+  "type": "Figure",
+  "number": "3.5.3",
+  "title": "",
+  "body": " This video goes through the content of this page.   "
+},
+{
+  "id": "sec-external-force-setup",
+  "level": "1",
+  "url": "sec-external-force-setup.html",
+  "type": "Section",
+  "number": "3.6.1",
+  "title": "Setting Up the Forced Undamped System",
+  "body": " Setting Up the Forced Undamped System   In , we modeled a mass attached to a spring with spring constant , with no friction or damping. Newton's second law gave the free undamped mass-spring ODE: or equivalently, writing (see ),    Before adding anything new, let's make sure the solution to this equation is fresh. Recall if you need a reminder.    What is the general solution to ?         Correct! The characteristic equation is , giving complex roots , so the general solution is a combination of cosine and sine at frequency .          Exponentials would arise from real roots, but the characteristic equation gives — purely imaginary roots. That means trig functions, not exponentials.         Close, but the frequency inside the trig functions is , not . The roots are , so the argument is .         This would be the solution to (with ). In general is not necessarily 1, so the frequency inside the trig functions must be .       That was free motion: the only forces acting on the mass were the spring restoring force and (in the damped case) friction. Now suppose an additional external force is applied to the mass (think of someone pushing and pulling the block rhythmically). Newton's second law now reads and since and , rearranging gives We focus on the undamped case (no dashpot, so ), and we take the external force to be sinusoidal: where , , and are constants.    The Forced Undamped Mass-Spring ODE   The position of an undamped mass-spring system subject to a sinusoidal external force satisfies: Dividing both sides by and writing : Here:   is the natural frequency of the system: the frequency it oscillates at when left alone.   is the forcing frequency : the frequency of the applied external force.       Since this is a non-homogeneous ODE (just like in ), its general solution will have the form , where is a particular solution and is the complementary solution : the general solution to the homogeneous equation , i.e., the system with no external force . From the checkpoint above: This is exactly why is called the natural frequency: it is the frequency at which the system freely oscillates on its own, with no outside influence. The forcing frequency , by contrast, is imposed from the outside.    Circular vs. ordinary frequency  Technically, and are circular frequencies , measured in radians per unit time rather than cycles per unit time (which would require a factor of ). In this context we will simply say frequency and mean the circular version throughout.     Key Takeaways     The ODE: Adding a sinusoidal external force to the undamped mass-spring system gives , a non-homogeneous ODE we now have the tools to solve.   Two frequencies:  is the natural frequency (how the system oscillates freely); is the forcing frequency (the rhythm imposed from outside). Whether these are equal or not will turn out to matter enormously.   Complementary solution:  comes from the free system, and will come from the external force via undetermined coefficients. We find on the next page.       This video goes through the content of this page.     "
+},
+{
+  "id": "sec-external-force-setup-2",
+  "level": "2",
+  "url": "sec-external-force-setup.html#sec-external-force-setup-2",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "free undamped "
+},
+{
+  "id": "ex-mc-free-undamped-solution",
+  "level": "2",
+  "url": "sec-external-force-setup.html#ex-mc-free-undamped-solution",
+  "type": "Checkpoint",
+  "number": "3.6.1",
+  "title": "",
+  "body": "  What is the general solution to ?         Correct! The characteristic equation is , giving complex roots , so the general solution is a combination of cosine and sine at frequency .          Exponentials would arise from real roots, but the characteristic equation gives — purely imaginary roots. That means trig functions, not exponentials.         Close, but the frequency inside the trig functions is , not . The roots are , so the argument is .         This would be the solution to (with ). In general is not necessarily 1, so the frequency inside the trig functions must be .     "
+},
+{
+  "id": "sec-external-force-setup-5",
+  "level": "2",
+  "url": "sec-external-force-setup.html#sec-external-force-setup-5",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "undamped "
+},
+{
+  "id": "def-forced-undamped-ode",
+  "level": "2",
+  "url": "sec-external-force-setup.html#def-forced-undamped-ode",
+  "type": "Definition",
+  "number": "3.6.2",
+  "title": "The Forced Undamped Mass-Spring ODE.",
+  "body": " The Forced Undamped Mass-Spring ODE   The position of an undamped mass-spring system subject to a sinusoidal external force satisfies: Dividing both sides by and writing : Here:   is the natural frequency of the system: the frequency it oscillates at when left alone.   is the forcing frequency : the frequency of the applied external force.     "
+},
+{
+  "id": "sec-external-force-setup-7",
+  "level": "2",
+  "url": "sec-external-force-setup.html#sec-external-force-setup-7",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "complementary solution "
+},
+{
+  "id": "remark-circular-frequency",
+  "level": "2",
+  "url": "sec-external-force-setup.html#remark-circular-frequency",
+  "type": "Remark",
+  "number": "3.6.3",
+  "title": "Circular vs. ordinary frequency.",
+  "body": " Circular vs. ordinary frequency  Technically, and are circular frequencies , measured in radians per unit time rather than cycles per unit time (which would require a factor of ). In this context we will simply say frequency and mean the circular version throughout.  "
+},
+{
+  "id": "video-external-force-setup",
+  "level": "2",
+  "url": "sec-external-force-setup.html#video-external-force-setup",
+  "type": "Figure",
+  "number": "3.6.4",
+  "title": "",
+  "body": " This video goes through the content of this page.   "
+},
+{
+  "id": "sec-external-force-examples",
+  "level": "1",
+  "url": "sec-external-force-examples.html",
+  "type": "Section",
+  "number": "3.6.2",
+  "title": "Two Examples of the Forced System",
+  "body": " Two Examples of the Forced System   We now solve the forced undamped system for two different values of the spring constant . The method is undetermined coefficients, which you practiced in and surrounding sections, so feel free to skim the algebraic details in parts (b) and (c). What matters most is understanding which case you are in and what the general solution looks like at the end.  Throughout both examples we use , , , and , so the ODE is and we find the general solution for two choices of : first , then .    Solving the Forced System for Two Values of    Part (a): Which example is the case of duplication?   Which of the two examples is in the case of duplication? (See for a reminder.)      The example with , because the homogeneous equation becomes , i.e. , so contains and . The standard guess already solves the homogeneous equation, giving us the case of duplication.    Correct! When the homogeneous equation is , so already contains and . The standard guess duplicates and we must multiply by . Note that this happened because : the natural frequency equals the forcing frequency.       The example with , because makes the algebra messier.    Messier algebra does not mean duplication. The case of duplication is about whether the guess for already appears in , which depends on whether , not on how clean the numbers are.      Both examples are cases of duplication, since both have cosine on the right-hand side.    Having cosine on the right-hand side is not enough to cause duplication. Duplication happens only when the frequency of that cosine matches . That only occurs when .      Neither example is a case of duplication.    When , the natural frequency is , which equals the forcing frequency . So and already appear in , and we do have duplication.      Notice what triggered the duplication: the natural frequency and the forcing frequency happened to be equal when . When they differ, as with , there is no duplication and the standard guess works fine. Keep this in mind as you work through the solutions below.    Part (b): General solution when   Find the general solution to .   Complementary solution:     Particular solution:     General solution:      Finding (can skim)  Since , this is the normal case. We guess and compute: Substituting into and collecting:    Matching coefficients (can skim)      So . Note that because there is no term in the ODE and the right-hand side has no sine.      Part (c): General solution when   Find the general solution to .   Complementary solution:     Particular solution:     General solution:      Finding (can skim)  Since , we have duplication. The modified guess is . Computing derivatives by the product rule: Substituting into , the terms cancel and we get:    Matching coefficients (can skim)      So .      Look at the two general solutions side by side: They look quite different. What was it about the setup that caused this?    What is fundamentally different between the two examples that led to such different solutions?      In the first example and are different, so we get a standard particular solution. In the second example , which puts us in the case of duplication and introduces the factor of in .    Exactly. When (as with ) we get the standard case and a bounded particular solution. When (as with ) the homogeneous equation takes the form , so the standard guess already solves it: we are in the case of duplication, the factor of appears in , and the two solutions look completely different. On the next page we see what this means physically.       The second example had a larger value of , which made the ODE harder to solve.    The size of alone is not what caused the difference. What mattered was the relationship between and the forcing frequency : specifically, whether they were equal or not.      The second example required the duplication rule because the right-hand side was more complicated.    The right-hand side is in both examples. The duplication arose because the natural frequency happened to match the forcing frequency , not because of anything different about the right-hand side.      In the first example dropped out, making it a simpler calculation.    That in the first example is a nice simplification, but it is not the fundamental difference between the two cases. The real distinction is whether the forcing frequency matches the natural frequency.        Key Takeaways     Two cases: When the forcing frequency and the natural frequency are different, undetermined coefficients works in the standard way. When , we hit the case of duplication and must multiply the guess by .   Frequencies are the key: The case of duplication is not about the algebra being harder; it arises precisely because the external force is driving the system at its own natural frequency. On the next page we see what this means physically.       This video goes through the content of this page.     "
+},
+{
+  "id": "activity-forced-examples",
+  "level": "2",
+  "url": "sec-external-force-examples.html#activity-forced-examples",
+  "type": "Activity",
+  "number": "3.6.1",
+  "title": "Solving the Forced System for Two Values of <span class=\"process-math\">\\(k\\)<\/span>.",
+  "body": " Solving the Forced System for Two Values of    Part (a): Which example is the case of duplication?   Which of the two examples is in the case of duplication? (See for a reminder.)      The example with , because the homogeneous equation becomes , i.e. , so contains and . The standard guess already solves the homogeneous equation, giving us the case of duplication.    Correct! When the homogeneous equation is , so already contains and . The standard guess duplicates and we must multiply by . Note that this happened because : the natural frequency equals the forcing frequency.       The example with , because makes the algebra messier.    Messier algebra does not mean duplication. The case of duplication is about whether the guess for already appears in , which depends on whether , not on how clean the numbers are.      Both examples are cases of duplication, since both have cosine on the right-hand side.    Having cosine on the right-hand side is not enough to cause duplication. Duplication happens only when the frequency of that cosine matches . That only occurs when .      Neither example is a case of duplication.    When , the natural frequency is , which equals the forcing frequency . So and already appear in , and we do have duplication.      Notice what triggered the duplication: the natural frequency and the forcing frequency happened to be equal when . When they differ, as with , there is no duplication and the standard guess works fine. Keep this in mind as you work through the solutions below.    Part (b): General solution when   Find the general solution to .   Complementary solution:     Particular solution:     General solution:      Finding (can skim)  Since , this is the normal case. We guess and compute: Substituting into and collecting:    Matching coefficients (can skim)      So . Note that because there is no term in the ODE and the right-hand side has no sine.      Part (c): General solution when   Find the general solution to .   Complementary solution:     Particular solution:     General solution:      Finding (can skim)  Since , we have duplication. The modified guess is . Computing derivatives by the product rule: Substituting into , the terms cancel and we get:    Matching coefficients (can skim)      So .    "
+},
+{
+  "id": "ex-mc-frequency-comparison",
+  "level": "2",
+  "url": "sec-external-force-examples.html#ex-mc-frequency-comparison",
+  "type": "Checkpoint",
+  "number": "3.6.1",
+  "title": "",
+  "body": "  What is fundamentally different between the two examples that led to such different solutions?      In the first example and are different, so we get a standard particular solution. In the second example , which puts us in the case of duplication and introduces the factor of in .    Exactly. When (as with ) we get the standard case and a bounded particular solution. When (as with ) the homogeneous equation takes the form , so the standard guess already solves it: we are in the case of duplication, the factor of appears in , and the two solutions look completely different. On the next page we see what this means physically.       The second example had a larger value of , which made the ODE harder to solve.    The size of alone is not what caused the difference. What mattered was the relationship between and the forcing frequency : specifically, whether they were equal or not.      The second example required the duplication rule because the right-hand side was more complicated.    The right-hand side is in both examples. The duplication arose because the natural frequency happened to match the forcing frequency , not because of anything different about the right-hand side.      In the first example dropped out, making it a simpler calculation.    That in the first example is a nice simplification, but it is not the fundamental difference between the two cases. The real distinction is whether the forcing frequency matches the natural frequency.     "
+},
+{
+  "id": "video-external-force-examples",
+  "level": "2",
+  "url": "sec-external-force-examples.html#video-external-force-examples",
+  "type": "Figure",
+  "number": "3.6.2",
+  "title": "",
+  "body": " This video goes through the content of this page.   "
+},
+{
+  "id": "sec-resonance",
+  "level": "1",
+  "url": "sec-resonance.html",
+  "type": "Section",
+  "number": "3.6.3",
+  "title": "Resonance",
+  "body": " Resonance   In we found two general solutions to : As you noticed, the case landed in the case of duplication because the natural frequency equaled the forcing frequency . When the natural and forcing frequencies align like this, we say the system is in resonance . We will see shortly what this means physically.   Putting together what we know from undetermined coefficients, the general solution to the forced undamped system looks quite different depending on whether resonance occurs.   General Solution: Resonance vs. Non-Resonance   Consider the forced undamped system      Non-resonance ( ):    Resonance ( ):        In the non-resonance case, both and are pure sinusoidal functions, just at different frequencies ( and respectively). Their sum oscillates with bounded amplitude forever. Here is the solution from the previous page:   The non-resonance solution (with , ). Two sinusoidal functions at different frequencies add together; the amplitude stays bounded.     Now look at the resonance case. The particular solution is . Before looking at the graph, take a guess.    As gets larger and larger, what happens to the resonance solution?      The oscillations get larger and larger; the amplitude grows without bound.    Yes! The factor of in acts like a growing envelope: the amplitude of the oscillations scales with , so it grows without bound as .       The oscillations stay roughly the same size.    This would be true if were a pure sinusoidal function. But the factor of means the amplitude scales with time, so it cannot stay bounded.      The oscillations gradually die out and .    Decaying oscillations would require a negative exponential factor like . Here we have a factor of growing in the positive direction, so the amplitude increases rather than decreases.      The solution eventually becomes periodic and repeats.    A periodic solution would require a bounded, repeating pattern. The factor of prevents that: each cycle is bigger than the last, so the solution never repeats.       In the resonance case the particular solution is The factor of multiplies the sinusoidal part, so as grows the amplitude grows with it. The complementary solution is just a bounded sinusoidal function riding on top, so the full solution is dominated by the growing .    The full resonance solution (with , ). The dashed red curves show the envelope from . Press Play to watch the amplitude grow.      Finding the Resonance Frequency   Suppose , , and the external force is . For what forcing frequency does resonance occur?    Resonance occurs when the forcing frequency equals the natural frequency of the system, . What value of makes this true for the given and ?    Resonance occurs when . So we need (taking the positive value).  Note that is the circular frequency. The ordinary frequency (in cycles per unit time) is .      Key Takeaways     Resonance occurs when the forcing frequency equals the natural frequency . Mathematically, this is exactly the case of duplication for undetermined coefficients.   Non-resonance ( ): the solution is a bounded superposition of pure sinusoidal functions at different frequencies. The amplitude stays constant forever.   Resonance ( ): the particular solution picks up a factor of , which forces the amplitude to grow without bound as . In a physical system this means the oscillations grow larger and larger over time with no limit.       This video goes through the content of this page.     "
+},
+{
+  "id": "thm-resonance-solution",
+  "level": "2",
+  "url": "sec-resonance.html#thm-resonance-solution",
+  "type": "Theorem",
+  "number": "3.6.1",
+  "title": "General Solution: Resonance vs. Non-Resonance.",
+  "body": " General Solution: Resonance vs. Non-Resonance   Consider the forced undamped system      Non-resonance ( ):    Resonance ( ):      "
+},
+{
+  "id": "fig-nonresonance-graph",
+  "level": "2",
+  "url": "sec-resonance.html#fig-nonresonance-graph",
+  "type": "Figure",
+  "number": "3.6.2",
+  "title": "",
+  "body": " The non-resonance solution (with , ). Two sinusoidal functions at different frequencies add together; the amplitude stays bounded.   "
+},
+{
+  "id": "ex-mc-resonance-behavior",
+  "level": "2",
+  "url": "sec-resonance.html#ex-mc-resonance-behavior",
+  "type": "Checkpoint",
+  "number": "3.6.3",
+  "title": "",
+  "body": "  As gets larger and larger, what happens to the resonance solution?      The oscillations get larger and larger; the amplitude grows without bound.    Yes! The factor of in acts like a growing envelope: the amplitude of the oscillations scales with , so it grows without bound as .       The oscillations stay roughly the same size.    This would be true if were a pure sinusoidal function. But the factor of means the amplitude scales with time, so it cannot stay bounded.      The oscillations gradually die out and .    Decaying oscillations would require a negative exponential factor like . Here we have a factor of growing in the positive direction, so the amplitude increases rather than decreases.      The solution eventually becomes periodic and repeats.    A periodic solution would require a bounded, repeating pattern. The factor of prevents that: each cycle is bigger than the last, so the solution never repeats.     "
+},
+{
+  "id": "fig-resonance-animated",
+  "level": "2",
+  "url": "sec-resonance.html#fig-resonance-animated",
+  "type": "Figure",
+  "number": "3.6.4",
+  "title": "",
+  "body": " The full resonance solution (with , ). The dashed red curves show the envelope from . Press Play to watch the amplitude grow.   "
+},
+{
+  "id": "example-resonance-frequency",
+  "level": "2",
+  "url": "sec-resonance.html#example-resonance-frequency",
+  "type": "Example",
+  "number": "3.6.5",
+  "title": "Finding the Resonance Frequency.",
+  "body": " Finding the Resonance Frequency   Suppose , , and the external force is . For what forcing frequency does resonance occur?    Resonance occurs when the forcing frequency equals the natural frequency of the system, . What value of makes this true for the given and ?    Resonance occurs when . So we need (taking the positive value).  Note that is the circular frequency. The ordinary frequency (in cycles per unit time) is .   "
+},
+{
+  "id": "video-resonance",
+  "level": "2",
+  "url": "sec-resonance.html#video-resonance",
+  "type": "Figure",
+  "number": "3.6.6",
+  "title": "",
+  "body": " This video goes through the content of this page.   "
+},
+{
   "id": "backmatter-2",
   "level": "1",
   "url": "backmatter-2.html",

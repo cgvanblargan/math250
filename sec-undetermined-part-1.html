@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>A First Look at Non-Homogeneous Equations</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+<link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/ol-markers.css" rel="stylesheet" type="text/css">
+<script>
+var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  "tex": {
+    "inlineMath": [
+      [
+        "\\(",
+        "\\)"
+      ]
+    ],
+    "tags": "none",
+    "tagSide": "right",
+    "tagIndent": ".8em",
+    "packages": {
+      "[+]": [
+        "base",
+        "extpfeil",
+        "ams",
+        "amscd",
+        "color",
+        "newcommand",
+        "knowl"
+      ]
+    }
+  },
+  "options": {
+    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
+    "processHtmlClass": "process-math"
+  },
+  "chtml": {
+    "scale": 0.98,
+    "mtextInheritFont": true
+  },
+  "loader": {
+    "load": [
+      "input/asciimath",
+      "[tex]/extpfeil",
+      "[tex]/amscd",
+      "[tex]/color",
+      "[tex]/newcommand",
+      "[pretext]/mathjaxknowl3.js"
+    ],
+    "paths": {
+      "pretext": "_static/pretext/js"
+    }
+  },
+  "startup": {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  }
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Differential Equations: Interactive Notes for Math 250">
+<meta property="book:author" content="Caroline VanBlargan">
+<script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<!--** Runestone components to run locally in reader's browser **-->
+<!--** No external communication:                              **-->
+<!--**     log level is 0, Runestone Services are disabled     **-->
+<script type="text/javascript">
+eBookConfig = {};
+eBookConfig.useRunestoneServices = false;
+eBookConfig.host = 'http://127.0.0.1:8000';
+eBookConfig.course = 'PTX_Course_Title_Here';
+eBookConfig.basecourse = 'PTX_Base_Course';
+eBookConfig.isLoggedIn = false;
+eBookConfig.email = '';
+eBookConfig.isInstructor = false;
+eBookConfig.logLevel = 0;
+eBookConfig.username = '';
+eBookConfig.readings = null;
+eBookConfig.activities = null;
+eBookConfig.downloadsEnabled = false;
+eBookConfig.allow_pairs = false;
+eBookConfig.enableScratchAC = false;
+eBookConfig.build_info = "";
+eBookConfig.python3 = null;
+eBookConfig.runestone_version = '8.1.2';
+eBookConfig.jobehost = '';
+eBookConfig.proxyuri_runs = '';
+eBookConfig.proxyuri_files = '';
+eBookConfig.enable_chatcodes =  false;
+</script>
+<!--*** Runestone Services ***-->
+<script src="_static/prefix-runtime.d0616b3d72ab3b06.bundle.js"></script><script src="_static/prefix-713.de0ab26248766350.bundle.js"></script><script src="_static/prefix-runestone.af9055d29ed602c4.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-713.f43ced6a6134ea74.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.87414d180ebeebd6.css">
+<script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script>
+</head>
+<body id="vanblargan-de-math250" class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
+<h1 class="heading"><a href="my-great-book.html"><span class="title">Differential Equations: Interactive Notes for Math 250</span> <span class="subtitle">Penn State University</span></a></h1>
+<p class="byline">Caroline VanBlargan</p>
+</div></div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
+<button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="searchbox">
+<div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
+<div class="search-results-controls">
+<input aria-label="Search term" id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search term"><button title="Close search" id="closesearchresults" class="closesearchresults"><span class="material-symbols-outlined">close</span></button>
+</div>
+<h2 class="search-results-heading">Search Results: </h2>
+<div id="searchempty" class="searchempty"><span>No results.</span></div>
+<ol id="searchresults" class="searchresults"></ol>
+</div>
+</div>
+<span class="nav-other-controls"><button id="light-dark-button" class="light-dark-button button" title="Dark Mode"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span class="name">Dark Mode</span></button></span><span class="treebuttons"><a class="previous-button button" href="sec-3-5.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="sec-3-5.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="sec-undetermined-part-2.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
+</div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\N}{\mathbb N} \newcommand{\Z}{\mathbb Z} \newcommand{\Q}{\mathbb Q} \newcommand{\R}{\mathbb R}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth3 focused" data-preexpanded-levels="0" data-max-levels="3"><ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-frontmatter">
+<div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-colophon"><div class="toc-title-box"><a href="front-colophon.html" class="internal"><span class="title">Colophon</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="preface.html" class="internal"><span class="title">Preface</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-chapter-title.html" class="internal"><span class="codenumber">1</span> <span class="title">The Fundamentals of Differential Equations</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-intro-to-des.html" class="internal"><span class="codenumber">1.1</span> <span class="title">Introduction to Differential Equations</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-what-is-de.html" class="internal"><span class="codenumber">1.1.1</span> <span class="title">What is a Differential Equation?</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-gensolns-initialvalues.html" class="internal"><span class="codenumber">1.1.2</span> <span class="title">General Solutions and Initial Value Problems</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-setting-up-des.html" class="internal"><span class="codenumber">1.1.3</span> <span class="title">Setting Up Differential Equations</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-verifying-solutions.html" class="internal"><span class="codenumber">1.1.4</span> <span class="title">Verifying Solutions</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-equilibrium-solutions.html" class="internal"><span class="codenumber">1.1.5</span> <span class="title">Equilibrium Solutions</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="exercises-1-1.html" class="internal"><span class="codenumber">1.1.6</span> <span class="title">Exercises for Section 1.1</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-integral-solutions.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Integrals as Solutions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-integrating-to-get-solutions.html" class="internal"><span class="codenumber">1.2.1</span> <span class="title">Integrating to solve <span class="process-math">\(\frac{dy}{dx} = f(x)\)</span></span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-positionvelocity.html" class="internal"><span class="codenumber">1.2.2</span> <span class="title">Velocity and Acceleration</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="exercises-1-2.html" class="internal"><span class="codenumber">1.2.3</span> <span class="title">Exercises for Section 1.2</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-slopefields.html" class="internal"><span class="codenumber">1.3</span> <span class="title">Section 1.3: Slope fields</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-slope-fields-intro.html" class="internal"><span class="codenumber">1.3.1</span> <span class="title">Slope Fields</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-slopefield-matching.html" class="internal"><span class="codenumber">1.3.2</span> <span class="title">Reading and Matching Slope Fields</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="exercises-1-3.html" class="internal"><span class="codenumber">1.3.3</span> <span class="title">Exercises for Section 1.3</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-separabble.html" class="internal"><span class="codenumber">1.4</span> <span class="title">Separable Differential Equations</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="subsec-intr-separable.html" class="internal"><span class="codenumber">1.4.1</span> <span class="title">Introduction to Separable ODEs</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="subsec-sepofvar.html" class="internal"><span class="codenumber">1.4.2</span> <span class="title">Separation of Variables</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="subsec-sep-exp.html" class="internal"><span class="codenumber">1.4.3</span> <span class="title">Separation of Variables: Important Example with Exponentials</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="subsec-sep-minussign.html" class="internal"><span class="codenumber">1.4.4</span> <span class="title">Separation of Variables: Some Subtle Points</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="subsec-sep-completingsquare.html" class="internal"><span class="codenumber">1.4.5</span> <span class="title">Separation of Variables: Solving Explicitly Tricks</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-1-4-radiocarbon.html" class="internal"><span class="codenumber">1.4.6</span> <span class="title">Radiocarbon Dating</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-1-4-newton.html" class="internal"><span class="codenumber">1.4.7</span> <span class="title">Newton’s Law of Cooling</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="exercises-1-4.html" class="internal"><span class="codenumber">1.4.8</span> <span class="title">Exercises for Section 1.4</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-first-order-linear.html" class="internal"><span class="codenumber">1.5</span> <span class="title">First-Order Linear ODEs</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-linear-first-order-intro.html" class="internal"><span class="codenumber">1.5.1</span> <span class="title">Definition of 1st Order Linear ODEs</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-solving-first-order-linear.html" class="internal"><span class="codenumber">1.5.2</span> <span class="title">Solving First-Order Linear ODEs</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-linear-standard-examples.html" class="internal"><span class="codenumber">1.5.3</span> <span class="title">First-Order Linear ODEs: Standard Examples</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-linear-harder.html" class="internal"><span class="codenumber">1.5.4</span> <span class="title">First-Order Linear ODEs: A Harder Example</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="exercises-1-5.html" class="internal"><span class="codenumber">1.5.5</span> <span class="title">Exercises for Section 1.5</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-mixing-intro.html" class="internal"><span class="codenumber">1.6</span> <span class="title">Mixing problems</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-mixing-teaser.html" class="internal"><span class="codenumber">1.6.1</span> <span class="title">Setting Up Mixing Problems: Rate In, Rate Out</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-mixing-constant-volume.html" class="internal"><span class="codenumber">1.6.2</span> <span class="title">Mixing Problem: Constant Volume</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-mixing-volume-changing.html" class="internal"><span class="codenumber">1.6.3</span> <span class="title">Mixing Problem: Changing Volume</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="exercises-1-6.html" class="internal"><span class="codenumber">1.6.4</span> <span class="title">Exercises for Section 1.6</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-first-order-autonomous.html" class="internal"><span class="codenumber">2</span> <span class="title">First Order Autonomous ODEs and Applications</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-pop.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Population Modelling</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-pop-setup.html" class="internal"><span class="codenumber">2.1.1</span> <span class="title">Setting Up Population Models</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-pop-logistic.html" class="internal"><span class="codenumber">2.1.2</span> <span class="title">Solving the Logistic Equation</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-pop-doomsday.html" class="internal"><span class="codenumber">2.1.3</span> <span class="title">Doomsday vs Extinction</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="exercises-2-1.html" class="internal"><span class="codenumber">2.1.4</span> <span class="title">Exercises for Section 2.1</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-stability.html" class="internal"><span class="codenumber">2.2</span> <span class="title">Stability of Equilibrium Solutions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-equilibrium-stability.html" class="internal"><span class="codenumber">2.2.1</span> <span class="title">Stability of Equilibrium Solutions</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-autonomous-odes.html" class="internal"><span class="codenumber">2.2.2</span> <span class="title">Autonomous Differential Equations</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-phase-diagrams.html" class="internal"><span class="codenumber">2.2.3</span> <span class="title">Analyzing Stability with Phase Diagrams</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-existence-uniqueness.html" class="internal"><span class="codenumber">2.2.4</span> <span class="title">Consequences of Existence and Uniqueness</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-phase-applications.html" class="internal"><span class="codenumber">2.2.5</span> <span class="title">Applying Phase Diagrams to Population Models</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-frog-question.html" class="internal"><span class="codenumber">2.2.6</span> <span class="title">Applying Phase Diagrams: The Frog Question</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="exercises-2-2.html" class="internal"><span class="codenumber">2.2.7</span> <span class="title">Exercises for Section 2.2</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter contains-active">
+<div class="toc-title-box"><a href="ch-second-order.html" class="internal"><span class="codenumber">3</span> <span class="title">2nd Order ODEs and the Mass-Spring System</span></a></div>
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-3-1.html" class="internal"><span class="codenumber">3.1</span> <span class="title">2nd Order Linear ODEs</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-2nd-linear-intro.html" class="internal"><span class="codenumber">3.1.1</span> <span class="title">Introduction to Second-Order Linear ODEs</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-characteristic-equation.html" class="internal"><span class="codenumber">3.1.2</span> <span class="title">The Characteristic Equation</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-all-three-cases.html" class="internal"><span class="codenumber">3.1.3</span> <span class="title">All Three Cases of the Characteristic Equation</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-practice-real-roots.html" class="internal"><span class="codenumber">3.1.4</span> <span class="title">Practice: Real Roots</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-complex-roots-practice.html" class="internal"><span class="codenumber">3.1.5</span> <span class="title">Complex Roots and Practice</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-ivp-second-order.html" class="internal"><span class="codenumber">3.1.6</span> <span class="title">Initial Value Problems</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="exercises-3-1.html" class="internal"><span class="codenumber">3.1.7</span> <span class="title">Exercises for Section 3.1</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-3-2.html" class="internal"><span class="codenumber">3.2</span> <span class="title">The mass-spring system (undamped)</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-undamped-mass-spring.html" class="internal"><span class="codenumber">3.2.1</span> <span class="title">The Undamped Mass-Spring System</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-period-frequency.html" class="internal"><span class="codenumber">3.2.2</span> <span class="title">Period and Frequency</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-equilibrium-crossings.html" class="internal"><span class="codenumber">3.2.3</span> <span class="title">Passing Through Equilibrium</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-amplitude.html" class="internal"><span class="codenumber">3.2.4</span> <span class="title">Distance from Equilibrium</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="exercises-3-2.html" class="internal"><span class="codenumber">3.2.5</span> <span class="title">Exercises for Section 3.2</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-3-3.html" class="internal"><span class="codenumber">3.3</span> <span class="title">The mass-spring-dashpot system (damped)</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-damped-mass-spring.html" class="internal"><span class="codenumber">3.3.1</span> <span class="title">The Damped Mass-Spring System</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-underdamped.html" class="internal"><span class="codenumber">3.3.2</span> <span class="title">Behavior of Underdamped Solutions</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-overdamped.html" class="internal"><span class="codenumber">3.3.3</span> <span class="title">Behavior of Overdamped Solutions</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-critically-damped.html" class="internal"><span class="codenumber">3.3.4</span> <span class="title">Behavior of Critically Damped Solutions</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-damping-summary.html" class="internal"><span class="codenumber">3.3.5</span> <span class="title">Damping cases and the constants c, m, k</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-3-4.html" class="internal"><span class="codenumber">3.4</span> <span class="title">Interpreting solutions in the mass-spring system</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-underdamped-direction-changes.html" class="internal"><span class="codenumber">3.4.1</span> <span class="title">Analyzing Underdamped Motion</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-overdamped-analysis.html" class="internal"><span class="codenumber">3.4.2</span> <span class="title">Analyzing Overdamped and Critically Damped Motion</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec3-overdamped-never-stretched.html" class="internal"><span class="codenumber">3.4.3</span> <span class="title">Analyzing an Overdamped System: Is the Spring Ever Stretched?</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-critically-damped-analysis.html" class="internal"><span class="codenumber">3.4.4</span> <span class="title">Analyzing a Critically Damped System</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec3-critically-damped-crossing.html" class="internal"><span class="codenumber">3.4.5</span> <span class="title">Analyzing a Critically Damped System: Finding Maximum Stretch</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section contains-active">
+<div class="toc-title-box"><a href="sec-3-5.html" class="internal"><span class="codenumber">3.5</span> <span class="title">The Method of Undetermined Coefficients</span></a></div>
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-section active"><div class="toc-title-box"><a href="sec-undetermined-part-1.html" class="internal"><span class="codenumber">3.5.1</span> <span class="title">A First Look at Non-Homogeneous Equations</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-undetermined-part-2.html" class="internal"><span class="codenumber">3.5.2</span> <span class="title">The Guess That Works</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-undetermined-duplication.html" class="internal"><span class="codenumber">3.5.3</span> <span class="title">The Case of Duplication</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-undetermined-dup-example.html" class="internal"><span class="codenumber">3.5.4</span> <span class="title">Example with the Case of Duplication</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-undetermined-guess-practice.html" class="internal"><span class="codenumber">3.5.5</span> <span class="title">Practice: Finding the Right Guess for <span class="process-math">\(y_p\)</span></span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-general-solution-nonhomogeneous.html" class="internal"><span class="codenumber">3.5.6</span> <span class="title">The General Solution</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-nonhomogeneous-ivp.html" class="internal"><span class="codenumber">3.5.7</span> <span class="title">Solving an IVP with a Non-Homogeneous Equation</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-3-6.html" class="internal"><span class="codenumber">3.6</span> <span class="title">External Forces and Resonance</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-external-force-setup.html" class="internal"><span class="codenumber">3.6.1</span> <span class="title">Setting Up the Forced Undamped System</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-external-force-examples.html" class="internal"><span class="codenumber">3.6.2</span> <span class="title">Two Examples of the Forced System</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-resonance.html" class="internal"><span class="codenumber">3.6.3</span> <span class="title">Resonance</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-backmatter">
+<div class="toc-title-box"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-solutions"><div class="toc-title-box"><a href="backmatter-2.html" class="internal"><span class="codenumber">A</span> <span class="title">Answers to Exercises</span></a></div></li>
+<li class="toc-item toc-colophon"><div class="toc-title-box"><a href="back-colophon.html" class="internal"><span class="title">Colophon</span></a></div></li>
+</ul>
+</li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec-undetermined-part-1"><h2 class="heading hide-type">
+<span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.5.1</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">A First Look at Non-Homogeneous Equations</span>
+</h2>
+<div class="para logical" id="sec-undetermined-part-1-2">
+<div class="para">So far we have only solved 2nd order, constant-coefficient DEs where the right-hand side is zero:</div>
+<div class="displaymath process-math" id="sec-undetermined-part-1-2-1">
+\begin{equation*}
+ay'' + by' + cy = 0.
+\end{equation*}
+</div>
+<div class="para">These are called <dfn class="terminology">homogeneous</dfn> equations. Now we turn to the <dfn class="terminology">non-homogeneous</dfn> case, where the right-hand side is a nonzero function of <span class="process-math">\(t\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="sec-undetermined-part-1-2-5">
+\begin{equation*}
+ay'' + by' + cy = g(t).
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec-undetermined-part-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="sec-undetermined-part-1-3">
+<div class="para">Solving this in full generality is hard. But for certain simple, well-behaved choices of <span class="process-math">\(g(t)\text{,}\)</span> we can make progress with a clever strategy. On this page we focus on functions of the form</div>
+<div class="displaymath process-math" id="sec-undetermined-part-1-3-2">
+\begin{equation*}
+g(t) = a\cos(kt) + b\sin(kt),
+\end{equation*}
+</div>
+<div class="para">and we will discover the method by working through examples, so treat this as an exploration, not a formula to memorize yet.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec-undetermined-part-1-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="exploration project-like" id="exploration-undetermined-first-example"><h3 class="heading">
+<span class="type">Exploration</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.5.1</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Example 1: Finding a Particular Solution.</span>
+</h3>
+<div class="introduction" id="exploration-undetermined-first-example-2"><div class="para logical" id="exploration-undetermined-first-example-2-1">
+<div class="para">We want to find a <dfn class="terminology">particular solution</dfn> <span class="process-math">\(y_p\)</span> to</div>
+<div class="displaymath process-math" id="exploration-undetermined-first-example-2-1-3">
+\begin{equation*}
+y'' + 4y = 10\cos(3t).
+\end{equation*}
+</div>
+<div class="para">That means: a single specific function <span class="process-math">\(y_p(t)\)</span> that makes this equation true.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#exploration-undetermined-first-example-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></div>
+<article class="task exercise-like" id="task-undet-guess-form"><h4 class="heading">
+<span class="codenumber">(a)</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">What should we guess for <span class="process-math">\(y_p\text{?}\)</span></span>
+</h4>
+<div class="ptx-runestone-container"><div class="runestone multiplechoice_section">
+<div class="exercise-statement"><div class="para" id="task-undet-guess-form-2-1">We need <span class="process-math">\(y_p'' + 4y_p = 10\cos(3t)\text{.}\)</span> The right-hand side is <span class="process-math">\(10\cos(3t)\text{,}\)</span> so we need a function whose second derivative is also a multiple of <span class="process-math">\(\cos(3t)\text{.}\)</span> Which of the following is the most natural guess? (Don’t worry, we haven’t learned a rule for this yet. Go with your gut!)<div class="autopermalink" data-description="Paragraph"><a href="#task-undet-guess-form-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></div>
+<ul data-component="multiplechoice" class="exercise-interactives" id="rs-task-undet-guess-form" data-multipleanswers="false">
+<li data-component="answer" id="rs-task-undet-guess-form_opt_a" data-correct=""><div class="para" id="task-undet-guess-form-3-1-1-1"><span class="process-math">\(y_p = A\cos(3t)\)</span></div></li>
+<li data-component="feedback" id="rs-task-undet-guess-form_opt_a"><div class="para" id="task-undet-guess-form-3-1-2-1">Yes! Since <span class="process-math">\(\frac{d^2}{dt^2}[\cos(3t)] = -9\cos(3t)\text{,}\)</span> differentiating twice brings back a cosine, which is exactly what we need on the left to match <span class="process-math">\(10\cos(3t)\)</span> on the right. We just have to find the right value of <span class="process-math">\(A\text{.}\)</span> <span class="process-math">\(\checkmark\)</span>
+</div></li>
+<li data-component="answer" id="rs-task-undet-guess-form_opt_b"><div class="para" id="task-undet-guess-form-3-2-1-1"><span class="process-math">\(y_p = Ae^{3t}\)</span></div></li>
+<li data-component="feedback" id="rs-task-undet-guess-form_opt_b"><div class="para" id="task-undet-guess-form-3-2-2-1">An exponential would give <span class="process-math">\(y_p'' = 9Ae^{3t}\text{,}\)</span> so the left side becomes <span class="process-math">\(13Ae^{3t}\text{,}\)</span> with no cosines anywhere. We can’t match <span class="process-math">\(10\cos(3t)\)</span> this way.</div></li>
+<li data-component="answer" id="rs-task-undet-guess-form_opt_c"><div class="para" id="task-undet-guess-form-3-3-1-1"><span class="process-math">\(y_p = At\)</span></div></li>
+<li data-component="feedback" id="rs-task-undet-guess-form_opt_c"><div class="para" id="task-undet-guess-form-3-3-2-1">A linear function gives <span class="process-math">\(y_p'' = 0\text{,}\)</span> so the left side is just <span class="process-math">\(4At\text{,}\)</span> a polynomial and not a cosine. This won’t work.</div></li>
+<li data-component="answer" id="rs-task-undet-guess-form_opt_d"><div class="para" id="task-undet-guess-form-3-4-1-1"><span class="process-math">\(y_p = A\sin(3t)\)</span></div></li>
+<li data-component="feedback" id="rs-task-undet-guess-form_opt_d"><div class="para" id="task-undet-guess-form-3-4-2-1">Close in spirit! A sine would give <span class="process-math">\(y_p'' = -9A\sin(3t)\text{,}\)</span> so the left side is <span class="process-math">\(-9A\sin(3t) + 4A\sin(3t) = -5A\sin(3t)\text{.}\)</span> That’s a sine, but the right-hand side is a cosine, so they can’t be equal for any value of <span class="process-math">\(A\text{.}\)</span>
+</div></li>
+</ul>
+</div></div>
+<div class="autopermalink" data-description="Task 3.5.1.a: What should we guess for y_p"><a href="#task-undet-guess-form" title="Copy heading and permalink for Task 3.5.1.a: What should we guess for y_p" aria-label="Copy heading and permalink for Task 3.5.1.a: What should we guess for y_p">🔗</a></div></article><article class="task exercise-like" id="task-undet-solve-for-A"><h4 class="heading">
+<span class="codenumber">(b)</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Plugging in and solving for <span class="process-math">\(A\)</span>.</span>
+</h4>
+<div class="para logical" id="task-undet-solve-for-A-2-1">
+<div class="para">Now we plug the guess <span class="process-math">\(y_p = A\cos(3t)\)</span> into <span class="process-math">\(y'' + 4y = 10\cos(3t)\)</span> and solve for <span class="process-math">\(A\text{.}\)</span> Computing derivatives:</div>
+<div class="displaymath process-math" id="task-undet-solve-for-A-2-1-4">
+\begin{align*}
+y_p' \amp= -3A\sin(3t)\\
+y_p'' \amp= -9A\cos(3t)
+\end{align*}
+</div>
+<div class="para">Substituting:</div>
+<div class="displaymath process-math" id="task-undet-solve-for-A-2-1-5">
+\begin{equation*}
+\underbrace{-9A\cos(3t)}_{y''} + \underbrace{4A\cos(3t)}_{4y} = 10\cos(3t).
+\end{equation*}
+</div>
+<div class="para">Every term has a factor of <span class="process-math">\(\cos(3t)\text{,}\)</span> so we divide through by it:</div>
+<div class="displaymath process-math" id="task-undet-solve-for-A-2-1-7">
+\begin{equation*}
+-9A + 4A = 10 \implies -5A = 10 \implies A = -2.
+\end{equation*}
+</div>
+<div class="para">A particular solution is:</div>
+<div class="displaymath process-math" id="task-undet-solve-for-A-2-1-8">
+\begin{equation*}
+y_p = -2\cos(3t).
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#task-undet-solve-for-A-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Task 3.5.1.b: Plugging in and solving for A"><a href="#task-undet-solve-for-A" title="Copy heading and permalink for Task 3.5.1.b: Plugging in and solving for A" aria-label="Copy heading and permalink for Task 3.5.1.b: Plugging in and solving for A">🔗</a></div></article><div class="autopermalink" data-description="Exploration 3.5.1: Example 1: Finding a Particular Solution"><a href="#exploration-undetermined-first-example" title="Copy heading and permalink for Exploration 3.5.1: Example 1: Finding a Particular Solution" aria-label="Copy heading and permalink for Exploration 3.5.1: Example 1: Finding a Particular Solution">🔗</a></div></article><div class="para" id="sec-undetermined-part-1-5">So for the ODE <span class="process-math">\(y'' + 4y = 10\cos(3t)\text{,}\)</span> we took the guess <span class="process-math">\(y_p = A\cos(3t)\text{.}\)</span> Plugging it in gave us the equation <span class="process-math">\(-5A = 10\text{,}\)</span> and solving gave <span class="process-math">\(A = -2\text{,}\)</span> so the particular solution is <span class="process-math">\(y_p = -2\cos(3t)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-undetermined-part-1-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="sec-undetermined-part-1-6">We now try a similar example, but this time the ODE includes a <span class="process-math">\(y'\)</span> term. Let’s see what happens when we try the same type of guess.<div class="autopermalink" data-description="Paragraph"><a href="#sec-undetermined-part-1-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="exploration project-like" id="exploration-undetermined-guess-fails"><h3 class="heading">
+<span class="type">Exploration</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.5.2</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Example 2: When the Same Guess Doesn’t Work.</span>
+</h3>
+<div class="introduction" id="exploration-undetermined-guess-fails-2"><div class="para logical" id="exploration-undetermined-guess-fails-2-1">
+<div class="para">Now try the same strategy on a different equation:</div>
+<div class="displaymath process-math" id="exploration-undetermined-guess-fails-2-1-1">
+\begin{equation*}
+3y'' + 4y' - 2y = 2\cos(t).
+\end{equation*}
+</div>
+<div class="para">Guess <span class="process-math">\(y_p = A\cos(t)\)</span> and see what happens.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#exploration-undetermined-guess-fails-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></div>
+<article class="task exercise-like" id="task-undet-plug-in-fail"><h4 class="heading">
+<span class="codenumber">(a)</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Plugging in.</span>
+</h4>
+<div class="para" id="task-undet-plug-in-fail-2-1">With <span class="process-math">\(y_p = A\cos(t)\text{,}\)</span> compute <span class="process-math">\(y_p'\)</span> and <span class="process-math">\(y_p''\text{,}\)</span> substitute into <span class="process-math">\(3y'' + 4y' - 2y = 2\cos(t)\text{,}\)</span> and simplify as much as you can. What do you get?<div class="autopermalink" data-description="Paragraph"><a href="#task-undet-plug-in-fail-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="task-undet-plug-in-fail-3" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="hint solution-like knowl__content">
+<div class="para" id="task-undet-plug-in-fail-3-1">You’ll get both <span class="process-math">\(\sin(t)\)</span> and <span class="process-math">\(\cos(t)\)</span> terms on the left side. Collect them separately.<div class="autopermalink" data-description="Paragraph"><a href="#task-undet-plug-in-fail-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Hint 3.5.2.a.1"><a href="#task-undet-plug-in-fail-3" title="Copy heading and permalink for Hint 3.5.2.a.1" aria-label="Copy heading and permalink for Hint 3.5.2.a.1">🔗</a></div>
+</div></details><details id="task-undet-plug-in-fail-4" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="task-undet-plug-in-fail-4-1">
+<div class="para">With <span class="process-math">\(y_p = A\cos(t)\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="task-undet-plug-in-fail-4-1-2">
+\begin{align*}
+y_p' \amp= -A\sin(t)\\
+y_p'' \amp= -A\cos(t)
+\end{align*}
+</div>
+<div class="para">Substituting:</div>
+<div class="displaymath process-math" id="task-undet-plug-in-fail-4-1-3">
+\begin{equation*}
+\underbrace{3(-A\cos(t))}_{3y''} + \underbrace{4(-A\sin(t))}_{4y'} + \underbrace{(-2)(A\cos(t))}_{-2y} = 2\cos(t).
+\end{equation*}
+</div>
+<div class="para">Collecting like terms:</div>
+<div class="displaymath process-math" id="task-undet-plug-in-fail-4-1-4">
+\begin{equation*}
+-5A\cos(t) - 4A\sin(t) = 2\cos(t).
+\end{equation*}
+</div>
+<div class="para">Rearranging:</div>
+<div class="displaymath process-math" id="task-undet-plug-in-fail-4-1-5">
+\begin{equation*}
+-4A\sin(t) = (2 + 5A)\cos(t).
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#task-undet-plug-in-fail-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 3.5.2.a.1"><a href="#task-undet-plug-in-fail-4" title="Copy heading and permalink for Solution 3.5.2.a.1" aria-label="Copy heading and permalink for Solution 3.5.2.a.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Task 3.5.2.a: Plugging in"><a href="#task-undet-plug-in-fail" title="Copy heading and permalink for Task 3.5.2.a: Plugging in" aria-label="Copy heading and permalink for Task 3.5.2.a: Plugging in">🔗</a></div></article><article class="task exercise-like" id="task-undet-stuck"><h4 class="heading">
+<span class="codenumber">(b)</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Why we’re stuck.</span>
+</h4>
+<div class="para" id="task-undet-stuck-2-1">We need <span class="process-math">\(-4A\sin(t) = (2 + 5A)\cos(t)\)</span> to hold for every value of <span class="process-math">\(t\text{.}\)</span> But a sine and a cosine can never be equal for all <span class="process-math">\(t\)</span> unless both sides are zero. No matter what value we pick for <span class="process-math">\(A\text{,}\)</span> the left side is a sine and the right side is a cosine — there is no way to make them match. Our guess has failed.<div class="autopermalink" data-description="Paragraph"><a href="#task-undet-stuck-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Task 3.5.2.b: Why we’re stuck"><a href="#task-undet-stuck" title="Copy heading and permalink for Task 3.5.2.b: Why we’re stuck" aria-label="Copy heading and permalink for Task 3.5.2.b: Why we’re stuck">🔗</a></div></article><article class="task exercise-like" id="task-undet-what-went-wrong"><h4 class="heading">
+<span class="codenumber">(c)</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">What went wrong?</span>
+</h4>
+<div class="ptx-runestone-container"><div class="runestone multiplechoice_section">
+<div class="exercise-statement"><div class="para" id="task-undet-what-went-wrong-2-1">After substituting <span class="process-math">\(y_p = A\cos(t)\)</span> we ended up with a <span class="process-math">\(\sin(t)\)</span> term stuck on the left side that couldn’t be cancelled. Why did this happen? (This is exploratory, so take your best shot!)<div class="autopermalink" data-description="Paragraph"><a href="#task-undet-what-went-wrong-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></div>
+<ul data-component="multiplechoice" class="exercise-interactives" id="rs-task-undet-what-went-wrong" data-multipleanswers="false" data-random="">
+<li data-component="answer" id="rs-task-undet-what-went-wrong_opt_a" data-correct=""><div class="para" id="task-undet-what-went-wrong-3-1-1-1">The <span class="process-math">\(y'\)</span> term in the ODE. Differentiating <span class="process-math">\(A\cos(t)\)</span> gives <span class="process-math">\(-A\sin(t)\text{,}\)</span> and that sine got multiplied by the coefficient of <span class="process-math">\(y'\text{,}\)</span> leaving a sine term with no way to cancel it.</div></li>
+<li data-component="feedback" id="rs-task-undet-what-went-wrong_opt_a"><div class="para" id="task-undet-what-went-wrong-3-1-2-1">Exactly! In Example 1, there was no <span class="process-math">\(y'\)</span> term, so differentiating <span class="process-math">\(A\cos(3t)\)</span> produced a <span class="process-math">\(\sin(3t)\)</span> that immediately disappeared again. Here the <span class="process-math">\(4y'\)</span> term keeps that sine alive, and our guess has no sine to absorb it. <span class="process-math">\(\checkmark\)</span>
+</div></li>
+<li data-component="answer" id="rs-task-undet-what-went-wrong_opt_b"><div class="para" id="task-undet-what-went-wrong-3-2-1-1">The ODE has a <span class="process-math">\(y\)</span> term with a negative coefficient (<span class="process-math">\(-2y\)</span>).</div></li>
+<li data-component="feedback" id="rs-task-undet-what-went-wrong_opt_b"><div class="para" id="task-undet-what-went-wrong-3-2-2-1">The sign on <span class="process-math">\(y\)</span> doesn’t cause the problem. Even with a positive coefficient, differentiating <span class="process-math">\(A\cos(t)\)</span> would still produce a <span class="process-math">\(\sin(t)\)</span> via the <span class="process-math">\(y'\)</span> term.</div></li>
+<li data-component="answer" id="rs-task-undet-what-went-wrong_opt_c"><div class="para" id="task-undet-what-went-wrong-3-3-1-1">The right-hand side is <span class="process-math">\(2\cos(t)\)</span> instead of a higher frequency like <span class="process-math">\(10\cos(3t)\text{.}\)</span>
+</div></li>
+<li data-component="feedback" id="rs-task-undet-what-went-wrong_opt_c"><div class="para" id="task-undet-what-went-wrong-3-3-2-1">The frequency of the right-hand side doesn’t cause the trouble here. The issue appears regardless of whether we have <span class="process-math">\(\cos(t)\)</span> or <span class="process-math">\(\cos(3t)\)</span> on the right.</div></li>
+<li data-component="answer" id="rs-task-undet-what-went-wrong_opt_d"><div class="para" id="task-undet-what-went-wrong-3-4-1-1">We should have included a coefficient on the guess, like <span class="process-math">\(y_p = 2A\cos(t)\text{.}\)</span>
+</div></li>
+<li data-component="feedback" id="rs-task-undet-what-went-wrong_opt_d"><div class="para" id="task-undet-what-went-wrong-3-4-2-1">The extra factor of 2 doesn’t help — it’s still just a constant times <span class="process-math">\(\cos(t)\text{,}\)</span> and the <span class="process-math">\(y'\)</span> term will still produce an uncancelled <span class="process-math">\(\sin(t)\text{.}\)</span>
+</div></li>
+</ul>
+</div></div>
+<div class="autopermalink" data-description="Task 3.5.2.c: What went wrong?"><a href="#task-undet-what-went-wrong" title="Copy heading and permalink for Task 3.5.2.c: What went wrong?" aria-label="Copy heading and permalink for Task 3.5.2.c: What went wrong?">🔗</a></div></article><div class="autopermalink" data-description="Exploration 3.5.2: Example 2: When the Same Guess Doesn’t Work"><a href="#exploration-undetermined-guess-fails" title="Copy heading and permalink for Exploration 3.5.2: Example 2: When the Same Guess Doesn’t Work" aria-label="Copy heading and permalink for Exploration 3.5.2: Example 2: When the Same Guess Doesn’t Work">🔗</a></div></article><div class="para" id="sec-undetermined-part-1-8">So the guess <span class="process-math">\(y_p = A\cos(t)\)</span> failed because the <span class="process-math">\(y'\)</span> term introduced a <span class="process-math">\(\sin(t)\)</span> that had nowhere to go. We need a guess with enough flexibility to absorb both sine and cosine terms. Before moving on: can you think of how to modify the guess to fix this? We will work it out on the next page.<div class="autopermalink" data-description="Paragraph"><a href="#sec-undetermined-part-1-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<section class="conclusion" id="sec-undetermined-part-1-9"><h3 class="heading">Key Takeaways.<span></span>
+</h3>
+<div class="para logical" id="sec-undetermined-part-1-9-2">
+<ul class="disc" id="sec-undetermined-part-1-9-2-1">
+<li id="sec-undetermined-part-1-9-2-1-1">
+<div class="para" id="sec-undetermined-part-1-9-2-1-1-1">
+<em class="alert">The method:</em> To find a particular solution to a non-homogeneous equation, we can <em class="emphasis">guess</em> the form of <span class="process-math">\(y_p\text{,}\)</span> plug it in, and solve for the unknown constants. Because the constants are initially unknown, this approach is called the <dfn class="terminology">method of undetermined coefficients</dfn>.<div class="autopermalink" data-description="Paragraph"><a href="#sec-undetermined-part-1-9-2-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#sec-undetermined-part-1-9-2-1-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="sec-undetermined-part-1-9-2-1-2">
+<div class="para" id="sec-undetermined-part-1-9-2-1-2-1">
+<em class="alert">The guess matters:</em> As seen in Example 2, guessing <span class="process-math">\(y_p = A\cos(t)\)</span> alone won’t always work. Differentiating a cosine produces a sine, and if the ODE has a <span class="process-math">\(y'\)</span> term, that sine has nowhere to go. On the next page we’ll see what guess <em class="emphasis">does</em> always work for sinusoidal right-hand sides.<div class="autopermalink" data-description="Paragraph"><a href="#sec-undetermined-part-1-9-2-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#sec-undetermined-part-1-9-2-1-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+</ul>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec-undetermined-part-1-9-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></section><figure class="figure figure-like" id="video-undetermined-part-1"><div class="video-box" style="width: 100%;padding-top: 56.25%; margin-left: 0%; margin-right: 0%;"><iframe class="video" allowfullscreen="" src="https://www.youtube-nocookie.com/embed/vvcsPIvvvsg?&amp;modestbranding=1&amp;rel=0" id="video-undetermined-part-1-2"></iframe></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.5.1<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>This video goes through the content of this page.<div class="autopermalink" data-description="Figure 3.5.1"><a href="#video-undetermined-part-1" title="Copy heading and permalink for Figure 3.5.1" aria-label="Copy heading and permalink for Figure 3.5.1">🔗</a></div></figcaption></figure><div class="interactive-iframe-container"><iframe src="external/question-form.html?section=3.5.1" id="question-form-3-5-1" style="width:600px; height:300px; display: block; "></iframe></div>
+<div class="autopermalink" data-description="Section 3.5.1: A First Look at Non-Homogeneous Equations"><a href="#sec-undetermined-part-1" title="Copy heading and permalink for Section 3.5.1: A First Look at Non-Homogeneous Equations" aria-label="Copy heading and permalink for Section 3.5.1: A First Look at Non-Homogeneous Equations">🔗</a></div></section></div>
+<div id="ptx-content-footer" class="ptx-content-footer">
+<a class="previous-button button" href="sec-3-5.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="sec-undetermined-part-2.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="338 3000 8772 6866" role="img"><title>PreTeXt logo</title><g style="stroke-width:.025in; stroke:currentColor; fill:none"><polyline points="472,3590 472,9732 " style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png" alt="Runstone Academy logo"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png" alt="MathJax logo"></a>
+</div>
+</body>
+</html>
