@@ -198,8 +198,8 @@
           We need <m>-4A\sin(t) = (2 + 5A)\cos(t)</m> to hold for every value of <m>t</m>.
           But a sine and a cosine can never be equal for all <m>t</m> unless both sides
           are zero. No matter what value we pick for <m>A</m>, the left side is a
-          sine and the right side is a cosine — there is no way to make them match.
-          Our guess has failed.
+          sine and the right side is a cosine, and there is no way to make them match.
+          Our guess has failed!
         </p>
       </statement>
     </task>
@@ -212,7 +212,7 @@
         <p>
           After substituting <m>y_p = A\cos(t)</m> we ended up with a
           <m>\sin(t)</m> term stuck on the left side that couldn't be cancelled.
-          Why did this happen? (This is exploratory, so take your best shot!)
+          Why did this happen? (this is exploratory, so take your best shot!)
         </p>
       </statement>
       <choices randomize="yes">
@@ -277,7 +277,7 @@
     introduced a <m>\sin(t)</m> that had nowhere to go. We need a guess
     with enough flexibility to absorb both sine and cosine terms.
     Before moving on: can you think of how to modify the guess to fix this?
-    We will work it out on the next page.
+    We will work through this on the next page!
   </p>
 
   <!-- ═══════════════════════════════════════════════════════════

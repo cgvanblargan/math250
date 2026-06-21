@@ -32,7 +32,7 @@
           Our last guess <m>y_p = A\cos(t)</m> failed because differentiating it
           produced a <m>\sin(t)</m> term we couldn't cancel. What modification
           to the guess might give us the flexibility to handle that?
-          (Give it a shot — we will see in the next part why the right answer works!)
+          (Give it a shot, we will see in the next part why the right answer works!)
         </p>
       </statement>
       <choices randomize="no">
