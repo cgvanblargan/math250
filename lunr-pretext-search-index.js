@@ -3394,6 +3394,60 @@ var ptx_lunr_docs = [
   "body": "  The characteristic equation of a spring-mass system has complex roots. Which case or cases could this correspond to?     Undamped or underdamped   Correct! Complex roots arise in two situations. When the roots are purely imaginary (zero real part) and the system is undamped. When and the roots have a nonzero negative real part and the system is underdamped. In both cases the roots are complex.      Underdamped only   Underdamped is one correct case, but not the only one. When the characteristic equation also has complex (purely imaginary) roots, giving the undamped case.     Overdamped   Overdamped corresponds to two distinct real roots, not complex roots.     Critically damped   Critically damped corresponds to one repeated real root, not complex roots.     "
 },
 {
+  "id": "exercises-3-3",
+  "level": "1",
+  "url": "exercises-3-3.html",
+  "type": "Exercises",
+  "number": "3.3.6",
+  "title": "Exercises for Section 3.3",
+  "body": " Exercises for Section 3.3    Identifying the Damping Case   For each spring-mass-dashpot system below, compute the discriminant and identify the damping case (overdamped, critically damped, underdamped, or undamped).      , ,      . Critically damped.       , ,      . Underdamped.       , ,      . Overdamped.       Identifying the Damping Case from the Position Function   Each of the following is the position function of a mass-spring-dashpot system. Identify the damping case (undamped, underdamped, critically damped, or overdamped).          Undamped. The solution is a pure sinusoidal with no exponential decay factor.           Underdamped. The solution has the form with .           Critically damped. The solution has the form with one repeated exponential rate.           Overdamped. The solution is a sum of two distinct decaying exponentials with no trigonometric part.       From Behavior to Damping Case   For each description of a mass-spring-dashpot system's behavior, identify all damping cases that are consistent with it.     The mass passes through the equilibrium position infinitely many times, and .    Underdamped only.      The mass passes through the equilibrium position at most once, and .    Overdamped or critically damped.      The characteristic equation has complex roots. What can you conclude about ?    Not enough information. If (undamped), the limit does not exist. If (underdamped), then .       Finding Values of the Damping Constant   Consider the spring-mass-dashpot system where . Find all values of for which:     The mass passes through the equilibrium position infinitely many times.    Which damping cases produce infinitely many equilibrium crossings? Use the discriminant with and to find the corresponding values of .     .       .     .      The system is critically damped.     .       Underdamped Systems Cross Equilibrium Infinitely Many Times   For an underdamped system, show algebraically that the mass passes through the equilibrium position infinitely many times.    Start by setting , where . Use the fact that for all to simplify, then think about how many solutions the resulting trigonometric equation has.    Since , setting reduces to: which (assuming the system is in motion) gives This equation has infinitely many solutions, and infinitely many of them are nonnegative.     "
+},
+{
+  "id": "ex-3-3-1",
+  "level": "2",
+  "url": "exercises-3-3.html#ex-3-3-1",
+  "type": "Exercise",
+  "number": "3.3.6.1",
+  "title": "Identifying the Damping Case.",
+  "body": " Identifying the Damping Case   For each spring-mass-dashpot system below, compute the discriminant and identify the damping case (overdamped, critically damped, underdamped, or undamped).      , ,      . Critically damped.       , ,      . Underdamped.       , ,      . Overdamped.    "
+},
+{
+  "id": "ex-3-3-2",
+  "level": "2",
+  "url": "exercises-3-3.html#ex-3-3-2",
+  "type": "Exercise",
+  "number": "3.3.6.2",
+  "title": "Identifying the Damping Case from the Position Function.",
+  "body": " Identifying the Damping Case from the Position Function   Each of the following is the position function of a mass-spring-dashpot system. Identify the damping case (undamped, underdamped, critically damped, or overdamped).          Undamped. The solution is a pure sinusoidal with no exponential decay factor.           Underdamped. The solution has the form with .           Critically damped. The solution has the form with one repeated exponential rate.           Overdamped. The solution is a sum of two distinct decaying exponentials with no trigonometric part.    "
+},
+{
+  "id": "ex-3-3-3",
+  "level": "2",
+  "url": "exercises-3-3.html#ex-3-3-3",
+  "type": "Exercise",
+  "number": "3.3.6.3",
+  "title": "From Behavior to Damping Case.",
+  "body": " From Behavior to Damping Case   For each description of a mass-spring-dashpot system's behavior, identify all damping cases that are consistent with it.     The mass passes through the equilibrium position infinitely many times, and .    Underdamped only.      The mass passes through the equilibrium position at most once, and .    Overdamped or critically damped.      The characteristic equation has complex roots. What can you conclude about ?    Not enough information. If (undamped), the limit does not exist. If (underdamped), then .    "
+},
+{
+  "id": "ex-3-3-4",
+  "level": "2",
+  "url": "exercises-3-3.html#ex-3-3-4",
+  "type": "Exercise",
+  "number": "3.3.6.4",
+  "title": "Finding Values of the Damping Constant.",
+  "body": " Finding Values of the Damping Constant   Consider the spring-mass-dashpot system where . Find all values of for which:     The mass passes through the equilibrium position infinitely many times.    Which damping cases produce infinitely many equilibrium crossings? Use the discriminant with and to find the corresponding values of .     .       .     .      The system is critically damped.     .    "
+},
+{
+  "id": "ex-3-3-5",
+  "level": "2",
+  "url": "exercises-3-3.html#ex-3-3-5",
+  "type": "Exercise",
+  "number": "3.3.6.5",
+  "title": "Underdamped Systems Cross Equilibrium Infinitely Many Times.",
+  "body": " Underdamped Systems Cross Equilibrium Infinitely Many Times   For an underdamped system, show algebraically that the mass passes through the equilibrium position infinitely many times.    Start by setting , where . Use the fact that for all to simplify, then think about how many solutions the resulting trigonometric equation has.    Since , setting reduces to: which (assuming the system is in motion) gives This equation has infinitely many solutions, and infinitely many of them are nonnegative.   "
+},
+{
   "id": "sec-underdamped-direction-changes",
   "level": "1",
   "url": "sec-underdamped-direction-changes.html",
@@ -3572,6 +3626,60 @@ var ptx_lunr_docs = [
   "number": "3.4.2",
   "title": "",
   "body": " This video goes through the content of this page.   "
+},
+{
+  "id": "exercises-3-4",
+  "level": "1",
+  "url": "exercises-3-4.html",
+  "type": "Exercises",
+  "number": "3.4.6",
+  "title": "Exercises for Section 3.4",
+  "body": " Exercises for Section 3.4  In everything below: when the spring is stretched; when it is compressed; and is the equilibrium position. Each problem has a lot of overlap with techniques from the subsections, so make sure to reference similar examples when stuck! There are some hints available, but think about it on your own before looking at them.    Analyzing an Underdamped System   A mass-spring-dashpot system has , , , with initial conditions and . I will do the first part for you and provide you with the specific solution to this IVP:      Does the mass start stretched or compressed? Which direction does it initially move?    The values and were already given in the problem statement above.    The mass starts compressed and initially moves toward equilibrium.      Give a rough sketch of based on part (a) and what you know about the general behavior of underdamped solutions.    The sketch should show: starts at (compressed), moves toward equilibrium, crosses infinitely many times with oscillations of decaying amplitude, approaching in the long run.      Find all times at which the mass changes direction.           When is the mass most stretched? When is it most compressed?    Direction changes occur at critical points of . For an underdamped system, critical points alternate between local maxima (most stretched at that moment) and local minima (most compressed at that moment). Because the amplitude is always decaying, the overall most stretched position occurs at the first local maximum, and the overall most compressed position occurs at the first local minimum. Use your graph from (b) to determine which comes first (local max or local min), then use your answer from part (c): the first two values of correspond to the two answers.    Most compressed at . Most stretched at (the first critical point, ).      In a sentence or two, describe what happens to the amplitude of the oscillations over time.    The amplitude decays to zero: each successive peak is smaller than the last, and .       Analyzing an Overdamped System   The position function of a mass-spring-dashpot system is      Compute and . What do these tell you about where the mass starts and which direction it initially moves?     : starts compressed . : initially moves toward equilibrium.      Does the mass ever pass through the equilibrium position ? Justify mathematically.    Solve and think carefully about the signs of each term.     No. Both terms of are always negative, so has no solution.      Give a rough sketch of based on your answers in (a) and (b).    The sketch should show: starts at (compressed), moves toward equilibrium, never crosses , and approaches zero from below as .      Is the spring ever stretched? Explain.    Look at your graph from (c). Consider what you know about and whether the mass ever crosses equilibrium.     No. Since and the mass never crosses equilibrium, for all .      Describe the full motion of the mass from to infinity in words.    The mass starts compressed at , moves toward equilibrium, never crosses, and slowly approaches from below.       Analyzing an Overdamped System: Finding Maximum Stretch and Compression   A mass-spring-dashpot system has , , , with initial conditions and .     Find the position function .           Does the mass ever pass through equilibrium ? Justify mathematically.     Yes , at .      Give a rough sketch of .    The sketch should show: starts at (compressed), moves toward equilibrium, crosses at , reaches a maximum on the stretched side, then slowly approaches zero from above.      Find the time of maximum stretch and maximum compression, or determine that the spring is never stretched or never compressed.    First use your graph and the equilibrium crossing from (b) to determine whether the spring is ever stretched and\/or ever compressed. Then recall that maxima and minima occur either at or at a critical point where . Use your graph to determine which case applies for each.    Most compressed at . Most stretched at .      What does the mass do after crossing the equilibrium position? Describe in words.    Recall the long-term behavior of overdamped solutions. How does this connect to what happens after the crossing? Also consider: which side of equilibrium is the mass on after it crosses?    After crossing, the mass is on the stretched side. It reaches maximum stretch at , then stays on the stretched side and slowly approaches from above. It never crosses equilibrium again.       Analyzing a Critically Damped System   A mass-spring-dashpot system has , , , with initial conditions and .     Find the position function .           When is the spring most compressed? Is the spring ever stretched? Describe the full motion of the mass after the point of maximum compression.    Work through the following steps:  Use and to determine where the mass starts and which direction it initially moves.  Solve to check whether the mass ever crosses equilibrium .  Use these facts to draw a rough sketch of .  From the sketch, you can determine whether the spring is ever stretched or compressed. Then decide: does the maximum compression occur at or at a critical point where ?      The only solution to is , so the mass never crosses equilibrium and is never stretched. Most compressed at . After that, the mass moves back toward equilibrium, staying on the compressed side and approaching from below.       Analyzing a Critically Damped System: Finding Maximum Stretch   The position function of a mass-spring-dashpot system is      Find and , determine whether the mass crosses the equilibrium position , and use this information to give a rough sketch of .    Follow the same steps as in the previous questions: (1) find and and interpret them, (2) solve to check for equilibrium crossings, (3) use these facts to sketch the graph.     (compressed), (toward equilibrium), crosses equilibrium at . Sketch: starts at , crosses at , reaches a maximum on the stretched side, then approaches zero from above.      At what time is the mass farthest from equilibrium, and what is the position at that time?    The farthest point from equilibrium occurs either at or at a critical point where . Use your sketch from part (a) to determine which case applies, then solve to find . Finally, plug back into to find the actual position.     , and .      Describe the motion of the mass after it reaches maximum stretch.    The mass stays on the stretched side, never crossing equilibrium again, and slowly approaches from above.      "
+},
+{
+  "id": "ex-3-4-1",
+  "level": "2",
+  "url": "exercises-3-4.html#ex-3-4-1",
+  "type": "Exercise",
+  "number": "3.4.6.1",
+  "title": "Analyzing an Underdamped System.",
+  "body": " Analyzing an Underdamped System   A mass-spring-dashpot system has , , , with initial conditions and . I will do the first part for you and provide you with the specific solution to this IVP:      Does the mass start stretched or compressed? Which direction does it initially move?    The values and were already given in the problem statement above.    The mass starts compressed and initially moves toward equilibrium.      Give a rough sketch of based on part (a) and what you know about the general behavior of underdamped solutions.    The sketch should show: starts at (compressed), moves toward equilibrium, crosses infinitely many times with oscillations of decaying amplitude, approaching in the long run.      Find all times at which the mass changes direction.           When is the mass most stretched? When is it most compressed?    Direction changes occur at critical points of . For an underdamped system, critical points alternate between local maxima (most stretched at that moment) and local minima (most compressed at that moment). Because the amplitude is always decaying, the overall most stretched position occurs at the first local maximum, and the overall most compressed position occurs at the first local minimum. Use your graph from (b) to determine which comes first (local max or local min), then use your answer from part (c): the first two values of correspond to the two answers.    Most compressed at . Most stretched at (the first critical point, ).      In a sentence or two, describe what happens to the amplitude of the oscillations over time.    The amplitude decays to zero: each successive peak is smaller than the last, and .    "
+},
+{
+  "id": "ex-3-4-2",
+  "level": "2",
+  "url": "exercises-3-4.html#ex-3-4-2",
+  "type": "Exercise",
+  "number": "3.4.6.2",
+  "title": "Analyzing an Overdamped System.",
+  "body": " Analyzing an Overdamped System   The position function of a mass-spring-dashpot system is      Compute and . What do these tell you about where the mass starts and which direction it initially moves?     : starts compressed . : initially moves toward equilibrium.      Does the mass ever pass through the equilibrium position ? Justify mathematically.    Solve and think carefully about the signs of each term.     No. Both terms of are always negative, so has no solution.      Give a rough sketch of based on your answers in (a) and (b).    The sketch should show: starts at (compressed), moves toward equilibrium, never crosses , and approaches zero from below as .      Is the spring ever stretched? Explain.    Look at your graph from (c). Consider what you know about and whether the mass ever crosses equilibrium.     No. Since and the mass never crosses equilibrium, for all .      Describe the full motion of the mass from to infinity in words.    The mass starts compressed at , moves toward equilibrium, never crosses, and slowly approaches from below.    "
+},
+{
+  "id": "ex-3-4-3",
+  "level": "2",
+  "url": "exercises-3-4.html#ex-3-4-3",
+  "type": "Exercise",
+  "number": "3.4.6.3",
+  "title": "Analyzing an Overdamped System: Finding Maximum Stretch and Compression.",
+  "body": " Analyzing an Overdamped System: Finding Maximum Stretch and Compression   A mass-spring-dashpot system has , , , with initial conditions and .     Find the position function .           Does the mass ever pass through equilibrium ? Justify mathematically.     Yes , at .      Give a rough sketch of .    The sketch should show: starts at (compressed), moves toward equilibrium, crosses at , reaches a maximum on the stretched side, then slowly approaches zero from above.      Find the time of maximum stretch and maximum compression, or determine that the spring is never stretched or never compressed.    First use your graph and the equilibrium crossing from (b) to determine whether the spring is ever stretched and\/or ever compressed. Then recall that maxima and minima occur either at or at a critical point where . Use your graph to determine which case applies for each.    Most compressed at . Most stretched at .      What does the mass do after crossing the equilibrium position? Describe in words.    Recall the long-term behavior of overdamped solutions. How does this connect to what happens after the crossing? Also consider: which side of equilibrium is the mass on after it crosses?    After crossing, the mass is on the stretched side. It reaches maximum stretch at , then stays on the stretched side and slowly approaches from above. It never crosses equilibrium again.    "
+},
+{
+  "id": "ex-3-4-4",
+  "level": "2",
+  "url": "exercises-3-4.html#ex-3-4-4",
+  "type": "Exercise",
+  "number": "3.4.6.4",
+  "title": "Analyzing a Critically Damped System.",
+  "body": " Analyzing a Critically Damped System   A mass-spring-dashpot system has , , , with initial conditions and .     Find the position function .           When is the spring most compressed? Is the spring ever stretched? Describe the full motion of the mass after the point of maximum compression.    Work through the following steps:  Use and to determine where the mass starts and which direction it initially moves.  Solve to check whether the mass ever crosses equilibrium .  Use these facts to draw a rough sketch of .  From the sketch, you can determine whether the spring is ever stretched or compressed. Then decide: does the maximum compression occur at or at a critical point where ?      The only solution to is , so the mass never crosses equilibrium and is never stretched. Most compressed at . After that, the mass moves back toward equilibrium, staying on the compressed side and approaching from below.    "
+},
+{
+  "id": "ex-3-4-5",
+  "level": "2",
+  "url": "exercises-3-4.html#ex-3-4-5",
+  "type": "Exercise",
+  "number": "3.4.6.5",
+  "title": "Analyzing a Critically Damped System: Finding Maximum Stretch.",
+  "body": " Analyzing a Critically Damped System: Finding Maximum Stretch   The position function of a mass-spring-dashpot system is      Find and , determine whether the mass crosses the equilibrium position , and use this information to give a rough sketch of .    Follow the same steps as in the previous questions: (1) find and and interpret them, (2) solve to check for equilibrium crossings, (3) use these facts to sketch the graph.     (compressed), (toward equilibrium), crosses equilibrium at . Sketch: starts at , crosses at , reaches a maximum on the stretched side, then approaches zero from above.      At what time is the mass farthest from equilibrium, and what is the position at that time?    The farthest point from equilibrium occurs either at or at a critical point where . Use your sketch from part (a) to determine which case applies, then solve to find . Finally, plug back into to find the actual position.     , and .      Describe the motion of the mass after it reaches maximum stretch.    The mass stays on the stretched side, never crossing equilibrium again, and slowly approaches from above.    "
 },
 {
   "id": "sec-undetermined-part-1",
