@@ -14,5 +14,6 @@
    <xi:include href="./3-3/sec3-overdamped.ptx"/>
     <xi:include href="./3-3/sec4-critically-damped.ptx"/>
      <xi:include href="./3-3/sec5-summary.ptx"/>
+         <xi:include href="./3-3/exercises-3-3.ptx"/>
 
 </section>

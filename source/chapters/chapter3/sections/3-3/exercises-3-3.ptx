@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<exercises xml:id="exercises-3-3">
+  <title>Exercises for Section 3.3</title>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       Q1: Identify case from m, c, k
+       ═══════════════════════════════════════════════════════════ -->
+
+  <exercise xml:id="ex-3-3-1">
+    <title>Identifying the Damping Case</title>
+    <introduction>
+      <p>
+        For each spring-mass-dashpot system below, compute the discriminant
+        <m>D = c^2 - 4km</m> and identify the damping case (overdamped,
+        critically damped, underdamped, or undamped).
+      </p>
+    </introduction>
+
+    <task xml:id="ex-3-3-1a">
+      <statement>
+        <p>
+          <m>m = 1</m>, <m>c = 6</m>, <m>k = 9</m>
+        </p>
+      </statement>
+      <answer>
+        <p>
+          <m>D = 36 - 36 = 0</m>. Critically damped.
+        </p>
+      </answer>
+    </task>
+
+    <task xml:id="ex-3-3-1b">
+      <statement>
+        <p>
+          <m>m = 2</m>, <m>c = 3</m>, <m>k = 5</m>
+        </p>
+      </statement>
+      <answer>
+        <p>
+          <m>D = 9 - 40 = -31 \lt 0</m>. Underdamped.
+        </p>
+      </answer>
+    </task>
+
+    <task xml:id="ex-3-3-1c">
+      <statement>
+        <p>
+          <m>m = 1</m>, <m>c = 10</m>, <m>k = 9</m>
+        </p>
+      </statement>
+      <answer>
+        <p>
+          <m>D = 100 - 36 = 64 \gt 0</m>. Overdamped.
+        </p>
+      </answer>
+    </task>
+
+  </exercise>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       Q2: Identify case from position function
+       ═══════════════════════════════════════════════════════════ -->
+
+  <exercise xml:id="ex-3-3-2">
+    <title>Identifying the Damping Case from the Position Function</title>
+    <introduction>
+      <p>
+        Each of the following is the position function of a mass-spring-dashpot
+        system. Identify the damping case (undamped, underdamped, critically
+        damped, or overdamped).
+      </p>
+    </introduction>
+
+    <task xml:id="ex-3-3-2a">
+      <statement>
+        <p>
+          <m>x(t) = 2\cos(3t) - \sin(3t)</m>
+        </p>
+      </statement>
+      <answer>
+        <p>
+          Undamped. The solution is a pure sinusoidal with no exponential
+          decay factor.
+        </p>
+      </answer>
+    </task>
+
+    <task xml:id="ex-3-3-2b">
+      <statement>
+        <p>
+          <m>x(t) = e^{-3t}\bigl(2\cos(4t) + \sin(4t)\bigr)</m>
+        </p>
+      </statement>
+      <answer>
+        <p>
+          Underdamped. The solution has the form
+          <m>e^{\alpha t}(c_1\cos(\omega t) + c_2\sin(\omega t))</m>
+          with <m>\alpha = -3 \lt 0</m>.
+        </p>
+      </answer>
+    </task>
+
+    <task xml:id="ex-3-3-2c">
+      <statement>
+        <p>
+          <m>x(t) = (4 + 3t)e^{-5t}</m>
+        </p>
+      </statement>
+      <answer>
+        <p>
+          Critically damped. The solution has the form
+          <m>(c_1 + c_2 t)e^{rt}</m> with one repeated exponential rate.
+        </p>
+      </answer>
+    </task>
+
+    <task xml:id="ex-3-3-2d">
+      <statement>
+        <p>
+          <m>x(t) = 3e^{-2t} + 5e^{-7t}</m>
+        </p>
+      </statement>
+      <answer>
+        <p>
+          Overdamped. The solution is a sum of two distinct decaying
+          exponentials with no trigonometric part.
+        </p>
+      </answer>
+    </task>
+
+  </exercise>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       Q3: Behavior -> case
+       ═══════════════════════════════════════════════════════════ -->
+
+  <exercise xml:id="ex-3-3-3">
+    <title>From Behavior to Damping Case</title>
+    <introduction>
+      <p>
+        For each description of a mass-spring-dashpot system's behavior,
+        identify all damping cases that are consistent with it.
+      </p>
+    </introduction>
+
+    <task xml:id="ex-3-3-3a">
+      <statement>
+        <p>
+          The mass passes through the equilibrium position infinitely many
+          times, and <m>\displaystyle\lim_{t\to\infty} x(t) = 0</m>.
+        </p>
+      </statement>
+      <answer>
+        <p>
+          Underdamped only.
+        </p>
+      </answer>
+    </task>
+
+    <task xml:id="ex-3-3-3b">
+      <statement>
+        <p>
+          The mass passes through the equilibrium position at most once,
+          and <m>\displaystyle\lim_{t\to\infty} x(t) = 0</m>.
+        </p>
+      </statement>
+      <answer>
+        <p>
+          Overdamped or critically damped.
+        </p>
+      </answer>
+    </task>
+
+    <task xml:id="ex-3-3-3c">
+      <statement>
+        <p>
+          The characteristic equation has complex roots.
+          What can you conclude about <m>\displaystyle\lim_{t\to\infty} x(t)</m>?
+        </p>
+      </statement>
+      <answer>
+        <p>
+          Not enough information. If <m>c = 0</m> (undamped), the limit does
+          not exist. If <m>c \gt 0</m> (underdamped), then
+          <m>\lim_{t\to\infty} x(t) = 0</m>.
+        </p>
+      </answer>
+    </task>
+
+  </exercise>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       Q4: Values of c
+       ═══════════════════════════════════════════════════════════ -->
+
+  <exercise xml:id="ex-3-3-4">
+    <title>Finding Values of the Damping Constant</title>
+    <introduction>
+      <p>
+        Consider the spring-mass-dashpot system
+        <me>x'' + cx' + 16x = 0,</me>
+        where <m>c \geq 0</m>. Find all values of <m>c</m> for which:
+      </p>
+    </introduction>
+
+    <task xml:id="ex-3-3-4a">
+      <statement>
+        <p>
+          The mass passes through the equilibrium position infinitely many times.
+        </p>
+      </statement>
+      <hint>
+        <p>
+          Which damping cases produce infinitely many equilibrium crossings?
+          Use the discriminant <m>D = c^2 - 4km</m> with <m>m = 1</m>
+          and <m>k = 16</m> to find the corresponding values of <m>c</m>.
+        </p>
+      </hint>
+      <answer>
+        <p>
+          <m>0 \leq c \lt 8</m>.
+        </p>
+      </answer>
+    </task>
+
+    <task xml:id="ex-3-3-4b">
+      <statement>
+        <p>
+          <m>\displaystyle\lim_{t\to\infty} x(t) = 0</m>.
+        </p>
+      </statement>
+      <answer>
+        <p>
+          <m>c \gt 0</m>.
+        </p>
+      </answer>
+    </task>
+
+    <task xml:id="ex-3-3-4c">
+      <statement>
+        <p>
+          The system is critically damped.
+        </p>
+      </statement>
+      <answer>
+        <p>
+          <m>c = 8</m>.
+        </p>
+      </answer>
+    </task>
+
+  </exercise>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       Q5: Underdamped infinitely many crossings proof
+       ═══════════════════════════════════════════════════════════ -->
+
+  <exercise xml:id="ex-3-3-5">
+    <title>Underdamped Systems Cross Equilibrium Infinitely Many Times</title>
+    <statement>
+      <p>
+        For an underdamped system, show algebraically that the mass passes
+        through the equilibrium position <m>x = 0</m> infinitely many times.
+      </p>
+    </statement>
+    <hint>
+      <p>
+        Start by setting <m>x(t) = 0</m>, where
+        <m>x(t) = e^{\alpha t}(c_1\cos(\omega t) + c_2\sin(\omega t))</m>.
+        Use the fact that <m>e^{\alpha t} \neq 0</m> for all <m>t</m> to
+        simplify, then think about how many solutions the resulting
+        trigonometric equation has.
+      </p>
+    </hint>
+    <answer>
+      <p>
+        Since <m>e^{\alpha t} \neq 0</m>, setting <m>x(t) = 0</m> reduces to:
+        <me>c_1\cos(\omega t) + c_2\sin(\omega t) = 0</me>
+        which (assuming the system is in motion) gives
+        <me>\tan(\omega t) = -\frac{c_1}{c_2}.</me>
+        This equation has infinitely many solutions, and infinitely many
+        of them are nonnegative.
+      </p>
+    </answer>
+  </exercise>
+
+  <interactive xml:id="question-form-3-3-ex" iframe="question-form.html?section=3.3 exercises" width="100%" aspect="2:1"/>
+
+</exercises>

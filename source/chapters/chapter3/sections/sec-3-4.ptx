@@ -15,5 +15,6 @@
    <xi:include href="./3-4/sec3-overdamped-never-stretched.ptx"/>
 <xi:include href="./3-4/sec4-critically-damped-analysis.ptx"/>
 <xi:include href="./3-4/sec5-critically-damped-crossing.ptx"/>
+<xi:include href="./3-4/exercises-3-4.ptx"/>
 
 </section>

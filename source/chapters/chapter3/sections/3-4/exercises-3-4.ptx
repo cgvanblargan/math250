@@ -1,0 +1,479 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<exercises xml:id="exercises-3-4">
+  <title>Exercises for Section 3.4</title>
+
+  <p>In everything below: when <m>x(t) \gt 0</m> the spring is stretched;
+  when <m>x(t) \lt 0</m> it is compressed; and <m>x = 0</m> is the
+  equilibrium position. Each problem has a lot of overlap with techniques
+  from the subsections, so make sure to reference similar examples when
+  stuck! There are some hints available, but think about it on your own
+  before looking at them.</p>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       Q1: Underdamped
+       ═══════════════════════════════════════════════════════════ -->
+
+  <exercise xml:id="ex-3-4-1">
+    <title>Analyzing an Underdamped System</title>
+    <introduction>
+      <p>
+        A mass-spring-dashpot system has <m>m = 1</m>, <m>c = 2</m>,
+        <m>k = 5</m>, with initial conditions <m>x(0) = -1</m> and
+        <m>x'(0) = 1</m>. I will do the first part for you and provide
+        you with the specific solution to this IVP:
+        <me>x(t) = -e^{-t}\cos(2t).</me>
+      </p>
+    </introduction>
+
+    <task xml:id="ex-3-4-1a">
+      <statement>
+        <p>
+          Does the mass start stretched or compressed? Which direction
+          does it initially move?
+        </p>
+      </statement>
+      <hint>
+        <p>
+          The values <m>x(0)</m> and <m>x'(0)</m> were already given
+          in the problem statement above.
+        </p>
+      </hint>
+      <answer>
+        <p>
+          The mass starts <alert>compressed</alert> and initially moves
+          toward equilibrium.
+        </p>
+      </answer>
+    </task>
+
+    <task xml:id="ex-3-4-1b">
+      <statement>
+        <p>
+          Give a rough sketch of <m>x(t)</m> based on part (a) and what
+          you know about the general behavior of underdamped solutions.
+        </p>
+      </statement>
+      <answer>
+        <p>
+          The sketch should show: starts at <m>x = -1</m> (compressed),
+          moves toward equilibrium, crosses <m>x = 0</m> infinitely many
+          times with oscillations of decaying amplitude, approaching
+          <m>x = 0</m> in the long run.
+        </p>
+      </answer>
+    </task>
+
+    <task xml:id="ex-3-4-1c">
+      <statement>
+        <p>
+          Find all times <m>t \geq 0</m> at which the mass changes direction.
+        </p>
+      </statement>
+      <answer>
+        <p>
+          <me>t = \frac{\arctan\!\left(-\frac{1}{2}\right) + n\pi}{2}, \quad n = 1, 2, 3, \ldots</me>
+        </p>
+      </answer>
+    </task>
+
+    <task xml:id="ex-3-4-1d">
+      <statement>
+        <p>
+          When is the mass most stretched? When is it most compressed?
+        </p>
+      </statement>
+      <hint>
+        <p>
+          Direction changes occur at critical points of <m>x(t)</m>.
+          For an underdamped system, critical points alternate between
+          local maxima (most stretched at that moment) and local minima
+          (most compressed at that moment). Because the amplitude is
+          always decaying, the overall most stretched position occurs
+          at the <em>first</em> local maximum, and the overall most
+          compressed position occurs at the <em>first</em> local minimum.
+          Use your graph from (b) to determine which comes first (local
+          max or local min), then use your answer from part (c): the
+          first two values of <m>n</m> correspond to the two answers.
+        </p>
+      </hint>
+      <answer>
+        <p>
+          Most compressed at <m>t = 0</m>. Most stretched at
+          <m>t = \dfrac{\arctan\!\left(-\frac{1}{2}\right) + \pi}{2}</m>
+          (the first critical point, <m>n = 1</m>).
+        </p>
+      </answer>
+    </task>
+
+    <task xml:id="ex-3-4-1e">
+      <statement>
+        <p>
+          In a sentence or two, describe what happens to the amplitude
+          of the oscillations over time.
+        </p>
+      </statement>
+      <answer>
+        <p>
+          The amplitude decays to zero: each successive peak is smaller
+          than the last, and <m>\lim_{t \to \infty} x(t) = 0</m>.
+        </p>
+      </answer>
+    </task>
+
+  </exercise>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       Q2: Overdamped: position function given, never crosses
+       ═══════════════════════════════════════════════════════════ -->
+
+  <exercise xml:id="ex-3-4-2">
+    <title>Analyzing an Overdamped System</title>
+    <introduction>
+      <p>
+        The position function of a mass-spring-dashpot system is
+        <me>x(t) = -4e^{-t} - e^{-5t}.</me>
+      </p>
+    </introduction>
+
+    <task xml:id="ex-3-4-2a">
+      <statement>
+        <p>
+          Compute <m>x(0)</m> and <m>x'(0)</m>. What do these tell you
+          about where the mass starts and which direction it initially moves?
+        </p>
+      </statement>
+      <answer>
+        <p>
+          <m>x(0) = -5</m>: starts <alert>compressed</alert>.
+          <m>x'(0) = 9</m>: initially moves toward equilibrium.
+        </p>
+      </answer>
+    </task>
+
+    <task xml:id="ex-3-4-2b">
+      <statement>
+        <p>
+          Does the mass ever pass through the equilibrium position <m>x = 0</m>?
+          Justify mathematically.
+        </p>
+      </statement>
+      <hint>
+        <p>
+          Solve <m>x(t) = 0</m> and think carefully about the signs of
+          each term.
+        </p>
+      </hint>
+      <answer>
+        <p>
+          <alert>No.</alert> Both terms of <m>x(t)</m> are always negative,
+          so <m>x(t) = 0</m> has no solution.
+        </p>
+      </answer>
+    </task>
+
+    <task xml:id="ex-3-4-2c">
+      <statement>
+        <p>
+          Give a rough sketch of <m>x(t)</m> based on your answers in
+          (a) and (b).
+        </p>
+      </statement>
+      <answer>
+        <p>
+          The sketch should show: starts at <m>x = -5</m> (compressed),
+          moves toward equilibrium, never crosses <m>x = 0</m>, and
+          approaches zero from below as <m>t \to \infty</m>.
+        </p>
+      </answer>
+    </task>
+
+    <task xml:id="ex-3-4-2d">
+      <statement>
+        <p>
+          Is the spring ever stretched? Explain.
+        </p>
+      </statement>
+      <hint>
+        <p>
+          Look at your graph from (c). Consider what you know about
+          <m>x(0)</m> and whether the mass ever crosses equilibrium.
+        </p>
+      </hint>
+      <answer>
+        <p>
+          <alert>No.</alert> Since <m>x(0) \lt 0</m> and the mass never
+          crosses equilibrium, <m>x(t) \lt 0</m> for all <m>t \geq 0</m>.
+        </p>
+      </answer>
+    </task>
+
+    <task xml:id="ex-3-4-2e">
+      <statement>
+        <p>
+          Describe the full motion of the mass from <m>t = 0</m>
+          to infinity in words.
+        </p>
+      </statement>
+      <answer>
+        <p>
+          The mass starts compressed at <m>x = -5</m>, moves toward
+          equilibrium, never crosses, and slowly approaches <m>x = 0</m>
+          from below.
+        </p>
+      </answer>
+    </task>
+
+  </exercise>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       Q3: Overdamped: solve IVP, crosses equilibrium
+       ═══════════════════════════════════════════════════════════ -->
+
+  <exercise xml:id="ex-3-4-3">
+    <title>Analyzing an Overdamped System: Finding Maximum Stretch and Compression</title>
+    <introduction>
+      <p>
+        A mass-spring-dashpot system has <m>m = 1</m>, <m>c = 5</m>,
+        <m>k = 6</m>, with initial conditions <m>x(0) = -2</m> and
+        <m>x'(0) = 7</m>.
+      </p>
+    </introduction>
+
+    <task xml:id="ex-3-4-3a">
+      <statement>
+        <p>
+          Find the position function <m>x(t)</m>.
+        </p>
+      </statement>
+      <answer>
+        <p>
+          <me>x(t) = e^{-2t} - 3e^{-3t}.</me>
+        </p>
+      </answer>
+    </task>
+
+    <task xml:id="ex-3-4-3b">
+      <statement>
+        <p>
+          Does the mass ever pass through equilibrium <m>x = 0</m>?
+          Justify mathematically.
+        </p>
+      </statement>
+      <answer>
+        <p>
+          <alert>Yes</alert>, at <m>t = \ln 3</m>.
+        </p>
+      </answer>
+    </task>
+
+    <task xml:id="ex-3-4-3c">
+      <statement>
+        <p>
+          Give a rough sketch of <m>x(t)</m>.
+        </p>
+      </statement>
+      <answer>
+        <p>
+          The sketch should show: starts at <m>x = -2</m> (compressed),
+          moves toward equilibrium, crosses <m>x = 0</m> at
+          <m>t = \ln 3</m>, reaches a maximum on the stretched side,
+          then slowly approaches zero from above.
+        </p>
+      </answer>
+    </task>
+
+    <task xml:id="ex-3-4-3d">
+      <statement>
+        <p>
+          Find the time of maximum stretch and maximum compression, or
+          determine that the spring is never stretched or never compressed.
+        </p>
+      </statement>
+      <hint>
+        <p>
+          First use your graph and the equilibrium crossing from (b) to
+          determine whether the spring is ever stretched and/or ever
+          compressed. Then recall that maxima and minima occur either at
+          <m>t = 0</m> or at a critical point where <m>x'(t) = 0</m>. Use your graph to determine which case applies for each.
+        </p>
+      </hint>
+      <answer>
+        <p>
+          Most compressed at <m>t = 0</m>. Most stretched at
+          <m>t = \ln\!\tfrac{9}{2}</m>.
+        </p>
+      </answer>
+    </task>
+
+    <task xml:id="ex-3-4-3e">
+      <statement>
+        <p>
+          What does the mass do after crossing the equilibrium position?
+          Describe in words.
+        </p>
+      </statement>
+      <hint>
+        <p>
+          Recall the long-term behavior of overdamped solutions. How does
+          this connect to what happens after the crossing? Also consider:
+          which side of equilibrium is the mass on after it crosses?
+        </p>
+      </hint>
+      <answer>
+        <p>
+          After crossing, the mass is on the stretched side. It reaches
+          maximum stretch at <m>t = \ln(9/2)</m>, then stays on the
+          stretched side and slowly approaches <m>x = 0</m> from above.
+          It never crosses equilibrium again.
+        </p>
+      </answer>
+    </task>
+
+  </exercise>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       Q4: Critically damped: solve IVP, starts compressed
+       ═══════════════════════════════════════════════════════════ -->
+
+  <exercise xml:id="ex-3-4-4">
+    <title>Analyzing a Critically Damped System</title>
+    <introduction>
+      <p>
+        A mass-spring-dashpot system has <m>m = 1</m>, <m>c = 4</m>,
+        <m>k = 4</m>, with initial conditions <m>x(0) = -1</m> and
+        <m>x'(0) = -3</m>.
+      </p>
+    </introduction>
+
+    <task xml:id="ex-3-4-4a">
+      <statement>
+        <p>
+          Find the position function <m>x(t)</m>.
+        </p>
+      </statement>
+      <answer>
+        <p>
+          <me>x(t) = -e^{-2t}(1 + 5t).</me>
+        </p>
+      </answer>
+    </task>
+
+    <task xml:id="ex-3-4-4b">
+      <statement>
+        <p>
+          When is the spring most compressed? Is the spring ever stretched?
+          Describe the full motion of the mass after the point of maximum
+          compression.
+        </p>
+      </statement>
+      <hint>
+        <p>
+          Work through the following steps:
+          <ul>
+            <li>Use <m>x(0)</m> and <m>x'(0)</m> to determine where the
+            mass starts and which direction it initially moves.</li>
+            <li>Solve <m>x(t) = 0</m> to check whether the mass ever
+            crosses equilibrium <m>x = 0</m>.</li>
+            <li>Use these facts to draw a rough sketch of <m>x(t)</m>.</li>
+            <li>From the sketch, you can determine whether the spring is
+            ever stretched or compressed. Then decide: does the
+            maximum compression occur at <m>t = 0</m> or at a critical
+            point where <m>x'(t) = 0</m>?</li>
+          </ul>
+        </p>
+      </hint>
+      <answer>
+        <p>
+          The only solution to <m>x(t) = 0</m> is <m>t = -\tfrac{1}{5} \lt 0</m>,
+          so the mass never crosses equilibrium and is never stretched.
+          Most compressed at <m>t = \tfrac{3}{10}</m>.
+          After that, the mass moves back toward equilibrium, staying
+          on the compressed side and approaching <m>x = 0</m> from below.
+        </p>
+      </answer>
+    </task>
+
+  </exercise>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       Q5: Critically damped harder: position function given
+       ═══════════════════════════════════════════════════════════ -->
+
+  <exercise xml:id="ex-3-4-5">
+    <title>Analyzing a Critically Damped System: Finding Maximum Stretch</title>
+    <introduction>
+      <p>
+        The position function of a mass-spring-dashpot system is
+        <me>x(t) = e^{-2t}(2t - 4).</me>
+      </p>
+    </introduction>
+
+    <task xml:id="ex-3-4-5a">
+      <statement>
+        <p>
+          Find <m>x(0)</m> and <m>x'(0)</m>, determine whether the mass
+          crosses the equilibrium position <m>x = 0</m>, and use this
+          information to give a rough sketch of <m>x(t)</m>.
+        </p>
+      </statement>
+      <hint>
+        <p>
+          Follow the same steps as in the previous questions:
+          (1) find <m>x(0)</m> and <m>x'(0)</m> and interpret them,
+          (2) solve <m>x(t) = 0</m> to check for equilibrium crossings,
+          (3) use these facts to sketch the graph.
+        </p>
+      </hint>
+      <answer>
+        <p>
+          <m>x(0) = -4</m> (compressed), <m>x'(0) = 10</m> (toward equilibrium),
+          crosses equilibrium at <m>t = 2</m>. Sketch: starts at <m>x = -4</m>,
+          crosses at <m>t = 2</m>, reaches a maximum on the stretched side,
+          then approaches zero from above.
+        </p>
+      </answer>
+    </task>
+
+    <task xml:id="ex-3-4-5b">
+      <statement>
+        <p>
+          At what time <m>t^*</m> is the mass farthest from equilibrium,
+          and what is the position <m>x(t^*)</m> at that time?
+        </p>
+      </statement>
+      <hint>
+        <p>
+          The farthest point from equilibrium occurs either at <m>t = 0</m>
+          or at a critical point where <m>x'(t) = 0</m>. Use your sketch
+          from part (a) to determine which case applies, then solve
+          <m>x'(t) = 0</m> to find <m>t^*</m>. Finally, plug <m>t^*</m>
+          back into <m>x(t)</m> to find the actual position.
+        </p>
+      </hint>
+      <answer>
+        <p>
+          <m>t^* = \tfrac{5}{2}</m>, and <m>x\!\left(\tfrac{5}{2}\right) = e^{-5}</m>.
+        </p>
+      </answer>
+    </task>
+
+    <task xml:id="ex-3-4-5c">
+      <statement>
+        <p>
+          Describe the motion of the mass after it reaches maximum stretch.
+        </p>
+      </statement>
+      <answer>
+        <p>
+          The mass stays on the stretched side, never crossing equilibrium
+          again, and slowly approaches <m>x = 0</m> from above.
+        </p>
+      </answer>
+    </task>
+
+  </exercise>
+
+  <interactive xml:id="question-form-3-4-ex" iframe="question-form.html?section=3.4 exercises" width="100%" aspect="2:1"/>
+
+</exercises>
