@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-laplace-definition" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>The Definition of the Laplace Transform</title>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       DEFINITION: LAPLACE TRANSFORM
+       ═══════════════════════════════════════════════════════════ -->
+
+  <definition xml:id="def-laplace-transform">
+    <title>The Laplace Transform</title>
+    <statement>
+      <p>
+        Suppose <m>f(t)</m> is a function defined for all <m>t \geq 0</m>.
+        The <term>Laplace Transform</term> of <m>f</m> is the function <m>F(s)</m> defined by
+        <me>F(s) = \mathcal{L}\{f(t)\} = \int_0^{\infty} e^{-st} f(t) \, dt.</me>
+        The transform is defined for all values of <m>s</m> for which the integral converges.
+      </p>
+    </statement>
+  </definition>
+
+  <p>
+    A few things are worth noticing right away. The input to the Laplace transform is a function
+    of <m>t</m>, and the output is a function of a new variable <m>s</m>. So the Laplace transform
+    takes us out of the world of <m>t</m> and into the world of <m>s</m>. We typically use capital
+    letters for the transformed function (like <m>Y(s)</m>) and lowercase for the original
+    (like <m>y(t)</m>).
+  </p>
+
+  <p>
+    In the next few pages, we will get practice finding Laplace and inverse Laplace transforms
+    of functions. We will see that taking the Laplace transform of a differential equation
+    turns it into an <em>algebraic</em> equation in <m>s</m>, which is often much easier to solve!
+  </p>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       TRANSITION: TABLE COMING LATER
+       ═══════════════════════════════════════════════════════════ -->
+
+  <p>
+    In practice, we'll use a <em>Laplace transform table</em> (coming soon!) to look up transforms
+    rather than computing the integral every time. You won't be asked to derive transforms from
+    scratch going forward. But it's worth seeing where some of the table entries come from!
+  </p>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       EXPLORATION: TWO BASIC LAPLACE TRANSFORMS
+       ═══════════════════════════════════════════════════════════ -->
+
+  <exploration xml:id="exploration-laplace-basic">
+    <title>Computing Two Laplace Transforms from the Definition</title>
+
+    <task xml:id="task-laplace-of-1">
+      <title>The Laplace Transform of <m>f(t) = 1</m></title>
+      <statement>
+        <p>
+         Let's use the definition to show that
+          <me>\mathcal{L}\{1\} = \frac{1}{s}, \quad s \gt 0.</me>
+        </p>
+      </statement>
+      <solution>  <title>Work (can skim)</title>
+        <p>
+          Plugging <m>f(t) = 1</m> into the definition and converting to a limit:
+          <md>
+            <mrow>F(s) \amp= \int_0^{\infty} e^{-st} \cdot 1 \, dt
+                        = \lim_{b \to \infty} \left[ -\frac{1}{s} e^{-st} \right]_0^b</mrow>
+            <mrow>      \amp= \lim_{b \to \infty} \frac{-1}{s}\left(e^{-sb} - e^0\right)</mrow>
+            <mrow>      \amp= \frac{-1}{s}(0 - 1) = \frac{1}{s}.</mrow>
+          </md>
+          The limit <m>e^{-sb} \to 0</m> as <m>b \to \infty</m> requires <m>s \gt 0</m>,
+          so the transform is defined for <m>s \gt 0</m>.
+        </p>
+      </solution>
+    </task>
+
+    <task xml:id="task-laplace-of-eat">
+      <title>The Laplace Transform of <m>f(t) = e^{at}</m></title>
+      <statement>
+        <p>
+          We now use the definition to show that
+          <me>\mathcal{L}\{e^{at}\} = \frac{1}{s-a}, \quad s \gt a.</me>
+        </p>
+      </statement>
+      <solution>   <title>Work (can skim)</title>
+        <p>
+          Plugging <m>f(t) = e^{at}</m> into the definition and combining the exponentials:
+          <md>
+            <mrow>F(s) \amp= \int_0^{\infty} e^{-st} e^{at} \, dt
+                        = \lim_{b \to \infty} \int_0^b e^{-(s-a)t} \, dt</mrow>
+            <mrow>      \amp= \lim_{b \to \infty} \left[ \frac{-1}{s-a} e^{-(s-a)t} \right]_0^b</mrow>
+            <mrow>      \amp= \lim_{b \to \infty} \frac{-1}{s-a}\left(e^{-(s-a)b} - e^0\right)</mrow>
+            <mrow>      \amp= \frac{-1}{s-a}(0 - 1) = \frac{1}{s-a}.</mrow>
+          </md>
+          The limit <m>e^{-(s-a)b} \to 0</m> as <m>b \to \infty</m> requires <m>s - a \gt 0</m>,
+          i.e., <m>s \gt a</m>.
+        </p>
+      </solution>
+    </task>
+
+  </exploration>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       KEY TAKEAWAYS
+       ═══════════════════════════════════════════════════════════ -->
+
+  <conclusion>
+    <title>Key Takeaways</title>
+    <p>
+      <ul>
+        <li><p>
+          <alert>Definition:</alert>
+          the Laplace transform is the improper integral
+          <m>\mathcal{L}\{f(t)\} = \displaystyle\int_0^{\infty} e^{-st} f(t) \, dt</m>.
+          It takes a function of <m>t</m> and produces a function of <m>s</m>.
+        </p></li>
+        <li><p>
+          <alert>You won't compute from scratch going forward:</alert>
+          we'll use a table of known transforms. The two examples above are the source
+          of the first two entries in that table.
+        </p></li>
+        <li><p>
+          <alert>Two results from the exploration:</alert>
+          <m>\mathcal{L}\{1\} = \dfrac{1}{s}</m> (for <m>s \gt 0</m>),
+          and <m>\mathcal{L}\{e^{at}\} = \dfrac{1}{s-a}</m> (for <m>s \gt a</m>).
+        </p></li>
+      </ul>
+    </p>
+  </conclusion>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       VIDEO + QUESTION FORM
+       ═══════════════════════════════════════════════════════════ -->
+
+  <figure xml:id="video-laplace-definition">
+    <caption>This video goes through the content of this page.</caption>
+    <video youtube="h_AYqMuw5cE" width="100%" preview="default"/>
+  </figure>
+
+  <interactive xml:id="question-form-4-1-1"
+    iframe="question-form.html?section=4.1.1"
+    width="100%" aspect="2:1"/>
+
+</section>

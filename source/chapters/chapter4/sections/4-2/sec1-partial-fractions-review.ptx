@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-partial-fractions-review" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Partial Fraction Decomposition Review</title>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       INTRO
+       ═══════════════════════════════════════════════════════════ -->
+
+  <p>
+    In the next few pages we will need to decompose rational functions into simpler fractions
+    before taking inverse Laplace transforms. There are three cases that come up in this chapter.
+    For each one, the key skill is recognizing the correct <em>form</em> of the decomposition
+    and then solving for the unknown constants.
+  </p>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       THREE CASES
+       ═══════════════════════════════════════════════════════════ -->
+
+  <p>
+    <alert>Case 1: Distinct Linear Factors.</alert>
+    If the denominator factors into two distinct linear factors <m>(s - r_1)(s - r_2)</m>,
+    each factor gets its own fraction with a constant numerator:
+    <me>\frac{P(s)}{(s-r_1)(s-r_2)} = \frac{A}{s-r_1} + \frac{B}{s-r_2}.</me>
+  </p>
+
+  <p>
+    <alert>Case 2: One Linear Factor and One Irreducible Quadratic Factor.</alert>
+    A quadratic <m>s^2 + bs + c</m> is <term>irreducible</term> if it has no real roots,
+    which happens when <m>b^2 - 4c \lt 0</m>. In this chapter the quadratics that appear
+    are always of the form <m>s^2 + k</m> with <m>k \gt 0</m>, which are always irreducible.
+    An irreducible quadratic factor gets a <em>linear</em> numerator <m>Bs + C</m>:
+    <me>\frac{P(s)}{s(s^2+k)} = \frac{A}{s} + \frac{Bs+C}{s^2+k}.</me>
+  </p>
+
+  <p>
+    <alert>Case 3: Repeated Linear Factor.</alert>
+    If a linear factor <m>(s - r)</m> appears squared, we need one fraction for each power:
+    <me>\frac{P(s)}{(s-r)^2(s-r_2)} = \frac{A}{s-r} + \frac{B}{(s-r)^2} + \frac{C}{s-r_2}.</me>
+    For example, with <m>s^2 = s \cdot s</m> (i.e. <m>r = 0</m> repeated twice):
+    <me>\frac{P(s)}{s^2(s+4)} = \frac{A}{s} + \frac{B}{s^2} + \frac{C}{s+4}.</me>
+  </p>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       THREE MC CHECKPOINTS
+       ═══════════════════════════════════════════════════════════ -->
+
+  <exercise xml:id="ex-pf-checkpoint-case1">
+    <statement>
+      <p>
+        Which of the following is the correct partial fraction form for
+        <m>\dfrac{1}{(s-2)(s+4)}</m>?
+      </p>
+    </statement>
+    <choices randomize="yes">
+      <choice correct="yes">
+        <statement><p><m>\dfrac{A}{s-2} + \dfrac{B}{s+4}</m></p></statement>
+        <feedback>
+          <p>
+            Correct! Two distinct linear factors each get a constant numerator.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement><p><m>\dfrac{A}{s-2} + \dfrac{B}{(s+4)^2}</m></p></statement>
+        <feedback>
+          <p>
+            The squared denominator form is for repeated factors. Here <m>s+4</m> appears only once.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement><p><m>\dfrac{As+B}{s-2} + \dfrac{Cs+D}{s+4}</m></p></statement>
+        <feedback>
+          <p>
+            Linear numerators like <m>As+B</m> are for irreducible quadratic factors.
+            For linear factors the numerator is just a constant.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement><p><m>\dfrac{A}{s-2} + \dfrac{B}{s+4} + \dfrac{C}{(s-2)(s+4)}</m></p></statement>
+        <feedback>
+          <p>
+            There is no need for a fraction with the full original denominator.
+            Two distinct linear factors give exactly two terms.
+          </p>
+        </feedback>
+      </choice>
+    </choices>
+  </exercise>
+
+  <exercise xml:id="ex-pf-checkpoint-case2">
+    <statement>
+      <p>
+        Which of the following is the correct partial fraction form for
+        <m>\dfrac{1}{s(s^2+4)}</m>?
+      </p>
+    </statement>
+    <choices randomize="yes">
+      <choice correct="yes">
+        <statement><p><m>\dfrac{A}{s} + \dfrac{Bs+C}{s^2+4}</m></p></statement>
+        <feedback>
+          <p>
+            Correct! The linear factor <m>s</m> gets a constant numerator,
+            and the irreducible quadratic <m>s^2+4</m> gets a linear numerator <m>Bs+C</m>.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement><p><m>\dfrac{A}{s} + \dfrac{B}{s^2+4}</m></p></statement>
+        <feedback>
+          <p>
+            The irreducible quadratic factor needs a linear numerator <m>Bs+C</m>, not just a constant.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement><p><m>\dfrac{A}{s} + \dfrac{B}{s^2} + \dfrac{C}{4}</m></p></statement>
+        <feedback>
+          <p>
+            <m>s^2 + 4</m> is irreducible and cannot be split further. It stays as one factor
+            with a linear numerator.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement><p><m>\dfrac{As+B}{s} + \dfrac{Cs+D}{s^2+4}</m></p></statement>
+        <feedback>
+          <p>
+            The factor <m>s</m> is linear, so its numerator is just a constant <m>A</m>, not <m>As+B</m>.
+          </p>
+        </feedback>
+      </choice>
+    </choices>
+  </exercise>
+
+  <exercise xml:id="ex-pf-checkpoint-case3">
+    <statement>
+      <p>
+        Which of the following is the correct partial fraction form for
+        <m>\dfrac{1}{s^2(s+4)}</m>?
+      </p>
+    </statement>
+    <choices randomize="yes">
+      <choice correct="yes">
+        <statement><p><m>\dfrac{A}{s} + \dfrac{B}{s^2} + \dfrac{C}{s+4}</m></p></statement>
+        <feedback>
+          <p>
+            Correct! The repeated factor <m>s^2</m> contributes two fractions,
+            one for each power, and the distinct factor <m>s+4</m> gets its own.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement><p><m>\dfrac{A}{s^2} + \dfrac{B}{s+4}</m></p></statement>
+        <feedback>
+          <p>
+            When <m>s</m> appears as a repeated factor you need a fraction for <m>s</m>
+            and a separate one for <m>s^2</m>.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement><p><m>\dfrac{A}{s} + \dfrac{Bs+C}{s^2} + \dfrac{D}{s+4}</m></p></statement>
+        <feedback>
+          <p>
+            Linear numerators like <m>Bs+C</m> are for irreducible quadratics.
+            Since <m>s^2</m> is a repeated linear factor each piece just gets a constant numerator.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement><p><m>\dfrac{A}{s} + \dfrac{B}{s} + \dfrac{C}{s+4}</m></p></statement>
+        <feedback>
+          <p>
+            You cannot use the same denominator <m>s</m> twice. The repeated factor <m>s^2</m>
+            contributes one fraction with <m>s</m> and one with <m>s^2</m> in the denominator.
+          </p>
+        </feedback>
+      </choice>
+    </choices>
+  </exercise>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       WORKED EXAMPLE: CLEARING DENOMINATORS
+       ═══════════════════════════════════════════════════════════ -->
+
+  <example xml:id="ex-pf-clear-denominators">
+    <title>Solving for Coefficients by Clearing Denominators</title>
+    <p>
+      Find the partial fraction decomposition of <m>\dfrac{1}{(s-2)(s+4)}</m>.
+    </p>
+    <p>
+      From Case 1, the correct form is
+      <me>\frac{1}{(s-2)(s+4)} = \frac{A}{s-2} + \frac{B}{s+4}.</me>
+      Multiply both sides by <m>(s-2)(s+4)</m> to clear the denominators:
+      <me>1 = A(s+4) + B(s-2).</me>
+      Expand:
+      <md>
+        <mrow>1 \amp= As + 4A + Bs - 2B</mrow>
+        <mrow>\underbrace{0}_{\text{coeff of }s} \cdot s + \underbrace{1}_{\text{const}}
+          \amp= \underbrace{(A+B)}_{\text{coeff of }s} \cdot s + \underbrace{(4A - 2B)}_{\text{const}}.</mrow>
+      </md>
+      Equating the coefficient of <m>s</m> on both sides, and then the constant:
+      <md>
+        <mrow>A + B \amp= 0</mrow>
+        <mrow>4A - 2B \amp= 1.</mrow>
+      </md>
+      Matching coefficients (the left side has <m>0 \cdot s + 1</m>):
+      <md>
+        <mrow>A + B \amp= 0</mrow>
+        <mrow>4A - 2B \amp= 1.</mrow>
+      </md>
+      From the first equation <m>B = -A</m>. Substituting into the second:
+      <m>4A + 2A = 6A = 1</m>, so <m>A = \dfrac{1}{6}</m> and <m>B = -\dfrac{1}{6}</m>.
+      Therefore:
+      <me>\frac{1}{(s-2)(s+4)} = \frac{\frac{1}{6}}{s-2} - \frac{\frac{1}{6}}{s+4}.</me>
+    </p>
+  </example>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       KEY TAKEAWAYS
+       ═══════════════════════════════════════════════════════════ -->
+
+  <conclusion>
+    <title>Key Takeaways</title>
+    <p>
+      <ul>
+        <li><p>
+          <alert>Distinct linear factors</alert> <m>(s-r_1)(s-r_2)</m>: each gets a constant numerator.
+        </p></li>
+        <li><p>
+          <alert>Irreducible quadratic</alert> <m>s^2+k</m> with <m>k \gt 0</m>: gets a linear numerator <m>Bs+C</m>.
+          Note that <m>s^2+k</m> is always irreducible when <m>k \gt 0</m>.
+        </p></li>
+        <li><p>
+          <alert>Repeated linear factor</alert> <m>(s-r)^2</m>: contributes two fractions, one with <m>(s-r)</m>
+          and one with <m>(s-r)^2</m> in the denominator.
+        </p></li>
+        <li><p>
+          <alert>To solve for coefficients:</alert> multiply both sides by the full denominator to clear it,
+          expand, and match coefficients of each power of <m>s</m>.
+        </p></li>
+      </ul>
+    </p>
+  </conclusion>
+<interactive xml:id="question-form-4-2-1"
+    iframe="question-form.html?section=4.2.1"
+    width="100%" aspect="2:1"/>
+</section>

@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-inverse-laplace-pfd-quadratic" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Inverse Laplace with an Irreducible Quadratic Factor</title>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       TABLE REFERENCE
+       ═══════════════════════════════════════════════════════════ -->
+
+  <p>
+    Keep the Laplace transform table handy as a reference for this page.
+  </p>
+
+  <table xml:id="table-laplace-ref-4-2-3">
+    <title>Laplace Transform Table</title>
+    <tabular halign="center" top="minor" bottom="minor" left="minor" right="minor">
+      <row header="yes">
+        <cell><m>f(t)</m></cell>
+        <cell><m>F(s) = \mathcal{L}\{f(t)\}</m></cell>
+        <cell>Condition</cell>
+        <cell>Formula</cell>
+      </row>
+      <row>
+        <cell><m>1</m></cell>
+        <cell><m>\dfrac{1}{s}</m></cell>
+        <cell><m>s \gt 0</m></cell>
+        <cell>A</cell>
+      </row>
+      <row>
+        <cell><m>e^{at}</m></cell>
+        <cell><m>\dfrac{1}{s-a}</m></cell>
+        <cell><m>s \gt a</m></cell>
+        <cell>B</cell>
+      </row>
+      <row>
+        <cell><m>t^n</m></cell>
+        <cell><m>\dfrac{n!}{s^{n+1}}</m></cell>
+        <cell><m>s \gt 0</m></cell>
+        <cell>C</cell>
+      </row>
+      <row>
+        <cell><m>\sin(at)</m></cell>
+        <cell><m>\dfrac{a}{s^2 + a^2}</m></cell>
+        <cell><m>s \gt 0</m></cell>
+        <cell>D</cell>
+      </row>
+      <row>
+        <cell><m>\cos(at)</m></cell>
+        <cell><m>\dfrac{s}{s^2 + a^2}</m></cell>
+        <cell><m>s \gt 0</m></cell>
+        <cell>E</cell>
+      </row>
+      <row>
+        <cell><m>t^n e^{at}</m></cell>
+        <cell><m>\dfrac{n!}{(s-a)^{n+1}}</m></cell>
+        <cell><m>s \gt a</m></cell>
+        <cell>H</cell>
+      </row>
+      <row>
+        <cell><m>e^{at}\sin(bt)</m></cell>
+        <cell><m>\dfrac{b}{(s-a)^2 + b^2}</m></cell>
+        <cell><m>s \gt a</m></cell>
+        <cell>I</cell>
+      </row>
+      <row>
+        <cell><m>e^{at}\cos(bt)</m></cell>
+        <cell><m>\dfrac{s-a}{(s-a)^2 + b^2}</m></cell>
+        <cell><m>s \gt a</m></cell>
+        <cell>J</cell>
+      </row>
+    </tabular>
+  </table>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       ACTIVITY
+       ═══════════════════════════════════════════════════════════ -->
+
+  <activity xml:id="act-inverse-laplace-quadratic">
+    <title>Find <m>\mathcal{L}^{-1}\!\left\{\dfrac{1}{s^3+4s}\right\}</m></title>
+
+    <introduction>
+      <p>
+        Notice that <m>s^3 + 4s = s(s^2+4)</m>, and <m>s^2+4</m> is irreducible since
+        <m>s^2 + k</m> with <m>k \gt 0</m> has no real roots.
+        This expression does not appear in the table, so we use partial fraction decomposition.
+      </p>
+    </introduction>
+
+    <!-- ── TASK 1: PFD ── -->
+
+    <task xml:id="task-quadratic-pfd">
+      <title>Step 1: Partial Fraction Decomposition</title>
+      <statement>
+        <p>
+          From the review page, the correct form for a linear factor and an irreducible quadratic is:
+          <me>\frac{1}{s(s^2+4)} = \frac{A}{s} + \frac{Bs+C}{s^2+4}.</me>
+        </p>
+        <solution>
+          <title>Solving for A, B, and C (can skim, reference for homework)</title>
+          <p>
+            Multiply both sides by <m>s(s^2+4)</m> to clear denominators:
+            <me>1 = A(s^2+4) + (Bs+C)s.</me>
+            Expand:
+            <md>
+              <mrow>1 \amp= As^2 + 4A + Bs^2 + Cs</mrow>
+              <mrow>\underbrace{0}_{\text{coeff of }s^2} \cdot s^2
+                + \underbrace{0}_{\text{coeff of }s} \cdot s
+                + \underbrace{1}_{\text{const}}
+                \amp= \underbrace{(A+B)}_{\text{coeff of }s^2} s^2
+                   + \underbrace{C}_{\text{coeff of }s} s
+                   + \underbrace{4A}_{\text{const}}.</mrow>
+            </md>
+            Matching coefficients:
+            <md>
+              <mrow>A + B \amp= 0</mrow>
+              <mrow>C \amp= 0</mrow>
+              <mrow>4A \amp= 1.</mrow>
+            </md>
+            From the third equation <m>A = \dfrac{1}{4}</m>, then <m>B = -A = -\dfrac{1}{4}</m>,
+            and <m>C = 0</m>.
+          </p>
+        </solution>
+        <p>
+          With <m>A = \dfrac{1}{4}</m>, <m>B = -\dfrac{1}{4}</m>, and <m>C = 0</m>,
+          the decomposition is:
+          <me>\frac{1}{s(s^2+4)} = \frac{\frac{1}{4}}{s} + \frac{-\frac{1}{4}s}{s^2+4}.</me>
+        </p>
+      </statement>
+    </task>
+
+    <!-- ── TASK 2: MATCH TO TABLE ── -->
+
+    <task xml:id="task-quadratic-match">
+      <title>Step 2: Match Each Term to the Table</title>
+      <statement>
+        <p>
+          Looking at the <xref ref="table-laplace-ref-4-2-3">table above</xref>,
+          which formulas apply to the two terms
+          <m>\dfrac{\frac{1}{4}}{s}</m> and <m>\dfrac{-\frac{1}{4}s}{s^2+4}</m>?
+        </p>
+      </statement>
+      <choices randomize="yes">
+        <choice correct="yes">
+          <statement>
+            <p>
+              <m>\dfrac{\frac{1}{4}}{s}</m> matches Formula A, and
+              <m>\dfrac{-\frac{1}{4}s}{s^2+4}</m> matches Formula E.
+            </p>
+          </statement>
+          <feedback>
+            <p>
+              Correct! Formula A gives <m>\mathcal{L}\{1\} = \dfrac{1}{s}</m>,
+              and Formula E gives <m>\mathcal{L}\{\cos(at)\} = \dfrac{s}{s^2+a^2}</m>.
+              The second term has <m>s</m> in the numerator, which matches the cosine formula.
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement>
+            <p>
+              <m>\dfrac{\frac{1}{4}}{s}</m> matches Formula A, and
+              <m>\dfrac{-\frac{1}{4}s}{s^2+4}</m> matches Formula D.
+            </p>
+          </statement>
+          <feedback>
+            <p>
+              Formula D gives <m>\mathcal{L}\{\sin(at)\} = \dfrac{a}{s^2+a^2}</m>,
+              which requires a constant in the numerator. The second term has <m>s</m>
+              in the numerator, which matches Formula E (cosine) instead.
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement>
+            <p>
+              <m>\dfrac{\frac{1}{4}}{s}</m> matches Formula B, and
+              <m>\dfrac{-\frac{1}{4}s}{s^2+4}</m> matches Formula E.
+            </p>
+          </statement>
+          <feedback>
+            <p>
+              Formula B gives <m>\mathcal{L}\{e^{at}\} = \dfrac{1}{s-a}</m>,
+              which has a shifted denominator <m>s-a</m>. Here the denominator is just <m>s</m>,
+              which matches Formula A with <m>f(t) = 1</m>.
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement>
+            <p>
+              Both terms match Formula B.
+            </p>
+          </statement>
+          <feedback>
+            <p>
+              Formula B applies to terms of the form <m>\dfrac{1}{s-a}</m>.
+              Neither term here has that form.
+            </p>
+          </feedback>
+        </choice>
+      </choices>
+    </task>
+
+    <!-- ── TASK 3: COMPUTE ── -->
+
+    <task xml:id="task-quadratic-compute">
+      <title>Step 3: Apply the Inverse Transform</title>
+      <statement>
+        <p>
+          Using the decomposition from Step 1 and the formulas identified in Step 2,
+          compute <m>\mathcal{L}^{-1}\!\left\{\dfrac{1}{s^3+4s}\right\}</m>.
+        </p>
+      </statement>
+      <hint>
+        <p>
+          The decomposition is <m>\dfrac{\frac{1}{4}}{s} + \dfrac{-\frac{1}{4}s}{s^2+4}</m>.
+          <ul>
+            <li><p>
+              <m>\dfrac{\frac{1}{4}}{s}</m> matches <xref ref="formula-A" text="custom">Formula A</xref>.
+            </p></li>
+            <li><p>
+              <m>\dfrac{-\frac{1}{4}s}{s^2+4}</m> matches <xref ref="formula-E" text="custom">Formula E</xref>
+              with <m>a = 2</m>. You may need to rewrite slightly to match the form <m>\dfrac{s}{s^2+a^2}</m>.
+            </p></li>
+          </ul>
+        </p>
+      </hint>
+      <solution>
+        <title>Work</title>
+        <p>
+          Applying linearity and the inverse transform to each piece:
+          <md>
+            <mrow>\mathcal{L}^{-1}\!\left\{\frac{1}{s(s^2+4)}\right\}
+              \amp= \mathcal{L}^{-1}\!\left\{
+                     \underbrace{\frac{\frac{1}{4}}{s}}_{\text{Formula A}}
+                   \right\}
+                   + \mathcal{L}^{-1}\!\left\{
+                     \underbrace{\frac{-\frac{1}{4}s}{s^2+2^2}}_{\text{Formula E},\, a=2}
+                   \right\}</mrow>
+            <mrow>\amp= \frac{1}{4} \cdot 1 - \frac{1}{4}\cos(2t)</mrow>
+            <mrow>\amp= \frac{1}{4} - \frac{1}{4}\cos(2t).</mrow>
+          </md>
+        </p>
+      </solution>
+    </task>
+
+  </activity>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       KEY TAKEAWAYS
+       ═══════════════════════════════════════════════════════════ -->
+
+  <conclusion>
+    <title>Key Takeaways</title>
+    <p>
+      <ul>
+        <li><p>
+          When the denominator contains an irreducible quadratic <m>s^2+k</m>,
+          the partial fraction form uses a linear numerator <m>Bs+C</m> for that factor.
+        </p></li>
+        <li><p>
+          After decomposing, match each term to the table. A constant numerator over <m>s^2+a^2</m>
+          matches <xref ref="formula-D" text="custom">Formula D</xref> (sine),
+          and an <m>s</m> numerator over <m>s^2+a^2</m> matches
+          <xref ref="formula-E" text="custom">Formula E</xref> (cosine).
+        </p></li>
+        <li><p>
+          <m>s^2+k</m> is always irreducible when <m>k \gt 0</m>, so it always gets
+          a linear numerator in the partial fraction form.
+        </p></li>
+      </ul>
+    </p>
+  </conclusion>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       VIDEO + QUESTION FORM
+       ═══════════════════════════════════════════════════════════ -->
+
+  <figure xml:id="video-inverse-laplace-pfd-quadratic">
+    <caption>This video goes through the content of this page.</caption>
+    <video youtube="5HIqFfqiiLI" width="100%" preview="default"/>
+  </figure>
+
+  <interactive xml:id="question-form-4-2-3"
+    iframe="question-form.html?section=4.2.3"
+    width="100%" aspect="2:1"/>
+
+</section>

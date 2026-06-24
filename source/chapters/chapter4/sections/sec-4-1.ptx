@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-4-1" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Introduction to the Laplace Transform</title>
+
+  <introduction>
+    <p>
+      We will learn how to take Laplace and inverse Laplace transforms of functions, which will ultimately help us solve
+ certain ODEs.
+    </p>
+  </introduction>
+
+  <xi:include href="./4-1/sec1-laplace-definition.ptx"/>
+   <xi:include href="./4-1/sec2-laplace-table-linearity.ptx"/>
+      <xi:include href="./4-1/sec3-inverse-laplace.ptx"/>
+        <xi:include href="./4-1/sec4-inverse-laplace-examples.ptx"/>
+
+</section>

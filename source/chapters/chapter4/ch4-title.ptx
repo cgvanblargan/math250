@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<chapter xml:id="ch-laplace" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>The Laplace Transform</title>
+
+  <introduction>
+    <p>
+      In this chapter we introduce the Laplace transform, a powerful technique for solving
+      differential equations. The key idea is that taking the Laplace transform of a differential
+      equation converts it into an algebraic equation, which is often much easier to solve.
+      We then transform the solution back to get the answer.
+    </p>
+  </introduction>
+
+  <xi:include href="./sections/sec-4-1.ptx"/>
+  <xi:include href="./sections/sec-4-2.ptx"/>
+  <!-- ═══════════════════════════════════════════════════════════
+       FORMULA REFERENCE (must come last so sections appear first;
+       fact xml:ids are xref-able from anywhere in chapter 4)
+       ═══════════════════════════════════════════════════════════ -->
+
+  <section xml:id="sec-laplace-formula-reference">
+    <title>Laplace Transform Formula Reference</title>
+
+    <p>
+      The following formulas are referenced throughout this chapter.
+      Each is named by a letter for easy lookup.
+    </p>
+
+    <fact xml:id="formula-A">
+      <title>Formula A: <m>\mathcal{L}\{1\}</m></title>
+      <p><me>\mathcal{L}\{1\} = \frac{1}{s}, \quad s \gt 0.</me></p>
+    </fact>
+
+    <fact xml:id="formula-B">
+      <title>Formula B: <m>\mathcal{L}\{e^{at}\}</m></title>
+      <p><me>\mathcal{L}\{e^{at}\} = \frac{1}{s-a}, \quad s \gt a.</me></p>
+    </fact>
+
+    <fact xml:id="formula-C">
+      <title>Formula C: <m>\mathcal{L}\{t^n\}</m></title>
+      <p><me>\mathcal{L}\{t^n\} = \frac{n!}{s^{n+1}}, \quad s \gt 0.</me></p>
+    </fact>
+
+    <fact xml:id="formula-D">
+      <title>Formula D: <m>\mathcal{L}\{\sin(at)\}</m></title>
+      <p><me>\mathcal{L}\{\sin(at)\} = \frac{a}{s^2+a^2}, \quad s \gt 0.</me></p>
+    </fact>
+
+    <fact xml:id="formula-E">
+      <title>Formula E: <m>\mathcal{L}\{\cos(at)\}</m></title>
+      <p><me>\mathcal{L}\{\cos(at)\} = \frac{s}{s^2+a^2}, \quad s \gt 0.</me></p>
+    </fact>
+
+    <fact xml:id="formula-H">
+      <title>Formula H: <m>\mathcal{L}\{t^n e^{at}\}</m></title>
+      <p><me>\mathcal{L}\{t^n e^{at}\} = \frac{n!}{(s-a)^{n+1}}, \quad s \gt a.</me></p>
+    </fact>
+
+    <fact xml:id="formula-I">
+      <title>Formula I: <m>\mathcal{L}\{e^{at}\sin(bt)\}</m></title>
+      <p><me>\mathcal{L}\{e^{at}\sin(bt)\} = \frac{b}{(s-a)^2+b^2}, \quad s \gt a.</me></p>
+    </fact>
+
+    <fact xml:id="formula-J">
+      <title>Formula J: <m>\mathcal{L}\{e^{at}\cos(bt)\}</m></title>
+      <p><me>\mathcal{L}\{e^{at}\cos(bt)\} = \frac{s-a}{(s-a)^2+b^2}, \quad s \gt a.</me></p>
+    </fact>
+
+  </section>
+
+</chapter>

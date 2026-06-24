@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-4-2" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Partial Fractions and the Inverse Laplace Transform</title>
+
+  <xi:include href="./4-2/sec1-partial-fractions-review.ptx"/>
+  <xi:include href="./4-2/sec2-inverse-laplace-pfd-linear.ptx"/>
+  <xi:include href="./4-2/sec3-inverse-laplace-pfd-quadratic.ptx"/>
+    <xi:include href="./4-2/sec4-inverse-laplace-pfd-repeated.ptx"/>
+</section>
+

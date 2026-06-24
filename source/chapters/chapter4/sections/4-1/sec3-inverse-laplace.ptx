@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-inverse-laplace" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>The Inverse Laplace Transform</title>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       DEFINITION: INVERSE LAPLACE TRANSFORM
+       ═══════════════════════════════════════════════════════════ -->
+
+  <p>
+    Knowing <m>F(s)</m> uniquely determines <m>f(t)</m>. This lets us define the inverse.
+  </p>
+
+  <definition xml:id="def-inverse-laplace">
+    <title>The Inverse Laplace Transform</title>
+    <statement>
+      <p>
+        Given <m>F(s)</m>, the <term>inverse Laplace transform</term> is the function <m>f(t)</m>
+        such that <m>\mathcal{L}\{f(t)\} = F(s)</m>. We write:
+        <me>f(t) = \mathcal{L}^{-1}\{F(s)\}.</me>
+      </p>
+    </statement>
+  </definition>
+
+  <p>
+    In practice, we find inverse Laplace transforms by reading the table backwards: given <m>F(s)</m>,
+    we look for a row whose right column matches, then read off the <m>f(t)</m> in the left column.
+    The inverse Laplace transform is also linear, so we can split over sums and pull constants out
+    front just as before.
+  </p>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       EXAMPLE: L^{-1}{1/(s+5)}
+       ═══════════════════════════════════════════════════════════ -->
+
+ <example xml:id="ex-inverse-laplace-basic">
+    <title>A Basic Inverse Laplace Transform</title>
+    <p>
+      Compute <m>\mathcal{L}^{-1}\!\left\{\dfrac{1}{s+5}\right\}</m>.
+    </p>
+    <p>
+      We look for a row in the table whose <m>F(s)</m> column matches <m>\dfrac{1}{s+5}</m>.
+      This fits Formula B with <m>a = -5</m>:
+      <md>
+        <mrow>\mathcal{L}\{e^{at}\} = \frac{1}{s-a} \quad \Longrightarrow \quad
+        \mathcal{L}\{e^{-5t}\} = \frac{1}{\underbrace{s-(-5)}_{s+5}} = \frac{1}{s+5}.</mrow>
+      </md>
+      Reading backwards:
+      <me>\mathcal{L}^{-1}\!\left\{\frac{1}{s+5}\right\} = e^{-5t}.</me>
+    </p>
+  </example>
+  <!-- ═══════════════════════════════════════════════════════════
+       PROSE: THE REWRITING TRICK
+       ═══════════════════════════════════════════════════════════ -->
+
+<p>
+    Sometimes the expression doesn't immediately match a row in the table. Consider
+    <m>\dfrac{2}{s^2+9}</m>. The denominator <m>s^2 + 9 = s^2 + 3^2</m> tells us
+    this is related to Formula D,
+    <me>\mathcal{L}\{\sin(at)\} = \frac{a}{s^2+a^2},</me>
+    with <m>a = 3</m>. But Formula D requires a 3 in the numerator, and we only have a 2.
+    <me>\frac{\overbrace{2}^{\text{needs to be } 3}}{s^2+\underbrace{9}_{3^2 = 9 \Rightarrow a=3}}</me>
+    The key steps to handle this are:
+    <ol>
+      <li><p>Identify <m>a</m> from the denominator: <m>s^2 + 9 = s^2 + 3^2</m>, so <m>a = 3</m>.</p></li>
+      <li><p>We need <m>a = 3</m> in the numerator, so multiply and divide by 3.</p></li>
+      <li><p>Pull the leftover constant out front using linearity.</p></li>
+    </ol>
+  </p>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       CHECKPOINT: CORRECT REWRITE OF 2/(s^2+9)
+       ═══════════════════════════════════════════════════════════ -->
+
+  <exercise xml:id="ex-inverse-laplace-checkpoint">
+    <statement>
+      <p>
+        Following the steps above, which of the following correctly rewrites
+        <m>\dfrac{2}{s^2+9}</m> to match Formula D?
+      </p>
+    </statement>
+    <choices randomize="yes">
+      <choice correct="yes">
+        <statement><p><m>\dfrac{2}{3} \cdot \dfrac{3}{s^2+3^2}</m></p></statement>
+        <feedback>
+          <p>
+            Correct! Since <m>a = 3</m>, we need a 3 in the numerator.
+            Multiplying and dividing by 3 gives <m>\frac{2}{3} \cdot \frac{3}{s^2+3^2}</m>,
+            which matches Formula D with the constant <m>\frac{2}{3}</m> out front.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement><p><m>2 \cdot \dfrac{1}{s^2+3^2}</m></p></statement>
+        <feedback>
+          <p>
+            Formula D requires <m>a = 3</m> in the numerator, not 1.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement><p><m>\dfrac{2}{9} \cdot \dfrac{9}{s^2+3^2}</m></p></statement>
+        <feedback>
+          <p>
+            We need a 3 in the numerator to match Formula D with <m>a = 3</m>, not a 9.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement><p><m>\dfrac{2}{3} \cdot \dfrac{3}{s^2+9^2}</m></p></statement>
+        <feedback>
+          <p>
+            The constant out front is right, but the denominator should be <m>s^2 + 3^2</m>,
+            not <m>s^2 + 9^2</m>.
+          </p>
+        </feedback>
+      </choice>
+    </choices>
+  </exercise>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       ACTIVITY: L^{-1}{2/(s^2+9)}
+       ═══════════════════════════════════════════════════════════ -->
+
+  <activity xml:id="act-inverse-laplace-rewrite">
+    <title>Compute <m>\mathcal{L}^{-1}\!\left\{\dfrac{2}{s^2+9}\right\}</m></title>
+
+    <task xml:id="task-inverse-laplace-apply">
+      <statement>
+        <p>
+          Using the rewrite from the checkpoint, compute <m>\mathcal{L}^{-1}\!\left\{\dfrac{2}{s^2+9}\right\}</m>.
+        </p>
+      </statement>
+      <hint>
+        <p>
+          Use the rewrite <m>\dfrac{2}{s^2+9} = \dfrac{2}{3} \cdot \dfrac{3}{s^2+3^2}</m>
+          and apply the inverse transform.
+        </p>
+      </hint>
+      <solution>
+    
+        <p>
+          <md>
+            <mrow>\mathcal{L}^{-1}\!\left\{\frac{2}{s^2+9}\right\}
+              \amp= \frac{2}{3}\,\mathcal{L}^{-1}\!\left\{\frac{3}{s^2+3^2}\right\}
+               = \frac{2}{3}\sin(3t).</mrow>
+          </md>
+        </p>
+        <solution>
+          <title>More detail on the second equality</title>
+          <p>
+            The second factor <m>\dfrac{3}{s^2+3^2}</m> matches
+            <xref ref="formula-D" text="custom">Formula D</xref>,
+            <m>\mathcal{L}\{\sin(at)\} = \dfrac{a}{s^2+a^2}</m>, with <m>a = 3</m>.
+            Reading backwards: <m>\mathcal{L}^{-1}\!\left\{\dfrac{3}{s^2+3^2}\right\} = \sin(3t)</m>.
+          </p>
+        </solution>
+      </solution>
+    </task>
+
+  </activity>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       KEY TAKEAWAYS
+       ═══════════════════════════════════════════════════════════ -->
+
+  <conclusion>
+    <title>Key Takeaways</title>
+    <p>
+      <ul>
+        <li><p>
+          <alert>The inverse Laplace transform</alert> reads the table backwards: given <m>F(s)</m>,
+          find the matching row and read off <m>f(t)</m>.
+        </p></li>
+        <li><p>
+          <alert>It is also linear:</alert>
+          <m>\mathcal{L}^{-1}\{aF + bG\} = a\mathcal{L}^{-1}\{F\} + b\mathcal{L}^{-1}\{G\}</m>.
+        </p></li>
+        <li><p>
+          <alert>Rewriting is often needed:</alert> identify <m>a</m> from the denominator,
+          then multiply and divide to get <m>a</m> in the numerator, and carry the leftover constant out front.
+        </p></li>
+      </ul>
+    </p>
+  </conclusion>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       VIDEO + QUESTION FORM
+       ═══════════════════════════════════════════════════════════ -->
+
+  <figure xml:id="video-inverse-laplace">
+    <caption>This video goes through the content of this page.</caption>
+    <video youtube="R6TDhWyxw0U" width="100%" preview="default"/>
+  </figure>
+
+  <interactive xml:id="question-form-4-1-3"
+    iframe="question-form.html?section=4.1.3"
+    width="100%" aspect="2:1"/>
+
+</section>
