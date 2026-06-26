@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-laplace-derivatives" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Laplace Transforms of Derivatives</title>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       INTRO
+       ═══════════════════════════════════════════════════════════ -->
+
+  <p>
+    Our goal for this chapter is to use the Laplace transform to solve second-order linear IVPs of the form
+    <me>ax''(t) + bx'(t) + cx(t) = g(t).</me>
+    To do this we need to know how the Laplace transform interacts with derivatives.
+    Under mild conditions on <m>x(t)</m> (essentially that <m>\mathcal{L}\{x\}</m> is defined),
+    we have the following two formulas.
+  </p>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       L{x'} WITH JUSTIFICATION DROPDOWN
+       ═══════════════════════════════════════════════════════════ -->
+
+  <p>
+    Writing <m>X(s) = \mathcal{L}\{x(t)\}</m>:
+    <me>\mathcal{L}\{x'(t)\} = sX(s) - x(0).</me>
+  </p>
+
+  <justification>
+    <title>Justification (can skim)</title>
+    <p>
+      Starting from the definition and using integration by parts with
+      <m>u = e^{-st}</m> and <m>dv = x'(t)\,dt</m>,
+      so <m>du = -se^{-st}\,dt</m> and <m>v = x(t)</m>:
+      <md>
+        <mrow>\mathcal{L}\{x'(t)\}
+          \amp= \int_0^{\infty} e^{-st} x'(t)\,dt</mrow>
+        <mrow>\amp= \Bigl[x(t)e^{-st}\Bigr]_0^{\infty} + s\int_0^{\infty} e^{-st} x(t)\,dt</mrow>
+        <mrow>\amp= \Bigl(\lim_{t\to\infty} x(t)e^{-st} - x(0)e^{0}\Bigr) + s\,\mathcal{L}\{x(t)\}</mrow>
+        <mrow>\amp= 0 - x(0) + s\,X(s).</mrow>
+      </md>
+      The limit <m>\lim_{t\to\infty} x(t)e^{-st} = 0</m> whenever <m>\mathcal{L}\{x\}</m> is defined.
+    </p>
+  </justification>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       L{x''} WITH JUSTIFICATION DROPDOWN
+       ═══════════════════════════════════════════════════════════ -->
+
+  <p>
+    <me>\mathcal{L}\{x''(t)\} = s^2 X(s) - sx(0) - x'(0).</me>
+  </p>
+
+  <justification>
+    <title>Justification (can skim)</title>
+    <p>
+      Apply the result for <m>\mathcal{L}\{x'\}</m> twice.
+      Let <m>f = x'</m>, so <m>f' = x''</m> and <m>f(0) = x'(0)</m>:
+      <md>
+        <mrow>\mathcal{L}\{x''(t)\}
+          \amp= \mathcal{L}\{f'(t)\}
+           = s\,\mathcal{L}\{f(t)\} - f(0)</mrow>
+        <mrow>\amp= s\,\mathcal{L}\{x'(t)\} - x'(0)</mrow>
+        <mrow>\amp= s\bigl(sX(s) - x(0)\bigr) - x'(0)</mrow>
+        <mrow>\amp= s^2 X(s) - sx(0) - x'(0).</mrow>
+      </md>
+    </p>
+  </justification>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       THEOREM: RESTATE RESULTS
+       ═══════════════════════════════════════════════════════════ -->
+
+  <p>
+    We restate these results in the following theorem for easy reference.
+  </p>
+
+  <theorem xml:id="thm-laplace-derivatives">
+    <title>Laplace Transforms of Derivatives</title>
+    <statement>
+      <p>
+        Let <m>X(s) = \mathcal{L}\{x(t)\}</m>. Then:
+        <md>
+          <mrow>\mathcal{L}\{x'(t)\} \amp= sX(s) - x(0)</mrow>
+          <mrow>\mathcal{L}\{x''(t)\} \amp= s^2 X(s) - sx(0) - x'(0).</mrow>
+        </md>
+      </p>
+    </statement>
+  </theorem>
+
+  <p>
+    Notice what these formulas do: they replace derivatives of <m>x(t)</m> with algebraic
+    expressions in <m>s</m>, incorporating the initial conditions <m>x(0)</m> and <m>x'(0)</m>
+    automatically. This is the key reason the Laplace transform is so useful for IVPs.
+  </p>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       THREE-STEP STRATEGY
+       ═══════════════════════════════════════════════════════════ -->
+
+  <p>
+    With these formulas in hand, here is the strategy for solving an IVP using the Laplace transform:
+  </p>
+
+  <p>
+    <ol>
+      <li><p>
+        <alert>Transform.</alert> Apply <m>\mathcal{L}</m> to both sides of the ODE.
+        Use the formulas above to replace <m>x'</m> and <m>x''</m> with expressions in <m>X(s)</m>,
+        plugging in the initial conditions as you go.
+        This turns the ODE into an algebraic equation in <m>s</m>.
+      </p></li>
+      <li><p>
+        <alert>Solve for <m>X(s)</m>.</alert> Solve the algebraic equation to find <m>X(s)</m>.
+        This usually involves factoring and partial fraction decomposition.
+      </p></li>
+      <li><p>
+        <alert>Invert.</alert> Apply the inverse Laplace transform <m>\mathcal{L}^{-1}</m>
+        to <m>X(s)</m> to recover the solution <m>x(t)</m>.
+      </p></li>
+    </ol>
+  </p>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       KEY TAKEAWAYS
+       ═══════════════════════════════════════════════════════════ -->
+
+  <conclusion>
+    <title>Key Takeaways</title>
+    <p>
+      <ul>
+        <li><p>
+          <m>\mathcal{L}\{x'\} = sX(s) - x(0)</m> and
+          <m>\mathcal{L}\{x''\} = s^2X(s) - sx(0) - x'(0)</m>.
+          Initial conditions are built right into these formulas.
+        </p></li>
+        <li><p>
+          Taking the Laplace transform of an ODE turns it into an algebraic equation in <m>s</m>,
+          which is generally much easier to solve.
+        </p></li>
+        <li><p>
+          The three steps are: transform, solve for <m>X(s)</m>, then invert to get <m>x(t)</m>.
+        </p></li>
+      </ul>
+    </p>
+  </conclusion>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       VIDEO + QUESTION FORM
+       ═══════════════════════════════════════════════════════════ -->
+
+  <figure xml:id="video-laplace-derivatives">
+    <caption>This video goes through the content of this page.</caption>
+    <video youtube="Jddj89dpg1c" width="100%" preview="default"/>
+  </figure>
+
+  <interactive xml:id="question-form-4-3-1"
+    iframe="question-form.html?section=4.3.1"
+    width="100%" aspect="2:1"/>
+
+</section>

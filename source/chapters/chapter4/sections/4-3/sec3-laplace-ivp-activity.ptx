@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-laplace-ivp-activity" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Solving an IVP: Practice</title>
+
+  <p>
+    Now it is your turn to work through the three steps. Use the formulas from
+    <xref ref="thm-laplace-derivatives"/> and the Laplace table as needed.
+  </p>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       ACTIVITY
+       ═══════════════════════════════════════════════════════════ -->
+
+  <activity xml:id="act-laplace-ivp-second">
+    <title>Solve the IVP <m>y'' + 9y = 9</m>, <m>y(0) = 1</m>, <m>y'(0) = -3</m></title>
+
+    <introduction>
+      <p>
+        Work through the three steps to solve this initial value problem using the Laplace transform.
+      </p>
+    </introduction>
+
+    <!-- ── TASK A: SUBSTITUTE DERIVATIVE FORMULAS ── -->
+
+    <task xml:id="task-ivp2-substitute">
+      <title>Step 1a: Substitute the Derivative Formulas</title>
+      <statement>
+        <p>
+          Taking <m>\mathcal{L}</m> of both sides and applying linearity on the left and
+          <xref ref="formula-A" text="custom">Formula A</xref> on the right:
+          <me>\mathcal{L}\{y''\} + 9\,\mathcal{L}\{y\} = \frac{9}{s}.</me>
+          Using the derivative formulas from <xref ref="thm-laplace-derivatives"/>
+          with <m>y(0) = 1</m> and <m>y'(0) = -3</m>,
+          which of the following is the correct result?
+        </p>
+      </statement>
+      <choices randomize="yes">
+        <choice correct="yes">
+          <statement>
+            <p><m>\bigl(s^2 Y(s) - s + 3\bigr) + 9Y(s) = \dfrac{9}{s}</m></p>
+          </statement>
+          <feedback>
+            <p>
+              Correct! Substituting <m>\mathcal{L}\{y''\} = s^2Y(s) - s(1) - (-3) = s^2Y(s) - s + 3</m>
+              and <m>\mathcal{L}\{y\} = Y(s)</m> gives exactly this.
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement>
+            <p><m>\bigl(s^2 Y(s) - s - 3\bigr) + 9Y(s) = \dfrac{9}{s}</m></p>
+          </statement>
+          <feedback>
+            <p>
+              Check the sign of <m>y'(0)</m>. The formula gives <m>-sy(0) - y'(0) = -s - (-3) = -s + 3</m>,
+              so the constant should be <m>+3</m>, not <m>-3</m>.
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement>
+            <p><m>\bigl(s^2 Y(s) - 2s - 1\bigr) + 9Y(s) = \dfrac{9}{s}</m></p>
+          </statement>
+          <feedback>
+            <p>
+              It looks like the wrong initial conditions were used.
+              Here <m>y(0) = 1</m> and <m>y'(0) = -3</m>, so <m>-sy(0) - y'(0) = -s + 3</m>.
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement>
+            <p><m>\bigl(s^2 Y(s) + s + 3\bigr) + 9Y(s) = \dfrac{9}{s}</m></p>
+          </statement>
+          <feedback>
+            <p>
+              The term <m>-sy(0) = -s(1) = -s</m>, not <m>+s</m>.
+              Check the sign in the derivative formula.
+            </p>
+          </feedback>
+        </choice>
+      </choices>
+    </task>
+
+    <!-- ── TASK B: SOLVE FOR Y(s) ── -->
+
+    <task xml:id="task-ivp2-solve">
+      <title>Step 1b: Solve for <m>Y(s)</m></title>
+      <statement>
+        <p>
+          Using the result from the previous part,
+          <m>\bigl(s^2 Y(s) - s + 3\bigr) + 9Y(s) = \dfrac{9}{s}</m>,
+          which of the following is the correct expression for <m>Y(s)</m>?
+        </p>
+      </statement>
+      <choices randomize="yes">
+        <choice correct="yes">
+          <statement>
+            <p><m>Y(s) = \dfrac{9}{s(s^2+9)} + \dfrac{s}{s^2+9} - \dfrac{3}{s^2+9}</m></p>
+          </statement>
+          <feedback>
+            <p>
+              Correct! Collecting <m>Y(s)</m> terms gives <m>(s^2+9)Y(s) = \frac{9}{s} + s - 3</m>,
+              and dividing by <m>(s^2+9)</m> gives this expression.
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement>
+            <p><m>Y(s) = \dfrac{9}{s(s^2+9)} - \dfrac{s}{s^2+9} + \dfrac{3}{s^2+9}</m></p>
+          </statement>
+          <feedback>
+            <p>
+              Check the signs when moving terms to the right side.
+              <m>-s + 3</m> moves to the right as <m>+s - 3</m>, not <m>-s + 3</m>.
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement>
+            <p><m>Y(s) = \dfrac{9+s-3}{s^2+9}</m></p>
+          </statement>
+          <feedback>
+            <p>
+              The first term <m>\frac{9}{s}</m> on the right side needs to keep its <m>s</m>
+              in the denominator when dividing by <m>(s^2+9)</m>. It becomes <m>\frac{9}{s(s^2+9)}</m>.
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement>
+            <p><m>Y(s) = \dfrac{9}{s} + \dfrac{s-3}{s^2+9}</m></p>
+          </statement>
+          <feedback>
+            <p>
+              Don't forget to divide every term by <m>(s^2+9)</m>.
+              The <m>\frac{9}{s}</m> term becomes <m>\frac{9}{s(s^2+9)}</m>, not just <m>\frac{9}{s}</m>.
+            </p>
+          </feedback>
+        </choice>
+      </choices>
+    </task>
+
+    <!-- ── TASK C: PFD ── -->
+
+    <task xml:id="task-ivp2-pfd">
+      <title>Step 2: Partial Fraction Decomposition</title>
+      <statement>
+        <p>
+          Dividing by <m>(s^2+9)</m> gives:
+          <me>Y(s) = \frac{9}{s(s^2+9)} + \frac{s}{s^2+9} - \frac{3}{s^2+9}.</me>
+          The first term needs a partial fraction decomposition since it involves a linear
+          factor and an irreducible quadratic, as in
+          <xref ref="sec-inverse-laplace-pfd-quadratic"/>.
+          The decomposition gives:
+          <me>\frac{9}{s(s^2+9)} = \frac{1}{s} - \frac{s}{s^2+9}.</me>
+          Substituting back:
+          <md>
+            <mrow>Y(s) \amp= \frac{1}{s} - \frac{s}{s^2+9} + \frac{s}{s^2+9} - \frac{3}{s^2+9}</mrow>
+            <mrow>Y(s) \amp= \frac{1}{s} - \frac{3}{s^2+9}.</mrow>
+          </md>
+          Notice the two <m>\dfrac{s}{s^2+9}</m> terms cancel!
+        </p>
+        <solution>
+          <title>Solving for the PFD coefficients (can skim, reference for homework)</title>
+          <p>
+            The correct form is <m>\dfrac{9}{s(s^2+9)} = \dfrac{A}{s} + \dfrac{Bs+C}{s^2+9}</m>.
+            Clearing denominators:
+            <me>9 = A(s^2+9) + (Bs+C)s.</me>
+            Expanding and matching coefficients:
+            <md>
+              <mrow>\underbrace{0}_{\text{coeff of }s^2} \cdot s^2
+                + \underbrace{0}_{\text{coeff of }s} \cdot s
+                + \underbrace{9}_{\text{const}}
+                \amp= \underbrace{(A+B)}_{\text{coeff of }s^2}s^2
+                   + \underbrace{C}_{\text{coeff of }s}s
+                   + \underbrace{9A}_{\text{const}}.</mrow>
+            </md>
+            So <m>A+B = 0</m>, <m>C = 0</m>, <m>9A = 9</m>, giving
+            <m>A = 1</m>, <m>B = -1</m>, <m>C = 0</m>.
+          </p>
+        </solution>
+      </statement>
+    </task>
+
+    <!-- ── TASK D: INVERSE LAPLACE ── -->
+
+    <task xml:id="task-ivp2-inverse">
+      <title>Step 3: Apply the Inverse Laplace Transform</title>
+      <statement>
+        <p>
+          Apply <m>\mathcal{L}^{-1}</m> to <m>Y(s) = \dfrac{1}{s} - \dfrac{3}{s^2+9}</m>
+          to find <m>y(t)</m>.
+        </p>
+      </statement>
+      <hint>
+        <p>
+          <m>\dfrac{1}{s}</m> matches <xref ref="formula-A" text="custom">Formula A</xref>.
+          For <m>\dfrac{3}{s^2+9}</m>, notice <m>s^2 + 9 = s^2 + 3^2</m> and the 3 is already
+          in the numerator, so it matches <xref ref="formula-D" text="custom">Formula D</xref>
+          with <m>a = 3</m> directly, no rewriting needed.
+        </p>
+      </hint>
+      <solution>
+        <p>
+          Applying linearity and reading off the table:
+          <md>
+            <mrow>y(t)
+              \amp= \mathcal{L}^{-1}\!\left\{
+                     \underbrace{\frac{1}{s}}_{\text{Formula A}}
+                   \right\}
+                   - \mathcal{L}^{-1}\!\left\{
+                     \underbrace{\frac{3}{s^2+3^2}}_{\text{Formula D},\, a=3}
+                   \right\}</mrow>
+            <mrow>\amp= 1 - \sin(3t).</mrow>
+          </md>
+        </p>
+      </solution>
+    </task>
+
+  </activity>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       KEY TAKEAWAYS
+       ═══════════════════════════════════════════════════════════ -->
+
+  
+
+  <!-- ═══════════════════════════════════════════════════════════
+       VIDEO + QUESTION FORM
+       ═══════════════════════════════════════════════════════════ -->
+
+  <figure xml:id="video-laplace-ivp-activity">
+    <caption>This video goes through the content of this page.</caption>
+    <video youtube="22Is8AwOVSM" width="100%" preview="default"/>
+  </figure>
+
+  <interactive xml:id="question-form-4-3-3"
+    iframe="question-form.html?section=4.3.3"
+    width="100%" aspect="2:1"/>
+
+</section>

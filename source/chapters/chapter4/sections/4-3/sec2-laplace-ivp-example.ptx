@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-laplace-ivp-example" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Solving an IVP with the Laplace Transform</title>
+
+  <p>
+    We now put the three-step strategy from the previous page into action for the first time.
+    Recall the two key formulas from <xref ref="thm-laplace-derivatives"/>:
+    <md>
+      <mrow>\mathcal{L}\{x'(t)\} \amp= sX(s) - x(0)</mrow>
+      <mrow>\mathcal{L}\{x''(t)\} \amp= s^2 X(s) - sx(0) - x'(0).</mrow>
+    </md>
+    Also note that <m>\mathcal{L}\{0\} = 0</m>, since the transform of the zero function is zero,
+    and <m>\mathcal{L}\{x\} = X(s)</m> by definition.
+  </p>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       EXAMPLE
+       ═══════════════════════════════════════════════════════════ -->
+
+  <example xml:id="ex-laplace-ivp-first">
+    <title>Solving an IVP Using the Laplace Transform</title>
+
+    <introduction>
+      <p>
+        Solve the initial value problem
+        <me>x'' - x' - 6x = 0, \quad x(0) = 2,\ x'(0) = -1.</me>
+      </p>
+    </introduction>
+
+    <!-- ── TASK A: SUBSTITUTE ── -->
+
+    <task xml:id="task-ivp-substitute">
+      <title>Step 1a: Substitute the Derivative Formulas</title>
+      <statement>
+        <p>
+          Apply <m>\mathcal{L}</m> to both sides of the ODE and use
+          <xref ref="thm-laplace-derivatives"/> to replace <m>x''</m>, <m>x'</m>, and <m>x</m>
+          with expressions in <m>X(s)</m>, plugging in <m>x(0) = 2</m> and <m>x'(0) = -1</m>.
+        </p>
+      </statement>
+      <hint>
+        <p>
+          Apply <m>\mathcal{L}</m> to each term separately using linearity, then substitute
+          <m>\mathcal{L}\{x''\} = s^2X(s) - sx(0) - x'(0)</m>,
+          <m>\mathcal{L}\{x'\} = sX(s) - x(0)</m>, and
+          <m>\mathcal{L}\{x\} = X(s)</m>.
+        </p>
+      </hint>
+      <solution>
+        <p>
+          Applying <m>\mathcal{L}</m> to both sides and using linearity:
+          <md>
+            <mrow>\mathcal{L}\{x''-x' - 6x\} \amp= \mathcal{L}\{0\}.</mrow>
+            <mrow>\mathcal{L}\{x''\} - \mathcal{L}\{x'\} - 6\,\mathcal{L}\{x\} \amp= 0.</mrow>
+          </md>
+          Substituting the derivative formulas with <m>x(0) = 2</m> and <m>x'(0) = -1</m>:
+          <md>
+            <mrow>\underbrace{\bigl(s^2 X(s) - 2s + 1\bigr)}_{\mathcal{L}\{x''\}}
+              - \underbrace{\bigl(sX(s) - 2\bigr)}_{\mathcal{L}\{x'\}}
+              - 6\underbrace{X(s)}_{\mathcal{L}\{x\}} \amp= 0.</mrow>
+          </md>
+        </p>
+      </solution>
+    </task>
+
+    <!-- ── TASK B: SOLVE FOR X(s) ── -->
+
+    <task xml:id="task-ivp1-solve">
+      <title>Step 1b: Solve for <m>X(s)</m></title>
+      <statement>
+        <p>
+          Starting from
+          <me>\bigl(s^2 X(s) - 2s + 1\bigr) - \bigl(sX(s) - 2\bigr) - 6X(s) = 0,</me>
+          collect all <m>X(s)</m> terms on the left and everything else on the right,
+          then solve for <m>X(s)</m>.
+        </p>
+      </statement>
+      <hint>
+        <p>
+          Expand, group all terms with <m>X(s)</m> on the left and move all other terms
+          to the right, then factor out <m>X(s)</m> and divide.
+        </p>
+      </hint>
+      <solution>
+        <p>
+          Expanding and collecting:
+          <md>
+            <mrow>s^2 X(s) - 2s + 1 - sX(s) + 2 - 6X(s) \amp= 0</mrow>
+            <mrow>(s^2 - s - 6)\,X(s) \amp= 2s - 3.</mrow>
+          </md>
+          Solving for <m>X(s)</m>:
+          <me>X(s) = \frac{2s - 3}{s^2 - s - 6}.</me>
+        </p>
+      </solution>
+    </task>
+
+    <!-- ── TASK C: PFD ── -->
+
+    <task xml:id="task-ivp-pfd">
+      <title>Step 2: Partial Fraction Decomposition</title>
+      <statement>
+        <p>
+          Factor the denominator: <m>s^2 - s - 6 = (s-3)(s+2)</m>.
+          This is the same type as in <xref ref="ex-pf-clear-denominators"/>, two distinct linear factors.
+          We will skip the details on the computation. The partial fraction decomposition gives:
+          <me>X(s) = \frac{2s-3}{(s-3)(s+2)} = \frac{\frac{2}{3}}{s-3} + \frac{\frac{7}{5}}{s+2}.</me>
+        </p>
+      </statement>
+    </task>
+
+    <!-- ── TASK D: INVERSE LAPLACE ── -->
+
+    <task xml:id="task-ivp1-inverse">
+      <title>Step 3: Apply the Inverse Laplace Transform</title>
+      <statement>
+        <p>
+          Apply <m>\mathcal{L}^{-1}</m> to <m>X(s)</m> to find <m>x(t)</m>.
+        </p>
+      </statement>
+      <hint>
+        <p>
+          Each term matches <xref ref="formula-B" text="custom">Formula B</xref>,
+          <m>\mathcal{L}\{e^{at}\} = \dfrac{1}{s-a}</m>.
+          Identify <m>a</m> for each term.
+        </p>
+      </hint>
+      <solution>
+        <p>
+          Applying linearity and <xref ref="formula-B" text="custom">Formula B</xref> to each term:
+          <md>
+            <mrow>x(t) = \mathcal{L}^{-1}\{X(s)\}
+              \amp= \mathcal{L}^{-1}\!\left\{
+                     \underbrace{\frac{\frac{2}{3}}{s-3}}_{\text{Formula B},\, a=3}
+                   \right\}
+                   + \mathcal{L}^{-1}\!\left\{
+                     \underbrace{\frac{\frac{7}{5}}{s+2}}_{\text{Formula B},\, a=-2}
+                   \right\}</mrow>
+            <mrow>\amp= \frac{2}{3}e^{3t} + \frac{7}{5}e^{-2t}.</mrow>
+          </md>
+        </p>
+      </solution>
+    </task>
+
+  </example>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       POST-EXAMPLE MC CHECKPOINTS
+       ═══════════════════════════════════════════════════════════ -->
+
+  <exercise xml:id="ex-laplace-ivp-mc1">
+    <statement>
+      <p>
+        Why does taking the Laplace transform of an ODE make it easier to solve?
+      </p>
+    </statement>
+    <choices randomize="yes">
+      <choice correct="yes">
+        <statement>
+          <p>
+            It turns the ODE into an algebraic equation in <m>s</m>, which can be solved
+            with standard algebra rather than differential equation techniques.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            Correct! The derivative formulas replace <m>x'</m> and <m>x''</m> with algebraic
+            expressions in <m>X(s)</m>, so the whole equation becomes algebraic.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            It eliminates the initial conditions so you only need to find the general solution.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            Actually the opposite — the initial conditions are built directly into the
+            derivative formulas and used in Step 1.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            It converts the ODE into an integral equation, which is easier to evaluate numerically.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            The Laplace transform is defined by an integral, but the result is an algebraic
+            equation in <m>s</m>, not another integral equation.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            It works only for homogeneous equations, where the right-hand side is zero.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            The Laplace transform method works for both homogeneous and non-homogeneous equations.
+            The right-hand side <m>g(t)</m> just gets transformed along with everything else.
+          </p>
+        </feedback>
+      </choice>
+    </choices>
+  </exercise>
+
+  <exercise xml:id="ex-laplace-ivp-mc2">
+    <statement>
+      <p>
+        At which step in the Laplace transform method are the initial conditions used?
+      </p>
+    </statement>
+    <choices randomize="yes">
+      <choice correct="yes">
+        <statement>
+          <p>
+            Step 1, when substituting the derivative formulas
+            <m>\mathcal{L}\{x'\} = sX(s) - x(0)</m> and
+            <m>\mathcal{L}\{x''\} = s^2X(s) - sx(0) - x'(0)</m>.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            Correct! The values <m>x(0)</m> and <m>x'(0)</m> are plugged in during the
+            transform step, so by the time you reach Steps 2 and 3 the initial conditions
+            are already incorporated.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            Step 2, when solving for <m>X(s)</m> using partial fractions.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            By Step 2 the initial conditions are already baked into the algebraic equation
+            from Step 1. Partial fractions just decompose <m>X(s)</m>.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            Step 3, when applying the inverse Laplace transform to find <m>x(t)</m>.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            By Step 3 the initial conditions have already been used. The inverse transform
+            just reads off <m>x(t)</m> from the table.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            They are not used — the Laplace transform method only finds the general solution.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            The Laplace transform method finds the particular solution directly, with initial
+            conditions built in from the start.
+          </p>
+        </feedback>
+      </choice>
+    </choices>
+  </exercise>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       KEY TAKEAWAYS
+       ═══════════════════════════════════════════════════════════ -->
+
+  <conclusion>
+    <title>Key Takeaways</title>
+    <p>
+      <ul>
+        <li><p>
+          <alert>Step 1:</alert> apply <m>\mathcal{L}</m> to both sides, substitute the derivative
+          formulas with initial conditions plugged in, and solve for <m>X(s)</m>.
+        </p></li>
+        <li><p>
+          <alert>Step 2:</alert> factor the denominator and use partial fractions to decompose <m>X(s)</m>
+          into pieces that match the table.
+        </p></li>
+        <li><p>
+          <alert>Step 3:</alert> apply <m>\mathcal{L}^{-1}</m> to each piece to recover <m>x(t)</m>.
+        </p></li>
+      </ul>
+    </p>
+  </conclusion>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       VIDEO + QUESTION FORM
+       ═══════════════════════════════════════════════════════════ -->
+
+  <figure xml:id="video-laplace-ivp-example">
+    <caption>This video goes through the content of this page.</caption>
+    <video youtube="gz-6QZ5wKeQ" width="100%" preview="default"/>
+  </figure>
+
+  <interactive xml:id="question-form-4-3-2"
+    iframe="question-form.html?section=4.3.2"
+    width="100%" aspect="2:1"/>
+
+</section>
