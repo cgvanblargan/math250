@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>More Inverse Laplace Transform Examples</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+<link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/ol-markers.css" rel="stylesheet" type="text/css">
+<script>
+var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  "tex": {
+    "inlineMath": [
+      [
+        "\\(",
+        "\\)"
+      ]
+    ],
+    "tags": "none",
+    "tagSide": "right",
+    "tagIndent": ".8em",
+    "packages": {
+      "[+]": [
+        "base",
+        "extpfeil",
+        "ams",
+        "amscd",
+        "color",
+        "newcommand",
+        "knowl"
+      ]
+    }
+  },
+  "options": {
+    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
+    "processHtmlClass": "process-math"
+  },
+  "chtml": {
+    "scale": 0.98,
+    "mtextInheritFont": true
+  },
+  "loader": {
+    "load": [
+      "input/asciimath",
+      "[tex]/extpfeil",
+      "[tex]/amscd",
+      "[tex]/color",
+      "[tex]/newcommand",
+      "[pretext]/mathjaxknowl3.js"
+    ],
+    "paths": {
+      "pretext": "_static/pretext/js"
+    }
+  },
+  "startup": {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  }
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Differential Equations: Interactive Notes for Math 250">
+<meta property="book:author" content="Caroline VanBlargan">
+<script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<!--** Runestone components to run locally in reader's browser **-->
+<!--** No external communication:                              **-->
+<!--**     log level is 0, Runestone Services are disabled     **-->
+<script type="text/javascript">
+eBookConfig = {};
+eBookConfig.useRunestoneServices = false;
+eBookConfig.host = 'http://127.0.0.1:8000';
+eBookConfig.course = 'PTX_Course_Title_Here';
+eBookConfig.basecourse = 'PTX_Base_Course';
+eBookConfig.isLoggedIn = false;
+eBookConfig.email = '';
+eBookConfig.isInstructor = false;
+eBookConfig.logLevel = 0;
+eBookConfig.username = '';
+eBookConfig.readings = null;
+eBookConfig.activities = null;
+eBookConfig.downloadsEnabled = false;
+eBookConfig.allow_pairs = false;
+eBookConfig.enableScratchAC = false;
+eBookConfig.build_info = "";
+eBookConfig.python3 = null;
+eBookConfig.runestone_version = '8.1.6';
+eBookConfig.jobehost = '';
+eBookConfig.proxyuri_runs = '';
+eBookConfig.proxyuri_files = '';
+eBookConfig.enable_chatcodes =  false;
+</script>
+<!--*** Runestone Services ***-->
+<script src="_static/prefix-runtime.53a23d1b65c1dce2.bundle.js"></script><script src="_static/prefix-713.de0ab26248766350.bundle.js"></script><script src="_static/prefix-runestone.4787412a251795e3.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-713.f43ced6a6134ea74.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.87414d180ebeebd6.css">
+<script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script>
+</head>
+<body id="vanblargan-de-math250" class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
+<h1 class="heading"><a href="my-great-book.html"><span class="title">Differential Equations: Interactive Notes for Math 250</span> <span class="subtitle">Penn State University</span></a></h1>
+<p class="byline">Caroline VanBlargan</p>
+</div></div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
+<button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="searchbox">
+<div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
+<div class="search-results-controls">
+<input aria-label="Search term" id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search term"><button title="Close search" id="closesearchresults" class="closesearchresults"><span class="material-symbols-outlined">close</span></button>
+</div>
+<h2 class="search-results-heading">Search Results: </h2>
+<div id="searchempty" class="searchempty"><span>No results.</span></div>
+<ol id="searchresults" class="searchresults"></ol>
+</div>
+</div>
+<span class="nav-other-controls"><button id="light-dark-button" class="light-dark-button button" title="Dark Mode"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span class="name">Dark Mode</span></button></span><span class="treebuttons"><a class="previous-button button" href="sec-inverse-laplace.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="sec-4-1.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="sec-4-2.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
+</div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\N}{\mathbb N} \newcommand{\Z}{\mathbb Z} \newcommand{\Q}{\mathbb Q} \newcommand{\R}{\mathbb R}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth3 focused" data-preexpanded-levels="0" data-max-levels="3"><ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-frontmatter">
+<div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-colophon"><div class="toc-title-box"><a href="front-colophon.html" class="internal"><span class="title">Colophon</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="preface.html" class="internal"><span class="title">Preface</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-chapter-title.html" class="internal"><span class="codenumber">1</span> <span class="title">The Fundamentals of Differential Equations</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-intro-to-des.html" class="internal"><span class="codenumber">1.1</span> <span class="title">Introduction to Differential Equations</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-what-is-de.html" class="internal"><span class="codenumber">1.1.1</span> <span class="title">What is a Differential Equation?</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-gensolns-initialvalues.html" class="internal"><span class="codenumber">1.1.2</span> <span class="title">General Solutions and Initial Value Problems</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-setting-up-des.html" class="internal"><span class="codenumber">1.1.3</span> <span class="title">Setting Up Differential Equations</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-verifying-solutions.html" class="internal"><span class="codenumber">1.1.4</span> <span class="title">Verifying Solutions</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-equilibrium-solutions.html" class="internal"><span class="codenumber">1.1.5</span> <span class="title">Equilibrium Solutions</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="exercises-1-1.html" class="internal"><span class="codenumber">1.1.6</span> <span class="title">Exercises for Section 1.1</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-integral-solutions.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Integrals as Solutions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-integrating-to-get-solutions.html" class="internal"><span class="codenumber">1.2.1</span> <span class="title">Integrating to solve <span class="process-math">\(\frac{dy}{dx} = f(x)\)</span></span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-positionvelocity.html" class="internal"><span class="codenumber">1.2.2</span> <span class="title">Velocity and Acceleration</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="exercises-1-2.html" class="internal"><span class="codenumber">1.2.3</span> <span class="title">Exercises for Section 1.2</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-slopefields.html" class="internal"><span class="codenumber">1.3</span> <span class="title">Section 1.3: Slope fields</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-slope-fields-intro.html" class="internal"><span class="codenumber">1.3.1</span> <span class="title">Slope Fields</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-slopefield-matching.html" class="internal"><span class="codenumber">1.3.2</span> <span class="title">Reading and Matching Slope Fields</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="exercises-1-3.html" class="internal"><span class="codenumber">1.3.3</span> <span class="title">Exercises for Section 1.3</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-separabble.html" class="internal"><span class="codenumber">1.4</span> <span class="title">Separable Differential Equations</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="subsec-intr-separable.html" class="internal"><span class="codenumber">1.4.1</span> <span class="title">Introduction to Separable ODEs</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="subsec-sepofvar.html" class="internal"><span class="codenumber">1.4.2</span> <span class="title">Separation of Variables</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="subsec-sep-exp.html" class="internal"><span class="codenumber">1.4.3</span> <span class="title">Separation of Variables: Important Example with Exponentials</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="subsec-sep-minussign.html" class="internal"><span class="codenumber">1.4.4</span> <span class="title">Separation of Variables: Some Subtle Points</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="subsec-sep-completingsquare.html" class="internal"><span class="codenumber">1.4.5</span> <span class="title">Separation of Variables: Solving Explicitly Tricks</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-1-4-radiocarbon.html" class="internal"><span class="codenumber">1.4.6</span> <span class="title">Radiocarbon Dating</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-1-4-newton.html" class="internal"><span class="codenumber">1.4.7</span> <span class="title">Newton’s Law of Cooling</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="exercises-1-4.html" class="internal"><span class="codenumber">1.4.8</span> <span class="title">Exercises for Section 1.4</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-first-order-linear.html" class="internal"><span class="codenumber">1.5</span> <span class="title">First-Order Linear ODEs</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-linear-first-order-intro.html" class="internal"><span class="codenumber">1.5.1</span> <span class="title">Definition of 1st Order Linear ODEs</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-solving-first-order-linear.html" class="internal"><span class="codenumber">1.5.2</span> <span class="title">Solving First-Order Linear ODEs</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-linear-standard-examples.html" class="internal"><span class="codenumber">1.5.3</span> <span class="title">First-Order Linear ODEs: Standard Examples</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-linear-harder.html" class="internal"><span class="codenumber">1.5.4</span> <span class="title">First-Order Linear ODEs: A Harder Example</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="exercises-1-5.html" class="internal"><span class="codenumber">1.5.5</span> <span class="title">Exercises for Section 1.5</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-mixing-intro.html" class="internal"><span class="codenumber">1.6</span> <span class="title">Mixing problems</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-mixing-teaser.html" class="internal"><span class="codenumber">1.6.1</span> <span class="title">Setting Up Mixing Problems: Rate In, Rate Out</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-mixing-constant-volume.html" class="internal"><span class="codenumber">1.6.2</span> <span class="title">Mixing Problem: Constant Volume</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-mixing-volume-changing.html" class="internal"><span class="codenumber">1.6.3</span> <span class="title">Mixing Problem: Changing Volume</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="exercises-1-6.html" class="internal"><span class="codenumber">1.6.4</span> <span class="title">Exercises for Section 1.6</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-first-order-autonomous.html" class="internal"><span class="codenumber">2</span> <span class="title">First Order Autonomous ODEs and Applications</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-pop.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Population Modelling</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-pop-setup.html" class="internal"><span class="codenumber">2.1.1</span> <span class="title">Setting Up Population Models</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-pop-logistic.html" class="internal"><span class="codenumber">2.1.2</span> <span class="title">Solving the Logistic Equation</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-pop-doomsday.html" class="internal"><span class="codenumber">2.1.3</span> <span class="title">Doomsday vs Extinction</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="exercises-2-1.html" class="internal"><span class="codenumber">2.1.4</span> <span class="title">Exercises for Section 2.1</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-stability.html" class="internal"><span class="codenumber">2.2</span> <span class="title">Stability of Equilibrium Solutions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-equilibrium-stability.html" class="internal"><span class="codenumber">2.2.1</span> <span class="title">Stability of Equilibrium Solutions</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-autonomous-odes.html" class="internal"><span class="codenumber">2.2.2</span> <span class="title">Autonomous Differential Equations</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-phase-diagrams.html" class="internal"><span class="codenumber">2.2.3</span> <span class="title">Analyzing Stability with Phase Diagrams</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-existence-uniqueness.html" class="internal"><span class="codenumber">2.2.4</span> <span class="title">Consequences of Existence and Uniqueness</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-phase-applications.html" class="internal"><span class="codenumber">2.2.5</span> <span class="title">Applying Phase Diagrams to Population Models</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-frog-question.html" class="internal"><span class="codenumber">2.2.6</span> <span class="title">Applying Phase Diagrams: The Frog Question</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="exercises-2-2.html" class="internal"><span class="codenumber">2.2.7</span> <span class="title">Exercises for Section 2.2</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-second-order.html" class="internal"><span class="codenumber">3</span> <span class="title">2nd Order ODEs and the Mass-Spring System</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-3-1.html" class="internal"><span class="codenumber">3.1</span> <span class="title">2nd Order Linear ODEs</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-2nd-linear-intro.html" class="internal"><span class="codenumber">3.1.1</span> <span class="title">Introduction to Second-Order Linear ODEs</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-characteristic-equation.html" class="internal"><span class="codenumber">3.1.2</span> <span class="title">The Characteristic Equation</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-all-three-cases.html" class="internal"><span class="codenumber">3.1.3</span> <span class="title">All Three Cases of the Characteristic Equation</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-practice-real-roots.html" class="internal"><span class="codenumber">3.1.4</span> <span class="title">Practice: Real Roots</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-complex-roots-practice.html" class="internal"><span class="codenumber">3.1.5</span> <span class="title">Complex Roots and Practice</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-ivp-second-order.html" class="internal"><span class="codenumber">3.1.6</span> <span class="title">Initial Value Problems</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="exercises-3-1.html" class="internal"><span class="codenumber">3.1.7</span> <span class="title">Exercises for Section 3.1</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-3-2.html" class="internal"><span class="codenumber">3.2</span> <span class="title">The mass-spring system (undamped)</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-undamped-mass-spring.html" class="internal"><span class="codenumber">3.2.1</span> <span class="title">The Undamped Mass-Spring System</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-period-frequency.html" class="internal"><span class="codenumber">3.2.2</span> <span class="title">Period and Frequency</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-equilibrium-crossings.html" class="internal"><span class="codenumber">3.2.3</span> <span class="title">Passing Through Equilibrium</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-amplitude.html" class="internal"><span class="codenumber">3.2.4</span> <span class="title">Distance from Equilibrium</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="exercises-3-2.html" class="internal"><span class="codenumber">3.2.5</span> <span class="title">Exercises for Section 3.2</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-3-3.html" class="internal"><span class="codenumber">3.3</span> <span class="title">The mass-spring-dashpot system (damped)</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-damped-mass-spring.html" class="internal"><span class="codenumber">3.3.1</span> <span class="title">The Damped Mass-Spring System</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-underdamped.html" class="internal"><span class="codenumber">3.3.2</span> <span class="title">Behavior of Underdamped Solutions</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-overdamped.html" class="internal"><span class="codenumber">3.3.3</span> <span class="title">Behavior of Overdamped Solutions</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-critically-damped.html" class="internal"><span class="codenumber">3.3.4</span> <span class="title">Behavior of Critically Damped Solutions</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-damping-summary.html" class="internal"><span class="codenumber">3.3.5</span> <span class="title">Damping cases and the constants c, m, k</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="exercises-3-3.html" class="internal"><span class="codenumber">3.3.6</span> <span class="title">Exercises for Section 3.3</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-3-4.html" class="internal"><span class="codenumber">3.4</span> <span class="title">Interpreting solutions in the mass-spring system</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-underdamped-direction-changes.html" class="internal"><span class="codenumber">3.4.1</span> <span class="title">Analyzing Underdamped Motion</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-overdamped-analysis.html" class="internal"><span class="codenumber">3.4.2</span> <span class="title">Analyzing Overdamped and Critically Damped Motion</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec3-overdamped-never-stretched.html" class="internal"><span class="codenumber">3.4.3</span> <span class="title">Analyzing an Overdamped System: Is the Spring Ever Stretched?</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-critically-damped-analysis.html" class="internal"><span class="codenumber">3.4.4</span> <span class="title">Analyzing a Critically Damped System</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec3-critically-damped-crossing.html" class="internal"><span class="codenumber">3.4.5</span> <span class="title">Analyzing a Critically Damped System: Finding Maximum Stretch</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="exercises-3-4.html" class="internal"><span class="codenumber">3.4.6</span> <span class="title">Exercises for Section 3.4</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-3-5.html" class="internal"><span class="codenumber">3.5</span> <span class="title">The Method of Undetermined Coefficients</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-undetermined-part-1.html" class="internal"><span class="codenumber">3.5.1</span> <span class="title">A First Look at Non-Homogeneous Equations</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-undetermined-part-2.html" class="internal"><span class="codenumber">3.5.2</span> <span class="title">The Guess That Works</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-undetermined-duplication.html" class="internal"><span class="codenumber">3.5.3</span> <span class="title">The Case of Duplication</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-undetermined-dup-example.html" class="internal"><span class="codenumber">3.5.4</span> <span class="title">Example with the Case of Duplication</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-undetermined-guess-practice.html" class="internal"><span class="codenumber">3.5.5</span> <span class="title">Practice: Finding the Right Guess for <span class="process-math">\(y_p\)</span></span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-general-solution-nonhomogeneous.html" class="internal"><span class="codenumber">3.5.6</span> <span class="title">The General Solution</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-nonhomogeneous-ivp.html" class="internal"><span class="codenumber">3.5.7</span> <span class="title">Solving an IVP with a Non-Homogeneous Equation</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="exercises-3-5.html" class="internal"><span class="codenumber">3.5.8</span> <span class="title">Exercises for Section 3.5</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-3-6.html" class="internal"><span class="codenumber">3.6</span> <span class="title">External Forces and Resonance</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-external-force-setup.html" class="internal"><span class="codenumber">3.6.1</span> <span class="title">Setting Up the Forced Undamped System</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-external-force-examples.html" class="internal"><span class="codenumber">3.6.2</span> <span class="title">Two Examples of the Forced System</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-resonance.html" class="internal"><span class="codenumber">3.6.3</span> <span class="title">Resonance</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="exercises-3-6.html" class="internal"><span class="codenumber">3.6.4</span> <span class="title">Exercises for Section 3.6</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter contains-active">
+<div class="toc-title-box"><a href="ch-laplace.html" class="internal"><span class="codenumber">4</span> <span class="title">The Laplace Transform</span></a></div>
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-section contains-active">
+<div class="toc-title-box"><a href="sec-4-1.html" class="internal"><span class="codenumber">4.1</span> <span class="title">Introduction to the Laplace Transform</span></a></div>
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-laplace-definition.html" class="internal"><span class="codenumber">4.1.1</span> <span class="title">The Definition of the Laplace Transform</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-laplace-table-linearity.html" class="internal"><span class="codenumber">4.1.2</span> <span class="title">The Laplace Transform Table and Linearity</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-inverse-laplace.html" class="internal"><span class="codenumber">4.1.3</span> <span class="title">The Inverse Laplace Transform</span></a></div></li>
+<li class="toc-item toc-section active"><div class="toc-title-box"><a href="sec-inverse-laplace-examples.html" class="internal"><span class="codenumber">4.1.4</span> <span class="title">More Inverse Laplace Transform Examples</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-4-2.html" class="internal"><span class="codenumber">4.2</span> <span class="title">Partial Fractions and the Inverse Laplace Transform</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-partial-fractions-review.html" class="internal"><span class="codenumber">4.2.1</span> <span class="title">Partial Fraction Decomposition Review</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-inverse-laplace-pfd-linear.html" class="internal"><span class="codenumber">4.2.2</span> <span class="title">Inverse Laplace with Distinct Linear Factors</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-inverse-laplace-pfd-quadratic.html" class="internal"><span class="codenumber">4.2.3</span> <span class="title">Inverse Laplace with an Irreducible Quadratic Factor</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-inverse-laplace-pfd-repeated.html" class="internal"><span class="codenumber">4.2.4</span> <span class="title">Inverse Laplace with a Repeated Linear Factor</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-4-3.html" class="internal"><span class="codenumber">4.3</span> <span class="title">Solving IVPs with the Laplace Transform</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-laplace-derivatives.html" class="internal"><span class="codenumber">4.3.1</span> <span class="title">Laplace Transforms of Derivatives</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-laplace-ivp-example.html" class="internal"><span class="codenumber">4.3.2</span> <span class="title">Solving an IVP with the Laplace Transform</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-laplace-ivp-activity.html" class="internal"><span class="codenumber">4.3.3</span> <span class="title">Solving an IVP: Practice</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-laplace-formula-reference.html" class="internal"><span class="codenumber">4.4</span> <span class="title">Laplace Transform Formula Reference</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-backmatter">
+<div class="toc-title-box"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-solutions"><div class="toc-title-box"><a href="backmatter-2.html" class="internal"><span class="codenumber">A</span> <span class="title">Answers to Exercises</span></a></div></li>
+<li class="toc-item toc-colophon"><div class="toc-title-box"><a href="back-colophon.html" class="internal"><span class="title">Colophon</span></a></div></li>
+</ul>
+</li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec-inverse-laplace-examples"><h2 class="heading hide-type">
+<span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.1.4</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">More Inverse Laplace Transform Examples</span>
+</h2>
+<div class="para" id="sec-inverse-laplace-examples-2">Use the Laplace transform table below as a reference throughout this page.<div class="autopermalink" data-description="Paragraph"><a href="#sec-inverse-laplace-examples-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="table table-like" id="table-laplace-transforms-ref"><figcaption><span class="type">Table</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.1.1<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Laplace Transform Table<div class="autopermalink" data-description="Table 4.1.1: Laplace Transform Table"><a href="#table-laplace-transforms-ref" title="Copy heading and permalink for Table 4.1.1: Laplace Transform Table" aria-label="Copy heading and permalink for Table 4.1.1: Laplace Transform Table">🔗</a></div></figcaption><div class="tabular-box natural-width"><table class="tabular">
+<tr class="header-horizontal">
+<th scope="col" class="c m b1 r1 l1 t1 lines"><span class="process-math">\(f(t)\)</span></th>
+<th scope="col" class="c m b1 r1 l0 t1 lines"><span class="process-math">\(F(s) = \mathcal{L}\{f(t)\}\)</span></th>
+<th scope="col" class="c m b1 r1 l0 t1 lines">Condition</th>
+<th scope="col" class="c m b1 r1 l0 t1 lines">Formula</th>
+</tr>
+<tr>
+<td class="c m b1 r1 l1 t0 lines"><span class="process-math">\(1\)</span></td>
+<td class="c m b1 r1 l0 t0 lines"><span class="process-math">\(\dfrac{1}{s}\)</span></td>
+<td class="c m b1 r1 l0 t0 lines"><span class="process-math">\(s \gt 0\)</span></td>
+<td class="c m b1 r1 l0 t0 lines">A</td>
+</tr>
+<tr>
+<td class="c m b1 r1 l1 t0 lines"><span class="process-math">\(e^{at}\)</span></td>
+<td class="c m b1 r1 l0 t0 lines"><span class="process-math">\(\dfrac{1}{s-a}\)</span></td>
+<td class="c m b1 r1 l0 t0 lines"><span class="process-math">\(s \gt a\)</span></td>
+<td class="c m b1 r1 l0 t0 lines">B</td>
+</tr>
+<tr>
+<td class="c m b1 r1 l1 t0 lines"><span class="process-math">\(t^n\)</span></td>
+<td class="c m b1 r1 l0 t0 lines"><span class="process-math">\(\dfrac{n!}{s^{n+1}}\)</span></td>
+<td class="c m b1 r1 l0 t0 lines"><span class="process-math">\(s \gt 0\)</span></td>
+<td class="c m b1 r1 l0 t0 lines">C</td>
+</tr>
+<tr>
+<td class="c m b1 r1 l1 t0 lines"><span class="process-math">\(\sin(at)\)</span></td>
+<td class="c m b1 r1 l0 t0 lines"><span class="process-math">\(\dfrac{a}{s^2 + a^2}\)</span></td>
+<td class="c m b1 r1 l0 t0 lines"><span class="process-math">\(s \gt 0\)</span></td>
+<td class="c m b1 r1 l0 t0 lines">D</td>
+</tr>
+<tr>
+<td class="c m b1 r1 l1 t0 lines"><span class="process-math">\(\cos(at)\)</span></td>
+<td class="c m b1 r1 l0 t0 lines"><span class="process-math">\(\dfrac{s}{s^2 + a^2}\)</span></td>
+<td class="c m b1 r1 l0 t0 lines"><span class="process-math">\(s \gt 0\)</span></td>
+<td class="c m b1 r1 l0 t0 lines">E</td>
+</tr>
+<tr>
+<td class="c m b1 r1 l1 t0 lines"><span class="process-math">\(t^n e^{at}\)</span></td>
+<td class="c m b1 r1 l0 t0 lines"><span class="process-math">\(\dfrac{n!}{(s-a)^{n+1}}\)</span></td>
+<td class="c m b1 r1 l0 t0 lines"><span class="process-math">\(s \gt a\)</span></td>
+<td class="c m b1 r1 l0 t0 lines">H</td>
+</tr>
+<tr>
+<td class="c m b1 r1 l1 t0 lines"><span class="process-math">\(e^{at}\sin(bt)\)</span></td>
+<td class="c m b1 r1 l0 t0 lines"><span class="process-math">\(\dfrac{b}{(s-a)^2 + b^2}\)</span></td>
+<td class="c m b1 r1 l0 t0 lines"><span class="process-math">\(s \gt a\)</span></td>
+<td class="c m b1 r1 l0 t0 lines">I</td>
+</tr>
+<tr>
+<td class="c m b1 r1 l1 t0 lines"><span class="process-math">\(e^{at}\cos(bt)\)</span></td>
+<td class="c m b1 r1 l0 t0 lines"><span class="process-math">\(\dfrac{s-a}{(s-a)^2 + b^2}\)</span></td>
+<td class="c m b1 r1 l0 t0 lines"><span class="process-math">\(s \gt a\)</span></td>
+<td class="c m b1 r1 l0 t0 lines">J</td>
+</tr>
+</table></div></figure><div class="para logical" id="sec-inverse-laplace-examples-4">
+<div class="para">As a warmup, consider <span class="process-math">\(F(s) = \dfrac{13}{3s+21}\text{.}\)</span> This should match Formula B, <span class="process-math">\(\mathcal{L}\{e^{at}\} = \dfrac{1}{s-a}\text{,}\)</span> but we need a 1 in the numerator and the denominator in the form <span class="process-math">\(s - a\text{.}\)</span> Factor the 3 out of the denominator:</div>
+<div class="displaymath process-math" id="sec-inverse-laplace-examples-4-4">
+\begin{equation*}
+\frac{\overbrace{13}^{\text{needs to be }1}}{3s+21}
+= \frac{13}{\underbrace{3(s+7)}_{\text{factor out }3}}
+= \frac{13}{3} \cdot \frac{1}{s-(-7)}.
+\end{equation*}
+</div>
+<div class="para">Now it matches Formula B with <span class="process-math">\(a = -7\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec-inverse-laplace-examples-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="exercise exercise-like" id="ex-warmup-laplace-13over3s21"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.1.2</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3>
+<div class="ptx-runestone-container"><div class="runestone multiplechoice_section">
+<div class="exercise-statement"><div class="para" id="ex-warmup-laplace-13over3s21-1-1">Finish computing <span class="process-math">\(\mathcal{L}^{-1}\!\left\{\dfrac{13}{3s+21}\right\}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex-warmup-laplace-13over3s21-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></div>
+<ul data-component="multiplechoice" class="exercise-interactives" id="rs-ex-warmup-laplace-13over3s21" data-multipleanswers="false" data-random="">
+<li data-component="answer" id="rs-ex-warmup-laplace-13over3s21_opt_a" data-correct=""><div class="para" id="ex-warmup-laplace-13over3s21-2-1-1-1"><span class="process-math">\(\dfrac{13}{3}e^{-7t}\)</span></div></li>
+<li data-component="feedback" id="rs-ex-warmup-laplace-13over3s21_opt_a"><div class="para" id="ex-warmup-laplace-13over3s21-2-1-2-1">Correct! After factoring, <span class="process-math">\(\frac{13}{3} \cdot \frac{1}{s+7}\)</span> matches Formula B with <span class="process-math">\(a = -7\text{,}\)</span> giving <span class="process-math">\(\frac{13}{3}e^{-7t}\text{.}\)</span>
+</div></li>
+<li data-component="answer" id="rs-ex-warmup-laplace-13over3s21_opt_b"><div class="para" id="ex-warmup-laplace-13over3s21-2-2-1-1"><span class="process-math">\(13e^{-7t}\)</span></div></li>
+<li data-component="feedback" id="rs-ex-warmup-laplace-13over3s21_opt_b"><div class="para" id="ex-warmup-laplace-13over3s21-2-2-2-1">Don’t forget the <span class="process-math">\(\frac{1}{3}\)</span> from factoring the 3 out of the denominator.</div></li>
+<li data-component="answer" id="rs-ex-warmup-laplace-13over3s21_opt_c"><div class="para" id="ex-warmup-laplace-13over3s21-2-3-1-1"><span class="process-math">\(\dfrac{13}{3}e^{7t}\)</span></div></li>
+<li data-component="feedback" id="rs-ex-warmup-laplace-13over3s21_opt_c"><div class="para" id="ex-warmup-laplace-13over3s21-2-3-2-1">Check the sign of <span class="process-math">\(a\text{.}\)</span> Since <span class="process-math">\(s + 7 = s - (-7)\text{,}\)</span> we have <span class="process-math">\(a = -7\text{,}\)</span> giving <span class="process-math">\(e^{-7t}\)</span> not <span class="process-math">\(e^{7t}\text{.}\)</span>
+</div></li>
+<li data-component="answer" id="rs-ex-warmup-laplace-13over3s21_opt_d"><div class="para" id="ex-warmup-laplace-13over3s21-2-4-1-1"><span class="process-math">\(\dfrac{13}{21}e^{-7t}\)</span></div></li>
+<li data-component="feedback" id="rs-ex-warmup-laplace-13over3s21_opt_d"><div class="para" id="ex-warmup-laplace-13over3s21-2-4-2-1">The constant comes from factoring 3 out of the denominator, giving <span class="process-math">\(\frac{13}{3}\text{,}\)</span> not <span class="process-math">\(\frac{13}{21}\text{.}\)</span>
+</div></li>
+</ul>
+</div></div>
+<div class="autopermalink" data-description="Checkpoint 4.1.2"><a href="#ex-warmup-laplace-13over3s21" title="Copy heading and permalink for Checkpoint 4.1.2" aria-label="Copy heading and permalink for Checkpoint 4.1.2">🔗</a></div></article><article class="example example-like" id="ex-inverse-laplace-two-terms"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.1.3</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Inverse Laplace with Two Terms.</span>
+</h3>
+<div class="para" id="ex-inverse-laplace-two-terms-2-1">Find <span class="process-math">\(\mathcal{L}^{-1}\!\left\{\dfrac{13-3s}{s^2+9}\right\}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex-inverse-laplace-two-terms-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="ex-inverse-laplace-two-terms-3" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="hint solution-like knowl__content">
+<div class="para logical" id="ex-inverse-laplace-two-terms-3-1">
+<ul class="disc" id="ex-inverse-laplace-two-terms-3-1-1">
+<li id="ex-inverse-laplace-two-terms-3-1-1-1">
+<div class="para" id="ex-inverse-laplace-two-terms-3-1-1-1-1">Split the fraction over the numerator and apply linearity to get two separate inverse transforms.<div class="autopermalink" data-description="Paragraph"><a href="#ex-inverse-laplace-two-terms-3-1-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#ex-inverse-laplace-two-terms-3-1-1-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="ex-inverse-laplace-two-terms-3-1-1-2">
+<div class="para" id="ex-inverse-laplace-two-terms-3-1-1-2-1">Both terms have denominator <span class="process-math">\(s^2 + 9 = s^2 + 3^2\text{,}\)</span> so <span class="process-math">\(a = 3\text{.}\)</span> Check the table to identify which formula each term matches.<div class="autopermalink" data-description="Paragraph"><a href="#ex-inverse-laplace-two-terms-3-1-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#ex-inverse-laplace-two-terms-3-1-1-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+</ul>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-inverse-laplace-two-terms-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Hint 4.1.3.1"><a href="#ex-inverse-laplace-two-terms-3" title="Copy heading and permalink for Hint 4.1.3.1" aria-label="Copy heading and permalink for Hint 4.1.3.1">🔗</a></div>
+</div></details><details id="ex-inverse-laplace-two-terms-4" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Work</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="ex-inverse-laplace-two-terms-4-2">
+<div class="para">Split over the numerator and apply linearity:</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/formula-D.html ./knowl/xref/formula-E.html" id="ex-inverse-laplace-two-terms-4-2-1">
+\begin{align*}
+\mathcal{L}^{-1}\!\left\{\frac{13-3s}{s^2+9}\right\}
+\amp= 13\,\mathcal{L}^{-1}\!\left\{\frac{1}{s^2+9}\right\}
+- 3\,\mathcal{L}^{-1}\!\left\{\frac{s}{s^2+9}\right\}.
+\end{align*}
+</div>
+<div class="para">Both terms have denominator <span class="process-math">\(s^2 + 9 = s^2 + 3^2\text{,}\)</span> so both match <a href="sec-laplace-formula-reference.html#formula-D" class="xref" data-knowl="./knowl/xref/formula-D.html" data-reveal-label="Reveal" data-close-label="Close" title="Fact 4.4.4: Formula D: \mathcal{L}\{\sin(at)\}">Formula D</a> or <a href="sec-laplace-formula-reference.html#formula-E" class="xref" data-knowl="./knowl/xref/formula-E.html" data-reveal-label="Reveal" data-close-label="Close" title="Fact 4.4.5: Formula E: \mathcal{L}\{\cos(at)\}">Formula E</a>, the difference is what’s in the numerator:</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/formula-D.html ./knowl/xref/formula-E.html" id="ex-inverse-laplace-two-terms-4-2-5">
+\begin{gather*}
+\frac{\overbrace{1}^{\text{constant} \Rightarrow \text{D}}}{s^2+3^2}
+\qquad \text{vs} \qquad
+\frac{\overbrace{s}^{s \Rightarrow \text{E}}}{s^2+3^2}.
+\end{gather*}
+</div>
+<div class="para">The first term needs a 3 on top to match Formula D, so rewrite:</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/formula-D.html ./knowl/xref/formula-E.html" id="ex-inverse-laplace-two-terms-4-2-6">
+\begin{align*}
+\amp= \frac{13}{3}\,\mathcal{L}^{-1}\!\left\{\frac{\overbrace{3}^{a}}{s^2+3^2}\right\}
+- 3\,\mathcal{L}^{-1}\!\left\{\frac{s}{s^2+3^2}\right\}\\
+\amp= \frac{13}{3}\sin(3t) - 3\cos(3t).
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-inverse-laplace-two-terms-4-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 4.1.3.1: Work"><a href="#ex-inverse-laplace-two-terms-4" title="Copy heading and permalink for Solution 4.1.3.1: Work" aria-label="Copy heading and permalink for Solution 4.1.3.1: Work">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Example 4.1.3: Inverse Laplace with Two Terms"><a href="#ex-inverse-laplace-two-terms" title="Copy heading and permalink for Example 4.1.3: Inverse Laplace with Two Terms" aria-label="Copy heading and permalink for Example 4.1.3: Inverse Laplace with Two Terms">🔗</a></div></article><article class="activity project-like" id="act-inverse-laplace-polynomial"><h3 class="heading">
+<span class="type">Activity</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.1.1</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Find <span class="process-math">\(\mathcal{L}^{-1}\!\left\{\dfrac{1+s}{s^3}\right\}\)</span>.</span>
+</h3>
+<div class="introduction" id="act-inverse-laplace-polynomial-2"><div class="para" id="act-inverse-laplace-polynomial-2-1">Work through the following steps.<div class="autopermalink" data-description="Paragraph"><a href="#act-inverse-laplace-polynomial-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></div>
+<article class="task exercise-like" id="task-inverse-poly-split"><h4 class="heading">
+<span class="codenumber">(a)</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Step 1: Simplify and Split.</span>
+</h4>
+<div class="ptx-runestone-container"><div class="runestone multiplechoice_section">
+<div class="exercise-statement"><div class="para" id="task-inverse-poly-split-2-1">Split <span class="process-math">\(\dfrac{1+s}{s^3}\)</span> over the numerator and simplify each term. Which of the following is correct?<div class="autopermalink" data-description="Paragraph"><a href="#task-inverse-poly-split-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></div>
+<ul data-component="multiplechoice" class="exercise-interactives" id="rs-task-inverse-poly-split" data-multipleanswers="false" data-random="">
+<li data-component="answer" id="rs-task-inverse-poly-split_opt_a" data-correct=""><div class="para" id="task-inverse-poly-split-3-1-1-1"><span class="process-math">\(\dfrac{1}{s^3} + \dfrac{1}{s^2}\)</span></div></li>
+<li data-component="feedback" id="rs-task-inverse-poly-split_opt_a"><div class="para" id="task-inverse-poly-split-3-1-2-1">Correct! Splitting gives <span class="process-math">\(\frac{1}{s^3} + \frac{s}{s^3}\text{,}\)</span> and <span class="process-math">\(\frac{s}{s^3} = \frac{1}{s^2}\text{.}\)</span>
+</div></li>
+<li data-component="answer" id="rs-task-inverse-poly-split_opt_b"><div class="para" id="task-inverse-poly-split-3-2-1-1"><span class="process-math">\(\dfrac{1}{s^3} + \dfrac{1}{s^3}\)</span></div></li>
+<li data-component="feedback" id="rs-task-inverse-poly-split_opt_b"><div class="para" id="task-inverse-poly-split-3-2-2-1">The second term is <span class="process-math">\(\frac{s}{s^3}\text{,}\)</span> not <span class="process-math">\(\frac{1}{s^3}\text{.}\)</span> Simplify by canceling one factor of <span class="process-math">\(s\text{.}\)</span>
+</div></li>
+<li data-component="answer" id="rs-task-inverse-poly-split_opt_c"><div class="para" id="task-inverse-poly-split-3-3-1-1"><span class="process-math">\(\dfrac{1}{s^3} + s\)</span></div></li>
+<li data-component="feedback" id="rs-task-inverse-poly-split_opt_c"><div class="para" id="task-inverse-poly-split-3-3-2-1">
+<span class="process-math">\(\frac{s}{s^3} = \frac{1}{s^2}\text{,}\)</span> not <span class="process-math">\(s\text{.}\)</span>
+</div></li>
+<li data-component="answer" id="rs-task-inverse-poly-split_opt_d"><div class="para" id="task-inverse-poly-split-3-4-1-1"><span class="process-math">\(\dfrac{1}{s^2} + \dfrac{1}{s^2}\)</span></div></li>
+<li data-component="feedback" id="rs-task-inverse-poly-split_opt_d"><div class="para" id="task-inverse-poly-split-3-4-2-1">Only the second term simplifies to <span class="process-math">\(\frac{1}{s^2}\text{.}\)</span> The first term is <span class="process-math">\(\frac{1}{s^3}\text{.}\)</span>
+</div></li>
+</ul>
+</div></div>
+<div class="autopermalink" data-description="Task 4.1.1.a: Step 1: Simplify and Split"><a href="#task-inverse-poly-split" title="Copy heading and permalink for Task 4.1.1.a: Step 1: Simplify and Split" aria-label="Copy heading and permalink for Task 4.1.1.a: Step 1: Simplify and Split">🔗</a></div></article><article class="task exercise-like" id="task-inverse-poly-table"><h4 class="heading">
+<span class="codenumber">(b)</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Step 2: Identify the Table Rows.</span>
+</h4>
+<div class="ptx-runestone-container"><div class="runestone multiplechoice_section">
+<div class="exercise-statement"><div class="para" id="task-inverse-poly-table-2-1">Looking at the <a href="sec-inverse-laplace-examples.html#table-laplace-transforms-ref" class="xref" data-knowl="./knowl/xref/table-laplace-transforms-ref.html" data-reveal-label="Reveal" data-close-label="Close" title="Table 4.1.1: Laplace Transform Table">table above 4.1.1</a>, which formula applies to each of the two terms <span class="process-math">\(\dfrac{1}{s^3}\)</span> and <span class="process-math">\(\dfrac{1}{s^2}\text{?}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#task-inverse-poly-table-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></div>
+<ul data-component="multiplechoice" class="exercise-interactives" id="rs-task-inverse-poly-table" data-multipleanswers="false" data-random="">
+<li data-component="answer" id="rs-task-inverse-poly-table_opt_a" data-correct=""><div class="para" id="task-inverse-poly-table-3-1-1-1">Both match Formula C, <span class="process-math">\(\mathcal{L}\{t^n\} = \dfrac{n!}{s^{n+1}}\text{,}\)</span> with different values of <span class="process-math">\(n\text{.}\)</span>
+</div></li>
+<li data-component="feedback" id="rs-task-inverse-poly-table_opt_a"><div class="para" id="task-inverse-poly-table-3-1-2-1">Correct! Both terms are of the form <span class="process-math">\(\frac{1}{s^{n+1}}\text{,}\)</span> just with different <span class="process-math">\(n\text{.}\)</span>
+</div></li>
+<li data-component="answer" id="rs-task-inverse-poly-table_opt_b"><div class="para" id="task-inverse-poly-table-3-2-1-1">
+<span class="process-math">\(\dfrac{1}{s^3}\)</span> matches Formula A and <span class="process-math">\(\dfrac{1}{s^2}\)</span> matches Formula C.</div></li>
+<li data-component="feedback" id="rs-task-inverse-poly-table_opt_b"><div class="para" id="task-inverse-poly-table-3-2-2-1">Formula A is just <span class="process-math">\(\frac{1}{s}\text{,}\)</span> which corresponds to <span class="process-math">\(n = 0\)</span> in Formula C. Both of your terms have higher powers of <span class="process-math">\(s\text{,}\)</span> so both match Formula C.</div></li>
+<li data-component="answer" id="rs-task-inverse-poly-table_opt_c"><div class="para" id="task-inverse-poly-table-3-3-1-1">Both match Formula B, <span class="process-math">\(\mathcal{L}\{e^{at}\} = \dfrac{1}{s-a}\text{.}\)</span>
+</div></li>
+<li data-component="feedback" id="rs-task-inverse-poly-table_opt_c"><div class="para" id="task-inverse-poly-table-3-3-2-1">Formula B has a linear denominator <span class="process-math">\(s - a\text{.}\)</span> Here the denominators are powers of <span class="process-math">\(s\text{,}\)</span> which match Formula C instead.</div></li>
+<li data-component="answer" id="rs-task-inverse-poly-table_opt_d"><div class="para" id="task-inverse-poly-table-3-4-1-1">
+<span class="process-math">\(\dfrac{1}{s^3}\)</span> matches Formula C and <span class="process-math">\(\dfrac{1}{s^2}\)</span> matches Formula H.</div></li>
+<li data-component="feedback" id="rs-task-inverse-poly-table_opt_d"><div class="para" id="task-inverse-poly-table-3-4-2-1">Formula H involves <span class="process-math">\(e^{at}\text{,}\)</span> which doesn’t appear here. Both terms match Formula C with different values of <span class="process-math">\(n\text{.}\)</span>
+</div></li>
+</ul>
+</div></div>
+<div class="autopermalink" data-description="Task 4.1.1.b: Step 2: Identify the Table Rows"><a href="#task-inverse-poly-table" title="Copy heading and permalink for Task 4.1.1.b: Step 2: Identify the Table Rows" aria-label="Copy heading and permalink for Task 4.1.1.b: Step 2: Identify the Table Rows">🔗</a></div></article><article class="task exercise-like" id="task-inverse-poly-compute"><h4 class="heading">
+<span class="codenumber">(c)</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Step 3: Compute the Inverse Transform.</span>
+</h4>
+<div class="para" id="task-inverse-poly-compute-2-1">Using Formula C, compute <span class="process-math">\(\mathcal{L}^{-1}\!\left\{\dfrac{1+s}{s^3}\right\}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#task-inverse-poly-compute-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="task-inverse-poly-compute-3" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="hint solution-like knowl__content">
+<div class="para logical" id="task-inverse-poly-compute-3-1">
+<div class="para">Match each term to Formula C by identifying <span class="process-math">\(n\text{:}\)</span>
+</div>
+<ul class="disc" id="task-inverse-poly-compute-3-1-2">
+<li id="task-inverse-poly-compute-3-1-2-1">
+<div class="para" id="task-inverse-poly-compute-3-1-2-1-1">
+<span class="process-math">\(\dfrac{1}{s^3} = \dfrac{1}{s^{2+1}}\text{,}\)</span> so <span class="process-math">\(n = 2\)</span> and <span class="process-math">\(n! = 2\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#task-inverse-poly-compute-3-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#task-inverse-poly-compute-3-1-2-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="task-inverse-poly-compute-3-1-2-2">
+<div class="para" id="task-inverse-poly-compute-3-1-2-2-1">
+<span class="process-math">\(\dfrac{1}{s^2} = \dfrac{1}{s^{1+1}}\text{,}\)</span> so <span class="process-math">\(n = 1\)</span> and <span class="process-math">\(n! = 1\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#task-inverse-poly-compute-3-1-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#task-inverse-poly-compute-3-1-2-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+</ul>
+<div class="para">Rewrite each term to get <span class="process-math">\(n!\)</span> in the numerator before applying the table.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#task-inverse-poly-compute-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Hint 4.1.1.c.1"><a href="#task-inverse-poly-compute-3" title="Copy heading and permalink for Hint 4.1.1.c.1" aria-label="Copy heading and permalink for Hint 4.1.1.c.1">🔗</a></div>
+</div></details><details id="task-inverse-poly-compute-4" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Full Solution</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="task-inverse-poly-compute-4-2">
+<div class="para">Starting from the beginning:</div>
+<div class="displaymath process-math" id="task-inverse-poly-compute-4-2-1">
+\begin{align*}
+\frac{1+s}{s^3} \amp= \frac{1}{s^3} + \frac{s}{s^3} = \frac{1}{s^3} + \frac{1}{s^2}.
+\end{align*}
+</div>
+<div class="para">Both terms match Formula C, <span class="process-math">\(\mathcal{L}\{t^n\} = \dfrac{n!}{s^{n+1}}\text{,}\)</span> with <span class="process-math">\(n = 2\)</span> and <span class="process-math">\(n = 1\)</span> respectively. Rewriting to get <span class="process-math">\(n!\)</span> on top:</div>
+<div class="displaymath process-math" id="task-inverse-poly-compute-4-2-6">
+\begin{align*}
+\mathcal{L}^{-1}\!\left\{\frac{1}{s^3} + \frac{1}{s^2}\right\}
+\amp= \mathcal{L}^{-1}\!\left\{\frac{1}{2!}\cdot\frac{2!}{s^{3}}\right\}
++ \mathcal{L}^{-1}\!\left\{\frac{1}{1!}\cdot\frac{1!}{s^{2}}\right\}\\
+\amp= \frac{1}{2}\,\mathcal{L}^{-1}\!\left\{\frac{2!}{s^{2+1}}\right\}
++ \mathcal{L}^{-1}\!\left\{\frac{1!}{s^{1+1}}\right\}\\
+\amp= \frac{1}{2}t^2 + t.
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#task-inverse-poly-compute-4-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 4.1.1.c.1: Full Solution"><a href="#task-inverse-poly-compute-4" title="Copy heading and permalink for Solution 4.1.1.c.1: Full Solution" aria-label="Copy heading and permalink for Solution 4.1.1.c.1: Full Solution">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Task 4.1.1.c: Step 3: Compute the Inverse Transform"><a href="#task-inverse-poly-compute" title="Copy heading and permalink for Task 4.1.1.c: Step 3: Compute the Inverse Transform" aria-label="Copy heading and permalink for Task 4.1.1.c: Step 3: Compute the Inverse Transform">🔗</a></div></article><div class="autopermalink" data-description="Activity 4.1.1: Find \mathcal{L}^{-1}\!\left\{\dfrac{1+s}{s^3}\right\}"><a href="#act-inverse-laplace-polynomial" title="Copy heading and permalink for Activity 4.1.1: Find \mathcal{L}^{-1}\!\left\{\dfrac{1+s}{s^3}\right\}" aria-label="Copy heading and permalink for Activity 4.1.1: Find \mathcal{L}^{-1}\!\left\{\dfrac{1+s}{s^3}\right\}">🔗</a></div></article><section class="conclusion" id="sec-inverse-laplace-examples-8"><h3 class="heading">Key Takeaways.<span></span>
+</h3>
+<div class="para logical" id="sec-inverse-laplace-examples-8-2">
+<ul class="disc" id="sec-inverse-laplace-examples-8-2-1">
+<li id="sec-inverse-laplace-examples-8-2-1-1">
+<div class="para" id="sec-inverse-laplace-examples-8-2-1-1-1">
+<em class="alert">Factor first:</em> if the denominator has a leading coefficient, factor it out before matching the table.<div class="autopermalink" data-description="Paragraph"><a href="#sec-inverse-laplace-examples-8-2-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#sec-inverse-laplace-examples-8-2-1-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="sec-inverse-laplace-examples-8-2-1-2">
+<div class="para" id="sec-inverse-laplace-examples-8-2-1-2-1">
+<em class="alert">Split over the numerator:</em> a sum in the numerator can always be split into separate fractions, then handle each one independently.<div class="autopermalink" data-description="Paragraph"><a href="#sec-inverse-laplace-examples-8-2-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#sec-inverse-laplace-examples-8-2-1-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="sec-inverse-laplace-examples-8-2-1-3">
+<div class="para" id="sec-inverse-laplace-examples-8-2-1-3-1">
+<em class="alert">Identify n carefully for Formula C:</em> match the power of <span class="process-math">\(s\)</span> in the denominator to <span class="process-math">\(s^{n+1}\text{,}\)</span> then rewrite to get <span class="process-math">\(n!\)</span> on top.<div class="autopermalink" data-description="Paragraph"><a href="#sec-inverse-laplace-examples-8-2-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#sec-inverse-laplace-examples-8-2-1-3" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+</ul>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec-inverse-laplace-examples-8-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></section><figure class="figure figure-like" id="video-inverse-laplace-examples"><div class="video-box" style="width: 100%;padding-top: 56.25%; margin-left: 0%; margin-right: 0%;"><iframe class="video" allowfullscreen="" src="https://www.youtube-nocookie.com/embed/VDo1YN6xf9E?&amp;modestbranding=1&amp;rel=0" id="video-inverse-laplace-examples-2"></iframe></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.1.4<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>This video goes through the content of this page.<div class="autopermalink" data-description="Figure 4.1.4"><a href="#video-inverse-laplace-examples" title="Copy heading and permalink for Figure 4.1.4" aria-label="Copy heading and permalink for Figure 4.1.4">🔗</a></div></figcaption></figure><div class="interactive-iframe-container"><iframe src="external/question-form.html?section=4.1.4" id="question-form-4-1-4" style="width:600px; height:300px; display: block; "></iframe></div>
+<div class="autopermalink" data-description="Section 4.1.4: More Inverse Laplace Transform Examples"><a href="#sec-inverse-laplace-examples" title="Copy heading and permalink for Section 4.1.4: More Inverse Laplace Transform Examples" aria-label="Copy heading and permalink for Section 4.1.4: More Inverse Laplace Transform Examples">🔗</a></div></section></div>
+<div id="ptx-content-footer" class="ptx-content-footer">
+<a class="previous-button button" href="sec-inverse-laplace.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="sec-4-2.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="338 3000 8772 6866" role="img"><title>PreTeXt logo</title><g style="stroke-width:.025in; stroke:currentColor; fill:none"><polyline points="472,3590 472,9732 " style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png" alt="Runstone Academy logo"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png" alt="MathJax logo"></a>
+</div>
+</body>
+</html>

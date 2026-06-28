@@ -3688,7 +3688,7 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "3.5.1",
   "title": "A First Look at Non-Homogeneous Equations",
-  "body": " A First Look at Non-Homogeneous Equations   So far we have only solved 2nd order, constant-coefficient DEs where the right-hand side is zero: These are called homogeneous equations. Now we turn to the non-homogeneous case, where the right-hand side is a nonzero function of :   Solving this in full generality is hard. But for certain simple, well-behaved choices of , we can make progress with a clever strategy. On this page we focus on functions of the form and we will discover the method by working through examples, so treat this as an exploration, not a formula to memorize yet.    Example 1: Finding a Particular Solution   We want to find a particular solution  to That means: a single specific function that makes this equation true.     What should we guess for ?   We need . The right-hand side is , so we need a function whose second derivative is also a multiple of . Which of the following is the most natural guess? (Don't worry, we haven't learned a rule for this yet. Go with your gut!)       Yes! Since , differentiating twice brings back a cosine, which is exactly what we need on the left to match on the right. We just have to find the right value of .        An exponential would give , so the left side becomes , with no cosines anywhere. We can't match this way.       A linear function gives , so the left side is just , a polynomial and not a cosine. This won't work.       Close in spirit! A sine would give , so the left side is . That's a sine, but the right-hand side is a cosine, so they can't be equal for any value of .        Plugging in and solving for   Now we plug the guess into and solve for . Computing derivatives: Substituting: Every term has a factor of , so we divide through by it: A particular solution is:       So for the ODE , we took the guess . Plugging it in gave us the equation , and solving gave , so the particular solution is .  We now try a similar example, but this time the ODE includes a term. Let's see what happens when we try the same type of guess.    Example 2: When the Same Guess Doesn't Work   Now try the same strategy on a different equation: Guess and see what happens.     Plugging in   With , compute and , substitute into , and simplify as much as you can. What do you get?    You'll get both and terms on the left side. Collect them separately.    With : Substituting: Collecting like terms: Rearranging:       Why we're stuck   We need to hold for every value of . But a sine and a cosine can never be equal for all unless both sides are zero. No matter what value we pick for , the left side is a sine and the right side is a cosine, and there is no way to make them match. Our guess has failed!      What went wrong?   After substituting we ended up with a term stuck on the left side that couldn't be cancelled. Why did this happen? (this is exploratory, so take your best shot!)      The term in the ODE. Differentiating gives , and that sine got multiplied by the coefficient of , leaving a sine term with no way to cancel it.    Exactly! In Example 1, there was no term, so differentiating produced a that immediately disappeared again. Here the term keeps that sine alive, and our guess has no sine to absorb it.      The ODE has a term with a negative coefficient ( ).   The sign on doesn't cause the problem. Even with a positive coefficient, differentiating would still produce a via the term.     The right-hand side is instead of a higher frequency like .   The frequency of the right-hand side doesn't cause the trouble here. The issue appears regardless of whether we have or on the right.     We should have included a coefficient on the guess, like .   The extra factor of 2 doesn't help — it's still just a constant times , and the term will still produce an uncancelled .        So the guess failed because the term introduced a that had nowhere to go. We need a guess with enough flexibility to absorb both sine and cosine terms. Before moving on: can you think of how to modify the guess to fix this? We will work through this on the next page!    Key Takeaways     The method: To find a particular solution to a non-homogeneous equation, we can guess the form of , plug it in, and solve for the unknown constants. Because the constants are initially unknown, this approach is called the method of undetermined coefficients .   The guess matters: As seen in Example 2, guessing alone won't always work. Differentiating a cosine produces a sine, and if the ODE has a term, that sine has nowhere to go. On the next page we'll see what guess does always work for sinusoidal right-hand sides.       This video goes through the content of this page.     "
+  "body": " A First Look at Non-Homogeneous Equations   So far we have only solved 2nd order, constant-coefficient DEs where the right-hand side is zero: These are called homogeneous equations. Now we turn to the non-homogeneous case, where the right-hand side is a nonzero function of :   Solving this in full generality is hard. But for certain simple, well-behaved choices of , we can make progress with a clever strategy (which we will call the method of undetermined coefficients ). On this page we focus on functions of the form and we will discover the method by working through examples, so treat this as an exploration for now. Over the next few pages, we will have fully laid out the strategy!    Example 1: Finding a Particular Solution   We want to find a particular solution  to That means: a single specific function that makes this equation true.     What should we guess for ?   We need . The right-hand side is , so we need a function whose second derivative is also a multiple of . Which of the following is the most natural guess? (Don't worry, we haven't learned a rule for this yet. Take your best guess!)       Yes! Since , differentiating twice brings back a cosine, which is exactly what we need on the left to match on the right. We just have to find the right value of .        An exponential would give , so the left side becomes , with no cosines anywhere. We can't match this way.       A linear function gives , so the left side is just , a polynomial and not a cosine. This won't work.       Close in spirit! A sine would give , so the left side is . That's a sine, but the right-hand side is a cosine, so they can't be equal for any value of .        Plugging in and solving for   Now we plug the guess into and solve for . Computing derivatives: Substituting: Every term has a factor of , so we divide through by it: A particular solution is:       So for the ODE , we took the guess . Plugging it in gave us the equation , and solving gave , so the particular solution is .  We now try a similar example, but this time the ODE includes a term. Let's see what happens when we try the same type of guess.    Example 2: When the Same Guess Doesn't Work   Now try the same strategy on a different equation: Guess and see what happens.     Plugging in   With , compute and , substitute into , and simplify as much as you can. What do you get?    You'll get both and terms on the left side. Collect them separately.    With : Substituting: Collecting like terms: Rearranging:       Why we're stuck   We need to hold for every value of . But a sine and a cosine can never be equal for all unless both sides are zero. No matter what value we pick for , the left side is a sine and the right side is a cosine, and there is no way to make them match. Our guess has failed!      What went wrong?   After substituting we ended up with a term stuck on the left side that couldn't be cancelled. Why did this happen? (this is exploratory, so take your best shot!)      The term in the ODE. Differentiating gives , and that sine got multiplied by the coefficient of , leaving a sine term with no way to cancel it.    Exactly! In Example 1, there was no term, so differentiating produced a that immediately disappeared again. Here the term keeps that sine alive, and our guess has no sine to absorb it.      The ODE has a term with a negative coefficient ( ).   The sign on doesn't cause the problem. Even with a positive coefficient, differentiating would still produce a via the term.     The right-hand side is instead of a higher frequency like .   The frequency of the right-hand side doesn't cause the trouble here. The issue appears regardless of whether we have or on the right.     We should have included a coefficient on the guess, like .   The extra factor of 2 doesn't help — it's still just a constant times , and the term will still produce an uncancelled .        So the guess failed because the term introduced a that had nowhere to go. We need a guess with enough flexibility to absorb both sine and cosine terms. Before moving on: can you think of how to modify the guess to fix this? We will work through this on the next page!    Key Takeaways     The method: To find a particular solution to a non-homogeneous equation, we can guess the form of , plug it in, and solve for the unknown constants. Because the constants are initially unknown, this approach is called the method of undetermined coefficients .   The guess matters: As seen in Example 2, guessing alone won't always work. Differentiating a cosine produces a sine, and if the ODE has a term, that sine has nowhere to go. On the next page we'll see what guess does always work for sinusoidal right-hand sides.       This video goes through the content of this page.     "
 },
 {
   "id": "sec-undetermined-part-1-2",
@@ -3706,7 +3706,7 @@ var ptx_lunr_docs = [
   "type": "Exploration",
   "number": "3.5.1",
   "title": "Example 1: Finding a Particular Solution.",
-  "body": " Example 1: Finding a Particular Solution   We want to find a particular solution  to That means: a single specific function that makes this equation true.     What should we guess for ?   We need . The right-hand side is , so we need a function whose second derivative is also a multiple of . Which of the following is the most natural guess? (Don't worry, we haven't learned a rule for this yet. Go with your gut!)       Yes! Since , differentiating twice brings back a cosine, which is exactly what we need on the left to match on the right. We just have to find the right value of .        An exponential would give , so the left side becomes , with no cosines anywhere. We can't match this way.       A linear function gives , so the left side is just , a polynomial and not a cosine. This won't work.       Close in spirit! A sine would give , so the left side is . That's a sine, but the right-hand side is a cosine, so they can't be equal for any value of .        Plugging in and solving for   Now we plug the guess into and solve for . Computing derivatives: Substituting: Every term has a factor of , so we divide through by it: A particular solution is:     "
+  "body": " Example 1: Finding a Particular Solution   We want to find a particular solution  to That means: a single specific function that makes this equation true.     What should we guess for ?   We need . The right-hand side is , so we need a function whose second derivative is also a multiple of . Which of the following is the most natural guess? (Don't worry, we haven't learned a rule for this yet. Take your best guess!)       Yes! Since , differentiating twice brings back a cosine, which is exactly what we need on the left to match on the right. We just have to find the right value of .        An exponential would give , so the left side becomes , with no cosines anywhere. We can't match this way.       A linear function gives , so the left side is just , a polynomial and not a cosine. This won't work.       Close in spirit! A sine would give , so the left side is . That's a sine, but the right-hand side is a cosine, so they can't be equal for any value of .        Plugging in and solving for   Now we plug the guess into and solve for . Computing derivatives: Substituting: Every term has a factor of , so we divide through by it: A particular solution is:     "
 },
 {
   "id": "exploration-undetermined-guess-fails",
@@ -3742,7 +3742,7 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "3.5.2",
   "title": "The Guess That Works",
-  "body": " The Guess That Works   We continue with the example from . Recall we were trying to find a particular solution to We tried the guess , but it failed: the term introduced a that had nowhere to cancel. We need a guess flexible enough to absorb both sine and cosine terms.    Finding a Particular Solution with    Choosing the guess   Our last guess failed because differentiating it produced a term we couldn't cancel. What modification to the guess might give us the flexibility to handle that? (Give it a shot, we will see in the next part why the right answer works!)       Good instinct! In the next part we will see that including both and in the guess gives us enough room to cancel the sine term that appears when we differentiate.       A polynomial term like would introduce powers of that have no match on the right-hand side. We need something that stays in the world of sines and cosines.       An exponential factor would survive differentiation and produce terms with that can't match the right-hand side.       This would produce polynomial-times-trig terms after differentiation, which is more complicated than we need here. A simpler modification works.        Plugging in and solving for and   Use the guess . Its derivatives are:    Substitute into and solve for and to find .    Substituting: Collecting the sine and cosine terms separately: Since and are independent, their coefficients must match on both sides, giving the system:   Solving for and  From the first equation: . Substituting into the second: Then .  So and , giving the particular solution:       The guess worked here, and it will work in most cases. However, there is one special situation where this guess fails: when the guess itself looks like part of the homogeneous solution. We call this the case of duplication , and we will need a different guess there. That case is coming up on the next page.    A Useful Strategy for Non-Homogeneous Equations  To find a particular solution to guess substitute into the ODE, match coefficients of and on both sides, and solve for and . This works in most cases (see note above about duplication).    One thing to be clear about: the in the guess comes directly from the right-hand side of the ODE. For example, in whatever frequency appears in the non-homogeneous term is the same frequency you use in your guess .     Which of the following is the correct form of the guess for finding a particular solution to        Correct! The right-hand side has frequency , so the guess uses and .        Close in form, but the frequency is wrong. The right-hand side has , so the guess should use frequency , not .       This was our first instinct on the previous page, and it ran into trouble when the term introduced a sine. We need both and in the guess.       The frequency doesn't match the right-hand side. The here comes from the coefficient of in the ODE, not from . Always look at the right-hand side for .       Key Takeaways     The strategy: To find a particular solution to , guess , plug in, match coefficients of sine and cosine separately, and solve for and .   Coming up: On the next page we will see the case of duplication, where the guess fails and a different approach is needed.       This video goes through the content of this page.     "
+  "body": " The Guess That Works   We continue with the example from . Recall we were trying to find a particular solution to We tried the guess , but it failed: the term introduced a that had nowhere to cancel. We need a guess flexible enough to absorb both sine and cosine terms.    Finding a Particular Solution with    Choosing the guess   Our last guess failed because differentiating it produced a term we couldn't cancel. What modification to the guess might give us the flexibility to handle that? (Give it a shot, we will see in the next part why the right answer works!)       Good instinct! In the next part we will see that including both and in the guess gives us enough room to cancel the sine term that appears when we differentiate.       A polynomial term like would introduce powers of that have no match on the right-hand side. We need something that stays in the world of sines and cosines.       An exponential factor would survive differentiation and produce terms with that can't match the right-hand side.       This would produce polynomial-times-trig terms after differentiation, which is more complicated than we need here. A simpler modification works.        Plugging in and solving for and (can skim\/reference if needed)   Use the guess . Its derivatives are:    Substitute into and solve for and to find .    Substituting: Collecting the sine and cosine terms separately: Since and are independent, their coefficients must match on both sides, giving the system:   Solving for and  From the first equation: . Substituting into the second: Then .  So and , giving the particular solution:       The guess worked here, and it will work in most cases. However, there is one special situation where this guess fails: when the guess itself looks like part of the homogeneous solution. We call this the case of duplication , and we will need a different guess there. That case is coming up on the next page.    A Useful Strategy for Most Non-Homogeneous Equations  To find a particular solution to guess substitute into the ODE, match coefficients of and on both sides, and solve for and . This works in most cases (see note above about duplication).    One thing to be careful about: the in the guess comes directly from the right-hand side of the ODE. For example, in whatever frequency appears in the non-homogeneous term is the same frequency you use in your guess .     Which of the following is the correct form of the guess for finding a particular solution to        Correct! The right-hand side has frequency , so the guess uses and .        Close in form, but the frequency is wrong. The right-hand side has , so the guess should use frequency , not .       This was our first instinct on the previous page, and it ran into trouble when the term introduced a sine. We need both and in the guess.       The frequency doesn't match the right-hand side. The here comes from the coefficient of in the ODE, not from . Always look at the right-hand side for .       Key Takeaways     The strategy: To find a particular solution to , guess , plug in, match coefficients of sine and cosine separately, and solve for and .   Coming up: On the next page we will see the case of duplication, where the guess fails and a different approach is needed.       This video goes through the content of this page.     "
 },
 {
   "id": "example-undetermined-AB-guess",
@@ -3751,7 +3751,7 @@ var ptx_lunr_docs = [
   "type": "Example",
   "number": "3.5.1",
   "title": "Finding a Particular Solution with <span class=\"process-math\">\\(y_p = A\\cos(t) + B\\sin(t)\\)<\/span>.",
-  "body": " Finding a Particular Solution with    Choosing the guess   Our last guess failed because differentiating it produced a term we couldn't cancel. What modification to the guess might give us the flexibility to handle that? (Give it a shot, we will see in the next part why the right answer works!)       Good instinct! In the next part we will see that including both and in the guess gives us enough room to cancel the sine term that appears when we differentiate.       A polynomial term like would introduce powers of that have no match on the right-hand side. We need something that stays in the world of sines and cosines.       An exponential factor would survive differentiation and produce terms with that can't match the right-hand side.       This would produce polynomial-times-trig terms after differentiation, which is more complicated than we need here. A simpler modification works.        Plugging in and solving for and   Use the guess . Its derivatives are:    Substitute into and solve for and to find .    Substituting: Collecting the sine and cosine terms separately: Since and are independent, their coefficients must match on both sides, giving the system:   Solving for and  From the first equation: . Substituting into the second: Then .  So and , giving the particular solution:     "
+  "body": " Finding a Particular Solution with    Choosing the guess   Our last guess failed because differentiating it produced a term we couldn't cancel. What modification to the guess might give us the flexibility to handle that? (Give it a shot, we will see in the next part why the right answer works!)       Good instinct! In the next part we will see that including both and in the guess gives us enough room to cancel the sine term that appears when we differentiate.       A polynomial term like would introduce powers of that have no match on the right-hand side. We need something that stays in the world of sines and cosines.       An exponential factor would survive differentiation and produce terms with that can't match the right-hand side.       This would produce polynomial-times-trig terms after differentiation, which is more complicated than we need here. A simpler modification works.        Plugging in and solving for and (can skim\/reference if needed)   Use the guess . Its derivatives are:    Substitute into and solve for and to find .    Substituting: Collecting the sine and cosine terms separately: Since and are independent, their coefficients must match on both sides, giving the system:   Solving for and  From the first equation: . Substituting into the second: Then .  So and , giving the particular solution:     "
 },
 {
   "id": "sec-undetermined-part-2-4",
@@ -3768,8 +3768,8 @@ var ptx_lunr_docs = [
   "url": "sec-undetermined-part-2.html#obs-undetermined-strategy",
   "type": "Observation",
   "number": "3.5.2",
-  "title": "A Useful Strategy for Non-Homogeneous Equations.",
-  "body": " A Useful Strategy for Non-Homogeneous Equations  To find a particular solution to guess substitute into the ODE, match coefficients of and on both sides, and solve for and . This works in most cases (see note above about duplication).  "
+  "title": "A Useful Strategy for Most Non-Homogeneous Equations.",
+  "body": " A Useful Strategy for Most Non-Homogeneous Equations  To find a particular solution to guess substitute into the ODE, match coefficients of and on both sides, and solve for and . This works in most cases (see note above about duplication).  "
 },
 {
   "id": "ex-mc-undet-guess",
@@ -3796,7 +3796,7 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "3.5.3",
   "title": "The Case of Duplication",
-  "body": " The Case of Duplication    When the Usual Guess Breaks Down   Let's try to find a particular solution to We will follow the strategy from and see what happens.     The typical guess   Based on the strategy from the previous page, the right-hand side is , so and the typical guess is: Its derivatives are: Let's plug this in and see what happens.      Plugging in   Substituting into : Expanding the right bracket and collecting: Everything cancels: This is never true. No values of and can make this work.      What went wrong?   The left side collapsed to no matter what and are. Why did this happen? (This is exploratory, so take your best shot!)      The guess is itself a solution to the corresponding homogeneous equation , so when we substitute it in, the left side always simplifies to .    Exactly! Since solves , plugging it into always gives , never . The guess is \"invisible\" to the left-hand side operator.      We made an error computing .   The derivatives are correct: differentiating twice gives . The cancellation is real, not a mistake.     The equation has no particular solution.   The equation does have a particular solution. The problem is with our guess, not the equation itself.     We should have used in the guess since the coefficient of is .   The in the guess always comes from the right-hand side, not from the coefficients of the ODE. Here , so is correct.        The guess failed because already solves the homogeneous equation . This is the case of duplication : the guess we would normally use is a solution to the corresponding homogeneous ODE, so substituting it in always gives on the left, making it impossible to match the right-hand side.    We are in the case of duplication when, in the ODE the typical guess already solves the corresponding homogeneous equation . What would the ODE need to look like for this to happen?       Correct! Since , we get , and similarly for , so solves .        The homogeneous version has characteristic roots , giving exponential solutions and , not sines and cosines.       Close in form, but the coefficient of needs to be , not . Since , we need the coefficient of to be exactly for the cancellation to happen.       If there is a term, differentiating produces a sine or cosine that does not cancel, so the guess does not solve the homogeneous equation. Duplication only occurs when .      Note that the coefficient of does not need to be 1. If the ODE is , dividing through by gives , which is still the case of duplication.  To handle the case of duplication, we need a modified guess whose left-hand side does not collapse to zero. It turns out that multiplying the usual guess by does the trick: the factor disrupts the cancellation so that simplifies to a combination of and terms rather than .    Case of Duplication   Suppose the homogeneous equation has general solution containing . Then the guess will always give on the left-hand side of This occurs specifically when the ODE can be written in the form: In this case, use the modified guess:      The reason this works: when we differentiate using the product rule, we get two types of terms — terms with a factor of , and terms without. When we substitute into the ODE, the terms with cancel out (since solves the homogeneous equation). What remains are the terms without : plain and terms that we can match to the right-hand side.   Why does multiplying by fix things? (can skim)  We work with our specific example and . Differentiating with the product rule: Now substitute into : The terms cancel: What remains are the terms without : This is a genuine combination of and that we can match to on the right-hand side to solve for and .     Key Takeaways     Case of duplication: If the usual guess is already a solution to the corresponding homogeneous equation, substituting it in gives on the left, so it can never work as a particular solution.   When does it happen: The case of duplication occurs when the homogeneous ODE has the form , since and are exactly the homogeneous solutions in that case. Equivalently, the frequency on the right-hand side matches the coefficient of in the ODE (since the coefficient is ).   The fix: Multiply the usual guess by , giving . On the next page we will use this modified guess to actually solve an example in this case.       This video goes through the content of this page.     "
+  "body": " The Case of Duplication    When the Usual Guess Breaks Down   Let's try to find a particular solution to We will follow the strategy from and see what happens.     The typical guess   Based on the strategy from the previous page, the right-hand side is , so and the typical guess is: Its derivatives are: Let's plug this in and see what happens.      Plugging in   Substituting into : Expanding the right bracket and collecting: Everything cancels: This is never true. No values of and can make this work.      What went wrong?   The left side collapsed to no matter what and are. Why did this happen? (This is exploratory, so take your best shot!)      The guess is itself a solution to the corresponding homogeneous equation , so when we substitute it in, the left side always simplifies to .    Exactly! Since solves , plugging it into always gives , never . The guess is \"invisible\" to the left-hand side operator.      We made an error computing .   The derivatives are correct: differentiating twice gives . The cancellation is real, not a mistake.     The equation has no particular solution.   The equation does have a particular solution. The problem is with our guess, not the equation itself.     We should have used in the guess since the coefficient of is .   The in the guess always comes from the right-hand side, not from the coefficients of the ODE. Here , so is correct.        The guess failed because already solves the homogeneous equation . This is the case of duplication : the guess we would normally use is a solution to the corresponding homogeneous ODE, so substituting it in always gives on the left, making it impossible to match the right-hand side.    We are in the case of duplication when, in the ODE the typical guess already solves the corresponding homogeneous equation . What would the ODE need to look like for this to happen?       Correct! Since , we get , and similarly for , so solves .        The homogeneous version has characteristic roots , giving exponential solutions and , not sines and cosines.       Close in form, but the coefficient of needs to be , not . Since , we need the coefficient of to be exactly for the cancellation to happen.       If there is a term, differentiating produces a sine or cosine that does not cancel, so the guess does not solve the homogeneous equation. Duplication only occurs when .      Note that the coefficient of does not need to be 1. If the ODE is , dividing through by gives , which is still the case of duplication.  To handle the case of duplication, we need a modified guess whose left-hand side does not collapse to zero. It turns out that multiplying the usual guess by does the trick: the factor disrupts the cancellation so that simplifies to a combination of and terms rather than .    Case of Duplication   Suppose the homogeneous equation has general solution containing . Then the guess will always give on the left-hand side of This occurs specifically when the ODE can be written in the form: In this case, use the modified guess:      The reason this works: when we differentiate using the product rule, we get two types of terms: terms with a factor of , and terms without. When we substitute into the ODE, the terms with cancel out (since solves the homogeneous equation). What remains are the terms without : plain and terms that we can match to the right-hand side.   Why does multiplying by fix things? (can skim)  We work with our specific example and . Differentiating with the product rule: Now substitute into : The terms cancel: What remains are the terms without : This is a genuine combination of and that we can match to on the right-hand side to solve for and .     Key Takeaways     Case of duplication: If the usual guess is already a solution to the corresponding homogeneous equation, substituting it in gives on the left, so it can never work as a particular solution.   When does it happen: The case of duplication occurs when the ODE has the form , since and are solutions to the corresponding homogeneous ODE in this case.   The fix: Multiply the usual guess by , giving . On the next page we will use this modified guess to actually solve an example in this case.       This video goes through the content of this page.     "
 },
 {
   "id": "exploration-duplication",
@@ -3886,7 +3886,7 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "3.5.5",
   "title": "Practice: Finding the Right Guess for <span class=\"process-math\">\\(y_p\\)<\/span>",
-  "body": " Practice: Finding the Right Guess for   Before we put together a full general solution, let's make sure we're comfortable identifying the correct guess for . We have two cases to keep in mind, summarized below.   Choosing the Guess for  Given :     Normal case (from ): use the guess .   Case of duplication (from ): if the ODE can be written as (same on both sides, no term), use the modified guess .    The key step in identifying the case of duplication: write the ODE in standard form (divide through so the leading coefficient is ) and check whether the coefficient of equals .   The questions below give you practice at just this identification step; you don't need to solve for and , just state the correct form of the guess.    Identifying the Correct Guess    A standard example   What is the correct form of the guess for finding a particular solution to        Correct! Both terms on the right-hand side share frequency , so the guess uses and . The coefficient of is , so this is the normal case, no extra needed.        The minus sign on the right-hand side doesn't change the form of the guess. We always write and let the algebra determine the signs of and when we solve; one of them may turn out to be negative.       This is the case-of-duplication guess, but we're not in that case here. Duplication occurs only when the ODE has the form with the same on both sides. Here the coefficient of is , so we don't need the extra .       Since both terms on the right have the same frequency, we only need one pair of undetermined coefficients. The guess already has enough flexibility to match both the cosine and sine parts of the right-hand side simultaneously.        A case of duplication   What is the correct form of the guess for finding a particular solution to        Correct! Both terms on the right-hand side have frequency , and the coefficient of is . This is the case of duplication, so we multiply the usual guess by .        This is the usual guess, but it will fail here. The ODE has characteristic equation , giving roots , so the homogeneous solution is . Our guess is already a solution to the homogeneous equation, so plugging it in gives on the left, never matching the right-hand side.       Even setting aside the duplication issue, a cosine-only guess won't work for a right-hand side that includes . And since we're in the case of duplication, we need the -multiplied form as well.       We're in the case of duplication, so we do need the extra , but the full guess must include both and inside, not just the cosine.        Watch out for a negative coefficient   What is the correct form of the guess for finding a particular solution to        Correct! Even though and , the coefficient of is , not . The case of duplication requires the coefficient of to be , which means the homogeneous solutions are and . Here the characteristic equation is , giving real roots and homogeneous solution , with no trig at all! So the usual guess works fine, with both terms covered by a single pair .        It's tempting to see and the number and call this duplication, but the sign matters! The coefficient of is , not . The homogeneous equation has real exponential solutions and , not trig functions. The usual guess is not a homogeneous solution, so the extra is not needed.       These are the homogeneous solutions, not a form that can match on the right-hand side. The guess should mirror the form of .       The right-hand side has both a cosine and a sine term, so a cosine-only guess can't possibly match both. We always need when involves trig at frequency .        Remember to put the ODE in standard form first   What is the correct form of the guess for finding a particular solution to        Correct! The trick here is to put the ODE in standard form first by dividing through by : Now the coefficient of is , so we are in the case of duplication. The modified guess is .        This looks right at first glance, but don't forget to put the ODE in standard form first. Dividing by gives , and now , so this is the case of duplication. The usual guess will give on the left-hand side.     , but first replace the right-hand side with since we'll divide by 2 later.   Dividing by changes the right-hand side too, giving , not the original. But the form of the guess is otherwise correct: .       The frequency in the guess always comes from the right-hand side of the ODE. Both and on the right have frequency . The coefficient is from the left-hand side and doesn't set the frequency.        A subtle one   What is the correct form of the guess for finding a particular solution to        Correct! It's tempting to see the in and the on the right and call this duplication, but check carefully. The frequency is , so we need the coefficient of to equal for duplication. Here the coefficient is only , so this is the normal case.        This is the most natural wrong answer here! The in and the on the right look like they match, but duplication requires the coefficient of to equal , not . Since , we need the coefficient to be , not . The homogeneous equation has solutions and (frequency , not ), so the guess doesn't duplicate anything.       The frequency in the guess must match the right-hand side, which has frequency . The here comes from solving the homogeneous equation (whose solutions oscillate at frequency ), but that's not where the guess frequency comes from.       Neither the frequency nor the duplication call is right here. The guess frequency should match the right-hand side ( ), and since the coefficient of is , we're not in the case of duplication and don't need the extra .        Now that we can reliably identify the right guess, the next step is to use it to build the full general solution: not just a particular solution, but the complete picture including the complementary function.    There is no video associated with this page.    "
+  "body": " Practice: Finding the Right Guess for   Before we put together a full general solution, let's make sure we're comfortable identifying the correct guess for . We have two cases to keep in mind, summarized below.   Choosing the Guess for  Given :     Normal case (from ): use the guess .   Case of duplication (from ): if the ODE can be written as (same on both sides, no term), use the modified guess .    The key step in identifying the case of duplication: write the ODE in standard form (divide through so the leading coefficient is ) and check whether the coefficient of equals .   The questions below give you practice at just this identification step; you don't need to solve for and , just state the correct form of the guess.    Identifying the Correct Guess    A standard example   What is the correct form of the guess for finding a particular solution to        Correct! Both terms on the right-hand side share frequency , so the guess uses and . The coefficient of is , so this is the normal case, no extra needed.        The minus sign on the right-hand side doesn't change the form of the guess. We always write and let the algebra determine the signs of and when we solve; one of them may turn out to be negative.       This is the case-of-duplication guess, but we're not in that case here. Duplication occurs only when the ODE has the form with the same on both sides. Here the coefficient of is , so we don't need the extra .       Since both terms on the right have the same frequency, we only need one pair of undetermined coefficients. The guess already has enough flexibility to match both the cosine and sine parts of the right-hand side simultaneously.        A case of duplication   What is the correct form of the guess for finding a particular solution to        Correct! Both terms on the right-hand side have frequency , and the coefficient of is . This is the case of duplication, so we multiply the usual guess by .        This is the usual guess, but it will fail here. The ODE has characteristic equation , giving roots , so the homogeneous solution is . Our guess is already a solution to the homogeneous equation, so plugging it in gives on the left, never matching the right-hand side.       Even setting aside the duplication issue, a cosine-only guess won't work for a right-hand side that includes . And since we're in the case of duplication, we need the -multiplied form as well.       We're in the case of duplication, so we do need the extra , but the full guess must include both and inside, not just the cosine.        Watch out for a negative coefficient   What is the correct form of the guess for finding a particular solution to        Correct! Even though and , the coefficient of is , not . The case of duplication requires the coefficient of to be , which means the homogeneous solutions are and . Here the characteristic equation is , giving real roots and homogeneous solution , with no trig at all! So the usual guess works fine, with both terms covered by a single pair .        It's tempting to see and the number and call this duplication, but the sign matters! The coefficient of is , not . The homogeneous equation has real exponential solutions and , not trig functions. The usual guess is not a homogeneous solution, so the extra is not needed.       These are the homogeneous solutions, not a form that can match on the right-hand side. The guess should mirror the form of .       The right-hand side has both a cosine and a sine term, so a cosine-only guess can't possibly match both. We always need when involves trig at frequency .        Remember to put the ODE in standard form first   What is the correct form of the guess for finding a particular solution to        Correct! The trick here is to put the ODE in standard form first by dividing through by : Now the coefficient of is , so we are in the case of duplication. The modified guess is .        This looks right at first glance, but don't forget to put the ODE in standard form first. Dividing by gives , and now , so this is the case of duplication. The usual guess will give on the left-hand side.       The frequency in the guess always comes from the right-hand side of the ODE. Both and on the right have frequency . The coefficient is from the left-hand side and doesn't set the frequency.        A subtle one   What is the correct form of the guess for finding a particular solution to        Correct! It's tempting to see the in and the on the right and call this duplication, but check carefully. The frequency is , so we need the coefficient of to equal for duplication. Here the coefficient is only , so this is the normal case.        This is the most natural wrong answer here! The in and the on the right look like they match, but duplication requires the coefficient of to equal , not . Since , we need the coefficient to be , not . The homogeneous equation has solutions and (frequency , not ), so the guess doesn't duplicate anything.       The frequency in the guess must match the right-hand side, which has frequency . The here comes from solving the homogeneous equation (whose solutions oscillate at frequency ), but that's not where the guess frequency comes from.       Neither the frequency nor the duplication call is right here. The guess frequency should match the right-hand side ( ), and since the coefficient of is , we're not in the case of duplication and don't need the extra .        Now that we can reliably identify the right guess, the next step is to use it to build the full general solution: not just a particular solution, but the complete picture including the complementary function.    There is no video associated with this page.    "
 },
 {
   "id": "activity-guess-practice",
@@ -3895,7 +3895,7 @@ var ptx_lunr_docs = [
   "type": "Activity",
   "number": "3.5.1",
   "title": "Identifying the Correct Guess.",
-  "body": " Identifying the Correct Guess    A standard example   What is the correct form of the guess for finding a particular solution to        Correct! Both terms on the right-hand side share frequency , so the guess uses and . The coefficient of is , so this is the normal case, no extra needed.        The minus sign on the right-hand side doesn't change the form of the guess. We always write and let the algebra determine the signs of and when we solve; one of them may turn out to be negative.       This is the case-of-duplication guess, but we're not in that case here. Duplication occurs only when the ODE has the form with the same on both sides. Here the coefficient of is , so we don't need the extra .       Since both terms on the right have the same frequency, we only need one pair of undetermined coefficients. The guess already has enough flexibility to match both the cosine and sine parts of the right-hand side simultaneously.        A case of duplication   What is the correct form of the guess for finding a particular solution to        Correct! Both terms on the right-hand side have frequency , and the coefficient of is . This is the case of duplication, so we multiply the usual guess by .        This is the usual guess, but it will fail here. The ODE has characteristic equation , giving roots , so the homogeneous solution is . Our guess is already a solution to the homogeneous equation, so plugging it in gives on the left, never matching the right-hand side.       Even setting aside the duplication issue, a cosine-only guess won't work for a right-hand side that includes . And since we're in the case of duplication, we need the -multiplied form as well.       We're in the case of duplication, so we do need the extra , but the full guess must include both and inside, not just the cosine.        Watch out for a negative coefficient   What is the correct form of the guess for finding a particular solution to        Correct! Even though and , the coefficient of is , not . The case of duplication requires the coefficient of to be , which means the homogeneous solutions are and . Here the characteristic equation is , giving real roots and homogeneous solution , with no trig at all! So the usual guess works fine, with both terms covered by a single pair .        It's tempting to see and the number and call this duplication, but the sign matters! The coefficient of is , not . The homogeneous equation has real exponential solutions and , not trig functions. The usual guess is not a homogeneous solution, so the extra is not needed.       These are the homogeneous solutions, not a form that can match on the right-hand side. The guess should mirror the form of .       The right-hand side has both a cosine and a sine term, so a cosine-only guess can't possibly match both. We always need when involves trig at frequency .        Remember to put the ODE in standard form first   What is the correct form of the guess for finding a particular solution to        Correct! The trick here is to put the ODE in standard form first by dividing through by : Now the coefficient of is , so we are in the case of duplication. The modified guess is .        This looks right at first glance, but don't forget to put the ODE in standard form first. Dividing by gives , and now , so this is the case of duplication. The usual guess will give on the left-hand side.     , but first replace the right-hand side with since we'll divide by 2 later.   Dividing by changes the right-hand side too, giving , not the original. But the form of the guess is otherwise correct: .       The frequency in the guess always comes from the right-hand side of the ODE. Both and on the right have frequency . The coefficient is from the left-hand side and doesn't set the frequency.        A subtle one   What is the correct form of the guess for finding a particular solution to        Correct! It's tempting to see the in and the on the right and call this duplication, but check carefully. The frequency is , so we need the coefficient of to equal for duplication. Here the coefficient is only , so this is the normal case.        This is the most natural wrong answer here! The in and the on the right look like they match, but duplication requires the coefficient of to equal , not . Since , we need the coefficient to be , not . The homogeneous equation has solutions and (frequency , not ), so the guess doesn't duplicate anything.       The frequency in the guess must match the right-hand side, which has frequency . The here comes from solving the homogeneous equation (whose solutions oscillate at frequency ), but that's not where the guess frequency comes from.       Neither the frequency nor the duplication call is right here. The guess frequency should match the right-hand side ( ), and since the coefficient of is , we're not in the case of duplication and don't need the extra .      "
+  "body": " Identifying the Correct Guess    A standard example   What is the correct form of the guess for finding a particular solution to        Correct! Both terms on the right-hand side share frequency , so the guess uses and . The coefficient of is , so this is the normal case, no extra needed.        The minus sign on the right-hand side doesn't change the form of the guess. We always write and let the algebra determine the signs of and when we solve; one of them may turn out to be negative.       This is the case-of-duplication guess, but we're not in that case here. Duplication occurs only when the ODE has the form with the same on both sides. Here the coefficient of is , so we don't need the extra .       Since both terms on the right have the same frequency, we only need one pair of undetermined coefficients. The guess already has enough flexibility to match both the cosine and sine parts of the right-hand side simultaneously.        A case of duplication   What is the correct form of the guess for finding a particular solution to        Correct! Both terms on the right-hand side have frequency , and the coefficient of is . This is the case of duplication, so we multiply the usual guess by .        This is the usual guess, but it will fail here. The ODE has characteristic equation , giving roots , so the homogeneous solution is . Our guess is already a solution to the homogeneous equation, so plugging it in gives on the left, never matching the right-hand side.       Even setting aside the duplication issue, a cosine-only guess won't work for a right-hand side that includes . And since we're in the case of duplication, we need the -multiplied form as well.       We're in the case of duplication, so we do need the extra , but the full guess must include both and inside, not just the cosine.        Watch out for a negative coefficient   What is the correct form of the guess for finding a particular solution to        Correct! Even though and , the coefficient of is , not . The case of duplication requires the coefficient of to be , which means the homogeneous solutions are and . Here the characteristic equation is , giving real roots and homogeneous solution , with no trig at all! So the usual guess works fine, with both terms covered by a single pair .        It's tempting to see and the number and call this duplication, but the sign matters! The coefficient of is , not . The homogeneous equation has real exponential solutions and , not trig functions. The usual guess is not a homogeneous solution, so the extra is not needed.       These are the homogeneous solutions, not a form that can match on the right-hand side. The guess should mirror the form of .       The right-hand side has both a cosine and a sine term, so a cosine-only guess can't possibly match both. We always need when involves trig at frequency .        Remember to put the ODE in standard form first   What is the correct form of the guess for finding a particular solution to        Correct! The trick here is to put the ODE in standard form first by dividing through by : Now the coefficient of is , so we are in the case of duplication. The modified guess is .        This looks right at first glance, but don't forget to put the ODE in standard form first. Dividing by gives , and now , so this is the case of duplication. The usual guess will give on the left-hand side.       The frequency in the guess always comes from the right-hand side of the ODE. Both and on the right have frequency . The coefficient is from the left-hand side and doesn't set the frequency.        A subtle one   What is the correct form of the guess for finding a particular solution to        Correct! It's tempting to see the in and the on the right and call this duplication, but check carefully. The frequency is , so we need the coefficient of to equal for duplication. Here the coefficient is only , so this is the normal case.        This is the most natural wrong answer here! The in and the on the right look like they match, but duplication requires the coefficient of to equal , not . Since , we need the coefficient to be , not . The homogeneous equation has solutions and (frequency , not ), so the guess doesn't duplicate anything.       The frequency in the guess must match the right-hand side, which has frequency . The here comes from solving the homogeneous equation (whose solutions oscillate at frequency ), but that's not where the guess frequency comes from.       Neither the frequency nor the duplication call is right here. The guess frequency should match the right-hand side ( ), and since the coefficient of is , we're not in the case of duplication and don't need the extra .      "
 },
 {
   "id": "sec-undetermined-guess-practice-7",
@@ -3913,7 +3913,7 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "3.5.6",
   "title": "The General Solution",
-  "body": " The General Solution    Finding the General Solution to a Non-Homogeneous Equation   Our goal is to find the general solution to the non-homogeneous equation To do this, it turns out we need two ingredients: a particular solution  to the non-homogeneous equation, and the complementary function  , which is the general solution to the associated homogeneous equation.  The point of this exploration is to see why the sum will always form a solution to the non-homogeneous ODE. You can skim the computations for and , but pay close attention to parts (c) and (d)!     Find a particular solution   Use the method of undetermined coefficients to find a particular solution to    Answer:      Full computation (can skim)  The right-hand side has frequency , and the coefficient of is , so this is the normal case. We guess Computing derivatives: Substituting into and collecting: Matching coefficients with the right-hand side :    Solving the system (can skim)  Multiply the first equation by and add to the second: Substituting back:    So the particular solution is       Find the complementary function   Find the general solution to the associated homogeneous equation    Answer:      Full computation (can skim; see )  We solved equations like this in . The characteristic equation is Two distinct real roots give the general solution       Checking that is a solution   Now let's verify that actually satisfies the non-homogeneous equation. Substituting into the left-hand side and grouping the and terms together: The group is zero because solves the homogeneous equation; the group equals the right-hand side because is a particular solution. So is a solution for any values of and .      The key idea   Looking back at the verification above, why does solve the non-homogeneous equation ?      When you plug in , the part cancels to zero (since it solves the homogeneous equation), and the part produces exactly the right-hand side (since it's a particular solution). The sum is therefore equal to the right-hand side.    Exactly! The two pieces play complementary roles: does the job of matching the right-hand side, while quietly disappears.       Both and individually solve the non-homogeneous equation, so their sum does too.    Not quite. solves the homogeneous equation (right-hand side zero), not the non-homogeneous one. It's specifically because they solve different equations that the sum works.      The constants and can always be chosen to make any function satisfy the equation.    The constants and give flexibility, but they don't make an arbitrary function a solution. The reason works is specifically because of what and each solve, not because of the free constants.      Adding two functions always produces a solution to the original equation.    This isn't true in general. The sum of two random functions won't usually satisfy a given ODE. The key is that and are carefully chosen to solve related equations whose contributions add up to the right-hand side.        So we've shown that is always a solution. For our example, that gives the general solution The two free constants and live entirely in and can be determined by initial conditions, just as in the homogeneous case. The particular solution is a single fixed function with no free parameters; it just does the job of matching the right-hand side.  In fact, turns out to be all solutions. That is, every solution to the non-homogeneous equation can be written in this form. Showing this rigorously requires more theory regarding existence and uniqueness of solutions to 2nd order linear ODEs than we present in this course, so we'll take it as given and state the result:    General Solution to the Non-Homogeneous Equation   Suppose is a particular solution to and is the general solution to the associated homogeneous equation Then the general solution to is       Key Takeaways     Two parts of the general solution: To solve a non-homogeneous equation, find (one particular solution, using undetermined coefficients) and (the general solution to the associated homogeneous equation, using the characteristic equation). The general solution is .   Why it works: When you substitute , the terms cancel to zero and the terms produce the right-hand side, so the sum satisfies the full non-homogeneous equation.       This video goes through the content of this page.     "
+  "body": " The General Solution    Finding the General Solution to a Non-Homogeneous Equation   Our goal is to find the general solution to the non-homogeneous equation To do this, it turns out we need two ingredients: a particular solution  to the non-homogeneous equation, and the complementary function  , which is the general solution to the associated homogeneous equation.  The point of this exploration is to see why the sum will always form a solution to the non-homogeneous ODE.   You can skim the computations for and , but pay close attention to parts (c) and (d)!      Find a particular solution   Use the method of undetermined coefficients to find a particular solution to    Answer:      Full computation (can skim)  The right-hand side has frequency , and the coefficient of is , so this is the normal case. We guess Computing derivatives: Substituting into and collecting: Matching coefficients with the right-hand side :    Solving the system (can skim)  Multiply the first equation by and add to the second: Substituting back:    So the particular solution is       Find the complementary function   Find the general solution to the associated homogeneous equation    Answer:      Full computation (can skim; see )  We solved equations like this in . The characteristic equation is Two distinct real roots give the general solution       Checking that is a solution   Now let's verify that actually satisfies the non-homogeneous equation. Substituting into the left-hand side and grouping the and terms together: The group is zero because solves the homogeneous equation; the group equals the right-hand side because is a particular solution. So is a solution for any values of and .      The key idea   Looking back at the verification above, why does solve the non-homogeneous equation ?      When you plug in , the part cancels to zero (since it solves the homogeneous equation), and the part produces exactly the right-hand side (since it's a particular solution). The sum is therefore equal to the right-hand side.    Exactly! The two pieces play complementary roles: does the job of matching the right-hand side, while quietly disappears.       Both and individually solve the non-homogeneous equation, so their sum does too.    Not quite. solves the homogeneous equation (right-hand side zero), not the non-homogeneous one. It's specifically because they solve different equations that the sum works.      The constants and can always be chosen to make any function satisfy the equation.    The constants and give flexibility, but they don't make an arbitrary function a solution. The reason works is specifically because of what and each solve, not because of the free constants.      Adding two functions always produces a solution to the original equation.    This isn't true in general. The sum of two random functions won't usually satisfy a given ODE. The key is that and are carefully chosen to solve related equations whose contributions add up to the right-hand side.        So we've shown that is always a solution. For our example, that gives the general solution The two free constants and live entirely in and can be determined by initial conditions, just as in the homogeneous case. The particular solution is a single fixed function with no free parameters; it just does the job of matching the right-hand side.  In fact, turns out to be all solutions. That is, every solution to the non-homogeneous equation can be written in this form. Showing this rigorously requires more theory regarding existence and uniqueness of solutions to 2nd order linear ODEs than we present in this course, so we'll take it as given and state the result:    General Solution to the Non-Homogeneous Equation   Suppose is a particular solution to and is the general solution to the associated homogeneous equation Then the general solution to is       Key Takeaways     Two parts of the general solution: To solve a non-homogeneous equation, find (one particular solution, using undetermined coefficients) and (the general solution to the associated homogeneous equation, using the characteristic equation). The general solution is .   Why it works: When you substitute , the terms cancel to zero and the terms produce the right-hand side, so the sum satisfies the full non-homogeneous equation.       This video goes through the content of this page.     "
 },
 {
   "id": "exploration-general-solution",
@@ -3922,7 +3922,7 @@ var ptx_lunr_docs = [
   "type": "Exploration",
   "number": "3.5.1",
   "title": "Finding the General Solution to a Non-Homogeneous Equation.",
-  "body": " Finding the General Solution to a Non-Homogeneous Equation   Our goal is to find the general solution to the non-homogeneous equation To do this, it turns out we need two ingredients: a particular solution  to the non-homogeneous equation, and the complementary function  , which is the general solution to the associated homogeneous equation.  The point of this exploration is to see why the sum will always form a solution to the non-homogeneous ODE. You can skim the computations for and , but pay close attention to parts (c) and (d)!     Find a particular solution   Use the method of undetermined coefficients to find a particular solution to    Answer:      Full computation (can skim)  The right-hand side has frequency , and the coefficient of is , so this is the normal case. We guess Computing derivatives: Substituting into and collecting: Matching coefficients with the right-hand side :    Solving the system (can skim)  Multiply the first equation by and add to the second: Substituting back:    So the particular solution is       Find the complementary function   Find the general solution to the associated homogeneous equation    Answer:      Full computation (can skim; see )  We solved equations like this in . The characteristic equation is Two distinct real roots give the general solution       Checking that is a solution   Now let's verify that actually satisfies the non-homogeneous equation. Substituting into the left-hand side and grouping the and terms together: The group is zero because solves the homogeneous equation; the group equals the right-hand side because is a particular solution. So is a solution for any values of and .      The key idea   Looking back at the verification above, why does solve the non-homogeneous equation ?      When you plug in , the part cancels to zero (since it solves the homogeneous equation), and the part produces exactly the right-hand side (since it's a particular solution). The sum is therefore equal to the right-hand side.    Exactly! The two pieces play complementary roles: does the job of matching the right-hand side, while quietly disappears.       Both and individually solve the non-homogeneous equation, so their sum does too.    Not quite. solves the homogeneous equation (right-hand side zero), not the non-homogeneous one. It's specifically because they solve different equations that the sum works.      The constants and can always be chosen to make any function satisfy the equation.    The constants and give flexibility, but they don't make an arbitrary function a solution. The reason works is specifically because of what and each solve, not because of the free constants.      Adding two functions always produces a solution to the original equation.    This isn't true in general. The sum of two random functions won't usually satisfy a given ODE. The key is that and are carefully chosen to solve related equations whose contributions add up to the right-hand side.      "
+  "body": " Finding the General Solution to a Non-Homogeneous Equation   Our goal is to find the general solution to the non-homogeneous equation To do this, it turns out we need two ingredients: a particular solution  to the non-homogeneous equation, and the complementary function  , which is the general solution to the associated homogeneous equation.  The point of this exploration is to see why the sum will always form a solution to the non-homogeneous ODE.   You can skim the computations for and , but pay close attention to parts (c) and (d)!      Find a particular solution   Use the method of undetermined coefficients to find a particular solution to    Answer:      Full computation (can skim)  The right-hand side has frequency , and the coefficient of is , so this is the normal case. We guess Computing derivatives: Substituting into and collecting: Matching coefficients with the right-hand side :    Solving the system (can skim)  Multiply the first equation by and add to the second: Substituting back:    So the particular solution is       Find the complementary function   Find the general solution to the associated homogeneous equation    Answer:      Full computation (can skim; see )  We solved equations like this in . The characteristic equation is Two distinct real roots give the general solution       Checking that is a solution   Now let's verify that actually satisfies the non-homogeneous equation. Substituting into the left-hand side and grouping the and terms together: The group is zero because solves the homogeneous equation; the group equals the right-hand side because is a particular solution. So is a solution for any values of and .      The key idea   Looking back at the verification above, why does solve the non-homogeneous equation ?      When you plug in , the part cancels to zero (since it solves the homogeneous equation), and the part produces exactly the right-hand side (since it's a particular solution). The sum is therefore equal to the right-hand side.    Exactly! The two pieces play complementary roles: does the job of matching the right-hand side, while quietly disappears.       Both and individually solve the non-homogeneous equation, so their sum does too.    Not quite. solves the homogeneous equation (right-hand side zero), not the non-homogeneous one. It's specifically because they solve different equations that the sum works.      The constants and can always be chosen to make any function satisfy the equation.    The constants and give flexibility, but they don't make an arbitrary function a solution. The reason works is specifically because of what and each solve, not because of the free constants.      Adding two functions always produces a solution to the original equation.    This isn't true in general. The sum of two random functions won't usually satisfy a given ODE. The key is that and are carefully chosen to solve related equations whose contributions add up to the right-hand side.      "
 },
 {
   "id": "thm-general-solution-nonhomogeneous",
@@ -3977,6 +3977,42 @@ var ptx_lunr_docs = [
   "number": "3.5.3",
   "title": "",
   "body": " This video goes through the content of this page.   "
+},
+{
+  "id": "exercises-3-5",
+  "level": "1",
+  "url": "exercises-3-5.html",
+  "type": "Exercises",
+  "number": "3.5.8",
+  "title": "Exercises for Section 3.5",
+  "body": " Exercises for Section 3.5  These exercises cover the method of undetermined coefficients. For each problem, remember: the frequency in your guess always comes from the right-hand side of the ODE, and you should put the ODE in standard form (leading coefficient 1) before checking for the case of duplication.    Identifying the Correct Guess   For each ODE below, state the correct form of the guess for finding a particular solution using undetermined coefficients. You do not need to solve for the coefficients.          Normal case ( , coefficient of is ):            Case of duplication ( , coefficient of is ):            Dividing through by gives . Since and the coefficient of is , this is the case of duplication:            Normal case. Even though and , the coefficient of is , not . The homogeneous equation has real exponential solutions, not trig functions, so the usual guess works fine:        Normal Case vs. Case of Duplication   Consider the ODE where is a positive constant.     For what value of are we in the case of duplication?    Divide through by first to put the ODE in standard form, then check whether the coefficient of equals , where is the frequency on the right-hand side.           Find the general solution for .           Find the general solution for .            Solving an IVP with a Non-Homogeneous Equation   Solve the initial value problem      Find the complementary function .           Find a particular solution .           Use the initial conditions to find the specific solution to the IVP. Remember to apply the initial conditions to the full general solution , not just .           "
+},
+{
+  "id": "ex-3-5-1",
+  "level": "2",
+  "url": "exercises-3-5.html#ex-3-5-1",
+  "type": "Exercise",
+  "number": "3.5.8.1",
+  "title": "Identifying the Correct Guess.",
+  "body": " Identifying the Correct Guess   For each ODE below, state the correct form of the guess for finding a particular solution using undetermined coefficients. You do not need to solve for the coefficients.          Normal case ( , coefficient of is ):            Case of duplication ( , coefficient of is ):            Dividing through by gives . Since and the coefficient of is , this is the case of duplication:            Normal case. Even though and , the coefficient of is , not . The homogeneous equation has real exponential solutions, not trig functions, so the usual guess works fine:     "
+},
+{
+  "id": "ex-3-5-2",
+  "level": "2",
+  "url": "exercises-3-5.html#ex-3-5-2",
+  "type": "Exercise",
+  "number": "3.5.8.2",
+  "title": "Normal Case vs. Case of Duplication.",
+  "body": " Normal Case vs. Case of Duplication   Consider the ODE where is a positive constant.     For what value of are we in the case of duplication?    Divide through by first to put the ODE in standard form, then check whether the coefficient of equals , where is the frequency on the right-hand side.           Find the general solution for .           Find the general solution for .         "
+},
+{
+  "id": "ex-3-5-3",
+  "level": "2",
+  "url": "exercises-3-5.html#ex-3-5-3",
+  "type": "Exercise",
+  "number": "3.5.8.3",
+  "title": "Solving an IVP with a Non-Homogeneous Equation.",
+  "body": " Solving an IVP with a Non-Homogeneous Equation   Solve the initial value problem      Find the complementary function .           Find a particular solution .           Use the initial conditions to find the specific solution to the IVP. Remember to apply the initial conditions to the full general solution , not just .         "
 },
 {
   "id": "sec-external-force-setup",
@@ -4057,7 +4093,7 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "3.6.2",
   "title": "Two Examples of the Forced System",
-  "body": " Two Examples of the Forced System   We now solve the forced undamped system for two different values of the spring constant . The method is undetermined coefficients, which you practiced in and surrounding sections, so feel free to skim the algebraic details in parts (b) and (c). What matters most is understanding which case you are in and what the general solution looks like at the end.  Throughout both examples we use , , , and , so the ODE is and we find the general solution for two choices of : first , then .    Solving the Forced System for Two Values of    Part (a): Which example is the case of duplication?   Which of the two examples is in the case of duplication? (See for a reminder.)      The example with , because the homogeneous equation becomes , i.e. , so contains and . The standard guess already solves the homogeneous equation, giving us the case of duplication.    Correct! When the homogeneous equation is , so already contains and . The standard guess duplicates and we must multiply by . Note that this happened because : the natural frequency equals the forcing frequency.       The example with , because makes the algebra messier.    Messier algebra does not mean duplication. The case of duplication is about whether the guess for already appears in , which depends on whether , not on how clean the numbers are.      Both examples are cases of duplication, since both have cosine on the right-hand side.    Having cosine on the right-hand side is not enough to cause duplication. Duplication happens only when the frequency of that cosine matches . That only occurs when .      Neither example is a case of duplication.    When , the natural frequency is , which equals the forcing frequency . So and already appear in , and we do have duplication.      Notice what triggered the duplication: the natural frequency and the forcing frequency happened to be equal when . When they differ, as with , there is no duplication and the standard guess works fine. Keep this in mind as you work through the solutions below.    Part (b): General solution when   Find the general solution to .   Complementary solution:     Particular solution:     General solution:      Finding (can skim)  Since , this is the normal case. We guess and compute: Substituting into and collecting:    Matching coefficients (can skim)      So . Note that because there is no term in the ODE and the right-hand side has no sine.      Part (c): General solution when   Find the general solution to .   Complementary solution:     Particular solution:     General solution:      Finding (can skim)  Since , we have duplication. The modified guess is . Computing derivatives by the product rule: Substituting into , the terms cancel and we get:    Matching coefficients (can skim)      So .      Look at the two general solutions side by side: They look quite different. What was it about the setup that caused this?    What is fundamentally different between the two examples that led to such different solutions?      In the first example and are different, so we get a standard particular solution. In the second example , which puts us in the case of duplication and introduces the factor of in .    Exactly. When (as with ) we get the standard case and a bounded particular solution. When (as with ) the homogeneous equation takes the form , so the standard guess already solves it: we are in the case of duplication, the factor of appears in , and the two solutions look completely different. On the next page we see what this means physically.       The second example had a larger value of , which made the ODE harder to solve.    The size of alone is not what caused the difference. What mattered was the relationship between and the forcing frequency : specifically, whether they were equal or not.      The second example required the duplication rule because the right-hand side was more complicated.    The right-hand side is in both examples. The duplication arose because the natural frequency happened to match the forcing frequency , not because of anything different about the right-hand side.      In the first example dropped out, making it a simpler calculation.    That in the first example is a nice simplification, but it is not the fundamental difference between the two cases. The real distinction is whether the forcing frequency matches the natural frequency.        Key Takeaways     Two cases: When the forcing frequency and the natural frequency are different, undetermined coefficients works in the standard way. When , we hit the case of duplication and must multiply the guess by .   Frequencies are the key: The case of duplication is not about the algebra being harder; it arises precisely because the external force is driving the system at its own natural frequency. On the next page we see what this means physically.       This video goes through the content of this page.     "
+  "body": " Two Examples of the Forced System   We now solve the forced undamped system for two different values of the spring constant . The method is undetermined coefficients, which you practiced in and surrounding sections, so feel free to skim the algebraic details in parts (b) and (c). What matters most is understanding which case you are in and what the general solution looks like at the end.  Throughout both examples we use , , , and , so the ODE is and we find the general solution for two choices of : first , then .    Solving the Forced System for Two Values of   In both examples below, the ODE is and we find the general solution for two choices of : and .     Part (a): Which example is the case of duplication?   Which of the two examples is in the case of duplication? (See for a reminder.)      The example with , because the homogeneous equation becomes , i.e. , so contains and . The standard guess already solves the homogeneous equation, giving us the case of duplication.    Correct! When the homogeneous equation is , so already contains and . The standard guess duplicates and we must multiply by . Note that this happened because : the natural frequency equals the forcing frequency.       The example with , because makes the algebra messier.    Messier algebra does not mean duplication. The case of duplication is about whether the guess for already appears in , which depends on whether , not on how clean the numbers are.      Both examples are cases of duplication, since both have cosine on the right-hand side.    Having cosine on the right-hand side is not enough to cause duplication. Duplication happens only when the frequency of that cosine matches . That only occurs when .      Neither example is a case of duplication.    When , the natural frequency is , which equals the forcing frequency . So and already appear in , and we do have duplication.      Notice what triggered the duplication: the natural frequency and the forcing frequency happened to be equal when . When they differ, as with , there is no duplication and the standard guess works fine. Keep this in mind as you work through the solutions below.    Part (b): General solution when   Find the general solution to .   Complementary solution:     Particular solution:     General solution:      Finding (can skim)  Since , this is the normal case. We guess and compute: Substituting into and collecting:    Matching coefficients (can skim)      So . Note that because there is no term in the ODE and the right-hand side has no sine.      Part (c): General solution when   Find the general solution to .   Complementary solution:     Particular solution:     General solution:      Finding (can skim)  Since , we have duplication. The modified guess is . Computing derivatives by the product rule: Substituting into , the terms cancel and we get:    Matching coefficients (can skim)      So .      Look at the two general solutions side by side: They look quite different. What was it about the setup that caused this?    What is fundamentally different between the two examples that led to such different solutions?      In the first example and are different, so we get a standard particular solution. In the second example , which puts us in the case of duplication and introduces the factor of in .    Exactly. When (as with ) we get the standard case and a bounded particular solution. When (as with ) the homogeneous equation takes the form , so the standard guess already solves it: we are in the case of duplication, the factor of appears in , and the two solutions look completely different. On the next page we see what this means physically.       The second example had a larger value of , which made the ODE harder to solve.    The size of alone is not what caused the difference. What mattered was the relationship between and the forcing frequency : specifically, whether they were equal or not.      The second example required the duplication rule because the right-hand side was more complicated.    The right-hand side is in both examples. The duplication arose because the natural frequency happened to match the forcing frequency , not because of anything different about the right-hand side.      In the first example dropped out, making it a simpler calculation.    That in the first example is a nice simplification, but it is not the fundamental difference between the two cases. The real distinction is whether the forcing frequency matches the natural frequency.        Key Takeaways     Two cases: When the forcing frequency and the natural frequency are different, undetermined coefficients works in the standard way. When , we hit the case of duplication and must multiply the guess by .   Frequencies are the key: The case of duplication arises precisely because the external force is driving the system at its own natural frequency (that is, ). On the next page we see what this means physically.       This video goes through the content of this page.     "
 },
 {
   "id": "activity-forced-examples",
@@ -4066,7 +4102,7 @@ var ptx_lunr_docs = [
   "type": "Activity",
   "number": "3.6.1",
   "title": "Solving the Forced System for Two Values of <span class=\"process-math\">\\(k\\)<\/span>.",
-  "body": " Solving the Forced System for Two Values of    Part (a): Which example is the case of duplication?   Which of the two examples is in the case of duplication? (See for a reminder.)      The example with , because the homogeneous equation becomes , i.e. , so contains and . The standard guess already solves the homogeneous equation, giving us the case of duplication.    Correct! When the homogeneous equation is , so already contains and . The standard guess duplicates and we must multiply by . Note that this happened because : the natural frequency equals the forcing frequency.       The example with , because makes the algebra messier.    Messier algebra does not mean duplication. The case of duplication is about whether the guess for already appears in , which depends on whether , not on how clean the numbers are.      Both examples are cases of duplication, since both have cosine on the right-hand side.    Having cosine on the right-hand side is not enough to cause duplication. Duplication happens only when the frequency of that cosine matches . That only occurs when .      Neither example is a case of duplication.    When , the natural frequency is , which equals the forcing frequency . So and already appear in , and we do have duplication.      Notice what triggered the duplication: the natural frequency and the forcing frequency happened to be equal when . When they differ, as with , there is no duplication and the standard guess works fine. Keep this in mind as you work through the solutions below.    Part (b): General solution when   Find the general solution to .   Complementary solution:     Particular solution:     General solution:      Finding (can skim)  Since , this is the normal case. We guess and compute: Substituting into and collecting:    Matching coefficients (can skim)      So . Note that because there is no term in the ODE and the right-hand side has no sine.      Part (c): General solution when   Find the general solution to .   Complementary solution:     Particular solution:     General solution:      Finding (can skim)  Since , we have duplication. The modified guess is . Computing derivatives by the product rule: Substituting into , the terms cancel and we get:    Matching coefficients (can skim)      So .    "
+  "body": " Solving the Forced System for Two Values of   In both examples below, the ODE is and we find the general solution for two choices of : and .     Part (a): Which example is the case of duplication?   Which of the two examples is in the case of duplication? (See for a reminder.)      The example with , because the homogeneous equation becomes , i.e. , so contains and . The standard guess already solves the homogeneous equation, giving us the case of duplication.    Correct! When the homogeneous equation is , so already contains and . The standard guess duplicates and we must multiply by . Note that this happened because : the natural frequency equals the forcing frequency.       The example with , because makes the algebra messier.    Messier algebra does not mean duplication. The case of duplication is about whether the guess for already appears in , which depends on whether , not on how clean the numbers are.      Both examples are cases of duplication, since both have cosine on the right-hand side.    Having cosine on the right-hand side is not enough to cause duplication. Duplication happens only when the frequency of that cosine matches . That only occurs when .      Neither example is a case of duplication.    When , the natural frequency is , which equals the forcing frequency . So and already appear in , and we do have duplication.      Notice what triggered the duplication: the natural frequency and the forcing frequency happened to be equal when . When they differ, as with , there is no duplication and the standard guess works fine. Keep this in mind as you work through the solutions below.    Part (b): General solution when   Find the general solution to .   Complementary solution:     Particular solution:     General solution:      Finding (can skim)  Since , this is the normal case. We guess and compute: Substituting into and collecting:    Matching coefficients (can skim)      So . Note that because there is no term in the ODE and the right-hand side has no sine.      Part (c): General solution when   Find the general solution to .   Complementary solution:     Particular solution:     General solution:      Finding (can skim)  Since , we have duplication. The modified guess is . Computing derivatives by the product rule: Substituting into , the terms cancel and we get:    Matching coefficients (can skim)      So .    "
 },
 {
   "id": "ex-mc-frequency-comparison",
@@ -4148,6 +4184,627 @@ var ptx_lunr_docs = [
   "number": "3.6.6",
   "title": "",
   "body": " This video goes through the content of this page.   "
+},
+{
+  "id": "exercises-3-6",
+  "level": "1",
+  "url": "exercises-3-6.html",
+  "type": "Exercises",
+  "number": "3.6.4",
+  "title": "Exercises for Section 3.6",
+  "body": " Exercises for Section 3.6  These exercises explore forced undamped mass-spring systems and resonance. For each problem, remember: resonance occurs when the forcing frequency equals the natural frequency .    Comparing Resonance and Non-Resonance   In , you found the general solutions to for and :   :    :   We now interpret this ODE as a forced undamped mass-spring system with spring constant , forcing amplitude , and forcing frequency .     For each value of (i.e., and ), identify the natural frequency  and the forcing frequency  .    The forcing frequency comes from the right-hand side of the ODE. The natural frequency comes from the system itself.    The forcing frequency is in both cases.  : .  : .        Which value of produces resonance, and why?     , because : the natural frequency equals the forcing frequency.      Using your general solutions from , apply the initial conditions and to find the specific solution for each value of .       :    :         Describe the long-term behavior of each solution as . How does this connect to whether or not resonance occurred?    For (non-resonance): the solution is a bounded sum of two sinusoidal functions. The amplitude stays constant forever.  For (resonance): the factor of in causes the amplitude to grow without bound as .       Reading a Solution   Two position functions of forced undamped mass-spring systems are given below. For each one, identify:  the natural frequency ,  the forcing frequency ,  whether resonance occurred.            Use to identify which part of is and which is . The natural frequency comes from , and the forcing frequency comes from .     , , no resonance.           Use to identify which part of is and which is . The natural frequency comes from , and the forcing frequency comes from .     , , resonance occurred.       Finding the Resonance Frequency   Consider the forced undamped system For what value of does resonance occur? You do not need to solve the ODE.     Resonance occurs when the forcing frequency equals the natural frequency . What is for this system?           Finding the Spring Constant for Unbounded Growth   Consider the forced undamped system where is a positive constant. For what value of will the solution grow without bound? You do not need to solve the ODE.     Does the solution grow without bound when resonance occurs, or when it does not?           Which Mass Causes Resonance?   A spring system is driven by the external force , so the position of the mass satisfies Three masses are available: , , and . Which mass will cause resonance? You do not need to solve the ODE.           "
+},
+{
+  "id": "ex-3-6-1",
+  "level": "2",
+  "url": "exercises-3-6.html#ex-3-6-1",
+  "type": "Exercise",
+  "number": "3.6.4.1",
+  "title": "Comparing Resonance and Non-Resonance.",
+  "body": " Comparing Resonance and Non-Resonance   In , you found the general solutions to for and :   :    :   We now interpret this ODE as a forced undamped mass-spring system with spring constant , forcing amplitude , and forcing frequency .     For each value of (i.e., and ), identify the natural frequency  and the forcing frequency  .    The forcing frequency comes from the right-hand side of the ODE. The natural frequency comes from the system itself.    The forcing frequency is in both cases.  : .  : .        Which value of produces resonance, and why?     , because : the natural frequency equals the forcing frequency.      Using your general solutions from , apply the initial conditions and to find the specific solution for each value of .       :    :         Describe the long-term behavior of each solution as . How does this connect to whether or not resonance occurred?    For (non-resonance): the solution is a bounded sum of two sinusoidal functions. The amplitude stays constant forever.  For (resonance): the factor of in causes the amplitude to grow without bound as .    "
+},
+{
+  "id": "ex-3-6-2",
+  "level": "2",
+  "url": "exercises-3-6.html#ex-3-6-2",
+  "type": "Exercise",
+  "number": "3.6.4.2",
+  "title": "Reading a Solution.",
+  "body": " Reading a Solution   Two position functions of forced undamped mass-spring systems are given below. For each one, identify:  the natural frequency ,  the forcing frequency ,  whether resonance occurred.            Use to identify which part of is and which is . The natural frequency comes from , and the forcing frequency comes from .     , , no resonance.           Use to identify which part of is and which is . The natural frequency comes from , and the forcing frequency comes from .     , , resonance occurred.    "
+},
+{
+  "id": "ex-3-6-3",
+  "level": "2",
+  "url": "exercises-3-6.html#ex-3-6-3",
+  "type": "Exercise",
+  "number": "3.6.4.3",
+  "title": "Finding the Resonance Frequency.",
+  "body": " Finding the Resonance Frequency   Consider the forced undamped system For what value of does resonance occur? You do not need to solve the ODE.     Resonance occurs when the forcing frequency equals the natural frequency . What is for this system?        "
+},
+{
+  "id": "ex-3-6-4",
+  "level": "2",
+  "url": "exercises-3-6.html#ex-3-6-4",
+  "type": "Exercise",
+  "number": "3.6.4.4",
+  "title": "Finding the Spring Constant for Unbounded Growth.",
+  "body": " Finding the Spring Constant for Unbounded Growth   Consider the forced undamped system where is a positive constant. For what value of will the solution grow without bound? You do not need to solve the ODE.     Does the solution grow without bound when resonance occurs, or when it does not?        "
+},
+{
+  "id": "ex-3-6-5",
+  "level": "2",
+  "url": "exercises-3-6.html#ex-3-6-5",
+  "type": "Exercise",
+  "number": "3.6.4.5",
+  "title": "Which Mass Causes Resonance?",
+  "body": " Which Mass Causes Resonance?   A spring system is driven by the external force , so the position of the mass satisfies Three masses are available: , , and . Which mass will cause resonance? You do not need to solve the ODE.         "
+},
+{
+  "id": "sec-laplace-definition",
+  "level": "1",
+  "url": "sec-laplace-definition.html",
+  "type": "Section",
+  "number": "4.1.1",
+  "title": "The Definition of the Laplace Transform",
+  "body": " The Definition of the Laplace Transform    The Laplace Transform   Suppose is a function defined for all . The Laplace Transform of is the function defined by The transform is defined for all values of for which the integral converges.    A few things are worth noticing right away. The input to the Laplace transform is a function of , and the output is a function of a new variable . So the Laplace transform takes us out of the world of and into the world of . We typically use capital letters for the transformed function (like ) and lowercase for the original (like ).  In the next few pages, we will get practice finding Laplace and inverse Laplace transforms of functions. We will see that taking the Laplace transform of a differential equation turns it into an algebraic equation in , which is often much easier to solve!   In practice, we'll use a Laplace transform table (coming soon!) to look up transforms rather than computing the integral every time. You won't be asked to derive transforms from scratch going forward. But it's worth seeing where some of the table entries come from!    Computing Two Laplace Transforms from the Definition   The Laplace Transform of   Let's use the definition to show that     Work (can skim)  Plugging into the definition and converting to a limit: The limit as requires , so the transform is defined for .     The Laplace Transform of   We now use the definition to show that     Work (can skim)  Plugging into the definition and combining the exponentials: The limit as requires , i.e., .       Key Takeaways     Definition: the Laplace transform is the improper integral . It takes a function of and produces a function of .   You won't compute from scratch going forward: we'll use a table of known transforms. The two examples above are the source of the first two entries in that table.   Two results from the exploration:  (for ), and (for ).       This video goes through the content of this page.     "
+},
+{
+  "id": "def-laplace-transform",
+  "level": "2",
+  "url": "sec-laplace-definition.html#def-laplace-transform",
+  "type": "Definition",
+  "number": "4.1.1",
+  "title": "The Laplace Transform.",
+  "body": " The Laplace Transform   Suppose is a function defined for all . The Laplace Transform of is the function defined by The transform is defined for all values of for which the integral converges.   "
+},
+{
+  "id": "exploration-laplace-basic",
+  "level": "2",
+  "url": "sec-laplace-definition.html#exploration-laplace-basic",
+  "type": "Exploration",
+  "number": "4.1.1",
+  "title": "Computing Two Laplace Transforms from the Definition.",
+  "body": " Computing Two Laplace Transforms from the Definition   The Laplace Transform of   Let's use the definition to show that     Work (can skim)  Plugging into the definition and converting to a limit: The limit as requires , so the transform is defined for .     The Laplace Transform of   We now use the definition to show that     Work (can skim)  Plugging into the definition and combining the exponentials: The limit as requires , i.e., .    "
+},
+{
+  "id": "video-laplace-definition",
+  "level": "2",
+  "url": "sec-laplace-definition.html#video-laplace-definition",
+  "type": "Figure",
+  "number": "4.1.2",
+  "title": "",
+  "body": " This video goes through the content of this page.   "
+},
+{
+  "id": "sec-laplace-table-linearity",
+  "level": "1",
+  "url": "sec-laplace-table-linearity.html",
+  "type": "Section",
+  "number": "4.1.2",
+  "title": "The Laplace Transform Table and Linearity",
+  "body": " The Laplace Transform Table and Linearity    In the previous section we computed two Laplace transforms directly from the definition. From now on, we will use the following table to look up transforms directly.   Laplace Transform Table      Condition  Formula       A       B       C       D       E       H       I       J      Before we use the table, let's talk about linearity . You already know two linear operations from calculus: differentiation and integration. For example: In both cases you can split over a sum and pull constants out front. The Laplace transform behaves the same way, because it is defined by an integral.    Linearity of the Laplace Transform  The Laplace transform is linear. That is, for any functions and and constants and ,      Justification (can skim)  Using the definition directly: Both steps are just the linearity of integration.   In the examples below we will show each linearity step explicitly so you can see the pattern. Going forward, you may start skipping those steps automatically, just like you do with differentiation and integration!    Using the Table and Linearity  Compute .  Apply linearity to split over the sum and pull the constant out front: Now apply the table to each piece. For , use with : For , use with : Putting it together:      Compute   Work through the following steps to compute the Laplace transform.    Step 1: Apply Linearity   First distribute and then apply linearity to split the expression into separate Laplace transforms. Which of the following is correct?           Correct! Distributing gives , and then linearity splits this into three separate transforms with the 3 pulled out front.           The Laplace transform of a product is not the product of the transforms. The term is a single piece that matches a row in the table directly.           This is technically true by linearity, but the split is incomplete. Separate every term so you can apply the table to each one individually.           Same issue: the split is incomplete. Keep going until each term is alone so you can match each one to a row in the table.       Step 2: Apply the Table   Now evaluate each of the three Laplace transforms using the table and simplify fully.    For each term, identify which formula it matches and what values play the role of and :  : use with , .  : use with .  : use with .      Work (can skim)  More details on how to apply the table to each term are included in a dropdown at the end of this solution. Starting from the result of Step 1 and substituting each table value: The last two terms share the denominator , so their numerators combine.  You can reference the following work if you are unsure on how we applied the table in the second line!   Identifying a and b for each term and applying the table     : matches Formula I with and , giving .   : matches Formula D with , giving .   : matches Formula E with , giving .          Key Takeaways     The table: you can look up Laplace transforms directly without computing from the definition.   Linearity:  , just like differentiation and integration. This works because the Laplace transform is defined by an integral.   Strategy: distribute and expand first, then split by linearity, then match each piece to a row in the table.       This video goes through the content of this page.     "
+},
+{
+  "id": "table-laplace-transforms",
+  "level": "2",
+  "url": "sec-laplace-table-linearity.html#table-laplace-transforms",
+  "type": "Table",
+  "number": "4.1.1",
+  "title": "Laplace Transform Table",
+  "body": " Laplace Transform Table      Condition  Formula       A       B       C       D       E       H       I       J    "
+},
+{
+  "id": "obs-laplace-linearity",
+  "level": "2",
+  "url": "sec-laplace-table-linearity.html#obs-laplace-linearity",
+  "type": "Observation",
+  "number": "4.1.2",
+  "title": "Linearity of the Laplace Transform.",
+  "body": " Linearity of the Laplace Transform  The Laplace transform is linear. That is, for any functions and and constants and ,   "
+},
+{
+  "id": "obs-laplace-linearity-justification",
+  "level": "2",
+  "url": "sec-laplace-table-linearity.html#obs-laplace-linearity-justification",
+  "type": "Observation",
+  "number": "4.1.3",
+  "title": "Justification (can skim).",
+  "body": " Justification (can skim)  Using the definition directly: Both steps are just the linearity of integration.  "
+},
+{
+  "id": "ex-laplace-table-basic",
+  "level": "2",
+  "url": "sec-laplace-table-linearity.html#ex-laplace-table-basic",
+  "type": "Example",
+  "number": "4.1.4",
+  "title": "Using the Table and Linearity.",
+  "body": " Using the Table and Linearity  Compute .  Apply linearity to split over the sum and pull the constant out front: Now apply the table to each piece. For , use with : For , use with : Putting it together:   "
+},
+{
+  "id": "act-laplace-linearity-practice",
+  "level": "2",
+  "url": "sec-laplace-table-linearity.html#act-laplace-linearity-practice",
+  "type": "Activity",
+  "number": "4.1.1",
+  "title": "Compute <span class=\"process-math\">\\(\\mathcal{L}\\{(e^{2t} + 3)\\sin(9t) + \\cos(9t)\\}\\)<\/span>.",
+  "body": " Compute   Work through the following steps to compute the Laplace transform.    Step 1: Apply Linearity   First distribute and then apply linearity to split the expression into separate Laplace transforms. Which of the following is correct?           Correct! Distributing gives , and then linearity splits this into three separate transforms with the 3 pulled out front.           The Laplace transform of a product is not the product of the transforms. The term is a single piece that matches a row in the table directly.           This is technically true by linearity, but the split is incomplete. Separate every term so you can apply the table to each one individually.           Same issue: the split is incomplete. Keep going until each term is alone so you can match each one to a row in the table.       Step 2: Apply the Table   Now evaluate each of the three Laplace transforms using the table and simplify fully.    For each term, identify which formula it matches and what values play the role of and :  : use with , .  : use with .  : use with .      Work (can skim)  More details on how to apply the table to each term are included in a dropdown at the end of this solution. Starting from the result of Step 1 and substituting each table value: The last two terms share the denominator , so their numerators combine.  You can reference the following work if you are unsure on how we applied the table in the second line!   Identifying a and b for each term and applying the table     : matches Formula I with and , giving .   : matches Formula D with , giving .   : matches Formula E with , giving .       "
+},
+{
+  "id": "video-laplace-table-linearity",
+  "level": "2",
+  "url": "sec-laplace-table-linearity.html#video-laplace-table-linearity",
+  "type": "Figure",
+  "number": "4.1.5",
+  "title": "",
+  "body": " This video goes through the content of this page.   "
+},
+{
+  "id": "sec-inverse-laplace",
+  "level": "1",
+  "url": "sec-inverse-laplace.html",
+  "type": "Section",
+  "number": "4.1.3",
+  "title": "The Inverse Laplace Transform",
+  "body": " The Inverse Laplace Transform   Knowing uniquely determines . This lets us define the inverse.   The Inverse Laplace Transform   Given , the inverse Laplace transform is the function such that . We write:     In practice, we find inverse Laplace transforms by reading the table backwards: given , we look for a row whose right column matches, then read off the in the left column. The inverse Laplace transform is also linear, so we can split over sums and pull constants out front just as before.    A Basic Inverse Laplace Transform  Compute .  We look for a row in the table whose column matches . This fits Formula B with : Reading backwards:     Sometimes the expression doesn't immediately match a row in the table. Consider . The denominator tells us this is related to Formula D, with . But Formula D requires a 3 in the numerator, and we only have a 2. The key steps to handle this are:  Identify from the denominator: , so .  We need in the numerator, so multiply and divide by 3.  Pull the leftover constant out front using linearity.       Following the steps above, which of the following correctly rewrites to match Formula D?       Correct! Since , we need a 3 in the numerator. Multiplying and dividing by 3 gives , which matches Formula D with the constant out front.       Formula D requires in the numerator, not 1.       We need a 3 in the numerator to match Formula D with , not a 9.       The constant out front is right, but the denominator should be , not .        Compute    Using the rewrite from the checkpoint, compute .    Use the rewrite and apply the inverse transform.        More detail on the second equality  The second factor matches Formula D , , with . Reading backwards: .        Key Takeaways     The inverse Laplace transform reads the table backwards: given , find the matching row and read off .   It is also linear:  .   Rewriting is often needed: identify from the denominator, then multiply and divide to get in the numerator, and carry the leftover constant out front.       This video goes through the content of this page.     "
+},
+{
+  "id": "def-inverse-laplace",
+  "level": "2",
+  "url": "sec-inverse-laplace.html#def-inverse-laplace",
+  "type": "Definition",
+  "number": "4.1.1",
+  "title": "The Inverse Laplace Transform.",
+  "body": " The Inverse Laplace Transform   Given , the inverse Laplace transform is the function such that . We write:    "
+},
+{
+  "id": "ex-inverse-laplace-basic",
+  "level": "2",
+  "url": "sec-inverse-laplace.html#ex-inverse-laplace-basic",
+  "type": "Example",
+  "number": "4.1.2",
+  "title": "A Basic Inverse Laplace Transform.",
+  "body": " A Basic Inverse Laplace Transform  Compute .  We look for a row in the table whose column matches . This fits Formula B with : Reading backwards:   "
+},
+{
+  "id": "ex-inverse-laplace-checkpoint",
+  "level": "2",
+  "url": "sec-inverse-laplace.html#ex-inverse-laplace-checkpoint",
+  "type": "Checkpoint",
+  "number": "4.1.3",
+  "title": "",
+  "body": "  Following the steps above, which of the following correctly rewrites to match Formula D?       Correct! Since , we need a 3 in the numerator. Multiplying and dividing by 3 gives , which matches Formula D with the constant out front.       Formula D requires in the numerator, not 1.       We need a 3 in the numerator to match Formula D with , not a 9.       The constant out front is right, but the denominator should be , not .     "
+},
+{
+  "id": "act-inverse-laplace-rewrite",
+  "level": "2",
+  "url": "sec-inverse-laplace.html#act-inverse-laplace-rewrite",
+  "type": "Activity",
+  "number": "4.1.1",
+  "title": "Compute <span class=\"process-math\">\\(\\mathcal{L}^{-1}\\!\\left\\{\\dfrac{2}{s^2+9}\\right\\}\\)<\/span>.",
+  "body": " Compute    Using the rewrite from the checkpoint, compute .    Use the rewrite and apply the inverse transform.        More detail on the second equality  The second factor matches Formula D , , with . Reading backwards: .     "
+},
+{
+  "id": "video-inverse-laplace",
+  "level": "2",
+  "url": "sec-inverse-laplace.html#video-inverse-laplace",
+  "type": "Figure",
+  "number": "4.1.4",
+  "title": "",
+  "body": " This video goes through the content of this page.   "
+},
+{
+  "id": "sec-inverse-laplace-examples",
+  "level": "1",
+  "url": "sec-inverse-laplace-examples.html",
+  "type": "Section",
+  "number": "4.1.4",
+  "title": "More Inverse Laplace Transform Examples",
+  "body": " More Inverse Laplace Transform Examples   Use the Laplace transform table below as a reference throughout this page.   Laplace Transform Table      Condition  Formula       A       B       C       D       E       H       I       J      As a warmup, consider . This should match Formula B, , but we need a 1 in the numerator and the denominator in the form . Factor the 3 out of the denominator: Now it matches Formula B with .    Finish computing .       Correct! After factoring, matches Formula B with , giving .       Don't forget the from factoring the 3 out of the denominator.       Check the sign of . Since , we have , giving not .       The constant comes from factoring 3 out of the denominator, giving , not .        Inverse Laplace with Two Terms   Find .      Split the fraction over the numerator and apply linearity to get two separate inverse transforms.  Both terms have denominator , so . Check the table to identify which formula each term matches.      Work  Split over the numerator and apply linearity: Both terms have denominator , so both match Formula D or Formula E , the difference is what's in the numerator: The first term needs a 3 on top to match Formula D, so rewrite:       Find   Work through the following steps.    Step 1: Simplify and Split   Split over the numerator and simplify each term. Which of the following is correct?       Correct! Splitting gives , and .       The second term is , not . Simplify by canceling one factor of .        , not .       Only the second term simplifies to . The first term is .       Step 2: Identify the Table Rows   Looking at the table above , which formula applies to each of the two terms and ?     Both match Formula C, , with different values of .   Correct! Both terms are of the form , just with different .     matches Formula A and matches Formula C.   Formula A is just , which corresponds to in Formula C. Both of your terms have higher powers of , so both match Formula C.     Both match Formula B, .   Formula B has a linear denominator . Here the denominators are powers of , which match Formula C instead.     matches Formula C and matches Formula H.   Formula H involves , which doesn't appear here. Both terms match Formula C with different values of .       Step 3: Compute the Inverse Transform   Using Formula C, compute .    Match each term to Formula C by identifying :  , so and .  , so and .  Rewrite each term to get in the numerator before applying the table.    Full Solution  Starting from the beginning: Both terms match Formula C, , with and respectively. Rewriting to get on top:        Key Takeaways     Factor first: if the denominator has a leading coefficient, factor it out before matching the table.   Split over the numerator: a sum in the numerator can always be split into separate fractions, then handle each one independently.   Identify n carefully for Formula C: match the power of in the denominator to , then rewrite to get on top.       This video goes through the content of this page.     "
+},
+{
+  "id": "table-laplace-transforms-ref",
+  "level": "2",
+  "url": "sec-inverse-laplace-examples.html#table-laplace-transforms-ref",
+  "type": "Table",
+  "number": "4.1.1",
+  "title": "Laplace Transform Table",
+  "body": " Laplace Transform Table      Condition  Formula       A       B       C       D       E       H       I       J    "
+},
+{
+  "id": "ex-warmup-laplace-13over3s21",
+  "level": "2",
+  "url": "sec-inverse-laplace-examples.html#ex-warmup-laplace-13over3s21",
+  "type": "Checkpoint",
+  "number": "4.1.2",
+  "title": "",
+  "body": "  Finish computing .       Correct! After factoring, matches Formula B with , giving .       Don't forget the from factoring the 3 out of the denominator.       Check the sign of . Since , we have , giving not .       The constant comes from factoring 3 out of the denominator, giving , not .     "
+},
+{
+  "id": "ex-inverse-laplace-two-terms",
+  "level": "2",
+  "url": "sec-inverse-laplace-examples.html#ex-inverse-laplace-two-terms",
+  "type": "Example",
+  "number": "4.1.3",
+  "title": "Inverse Laplace with Two Terms.",
+  "body": " Inverse Laplace with Two Terms   Find .      Split the fraction over the numerator and apply linearity to get two separate inverse transforms.  Both terms have denominator , so . Check the table to identify which formula each term matches.      Work  Split over the numerator and apply linearity: Both terms have denominator , so both match Formula D or Formula E , the difference is what's in the numerator: The first term needs a 3 on top to match Formula D, so rewrite:    "
+},
+{
+  "id": "act-inverse-laplace-polynomial",
+  "level": "2",
+  "url": "sec-inverse-laplace-examples.html#act-inverse-laplace-polynomial",
+  "type": "Activity",
+  "number": "4.1.1",
+  "title": "Find <span class=\"process-math\">\\(\\mathcal{L}^{-1}\\!\\left\\{\\dfrac{1+s}{s^3}\\right\\}\\)<\/span>.",
+  "body": " Find   Work through the following steps.    Step 1: Simplify and Split   Split over the numerator and simplify each term. Which of the following is correct?       Correct! Splitting gives , and .       The second term is , not . Simplify by canceling one factor of .        , not .       Only the second term simplifies to . The first term is .       Step 2: Identify the Table Rows   Looking at the table above , which formula applies to each of the two terms and ?     Both match Formula C, , with different values of .   Correct! Both terms are of the form , just with different .     matches Formula A and matches Formula C.   Formula A is just , which corresponds to in Formula C. Both of your terms have higher powers of , so both match Formula C.     Both match Formula B, .   Formula B has a linear denominator . Here the denominators are powers of , which match Formula C instead.     matches Formula C and matches Formula H.   Formula H involves , which doesn't appear here. Both terms match Formula C with different values of .       Step 3: Compute the Inverse Transform   Using Formula C, compute .    Match each term to Formula C by identifying :  , so and .  , so and .  Rewrite each term to get in the numerator before applying the table.    Full Solution  Starting from the beginning: Both terms match Formula C, , with and respectively. Rewriting to get on top:     "
+},
+{
+  "id": "video-inverse-laplace-examples",
+  "level": "2",
+  "url": "sec-inverse-laplace-examples.html#video-inverse-laplace-examples",
+  "type": "Figure",
+  "number": "4.1.4",
+  "title": "",
+  "body": " This video goes through the content of this page.   "
+},
+{
+  "id": "sec-partial-fractions-review",
+  "level": "1",
+  "url": "sec-partial-fractions-review.html",
+  "type": "Section",
+  "number": "4.2.1",
+  "title": "Partial Fraction Decomposition Review",
+  "body": " Partial Fraction Decomposition Review   In the next few pages we will need to decompose rational functions into simpler fractions before taking inverse Laplace transforms. There are three cases that come up in this chapter. For each one, the key skill is recognizing the correct form of the decomposition and then solving for the unknown constants.    Case 1: Distinct Linear Factors. If the denominator factors into two distinct linear factors , each factor gets its own fraction with a constant numerator:    Case 2: One Linear Factor and One Irreducible Quadratic Factor. A quadratic is irreducible if it has no real roots, which happens when . In this chapter the quadratics that appear are always of the form with , which are always irreducible. An irreducible quadratic factor gets a linear numerator :    Case 3: Repeated Linear Factor. If a linear factor appears squared, we need one fraction for each power: For example, with (i.e. repeated twice):      Which of the following is the correct partial fraction form for ?       Correct! Two distinct linear factors each get a constant numerator.       The squared denominator form is for repeated factors. Here appears only once.       Linear numerators like are for irreducible quadratic factors. For linear factors the numerator is just a constant.       There is no need for a fraction with the full original denominator. Two distinct linear factors give exactly two terms.        Which of the following is the correct partial fraction form for ?       Correct! The linear factor gets a constant numerator, and the irreducible quadratic gets a linear numerator .       The irreducible quadratic factor needs a linear numerator , not just a constant.        is irreducible and cannot be split further. It stays as one factor with a linear numerator.       The factor is linear, so its numerator is just a constant , not .        Which of the following is the correct partial fraction form for ?       Correct! The repeated factor contributes two fractions, one for each power, and the distinct factor gets its own.       When appears as a repeated factor you need a fraction for and a separate one for .       Linear numerators like are for irreducible quadratics. Since is a repeated linear factor each piece just gets a constant numerator.       You cannot use the same denominator twice. The repeated factor contributes one fraction with and one with in the denominator.        Solving for Coefficients by Clearing Denominators  Find the partial fraction decomposition of .  From Case 1, the correct form is Multiply both sides by to clear the denominators: Expand: Equating the coefficient of on both sides, and then the constant: Matching coefficients (the left side has ): From the first equation . Substituting into the second: , so and . Therefore:      Key Takeaways     Distinct linear factors  : each gets a constant numerator.   Irreducible quadratic  with : gets a linear numerator . Note that is always irreducible when .   Repeated linear factor  : contributes two fractions, one with and one with in the denominator.   To solve for coefficients: multiply both sides by the full denominator to clear it, expand, and match coefficients of each power of .      "
+},
+{
+  "id": "sec-partial-fractions-review-4",
+  "level": "2",
+  "url": "sec-partial-fractions-review.html#sec-partial-fractions-review-4",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "irreducible "
+},
+{
+  "id": "ex-pf-checkpoint-case1",
+  "level": "2",
+  "url": "sec-partial-fractions-review.html#ex-pf-checkpoint-case1",
+  "type": "Checkpoint",
+  "number": "4.2.1",
+  "title": "",
+  "body": "  Which of the following is the correct partial fraction form for ?       Correct! Two distinct linear factors each get a constant numerator.       The squared denominator form is for repeated factors. Here appears only once.       Linear numerators like are for irreducible quadratic factors. For linear factors the numerator is just a constant.       There is no need for a fraction with the full original denominator. Two distinct linear factors give exactly two terms.     "
+},
+{
+  "id": "ex-pf-checkpoint-case2",
+  "level": "2",
+  "url": "sec-partial-fractions-review.html#ex-pf-checkpoint-case2",
+  "type": "Checkpoint",
+  "number": "4.2.2",
+  "title": "",
+  "body": "  Which of the following is the correct partial fraction form for ?       Correct! The linear factor gets a constant numerator, and the irreducible quadratic gets a linear numerator .       The irreducible quadratic factor needs a linear numerator , not just a constant.        is irreducible and cannot be split further. It stays as one factor with a linear numerator.       The factor is linear, so its numerator is just a constant , not .     "
+},
+{
+  "id": "ex-pf-checkpoint-case3",
+  "level": "2",
+  "url": "sec-partial-fractions-review.html#ex-pf-checkpoint-case3",
+  "type": "Checkpoint",
+  "number": "4.2.3",
+  "title": "",
+  "body": "  Which of the following is the correct partial fraction form for ?       Correct! The repeated factor contributes two fractions, one for each power, and the distinct factor gets its own.       When appears as a repeated factor you need a fraction for and a separate one for .       Linear numerators like are for irreducible quadratics. Since is a repeated linear factor each piece just gets a constant numerator.       You cannot use the same denominator twice. The repeated factor contributes one fraction with and one with in the denominator.     "
+},
+{
+  "id": "ex-pf-clear-denominators",
+  "level": "2",
+  "url": "sec-partial-fractions-review.html#ex-pf-clear-denominators",
+  "type": "Example",
+  "number": "4.2.4",
+  "title": "Solving for Coefficients by Clearing Denominators.",
+  "body": " Solving for Coefficients by Clearing Denominators  Find the partial fraction decomposition of .  From Case 1, the correct form is Multiply both sides by to clear the denominators: Expand: Equating the coefficient of on both sides, and then the constant: Matching coefficients (the left side has ): From the first equation . Substituting into the second: , so and . Therefore:   "
+},
+{
+  "id": "sec-inverse-laplace-pfd-linear",
+  "level": "1",
+  "url": "sec-inverse-laplace-pfd-linear.html",
+  "type": "Section",
+  "number": "4.2.2",
+  "title": "Inverse Laplace with Distinct Linear Factors",
+  "body": " Inverse Laplace with Distinct Linear Factors   Keep the Laplace transform table handy as a reference for this page.   Laplace Transform Table      Condition  Formula       A       B       C       D       E       H       I       J      Sometimes the we want to invert doesn't match any row in the table directly. When the denominator is a product of factors, we can use partial fraction decomposition to break it into simpler pieces that do match the table. This technique will come up a lot in the next section when we actually use the Laplace transform to solve differential equations.   Find . Notice this expression does not appear anywhere in the table. On the previous page we worked out the partial fraction decomposition (see ): Each fraction now matches Formula B , . Applying the inverse transform:     Key Takeaways    When doesn't match the table directly, use partial fraction decomposition to break it into pieces that do.  After decomposing, apply linearity and match each piece to a formula in the table.  Distinct linear factors in the denominator each give a term matching Formula B .       This video goes through the content of this page.     "
+},
+{
+  "id": "table-laplace-ref-4-2-1",
+  "level": "2",
+  "url": "sec-inverse-laplace-pfd-linear.html#table-laplace-ref-4-2-1",
+  "type": "Table",
+  "number": "4.2.1",
+  "title": "Laplace Transform Table",
+  "body": " Laplace Transform Table      Condition  Formula       A       B       C       D       E       H       I       J    "
+},
+{
+  "id": "video-inverse-laplace-pfd-linear",
+  "level": "2",
+  "url": "sec-inverse-laplace-pfd-linear.html#video-inverse-laplace-pfd-linear",
+  "type": "Figure",
+  "number": "4.2.2",
+  "title": "",
+  "body": " This video goes through the content of this page.   "
+},
+{
+  "id": "sec-inverse-laplace-pfd-quadratic",
+  "level": "1",
+  "url": "sec-inverse-laplace-pfd-quadratic.html",
+  "type": "Section",
+  "number": "4.2.3",
+  "title": "Inverse Laplace with an Irreducible Quadratic Factor",
+  "body": " Inverse Laplace with an Irreducible Quadratic Factor   Keep the Laplace transform table handy as a reference for this page.   Laplace Transform Table      Condition  Formula       A       B       C       D       E       H       I       J       Find   Notice that , and is irreducible since with has no real roots. This expression does not appear in the table, so we use partial fraction decomposition.     Step 1: Partial Fraction Decomposition   From the review page, the correct form for a linear factor and an irreducible quadratic is:    Solving for A, B, and C (can skim, reference for homework)  Multiply both sides by to clear denominators: Expand: Matching coefficients: From the third equation , then , and .   With , , and , the decomposition is:       Step 2: Match Each Term to the Table   Looking at the table above , which formulas apply to the two terms and ?       matches Formula A, and matches Formula E.    Correct! Formula A gives , and Formula E gives . The second term has in the numerator, which matches the cosine formula.       matches Formula A, and matches Formula D.    Formula D gives , which requires a constant in the numerator. The second term has in the numerator, which matches Formula E (cosine) instead.       matches Formula B, and matches Formula E.    Formula B gives , which has a shifted denominator . Here the denominator is just , which matches Formula A with .      Both terms match Formula B.    Formula B applies to terms of the form . Neither term here has that form.        Step 3: Apply the Inverse Transform   Using the decomposition from Step 1 and the formulas identified in Step 2, compute .    The decomposition is .   matches Formula A .   matches Formula E with . You may need to rewrite slightly to match the form .      Work  Applying linearity and the inverse transform to each piece:        Key Takeaways    When the denominator contains an irreducible quadratic , the partial fraction form uses a linear numerator for that factor.  After decomposing, match each term to the table. A constant numerator over matches Formula D (sine), and an numerator over matches Formula E (cosine).   is always irreducible when , so it always gets a linear numerator in the partial fraction form.       This video goes through the content of this page.     "
+},
+{
+  "id": "table-laplace-ref-4-2-3",
+  "level": "2",
+  "url": "sec-inverse-laplace-pfd-quadratic.html#table-laplace-ref-4-2-3",
+  "type": "Table",
+  "number": "4.2.1",
+  "title": "Laplace Transform Table",
+  "body": " Laplace Transform Table      Condition  Formula       A       B       C       D       E       H       I       J    "
+},
+{
+  "id": "act-inverse-laplace-quadratic",
+  "level": "2",
+  "url": "sec-inverse-laplace-pfd-quadratic.html#act-inverse-laplace-quadratic",
+  "type": "Activity",
+  "number": "4.2.1",
+  "title": "Find <span class=\"process-math\">\\(\\mathcal{L}^{-1}\\!\\left\\{\\dfrac{1}{s^3+4s}\\right\\}\\)<\/span>.",
+  "body": " Find   Notice that , and is irreducible since with has no real roots. This expression does not appear in the table, so we use partial fraction decomposition.     Step 1: Partial Fraction Decomposition   From the review page, the correct form for a linear factor and an irreducible quadratic is:    Solving for A, B, and C (can skim, reference for homework)  Multiply both sides by to clear denominators: Expand: Matching coefficients: From the third equation , then , and .   With , , and , the decomposition is:       Step 2: Match Each Term to the Table   Looking at the table above , which formulas apply to the two terms and ?       matches Formula A, and matches Formula E.    Correct! Formula A gives , and Formula E gives . The second term has in the numerator, which matches the cosine formula.       matches Formula A, and matches Formula D.    Formula D gives , which requires a constant in the numerator. The second term has in the numerator, which matches Formula E (cosine) instead.       matches Formula B, and matches Formula E.    Formula B gives , which has a shifted denominator . Here the denominator is just , which matches Formula A with .      Both terms match Formula B.    Formula B applies to terms of the form . Neither term here has that form.        Step 3: Apply the Inverse Transform   Using the decomposition from Step 1 and the formulas identified in Step 2, compute .    The decomposition is .   matches Formula A .   matches Formula E with . You may need to rewrite slightly to match the form .      Work  Applying linearity and the inverse transform to each piece:     "
+},
+{
+  "id": "video-inverse-laplace-pfd-quadratic",
+  "level": "2",
+  "url": "sec-inverse-laplace-pfd-quadratic.html#video-inverse-laplace-pfd-quadratic",
+  "type": "Figure",
+  "number": "4.2.2",
+  "title": "",
+  "body": " This video goes through the content of this page.   "
+},
+{
+  "id": "sec-inverse-laplace-pfd-repeated",
+  "level": "1",
+  "url": "sec-inverse-laplace-pfd-repeated.html",
+  "type": "Section",
+  "number": "4.2.4",
+  "title": "Inverse Laplace with a Repeated Linear Factor",
+  "body": " Inverse Laplace with a Repeated Linear Factor   Keep the Laplace transform table handy as a reference for this page.   Laplace Transform Table      Condition  Formula       A       B       C       D       E       H       I       J      Before we start, think about why the repeated factor leads to two separate fractions in the decomposition rather than one.    Why does the repeated linear factor contribute two separate fractions in the partial fraction decomposition of ?      Because , meaning appears twice as a linear factor. Each power of needs its own fraction with a constant numerator.    Correct! A repeated linear factor contributes one fraction for each power from 1 up to . Here gives a fraction for and a separate one for .      Because is an irreducible quadratic, so it needs a linear numerator , which accounts for two unknowns.     is not irreducible — it factors as . Irreducible quadratics are ones with no real roots, like .      Because the degree of the numerator must equal the degree of the denominator.    The number of terms in a partial fraction decomposition is determined by the factors of the denominator, not by matching degrees.      Because has two complex roots, each requiring its own fraction.     has the real root repeated twice, not two complex roots. It is the repetition of this real root that gives two fractions.        Find   Notice that , where is a repeated linear factor. This expression does not appear in the table, so we use partial fraction decomposition.     Step 1: Partial Fraction Decomposition   From the review page, the correct form for a repeated linear factor is:    Solving for A, B, and C (can skim, reference for homework)  Multiply both sides by to clear denominators: Expand: Matching coefficients: From the third equation . From the second, . From the first, .   With , , and , the decomposition is:       Step 2: Apply the Inverse Transform   Using the decomposition from Step 1, compute .    Apply linearity to split into three separate inverse transforms, then match each to the table:   : use Formula A .   : use Formula C with . Rewrite as .   : use Formula B with .      Work  Applying linearity and reading off Formula A , Formula C (with ), and Formula B (with ):        Key Takeaways    A repeated linear factor contributes two terms in the partial fraction form: one with in the denominator and one with .  After decomposing, match each term carefully: watch the value of in Formula C and the sign of in Formula B .       This video goes through the content of this page.     "
+},
+{
+  "id": "table-laplace-ref-4-2-4",
+  "level": "2",
+  "url": "sec-inverse-laplace-pfd-repeated.html#table-laplace-ref-4-2-4",
+  "type": "Table",
+  "number": "4.2.1",
+  "title": "Laplace Transform Table",
+  "body": " Laplace Transform Table      Condition  Formula       A       B       C       D       E       H       I       J    "
+},
+{
+  "id": "ex-repeated-conceptual",
+  "level": "2",
+  "url": "sec-inverse-laplace-pfd-repeated.html#ex-repeated-conceptual",
+  "type": "Checkpoint",
+  "number": "4.2.2",
+  "title": "",
+  "body": "  Why does the repeated linear factor contribute two separate fractions in the partial fraction decomposition of ?      Because , meaning appears twice as a linear factor. Each power of needs its own fraction with a constant numerator.    Correct! A repeated linear factor contributes one fraction for each power from 1 up to . Here gives a fraction for and a separate one for .      Because is an irreducible quadratic, so it needs a linear numerator , which accounts for two unknowns.     is not irreducible — it factors as . Irreducible quadratics are ones with no real roots, like .      Because the degree of the numerator must equal the degree of the denominator.    The number of terms in a partial fraction decomposition is determined by the factors of the denominator, not by matching degrees.      Because has two complex roots, each requiring its own fraction.     has the real root repeated twice, not two complex roots. It is the repetition of this real root that gives two fractions.     "
+},
+{
+  "id": "act-inverse-laplace-repeated",
+  "level": "2",
+  "url": "sec-inverse-laplace-pfd-repeated.html#act-inverse-laplace-repeated",
+  "type": "Activity",
+  "number": "4.2.1",
+  "title": "Find <span class=\"process-math\">\\(\\mathcal{L}^{-1}\\!\\left\\{\\dfrac{1}{s^3+4s^2}\\right\\}\\)<\/span>.",
+  "body": " Find   Notice that , where is a repeated linear factor. This expression does not appear in the table, so we use partial fraction decomposition.     Step 1: Partial Fraction Decomposition   From the review page, the correct form for a repeated linear factor is:    Solving for A, B, and C (can skim, reference for homework)  Multiply both sides by to clear denominators: Expand: Matching coefficients: From the third equation . From the second, . From the first, .   With , , and , the decomposition is:       Step 2: Apply the Inverse Transform   Using the decomposition from Step 1, compute .    Apply linearity to split into three separate inverse transforms, then match each to the table:   : use Formula A .   : use Formula C with . Rewrite as .   : use Formula B with .      Work  Applying linearity and reading off Formula A , Formula C (with ), and Formula B (with ):     "
+},
+{
+  "id": "video-inverse-laplace-pfd-repeated",
+  "level": "2",
+  "url": "sec-inverse-laplace-pfd-repeated.html#video-inverse-laplace-pfd-repeated",
+  "type": "Figure",
+  "number": "4.2.3",
+  "title": "",
+  "body": " This video goes through the content of this page.   "
+},
+{
+  "id": "sec-laplace-derivatives",
+  "level": "1",
+  "url": "sec-laplace-derivatives.html",
+  "type": "Section",
+  "number": "4.3.1",
+  "title": "Laplace Transforms of Derivatives",
+  "body": " Laplace Transforms of Derivatives   Our goal for this chapter is to use the Laplace transform to solve second-order linear IVPs of the form To do this we need to know how the Laplace transform interacts with derivatives. Under mild conditions on (essentially that is defined), we have the following two formulas.   Writing :    Justification (can skim)  Starting from the definition and using integration by parts with and , so and : The limit whenever is defined.        Justification (can skim)  Apply the result for twice. Let , so and :     We restate these results in the following theorem for easy reference.   Laplace Transforms of Derivatives   Let . Then:     Notice what these formulas do: they replace derivatives of with algebraic expressions in , incorporating the initial conditions and automatically. This is the key reason the Laplace transform is so useful for IVPs.   With these formulas in hand, here is the strategy for solving an IVP using the Laplace transform:     Transform. Apply to both sides of the ODE. Use the formulas above to replace and with expressions in , plugging in the initial conditions as you go. This turns the ODE into an algebraic equation in .   Solve for . Solve the algebraic equation to find . This usually involves factoring and partial fraction decomposition.   Invert. Apply the inverse Laplace transform to to recover the solution .      Key Takeaways     and . Initial conditions are built right into these formulas.  Taking the Laplace transform of an ODE turns it into an algebraic equation in , which is generally much easier to solve.  The three steps are: transform, solve for , then invert to get .       This video goes through the content of this page.     "
+},
+{
+  "id": "sec-laplace-derivatives-4",
+  "level": "2",
+  "url": "sec-laplace-derivatives.html#sec-laplace-derivatives-4",
+  "type": "Justification",
+  "number": "4.3.1.1",
+  "title": "Justification (can skim).",
+  "body": " Justification (can skim)  Starting from the definition and using integration by parts with and , so and : The limit whenever is defined.  "
+},
+{
+  "id": "sec-laplace-derivatives-6",
+  "level": "2",
+  "url": "sec-laplace-derivatives.html#sec-laplace-derivatives-6",
+  "type": "Justification",
+  "number": "4.3.1.2",
+  "title": "Justification (can skim).",
+  "body": " Justification (can skim)  Apply the result for twice. Let , so and :   "
+},
+{
+  "id": "thm-laplace-derivatives",
+  "level": "2",
+  "url": "sec-laplace-derivatives.html#thm-laplace-derivatives",
+  "type": "Theorem",
+  "number": "4.3.1",
+  "title": "Laplace Transforms of Derivatives.",
+  "body": " Laplace Transforms of Derivatives   Let . Then:    "
+},
+{
+  "id": "video-laplace-derivatives",
+  "level": "2",
+  "url": "sec-laplace-derivatives.html#video-laplace-derivatives",
+  "type": "Figure",
+  "number": "4.3.2",
+  "title": "",
+  "body": " This video goes through the content of this page.   "
+},
+{
+  "id": "sec-laplace-ivp-example",
+  "level": "1",
+  "url": "sec-laplace-ivp-example.html",
+  "type": "Section",
+  "number": "4.3.2",
+  "title": "Solving an IVP with the Laplace Transform",
+  "body": " Solving an IVP with the Laplace Transform  We now put the three-step strategy from the previous page into action for the first time. Recall the two key formulas from : Also note that , since the transform of the zero function is zero, and by definition.    Solving an IVP Using the Laplace Transform   Solve the initial value problem      Step 1a: Substitute the Derivative Formulas   Apply to both sides of the ODE and use to replace , , and with expressions in , plugging in and .    Apply to each term separately using linearity, then substitute , , and .    Applying to both sides and using linearity: Substituting the derivative formulas with and :       Step 1b: Solve for   Starting from collect all terms on the left and everything else on the right, then solve for .    Expand, group all terms with on the left and move all other terms to the right, then factor out and divide.    Expanding and collecting: Solving for :       Step 2: Partial Fraction Decomposition   Factor the denominator: . This is the same type as in , two distinct linear factors. We will skip the details on the computation. The partial fraction decomposition gives:       Step 3: Apply the Inverse Laplace Transform   Apply to to find .    Each term matches Formula B , . Identify for each term.    Applying linearity and Formula B to each term:         Why does taking the Laplace transform of an ODE make it easier to solve?      It turns the ODE into an algebraic equation in , which can be solved with standard algebra rather than differential equation techniques.    Correct! The derivative formulas replace and with algebraic expressions in , so the whole equation becomes algebraic.      It eliminates the initial conditions so you only need to find the general solution.    Actually the opposite — the initial conditions are built directly into the derivative formulas and used in Step 1.      It converts the ODE into an integral equation, which is easier to evaluate numerically.    The Laplace transform is defined by an integral, but the result is an algebraic equation in , not another integral equation.      It works only for homogeneous equations, where the right-hand side is zero.    The Laplace transform method works for both homogeneous and non-homogeneous equations. The right-hand side just gets transformed along with everything else.        At which step in the Laplace transform method are the initial conditions used?      Step 1, when substituting the derivative formulas and .    Correct! The values and are plugged in during the transform step, so by the time you reach Steps 2 and 3 the initial conditions are already incorporated.      Step 2, when solving for using partial fractions.    By Step 2 the initial conditions are already baked into the algebraic equation from Step 1. Partial fractions just decompose .      Step 3, when applying the inverse Laplace transform to find .    By Step 3 the initial conditions have already been used. The inverse transform just reads off from the table.      They are not used — the Laplace transform method only finds the general solution.    The Laplace transform method finds the particular solution directly, with initial conditions built in from the start.        Key Takeaways     Step 1: apply to both sides, substitute the derivative formulas with initial conditions plugged in, and solve for .   Step 2: factor the denominator and use partial fractions to decompose into pieces that match the table.   Step 3: apply to each piece to recover .       This video goes through the content of this page.     "
+},
+{
+  "id": "ex-laplace-ivp-first",
+  "level": "2",
+  "url": "sec-laplace-ivp-example.html#ex-laplace-ivp-first",
+  "type": "Example",
+  "number": "4.3.1",
+  "title": "Solving an IVP Using the Laplace Transform.",
+  "body": " Solving an IVP Using the Laplace Transform   Solve the initial value problem      Step 1a: Substitute the Derivative Formulas   Apply to both sides of the ODE and use to replace , , and with expressions in , plugging in and .    Apply to each term separately using linearity, then substitute , , and .    Applying to both sides and using linearity: Substituting the derivative formulas with and :       Step 1b: Solve for   Starting from collect all terms on the left and everything else on the right, then solve for .    Expand, group all terms with on the left and move all other terms to the right, then factor out and divide.    Expanding and collecting: Solving for :       Step 2: Partial Fraction Decomposition   Factor the denominator: . This is the same type as in , two distinct linear factors. We will skip the details on the computation. The partial fraction decomposition gives:       Step 3: Apply the Inverse Laplace Transform   Apply to to find .    Each term matches Formula B , . Identify for each term.    Applying linearity and Formula B to each term:     "
+},
+{
+  "id": "ex-laplace-ivp-mc1",
+  "level": "2",
+  "url": "sec-laplace-ivp-example.html#ex-laplace-ivp-mc1",
+  "type": "Checkpoint",
+  "number": "4.3.2",
+  "title": "",
+  "body": "  Why does taking the Laplace transform of an ODE make it easier to solve?      It turns the ODE into an algebraic equation in , which can be solved with standard algebra rather than differential equation techniques.    Correct! The derivative formulas replace and with algebraic expressions in , so the whole equation becomes algebraic.      It eliminates the initial conditions so you only need to find the general solution.    Actually the opposite — the initial conditions are built directly into the derivative formulas and used in Step 1.      It converts the ODE into an integral equation, which is easier to evaluate numerically.    The Laplace transform is defined by an integral, but the result is an algebraic equation in , not another integral equation.      It works only for homogeneous equations, where the right-hand side is zero.    The Laplace transform method works for both homogeneous and non-homogeneous equations. The right-hand side just gets transformed along with everything else.     "
+},
+{
+  "id": "ex-laplace-ivp-mc2",
+  "level": "2",
+  "url": "sec-laplace-ivp-example.html#ex-laplace-ivp-mc2",
+  "type": "Checkpoint",
+  "number": "4.3.3",
+  "title": "",
+  "body": "  At which step in the Laplace transform method are the initial conditions used?      Step 1, when substituting the derivative formulas and .    Correct! The values and are plugged in during the transform step, so by the time you reach Steps 2 and 3 the initial conditions are already incorporated.      Step 2, when solving for using partial fractions.    By Step 2 the initial conditions are already baked into the algebraic equation from Step 1. Partial fractions just decompose .      Step 3, when applying the inverse Laplace transform to find .    By Step 3 the initial conditions have already been used. The inverse transform just reads off from the table.      They are not used — the Laplace transform method only finds the general solution.    The Laplace transform method finds the particular solution directly, with initial conditions built in from the start.     "
+},
+{
+  "id": "video-laplace-ivp-example",
+  "level": "2",
+  "url": "sec-laplace-ivp-example.html#video-laplace-ivp-example",
+  "type": "Figure",
+  "number": "4.3.4",
+  "title": "",
+  "body": " This video goes through the content of this page.   "
+},
+{
+  "id": "sec-laplace-ivp-activity",
+  "level": "1",
+  "url": "sec-laplace-ivp-activity.html",
+  "type": "Section",
+  "number": "4.3.3",
+  "title": "Solving an IVP: Practice",
+  "body": " Solving an IVP: Practice  Now it is your turn to work through the three steps. Use the formulas from and the Laplace table as needed.    Solve the IVP , ,   Work through the three steps to solve this initial value problem using the Laplace transform.     Step 1a: Substitute the Derivative Formulas   Taking of both sides and applying linearity on the left and Formula A on the right: Using the derivative formulas from with and , which of the following is the correct result?         Correct! Substituting and gives exactly this.         Check the sign of . The formula gives , so the constant should be , not .         It looks like the wrong initial conditions were used. Here and , so .         The term , not . Check the sign in the derivative formula.        Step 1b: Solve for   Using the result from the previous part, , which of the following is the correct expression for ?         Correct! Collecting terms gives , and dividing by gives this expression.         Check the signs when moving terms to the right side. moves to the right as , not .         The first term on the right side needs to keep its in the denominator when dividing by . It becomes .         Don't forget to divide every term by . The term becomes , not just .        Step 2: Partial Fraction Decomposition   Dividing by gives: The first term needs a partial fraction decomposition since it involves a linear factor and an irreducible quadratic, as in . The decomposition gives: Substituting back: Notice the two terms cancel!   Solving for the PFD coefficients (can skim, reference for homework)  The correct form is . Clearing denominators: Expanding and matching coefficients: So , , , giving , , .       Step 3: Apply the Inverse Laplace Transform   Apply to to find .     matches Formula A . For , notice and the 3 is already in the numerator, so it matches Formula D with directly, no rewriting needed.    Applying linearity and reading off the table:         This video goes through the content of this page.     "
+},
+{
+  "id": "act-laplace-ivp-second",
+  "level": "2",
+  "url": "sec-laplace-ivp-activity.html#act-laplace-ivp-second",
+  "type": "Activity",
+  "number": "4.3.1",
+  "title": "Solve the IVP <span class=\"process-math\">\\(y'' + 9y = 9\\text{,}\\)<\/span> <span class=\"process-math\">\\(y(0) = 1\\text{,}\\)<\/span> <span class=\"process-math\">\\(y'(0) = -3\\)<\/span>.",
+  "body": " Solve the IVP , ,   Work through the three steps to solve this initial value problem using the Laplace transform.     Step 1a: Substitute the Derivative Formulas   Taking of both sides and applying linearity on the left and Formula A on the right: Using the derivative formulas from with and , which of the following is the correct result?         Correct! Substituting and gives exactly this.         Check the sign of . The formula gives , so the constant should be , not .         It looks like the wrong initial conditions were used. Here and , so .         The term , not . Check the sign in the derivative formula.        Step 1b: Solve for   Using the result from the previous part, , which of the following is the correct expression for ?         Correct! Collecting terms gives , and dividing by gives this expression.         Check the signs when moving terms to the right side. moves to the right as , not .         The first term on the right side needs to keep its in the denominator when dividing by . It becomes .         Don't forget to divide every term by . The term becomes , not just .        Step 2: Partial Fraction Decomposition   Dividing by gives: The first term needs a partial fraction decomposition since it involves a linear factor and an irreducible quadratic, as in . The decomposition gives: Substituting back: Notice the two terms cancel!   Solving for the PFD coefficients (can skim, reference for homework)  The correct form is . Clearing denominators: Expanding and matching coefficients: So , , , giving , , .       Step 3: Apply the Inverse Laplace Transform   Apply to to find .     matches Formula A . For , notice and the 3 is already in the numerator, so it matches Formula D with directly, no rewriting needed.    Applying linearity and reading off the table:     "
+},
+{
+  "id": "video-laplace-ivp-activity",
+  "level": "2",
+  "url": "sec-laplace-ivp-activity.html#video-laplace-ivp-activity",
+  "type": "Figure",
+  "number": "4.3.1",
+  "title": "",
+  "body": " This video goes through the content of this page.   "
+},
+{
+  "id": "sec-laplace-formula-reference",
+  "level": "1",
+  "url": "sec-laplace-formula-reference.html",
+  "type": "Section",
+  "number": "4.4",
+  "title": "Laplace Transform Formula Reference",
+  "body": " Laplace Transform Formula Reference  The following formulas are referenced throughout this chapter. Each is named by a letter for easy lookup.   Formula A:     Formula B:     Formula C:     Formula D:     Formula E:     Formula H:     Formula I:     Formula J:    "
+},
+{
+  "id": "formula-A",
+  "level": "2",
+  "url": "sec-laplace-formula-reference.html#formula-A",
+  "type": "Fact",
+  "number": "4.4.1",
+  "title": "Formula A: <span class=\"process-math\">\\(\\mathcal{L}\\{1\\}\\)<\/span>.",
+  "body": " Formula A:   "
+},
+{
+  "id": "formula-B",
+  "level": "2",
+  "url": "sec-laplace-formula-reference.html#formula-B",
+  "type": "Fact",
+  "number": "4.4.2",
+  "title": "Formula B: <span class=\"process-math\">\\(\\mathcal{L}\\{e^{at}\\}\\)<\/span>.",
+  "body": " Formula B:   "
+},
+{
+  "id": "formula-C",
+  "level": "2",
+  "url": "sec-laplace-formula-reference.html#formula-C",
+  "type": "Fact",
+  "number": "4.4.3",
+  "title": "Formula C: <span class=\"process-math\">\\(\\mathcal{L}\\{t^n\\}\\)<\/span>.",
+  "body": " Formula C:   "
+},
+{
+  "id": "formula-D",
+  "level": "2",
+  "url": "sec-laplace-formula-reference.html#formula-D",
+  "type": "Fact",
+  "number": "4.4.4",
+  "title": "Formula D: <span class=\"process-math\">\\(\\mathcal{L}\\{\\sin(at)\\}\\)<\/span>.",
+  "body": " Formula D:   "
+},
+{
+  "id": "formula-E",
+  "level": "2",
+  "url": "sec-laplace-formula-reference.html#formula-E",
+  "type": "Fact",
+  "number": "4.4.5",
+  "title": "Formula E: <span class=\"process-math\">\\(\\mathcal{L}\\{\\cos(at)\\}\\)<\/span>.",
+  "body": " Formula E:   "
+},
+{
+  "id": "formula-H",
+  "level": "2",
+  "url": "sec-laplace-formula-reference.html#formula-H",
+  "type": "Fact",
+  "number": "4.4.6",
+  "title": "Formula H: <span class=\"process-math\">\\(\\mathcal{L}\\{t^n e^{at}\\}\\)<\/span>.",
+  "body": " Formula H:   "
+},
+{
+  "id": "formula-I",
+  "level": "2",
+  "url": "sec-laplace-formula-reference.html#formula-I",
+  "type": "Fact",
+  "number": "4.4.7",
+  "title": "Formula I: <span class=\"process-math\">\\(\\mathcal{L}\\{e^{at}\\sin(bt)\\}\\)<\/span>.",
+  "body": " Formula I:   "
+},
+{
+  "id": "formula-J",
+  "level": "2",
+  "url": "sec-laplace-formula-reference.html#formula-J",
+  "type": "Fact",
+  "number": "4.4.8",
+  "title": "Formula J: <span class=\"process-math\">\\(\\mathcal{L}\\{e^{at}\\cos(bt)\\}\\)<\/span>.",
+  "body": " Formula J:   "
 },
 {
   "id": "backmatter-2",
