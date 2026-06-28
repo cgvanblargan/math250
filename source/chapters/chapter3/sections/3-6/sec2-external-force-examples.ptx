@@ -10,8 +10,8 @@
   <p>
     We now solve the forced undamped system for two different values of the spring
     constant <m>k</m>. The method is undetermined coefficients, which you practiced
-    in <xref ref="sec-undetermined-duplication"/> and surrounding sections, so feel
-    free to skim the algebraic details in parts (b) and (c). What matters most is
+    in <xref ref="sec-undetermined-duplication"/> and surrounding sections, so <em>feel
+    free to skim the algebraic details in parts (b) and (c).</em> What matters most is
     understanding which case you are in and what the general solution looks like at the end.
   </p>
 
@@ -29,7 +29,14 @@
 
   <activity xml:id="activity-forced-examples">
     <title>Solving the Forced System for Two Values of <m>k</m></title>
-
+<introduction>
+    <p>
+      In both examples below, the ODE is
+      <me>x'' + kx = 50\cos(3t),</me>
+      and we find the general solution for two choices of <m>k</m>:
+      <m>k = 8</m> and <m>k = 9</m>.
+    </p>
+  </introduction>
     <!-- ── Part (a): MC on which case is duplication ── -->
 
     <task xml:id="task-forced-which-case">
@@ -316,9 +323,8 @@
           duplication and must multiply the guess by <m>t</m>.
         </p></li>
         <li><p>
-          <alert>Frequencies are the key:</alert> The case of duplication is not about
-          the algebra being harder; it arises precisely because the external force is
-          driving the system at its own natural frequency. On the next page we see what
+          <alert>Frequencies are the key:</alert> The case of duplication arises precisely because the external force is
+          driving the system at its own natural frequency (that is, <m> \omega=\omega_0</m>). On the next page we see what
           this means physically.
         </p></li>
       </ul>

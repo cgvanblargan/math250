@@ -236,7 +236,7 @@
 
   <p>
     The reason this works: when we differentiate <m>y_p = t(A\cos(kt) + B\sin(kt))</m>
-    using the product rule, we get two types of terms — terms with a factor of <m>t</m>,
+    using the product rule, we get two types of terms: terms with a factor of <m>t</m>,
     and terms without. When we substitute into the ODE, the terms with <m>t</m> cancel
     out (since <m>A\cos(kt) + B\sin(kt)</m> solves the homogeneous equation). What
     remains are the terms without <m>t</m>: plain <m>\cos(kt)</m> and <m>\sin(kt)</m>
@@ -287,11 +287,9 @@
         </p></li>
         <li><p>
           <alert>When does it happen:</alert> The case of duplication occurs
-          when the homogeneous ODE has the form <m>y'' + k^2 y = 0</m>,
-          since <m>\cos(kt)</m> and <m>\sin(kt)</m> are exactly the homogeneous
-          solutions in that case. Equivalently, the frequency <m>k</m> on the
-          right-hand side matches the coefficient of <m>y</m> in the ODE
-          (since the coefficient is <m>k^2</m>).
+          when the ODE has the form <m>y'' + k^2 y = m_1\cos(kt) + m_2\sin(kt)</m>,
+          since <m>\cos(kt)</m> and <m>\sin(kt)</m> are solutions to the corresponding homogeneous 
+          ODE <m>y'' + k^2 y = 0</m> in this case. 
         </p></li>
         <li><p>
           <alert>The fix:</alert> Multiply the usual guess by <m>t</m>, giving

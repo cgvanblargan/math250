@@ -20,8 +20,10 @@
       </p>
       <p>
         The point of this exploration is to see why the sum <m>y_p + y_c</m> will always form a solution to the
-        non-homogeneous ODE. You can skim the computations for <m>y_p</m> and <m>y_c</m>, but pay close attention to parts
-        (c) and (d)!
+        non-homogeneous ODE. </p>
+        <p>
+        <alert>You can skim the computations for <m>y_p</m> and <m>y_c</m>, but pay close attention to parts
+        (c) and (d)!</alert>
       </p>
     </introduction>
 

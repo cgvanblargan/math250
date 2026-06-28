@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<exercises xml:id="exercises-3-5">
+  <title>Exercises for Section 3.5</title>
+
+  <p>
+    These exercises cover the method of undetermined coefficients. For each
+    problem, remember: the frequency <m>k</m> in your guess always comes from
+    the right-hand side of the ODE, and you should put the ODE in standard form
+    (leading coefficient 1) before checking for the case of duplication.
+  </p>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       Q1: Identification
+       ═══════════════════════════════════════════════════════════ -->
+
+  <exercise xml:id="ex-3-5-1">
+    <title>Identifying the Correct Guess</title>
+    <introduction>
+      <p>
+        For each ODE below, state the correct form of the guess <m>y_p</m>
+        for finding a particular solution using undetermined coefficients.
+        You do not need to solve for the coefficients.
+      </p>
+    </introduction>
+
+    <task xml:id="ex-3-5-1a">
+      <statement>
+        <p>
+          <m>y'' + 3y' + 2y = 5\cos(4t)</m>
+        </p>
+      </statement>
+      <answer>
+        <p>
+          Normal case (<m>k = 4</m>, coefficient of <m>y</m> is <m>2 \neq 16 = k^2</m>):
+          <me>y_p = A\cos(4t) + B\sin(4t).</me>
+        </p>
+      </answer>
+    </task>
+
+    <task xml:id="ex-3-5-1b">
+      <statement>
+        <p>
+          <m>y'' + 16y = 3\cos(4t)</m>
+        </p>
+      </statement>
+      <answer>
+        <p>
+          Case of duplication (<m>k = 4</m>, coefficient of <m>y</m> is <m>16 = k^2</m>):
+          <me>y_p = t\bigl(A\cos(4t) + B\sin(4t)\bigr).</me>
+        </p>
+      </answer>
+    </task>
+
+    <task xml:id="ex-3-5-1c">
+      <statement>
+        <p>
+          <m>2y'' + 8y = \cos(2t)</m>
+        </p>
+      </statement>
+      <answer>
+        <p>
+          Dividing through by <m>2</m> gives <m>y'' + 4y = \tfrac{1}{2}\cos(2t)</m>.
+          Since <m>k = 2</m> and the coefficient of <m>y</m> is <m>4 = k^2</m>,
+          this is the case of duplication:
+          <me>y_p = t\bigl(A\cos(2t) + B\sin(2t)\bigr).</me>
+        </p>
+      </answer>
+    </task>
+
+    <task xml:id="ex-3-5-1d">
+      <statement>
+        <p>
+          <m>y'' - 16y = 3\cos(4t)</m>
+        </p>
+      </statement>
+      <answer>
+        <p>
+          Normal case. Even though <m>k = 4</m> and <m>4^2 = 16</m>, the coefficient
+          of <m>y</m> is <m>-16</m>, not <m>+16</m>. The homogeneous equation
+          <m>y'' - 16y = 0</m> has real exponential solutions, not trig functions,
+          so the usual guess works fine:
+          <me>y_p = A\cos(4t) + B\sin(4t).</me>
+        </p>
+      </answer>
+    </task>
+
+  </exercise>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       Q2: Three-part question with parameter m
+       ═══════════════════════════════════════════════════════════ -->
+
+  <exercise xml:id="ex-3-5-2">
+    <title>Normal Case vs. Case of Duplication</title>
+    <introduction>
+      <p>
+        Consider the ODE
+        <me>my'' + 8y = 8\cos(2t),</me>
+        where <m>m</m> is a positive constant.
+      </p>
+    </introduction>
+
+    <task xml:id="ex-3-5-2a">
+      <statement>
+        <p>
+          For what value of <m>m</m> are we in the case of duplication?
+        </p>
+      </statement>
+      <hint>
+        <p>
+          Divide through by <m>m</m> first to put the ODE in standard form,
+          then check whether the coefficient of <m>y</m> equals <m>k^2</m>,
+          where <m>k = 2</m> is the frequency on the right-hand side.
+          
+        </p>
+      </hint>
+      <answer>
+        <p>
+          <m>m = 2.</m>
+        </p>
+      </answer>
+    </task>
+
+    <task xml:id="ex-3-5-2b">
+      <statement>
+        <p>
+          Find the general solution for <m>m = 2</m>.
+        </p>
+      </statement>
+      <answer>
+        <p>
+          <me>y = c_1\cos(2t) + c_2\sin(2t) + t\sin(2t).</me>
+        </p>
+      </answer>
+    </task>
+
+    <task xml:id="ex-3-5-2c">
+      <statement>
+        <p>
+          Find the general solution for <m>m = 1</m>.
+        </p>
+      </statement>
+      <answer>
+        <p>
+          <me>y = c_1\cos(2\sqrt{2}\,t) + c_2\sin(2\sqrt{2}\,t) + 2\cos(2t).</me>
+        </p>
+      </answer>
+    </task>
+
+  </exercise>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       Q3: Normal case with y' term, full IVP
+       ═══════════════════════════════════════════════════════════ -->
+
+  <exercise xml:id="ex-3-5-3">
+    <title>Solving an IVP with a Non-Homogeneous Equation</title>
+    <introduction>
+      <p>
+        Solve the initial value problem
+        <me>y'' + 2y' + 5y = 10\cos(t), \quad y(0) = 1, \quad y'(0) = 0.</me>
+      </p>
+    </introduction>
+
+    <task xml:id="ex-3-5-3a">
+      <statement>
+        <p>
+          Find the complementary function <m>y_c</m>.
+        </p>
+      </statement>
+      <answer>
+        <p>
+          <me>y_c = e^{-t}\bigl(c_1\cos(2t) + c_2\sin(2t)\bigr).</me>
+        </p>
+      </answer>
+    </task>
+
+    <task xml:id="ex-3-5-3b">
+      <statement>
+        <p>
+          Find a particular solution <m>y_p</m>.
+        </p>
+      </statement>
+      <answer>
+        <p>
+          <me>y_p = 2\cos(t) - \sin(t).</me>
+        </p>
+      </answer>
+    </task>
+
+    <task xml:id="ex-3-5-3c">
+      <statement>
+        <p>
+          Use the initial conditions to find the specific solution to the IVP.
+          Remember to apply the initial conditions to the full general solution
+          <m>y = y_c + y_p</m>, not just <m>y_c</m>.
+        </p>
+      </statement>
+      <answer>
+        <p>
+          <me>y = -e^{-t}\cos(2t) + 2\cos(t) - \sin(t).</me>
+        </p>
+      </answer>
+    </task>
+
+  </exercise>
+
+  <interactive xml:id="question-form-3-5-ex" iframe="question-form.html?section=3.5 exercises" width="100%" aspect="2:1"/>
+
+</exercises>

@@ -19,11 +19,11 @@
 
   <p>
     Solving this in full generality is hard. But for certain simple, well-behaved
-    choices of <m>g(t)</m>, we can make progress with a clever strategy. On this
+    choices of <m>g(t)</m>, we can make progress with a clever strategy (which we will call the <em>method of undetermined coefficients</em>). On this
     page we focus on functions of the form
     <me>g(t) = a\cos(kt) + b\sin(kt),</me>
     and we will discover the method by working through examples, so treat
-    this as an exploration, not a formula to memorize yet.
+    this as an exploration for now. Over the next few pages, we will have fully laid out the strategy!
   </p>
 
   <!-- ═══════════════════════════════════════════════════════════
@@ -52,7 +52,7 @@
           <m>10\cos(3t)</m>, so we need a function whose second derivative
           is also a multiple of <m>\cos(3t)</m>. Which of the following is the
           most natural guess? (Don't worry, we haven't learned a rule for this yet.
-          Go with your gut!)
+          Take your best guess!)
         </p>
       </statement>
       <choices randomize="no">

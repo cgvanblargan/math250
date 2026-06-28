@@ -17,5 +17,6 @@
        <xi:include href="./3-5/sec5-guess-practice.ptx"/>
          <xi:include href="./3-5/sec6-general-solution.ptx"/>
 <xi:include href="./3-5/sec7-nonhomogeneous-ivp.ptx"/>
+<xi:include href="./3-5/exercises-3-5.ptx"/>
 
 </section>

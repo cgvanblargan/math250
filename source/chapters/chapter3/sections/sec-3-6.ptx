@@ -15,5 +15,6 @@
   <xi:include href="./3-6/sec1-external-force-setup.ptx"/>
   <xi:include href="./3-6/sec2-external-force-examples.ptx"/>
   <xi:include href="./3-6/sec3-resonance.ptx"/>
+   <xi:include href="./3-6/exercises-3-6.ptx"/>
 
 </section>

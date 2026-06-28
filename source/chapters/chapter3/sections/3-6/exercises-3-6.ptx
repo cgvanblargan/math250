@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<exercises xml:id="exercises-3-6">
+  <title>Exercises for Section 3.6</title>
+
+  <p>
+    These exercises explore forced undamped mass-spring systems and resonance.
+    For each problem, remember: resonance occurs when the forcing frequency
+    <m>\omega</m> equals the natural frequency <m>\omega_0 = \sqrt{k/m}</m>.
+  </p>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       Q1: Tie-in with 3-5 Ex 2, physical interpretation
+       ═══════════════════════════════════════════════════════════ -->
+
+  <exercise xml:id="ex-3-6-1">
+    <title>Comparing Resonance and Non-Resonance</title>
+    <introduction>
+      <p>
+        In <xref ref="ex-3-5-2"/>, you found the general solutions to
+        <me>my'' + 8y = 8\cos(2t)</me>
+        for <m>m = 1</m> and <m>m = 2</m>:
+        <ul>
+          <li><p>
+            <m>m = 1</m>: <m>y = c_1\cos(2\sqrt{2}\,t) + c_2\sin(2\sqrt{2}\,t) + 2\cos(2t).</m>
+          </p></li>
+          <li><p>
+            <m>m = 2</m>: <m>y = c_1\cos(2t) + c_2\sin(2t) + t\sin(2t).</m>
+          </p></li>
+        </ul>
+        We now interpret this ODE as a forced undamped mass-spring system
+        <me>mx'' + kx = F_0\cos(\omega t),</me>
+        with spring constant <m>8</m>, forcing amplitude <m>F_0 = 8</m>,
+        and forcing frequency <m>\omega = 2</m>.
+      </p>
+    </introduction>
+
+    <task xml:id="ex-3-6-1a">
+      <statement>
+        <p>
+          For each value of <m>m</m> (i.e., <m>m = 1</m> and <m>m = 2</m>),
+          identify the <term>natural frequency</term> <m>\omega_0 = \sqrt{8/m}</m>
+          and the <term>forcing frequency</term> <m>\omega</m>.
+        </p>
+      </statement>
+      <hint>
+        <p>
+          The forcing frequency <m>\omega</m> comes from the right-hand side of the ODE.
+          The natural frequency <m>\omega_0 = \sqrt{k/m}</m> comes from the system itself.
+        </p>
+      </hint>
+      <answer>
+        <p>
+          The forcing frequency is <m>\omega = 2</m> in both cases.
+          <ul>
+            <li><p><m>m = 1</m>: <m>\omega_0 = \sqrt{8} = 2\sqrt{2}</m>.</p></li>
+            <li><p><m>m = 2</m>: <m>\omega_0 = \sqrt{4} = 2</m>.</p></li>
+          </ul>
+        </p>
+      </answer>
+    </task>
+
+    <task xml:id="ex-3-6-1b">
+      <statement>
+        <p>
+          Which value of <m>m</m> produces resonance, and why?
+        </p>
+      </statement>
+      <answer>
+        <p>
+          <m>m = 2</m>, because <m>\omega_0 = 2 = \omega</m>: the natural frequency
+          equals the forcing frequency.
+        </p>
+      </answer>
+    </task>
+
+    <task xml:id="ex-3-6-1c">
+      <statement>
+        <p>
+          Using your general solutions from <xref ref="ex-3-5-2"/>, apply the
+          initial conditions <m>x(0) = 0</m> and <m>x'(0) = 0</m> to find the
+          specific solution for each value of <m>m</m>.
+        </p>
+      </statement>
+      <answer>
+        <p>
+          <ul>
+            <li><p>
+              <m>m = 1</m>: <m>x(t) = -2\cos(2\sqrt{2}\,t) + 2\cos(2t).</m>
+            </p></li>
+            <li><p>
+              <m>m = 2</m>: <m>x(t) = t\sin(2t).</m>
+            </p></li>
+          </ul>
+        </p>
+      </answer>
+    </task>
+
+    <task xml:id="ex-3-6-1d">
+      <statement>
+        <p>
+          Describe the long-term behavior of each solution as <m>t \to \infty</m>.
+          How does this connect to whether or not resonance occurred?
+        </p>
+      </statement>
+      <answer>
+        <p>
+          For <m>m = 1</m> (non-resonance): the solution is a bounded sum of two
+          sinusoidal functions. The amplitude stays constant forever.
+        </p>
+        <p>
+          For <m>m = 2</m> (resonance): the factor of <m>t</m> in <m>x(t) = t\sin(2t)</m>
+          causes the amplitude to grow without bound as <m>t \to \infty</m>.
+        </p>
+      </answer>
+    </task>
+
+  </exercise>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       Q2: Read the solution, identify omegas
+       ═══════════════════════════════════════════════════════════ -->
+
+  <exercise xml:id="ex-3-6-2">
+    <title>Reading a Solution</title>
+    <introduction>
+      <p>
+        Two position functions of forced undamped mass-spring systems are given below.
+        For each one, identify:
+        <ul>
+          <li><p>the natural frequency <m>\omega_0</m>,</p></li>
+          <li><p>the forcing frequency <m>\omega</m>,</p></li>
+          <li><p>whether resonance occurred.</p></li>
+        </ul>
+      </p>
+    </introduction>
+
+    <task xml:id="ex-3-6-2a">
+      <statement>
+        <p>
+          <me>x(t) = c_1\cos(5t) + c_2\sin(5t) - 3\cos(2t).</me>
+        </p>
+      </statement>
+      <hint>
+        <p>
+          Use <xref ref="thm-resonance-solution"/> to identify which part of
+          <m>x(t)</m> is <m>x_c</m> and which is <m>x_p</m>. The natural
+          frequency <m>\omega_0</m> comes from <m>x_c</m>, and the forcing
+          frequency <m>\omega</m> comes from <m>x_p</m>.
+        </p>
+      </hint>
+      <answer>
+        <p>
+          <m>\omega_0 = 5</m>, <m>\omega = 2</m>, no resonance.
+        </p>
+      </answer>
+    </task>
+
+    <task xml:id="ex-3-6-2b">
+      <statement>
+        <p>
+          <me>x(t) = 2\cos(3t) + \sin(3t) + 4t\sin(3t).</me>
+        </p>
+      </statement>
+      <hint>
+        <p>
+          Use <xref ref="thm-resonance-solution"/> to identify which part of
+          <m>x(t)</m> is <m>x_c</m> and which is <m>x_p</m>. The natural
+          frequency <m>\omega_0</m> comes from <m>x_c</m>, and the forcing
+          frequency <m>\omega</m> comes from <m>x_p</m>.
+        </p>
+      </hint>
+      <answer>
+        <p>
+          <m>\omega_0 = 3</m>, <m>\omega = 3</m>, resonance occurred.
+        </p>
+      </answer>
+    </task>
+
+  </exercise>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       Q3: Find omega for resonance, no solving
+       ═══════════════════════════════════════════════════════════ -->
+
+  <exercise xml:id="ex-3-6-3">
+    <title>Finding the Resonance Frequency</title>
+    <statement>
+      <p>
+        Consider the forced undamped system
+        <me>2x'' + 18x = 17\cos(\omega t).</me>
+        For what value of <m>\omega</m> does resonance occur?
+        <alert>You do not need to solve the ODE.</alert>
+      </p>
+    </statement>
+    <hint>
+      <p>
+        Resonance occurs when the forcing frequency equals the natural frequency
+        <m>\omega_0 = \sqrt{k/m}</m>. What is <m>\omega_0</m> for this system?
+      </p>
+    </hint>
+    <answer>
+      <p>
+        <m>\omega = 3.</m>
+      </p>
+    </answer>
+  </exercise>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       Q4: Find k for unbounded growth, no solving
+       ═══════════════════════════════════════════════════════════ -->
+
+  <exercise xml:id="ex-3-6-4">
+    <title>Finding the Spring Constant for Unbounded Growth</title>
+    <statement>
+      <p>
+        Consider the forced undamped system
+        <me>3x'' + kx = 8\cos(2t),</me>
+        where <m>k</m> is a positive constant.
+        For what value of <m>k</m> will the solution grow without bound?
+        <alert>You do not need to solve the ODE.</alert>
+      </p>
+    </statement>
+    <hint>
+      <p>
+        Does the solution grow without bound when resonance occurs, or when it does not?
+      </p>
+    </hint>
+    <answer>
+      <p>
+        <m>k = 12.</m>
+      </p>
+    </answer>
+  </exercise>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       Q5: Which mass causes resonance
+       ═══════════════════════════════════════════════════════════ -->
+
+  <exercise xml:id="ex-3-6-5">
+    <title>Which Mass Causes Resonance?</title>
+    <statement>
+      <p>
+        A spring system is driven by the external force <m>\cos(3t)</m>, so the
+        position of the mass satisfies
+        <me>mx'' + 36x = \cos(3t).</me>
+        Three masses are available: <m>m = 1</m>, <m>m = 2</m>, and <m>m = 4</m>.
+        Which mass will cause resonance?
+        <alert>You do not need to solve the ODE.</alert>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>m = 4.</m>
+      </p>
+    </answer>
+  </exercise>
+
+  <interactive xml:id="question-form-3-6-ex" iframe="question-form.html?section=3.6 exercises" width="100%" aspect="2:1"/>
+
+</exercises>

@@ -80,7 +80,7 @@
     <!-- ── Part (b): Plug in and solve for A and B ── -->
 
     <task xml:id="task-undet2-solve">
-      <title>Plugging in and solving for <m>A</m> and <m>B</m></title>
+      <title>Plugging in and solving for <m>A</m> and <m>B</m> (can skim/reference if needed)</title>
       <statement>
         <p>
           Use the guess <m>y_p = A\cos(t) + B\sin(t)</m>. Its derivatives are:
@@ -157,7 +157,7 @@
        ═══════════════════════════════════════════════════════════ -->
 
   <observation xml:id="obs-undetermined-strategy">
-    <title>A Useful Strategy for Non-Homogeneous Equations</title>
+    <title>A Useful Strategy for Most Non-Homogeneous Equations</title>
     <p>
       To find a particular solution <m>y_p</m> to
       <me>ay'' + by' + cy = m_1\cos(kt) + m_2\sin(kt),</me>
@@ -174,7 +174,7 @@
        ═══════════════════════════════════════════════════════════ -->
 
   <p>
-    One thing to be clear about: the <m>k</m> in the guess comes directly from
+    One thing to be careful about: the <m>k</m> in the guess comes directly from
     the right-hand side of the ODE. For example, in
     <me>ay'' + by' + cy = m_1\cos\underbrace{(4t)}_{k=4} + m_2\sin\underbrace{(4t)}_{k=4},</me>
     whatever frequency appears in the non-homogeneous term <m>g(t)</m> is the same frequency you use in your guess

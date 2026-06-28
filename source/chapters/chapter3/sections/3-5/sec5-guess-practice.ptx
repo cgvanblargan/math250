@@ -276,17 +276,6 @@
           </feedback>
         </choice>
         <choice>
-          <statement><p><m>y_p = t\bigl(A\cos(3t) + B\sin(3t)\bigr)</m>, but first replace the right-hand side with <m>\cos(3t) + 4\sin(3t)</m> since we'll divide by 2 later.</p></statement>
-          <feedback>
-            <p>
-              Dividing by <m>2</m> changes the right-hand side too, giving
-              <m>\tfrac{1}{2}\cos(3t) + 2\sin(3t)</m>, not the original. But
-              the form of the guess is otherwise correct:
-              <m>y_p = t(A\cos(3t) + B\sin(3t))</m>.
-            </p>
-          </feedback>
-        </choice>
-        <choice>
           <statement><p><m>y_p = t\bigl(A\cos(18t) + B\sin(18t)\bigr)</m></p></statement>
           <feedback>
             <p>
