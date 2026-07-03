@@ -184,7 +184,7 @@
       </statement>
       <answer>
         <p>
-          <me>y_p = 2\cos(t) - \sin(t).</me>
+          <me>y_p = 2\cos(t) + \sin(t).</me>
         </p>
       </answer>
     </task>
@@ -199,7 +199,7 @@
       </statement>
       <answer>
         <p>
-          <me>y = -e^{-t}\cos(2t) + 2\cos(t) - \sin(t).</me>
+          <me>y = -e^{-t}(\cos(2t)+\sin(2t)) + 2\cos(t) + \sin(t).</me>
         </p>
       </answer>
     </task>

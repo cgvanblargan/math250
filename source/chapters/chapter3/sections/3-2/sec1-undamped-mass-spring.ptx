@@ -139,13 +139,15 @@
     </p>
     <proof>
       <title>Why these two forms are equivalent (can skim)</title>
-      <p>
-        Using the cosine angle subtraction formula:
-        <me>A\cos(\omega_0(t - \delta)) = A\cos(\omega_0 t)\cos(\delta) + A\sin(\omega_0 t)\sin(\delta).</me>
-        Setting <m>c_1 = A\cos(\delta)</m> and <m>c_2 = A\sin(\delta)</m>, we
-        get <m>c_1^2 + c_2^2 = A^2(\cos^2\delta + \sin^2\delta) = A^2</m>, so
-        <m>A = \sqrt{c_1^2 + c_2^2}</m>. The two forms are identical.
-      </p>
+    <p>
+  Using the cosine angle subtraction formula:
+  <me>A\cos(\omega_0(t - \delta)) = A\cos(\omega_0 t)\cos(\omega_0\delta) + A\sin(\omega_0 t)\sin(\omega_0\delta).</me>
+  Setting <m>c_1 = A\cos(\omega_0\delta)</m> and <m>c_2 = A\sin(\omega_0\delta)</m>
+  (in practice, we start with <m>c_1, c_2</m>, and this is what determines
+  <m>A</m> and <m>\delta</m>), we get
+  <me>c_1^2 + c_2^2 = A^2(\cos^2(\omega_0\delta) + \sin^2(\omega_0\delta)) = A^2,</me>
+  so <m>A = \sqrt{c_1^2 + c_2^2}</m>. 
+</p>
     </proof>
   </remark>
 
