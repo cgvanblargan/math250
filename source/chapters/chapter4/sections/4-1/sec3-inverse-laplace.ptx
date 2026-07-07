@@ -8,7 +8,9 @@
        ═══════════════════════════════════════════════════════════ -->
 
   <p>
-    Knowing <m>F(s)</m> uniquely determines <m>f(t)</m>. This lets us define the inverse.
+  Once we finally get to solving ODEs with the Laplace transform, we won't
+  just have to take the Laplace transform; we will also have to take the <em>inverse Laplace transform</em>
+  as the very last step. Basically, knowing <m>F(s)</m> uniquely determines <m>f(t)</m>. This lets us define the inverse.
   </p>
 
   <definition xml:id="def-inverse-laplace">
@@ -23,9 +25,9 @@
   </definition>
 
   <p>
-    In practice, we find inverse Laplace transforms by reading the table backwards: given <m>F(s)</m>,
+    In practice, we find inverse Laplace transforms by reading the table backwards, from right to left: given <m>F(s)</m>,
     we look for a row whose right column matches, then read off the <m>f(t)</m> in the left column.
-    The inverse Laplace transform is also linear, so we can split over sums and pull constants out
+    <em>The inverse Laplace transform is also linear</em>, so we can split over sums and pull constants out
     front just as before.
   </p>
 
@@ -40,7 +42,7 @@
     </p>
     <p>
       We look for a row in the table whose <m>F(s)</m> column matches <m>\dfrac{1}{s+5}</m>.
-      This fits Formula B with <m>a = -5</m>:
+      This fits <xref ref="formula-B" text="custom">Formula B</xref> with <m>a = -5</m>:
       <md>
         <mrow>\mathcal{L}\{e^{at}\} = \frac{1}{s-a} \quad \Longrightarrow \quad
         \mathcal{L}\{e^{-5t}\} = \frac{1}{\underbrace{s-(-5)}_{s+5}} = \frac{1}{s+5}.</mrow>
@@ -56,9 +58,9 @@
 <p>
     Sometimes the expression doesn't immediately match a row in the table. Consider
     <m>\dfrac{2}{s^2+9}</m>. The denominator <m>s^2 + 9 = s^2 + 3^2</m> tells us
-    this is related to Formula D,
+    this is related to <xref ref="formula-D" text="custom">Formula D</xref>,
     <me>\mathcal{L}\{\sin(at)\} = \frac{a}{s^2+a^2},</me>
-    with <m>a = 3</m>. But Formula D requires a 3 in the numerator, and we only have a 2.
+    with <m>a = 3</m>. But <xref ref="formula-D" text="custom">Formula D</xref> requires a 3 in the numerator, and we only have a 2.
     <me>\frac{\overbrace{2}^{\text{needs to be } 3}}{s^2+\underbrace{9}_{3^2 = 9 \Rightarrow a=3}}</me>
     The key steps to handle this are:
     <ol>
@@ -76,7 +78,7 @@
     <statement>
       <p>
         Following the steps above, which of the following correctly rewrites
-        <m>\dfrac{2}{s^2+9}</m> to match Formula D?
+        <m>\dfrac{2}{s^2+9}</m> to match <xref ref="formula-D" text="custom">Formula D</xref>?
       </p>
     </statement>
     <choices randomize="yes">
@@ -86,7 +88,7 @@
           <p>
             Correct! Since <m>a = 3</m>, we need a 3 in the numerator.
             Multiplying and dividing by 3 gives <m>\frac{2}{3} \cdot \frac{3}{s^2+3^2}</m>,
-            which matches Formula D with the constant <m>\frac{2}{3}</m> out front.
+            which matches <xref ref="formula-D" text="custom">Formula D</xref> with the constant <m>\frac{2}{3}</m> out front.
           </p>
         </feedback>
       </choice>
@@ -94,7 +96,7 @@
         <statement><p><m>2 \cdot \dfrac{1}{s^2+3^2}</m></p></statement>
         <feedback>
           <p>
-            Formula D requires <m>a = 3</m> in the numerator, not 1.
+            <xref ref="formula-D" text="custom">Formula D</xref> requires <m>a = 3</m> in the numerator, not 1.
           </p>
         </feedback>
       </choice>
@@ -102,7 +104,7 @@
         <statement><p><m>\dfrac{2}{9} \cdot \dfrac{9}{s^2+3^2}</m></p></statement>
         <feedback>
           <p>
-            We need a 3 in the numerator to match Formula D with <m>a = 3</m>, not a 9.
+            We need a 3 in the numerator to match <xref ref="formula-D" text="custom">Formula D</xref> with <m>a = 3</m>, not a 9.
           </p>
         </feedback>
       </choice>

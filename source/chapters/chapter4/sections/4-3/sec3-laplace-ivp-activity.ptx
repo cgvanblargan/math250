@@ -4,7 +4,7 @@
   <title>Solving an IVP: Practice</title>
 
   <p>
-    Now it is your turn to work through the three steps. Use the formulas from
+    Now it is your turn to work through the three steps! Use the formulas from
     <xref ref="thm-laplace-derivatives"/> and the Laplace table as needed.
   </p>
 
@@ -155,14 +155,7 @@
           <xref ref="sec-inverse-laplace-pfd-quadratic"/>.
           The decomposition gives:
           <me>\frac{9}{s(s^2+9)} = \frac{1}{s} - \frac{s}{s^2+9}.</me>
-          Substituting back:
-          <md>
-            <mrow>Y(s) \amp= \frac{1}{s} - \frac{s}{s^2+9} + \frac{s}{s^2+9} - \frac{3}{s^2+9}</mrow>
-            <mrow>Y(s) \amp= \frac{1}{s} - \frac{3}{s^2+9}.</mrow>
-          </md>
-          Notice the two <m>\dfrac{s}{s^2+9}</m> terms cancel!
-        </p>
-        <solution>
+           <solution>
           <title>Solving for the PFD coefficients (can skim, reference for homework)</title>
           <p>
             The correct form is <m>\dfrac{9}{s(s^2+9)} = \dfrac{A}{s} + \dfrac{Bs+C}{s^2+9}</m>.
@@ -181,6 +174,13 @@
             <m>A = 1</m>, <m>B = -1</m>, <m>C = 0</m>.
           </p>
         </solution>
+          Substituting back into the expression for <m> Y(s) </m>:
+          <md>
+            <mrow>Y(s) \amp= \overbrace{\frac{1}{s} - \frac{s}{s^2+9}}^{\text{result of the PFD}} + \frac{s}{s^2+9} - \frac{3}{s^2+9}</mrow>
+            <mrow>Y(s) \amp= \frac{1}{s} - \frac{3}{s^2+9}.</mrow>
+          </md>
+        </p>
+       
       </statement>
     </task>
 

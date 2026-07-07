@@ -6,7 +6,9 @@
   <!-- ═══════════════════════════════════════════════════════════
        TABLE REFERENCE
        ═══════════════════════════════════════════════════════════ -->
-
+<p>On this page, we continue taking inverse Laplace transforms. These problems are just a bit harder and more involved than the previous ones, so
+  pay attention to the various tricks used throughout!
+</p>
   <p>
     Use the Laplace transform table below as a reference throughout this page.
   </p>
@@ -89,7 +91,7 @@
   <exercise xml:id="ex-warmup-laplace-13over3s21">
     <statement>
       <p>
-        Finish computing <m>\mathcal{L}^{-1}\!\left\{\dfrac{13}{3s+21}\right\}</m>.
+        Finish computing <m>\mathcal{L}^{-1}\!\left\{\dfrac{13}{3s+21}\right\}</m> using the rewrite from above.
       </p>
     </statement>
     <choices randomize="yes">
@@ -134,7 +136,7 @@
   <!-- ═══════════════════════════════════════════════════════════
        EXAMPLE: L^{-1}{(13-3s)/(s^2+9)}
        ═══════════════════════════════════════════════════════════ -->
-
+<p>In the next example, it becomes slightly more complicated because there are two terms in the numerator. How should we deal with this?</p>
   <example xml:id="ex-inverse-laplace-two-terms">
     <title>Inverse Laplace with Two Terms</title>
     <statement>
@@ -154,7 +156,6 @@
       </p>
     </hint>
     <solution>
-      <title>Work</title>
       <p>
         Split over the numerator and apply linearity:
         <md>
@@ -164,7 +165,7 @@
         </md>
         Both terms have denominator <m>s^2 + 9 = s^2 + 3^2</m>, so both match
         <xref ref="formula-D" text="custom">Formula D</xref> or
-        <xref ref="formula-E" text="custom">Formula E</xref>, the difference is what's in the numerator:
+        <xref ref="formula-E" text="custom">Formula E</xref>; the difference is what's in the numerator:
         <md>
           <mrow>\frac{\overbrace{1}^{\text{constant} \Rightarrow \text{D}}}{s^2+3^2}
           \qquad \text{vs} \qquad
@@ -183,7 +184,8 @@
   <!-- ═══════════════════════════════════════════════════════════
        ACTIVITY: L^{-1}{(1+s)/s^3}
        ═══════════════════════════════════════════════════════════ -->
-
+<p>In the following activity, there are also two terms in the numerator. It is somewhat similar to the last example, so 
+  make sure you look at that before this activity! We will break down the first few steps before solving it in full. </p>
   <activity xml:id="act-inverse-laplace-polynomial">
     <title>Find <m>\mathcal{L}^{-1}\!\left\{\dfrac{1+s}{s^3}\right\}</m></title>
 

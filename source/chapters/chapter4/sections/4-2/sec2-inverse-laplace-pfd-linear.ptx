@@ -96,7 +96,7 @@
     <m>\mathcal{L}\{e^{at}\} = \dfrac{1}{s-a}</m>. Applying the inverse transform:
     <md>
       <mrow>\mathcal{L}^{-1}\!\left\{\frac{1}{(s-2)(s+4)}\right\}
-        \amp= \frac{1}{6}\mathcal{L}^{-1}\!\left\{\frac{1}{s-2} - \frac{1}{6}\frac{1}{s+4}\right\}</mrow>
+        \amp=\mathcal{L}^{-1}\!\left\{\frac{\frac{1}{6}}{s-2} - \frac{\frac{1}{6}}{s+4}\right\}</mrow>
       <mrow>\amp= \mathcal{L}^{-1}\!\left\{
               \underbrace{\frac{\frac{1}{6}}{s-2}}_{\text{Formula B}, \, a=2}
             \right\}
@@ -136,7 +136,7 @@
 
   <figure xml:id="video-inverse-laplace-pfd-linear">
     <caption>This video goes through the content of this page.</caption>
-    <video youtube="VDo1YN6xf9E" width="100%" preview="default"/>
+    <video youtube="eoqpCejFPQo" width="100%" preview="default"/>
   </figure>
 
   <interactive xml:id="question-form-4-2-2"

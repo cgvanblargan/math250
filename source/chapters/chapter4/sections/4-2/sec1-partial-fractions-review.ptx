@@ -8,38 +8,47 @@
        ═══════════════════════════════════════════════════════════ -->
 
   <p>
-    In the next few pages we will need to decompose rational functions into simpler fractions
-    before taking inverse Laplace transforms. There are three cases that come up in this chapter.
-    For each one, the key skill is recognizing the correct <em>form</em> of the decomposition
-    and then solving for the unknown constants.
+    In the next few pages we will need to decompose rational functions into simpler 
+    fractions before taking inverse Laplace transforms. There are two main steps: writing down the 
+    correct form of the decomposition, and then solving for the unknown constants. 
+    For the first step, each factor in the denominator contributes a piece to the decomposition based on its type. 
+    The three types of factors we will see are below.
   </p>
 
   <!-- ═══════════════════════════════════════════════════════════
-       THREE CASES
+       FACTOR TYPES (BUILDING BLOCKS)
        ═══════════════════════════════════════════════════════════ -->
 
   <p>
-    <alert>Case 1: Distinct Linear Factors.</alert>
-    If the denominator factors into two distinct linear factors <m>(s - r_1)(s - r_2)</m>,
-    each factor gets its own fraction with a constant numerator:
-    <me>\frac{P(s)}{(s-r_1)(s-r_2)} = \frac{A}{s-r_1} + \frac{B}{s-r_2}.</me>
+    <alert>Linear factor.</alert>
+    A linear factor <m>(s - r)</m> contributes one fraction with a constant numerator:
+    <me>\frac{A}{s-r}.</me>
   </p>
 
   <p>
-    <alert>Case 2: One Linear Factor and One Irreducible Quadratic Factor.</alert>
+    <alert>Irreducible quadratic factor.</alert>
     A quadratic <m>s^2 + bs + c</m> is <term>irreducible</term> if it has no real roots,
     which happens when <m>b^2 - 4c \lt 0</m>. In this chapter the quadratics that appear
     are always of the form <m>s^2 + k</m> with <m>k \gt 0</m>, which are always irreducible.
-    An irreducible quadratic factor gets a <em>linear</em> numerator <m>Bs + C</m>:
-    <me>\frac{P(s)}{s(s^2+k)} = \frac{A}{s} + \frac{Bs+C}{s^2+k}.</me>
+    An irreducible quadratic factor contributes one fraction with a <em>linear</em> numerator:
+    <me>\frac{Bs+C}{s^2+k}.</me>
   </p>
 
   <p>
-    <alert>Case 3: Repeated Linear Factor.</alert>
-    If a linear factor <m>(s - r)</m> appears squared, we need one fraction for each power:
-    <me>\frac{P(s)}{(s-r)^2(s-r_2)} = \frac{A}{s-r} + \frac{B}{(s-r)^2} + \frac{C}{s-r_2}.</me>
-    For example, with <m>s^2 = s \cdot s</m> (i.e. <m>r = 0</m> repeated twice):
-    <me>\frac{P(s)}{s^2(s+4)} = \frac{A}{s} + \frac{B}{s^2} + \frac{C}{s+4}.</me>
+    <alert>Repeated linear factor.</alert>
+    If a linear factor <m>(s - r)</m> appears squared, it contributes <em>two</em> fractions,
+    one for each power:
+    <me>\frac{A}{s-r} + \frac{B}{(s-r)^2}.</me>
+  </p>
+
+  <p>
+    The full decomposition of a rational function is the sum of the contributions from every
+    factor in the denominator. For example, the denominator of <m>\dfrac{P(s)}{s^2(s+4)}</m>
+    has a repeated linear factor <m>s^2</m> (that is, <m>r = 0</m> repeated twice) and a
+    linear factor <m>(s+4)</m>, so:
+    <me>\frac{P(s)}{s^2(s+4)}
+      = \underbrace{\frac{A}{s} + \frac{B}{s^2}}_{\text{from } s^2}
+      + \underbrace{\frac{C}{s+4}}_{\text{from } s+4}.</me>
   </p>
 
   <!-- ═══════════════════════════════════════════════════════════
@@ -186,14 +195,18 @@
   <!-- ═══════════════════════════════════════════════════════════
        WORKED EXAMPLE: CLEARING DENOMINATORS
        ═══════════════════════════════════════════════════════════ -->
-
+<p>Once you recognize the form the decomposition takes, you will solve for the constants that go in the numerator of each term. 
+  This part is slightly more tedious. There are several common approaches. We will do this by "clearing" the denominator on the 
+  equation connecting the original to the decomposed form, and then equating coefficients of the resulting polynomials to 
+  get a system of equations. This method is demonstrated below.
+</p>
   <example xml:id="ex-pf-clear-denominators">
     <title>Solving for Coefficients by Clearing Denominators</title>
     <p>
       Find the partial fraction decomposition of <m>\dfrac{1}{(s-2)(s+4)}</m>.
     </p>
     <p>
-      From Case 1, the correct form is
+      The denominator has two linear factors, so the correct form is
       <me>\frac{1}{(s-2)(s+4)} = \frac{A}{s-2} + \frac{B}{s+4}.</me>
       Multiply both sides by <m>(s-2)(s+4)</m> to clear the denominators:
       <me>1 = A(s+4) + B(s-2).</me>
@@ -204,11 +217,6 @@
           \amp= \underbrace{(A+B)}_{\text{coeff of }s} \cdot s + \underbrace{(4A - 2B)}_{\text{const}}.</mrow>
       </md>
       Equating the coefficient of <m>s</m> on both sides, and then the constant:
-      <md>
-        <mrow>A + B \amp= 0</mrow>
-        <mrow>4A - 2B \amp= 1.</mrow>
-      </md>
-      Matching coefficients (the left side has <m>0 \cdot s + 1</m>):
       <md>
         <mrow>A + B \amp= 0</mrow>
         <mrow>4A - 2B \amp= 1.</mrow>
@@ -229,10 +237,14 @@
     <p>
       <ul>
         <li><p>
-          <alert>Distinct linear factors</alert> <m>(s-r_1)(s-r_2)</m>: each gets a constant numerator.
+          <alert>Each factor contributes its own piece:</alert> the decomposition is the sum
+          of the contributions from every factor in the denominator.
         </p></li>
         <li><p>
-          <alert>Irreducible quadratic</alert> <m>s^2+k</m> with <m>k \gt 0</m>: gets a linear numerator <m>Bs+C</m>.
+          <alert>Linear factor</alert> <m>(s-r)</m>: contributes a fraction with a constant numerator.
+        </p></li>
+        <li><p>
+          <alert>Irreducible quadratic</alert> <m>s^2+k</m> with <m>k \gt 0</m>: contributes a fraction with a linear numerator <m>Bs+C</m>.
           Note that <m>s^2+k</m> is always irreducible when <m>k \gt 0</m>.
         </p></li>
         <li><p>

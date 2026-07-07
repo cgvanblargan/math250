@@ -112,7 +112,7 @@
         </statement>
         <feedback>
           <p>
-            <m>s^2</m> is not irreducible — it factors as <m>s \cdot s</m>.
+            <m>s^2</m> is not irreducible; it factors as <m>s \cdot s</m>.
             Irreducible quadratics are ones with no real roots, like <m>s^2 + 4</m>.
           </p>
         </feedback>
@@ -232,8 +232,9 @@
         </p>
       </hint>
       <solution>
-        <title>Work</title>
         <p>
+          From the previous part, we found: 
+          <me>\frac{1}{s^2(s+4)} = \frac{-\frac{1}{16}}{s} + \frac{\frac{1}{4}}{s^2} + \frac{\frac{1}{16}}{s+4}.</me>
           Applying linearity and reading off
           <xref ref="formula-A" text="custom">Formula A</xref>,
           <xref ref="formula-C" text="custom">Formula C</xref> (with <m>n=1</m>),

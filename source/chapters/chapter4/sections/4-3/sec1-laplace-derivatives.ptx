@@ -8,11 +8,11 @@
        ═══════════════════════════════════════════════════════════ -->
 
   <p>
+    We have finally got to the part where we use Laplace transforms to help solve ODEs!!
     Our goal for this chapter is to use the Laplace transform to solve second-order linear IVPs of the form
     <me>ax''(t) + bx'(t) + cx(t) = g(t).</me>
-    To do this we need to know how the Laplace transform interacts with derivatives.
-    Under mild conditions on <m>x(t)</m> (essentially that <m>\mathcal{L}\{x\}</m> is defined),
-    we have the following two formulas.
+    To do this we need to know how the Laplace transform interacts with derivatives,
+    which is captured by the following two formulas.
   </p>
 
   <!-- ═══════════════════════════════════════════════════════════
@@ -37,7 +37,8 @@
         <mrow>\amp= \Bigl(\lim_{t\to\infty} x(t)e^{-st} - x(0)e^{0}\Bigr) + s\,\mathcal{L}\{x(t)\}</mrow>
         <mrow>\amp= 0 - x(0) + s\,X(s).</mrow>
       </md>
-      The limit <m>\lim_{t\to\infty} x(t)e^{-st} = 0</m> whenever <m>\mathcal{L}\{x\}</m> is defined.
+      The limit <m>\lim_{t\to\infty} x(t)e^{-st} = 0</m> because <m>x(t)</m> grows no faster
+      than an exponential, so <m>e^{-st}</m> wins for large enough <m>s</m>.
     </p>
   </justification>
 
@@ -46,6 +47,7 @@
        ═══════════════════════════════════════════════════════════ -->
 
   <p>
+    The second-derivative formula follows from applying the first one twice:
     <me>\mathcal{L}\{x''(t)\} = s^2 X(s) - sx(0) - x'(0).</me>
   </p>
 
@@ -70,14 +72,18 @@
        ═══════════════════════════════════════════════════════════ -->
 
   <p>
-    We restate these results in the following theorem for easy reference.
+    We restate these results in the following theorem for reference. The formulas require
+    one mild condition: <m>x(t)</m> cannot grow faster than an exponential as <m>t \to \infty</m>.
+    Every function we encounter in this chapter satisfies this condition, so you will not need
+    to worry about checking it!
   </p>
 
   <theorem xml:id="thm-laplace-derivatives">
     <title>Laplace Transforms of Derivatives</title>
     <statement>
       <p>
-        Let <m>X(s) = \mathcal{L}\{x(t)\}</m>. Then:
+        Suppose <m>x(t)</m> grows no faster than an exponential as <m>t \to \infty</m>,
+        and let <m>X(s) = \mathcal{L}\{x(t)\}</m>. Then:
         <md>
           <mrow>\mathcal{L}\{x'(t)\} \amp= sX(s) - x(0)</mrow>
           <mrow>\mathcal{L}\{x''(t)\} \amp= s^2 X(s) - sx(0) - x'(0).</mrow>
@@ -89,7 +95,8 @@
   <p>
     Notice what these formulas do: they replace derivatives of <m>x(t)</m> with algebraic
     expressions in <m>s</m>, incorporating the initial conditions <m>x(0)</m> and <m>x'(0)</m>
-    automatically. This is the key reason the Laplace transform is so useful for IVPs.
+    automatically. This is the reason the Laplace transform is so useful for IVPs, and this should become clearer as we do
+     examples in the next few pages!
   </p>
 
   <!-- ═══════════════════════════════════════════════════════════
@@ -97,7 +104,8 @@
        ═══════════════════════════════════════════════════════════ -->
 
   <p>
-    With these formulas in hand, here is the strategy for solving an IVP using the Laplace transform:
+    With these formulas in hand, here is the strategy for solving an IVP using the Laplace transform that we will
+    see (this might not make much sense until we go through an example later):
   </p>
 
   <p>

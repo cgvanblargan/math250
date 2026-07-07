@@ -16,6 +16,8 @@
   <p>
     In the previous section we computed two Laplace transforms directly from the definition.
     From now on, we will use the following table to look up transforms directly.
+    The only time we will use the integral definition from the previous page again is to derive some properties, and you will never be asked to use it
+     yourself!
   </p>
 
   <table xml:id="table-laplace-transforms">
@@ -83,7 +85,8 @@
        ═══════════════════════════════════════════════════════════ -->
 
   <p>
-    Before we use the table, let's talk about <em>linearity</em>. You already know two linear
+    We are going to use the table to take the transform of more complicated expressions,
+    but first we need to understand the <em>linearity</em> of the Laplace transform. You already know two linear
     operations from calculus: differentiation and integration. For example:
     <md>
       <mrow>\frac{d}{dt}\bigl[3t^2 + 5\cos(t)\bigr]
@@ -92,7 +95,7 @@
         \amp= 3\int t^2\,dt + 5\int \cos(t)\,dt.</mrow>
     </md>
     In both cases you can split over a sum and pull constants out front. The Laplace transform
-    behaves the same way, because it is defined by an integral.
+    behaves the same way!
   </p>
 
   <!-- ═══════════════════════════════════════════════════════════
@@ -112,7 +115,12 @@
        JUSTIFICATION
        ═══════════════════════════════════════════════════════════ -->
 
-  <observation xml:id="obs-laplace-linearity-justification">
+  <p>
+    Basically, using the definition of the Laplace transform (which involves an integral) and the linearity property of integration,
+    we get linearity of the Laplace transform. We include a quick proof below.
+  </p>
+
+  <proof xml:id="proof-laplace-linearity-justification">
     <title>Justification (can skim)</title>
     <p>
       Using the definition directly:
@@ -128,11 +136,11 @@
       </md>
       Both steps are just the linearity of integration.
     </p>
-  </observation>
+  </proof>
 
   <p>
-    In the examples below we will show each linearity step explicitly so you can see
-    the pattern. Going forward, you may start skipping those steps automatically,
+    In the examples below we will show each linearity step explicitly so that you understand
+    how linearity comes into play. Going forward, you may start skipping those steps automatically,
     just like you do with differentiation and integration!
   </p>
 
@@ -146,16 +154,21 @@
       Compute <m>\mathcal{L}\{t^6 - 4e^{8t}\}</m>.
     </p>
     <p>
-      Apply linearity to split over the sum and pull the constant out front:
+     First <alert> apply linearity </alert> to split over the sum and pull the constant out front:
       <me>\mathcal{L}\{t^6 - 4e^{8t}\} = \mathcal{L}\{t^6\} - 4\,\mathcal{L}\{e^{8t}\}.</me>
-      Now apply the table to each piece. For <m>t^6</m>, use <xref ref="formula-C"/> with <m>n = 6</m>:
+      Now apply the table to each piece. For <m>t^6</m>, use <xref ref="formula-C" text="custom">Formula C</xref> with <m>n = 6</m>:
       <me>\mathcal{L}\{t^6\} = \frac{6!}{s^{6+1}} = \frac{6!}{s^7}.</me>
-      For <m>e^{8t}</m>, use <xref ref="formula-B"/> with <m>a = 8</m>:
+      For <m>e^{8t}</m>, use <xref ref="formula-B" text="custom">Formula B</xref> with <m>a = 8</m>:
       <me>\mathcal{L}\{e^{8t}\} = \frac{1}{s-8}.</me>
       Putting it together:
       <me>\mathcal{L}\{t^6 - 4e^{8t}\} = \frac{6!}{s^7} - \frac{4}{s-8}.</me>
     </p>
   </example>
+
+  <p> Once you understand the example above, you should be able to work through the following activity. The first step makes sure you 
+    can apply the linearity property. Then in the second part, you need to match each term to its corresponding row in the Laplace
+    table (found at the top of the page) to finish taking the Laplace transform.
+  </p>
 
   <!-- ═══════════════════════════════════════════════════════════
        ACTIVITY: L{(e^{2t} + 3)sin(9t) + cos(9t)}
@@ -246,14 +259,13 @@
           For each term, identify which formula it matches and what values play the role
           of <m>a</m> and <m>b</m>:
           <ul>
-            <li><p><m>\mathcal{L}\{e^{2t}\sin(9t)\}</m>: use <xref ref="formula-I"/> with <m>a = 2</m>, <m>b = 9</m>.</p></li>
-            <li><p><m>\mathcal{L}\{\sin(9t)\}</m>: use <xref ref="formula-D"/> with <m>a = 9</m>.</p></li>
-            <li><p><m>\mathcal{L}\{\cos(9t)\}</m>: use <xref ref="formula-E"/> with <m>a = 9</m>.</p></li>
+            <li><p><m>\mathcal{L}\{e^{2t}\sin(9t)\}</m>: use <xref ref="formula-I" text="custom">Formula I</xref> with <m>a = 2</m>, <m>b = 9</m>.</p></li>
+            <li><p><m>\mathcal{L}\{\sin(9t)\}</m>: use <xref ref="formula-D" text="custom">Formula D</xref> with <m>a = 9</m>.</p></li>
+            <li><p><m>\mathcal{L}\{\cos(9t)\}</m>: use <xref ref="formula-E" text="custom">Formula E</xref> with <m>a = 9</m>.</p></li>
           </ul>
         </p>
       </hint>
       <solution>
-        <title>Work (can skim)</title>
         <p>
           More details on how to apply the table to each term are included in a dropdown at the end of this solution.
           Starting from the result of Step 1 and substituting each table value:
@@ -294,6 +306,9 @@
 
   </activity>
 
+  <p>Okay, so using the table and linearity allows us to quickly take the transform of more complicated expressions!
+    The only thing to be careful about is correctly identifying the various constants (such as <m>n</m> or <m>a</m>) 
+  when using the table.  </p>
   <!-- ═══════════════════════════════════════════════════════════
        KEY TAKEAWAYS
        ═══════════════════════════════════════════════════════════ -->

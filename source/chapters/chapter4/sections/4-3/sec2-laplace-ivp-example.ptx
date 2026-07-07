@@ -4,7 +4,8 @@
   <title>Solving an IVP with the Laplace Transform</title>
 
   <p>
-    We now put the three-step strategy from the previous page into action for the first time.
+    We have finally established all the theory needed regarding Laplace transforms, and we are ready to use it to solve an 
+    ODE!
     Recall the two key formulas from <xref ref="thm-laplace-derivatives"/>:
     <md>
       <mrow>\mathcal{L}\{x'(t)\} \amp= sX(s) - x(0)</mrow>
@@ -104,7 +105,7 @@
           Factor the denominator: <m>s^2 - s - 6 = (s-3)(s+2)</m>.
           This is the same type as in <xref ref="ex-pf-clear-denominators"/>, two distinct linear factors.
           We will skip the details on the computation. The partial fraction decomposition gives:
-          <me>X(s) = \frac{2s-3}{(s-3)(s+2)} = \frac{\frac{2}{3}}{s-3} + \frac{\frac{7}{5}}{s+2}.</me>
+          <me>X(s) = \frac{2s-3}{(s-3)(s+2)} = \frac{\frac{3}{5}}{s-3} + \frac{\frac{7}{5}}{s+2}.</me>
         </p>
       </statement>
     </task>
@@ -131,12 +132,12 @@
           <md>
             <mrow>x(t) = \mathcal{L}^{-1}\{X(s)\}
               \amp= \mathcal{L}^{-1}\!\left\{
-                     \underbrace{\frac{\frac{2}{3}}{s-3}}_{\text{Formula B},\, a=3}
+                     \underbrace{\frac{\frac{3}{5}}{s-3}}_{\text{Formula B},\, a=3}
                    \right\}
                    + \mathcal{L}^{-1}\!\left\{
                      \underbrace{\frac{\frac{7}{5}}{s+2}}_{\text{Formula B},\, a=-2}
                    \right\}</mrow>
-            <mrow>\amp= \frac{2}{3}e^{3t} + \frac{7}{5}e^{-2t}.</mrow>
+            <mrow>\amp= \frac{3}{5}e^{3t} + \frac{7}{5}e^{-2t}.</mrow>
           </md>
         </p>
       </solution>
@@ -147,7 +148,7 @@
   <!-- ═══════════════════════════════════════════════════════════
        POST-EXAMPLE MC CHECKPOINTS
        ═══════════════════════════════════════════════════════════ -->
-
+<p>And now, a quick check of your understanding of the process. </p>
   <exercise xml:id="ex-laplace-ivp-mc1">
     <statement>
       <p>
@@ -177,7 +178,7 @@
         </statement>
         <feedback>
           <p>
-            Actually the opposite — the initial conditions are built directly into the
+            Actually, it is the opposite: the initial conditions are built directly into the
             derivative formulas and used in Step 1.
           </p>
         </feedback>
@@ -263,7 +264,7 @@
       <choice>
         <statement>
           <p>
-            They are not used — the Laplace transform method only finds the general solution.
+            They are not used; the Laplace transform method only finds the general solution.
           </p>
         </statement>
         <feedback>
@@ -304,7 +305,8 @@
        ═══════════════════════════════════════════════════════════ -->
 
   <figure xml:id="video-laplace-ivp-example">
-    <caption>This video goes through the content of this page.</caption>
+    <caption>This video goes through the content of this page (there is an incorrect constant for the PFD that has been
+      fixed in these notes).</caption>
     <video youtube="gz-6QZ5wKeQ" width="100%" preview="default"/>
   </figure>
 
