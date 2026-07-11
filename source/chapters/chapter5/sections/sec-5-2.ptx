@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-5-2" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Systems of ODEs: An Introduction</title>
+
+  <introduction>
+    <p>
+        Sometimes we want to model a situation with multiple functions (such as multiple populations) that interact
+         with each other. This leads to systems of ODEs. 
+     </p>
+  </introduction>
+
+  <xi:include href="./5-2/sec1-linear-systems-of-odes.ptx"/>
+<xi:include href="./5-2/sec2-verifying-solutions-systems.ptx"/>
+  
+
+</section>

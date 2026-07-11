@@ -1,0 +1,365 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-determinant-wronskian" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>The Determinant and the Wronskian</title>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       INTRO + REASSURANCE
+       ═══════════════════════════════════════════════════════════ -->
+
+  <p>
+    We found two solutions to a system on the last page, and hinted that they can be combined
+    to build the general solution. To make that precise, we need two more tools from linear
+    algebra: the <em>determinant</em> and <em>linear independence</em>.
+  </p>
+
+  <p>
+    Keep the following in mind: in a linear algebra course, these ideas get weeks of
+    development and hold a lot of theory. We only need a working understanding for ODEs, so we will 
+    not be going too much into the theory behind everything. 
+  </p>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       DEFINITION: DETERMINANT (2x2)
+       ═══════════════════════════════════════════════════════════ -->
+
+  <definition xml:id="def-determinant">
+    <title>Determinant</title>
+    <statement>
+      <p>
+        If <m>A</m> is a <m>2 \times 2</m> matrix in the form
+        <m>\begin{bmatrix} a \amp b \\ c \amp d \end{bmatrix}</m>, then the
+        <term>determinant</term> of <m>A</m> is:
+        <me>\det(A) = \begin{vmatrix} a \amp b \\ c \amp d \end{vmatrix} = ad - bc.</me>
+      </p>
+    </statement>
+  </definition>
+
+  <p>
+    The straight bars mean we're taking the determinant of the matrix. There are a lot of 
+    important interpretations and consequences of the determinant. What we need is the
+    connection to linear independence.
+  </p>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       DEFINITION: LINEAR INDEPENDENCE
+       ═══════════════════════════════════════════════════════════ -->
+
+  <definition xml:id="def-linear-independence">
+    <title>Linear Independence</title>
+    <statement>
+      <p>
+        Two vectors <m>\mathbf{x}</m> and <m>\mathbf{y}</m> are
+        <term>linearly independent</term> if the <em>only</em> solution to:
+        <me>c_1\mathbf{x} + c_2\mathbf{y} = \mathbf{0}</me>
+        is when <m>c_1 = c_2 = 0</m>.
+      </p>
+    </statement>
+  </definition>
+
+  <p>
+    In general there is a lot to unpack with linear independence, but with just two vectors,
+    <m>\mathbf{x}</m> and <m>\mathbf{y}</m> are linearly independent exactly when they are
+    <alert>not multiples of each other</alert>. And when that happens, the linear combinations
+    <m>c_1\mathbf{x} + c_2\mathbf{y}</m> don't just trace out a single line: they sweep out
+    the <em>entire plane</em>. Every vector in <m>\mathbb{R}^2</m> can be built out of two
+    linearly independent vectors.
+  </p>
+
+  <p>
+    The determinant gives us a quick test for linear independence:
+  </p>
+
+  <fact xml:id="fact-det-independence">
+    <title>Determinant Test for Independence</title>
+    <p>
+      The columns of a <m>2 \times 2</m> matrix are linearly independent if and only if
+      <m>\det(A) \neq 0</m>.
+    </p>
+  </fact>
+<p>We will apply this idea in the following example.  </p>
+  <!-- ═══════════════════════════════════════════════════════════
+       EXAMPLE: COMPUTE A DETERMINANT
+       ═══════════════════════════════════════════════════════════ -->
+
+  <example xml:id="ex-determinant-independence">
+    <title>Computing a Determinant</title>
+    <statement>
+      <p>
+        Compute the determinant of
+        <m>\begin{bmatrix} 1 \amp 2 \\ 3 \amp 4 \end{bmatrix}</m>.
+        Are the columns linearly independent?
+      </p>
+    </statement>
+    <solution>
+      <p>
+        Using the formula:
+        <me>\det = \begin{vmatrix} 1 \amp 2 \\ 3 \amp 4 \end{vmatrix}
+          = 1 \cdot 4 - 2 \cdot 3 = 4 - 6 = -2.</me>
+        Since <m>-2 \neq 0</m>, the columns
+        <m>\begin{bmatrix} 1 \\ 3 \end{bmatrix}</m> and
+        <m>\begin{bmatrix} 2 \\ 4 \end{bmatrix}</m>
+        are linearly independent.
+      </p>
+    </solution>
+  </example>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       ACTIVITY: DETERMINANT CHECKPOINT (MC)
+       ═══════════════════════════════════════════════════════════ -->
+
+  <p>
+    Using the same process as the example, complete the following checkpoint.
+  </p>
+
+  <activity xml:id="act-determinant-independence">
+    <title>Determinant Checkpoint</title>
+    <statement>
+      <p>
+        Compute the determinant of
+        <m>\begin{bmatrix} 1 \amp 2 \\ 4 \amp 8 \end{bmatrix}</m>.
+        Are the columns linearly independent?
+      </p>
+    </statement>
+    <choices randomize="yes">
+      <choice correct="yes">
+        <statement>
+          <p>
+            <m>\det = 0</m>, so the columns are <em>not</em> linearly independent.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            Correct! <m>\det = 1 \cdot 8 - 2 \cdot 4 = 8 - 8 = 0</m>, so the columns are not
+            linearly independent. In fact, you can see it directly: the second column
+            <m>\begin{bmatrix} 2 \\ 8 \end{bmatrix}</m> is exactly <m>2</m> times the first
+            column <m>\begin{bmatrix} 1 \\ 4 \end{bmatrix}</m>. They're multiples of each other!
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            <m>\det = 0</m>, so the columns <em>are</em> linearly independent.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            The determinant is right, but the conclusion is backwards! The test says the
+            columns are linearly independent when <m>\det \neq 0</m>. Here <m>\det = 0</m>,
+            so the columns are <em>not</em> independent. Indeed, the second column is <m>2</m>
+            times the first.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            <m>\det = 16</m>, so the columns are linearly independent.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            Check the formula: it's <m>ad - bc</m>, with a <em>minus</em> sign. Here that's
+            <m>1 \cdot 8 - 2 \cdot 4 = 0</m>, not <m>8 + 8 = 16</m>. Since the determinant is
+            <m>0</m>, the columns are not linearly independent.
+          </p>
+        </feedback>
+      </choice>
+    </choices>
+  </activity>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       SUPERPOSITION AND THE BIG QUESTION
+       ═══════════════════════════════════════════════════════════ -->
+
+  <p>
+    Let's return to solutions of systems. As before, we are only going to scratch the surface of the underlying theory. 
+    Most of our efforts instead will be put towards applying these in future sections!  
+  </p>
+
+  <fact xml:id="fact-superposition-systems">
+    <title>The Principle of Superposition</title>
+    <p>
+      With <em>homogeneous</em> linear systems, we still have a <alert>principle of
+      superposition</alert>. That is, if <m>\mathbf{x}</m> and <m>\mathbf{y}</m> are solutions to:
+      <md>
+        <mrow>x_1' \amp= p_{11}(t)x_1 + p_{12}(t)x_2</mrow>
+        <mrow>x_2' \amp= p_{21}(t)x_1 + p_{22}(t)x_2</mrow>
+      </md>
+      then any linear combination:
+      <me>c_1\mathbf{x} + c_2\mathbf{y}</me>
+      is also a solution.
+    </p>
+  </fact>
+
+  <p>
+    (You can verify this by plugging <m>c_1\mathbf{x} + c_2\mathbf{y}</m> into the system,
+    just like we did for second-order equations.)
+  </p>
+
+  <p>
+    Let's connect this back to <xref ref="ex-verify-solutions-system"/>, where we verified
+    that
+    <me>\mathbf{y}(t) = \begin{bmatrix} 3e^{2t} \\ 2e^{2t} \end{bmatrix}
+      \quad \text{and} \quad
+      \mathbf{z}(t) = \begin{bmatrix} e^{-5t} \\ 3e^{-5t} \end{bmatrix}</me>
+    are both solutions to the homogeneous system
+    <m>\mathbf{x}' = \begin{bmatrix} 4 \amp -3 \\ 6 \amp -7 \end{bmatrix}\mathbf{x}</m>.
+    The principle of superposition lets us build many more solutions out of these two.
+  </p>
+
+ <activity xml:id="act-superposition-family">
+    <title>Superposition Checkpoint</title>
+    <statement>
+      <p>
+        Which of the following is an <em>infinite family</em> of solutions built from
+        <m>\mathbf{y}</m> and <m>\mathbf{z}</m>?
+      </p>
+    </statement>
+    <choices randomize="yes">
+      <choice correct="yes">
+        <statement>
+          <p>
+            <m>c_1 \begin{bmatrix} 3e^{2t} \\ 2e^{2t} \end{bmatrix}
+              + c_2 \begin{bmatrix} e^{-5t} \\ 3e^{-5t} \end{bmatrix}</m>
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            Correct! This is <m>c_1\mathbf{y} + c_2\mathbf{z}</m>. By the principle of
+            superposition, every choice of the constants <m>c_1</m> and <m>c_2</m> produces
+            a solution, so this is infinitely many solutions all at once.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            <m>c_1 \begin{bmatrix} 3e^{2t} \\ 3e^{-5t} \end{bmatrix}
+              + c_2 \begin{bmatrix} e^{-5t} \\ 2e^{2t} \end{bmatrix}</m>
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            Look closely: these two vectors are not <m>\mathbf{y}</m> and <m>\mathbf{z}</m>!
+            Their components have been mixed together, and these mixed vectors are not
+            solutions to the system, so superposition doesn't apply. Each solution keeps its
+            own exponential in <em>both</em> components: <m>\mathbf{y}</m> is all
+            <m>e^{2t}</m>, and <m>\mathbf{z}</m> is all <m>e^{-5t}</m>.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            <m>c_1 \begin{bmatrix} 2e^{2t} \\ 3e^{2t} \end{bmatrix}
+              + c_2 \begin{bmatrix} 3e^{-5t} \\ e^{-5t} \end{bmatrix}</m>
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            Careful: the components of each vector have been flipped upside down! The
+            solution <m>\mathbf{y}</m> has <m>3e^{2t}</m> on top and <m>2e^{2t}</m> on the
+            bottom (and similarly for <m>\mathbf{z}</m>). A flipped vector is generally
+            <em>not</em> a solution anymore, so superposition only applies to the original
+            <m>\mathbf{y}</m> and <m>\mathbf{z}</m>.
+          </p>
+        </feedback>
+      </choice>
+    </choices>
+  </activity>
+     
+   
+
+  <p>
+    So from just two solutions, we instantly get infinitely many. This raises the question:
+    when does <m>c_1\mathbf{x} + c_2\mathbf{y}</m> give us <em>all</em> of the
+    solutions?
+  </p>
+
+  <p>
+    It turns out this is when <m>\mathbf{x}</m> and <m>\mathbf{y}</m> are linearly
+    independent. This is closely related to what we said above about vectors: two
+    linearly independent vectors in <m>\mathbb{R}^2</m> are enough to build every
+    vector in the plane through their linear combinations. The situation with solutions is
+    analogous: two "independent enough" solutions are enough to build every solution.
+    We won't go further into the theory here; the takeaway is that we need our two solutions
+    to be linearly independent, and we need a way to check for that.
+  </p>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       DEFINITION: THE WRONSKIAN
+       ═══════════════════════════════════════════════════════════ -->
+
+  <p>
+    We will check linear independence using <em>the Wronskian</em>. It's exactly the determinant test from above, applied to our
+    two solutions.
+  </p>
+
+  <definition xml:id="def-wronskian-systems">
+    <title>The Wronskian</title>
+    <statement>
+      <p>
+        Suppose <m>\mathbf{x} = \begin{bmatrix} x_1 \\ x_2 \end{bmatrix}</m> and
+        <m>\mathbf{y} = \begin{bmatrix} y_1 \\ y_2 \end{bmatrix}</m>.
+        The <term>Wronskian</term>, <m>W = W(\mathbf{x}, \mathbf{y})</m>, is:
+        <me>W = \det\left( \begin{bmatrix} x_1 \amp y_1 \\ x_2 \amp y_2 \end{bmatrix} \right).</me>
+      </p>
+    </statement>
+  </definition>
+
+  <p>
+    Notice the two solutions become the <em>columns</em> of the matrix. And finally, we get to our main theorem
+ of the section by combining the previous results!
+  </p>
+
+  <theorem xml:id="thm-wronskian-general-solution">
+    <title>The Wronskian and the General Solution</title>
+    <statement>
+      <p>
+        If <m>\mathbf{x}</m> and <m>\mathbf{y}</m> are two solutions to a first-order, linear,
+        homogeneous system such that:
+        <me>W(\mathbf{x}, \mathbf{y}) \neq 0,</me>
+        then the general solution is given by <m>c_1\mathbf{x} + c_2\mathbf{y}</m>.
+      </p>
+    </statement>
+  </theorem>
+
+  <p>
+    Let's apply the theorem to our two solutions from above. Recall they were
+    <me>\mathbf{y}(t) = \begin{bmatrix} 3e^{2t} \\ 2e^{2t} \end{bmatrix}
+      \quad \text{and} \quad
+      \mathbf{z}(t) = \begin{bmatrix} e^{-5t} \\ 3e^{-5t} \end{bmatrix}.</me>
+    Placing <m>\mathbf{y}</m> and <m>\mathbf{z}</m> as the columns and computing:
+    <md>
+      <mrow>W(\mathbf{y}, \mathbf{z})
+        \amp= \det\left( \begin{bmatrix} 3e^{2t} \amp e^{-5t} \\ 2e^{2t} \amp 3e^{-5t} \end{bmatrix} \right)</mrow>
+      <mrow>\amp= 3e^{2t} \cdot 3e^{-5t} - e^{-5t} \cdot 2e^{2t}</mrow>
+      <mrow>\amp= 9e^{-3t} - 2e^{-3t} = 7e^{-3t}.</mrow>
+    </md>
+    Notice that <m>W</m> involves <m>t</m> here (that will often happen). The question is
+    whether <m>W</m> can ever be <m>0</m>. Since <m>e^{-3t}</m> is <em>never</em> <m>0</m>,
+    we have <m>W = 7e^{-3t} \neq 0</m> for any <m>t</m>. So the theorem applies:
+    <me>\mathbf{x}=c_1 \begin{bmatrix} 3e^{2t} \\ 2e^{2t} \end{bmatrix}
+      + c_2 \begin{bmatrix} e^{-5t} \\ 3e^{-5t} \end{bmatrix}</me>
+    is the general solution (it captures all of the solutions to the system).
+  </p>
+
+  <p>
+    On the next page, we'll run this whole process from start to finish on a new system:
+    verify two solutions, check the Wronskian, and write down the general solution.
+  </p>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       VIDEO + QUESTION FORM
+       ═══════════════════════════════════════════════════════════ -->
+
+  <figure xml:id="video-determinant-wronskian">
+    <caption>This video goes through the content of this page.</caption>
+    <video youtube="FDoaP3x3q2A" width="100%" preview="default"/>
+  </figure>
+
+  <interactive xml:id="question-form-5-3-1" iframe="question-form.html?section=5.3.1" width="100%" aspect="2:1"/>
+
+</section>

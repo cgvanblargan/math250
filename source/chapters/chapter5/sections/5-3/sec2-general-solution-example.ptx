@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-general-solution-example" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Building the General Solution</title>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       RECAP BLOCK
+       ═══════════════════════════════════════════════════════════ -->
+
+  <p>
+    Time to put the last page to work. Here is the full process for building the general
+    solution to a homogeneous linear system:
+  </p>
+
+  <assemblage xml:id="recap-general-solution-process">
+    <title>Recap: Building the General Solution</title>
+    <p>
+      <ol>
+        <li>
+          <p>
+            Have two solutions <m>\mathbf{y}</m> and <m>\mathbf{z}</m> to the homogeneous
+            system (verifying them if needed).
+          </p>
+        </li>
+        <li>
+          <p>
+            Compute the Wronskian <m>W</m>: the determinant of the matrix whose
+            <em>columns</em> are the two solutions.
+          </p>
+        </li>
+        <li>
+          <p>
+            If <m>W \neq 0</m>, the solutions are linearly independent, and the general
+            solution is <m>c_1\mathbf{y} + c_2\mathbf{z}</m>.
+          </p>
+        </li>
+      </ol>
+    </p>
+  </assemblage>
+
+  <p>
+    The example below walks through these three steps in order.
+  </p>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       MAIN EXAMPLE
+       ═══════════════════════════════════════════════════════════ -->
+
+  <example xml:id="ex-general-solution-system">
+    <title>The General Solution to a System</title>
+    <introduction>
+      <p>
+        Consider the system:
+        <me>\mathbf{x}' = \begin{bmatrix} 9 \amp -4 \\ 14 \amp -9 \end{bmatrix} \mathbf{x}.</me>
+        We are given the two candidate solutions
+        <me>\mathbf{y}(t) = \begin{bmatrix} 3 \\ 3 \end{bmatrix} e^{5t}
+          \quad \text{and} \quad
+          \mathbf{z}(t) = \begin{bmatrix} 2 \\ 7 \end{bmatrix} e^{-5t}.</me>
+      </p>
+    </introduction>
+    <task>
+      <statement>
+        <p>
+          Verify that <m>\mathbf{y}</m> and <m>\mathbf{z}</m> are both solutions.
+        </p>
+      </statement>
+      <solution>
+        <title>Can skim or reference later if needed</title>
+        <p>
+          This is the same verification process as the last section: compute the derivative
+          of each candidate, compute <m>\mathbf{P}</m> times each candidate, and check they
+          match.
+        </p>
+        <p>
+          For <m>\mathbf{y}(t) = \begin{bmatrix} 3e^{5t} \\ 3e^{5t} \end{bmatrix}</m>,
+          differentiating gives
+          <me>\frac{d\mathbf{y}}{dt} = \begin{bmatrix} 15e^{5t} \\ 15e^{5t} \end{bmatrix},</me>
+          while multiplying gives
+          <me>\mathbf{P}\mathbf{y}
+            = \begin{bmatrix} 9 \amp -4 \\ 14 \amp -9 \end{bmatrix}
+            \begin{bmatrix} 3e^{5t} \\ 3e^{5t} \end{bmatrix}
+            = \begin{bmatrix} (27 - 12)e^{5t} \\ (42 - 27)e^{5t} \end{bmatrix}
+            = \begin{bmatrix} 15e^{5t} \\ 15e^{5t} \end{bmatrix}.</me>
+          They match, so <m>\mathbf{y}</m> is a solution.
+        </p>
+        <p>
+          For <m>\mathbf{z}(t) = \begin{bmatrix} 2e^{-5t} \\ 7e^{-5t} \end{bmatrix}</m>,
+          differentiating gives
+          <me>\frac{d\mathbf{z}}{dt} = \begin{bmatrix} -10e^{-5t} \\ -35e^{-5t} \end{bmatrix},</me>
+          while multiplying gives
+          <me>\mathbf{P}\mathbf{z}
+            = \begin{bmatrix} 9 \amp -4 \\ 14 \amp -9 \end{bmatrix}
+            \begin{bmatrix} 2e^{-5t} \\ 7e^{-5t} \end{bmatrix}
+            = \begin{bmatrix} (18 - 28)e^{-5t} \\ (28 - 63)e^{-5t} \end{bmatrix}
+            = \begin{bmatrix} -10e^{-5t} \\ -35e^{-5t} \end{bmatrix}.</me>
+          They match as well, so <m>\mathbf{z}</m> is also a solution.
+        </p>
+      </solution>
+    </task>
+    <task>
+      <statement>
+        <p>
+          Use the Wronskian to show that <m>\mathbf{y}</m> and <m>\mathbf{z}</m> are
+          linearly independent.
+        </p>
+      </statement>
+      <hint>
+        <p>
+          Place the two solutions as the columns of a matrix, then take the determinant:
+          <me>W = \det\left( \begin{bmatrix} 3e^{5t} \amp 2e^{-5t} \\ 3e^{5t} \amp 7e^{-5t} \end{bmatrix} \right),
+            \qquad
+            \det \begin{bmatrix} a \amp b \\ c \amp d \end{bmatrix} = ad - bc.</me>
+        </p>
+      </hint>
+      <solution>
+        <p>
+          Computing the determinant:
+          <md>
+            <mrow>W \amp= 3e^{5t} \cdot 7e^{-5t} - 2e^{-5t} \cdot 3e^{5t}</mrow>
+            <mrow>\amp= 21e^{0} - 6e^{0}</mrow>
+            <mrow>\amp= 21 - 6 = 15.</mrow>
+          </md>
+          Notice the exponentials cancel: <m>e^{5t} \cdot e^{-5t} = e^{0} = 1</m>.
+          Since <m>W = 15 \neq 0</m>, the solutions <m>\mathbf{y}</m> and <m>\mathbf{z}</m>
+          are linearly independent.
+        </p>
+      </solution>
+    </task>
+    <conclusion>
+      <p>
+        Since the Wronskian is nonzero, our theorem from the last page applies: the general
+        solution to the system is
+        <me>\mathbf{x}(t) = c_1\mathbf{y} + c_2\mathbf{z}
+          = c_1 \begin{bmatrix} 3 \\ 3 \end{bmatrix} e^{5t}
+          + c_2 \begin{bmatrix} 2 \\ 7 \end{bmatrix} e^{-5t}.</me>
+        We can also combine everything into one big vector:
+        <me>\mathbf{x}(t) = \begin{bmatrix} x_1 \\ x_2 \end{bmatrix}
+          = \begin{bmatrix} 3c_1 e^{5t} + 2c_2 e^{-5t} \\ 3c_1 e^{5t} + 7c_2 e^{-5t} \end{bmatrix}.</me>
+        Reading off the components, <m>x_1(t) = 3c_1 e^{5t} + 2c_2 e^{-5t}</m> and
+        <m>x_2(t) = 3c_1 e^{5t} + 7c_2 e^{-5t}</m> solve the original system simultaneously,
+        for any constants <m>c_1</m> and <m>c_2</m>.
+      </p>
+    </conclusion>
+  </example>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       NOTE: THE WRONSKIAN OFTEN INVOLVES t
+       ═══════════════════════════════════════════════════════════ -->
+
+  <p>
+    In our example, the exponentials canceled and the Wronskian came out to a constant.
+    That won't always happen: often <m>W</m> involves <m>t</m>. For example, you may find
+    <me>W(\mathbf{y}, \mathbf{z}) = 12e^{-3t}.</me>
+    Since <m>e^{-3t}</m> is <em>never</em> <m>0</m>, we have <m>12e^{-3t} \neq 0</m> for any
+    <m>t</m>, and we can still conclude the solutions are linearly independent. A Wronskian
+    that depends on <m>t</m> is perfectly fine, as long as it's never zero.
+  </p>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       ACTIVITY: WRONSKIAN COMPUTATION (MC)
+       ═══════════════════════════════════════════════════════════ -->
+
+  <activity xml:id="act-wronskian-computation">
+    <title>Wronskian Checkpoint</title>
+    <statement>
+      <p>
+        Suppose a homogeneous linear system has the two solutions
+        <me>\mathbf{y}(t) = \begin{bmatrix} 2 \\ 1 \end{bmatrix} e^{-t}
+          \quad \text{and} \quad
+          \mathbf{z}(t) = \begin{bmatrix} 1 \\ 2 \end{bmatrix} e^{-2t}.</me>
+        Compute the Wronskian <m>W(\mathbf{y}, \mathbf{z})</m>. Are the solutions linearly
+        independent?
+      </p>
+    </statement>
+    <choices randomize="yes">
+      <choice correct="yes">
+        <statement>
+          <p>
+            <m>W = 3e^{-3t}</m>, which is never <m>0</m>, so the solutions are linearly
+            independent.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            Correct!
+            <m>W = 2e^{-t} \cdot 2e^{-2t} - 1e^{-2t} \cdot 1e^{-t} = 4e^{-3t} - e^{-3t} = 3e^{-3t}</m>.
+            Even though <m>W</m> depends on <m>t</m>, the exponential <m>e^{-3t}</m> is never
+            <m>0</m>, so <m>W \neq 0</m> and the solutions are linearly independent.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            <m>W = 3e^{-3t}</m>, but since <m>W</m> depends on <m>t</m>, we cannot conclude
+            the solutions are linearly independent.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            The computation is right, but a <m>t</m>-dependent Wronskian is fine! The
+            question is whether <m>W</m> can ever equal <m>0</m>. Since <m>e^{-3t}</m> is
+            never <m>0</m>, we have <m>W = 3e^{-3t} \neq 0</m> for every <m>t</m>, and the
+            solutions are linearly independent.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            <m>W = 5e^{-3t}</m>, which is never <m>0</m>, so the solutions are linearly
+            independent.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            Recheck the arithmetic: the determinant is
+            <m>2e^{-t} \cdot 2e^{-2t} - 1e^{-2t} \cdot 1e^{-t}</m>, which gives
+            <m>4e^{-3t} - e^{-3t} = 3e^{-3t}</m>: subtract, don't add! The conclusion is
+            right, though: the solutions are linearly independent.
+          </p>
+        </feedback>
+      </choice>
+    </choices>
+  </activity>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       ACTIVITY: WRITE THE GENERAL SOLUTION (MC)
+       ═══════════════════════════════════════════════════════════ -->
+
+  <activity xml:id="act-general-solution-vector">
+    <title>General Solution Checkpoint</title>
+    <statement>
+      <p>
+        Continuing the previous checkpoint: we now know
+        <m>\mathbf{y}(t) = \begin{bmatrix} 2 \\ 1 \end{bmatrix} e^{-t}</m> and
+        <m>\mathbf{z}(t) = \begin{bmatrix} 1 \\ 2 \end{bmatrix} e^{-2t}</m>
+        are linearly independent solutions. Which of the following is the general solution
+        to the system, written as a single vector?
+      </p>
+    </statement>
+    <choices randomize="yes">
+      <choice correct="yes">
+        <statement>
+          <p>
+            <m>\mathbf{x}(t) = \begin{bmatrix} 2c_1 e^{-t} + c_2 e^{-2t} \\ c_1 e^{-t} + 2c_2 e^{-2t} \end{bmatrix}</m>
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            Correct! The general solution is
+            <m>c_1\mathbf{y} + c_2\mathbf{z}</m>. Distributing the constants and adding
+            component-wise:
+            <me>c_1 \begin{bmatrix} 2 \\ 1 \end{bmatrix} e^{-t}
+              + c_2 \begin{bmatrix} 1 \\ 2 \end{bmatrix} e^{-2t}
+              = \begin{bmatrix} 2c_1 e^{-t} + c_2 e^{-2t} \\ c_1 e^{-t} + 2c_2 e^{-2t} \end{bmatrix}.</me>
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            <m>\mathbf{x}(t) = \begin{bmatrix} 2 e^{-t} + e^{-2t} \\ e^{-t} + 2 e^{-2t} \end{bmatrix}</m>
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            This is just <m>\mathbf{y} + \mathbf{z}</m>: one particular solution, not the
+            general solution. The general solution needs the arbitrary constants:
+            <m>c_1\mathbf{y} + c_2\mathbf{z}</m>. Without them, we only capture a single
+            solution instead of all of them.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            <m>\mathbf{x}(t) = \begin{bmatrix} 2c_1 e^{-t} + 2c_2 e^{-2t} \\ c_1 e^{-t} + c_2 e^{-2t} \end{bmatrix}</m>
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            Careful when combining! The components of <m>\mathbf{z}</m> are <m>1</m> (top)
+            and <m>2</m> (bottom), so the <m>c_2</m> terms should be <m>c_2 e^{-2t}</m> on
+            top and <m>2c_2 e^{-2t}</m> on the bottom. Here they've been mixed up.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            <m>\mathbf{x}(t) = \begin{bmatrix} 2c_1 e^{-t} + c_2 e^{-t} \\ c_1 e^{-2t} + 2c_2 e^{-2t} \end{bmatrix}</m>
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            Check the exponentials: each solution keeps its own exponential in <em>both</em>
+            components. The vector <m>\mathbf{y}</m> contributes <m>e^{-t}</m> to both the
+            top and bottom, and <m>\mathbf{z}</m> contributes <m>e^{-2t}</m> to both. Here
+            the exponentials have been split across rows, which mixes up the two solutions.
+          </p>
+        </feedback>
+      </choice>
+    </choices>
+  </activity>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       VIDEO + QUESTION FORM
+       ═══════════════════════════════════════════════════════════ -->
+
+  <figure xml:id="video-general-solution-example">
+    <caption>This video goes through the content of this page.</caption>
+    <video youtube="fTFH2TQuqNs" width="100%" preview="default"/>
+  </figure>
+
+  <interactive xml:id="question-form-5-3-2" iframe="question-form.html?section=5.3.2" width="100%" aspect="2:1"/>
+
+</section>

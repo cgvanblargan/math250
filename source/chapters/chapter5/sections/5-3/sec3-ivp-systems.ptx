@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-ivp-systems" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Initial Value Problems for Systems</title>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       INTRO + OBSERVATION
+       ═══════════════════════════════════════════════════════════ -->
+
+  <p>
+    We now know how to find the general solution to a homogeneous system. As always, the
+    general solution describes every solution at once. But in applications (like our
+    rabbits and foxes), we usually know where the system starts, and we want the one
+    specific solution matching that start.
+  </p>
+
+  <observation xml:id="obs-two-conditions">
+    <p>
+      The general solution <m>c_1\mathbf{y} + c_2\mathbf{z}</m> has <em>two</em> unknown
+      constants. So if we're given <em>two</em> initial conditions, the values of
+      <m>x_1(0)</m> and <m>x_2(0)</m>, we can solve for <m>c_1</m> and <m>c_2</m> and pin
+      down the one particular solution that satisfies them. This is just like second-order
+      equations, where the two constants in the general solution required two initial
+      conditions.
+    </p>
+  </observation>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       WARM-UP ACTIVITY: GENERAL SOLUTION REVIEW
+       ═══════════════════════════════════════════════════════════ -->
+
+  <p>
+    Here's the system we'll work with on this page. Before the new material, let's redo the
+    process from the last page on it. For the system
+    <me>\mathbf{x}' = \begin{bmatrix} 7 \amp -2 \\ 12 \amp -7 \end{bmatrix} \mathbf{x},</me>
+    one can show that
+    <me>\mathbf{y}(t) = \begin{bmatrix} 1 \\ 1 \end{bmatrix} e^{5t}
+      \quad \text{and} \quad
+      \mathbf{z}(t) = \begin{bmatrix} 1 \\ 6 \end{bmatrix} e^{-5t}</me>
+    are both solutions. (You could verify this yourself with the process from
+    <xref ref="sec-verifying-solutions-systems"/>!)
+  </p>
+
+  <activity xml:id="act-warmup-general-solution">
+    <title>Warm-Up: Find the General Solution</title>
+    <task>
+      <statement>
+        <p>
+          Compute the Wronskian to show <m>\mathbf{y}</m> and <m>\mathbf{z}</m> are linearly
+          independent.
+        </p>
+      </statement>
+      <hint>
+        <p>
+          The solutions become the columns:
+          <me>W = \det\left( \begin{bmatrix} e^{5t} \amp e^{-5t} \\ e^{5t} \amp 6e^{-5t} \end{bmatrix} \right),
+            \qquad
+            \det \begin{bmatrix} a \amp b \\ c \amp d \end{bmatrix} = ad - bc.</me>
+        </p>
+      </hint>
+      <solution>
+        <p>
+          Computing:
+          <me>W = e^{5t} \cdot 6e^{-5t} - e^{-5t} \cdot e^{5t} = 6e^{0} - e^{0} = 6 - 1 = 5.</me>
+          Since <m>W = 5 \neq 0</m>, the solutions are linearly independent.
+        </p>
+      </solution>
+    </task>
+    <task>
+      <statement>
+        <p>
+          Write the general solution, combining it into a single vector.
+        </p>
+      </statement>
+      <hint>
+        <p>
+          Since <m>W \neq 0</m>, the general solution is <m>c_1\mathbf{y} + c_2\mathbf{z}</m>.
+          Distribute the constants and add component-wise to get one vector.
+        </p>
+      </hint>
+      <solution>
+        <p>
+          <me>\mathbf{x}(t) = c_1 \begin{bmatrix} 1 \\ 1 \end{bmatrix} e^{5t}
+            + c_2 \begin{bmatrix} 1 \\ 6 \end{bmatrix} e^{-5t}
+            = \begin{bmatrix} c_1 e^{5t} + c_2 e^{-5t} \\ c_1 e^{5t} + 6c_2 e^{-5t} \end{bmatrix}.</me>
+        </p>
+      </solution>
+    </task>
+  </activity>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       EXAMPLE: SOLVING THE IVP
+       ═══════════════════════════════════════════════════════════ -->
+
+  <p>
+    Now for the new part: using initial conditions to find the particular solution.
+  </p>
+
+  <example xml:id="ex-ivp-system">
+    <title>Finding a Particular Solution</title>
+    <statement>
+      <p>
+        For the system above, find the particular solution where <m>x_1(0) = 7</m> and
+        <m>x_2(0) = -3</m>.
+      </p>
+    </statement>
+    <solution>
+      <p>
+        From the warm-up (where we already checked <m>W \neq 0</m>!), the general solution is
+        <me>\mathbf{x}(t) = \begin{bmatrix} x_1 \\ x_2 \end{bmatrix}
+          = \begin{bmatrix} c_1 e^{5t} + c_2 e^{-5t} \\ c_1 e^{5t} + 6c_2 e^{-5t} \end{bmatrix}.</me>
+        We plug in <m>t = 0</m> and use the initial conditions. Remember that
+        <m>e^{0} = 1</m>, so all the exponentials disappear:
+        <md>
+          <mrow>x_1(0) = 7 \amp\implies 7 = c_1 + c_2</mrow>
+          <mrow>x_2(0) = -3 \amp\implies -3 = c_1 + 6c_2</mrow>
+        </md>
+        This is two equations in the two unknowns <m>c_1</m> and <m>c_2</m>. Solving the
+        system (algebra in the dropdown below) gives:
+        <me>c_1 = 9, \qquad c_2 = -2.</me>
+        Substituting these back into the general solution, the particular solution is
+        <me>\mathbf{x}(t) = \begin{bmatrix} 9 e^{5t} - 2 e^{-5t} \\ 9 e^{5t} - 12 e^{-5t} \end{bmatrix},</me>
+        or written out by components, <m>x_1(t) = 9e^{5t} - 2e^{-5t}</m> and
+        <m>x_2(t) = 9e^{5t} - 12e^{-5t}</m>.
+      </p>
+      <solution>
+        <title>Algebra (can skim)</title>
+        <p>
+          We solve the system
+          <md>
+            <mrow>7 \amp= c_1 + c_2</mrow>
+            <mrow>-3 \amp= c_1 + 6c_2</mrow>
+          </md>
+          by elimination. Subtracting the second equation from the first cancels the
+          <m>c_1</m>'s:
+          <me>7 - (-3) = (c_1 + c_2) - (c_1 + 6c_2)
+            \implies 10 = -5c_2
+            \implies c_2 = -2.</me>
+          Then substituting <m>c_2 = -2</m> into the first equation:
+          <me>7 = c_1 + (-2) \implies c_1 = 9.</me>
+        </p>
+      </solution>
+    </solution>
+  </example>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       ACTIVITY: SET UP THE SYSTEM (MC)
+       ═══════════════════════════════════════════════════════════ -->
+
+  <activity xml:id="act-ivp-setup">
+    <title>Setting Up the Constants</title>
+    <statement>
+      <p>
+        Suppose a system has general solution
+        <me>\mathbf{x}(t) = \begin{bmatrix} c_1 e^{3t} + 2c_2 e^{-t} \\ c_1 e^{3t} + 5c_2 e^{-t} \end{bmatrix}</me>
+        with initial conditions <m>x_1(0) = 4</m> and <m>x_2(0) = 1</m>. What system of
+        equations do we get for <m>c_1</m> and <m>c_2</m>? (You don't need to solve it!)
+      </p>
+    </statement>
+    <choices randomize="yes">
+      <choice correct="yes">
+        <statement>
+          <p>
+            <m>4 = c_1 + 2c_2</m> and <m>1 = c_1 + 5c_2</m>
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            Correct! Plugging <m>t = 0</m> into the general solution makes every exponential
+            equal <m>e^{0} = 1</m>, so the first component gives <m>4 = c_1 + 2c_2</m> and
+            the second gives <m>1 = c_1 + 5c_2</m>. From here it's just algebra to find
+            <m>c_1</m> and <m>c_2</m>.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            <m>4 = c_1 e^{3t} + 2c_2 e^{-t}</m> and <m>1 = c_1 e^{3t} + 5c_2 e^{-t}</m>
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            Almost, but the initial conditions happen at the specific time <m>t = 0</m>, so
+            we plug in <m>t = 0</m> everywhere. Since <m>e^{0} = 1</m>, the exponentials all
+            disappear, leaving equations with only the constants:
+            <m>4 = c_1 + 2c_2</m> and <m>1 = c_1 + 5c_2</m>.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            <m>1 = c_1 + 2c_2</m> and <m>4 = c_1 + 5c_2</m>
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            Watch which condition goes with which component! <m>x_1(0) = 4</m> pairs with the
+            <em>first</em> component of the general solution, giving <m>4 = c_1 + 2c_2</m>,
+            and <m>x_2(0) = 1</m> pairs with the second, giving <m>1 = c_1 + 5c_2</m>.
+            Here they've been swapped.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            <m>4 = 3c_1 + 2c_2</m> and <m>1 = 3c_1 + 5c_2</m>
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            It looks like the exponentials got differentiated: the <m>3</m> from <m>e^{3t}</m>
+            only comes down if we take a derivative, and initial conditions here are on
+            <m>x_1</m> and <m>x_2</m> themselves, not their derivatives. Plugging <m>t = 0</m>
+            straight into the general solution gives <m>e^{0} = 1</m> everywhere:
+            <m>4 = c_1 + 2c_2</m> and <m>1 = c_1 + 5c_2</m>.
+          </p>
+        </feedback>
+      </choice>
+    </choices>
+  </activity>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       VIDEO + QUESTION FORM
+       ═══════════════════════════════════════════════════════════ -->
+
+  <figure xml:id="video-ivp-systems">
+    <caption>This video goes through the content of this page.</caption>
+    <video youtube="aEWsMWCFnqM" width="100%" preview="default"/>
+  </figure>
+
+  <interactive xml:id="question-form-5-3-3" iframe="question-form.html?section=5.3.3" width="100%" aspect="2:1"/>
+
+</section>

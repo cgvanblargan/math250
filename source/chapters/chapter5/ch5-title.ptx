@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<chapter xml:id="ch-systems" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Systems of ODEs</title>
+
+  <introduction>
+    <p>
+      In this chapter we learn about systems of ODEs. We will learn how to solve them in simple cases. </p>
+  </introduction>
+
+  <xi:include href="./sections/sec-5-1.ptx" />
+  <xi:include href="./sections/sec-5-2.ptx" />
+  <xi:include href="./sections/sec-5-3.ptx" />
+ 
+      
+  
+
+</chapter>

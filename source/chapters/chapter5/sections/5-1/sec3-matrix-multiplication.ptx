@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-matrix-multiplication" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Matrix Multiplication</title>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       INTRO
+       ═══════════════════════════════════════════════════════════ -->
+
+  <p>
+    The last operation we need is multiplying two matrices together. Unlike with matrix addition, you can't just
+    multiply component-wise. The definition builds off of the matrix-vector product.
+  </p>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       DEFINITION: MATRIX MULTIPLICATION
+       ═══════════════════════════════════════════════════════════ -->
+
+  <definition xml:id="def-matrix-multiplication">
+    <title>Matrix Multiplication</title>
+    <statement>
+      <p>
+        Suppose <m>B</m> is an <m>m \times p</m> matrix and <m>A</m> is a <m>p \times n</m>
+        matrix. Then <m>BA</m> is an <m>m \times n</m> matrix where:
+        <me>BA = \begin{bmatrix} B\vec{a}_1 \amp \cdots \amp B\vec{a}_n \end{bmatrix},</me>
+        where <m>\vec{a}_i</m> is the <m>i</m>th <em>column</em> of <m>A</m>.
+      </p>
+    </statement>
+  </definition>
+
+  <p>
+    In practice, we compute the entries of <m>BA</m> one at a time using dot products:
+    <me>(BA)_{ij} = (i\text{th row of } B) \cdot (j\text{th col of } A).</me>
+    So just like the matrix-vector product, we use the <alert>rows of <m>B</m></alert> and the
+    <alert>columns of <m>A</m></alert>.
+  </p>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       WORKED EXAMPLE (PROSE)
+       ═══════════════════════════════════════════════════════════ -->
+
+  <p>
+    For example, let's multiply a <m>2 \times 3</m> matrix by a <m>3 \times 3</m> matrix
+    (sizes match: <m>3</m> columns on the left, <m>3</m> rows on the right, so the result
+    is <m>2 \times 3</m>). Writing <m>\vec{b}_1, \vec{b}_2</m> for the rows of the left matrix
+    and <m>\vec{a}_1, \vec{a}_2, \vec{a}_3</m> for the columns of the right matrix:
+   <md>
+      <mrow>\begin{bmatrix} 1 \amp -1 \amp 0 \\ 2 \amp 0 \amp 1 \end{bmatrix}
+        \begin{bmatrix} 3 \amp 1 \amp 0 \\ 0 \amp 5 \amp 0 \\ 2 \amp -2 \amp 0 \end{bmatrix}
+        \amp= \begin{bmatrix}
+          \vec{b}_1 \cdot \vec{a}_1 \amp \vec{b}_1 \cdot \vec{a}_2 \amp \vec{b}_1 \cdot \vec{a}_3 \\
+          \vec{b}_2 \cdot \vec{a}_1 \amp \vec{b}_2 \cdot \vec{a}_2 \amp \vec{b}_2 \cdot \vec{a}_3
+        \end{bmatrix}</mrow>
+      <mrow>\amp= \begin{bmatrix}
+          (1,-1,0) \cdot (3,0,2) \amp (1,-1,0) \cdot (1,5,-2) \amp (1,-1,0) \cdot (0,0,0) \\
+          (2,0,1) \cdot (3,0,2) \amp (2,0,1) \cdot (1,5,-2) \amp (2,0,1) \cdot (0,0,0)
+        \end{bmatrix}</mrow>
+      <mrow>\amp= \begin{bmatrix}
+          1 \cdot 3 - 1 \cdot 0 + 0 \cdot 2 \amp 1 \cdot 1 - 1 \cdot 5 + 0 \cdot (-2) \amp 0 + 0 + 0 \\
+          2 \cdot 3 + 0 \cdot 0 + 1 \cdot 2 \amp 2 \cdot 1 + 0 \cdot 5 + 1 \cdot (-2) \amp 0 + 0 + 0
+        \end{bmatrix}</mrow>
+      <mrow>\amp= \begin{bmatrix} 3 \amp -4 \amp 0 \\ 8 \amp -1 \amp 0 \end{bmatrix}.</mrow>
+    </md>
+    Each entry is one dot product: for instance, the entry in the first row, second column
+    came from dotting the first row of the left matrix (<m>\vec{b}_1</m>) with the second
+    column of the right matrix (<m>\vec{a}_2</m>).
+  </p>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       ASSOCIATIVE BUT NOT COMMUTATIVE
+       ═══════════════════════════════════════════════════════════ -->
+
+  <p>
+    Matrix multiplication is <alert>associative</alert>, but it is <alert>not commutative</alert>.
+    Associative means we can move parentheses around:
+    <me>ABC = A(BC) = (AB)C.</me>
+    Not commutative means that in general,
+    <me>BA \neq AB.</me>
+  </p>
+
+  <p>
+    Sometimes the product in the reversed order isn't even defined!
+    Take the two matrices from the example above. We computed <m>BA</m> where <m>B</m> was
+    <m>2 \times 3</m> and <m>A</m> was <m>3 \times 3</m>. But if we try the other order,
+    <m>AB</m>, we would be multiplying a <m>3 \times 3</m> matrix by a <m>2 \times 3</m>
+    matrix. Now the number of columns of the first matrix (<m>3</m>) does not match the number
+    of rows of the second (<m>2</m>), so <m>AB</m> is <alert>not defined</alert>.
+  </p>
+
+  <p>
+    Even when both orders <em>are</em> defined, we still don't have commutativity. For example:
+    <me>\begin{bmatrix} 0 \amp -1 \\ 1 \amp 0 \end{bmatrix}
+      \begin{bmatrix} -1 \amp 0 \\ 0 \amp 1 \end{bmatrix}
+      = \begin{bmatrix} 0 \amp -1 \\ -1 \amp 0 \end{bmatrix},</me>
+    but multiplying in the other order gives
+    <me>\begin{bmatrix} -1 \amp 0 \\ 0 \amp 1 \end{bmatrix}
+      \begin{bmatrix} 0 \amp -1 \\ 1 \amp 0 \end{bmatrix}
+      = \begin{bmatrix} 0 \amp 1 \\ 1 \amp 0 \end{bmatrix}.</me>
+    Both products are <m>2 \times 2</m>, but they are not equal! So be careful:
+    the order of multiplication matters with matrices.
+  </p>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       VIDEO + QUESTION FORM
+       ═══════════════════════════════════════════════════════════ -->
+
+  <figure xml:id="video-matrix-multiplication">
+    <caption>This video goes through the content of this page.</caption>
+    <video youtube="Z4VeDTaqm9o" width="100%" preview="default"/>
+  </figure>
+
+  <interactive xml:id="question-form-5-1-3" iframe="question-form.html?section=5.1.3" width="100%" aspect="2:1"/>
+
+</section>

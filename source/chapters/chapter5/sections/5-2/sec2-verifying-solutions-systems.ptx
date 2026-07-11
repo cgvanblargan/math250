@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-verifying-solutions-systems" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Verifying Solutions To a System</title>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       INTRO
+       ═══════════════════════════════════════════════════════════ -->
+
+  <p>
+    Back in the very first chapter, before we could solve ODEs, we learned how to
+    <em>verify</em> that a given function was a solution: plug it in and check that both sides
+    match. We'll take the same first step with systems. Given a vector of functions, how do we
+    check whether it solves the matrix equation
+    <m>\frac{d\mathbf{x}}{dt} = \mathbf{P}(t)\mathbf{x} + \mathbf{f}(t)</m>?
+    As before, we just compute both sides and compare!
+  </p>
+
+  <p>
+    One note on notation regarding the next example: we'll name our candidate solutions
+    <m>\mathbf{y}</m> and <m>\mathbf{z}</m> so their names are distinct from the component
+    functions <m>x_1</m> and <m>x_2</m>.
+  </p>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       EXAMPLE: THREE PARTS
+       ═══════════════════════════════════════════════════════════ -->
+
+  <example xml:id="ex-verify-solutions-system">
+    <title>Verifying Solutions</title>
+    <introduction>
+      <p>
+        Consider the system:
+        <md>
+          <mrow>x_1' \amp= 4x_1 - 3x_2</mrow>
+          <mrow>x_2' \amp= 6x_1 - 7x_2</mrow>
+        </md>
+      </p>
+    </introduction>
+    <task>
+      <statement>
+        <p>
+          Write the system as a matrix equation.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Every coefficient is present here (no missing terms!), and there are no leftover
+          terms, so <m>\mathbf{f}(t) = \begin{bmatrix} 0 \\ 0 \end{bmatrix}</m>:
+          <me>\frac{d\mathbf{x}}{dt}
+            = \begin{bmatrix} 4 \amp -3 \\ 6 \amp -7 \end{bmatrix}
+            \begin{bmatrix} x_1 \\ x_2 \end{bmatrix}
+            + \begin{bmatrix} 0 \\ 0 \end{bmatrix}.</me>
+          Since <m>\mathbf{f}(t)</m> is the zero vector, we usually just drop it and write
+          <me>\frac{d\mathbf{x}}{dt}
+            = \begin{bmatrix} 4 \amp -3 \\ 6 \amp -7 \end{bmatrix} \mathbf{x}.</me>
+        </p>
+      </solution>
+    </task>
+    <task>
+      <statement>
+        <p>
+          Verify that
+          <m>\mathbf{y}(t) = \begin{bmatrix} 3e^{2t} \\ 2e^{2t} \end{bmatrix}</m>
+          is a solution.</p>
+          
+          <p> Let's do this one together. We need to check that
+          <m>\dfrac{d\mathbf{y}}{dt} = \mathbf{P}\mathbf{y}</m>, so we compute each side
+          separately.
+        </p>
+        <p>
+          For the left-hand side, we differentiate each component:
+          <me>\frac{d\mathbf{y}}{dt}
+            = \begin{bmatrix} \frac{d}{dt}\left(3e^{2t}\right) \\ \frac{d}{dt}\left(2e^{2t}\right) \end{bmatrix}
+            = \begin{bmatrix} 6e^{2t} \\ 4e^{2t} \end{bmatrix}.</me>
+        </p>
+        <p>
+          For the right-hand side, we multiply:
+          <md>
+            <mrow>\mathbf{P}\mathbf{y}
+              = \begin{bmatrix} 4 \amp -3 \\ 6 \amp -7 \end{bmatrix}
+              \begin{bmatrix} 3e^{2t} \\ 2e^{2t} \end{bmatrix}
+              \amp= \begin{bmatrix} 4 \cdot 3e^{2t} - 3 \cdot 2e^{2t} \\ 6 \cdot 3e^{2t} - 7 \cdot 2e^{2t} \end{bmatrix}</mrow>
+            <mrow>\amp= \begin{bmatrix} (12 - 6)e^{2t} \\ (18 - 14)e^{2t} \end{bmatrix}
+              = \begin{bmatrix} 6e^{2t} \\ 4e^{2t} \end{bmatrix}.</mrow>
+          </md>
+          The two sides match, so <m>\mathbf{y}(t)</m> is a solution!
+        </p>
+      </statement>
+    </task>
+    <task>
+      <statement>
+        <p>
+          Now it's your turn: verify that
+          <m>\mathbf{z}(t) = \begin{bmatrix} e^{-5t} \\ 3e^{-5t} \end{bmatrix}</m>
+          is also a solution. Work it out on paper before checking the solution below,
+          and then use the checkpoint question that follows to confirm your computation.
+        </p>
+      </statement>
+      <hint>
+        <p>
+          Follow the same two steps: differentiate each component of <m>\mathbf{z}</m> to get
+          <m>\frac{d\mathbf{z}}{dt}</m> (don't forget the chain rule!), then compute
+          <m>\mathbf{P}\mathbf{z}</m> with matrix-vector multiplication. You're hoping the
+          two results agree.
+        </p>
+      </hint>
+      <solution>
+        <p>
+          Differentiating (chain rule brings down a <m>-5</m>):
+          <me>\frac{d\mathbf{z}}{dt}
+            = \begin{bmatrix} -5e^{-5t} \\ -15e^{-5t} \end{bmatrix}.</me>
+          Multiplying:
+          <md>
+            <mrow>\mathbf{P}\mathbf{z}
+              = \begin{bmatrix} 4 \amp -3 \\ 6 \amp -7 \end{bmatrix}
+              \begin{bmatrix} e^{-5t} \\ 3e^{-5t} \end{bmatrix}
+              \amp= \begin{bmatrix} 4 \cdot e^{-5t} - 3 \cdot 3e^{-5t} \\ 6 \cdot e^{-5t} - 7 \cdot 3e^{-5t} \end{bmatrix}</mrow>
+            <mrow>\amp= \begin{bmatrix} (4-9)e^{-5t} \\ (6-21)e^{-5t} \end{bmatrix}
+              = \begin{bmatrix} -5e^{-5t} \\ -15e^{-5t} \end{bmatrix}.</mrow>
+          </md>
+          Both sides equal
+          <m>\begin{bmatrix} -5e^{-5t} \\ -15e^{-5t} \end{bmatrix}</m>,
+          so <m>\mathbf{z}(t)</m> is a solution as well.
+        </p>
+      </solution>
+    </task>
+  </example>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       ACTIVITY: CHECKPOINT ON PART (c) (MC)
+       ═══════════════════════════════════════════════════════════ -->
+
+  <activity xml:id="act-verify-z-checkpoint">
+    <title>Checking Your Verification</title>
+    <statement>
+      <p>
+        When verifying <m>\mathbf{z}(t)</m> in the last part, you computed both
+        <m>\dfrac{d\mathbf{z}}{dt}</m> and <m>\mathbf{P}\mathbf{z}</m>. What vector did you
+        get (for both)?
+      </p>
+    </statement>
+    <choices randomize="yes">
+      <choice correct="yes">
+        <statement>
+          <p>
+            <m>\begin{bmatrix} -5e^{-5t} \\ -15e^{-5t} \end{bmatrix}</m>
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            Correct! The chain rule brings a factor of <m>-5</m> out of each component of
+            <m>\mathbf{z}</m>, and the matrix product gives <m>(4-9)e^{-5t} = -5e^{-5t}</m>
+            and <m>(6-21)e^{-5t} = -15e^{-5t}</m>. The two sides agree, so
+            <m>\mathbf{z}(t)</m> is a solution.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            <m>\begin{bmatrix} 5e^{-5t} \\ 15e^{-5t} \end{bmatrix}</m>
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            Check your signs! Differentiating <m>e^{-5t}</m> brings down a factor of
+            <m>-5</m>, not <m>5</m>. And on the matrix side, <m>4 - 9 = -5</m> and
+            <m>6 - 21 = -15</m>: both negative.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            <m>\begin{bmatrix} -e^{-5t} \\ -3e^{-5t} \end{bmatrix}</m>
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            This is just <m>-\mathbf{z}(t)</m>, which suggests the chain rule got skipped.
+            Differentiating <m>e^{-5t}</m> brings down the full factor of <m>-5</m>:
+            <m>\frac{d}{dt}e^{-5t} = -5e^{-5t}</m>.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            The two sides did not match, so <m>\mathbf{z}(t)</m> is not a solution.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            They should match! Recompute carefully: the derivative side gives
+            <m>-5e^{-5t}</m> and <m>-15e^{-5t}</m>, and the matrix side gives
+            <m>(4-9)e^{-5t}</m> and <m>(6-21)e^{-5t}</m>, which are the same thing.
+            A stray sign or a slipped chain rule is the usual culprit here.
+          </p>
+        </feedback>
+      </choice>
+    </choices>
+  </activity>
+
+  <p>
+    We just found two different solutions to the same system. There are actually
+    infinitely many more! Just like with second-order equations back in
+    <xref ref="ch-second-order"/>, we'll soon see how to combine solutions to build the
+    general solution.
+  </p>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       KEY TAKEAWAYS
+       ═══════════════════════════════════════════════════════════ -->
+
+  <assemblage xml:id="takeaways-verifying-solutions">
+    <title>Key Takeaways</title>
+    <p>
+      <ul>
+        <li>
+          <p>
+            To verify that a vector of functions solves
+            <m>\dfrac{d\mathbf{x}}{dt} = \mathbf{P}(t)\mathbf{x}</m>, compute both sides
+            separately and check that they give the same vector.
+          </p>
+        </li>
+        <li>
+          <p>
+            The left-hand side is computed by differentiating each component
+            (watch the chain rule!), and the right-hand side by matrix-vector multiplication.
+          </p>
+        </li>
+        <li>
+          <p>
+            A system can have several different solutions. Soon we will see how to combine
+            them into the general solution.
+          </p>
+        </li>
+      </ul>
+    </p>
+  </assemblage>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       VIDEO + QUESTION FORM
+       ═══════════════════════════════════════════════════════════ -->
+
+  <figure xml:id="video-verifying-solutions-systems">
+    <caption>This video goes through the content of this page.</caption>
+    <video youtube="78sg2P8ZyDA" width="100%" preview="default"/>
+  </figure>
+
+  <interactive xml:id="question-form-5-2-2" iframe="question-form.html?section=5.2.2" width="100%" aspect="2:1"/>
+
+</section>

@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-matrices-crash-course" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Basics of Matrices and Vectors</title>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       INTRO
+       ═══════════════════════════════════════════════════════════ -->
+
+  <p>
+    In this chapter we will learn how to solve <em>systems</em> of differential equations,
+    where several unknown functions interact with each other. It turns out that a useful way to
+    organize systems of ODEs is with <em>matrices</em>, so we start with a crash course.
+    If you have seen matrices before, this page will be a quick review. If not, you'll need to spend some extra time 
+    with the next few pages before moving on to the next section!
+  </p>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       DEFINITION: MATRIX AND ENTRY NOTATION
+       ═══════════════════════════════════════════════════════════ -->
+
+  <definition xml:id="def-matrix">
+    <title>Matrix</title>
+    <statement>
+      <p>
+        A <term>matrix</term> is an <m>m \times n</m> array of numbers, with <m>m</m> rows
+        and <m>n</m> columns. We can write <m>A = [a_{ij}]</m>, where <m>a_{ij}</m> is the
+        entry in the <m>i</m>th row and <m>j</m>th column.
+      </p>
+    </statement>
+  </definition>
+
+  <p>
+    When reading subscripts and sizes, notice the first index tells you the row, and the second tells you the column.
+  </p>
+
+  
+    <p>
+      Consider the matrix
+      <me>A = \begin{bmatrix} 1 \amp 2 \amp -1 \\ 0 \amp 3 \amp 4 \end{bmatrix}.</me>
+      <m>A</m> has <m>2</m> rows and <m>3</m> columns, so <m>A</m> is a
+      <m>2 \times 3</m> matrix.
+    </p>
+    <p>
+      For the entries: <m>a_{11} = 1</m> is the entry in the first row, first column.
+      The entry in the first row, second column is <m>a_{12} = 2</m>, and the entry in the
+      second row, first column is <m>a_{21} = 0</m>. Rows first!
+    </p>
+  
+
+  <!-- ═══════════════════════════════════════════════════════════
+       ACTIVITY: SIZE AND ENTRY NOTATION (MC)
+       ═══════════════════════════════════════════════════════════ -->
+
+  <activity xml:id="act-matrix-size-entry">
+    <title>Size and Entry Practice</title>
+    <statement>
+      <p>
+        Consider the matrix
+        <me>B = \begin{bmatrix} 5 \amp -1 \\ 2 \amp 0 \\ 7 \amp 3 \end{bmatrix}.</me>
+        What is the size of <m>B</m> (in the form <m>m \times n</m>), and what is
+        the entry <m>b_{32}</m>?
+      </p>
+    </statement>
+    <choices randomize="yes">
+      <choice correct="yes">
+        <statement>
+          <p>
+            <m>B</m> is <m>3 \times 2</m>, and <m>b_{32} = 3</m>.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            Correct! Rows first: <m>B</m> has <m>3</m> rows and <m>2</m> columns,
+            and <m>b_{32}</m> is the entry in the third row, second column, which is <m>3</m>.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            <m>B</m> is <m>3 \times 2</m>, and <m>b_{32} = 7</m>.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            The size is right, but check the entry: <m>7</m> sits in the third row,
+            <em>first</em> column, so it is <m>b_{31}</m>. The entry <m>b_{32}</m> is in
+            the third row, second column.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            <m>B</m> is <m>2 \times 3</m>, and <m>b_{32} = 0</m>.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            Careful, rows come first in the size! <m>B</m> has <m>3</m> rows and
+            <m>2</m> columns, so it is <m>3 \times 2</m>. And <m>b_{32}</m> means
+            third row, second column.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            <m>B</m> is <m>2 \times 3</m>, and <m>b_{32}</m> does not exist.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            This is what happens if the row and column counts get swapped. Rows first:
+            <m>B</m> has <m>3</m> rows and <m>2</m> columns, so it is <m>3 \times 2</m>,
+            and <m>b_{32}</m> (third row, second column) does exist.
+          </p>
+        </feedback>
+      </choice>
+    </choices>
+  </activity>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       MATRIX ADDITION
+       ═══════════════════════════════════════════════════════════ -->
+
+  <p>
+    Let's quickly discuss <alert>matrix addition</alert>. Adding <m>A + B</m> works just as you'd expect it to: just add component-wise.
+    Same with subtraction. The only requirement for addition is that <m>A</m> and <m>B</m> must have the
+    same dimensions (number of rows and columns) as each other.
+  </p>
+
+  <example xml:id="ex-matrix-addition">
+    <title>Adding Two Matrices</title>
+    <p>
+      Both matrices below are <m>2 \times 3</m>, so we may add them:
+      <md>
+        <mrow>\begin{bmatrix} -1 \amp 0 \amp 2 \\ 3 \amp 2 \amp 4 \end{bmatrix}
+          + \begin{bmatrix} 2 \amp 1 \amp 0 \\ 0 \amp 3 \amp -1 \end{bmatrix}
+          \amp= \begin{bmatrix} -1+2 \amp 0+1 \amp 2+0 \\ 3+0 \amp 2+3 \amp 4-1 \end{bmatrix}</mrow>
+        <mrow>\amp= \begin{bmatrix} 1 \amp 1 \amp 2 \\ 3 \amp 5 \amp 3 \end{bmatrix}.</mrow>
+      </md>
+      The result is again a <m>2 \times 3</m> matrix.
+    </p>
+  </example>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       SCALAR MULTIPLICATION
+       ═══════════════════════════════════════════════════════════ -->
+
+  <p>
+    Now we will look at <alert>scalar multiplication</alert>, which is a product <m>cA</m>, where <m>c</m> is a
+    <em>scalar</em> (meaning just a number, not a matrix). Computing <m>cA</m> also works as you might guess: just
+    multiply <m>c</m> by each component of <m>A</m>.
+  </p>
+
+  <example xml:id="ex-scalar-multiplication">
+    <title>Multiplying a Matrix by a Scalar</title>
+    <p>
+      With the scalar <m>c = 2</m> and the <m>3 \times 2</m> matrix below:
+      <md>
+        <mrow>2A = 2\begin{bmatrix} -2 \amp 3 \\ 1 \amp 0 \\ 0 \amp 5 \end{bmatrix}
+          \amp= \begin{bmatrix} 2(-2) \amp 2 \cdot 3 \\ 2 \cdot 1 \amp 2 \cdot 0 \\ 2 \cdot 0 \amp 2 \cdot 5 \end{bmatrix}</mrow>
+        <mrow>\amp= \begin{bmatrix} -4 \amp 6 \\ 2 \amp 0 \\ 0 \amp 10 \end{bmatrix}.</mrow>
+      </md>
+    </p>
+  </example>
+
+  <p>
+   When we tie this back to differential equations, we will use functions as scalars, like <m>e^t</m>. For example,
+    <me>e^t \begin{bmatrix} 1 \\ 2 \\ 3 \end{bmatrix}
+      = \begin{bmatrix} 1 \cdot e^t \\ 2 \cdot e^t \\ 3 \cdot e^t \end{bmatrix}
+      = \begin{bmatrix} e^t \\ 2e^t \\ 3e^t \end{bmatrix}.</me>
+    Notice we can also write the scalar as the second factor:
+    <me>\begin{bmatrix} e^t \\ 2e^t \\ 3e^t \end{bmatrix} = \begin{bmatrix} 1 \\ 2 \\ 3 \end{bmatrix} e^t.</me>
+    We will use this way of writing things a bunch when we solve systems later in the chapter!
+  </p>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       VECTORS: COLUMN AND ROW
+       ═══════════════════════════════════════════════════════════ -->
+<p>In addition to matrices, we will also need a good grasp on <em> vectors </em>. If you have seen them in physics
+ or multivariate calculus, you may have been introduced to them as something with length and direction. In this course, 
+we are mainly just considering them as lists of numbers (as we do in linear algebra). </p>
+  <definition xml:id="def-vector">
+    <title>Vectors</title>
+    <statement>
+      <p>
+        A <term>vector</term> is a finite list of numbers. It can be represented as an
+        <m>n \times 1</m> matrix, called a <term>column vector</term>, or as a
+        <m>1 \times n</m> matrix, called a <term>row vector</term>.
+      </p>
+    </statement>
+  </definition>
+<p>There are several ways to express a vector. In this class, we will commonly write them as column vectors.</p>
+  <example xml:id="ex-column-row-vectors">
+    <title>Column and Row Vectors</title>
+    <p>
+      The column vector
+      <me>\begin{bmatrix} 1 \\ -1 \\ 0 \\ 4 \end{bmatrix}</me>
+      is a <m>4 \times 1</m> matrix, so it has <m>4</m> components. Other common notations
+      for this same vector are <m>(1, -1, 0, 4)</m> and <m>\langle 1, -1, 0, 4 \rangle</m>.
+    </p>
+    <p>
+      The row vector
+      <me>\begin{bmatrix} 1 \amp -1 \amp 0 \amp 3 \amp 4 \end{bmatrix}</me>
+      is a <m>1 \times 5</m> matrix, so it has <m>5</m> components.
+    </p>
+  </example>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       VIDEO + QUESTION FORM
+       ═══════════════════════════════════════════════════════════ -->
+
+  <figure xml:id="video-matrices-crash-course">
+    <caption>This video goes through the content of this page.</caption>
+    <video youtube="a9Pk4hPWKNg" width="100%" preview="default"/>
+  </figure>
+
+  <interactive xml:id="question-form-5-1-1" iframe="question-form.html?section=5.1.1" width="100%" aspect="2:1"/>
+
+</section>

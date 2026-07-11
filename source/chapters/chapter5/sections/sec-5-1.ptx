@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-5-1" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Matrices: a crash course</title>
+
+  <introduction>
+    <p>
+        We begin this chapter with a crash course on matrices.
+     </p>
+  </introduction>
+
+  <xi:include href="./5-1/sec1-matrices-crash-course.ptx"/>
+  <xi:include href="./5-1/sec2-dot-product-matrix-vector.ptx"/>
+  <xi:include href="./5-1/sec3-matrix-multiplication.ptx"/>
+
+</section>

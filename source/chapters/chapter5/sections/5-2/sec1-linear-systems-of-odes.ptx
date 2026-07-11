@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-linear-systems-of-odes" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Linear Systems of Differential Equations</title>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       MOTIVATION: A POPULATION EXAMPLE
+       ═══════════════════════════════════════════════════════════ -->
+
+  <p>
+    Now that we have some basic understanding of matrices, we have the tools to study systems of ODEs! So far in this course,
+    every differential equation has had just one unknown function. But many real-world
+    situations involve several quantities that affect each other.
+  </p>
+
+  <p>
+    For example, suppose an island has a population of rabbits, <m>R(t)</m>, and a population of
+    foxes, <m>F(t)</m>. The foxes eat the rabbits, so each population affects how the other grows.
+    A (simplified) model might look like:
+    <md>
+      <mrow>R' \amp= 2R - 3F</mrow>
+      <mrow>F' \amp= R - F</mrow>
+    </md>
+    Looking at this a bit closer, we see the <m>2R</m> is the rate in, namely that the rabbits breed proportional
+    to the population (which was a common model we saw at the very beginning of these notes). 
+    But then the <m>-3F</m> is the rate out at which the foxes eat the rabbits. Meanwhile, <m>F' = R - F</m> says the fox population
+    thrives when there are a lot of rabbits to eat (<m>+R</m>), but declines at rate equal to its population (<m>-F</m>), 
+    as larger fox populations create competition for food.
+  </p>
+
+  <p>
+    The catch is that we can't just solve for <m>R(t)</m> by itself, because its equation involves
+    <m>F(t)</m> (and vice versa!). The two equations are tangled together. This is a
+    <em>system</em> of differential equations, and we need to solve both equations
+    <em>simultaneously</em>. In this section we'll set up the language for these systems, and
+    over the rest of the chapter we'll learn how to solve them in certain cases.
+  </p>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       DEFINITION: FIRST-ORDER LINEAR SYSTEM
+       ═══════════════════════════════════════════════════════════ -->
+
+  <definition xml:id="def-first-order-linear-system">
+    <title>First-Order Linear System</title>
+    <statement>
+      <p>
+        A <term>first-order linear system</term> with two functions <m>x_1(t)</m> and
+        <m>x_2(t)</m> can be written in the form:
+        <md>
+          <mrow>x_1' \amp= p_{11}(t)x_1 + p_{12}(t)x_2 + f_1(t)</mrow>
+          <mrow>x_2' \amp= p_{21}(t)x_1 + p_{22}(t)x_2 + f_2(t)</mrow>
+        </md>
+        where <m>x_1(t)</m> and <m>x_2(t)</m> are functions that solve both ODEs simultaneously.
+      </p>
+    </statement>
+  </definition>
+
+  <p>
+    Our rabbits and foxes are an example of a first-order linear system. Let's rewrite the
+    system and label each coefficient:
+    <md>
+      <mrow>R' \amp= \overbrace{2}^{p_{11}(t)}R + \overbrace{(-3)}^{p_{12}(t)}F</mrow>
+      <mrow>F' \amp= \underbrace{1}_{p_{21}(t)}R + \underbrace{(-1)}_{p_{22}(t)}F</mrow>
+    </md>
+    That is, <m>p_{11}(t) = 2</m>, <m>p_{12}(t) = -3</m>, <m>p_{21}(t) = 1</m>, and
+    <m>p_{22}(t) = -1</m>. Here all the <m>p</m>'s are constants, and there are no leftover
+    terms, so <m>f_1(t) = f_2(t) = 0</m>.
+  </p>
+
+  <p>
+    Here is an example where the coefficients are functions of <m>t</m>:
+    <md>
+      <mrow>x_1' \amp= \overbrace{\sin(t)}^{p_{11}(t)}x_1 + \overbrace{3t^2}^{p_{12}(t)} x_2 + \overbrace{e^{3t}}^{f_1(t)}</mrow>
+      <mrow>x_2' \amp= \underbrace{(-2)}_{p_{21}(t)}x_1 + \underbrace{t}_{p_{22}(t)} x_2 + \underbrace{5}_{f_2(t)}</mrow>
+    </md>
+    So <m>p_{11}(t) = \sin(t)</m>, <m>p_{12}(t) = 3t^2</m>,
+    <m>p_{21}(t) = -2</m>, <m>p_{22}(t) = t</m>, <m>f_1(t) = e^{3t}</m>, and <m>f_2(t) = 5</m>.
+  </p>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       THE MATRIX FORM
+       ═══════════════════════════════════════════════════════════ -->
+
+  <p>
+     We collect the coefficients into
+    a matrix and the functions into vectors:
+  </p>
+
+  <p>
+    <ul>
+      <li>
+        <p>
+          The <term>coefficient matrix</term> is
+          <m>\mathbf{P}(t) = \begin{bmatrix} p_{11}(t) \amp p_{12}(t) \\ p_{21}(t) \amp p_{22}(t) \end{bmatrix}</m>.
+        </p>
+      </li>
+      <li>
+        <p>
+          And <m>\mathbf{x} = \begin{bmatrix} x_1(t) \\ x_2(t) \end{bmatrix}</m>,
+          <m>\mathbf{f}(t) = \begin{bmatrix} f_1(t) \\ f_2(t) \end{bmatrix}</m>.
+        </p>
+      </li>
+    </ul>
+  </p>
+
+  <p>
+    Continuing our example from above: the system
+    <md>
+      <mrow>x_1' \amp= \sin(t)x_1 + 3t^2 x_2 + e^{3t}</mrow>
+      <mrow>x_2' \amp= -2x_1 + t x_2 + 5</mrow>
+    </md>
+    has coefficient matrix and vectors
+    <me>\mathbf{P}(t) = \begin{bmatrix} \sin(t) \amp 3t^2 \\ -2 \amp t \end{bmatrix}, \quad
+      \mathbf{x} = \begin{bmatrix} x_1(t) \\ x_2(t) \end{bmatrix}, \quad
+      \mathbf{f}(t) = \begin{bmatrix} e^{3t} \\ 5 \end{bmatrix}.</me>
+    Notice each entry <m>p_{ij}(t)</m> of the coefficient matrix is the coefficient of
+    <m>x_j</m> in the equation for <m>x_i'</m>, and <m>\mathbf{f}(t)</m> collects the leftover
+    terms that don't involve <m>x_1</m> or <m>x_2</m> at all.
+  </p>
+
+  <fact xml:id="fact-matrix-equation-form">
+    <title>Matrix Form of a Linear System</title>
+    <p>
+      The system above can be written as a matrix equation:
+      <me>\frac{d\mathbf{x}}{dt} = \mathbf{P}(t)\mathbf{x} + \mathbf{f}(t)</me>
+    </p>
+  </fact>
+
+  <p>
+    Why are these the same? Let's expand out the right-hand side using matrix-vector
+    multiplication and addition:
+    <md>
+      <mrow>\mathbf{P}(t)\mathbf{x} + \mathbf{f}(t)
+        \amp= \begin{bmatrix} p_{11}(t) \amp p_{12}(t) \\ p_{21}(t) \amp p_{22}(t) \end{bmatrix}
+        \begin{bmatrix} x_1(t) \\ x_2(t) \end{bmatrix}
+        + \begin{bmatrix} f_1(t) \\ f_2(t) \end{bmatrix}</mrow>
+      <mrow>\amp= \begin{bmatrix} p_{11}x_1 + p_{12}x_2 + f_1(t) \\ p_{21}x_1 + p_{22}x_2 + f_2(t) \end{bmatrix}.</mrow>
+    </md>
+    The left-hand side is
+    <m>\dfrac{d\mathbf{x}}{dt} = \begin{bmatrix} x_1' \\ x_2' \end{bmatrix}</m>.
+    Setting the two sides equal component-by-component recovers exactly the two equations of
+    our system! So the matrix equation is just a compact way to package the whole system at once.
+  </p>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       EXAMPLE: WRITE A SYSTEM IN MATRIX FORM
+       ═══════════════════════════════════════════════════════════ -->
+
+  <example xml:id="ex-system-to-matrix-form">
+    <title>Writing a System as a Matrix Equation</title>
+    <statement>
+      <p>
+        Write the system:
+        <md>
+          <mrow>x_1' \amp= \sin(t)x_1 - x_2 + 5</mrow>
+          <mrow>x_2' \amp= e^t x_1 + 6t</mrow>
+        </md>
+        as a matrix equation.
+      </p>
+    </statement>
+    <solution>
+      <p>
+        We need to be careful to match each coefficient to its correct function, so that it
+        lands in the correct spot in the matrix. To make this clear, let's rewrite the system
+        with every coefficient written out explicitly, including the ones that are
+        <m>0</m> or <m>-1</m>:
+        <md>
+          <mrow>x_1' \amp= \sin(t)x_1 + (-1)x_2 + 5</mrow>
+          <mrow>x_2' \amp= e^t x_1 + 0 x_2 + 6t</mrow>
+        </md>
+        Now every equation has an <m>x_1</m> term, an <m>x_2</m> term, and a leftover term,
+        so we can just read off the entries:
+        <me>\frac{d\mathbf{x}}{dt}
+          = \begin{bmatrix} \sin(t) \amp -1 \\ e^t \amp 0 \end{bmatrix}
+          \begin{bmatrix} x_1 \\ x_2 \end{bmatrix}
+          + \begin{bmatrix} 5 \\ 6t \end{bmatrix}.</me>
+      </p>
+    </solution>
+  </example>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       ACTIVITY: MATRIX FORM CHECKPOINT (MC)
+       ═══════════════════════════════════════════════════════════ -->
+<p>Let's end with you trying one real quick! </p>
+  <activity xml:id="act-system-to-matrix-form">
+    <title>Matrix Form Practice</title>
+    <statement>
+      <p>
+         Which matrix equation represents the system below?
+        <md>
+          <mrow>x_1' \amp= t^2 x_1 + 7</mrow>
+          <mrow>x_2' \amp= -x_1 + \cos(t) x_2</mrow>
+        </md>
+      </p>
+    </statement>
+    <choices randomize="yes">
+      <choice correct="yes">
+        <statement>
+          <p>
+            <m>\dfrac{d\mathbf{x}}{dt}
+              = \begin{bmatrix} t^2 \amp 0 \\ -1 \amp \cos(t) \end{bmatrix}
+              \begin{bmatrix} x_1 \\ x_2 \end{bmatrix}
+              + \begin{bmatrix} 7 \\ 0 \end{bmatrix}</m>
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            Correct! The first equation has no <m>x_2</m> term, so <m>p_{12}(t) = 0</m>, and
+            the second equation has no leftover term, so <m>f_2(t) = 0</m>. The <m>7</m> doesn't
+            involve <m>x_1</m> or <m>x_2</m>, so it belongs in <m>\mathbf{f}(t)</m>, not the matrix.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            <m>\dfrac{d\mathbf{x}}{dt}
+              = \begin{bmatrix} t^2 \amp 7 \\ -1 \amp \cos(t) \end{bmatrix}
+              \begin{bmatrix} x_1 \\ x_2 \end{bmatrix}</m>
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            Careful with the <m>7</m>! The entry <m>p_{12}(t)</m> is the coefficient of
+            <m>x_2</m> in the first equation, but the <m>7</m> is not multiplied by <m>x_2</m>:
+            it's a leftover term with no <m>x_1</m> or <m>x_2</m> attached. It belongs in the
+            vector <m>\mathbf{f}(t)</m>, and <m>p_{12}(t) = 0</m>.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            <m>\dfrac{d\mathbf{x}}{dt}
+              = \begin{bmatrix} t^2 \amp 0 \\ 1 \amp \cos(t) \end{bmatrix}
+              \begin{bmatrix} x_1 \\ x_2 \end{bmatrix}
+              + \begin{bmatrix} 7 \\ 0 \end{bmatrix}</m>
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            So close! Check the sign on <m>p_{21}(t)</m>: the second equation reads
+            <m>-x_1</m>, so the coefficient is <m>-1</m>, not <m>1</m>.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            <m>\dfrac{d\mathbf{x}}{dt}
+              = \begin{bmatrix} t^2 \amp -1 \\ 0 \amp \cos(t) \end{bmatrix}
+              \begin{bmatrix} x_1 \\ x_2 \end{bmatrix}
+              + \begin{bmatrix} 7 \\ 0 \end{bmatrix}</m>
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            Rows first! The <m>-1</m> is the coefficient of <m>x_1</m> in the <em>second</em>
+            equation, so it goes in row <m>2</m>, column <m>1</m>: that is, <m>p_{21}(t) = -1</m>.
+            Here it's been placed in row <m>1</m>, column <m>2</m> instead.
+          </p>
+        </feedback>
+      </choice>
+    </choices>
+  </activity>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       VIDEO + QUESTION FORM
+       ═══════════════════════════════════════════════════════════ -->
+<!-- ═══════════════════════════════════════════════════════════
+       KEY TAKEAWAYS
+       ═══════════════════════════════════════════════════════════ -->
+
+  <assemblage xml:id="takeaways-linear-systems">
+    <title>Key Takeaways</title>
+    <p>
+      <ul>
+        <li>
+          <p>
+            A <em>system</em> of ODEs has multiple unknown functions whose equations are
+            tangled together, so we must solve them simultaneously.
+          </p>
+        </li>
+        <li>
+          <p>
+            A first-order linear system is built from coefficients <m>p_{ij}(t)</m> and
+            leftover terms <m>f_i(t)</m>, where <m>p_{ij}(t)</m> is the coefficient of
+            <m>x_j</m> in the equation for <m>x_i'</m> (rows first!).
+          </p>
+        </li>
+        <li>
+          <p>
+            Any such system can be packaged as the matrix equation
+            <m>\dfrac{d\mathbf{x}}{dt} = \mathbf{P}(t)\mathbf{x} + \mathbf{f}(t)</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            When converting a system to matrix form, be careful to line up the coefficients
+            correctly (some will be <m>0</m> if a term doesn't explicitly show up in the system).
+          </p>
+        </li>
+      </ul>
+    </p>
+  </assemblage>
+  <figure xml:id="video-linear-systems-of-odes">
+    <caption>This video goes through the content of this page.</caption>
+    <video youtube="tqptqacFblk" width="100%" preview="default"/>
+  </figure>
+
+  <interactive xml:id="question-form-5-2-1" iframe="question-form.html?section=5.2.1" width="100%" aspect="2:1"/>
+
+</section>
