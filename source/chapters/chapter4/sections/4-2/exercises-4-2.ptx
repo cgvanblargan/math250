@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<exercises xml:id="exercises-4-2">
+  <title>Exercises for Section 4.2</title>
+
+  <introduction>
+    <p>
+      For each of the following, use partial fraction decomposition to rewrite the expression,
+      then apply the inverse Laplace transform using the table. Several of these will
+      reappear when we solve initial value problems in the exercises for Section 4.3!
+    </p>
+  </introduction>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       Q1: Distinct linear factors, s in numerator
+       (lead-in to 4.3 IVP: y'' + y' - 20y = 0)
+       ═══════════════════════════════════════════════════════════ -->
+
+  <exercise xml:id="ex-4-2-1">
+    <statement>
+      <p>
+        Find the inverse Laplace transform of the following function.
+        <me>F(s) = \frac{s+23}{(s-4)(s+5)}</me>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        The decomposition is
+        <m>\dfrac{s+23}{(s-4)(s+5)} = \dfrac{3}{s-4} - \dfrac{2}{s+5}</m>, so
+        <me>f(t) = 3e^{4t} - 2e^{-5t}.</me>
+      </p>
+    </answer>
+  </exercise>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       Q2: Repeated linear factor
+       ═══════════════════════════════════════════════════════════ -->
+
+  <exercise xml:id="ex-4-2-2">
+    <statement>
+      <p>
+        Find the inverse Laplace transform of the following function.
+        <me>F(s) = \frac{2}{s^2(s+1)}</me>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        The decomposition is
+        <m>\dfrac{2}{s^2(s+1)} = -\dfrac{2}{s} + \dfrac{2}{s^2} + \dfrac{2}{s+1}</m>, so
+        <me>f(t) = -2 + 2t + 2e^{-t}.</me>
+      </p>
+    </answer>
+  </exercise>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       Q3: Two irreducible quadratic factors (cosine flavor)
+       (lead-in to 4.3 IVP: x'' + x = 2cos(3t))
+       ═══════════════════════════════════════════════════════════ -->
+
+  <exercise xml:id="ex-4-2-3">
+    <statement>
+      <p>
+        Find the inverse Laplace transform of the following function.
+        <me>F(s) = \frac{2s}{(s^2+1)(s^2+9)}</me>
+      </p>
+    </statement>
+    <hint>
+      <p>
+        This denominator has <em>two</em> irreducible quadratic factors, a case we did not
+        see in the notes. Each irreducible quadratic contributes a fraction with a linear
+        numerator, just as before:
+        <me>\frac{2s}{(s^2+1)(s^2+9)} = \frac{As+B}{s^2+1} + \frac{Cs+D}{s^2+9}.</me>
+        Clear denominators and match coefficients of each power of <m>s</m> to solve for
+        the four constants.
+      </p>
+    </hint>
+    <answer>
+      <p>
+        The decomposition is
+        <m>\dfrac{2s}{(s^2+1)(s^2+9)} = \dfrac{\frac{1}{4}s}{s^2+1} - \dfrac{\frac{1}{4}s}{s^2+9}</m>
+        (that is, <m>A = \frac{1}{4}</m>, <m>C = -\frac{1}{4}</m>, <m>B = D = 0</m>), so
+        <me>f(t) = \frac{1}{4}\cos(t) - \frac{1}{4}\cos(3t).</me>
+      </p>
+    </answer>
+  </exercise>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       Q4: Two irreducible quadratic factors (sine flavor)
+       (lead-in to 4.3 IVP: x'' + 16x = sin(7t))
+       ═══════════════════════════════════════════════════════════ -->
+
+  <exercise xml:id="ex-4-2-4">
+    <statement>
+      <p>
+        Find the inverse Laplace transform of the following function.
+        <me>F(s) = \frac{7}{(s^2+16)(s^2+49)}</me>
+      </p>
+    </statement>
+    <hint>
+      <p>
+        Use the same decomposition form as in <xref ref="ex-4-2-3"/>. This time the
+        <m>s</m>-coefficients vanish instead, and the constant numerators that remain
+        match <xref ref="formula-D" text="custom">Formula D</xref> after the usual
+        rewriting trick.
+      </p>
+    </hint>
+    <answer>
+      <p>
+        The decomposition is
+        <m>\dfrac{7}{(s^2+16)(s^2+49)} = \dfrac{\frac{7}{33}}{s^2+16} - \dfrac{\frac{7}{33}}{s^2+49}</m>, so
+        <me>f(t) = \frac{7}{132}\sin(4t) - \frac{1}{33}\sin(7t).</me>
+      </p>
+    </answer>
+  </exercise>
+
+  <interactive xml:id="question-form-4-2-ex" iframe="question-form.html?section=4.2 exercises" width="100%" aspect="2:1"/>
+
+</exercises>

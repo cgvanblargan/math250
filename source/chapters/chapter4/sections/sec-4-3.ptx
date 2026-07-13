@@ -6,4 +6,7 @@
   <xi:include href="./4-3/sec1-laplace-derivatives.ptx"/>
   <xi:include href="./4-3/sec2-laplace-ivp-example.ptx"/>
   <xi:include href="./4-3/sec3-laplace-ivp-activity.ptx"/>
+  <xi:include href="./4-3/exercises-4-3.ptx"/>
+  
+
 </section>

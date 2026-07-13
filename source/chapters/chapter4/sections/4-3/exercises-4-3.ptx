@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<exercises xml:id="exercises-4-3">
+  <title>Exercises for Section 4.3</title>
+
+  <introduction>
+    <p>
+      Use Laplace transforms to solve each of the following initial value problems,
+      following the three steps: transform, solve for the transformed function, then invert.
+      Several of the inverse transforms you will need were already computed in the
+      exercises for Section 4.2, and you may use those results directly!
+    </p>
+  </introduction>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       Q1: Homogeneous, distinct real roots
+       (inverse transform done in ex-4-2-1)
+       ═══════════════════════════════════════════════════════════ -->
+
+  <exercise xml:id="ex-4-3-1">
+    <statement>
+      <p>
+        Use Laplace transforms to solve the following initial value problem.
+        <me>y'' + y' - 20y = 0, \qquad y(0) = 1, \quad y'(0) = 22</me>
+        After solving for <m>Y(s)</m> and factoring the denominator, you may use your
+        result from <xref ref="ex-4-2-1"/> to finish the problem.
+      </p>
+    </statement>
+    <answer>
+      <p>
+        Transforming and solving gives
+        <m>Y(s) = \dfrac{s+23}{s^2+s-20} = \dfrac{s+23}{(s-4)(s+5)}</m>,
+        which is exactly <xref ref="ex-4-2-1"/>. Therefore
+        <me>y(t) = 3e^{4t} - 2e^{-5t}.</me>
+      </p>
+    </answer>
+  </exercise>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       Q2: Forced oscillator, zero ICs
+       (inverse transform done in ex-4-2-4)
+       ═══════════════════════════════════════════════════════════ -->
+
+  <exercise xml:id="ex-4-3-2">
+    <statement>
+      <p>
+        Use Laplace transforms to solve the following initial value problem.
+        <me>x'' + 16x = \sin(7t), \qquad x(0) = 0, \quad x'(0) = 0</me>
+        After solving for <m>X(s)</m>, you may use your result from
+        <xref ref="ex-4-2-4"/> to finish the problem.
+      </p>
+    </statement>
+    <hint>
+      <p>
+        The right-hand side is not zero this time: apply
+        <xref ref="formula-D" text="custom">Formula D</xref> to transform <m>\sin(7t)</m>.
+        Since both initial conditions are zero, the derivative formulas simplify nicely.
+      </p>
+    </hint>
+    <answer>
+      <p>
+        Transforming gives <m>(s^2+16)X(s) = \dfrac{7}{s^2+49}</m>, so
+        <m>X(s) = \dfrac{7}{(s^2+16)(s^2+49)}</m>, which is exactly <xref ref="ex-4-2-4"/>.
+        Therefore
+        <me>x(t) = \frac{7}{132}\sin(4t) - \frac{1}{33}\sin(7t).</me>
+      </p>
+    </answer>
+  </exercise>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       Q3: Forced oscillator, nonzero ICs
+       (inverse transform of the PFD piece done in ex-4-2-3)
+       ═══════════════════════════════════════════════════════════ -->
+
+  <exercise xml:id="ex-4-3-3">
+    <statement>
+      <p>
+        Use Laplace transforms to solve the following initial value problem.
+        <me>x'' + x = 2\cos(3t), \qquad x(0) = 1, \quad x'(0) = 0</me>
+        After solving for <m>X(s)</m>, one of the two terms is exactly
+        <xref ref="ex-4-2-3"/>, and you may use your result from that exercise for it.
+      </p>
+    </statement>
+    <hint>
+      <p>
+        Transforming and solving for <m>X(s)</m> gives
+        <me>X(s) = \frac{2s}{(s^2+1)(s^2+9)} + \frac{s}{s^2+1}.</me>
+        Use <xref ref="ex-4-2-3"/> on the first term; the second term matches
+        <xref ref="formula-E" text="custom">Formula E</xref> directly.
+      </p>
+    </hint>
+    <answer>
+      <p>
+        Using <xref ref="ex-4-2-3"/> for the first term and
+        <xref ref="formula-E" text="custom">Formula E</xref> for the second:
+        <md>
+          <mrow>x(t) \amp= \left(\frac{1}{4}\cos(t) - \frac{1}{4}\cos(3t)\right) + \cos(t)</mrow>
+          <mrow>\amp= \frac{5}{4}\cos(t) - \frac{1}{4}\cos(3t).</mrow>
+        </md>
+      </p>
+    </answer>
+  </exercise>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       Q4: Constant forcing, repeated factor in denominator
+       (inverse transform done in ex-4-2-2)
+       ═══════════════════════════════════════════════════════════ -->
+
+  <exercise xml:id="ex-4-3-4">
+    <statement>
+      <p>
+        Use Laplace transforms to solve the following initial value problem.
+        <me>y'' + y' = 2, \qquad y(0) = 0, \quad y'(0) = 0</me>
+        After solving for <m>Y(s)</m> and factoring the denominator, you may use your
+        result from <xref ref="ex-4-2-2"/> to finish the problem.
+      </p>
+    </statement>
+    <hint>
+      <p>
+        Apply <xref ref="formula-A" text="custom">Formula A</xref> to transform the
+        right-hand side. Collecting terms gives <m>(s^2+s)Y(s) = \dfrac{2}{s}</m>;
+        factor <m>s^2 + s</m> before dividing.
+      </p>
+    </hint>
+    <answer>
+      <p>
+        Transforming gives <m>(s^2+s)Y(s) = \dfrac{2}{s}</m>, so
+        <m>Y(s) = \dfrac{2}{s \cdot s(s+1)} = \dfrac{2}{s^2(s+1)}</m>,
+        which is exactly <xref ref="ex-4-2-2"/>. Therefore
+        <me>y(t) = -2 + 2t + 2e^{-t}.</me>
+      </p>
+    </answer>
+  </exercise>
+
+  <interactive xml:id="question-form-4-3-ex" iframe="question-form.html?section=4.3 exercises" width="100%" aspect="2:1"/>
+
+</exercises>

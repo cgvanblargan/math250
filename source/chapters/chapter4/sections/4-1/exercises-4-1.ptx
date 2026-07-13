@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<exercises xml:id="exercises-4-1">
+  <title>Exercises for Section 4.1</title>
+
+  <introduction>
+    <p>
+      Use the <xref ref="table-laplace-transforms">Laplace transform table</xref> and linearity
+      throughout. You should never need to compute an integral from the definition.
+    </p>
+  </introduction>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       Q1: Forward transform, linearity (Formulas C and B)
+       ═══════════════════════════════════════════════════════════ -->
+
+  <exercise xml:id="ex-4-1-1">
+    <statement>
+      <p>
+        Find the Laplace transform of the following function.
+        <me>f(t) = t^6 - 3e^{8t}</me>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>F(s) = \dfrac{720}{s^7} - \dfrac{3}{s-8}</m>
+      </p>
+    </answer>
+  </exercise>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       Q2: Forward transform, sin + cos (Formulas D and E)
+       ═══════════════════════════════════════════════════════════ -->
+
+  <exercise xml:id="ex-4-1-2">
+    <statement>
+      <p>
+        Find the Laplace transform of the following function. Combine your answer into a single fraction.
+        <me>f(t) = \sin(9t) + \cos(9t)</me>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>F(s) = \dfrac{9}{s^2+81} + \dfrac{s}{s^2+81} = \dfrac{s+9}{s^2+81}</m>.
+      </p>
+    </answer>
+  </exercise>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       Q3: Forward transform, expand first (Formula C)
+       ═══════════════════════════════════════════════════════════ -->
+
+  <exercise xml:id="ex-4-1-3">
+    <statement>
+      <p>
+        Find the Laplace transform of the following function.
+        <me>f(t) = (t + 2)^3</me>
+      </p>
+    </statement>
+    <hint>
+      <p>
+        The table has no row matching <m>(t+2)^3</m> directly. Expand the power first,
+        then apply linearity and <xref ref="formula-C" text="custom">Formula C</xref>
+        to each term.
+      </p>
+    </hint>
+    <answer>
+      <p>
+        <m>F(s) = \dfrac{8}{s} + \dfrac{12}{s^2} + \dfrac{12}{s^3}
+          + \dfrac{6}{s^4}</m>
+      </p>
+    </answer>
+  </exercise>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       Q4: Inverse transform, fix the factorial (Formula C)
+       ═══════════════════════════════════════════════════════════ -->
+
+  <exercise xml:id="ex-4-1-4">
+    <statement>
+      <p>
+        Find the inverse Laplace transform of the following function.
+        <me>F(s) = \frac{7}{s^5}</me>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>f(t) = \dfrac{7}{24}\,t^4</m>
+      </p>
+    </answer>
+  </exercise>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       Q5: Inverse transform, factor leading coefficient (Formula B)
+       ═══════════════════════════════════════════════════════════ -->
+
+  <exercise xml:id="ex-4-1-5">
+    <statement>
+      <p>
+        Find the inverse Laplace transform of the following function.
+        <me>F(s) = \frac{15}{4s+8}</me>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>F(s) = \dfrac{15}{4}\cdot\dfrac{1}{s+2}</m>, so
+        <m>f(t) = \dfrac{15}{4}\,e^{-2t}</m>.
+      </p>
+    </answer>
+  </exercise>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       Q6: Inverse transform, split numerator (Formulas D and E)
+       ═══════════════════════════════════════════════════════════ -->
+
+  <exercise xml:id="ex-4-1-6">
+    <statement>
+      <p>
+        Find the inverse Laplace transform of the following function.
+        <me>F(s) = \frac{11 - 2s}{s^2+4}</me>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>f(t) = \dfrac{11}{2}\sin(2t) - 2\cos(2t)</m>
+      </p>
+    </answer>
+  </exercise>
+
+  <interactive xml:id="question-form-4-1-ex" iframe="question-form.html?section=4.1 exercises" width="100%" aspect="2:1"/>
+
+</exercises>

@@ -14,5 +14,5 @@
    <xi:include href="./4-1/sec2-laplace-table-linearity.ptx"/>
       <xi:include href="./4-1/sec3-inverse-laplace.ptx"/>
         <xi:include href="./4-1/sec4-inverse-laplace-examples.ptx"/>
-
+ <xi:include href="./4-1/exercises-4-1.ptx"/>
 </section>

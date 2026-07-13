@@ -7,5 +7,6 @@
   <xi:include href="./4-2/sec2-inverse-laplace-pfd-linear.ptx"/>
   <xi:include href="./4-2/sec3-inverse-laplace-pfd-quadratic.ptx"/>
     <xi:include href="./4-2/sec4-inverse-laplace-pfd-repeated.ptx"/>
+     <xi:include href="./4-2/exercises-4-2.ptx"/>
 </section>
 
