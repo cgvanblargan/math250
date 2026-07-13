@@ -4240,6 +4240,726 @@ var ptx_lunr_docs = [
   "body": " Which Mass Causes Resonance?   A spring system is driven by the external force , so the position of the mass satisfies Three masses are available: , , and . Which mass will cause resonance? You do not need to solve the ODE.         "
 },
 {
+  "id": "sec-laplace-definition",
+  "level": "1",
+  "url": "sec-laplace-definition.html",
+  "type": "Section",
+  "number": "4.1.1",
+  "title": "The Definition of the Laplace Transform",
+  "body": " The Definition of the Laplace Transform   Below we define the Laplace transform of a function. Over the next two sections, we will mainly be practicing some computations with it. After we spend some time with this, we will get back to solving ODEs using the Laplace transform!  We won't spend too much time on the technicalities of the definition. On this page, it's good just to get the gist of what is happening with the definition!   The Laplace Transform   Suppose is a function defined for all . The Laplace Transform of is the function defined by The transform is defined for all values of for which the integral converges.    A few things are worth noticing right away. The input to the Laplace transform is a function of , and the output is a function of a new variable . So the Laplace transform takes us out of the domain of and into the domain of . We typically use capital letters for the transformed function (like or ) and lowercase for the original (like or ).  We will see that taking the Laplace transform of a differential equation turns it into an algebraic equation in , which is often much easier to solve!   In practice, we'll use a Laplace transform table (coming soon) to look up transforms rather than computing the integral every time. You won't be asked to derive transforms from scratch going forward. But it's worth seeing where some of the table entries come from!    Computing Two Laplace Transforms from the Definition   The Laplace Transform of    Let's use the definition to show that     Work (can skim)  Plugging into the definition and converting to a limit: The limit as requires , so the transform is defined for .     The Laplace Transform of    We now use the definition to show that     Work (can skim)  Plugging into the definition and combining the exponentials: The limit as requires , i.e., .       Key Takeaways      Definition: the Laplace transform is the improper integral . It takes a function of and produces a function of .     You won't compute from scratch going forward: we'll use a table of known transforms. The two examples above are the source of the first two entries in that table.     Two results from the exploration:  (for ), and (for ).        This video goes through the content of this page.     "
+},
+{
+  "id": "def-laplace-transform",
+  "level": "2",
+  "url": "sec-laplace-definition.html#def-laplace-transform",
+  "type": "Definition",
+  "number": "4.1.1",
+  "title": "The Laplace Transform.",
+  "body": " The Laplace Transform   Suppose is a function defined for all . The Laplace Transform of is the function defined by The transform is defined for all values of for which the integral converges.   "
+},
+{
+  "id": "exploration-laplace-basic",
+  "level": "2",
+  "url": "sec-laplace-definition.html#exploration-laplace-basic",
+  "type": "Exploration",
+  "number": "4.1.1",
+  "title": "Computing Two Laplace Transforms from the Definition.",
+  "body": " Computing Two Laplace Transforms from the Definition   The Laplace Transform of    Let's use the definition to show that     Work (can skim)  Plugging into the definition and converting to a limit: The limit as requires , so the transform is defined for .     The Laplace Transform of    We now use the definition to show that     Work (can skim)  Plugging into the definition and combining the exponentials: The limit as requires , i.e., .    "
+},
+{
+  "id": "video-laplace-definition",
+  "level": "2",
+  "url": "sec-laplace-definition.html#video-laplace-definition",
+  "type": "Figure",
+  "number": "4.1.2",
+  "title": "",
+  "body": " This video goes through the content of this page.   "
+},
+{
+  "id": "sec-laplace-table-linearity",
+  "level": "1",
+  "url": "sec-laplace-table-linearity.html",
+  "type": "Section",
+  "number": "4.1.2",
+  "title": "The Laplace Transform Table and Linearity",
+  "body": " The Laplace Transform Table and Linearity    In the previous section we computed two Laplace transforms directly from the definition. From now on, we will use the following table to look up transforms directly. The only time we will use the integral definition from the previous page again is to derive some properties, and you will never be asked to use it yourself!   Laplace Transform Table      Condition  Formula       A       B       C       D       E       H       I       J      We are going to use the table to take the transform of more complicated expressions, but first we need to understand the linearity of the Laplace transform. You already know two linear operations from calculus: differentiation and integration. For example: In both cases you can split over a sum and pull constants out front. The Laplace transform behaves the same way!    Linearity of the Laplace Transform  The Laplace transform is linear. That is, for any functions and and constants and ,     Basically, using the definition of the Laplace transform (which involves an integral) and the linearity property of integration, we get linearity of the Laplace transform. We include a quick proof below.   Justification (can skim)  Using the definition directly: Both steps are just the linearity of integration.   In the examples below we will show each linearity step explicitly so that you understand how linearity comes into play. Going forward, you may start skipping those steps automatically, just like you do with differentiation and integration!    Using the Table and Linearity  Compute .  First apply linearity to split over the sum and pull the constant out front: Now apply the table to each piece. For , use Formula C with : For , use Formula B with : Putting it together:    Once you understand the example above, you should be able to work through the following activity. The first step makes sure you can apply the linearity property. Then in the second part, you need to match each term to its corresponding row in the Laplace table (found at the top of the page) to finish taking the Laplace transform.    Compute   Work through the following steps to compute the Laplace transform.    Step 1: Apply Linearity   First distribute and then apply linearity to split the expression into separate Laplace transforms. Which of the following is correct?           Correct! Distributing gives , and then linearity splits this into three separate transforms with the 3 pulled out front.           The Laplace transform of a product is not the product of the transforms. The term is a single piece that matches a row in the table directly.           This is technically true by linearity, but the split is incomplete. Separate every term so you can apply the table to each one individually.           Same issue: the split is incomplete. Keep going until each term is alone so you can match each one to a row in the table.       Step 2: Apply the Table   Now evaluate each of the three Laplace transforms using the table and simplify fully.    For each term, identify which formula it matches and what values play the role of and :  : use Formula I with , .  : use Formula D with .  : use Formula E with .      More details on how to apply the table to each term are included in a dropdown at the end of this solution. Starting from the result of Step 1 and substituting each table value: The last two terms share the denominator , so their numerators combine.  You can reference the following work if you are unsure on how we applied the table in the second line!   Identifying a and b for each term and applying the table     : matches Formula I with and , giving .   : matches Formula D with , giving .   : matches Formula E with , giving .        Okay, so using the table and linearity allows us to quickly take the transform of more complicated expressions! The only thing to be careful about is correctly identifying the various constants (such as or ) when using the table.    Key Takeaways     The table: you can look up Laplace transforms directly without computing from the definition.   Linearity:  , just like differentiation and integration. This works because the Laplace transform is defined by an integral.   Strategy: distribute and expand first, then split by linearity, then match each piece to a row in the table.       This video goes through the content of this page.     "
+},
+{
+  "id": "table-laplace-transforms",
+  "level": "2",
+  "url": "sec-laplace-table-linearity.html#table-laplace-transforms",
+  "type": "Table",
+  "number": "4.1.1",
+  "title": "Laplace Transform Table",
+  "body": " Laplace Transform Table      Condition  Formula       A       B       C       D       E       H       I       J    "
+},
+{
+  "id": "obs-laplace-linearity",
+  "level": "2",
+  "url": "sec-laplace-table-linearity.html#obs-laplace-linearity",
+  "type": "Observation",
+  "number": "4.1.2",
+  "title": "Linearity of the Laplace Transform.",
+  "body": " Linearity of the Laplace Transform  The Laplace transform is linear. That is, for any functions and and constants and ,   "
+},
+{
+  "id": "proof-laplace-linearity-justification",
+  "level": "2",
+  "url": "sec-laplace-table-linearity.html#proof-laplace-linearity-justification",
+  "type": "Proof",
+  "number": "4.1.2.1",
+  "title": "Justification (can skim).",
+  "body": " Justification (can skim)  Using the definition directly: Both steps are just the linearity of integration.  "
+},
+{
+  "id": "ex-laplace-table-basic",
+  "level": "2",
+  "url": "sec-laplace-table-linearity.html#ex-laplace-table-basic",
+  "type": "Example",
+  "number": "4.1.3",
+  "title": "Using the Table and Linearity.",
+  "body": " Using the Table and Linearity  Compute .  First apply linearity to split over the sum and pull the constant out front: Now apply the table to each piece. For , use Formula C with : For , use Formula B with : Putting it together:   "
+},
+{
+  "id": "act-laplace-linearity-practice",
+  "level": "2",
+  "url": "sec-laplace-table-linearity.html#act-laplace-linearity-practice",
+  "type": "Activity",
+  "number": "4.1.1",
+  "title": "Compute <span class=\"process-math\">\\(\\mathcal{L}\\{(e^{2t} + 3)\\sin(9t) + \\cos(9t)\\}\\)<\/span>.",
+  "body": " Compute   Work through the following steps to compute the Laplace transform.    Step 1: Apply Linearity   First distribute and then apply linearity to split the expression into separate Laplace transforms. Which of the following is correct?           Correct! Distributing gives , and then linearity splits this into three separate transforms with the 3 pulled out front.           The Laplace transform of a product is not the product of the transforms. The term is a single piece that matches a row in the table directly.           This is technically true by linearity, but the split is incomplete. Separate every term so you can apply the table to each one individually.           Same issue: the split is incomplete. Keep going until each term is alone so you can match each one to a row in the table.       Step 2: Apply the Table   Now evaluate each of the three Laplace transforms using the table and simplify fully.    For each term, identify which formula it matches and what values play the role of and :  : use Formula I with , .  : use Formula D with .  : use Formula E with .      More details on how to apply the table to each term are included in a dropdown at the end of this solution. Starting from the result of Step 1 and substituting each table value: The last two terms share the denominator , so their numerators combine.  You can reference the following work if you are unsure on how we applied the table in the second line!   Identifying a and b for each term and applying the table     : matches Formula I with and , giving .   : matches Formula D with , giving .   : matches Formula E with , giving .       "
+},
+{
+  "id": "video-laplace-table-linearity",
+  "level": "2",
+  "url": "sec-laplace-table-linearity.html#video-laplace-table-linearity",
+  "type": "Figure",
+  "number": "4.1.4",
+  "title": "",
+  "body": " This video goes through the content of this page.   "
+},
+{
+  "id": "sec-inverse-laplace",
+  "level": "1",
+  "url": "sec-inverse-laplace.html",
+  "type": "Section",
+  "number": "4.1.3",
+  "title": "The Inverse Laplace Transform",
+  "body": " The Inverse Laplace Transform   Once we finally get to solving ODEs with the Laplace transform, we won't just have to take the Laplace transform; we will also have to take the inverse Laplace transform as the very last step. Basically, knowing uniquely determines . This lets us define the inverse.   The Inverse Laplace Transform   Given , the inverse Laplace transform is the function such that . We write:     In practice, we find inverse Laplace transforms by reading the table backwards, from right to left: given , we look for a row whose right column matches, then read off the in the left column. The inverse Laplace transform is also linear , so we can split over sums and pull constants out front just as before.    A Basic Inverse Laplace Transform  Compute .  We look for a row in the table whose column matches . This fits Formula B with : Reading backwards:     Sometimes the expression doesn't immediately match a row in the table. Consider . The denominator tells us this is related to Formula D , with . But Formula D requires a 3 in the numerator, and we only have a 2. The key steps to handle this are:  Identify from the denominator: , so .  We need in the numerator, so multiply and divide by 3.  Pull the leftover constant out front using linearity.       Following the steps above, which of the following correctly rewrites to match Formula D ?       Correct! Since , we need a 3 in the numerator. Multiplying and dividing by 3 gives , which matches Formula D with the constant out front.        Formula D requires in the numerator, not 1.       We need a 3 in the numerator to match Formula D with , not a 9.       The constant out front is right, but the denominator should be , not .        Compute    Using the rewrite from the checkpoint, compute .    Use the rewrite and apply the inverse transform.        More detail on the second equality  The second factor matches Formula D , , with . Reading backwards: .        Key Takeaways     The inverse Laplace transform reads the table backwards: given , find the matching row and read off .   It is also linear:  .   Rewriting is often needed: identify from the denominator, then multiply and divide to get in the numerator, and carry the leftover constant out front.       This video goes through the content of this page.     "
+},
+{
+  "id": "def-inverse-laplace",
+  "level": "2",
+  "url": "sec-inverse-laplace.html#def-inverse-laplace",
+  "type": "Definition",
+  "number": "4.1.1",
+  "title": "The Inverse Laplace Transform.",
+  "body": " The Inverse Laplace Transform   Given , the inverse Laplace transform is the function such that . We write:    "
+},
+{
+  "id": "ex-inverse-laplace-basic",
+  "level": "2",
+  "url": "sec-inverse-laplace.html#ex-inverse-laplace-basic",
+  "type": "Example",
+  "number": "4.1.2",
+  "title": "A Basic Inverse Laplace Transform.",
+  "body": " A Basic Inverse Laplace Transform  Compute .  We look for a row in the table whose column matches . This fits Formula B with : Reading backwards:   "
+},
+{
+  "id": "ex-inverse-laplace-checkpoint",
+  "level": "2",
+  "url": "sec-inverse-laplace.html#ex-inverse-laplace-checkpoint",
+  "type": "Checkpoint",
+  "number": "4.1.3",
+  "title": "",
+  "body": "  Following the steps above, which of the following correctly rewrites to match Formula D ?       Correct! Since , we need a 3 in the numerator. Multiplying and dividing by 3 gives , which matches Formula D with the constant out front.        Formula D requires in the numerator, not 1.       We need a 3 in the numerator to match Formula D with , not a 9.       The constant out front is right, but the denominator should be , not .     "
+},
+{
+  "id": "act-inverse-laplace-rewrite",
+  "level": "2",
+  "url": "sec-inverse-laplace.html#act-inverse-laplace-rewrite",
+  "type": "Activity",
+  "number": "4.1.1",
+  "title": "Compute <span class=\"process-math\">\\(\\mathcal{L}^{-1}\\!\\left\\{\\dfrac{2}{s^2+9}\\right\\}\\)<\/span>.",
+  "body": " Compute    Using the rewrite from the checkpoint, compute .    Use the rewrite and apply the inverse transform.        More detail on the second equality  The second factor matches Formula D , , with . Reading backwards: .     "
+},
+{
+  "id": "video-inverse-laplace",
+  "level": "2",
+  "url": "sec-inverse-laplace.html#video-inverse-laplace",
+  "type": "Figure",
+  "number": "4.1.4",
+  "title": "",
+  "body": " This video goes through the content of this page.   "
+},
+{
+  "id": "sec-inverse-laplace-examples",
+  "level": "1",
+  "url": "sec-inverse-laplace-examples.html",
+  "type": "Section",
+  "number": "4.1.4",
+  "title": "More Inverse Laplace Transform Examples",
+  "body": " More Inverse Laplace Transform Examples   On this page, we continue taking inverse Laplace transforms. These problems are just a bit harder and more involved than the previous ones, so pay attention to the various tricks used throughout!  Use the Laplace transform table below as a reference throughout this page.   Laplace Transform Table      Condition  Formula       A       B       C       D       E       H       I       J      As a warmup, consider . This should match Formula B, , but we need a 1 in the numerator and the denominator in the form . Factor the 3 out of the denominator: Now it matches Formula B with .    Finish computing using the rewrite from above.       Correct! After factoring, matches Formula B with , giving .       Don't forget the from factoring the 3 out of the denominator.       Check the sign of . Since , we have , giving not .       The constant comes from factoring 3 out of the denominator, giving , not .       In the next example, it becomes slightly more complicated because there are two terms in the numerator. How should we deal with this?   Inverse Laplace with Two Terms   Find .      Split the fraction over the numerator and apply linearity to get two separate inverse transforms.  Both terms have denominator , so . Check the table to identify which formula each term matches.      Split over the numerator and apply linearity: Both terms have denominator , so both match Formula D or Formula E ; the difference is what's in the numerator: The first term needs a 3 on top to match Formula D, so rewrite:      In the following activity, there are also two terms in the numerator. It is somewhat similar to the last example, so make sure you look at that before this activity! We will break down the first few steps before solving it in full.   Find   Work through the following steps.    Step 1: Simplify and Split   Split over the numerator and simplify each term. Which of the following is correct?       Correct! Splitting gives , and .       The second term is , not . Simplify by canceling one factor of .        , not .       Only the second term simplifies to . The first term is .       Step 2: Identify the Table Rows   Looking at the table above , which formula applies to each of the two terms and ?     Both match Formula C, , with different values of .   Correct! Both terms are of the form , just with different .     matches Formula A and matches Formula C.   Formula A is just , which corresponds to in Formula C. Both of your terms have higher powers of , so both match Formula C.     Both match Formula B, .   Formula B has a linear denominator . Here the denominators are powers of , which match Formula C instead.     matches Formula C and matches Formula H.   Formula H involves , which doesn't appear here. Both terms match Formula C with different values of .       Step 3: Compute the Inverse Transform   Using Formula C, compute .    Match each term to Formula C by identifying :  , so and .  , so and .  Rewrite each term to get in the numerator before applying the table.    Full Solution  Starting from the beginning: Both terms match Formula C, , with and respectively. Rewriting to get on top:        Key Takeaways     Factor first: if the denominator has a leading coefficient, factor it out before matching the table.   Split over the numerator: a sum in the numerator can always be split into separate fractions, then handle each one independently.   Identify n carefully for Formula C: match the power of in the denominator to , then rewrite to get on top.       This video goes through the content of this page.     "
+},
+{
+  "id": "table-laplace-transforms-ref",
+  "level": "2",
+  "url": "sec-inverse-laplace-examples.html#table-laplace-transforms-ref",
+  "type": "Table",
+  "number": "4.1.1",
+  "title": "Laplace Transform Table",
+  "body": " Laplace Transform Table      Condition  Formula       A       B       C       D       E       H       I       J    "
+},
+{
+  "id": "ex-warmup-laplace-13over3s21",
+  "level": "2",
+  "url": "sec-inverse-laplace-examples.html#ex-warmup-laplace-13over3s21",
+  "type": "Checkpoint",
+  "number": "4.1.2",
+  "title": "",
+  "body": "  Finish computing using the rewrite from above.       Correct! After factoring, matches Formula B with , giving .       Don't forget the from factoring the 3 out of the denominator.       Check the sign of . Since , we have , giving not .       The constant comes from factoring 3 out of the denominator, giving , not .     "
+},
+{
+  "id": "ex-inverse-laplace-two-terms",
+  "level": "2",
+  "url": "sec-inverse-laplace-examples.html#ex-inverse-laplace-two-terms",
+  "type": "Example",
+  "number": "4.1.3",
+  "title": "Inverse Laplace with Two Terms.",
+  "body": " Inverse Laplace with Two Terms   Find .      Split the fraction over the numerator and apply linearity to get two separate inverse transforms.  Both terms have denominator , so . Check the table to identify which formula each term matches.      Split over the numerator and apply linearity: Both terms have denominator , so both match Formula D or Formula E ; the difference is what's in the numerator: The first term needs a 3 on top to match Formula D, so rewrite:    "
+},
+{
+  "id": "act-inverse-laplace-polynomial",
+  "level": "2",
+  "url": "sec-inverse-laplace-examples.html#act-inverse-laplace-polynomial",
+  "type": "Activity",
+  "number": "4.1.1",
+  "title": "Find <span class=\"process-math\">\\(\\mathcal{L}^{-1}\\!\\left\\{\\dfrac{1+s}{s^3}\\right\\}\\)<\/span>.",
+  "body": " Find   Work through the following steps.    Step 1: Simplify and Split   Split over the numerator and simplify each term. Which of the following is correct?       Correct! Splitting gives , and .       The second term is , not . Simplify by canceling one factor of .        , not .       Only the second term simplifies to . The first term is .       Step 2: Identify the Table Rows   Looking at the table above , which formula applies to each of the two terms and ?     Both match Formula C, , with different values of .   Correct! Both terms are of the form , just with different .     matches Formula A and matches Formula C.   Formula A is just , which corresponds to in Formula C. Both of your terms have higher powers of , so both match Formula C.     Both match Formula B, .   Formula B has a linear denominator . Here the denominators are powers of , which match Formula C instead.     matches Formula C and matches Formula H.   Formula H involves , which doesn't appear here. Both terms match Formula C with different values of .       Step 3: Compute the Inverse Transform   Using Formula C, compute .    Match each term to Formula C by identifying :  , so and .  , so and .  Rewrite each term to get in the numerator before applying the table.    Full Solution  Starting from the beginning: Both terms match Formula C, , with and respectively. Rewriting to get on top:     "
+},
+{
+  "id": "video-inverse-laplace-examples",
+  "level": "2",
+  "url": "sec-inverse-laplace-examples.html#video-inverse-laplace-examples",
+  "type": "Figure",
+  "number": "4.1.4",
+  "title": "",
+  "body": " This video goes through the content of this page.   "
+},
+{
+  "id": "exercises-4-1",
+  "level": "1",
+  "url": "exercises-4-1.html",
+  "type": "Exercises",
+  "number": "4.1.5",
+  "title": "Exercises for Section 4.1",
+  "body": " Exercises for Section 4.1   Use the Laplace transform table and linearity throughout. You should never need to compute an integral from the definition.      Find the Laplace transform of the following function.             Find the Laplace transform of the following function. Combine your answer into a single fraction.      .       Find the Laplace transform of the following function.     The table has no row matching directly. Expand the power first, then apply linearity and Formula C to each term.            Find the inverse Laplace transform of the following function.             Find the inverse Laplace transform of the following function.      , so .       Find the inverse Laplace transform of the following function.           "
+},
+{
+  "id": "ex-4-1-1",
+  "level": "2",
+  "url": "exercises-4-1.html#ex-4-1-1",
+  "type": "Exercise",
+  "number": "4.1.5.1",
+  "title": "",
+  "body": "  Find the Laplace transform of the following function.         "
+},
+{
+  "id": "ex-4-1-2",
+  "level": "2",
+  "url": "exercises-4-1.html#ex-4-1-2",
+  "type": "Exercise",
+  "number": "4.1.5.2",
+  "title": "",
+  "body": "  Find the Laplace transform of the following function. Combine your answer into a single fraction.      .   "
+},
+{
+  "id": "ex-4-1-3",
+  "level": "2",
+  "url": "exercises-4-1.html#ex-4-1-3",
+  "type": "Exercise",
+  "number": "4.1.5.3",
+  "title": "",
+  "body": "  Find the Laplace transform of the following function.     The table has no row matching directly. Expand the power first, then apply linearity and Formula C to each term.        "
+},
+{
+  "id": "ex-4-1-4",
+  "level": "2",
+  "url": "exercises-4-1.html#ex-4-1-4",
+  "type": "Exercise",
+  "number": "4.1.5.4",
+  "title": "",
+  "body": "  Find the inverse Laplace transform of the following function.         "
+},
+{
+  "id": "ex-4-1-5",
+  "level": "2",
+  "url": "exercises-4-1.html#ex-4-1-5",
+  "type": "Exercise",
+  "number": "4.1.5.5",
+  "title": "",
+  "body": "  Find the inverse Laplace transform of the following function.      , so .   "
+},
+{
+  "id": "ex-4-1-6",
+  "level": "2",
+  "url": "exercises-4-1.html#ex-4-1-6",
+  "type": "Exercise",
+  "number": "4.1.5.6",
+  "title": "",
+  "body": "  Find the inverse Laplace transform of the following function.         "
+},
+{
+  "id": "sec-partial-fractions-review",
+  "level": "1",
+  "url": "sec-partial-fractions-review.html",
+  "type": "Section",
+  "number": "4.2.1",
+  "title": "Partial Fraction Decomposition Review",
+  "body": " Partial Fraction Decomposition Review   In the next few pages we will need to decompose rational functions into simpler fractions before taking inverse Laplace transforms. There are two main steps: writing down the correct form of the decomposition, and then solving for the unknown constants. For the first step, each factor in the denominator contributes a piece to the decomposition based on its type. The three types of factors we will see are below.    Linear factor. A linear factor contributes one fraction with a constant numerator:    Irreducible quadratic factor. A quadratic is irreducible if it has no real roots, which happens when . In this chapter the quadratics that appear are always of the form with , which are always irreducible. An irreducible quadratic factor contributes one fraction with a linear numerator:    Repeated linear factor. If a linear factor appears squared, it contributes two fractions, one for each power:   The full decomposition of a rational function is the sum of the contributions from every factor in the denominator. For example, the denominator of has a repeated linear factor (that is, repeated twice) and a linear factor , so:      Which of the following is the correct partial fraction form for ?       Correct! Two distinct linear factors each get a constant numerator.       The squared denominator form is for repeated factors. Here appears only once.       Linear numerators like are for irreducible quadratic factors. For linear factors the numerator is just a constant.       There is no need for a fraction with the full original denominator. Two distinct linear factors give exactly two terms.        Which of the following is the correct partial fraction form for ?       Correct! The linear factor gets a constant numerator, and the irreducible quadratic gets a linear numerator .       The irreducible quadratic factor needs a linear numerator , not just a constant.        is irreducible and cannot be split further. It stays as one factor with a linear numerator.       The factor is linear, so its numerator is just a constant , not .        Which of the following is the correct partial fraction form for ?       Correct! The repeated factor contributes two fractions, one for each power, and the distinct factor gets its own.       When appears as a repeated factor you need a fraction for and a separate one for .       Linear numerators like are for irreducible quadratics. Since is a repeated linear factor each piece just gets a constant numerator.       You cannot use the same denominator twice. The repeated factor contributes one fraction with and one with in the denominator.       Once you recognize the form the decomposition takes, you will solve for the constants that go in the numerator of each term. This part is slightly more tedious. There are several common approaches. We will do this by \"clearing\" the denominator on the equation connecting the original to the decomposed form, and then equating coefficients of the resulting polynomials to get a system of equations. This method is demonstrated below.   Solving for Coefficients by Clearing Denominators  Find the partial fraction decomposition of .  The denominator has two linear factors, so the correct form is Multiply both sides by to clear the denominators: Expand: Equating the coefficient of on both sides, and then the constant: From the first equation . Substituting into the second: , so and . Therefore:      Key Takeaways     Each factor contributes its own piece: the decomposition is the sum of the contributions from every factor in the denominator.   Linear factor  : contributes a fraction with a constant numerator.   Irreducible quadratic  with : contributes a fraction with a linear numerator . Note that is always irreducible when .   Repeated linear factor  : contributes two fractions, one with and one with in the denominator.   To solve for coefficients: multiply both sides by the full denominator to clear it, expand, and match coefficients of each power of .      "
+},
+{
+  "id": "sec-partial-fractions-review-4",
+  "level": "2",
+  "url": "sec-partial-fractions-review.html#sec-partial-fractions-review-4",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "irreducible "
+},
+{
+  "id": "ex-pf-checkpoint-case1",
+  "level": "2",
+  "url": "sec-partial-fractions-review.html#ex-pf-checkpoint-case1",
+  "type": "Checkpoint",
+  "number": "4.2.1",
+  "title": "",
+  "body": "  Which of the following is the correct partial fraction form for ?       Correct! Two distinct linear factors each get a constant numerator.       The squared denominator form is for repeated factors. Here appears only once.       Linear numerators like are for irreducible quadratic factors. For linear factors the numerator is just a constant.       There is no need for a fraction with the full original denominator. Two distinct linear factors give exactly two terms.     "
+},
+{
+  "id": "ex-pf-checkpoint-case2",
+  "level": "2",
+  "url": "sec-partial-fractions-review.html#ex-pf-checkpoint-case2",
+  "type": "Checkpoint",
+  "number": "4.2.2",
+  "title": "",
+  "body": "  Which of the following is the correct partial fraction form for ?       Correct! The linear factor gets a constant numerator, and the irreducible quadratic gets a linear numerator .       The irreducible quadratic factor needs a linear numerator , not just a constant.        is irreducible and cannot be split further. It stays as one factor with a linear numerator.       The factor is linear, so its numerator is just a constant , not .     "
+},
+{
+  "id": "ex-pf-checkpoint-case3",
+  "level": "2",
+  "url": "sec-partial-fractions-review.html#ex-pf-checkpoint-case3",
+  "type": "Checkpoint",
+  "number": "4.2.3",
+  "title": "",
+  "body": "  Which of the following is the correct partial fraction form for ?       Correct! The repeated factor contributes two fractions, one for each power, and the distinct factor gets its own.       When appears as a repeated factor you need a fraction for and a separate one for .       Linear numerators like are for irreducible quadratics. Since is a repeated linear factor each piece just gets a constant numerator.       You cannot use the same denominator twice. The repeated factor contributes one fraction with and one with in the denominator.     "
+},
+{
+  "id": "ex-pf-clear-denominators",
+  "level": "2",
+  "url": "sec-partial-fractions-review.html#ex-pf-clear-denominators",
+  "type": "Example",
+  "number": "4.2.4",
+  "title": "Solving for Coefficients by Clearing Denominators.",
+  "body": " Solving for Coefficients by Clearing Denominators  Find the partial fraction decomposition of .  The denominator has two linear factors, so the correct form is Multiply both sides by to clear the denominators: Expand: Equating the coefficient of on both sides, and then the constant: From the first equation . Substituting into the second: , so and . Therefore:   "
+},
+{
+  "id": "sec-inverse-laplace-pfd-linear",
+  "level": "1",
+  "url": "sec-inverse-laplace-pfd-linear.html",
+  "type": "Section",
+  "number": "4.2.2",
+  "title": "Inverse Laplace with Distinct Linear Factors",
+  "body": " Inverse Laplace with Distinct Linear Factors   Keep the Laplace transform table handy as a reference for this page.   Laplace Transform Table      Condition  Formula       A       B       C       D       E       H       I       J      Sometimes the we want to invert doesn't match any row in the table directly. When the denominator is a product of factors, we can use partial fraction decomposition to break it into simpler pieces that do match the table. This technique will come up a lot in the next section when we actually use the Laplace transform to solve differential equations.   Find . Notice this expression does not appear anywhere in the table. On the previous page we worked out the partial fraction decomposition (see ): Each fraction now matches Formula B , . Applying the inverse transform:     Key Takeaways    When doesn't match the table directly, use partial fraction decomposition to break it into pieces that do.  After decomposing, apply linearity and match each piece to a formula in the table.  Distinct linear factors in the denominator each give a term matching Formula B .       This video goes through the content of this page.     "
+},
+{
+  "id": "table-laplace-ref-4-2-1",
+  "level": "2",
+  "url": "sec-inverse-laplace-pfd-linear.html#table-laplace-ref-4-2-1",
+  "type": "Table",
+  "number": "4.2.1",
+  "title": "Laplace Transform Table",
+  "body": " Laplace Transform Table      Condition  Formula       A       B       C       D       E       H       I       J    "
+},
+{
+  "id": "video-inverse-laplace-pfd-linear",
+  "level": "2",
+  "url": "sec-inverse-laplace-pfd-linear.html#video-inverse-laplace-pfd-linear",
+  "type": "Figure",
+  "number": "4.2.2",
+  "title": "",
+  "body": " This video goes through the content of this page.   "
+},
+{
+  "id": "sec-inverse-laplace-pfd-quadratic",
+  "level": "1",
+  "url": "sec-inverse-laplace-pfd-quadratic.html",
+  "type": "Section",
+  "number": "4.2.3",
+  "title": "Inverse Laplace with an Irreducible Quadratic Factor",
+  "body": " Inverse Laplace with an Irreducible Quadratic Factor   Keep the Laplace transform table handy as a reference for this page.   Laplace Transform Table      Condition  Formula       A       B       C       D       E       H       I       J       Find   Notice that , and is irreducible since with has no real roots. This expression does not appear in the table, so we use partial fraction decomposition.     Step 1: Partial Fraction Decomposition   From the review page, the correct form for a linear factor and an irreducible quadratic is:    Solving for A, B, and C (can skim, reference for homework)  Multiply both sides by to clear denominators: Expand: Matching coefficients: From the third equation , then , and .   With , , and , the decomposition is:       Step 2: Match Each Term to the Table   Looking at the table above , which formulas apply to the two terms and ?       matches Formula A, and matches Formula E.    Correct! Formula A gives , and Formula E gives . The second term has in the numerator, which matches the cosine formula.       matches Formula A, and matches Formula D.    Formula D gives , which requires a constant in the numerator. The second term has in the numerator, which matches Formula E (cosine) instead.       matches Formula B, and matches Formula E.    Formula B gives , which has a shifted denominator . Here the denominator is just , which matches Formula A with .      Both terms match Formula B.    Formula B applies to terms of the form . Neither term here has that form.        Step 3: Apply the Inverse Transform   Using the decomposition from Step 1 and the formulas identified in Step 2, compute .    The decomposition is .   matches Formula A .   matches Formula E with . You may need to rewrite slightly to match the form .      Work  Applying linearity and the inverse transform to each piece:        Key Takeaways    When the denominator contains an irreducible quadratic , the partial fraction form uses a linear numerator for that factor.  After decomposing, match each term to the table. A constant numerator over matches Formula D (sine), and an numerator over matches Formula E (cosine).   is always irreducible when , so it always gets a linear numerator in the partial fraction form.       This video goes through the content of this page.     "
+},
+{
+  "id": "table-laplace-ref-4-2-3",
+  "level": "2",
+  "url": "sec-inverse-laplace-pfd-quadratic.html#table-laplace-ref-4-2-3",
+  "type": "Table",
+  "number": "4.2.1",
+  "title": "Laplace Transform Table",
+  "body": " Laplace Transform Table      Condition  Formula       A       B       C       D       E       H       I       J    "
+},
+{
+  "id": "act-inverse-laplace-quadratic",
+  "level": "2",
+  "url": "sec-inverse-laplace-pfd-quadratic.html#act-inverse-laplace-quadratic",
+  "type": "Activity",
+  "number": "4.2.1",
+  "title": "Find <span class=\"process-math\">\\(\\mathcal{L}^{-1}\\!\\left\\{\\dfrac{1}{s^3+4s}\\right\\}\\)<\/span>.",
+  "body": " Find   Notice that , and is irreducible since with has no real roots. This expression does not appear in the table, so we use partial fraction decomposition.     Step 1: Partial Fraction Decomposition   From the review page, the correct form for a linear factor and an irreducible quadratic is:    Solving for A, B, and C (can skim, reference for homework)  Multiply both sides by to clear denominators: Expand: Matching coefficients: From the third equation , then , and .   With , , and , the decomposition is:       Step 2: Match Each Term to the Table   Looking at the table above , which formulas apply to the two terms and ?       matches Formula A, and matches Formula E.    Correct! Formula A gives , and Formula E gives . The second term has in the numerator, which matches the cosine formula.       matches Formula A, and matches Formula D.    Formula D gives , which requires a constant in the numerator. The second term has in the numerator, which matches Formula E (cosine) instead.       matches Formula B, and matches Formula E.    Formula B gives , which has a shifted denominator . Here the denominator is just , which matches Formula A with .      Both terms match Formula B.    Formula B applies to terms of the form . Neither term here has that form.        Step 3: Apply the Inverse Transform   Using the decomposition from Step 1 and the formulas identified in Step 2, compute .    The decomposition is .   matches Formula A .   matches Formula E with . You may need to rewrite slightly to match the form .      Work  Applying linearity and the inverse transform to each piece:     "
+},
+{
+  "id": "video-inverse-laplace-pfd-quadratic",
+  "level": "2",
+  "url": "sec-inverse-laplace-pfd-quadratic.html#video-inverse-laplace-pfd-quadratic",
+  "type": "Figure",
+  "number": "4.2.2",
+  "title": "",
+  "body": " This video goes through the content of this page.   "
+},
+{
+  "id": "sec-inverse-laplace-pfd-repeated",
+  "level": "1",
+  "url": "sec-inverse-laplace-pfd-repeated.html",
+  "type": "Section",
+  "number": "4.2.4",
+  "title": "Inverse Laplace with a Repeated Linear Factor",
+  "body": " Inverse Laplace with a Repeated Linear Factor   Keep the Laplace transform table handy as a reference for this page.   Laplace Transform Table      Condition  Formula       A       B       C       D       E       H       I       J      Before we start, think about why the repeated factor leads to two separate fractions in the decomposition rather than one.    Why does the repeated linear factor contribute two separate fractions in the partial fraction decomposition of ?      Because , meaning appears twice as a linear factor. Each power of needs its own fraction with a constant numerator.    Correct! A repeated linear factor contributes one fraction for each power from 1 up to . Here gives a fraction for and a separate one for .      Because is an irreducible quadratic, so it needs a linear numerator , which accounts for two unknowns.     is not irreducible; it factors as . Irreducible quadratics are ones with no real roots, like .      Because the degree of the numerator must equal the degree of the denominator.    The number of terms in a partial fraction decomposition is determined by the factors of the denominator, not by matching degrees.      Because has two complex roots, each requiring its own fraction.     has the real root repeated twice, not two complex roots. It is the repetition of this real root that gives two fractions.        Find   Notice that , where is a repeated linear factor. This expression does not appear in the table, so we use partial fraction decomposition.     Step 1: Partial Fraction Decomposition   From the review page, the correct form for a repeated linear factor is:    Solving for A, B, and C (can skim, reference for homework)  Multiply both sides by to clear denominators: Expand: Matching coefficients: From the third equation . From the second, . From the first, .   With , , and , the decomposition is:       Step 2: Apply the Inverse Transform   Using the decomposition from Step 1, compute .    Apply linearity to split into three separate inverse transforms, then match each to the table:   : use Formula A .   : use Formula C with . Rewrite as .   : use Formula B with .      From the previous part, we found: Applying linearity and reading off Formula A , Formula C (with ), and Formula B (with ):        Key Takeaways    A repeated linear factor contributes two terms in the partial fraction form: one with in the denominator and one with .  After decomposing, match each term carefully: watch the value of in Formula C and the sign of in Formula B .       This video goes through the content of this page.     "
+},
+{
+  "id": "table-laplace-ref-4-2-4",
+  "level": "2",
+  "url": "sec-inverse-laplace-pfd-repeated.html#table-laplace-ref-4-2-4",
+  "type": "Table",
+  "number": "4.2.1",
+  "title": "Laplace Transform Table",
+  "body": " Laplace Transform Table      Condition  Formula       A       B       C       D       E       H       I       J    "
+},
+{
+  "id": "ex-repeated-conceptual",
+  "level": "2",
+  "url": "sec-inverse-laplace-pfd-repeated.html#ex-repeated-conceptual",
+  "type": "Checkpoint",
+  "number": "4.2.2",
+  "title": "",
+  "body": "  Why does the repeated linear factor contribute two separate fractions in the partial fraction decomposition of ?      Because , meaning appears twice as a linear factor. Each power of needs its own fraction with a constant numerator.    Correct! A repeated linear factor contributes one fraction for each power from 1 up to . Here gives a fraction for and a separate one for .      Because is an irreducible quadratic, so it needs a linear numerator , which accounts for two unknowns.     is not irreducible; it factors as . Irreducible quadratics are ones with no real roots, like .      Because the degree of the numerator must equal the degree of the denominator.    The number of terms in a partial fraction decomposition is determined by the factors of the denominator, not by matching degrees.      Because has two complex roots, each requiring its own fraction.     has the real root repeated twice, not two complex roots. It is the repetition of this real root that gives two fractions.     "
+},
+{
+  "id": "act-inverse-laplace-repeated",
+  "level": "2",
+  "url": "sec-inverse-laplace-pfd-repeated.html#act-inverse-laplace-repeated",
+  "type": "Activity",
+  "number": "4.2.1",
+  "title": "Find <span class=\"process-math\">\\(\\mathcal{L}^{-1}\\!\\left\\{\\dfrac{1}{s^3+4s^2}\\right\\}\\)<\/span>.",
+  "body": " Find   Notice that , where is a repeated linear factor. This expression does not appear in the table, so we use partial fraction decomposition.     Step 1: Partial Fraction Decomposition   From the review page, the correct form for a repeated linear factor is:    Solving for A, B, and C (can skim, reference for homework)  Multiply both sides by to clear denominators: Expand: Matching coefficients: From the third equation . From the second, . From the first, .   With , , and , the decomposition is:       Step 2: Apply the Inverse Transform   Using the decomposition from Step 1, compute .    Apply linearity to split into three separate inverse transforms, then match each to the table:   : use Formula A .   : use Formula C with . Rewrite as .   : use Formula B with .      From the previous part, we found: Applying linearity and reading off Formula A , Formula C (with ), and Formula B (with ):     "
+},
+{
+  "id": "video-inverse-laplace-pfd-repeated",
+  "level": "2",
+  "url": "sec-inverse-laplace-pfd-repeated.html#video-inverse-laplace-pfd-repeated",
+  "type": "Figure",
+  "number": "4.2.3",
+  "title": "",
+  "body": " This video goes through the content of this page.   "
+},
+{
+  "id": "exercises-4-2",
+  "level": "1",
+  "url": "exercises-4-2.html",
+  "type": "Exercises",
+  "number": "4.2.5",
+  "title": "Exercises for Section 4.2",
+  "body": " Exercises for Section 4.2   For each of the following, use partial fraction decomposition to rewrite the expression, then apply the inverse Laplace transform using the table. Several of these will reappear when we solve initial value problems in the exercises for Section 4.3!      Find the inverse Laplace transform of the following function.     The decomposition is , so        Find the inverse Laplace transform of the following function.     The decomposition is , so        Find the inverse Laplace transform of the following function.     This denominator has two irreducible quadratic factors, a case we did not see in the notes. Each irreducible quadratic contributes a fraction with a linear numerator, just as before: Clear denominators and match coefficients of each power of to solve for the four constants.    The decomposition is (that is, , , ), so        Find the inverse Laplace transform of the following function.     Use the same decomposition form as in . This time the -coefficients vanish instead, and the constant numerators that remain match Formula D after the usual rewriting trick.    The decomposition is , so      "
+},
+{
+  "id": "ex-4-2-1",
+  "level": "2",
+  "url": "exercises-4-2.html#ex-4-2-1",
+  "type": "Exercise",
+  "number": "4.2.5.1",
+  "title": "",
+  "body": "  Find the inverse Laplace transform of the following function.     The decomposition is , so    "
+},
+{
+  "id": "ex-4-2-2",
+  "level": "2",
+  "url": "exercises-4-2.html#ex-4-2-2",
+  "type": "Exercise",
+  "number": "4.2.5.2",
+  "title": "",
+  "body": "  Find the inverse Laplace transform of the following function.     The decomposition is , so    "
+},
+{
+  "id": "ex-4-2-3",
+  "level": "2",
+  "url": "exercises-4-2.html#ex-4-2-3",
+  "type": "Exercise",
+  "number": "4.2.5.3",
+  "title": "",
+  "body": "  Find the inverse Laplace transform of the following function.     This denominator has two irreducible quadratic factors, a case we did not see in the notes. Each irreducible quadratic contributes a fraction with a linear numerator, just as before: Clear denominators and match coefficients of each power of to solve for the four constants.    The decomposition is (that is, , , ), so    "
+},
+{
+  "id": "ex-4-2-4",
+  "level": "2",
+  "url": "exercises-4-2.html#ex-4-2-4",
+  "type": "Exercise",
+  "number": "4.2.5.4",
+  "title": "",
+  "body": "  Find the inverse Laplace transform of the following function.     Use the same decomposition form as in . This time the -coefficients vanish instead, and the constant numerators that remain match Formula D after the usual rewriting trick.    The decomposition is , so    "
+},
+{
+  "id": "sec-laplace-derivatives",
+  "level": "1",
+  "url": "sec-laplace-derivatives.html",
+  "type": "Section",
+  "number": "4.3.1",
+  "title": "Laplace Transforms of Derivatives",
+  "body": " Laplace Transforms of Derivatives   We have finally got to the part where we use Laplace transforms to help solve ODEs!! Our goal for this chapter is to use the Laplace transform to solve second-order linear IVPs of the form To do this we need to know how the Laplace transform interacts with derivatives, which is captured by the following two formulas.   Writing :    Justification (can skim)  Starting from the definition and using integration by parts with and , so and : The limit because grows no faster than an exponential, so wins for large enough .    The second-derivative formula follows from applying the first one twice:    Justification (can skim)  Apply the result for twice. Let , so and :     We restate these results in the following theorem for reference. The formulas require one mild condition: cannot grow faster than an exponential as . Every function we encounter in this chapter satisfies this condition, so you will not need to worry about checking it!   Laplace Transforms of Derivatives   Suppose grows no faster than an exponential as , and let . Then:     Notice what these formulas do: they replace derivatives of with algebraic expressions in , incorporating the initial conditions and automatically. This is the reason the Laplace transform is so useful for IVPs, and this should become clearer as we do examples in the next few pages!   With these formulas in hand, here is the strategy for solving an IVP using the Laplace transform that we will see (this might not make much sense until we go through an example later):     Transform. Apply to both sides of the ODE. Use the formulas above to replace and with expressions in , plugging in the initial conditions as you go. This turns the ODE into an algebraic equation in .   Solve for . Solve the algebraic equation to find . This usually involves factoring and partial fraction decomposition.   Invert. Apply the inverse Laplace transform to to recover the solution .      Key Takeaways     and . Initial conditions are built right into these formulas.  Taking the Laplace transform of an ODE turns it into an algebraic equation in , which is generally much easier to solve.  The three steps are: transform, solve for , then invert to get .       This video goes through the content of this page.     "
+},
+{
+  "id": "sec-laplace-derivatives-4",
+  "level": "2",
+  "url": "sec-laplace-derivatives.html#sec-laplace-derivatives-4",
+  "type": "Justification",
+  "number": "4.3.1.1",
+  "title": "Justification (can skim).",
+  "body": " Justification (can skim)  Starting from the definition and using integration by parts with and , so and : The limit because grows no faster than an exponential, so wins for large enough .  "
+},
+{
+  "id": "sec-laplace-derivatives-6",
+  "level": "2",
+  "url": "sec-laplace-derivatives.html#sec-laplace-derivatives-6",
+  "type": "Justification",
+  "number": "4.3.1.2",
+  "title": "Justification (can skim).",
+  "body": " Justification (can skim)  Apply the result for twice. Let , so and :   "
+},
+{
+  "id": "thm-laplace-derivatives",
+  "level": "2",
+  "url": "sec-laplace-derivatives.html#thm-laplace-derivatives",
+  "type": "Theorem",
+  "number": "4.3.1",
+  "title": "Laplace Transforms of Derivatives.",
+  "body": " Laplace Transforms of Derivatives   Suppose grows no faster than an exponential as , and let . Then:    "
+},
+{
+  "id": "video-laplace-derivatives",
+  "level": "2",
+  "url": "sec-laplace-derivatives.html#video-laplace-derivatives",
+  "type": "Figure",
+  "number": "4.3.2",
+  "title": "",
+  "body": " This video goes through the content of this page.   "
+},
+{
+  "id": "sec-laplace-ivp-example",
+  "level": "1",
+  "url": "sec-laplace-ivp-example.html",
+  "type": "Section",
+  "number": "4.3.2",
+  "title": "Solving an IVP with the Laplace Transform",
+  "body": " Solving an IVP with the Laplace Transform  We have finally established all the theory needed regarding Laplace transforms, and we are ready to use it to solve an ODE! Recall the two key formulas from : Also note that , since the transform of the zero function is zero, and by definition.    Solving an IVP Using the Laplace Transform   Solve the initial value problem      Step 1a: Substitute the Derivative Formulas   Apply to both sides of the ODE and use to replace , , and with expressions in , plugging in and .    Apply to each term separately using linearity, then substitute , , and .    Applying to both sides and using linearity: Substituting the derivative formulas with and :       Step 1b: Solve for   Starting from collect all terms on the left and everything else on the right, then solve for .    Expand, group all terms with on the left and move all other terms to the right, then factor out and divide.    Expanding and collecting: Solving for :       Step 2: Partial Fraction Decomposition   Factor the denominator: . This is the same type as in , two distinct linear factors. We will skip the details on the computation. The partial fraction decomposition gives:       Step 3: Apply the Inverse Laplace Transform   Apply to to find .    Each term matches Formula B , . Identify for each term.    Applying linearity and Formula B to each term:       And now, a quick check of your understanding of the process.    Why does taking the Laplace transform of an ODE make it easier to solve?      It turns the ODE into an algebraic equation in , which can be solved with standard algebra rather than differential equation techniques.    Correct! The derivative formulas replace and with algebraic expressions in , so the whole equation becomes algebraic.      It eliminates the initial conditions so you only need to find the general solution.    Actually, it is the opposite: the initial conditions are built directly into the derivative formulas and used in Step 1.      It converts the ODE into an integral equation, which is easier to evaluate numerically.    The Laplace transform is defined by an integral, but the result is an algebraic equation in , not another integral equation.      It works only for homogeneous equations, where the right-hand side is zero.    The Laplace transform method works for both homogeneous and non-homogeneous equations. The right-hand side just gets transformed along with everything else.        At which step in the Laplace transform method are the initial conditions used?      Step 1, when substituting the derivative formulas and .    Correct! The values and are plugged in during the transform step, so by the time you reach Steps 2 and 3 the initial conditions are already incorporated.      Step 2, when solving for using partial fractions.    By Step 2 the initial conditions are already baked into the algebraic equation from Step 1. Partial fractions just decompose .      Step 3, when applying the inverse Laplace transform to find .    By Step 3 the initial conditions have already been used. The inverse transform just reads off from the table.      They are not used; the Laplace transform method only finds the general solution.    The Laplace transform method finds the particular solution directly, with initial conditions built in from the start.        Key Takeaways     Step 1: apply to both sides, substitute the derivative formulas with initial conditions plugged in, and solve for .   Step 2: factor the denominator and use partial fractions to decompose into pieces that match the table.   Step 3: apply to each piece to recover .       This video goes through the content of this page (there is an incorrect constant for the PFD that has been fixed in these notes).     "
+},
+{
+  "id": "ex-laplace-ivp-first",
+  "level": "2",
+  "url": "sec-laplace-ivp-example.html#ex-laplace-ivp-first",
+  "type": "Example",
+  "number": "4.3.1",
+  "title": "Solving an IVP Using the Laplace Transform.",
+  "body": " Solving an IVP Using the Laplace Transform   Solve the initial value problem      Step 1a: Substitute the Derivative Formulas   Apply to both sides of the ODE and use to replace , , and with expressions in , plugging in and .    Apply to each term separately using linearity, then substitute , , and .    Applying to both sides and using linearity: Substituting the derivative formulas with and :       Step 1b: Solve for   Starting from collect all terms on the left and everything else on the right, then solve for .    Expand, group all terms with on the left and move all other terms to the right, then factor out and divide.    Expanding and collecting: Solving for :       Step 2: Partial Fraction Decomposition   Factor the denominator: . This is the same type as in , two distinct linear factors. We will skip the details on the computation. The partial fraction decomposition gives:       Step 3: Apply the Inverse Laplace Transform   Apply to to find .    Each term matches Formula B , . Identify for each term.    Applying linearity and Formula B to each term:     "
+},
+{
+  "id": "ex-laplace-ivp-mc1",
+  "level": "2",
+  "url": "sec-laplace-ivp-example.html#ex-laplace-ivp-mc1",
+  "type": "Checkpoint",
+  "number": "4.3.2",
+  "title": "",
+  "body": "  Why does taking the Laplace transform of an ODE make it easier to solve?      It turns the ODE into an algebraic equation in , which can be solved with standard algebra rather than differential equation techniques.    Correct! The derivative formulas replace and with algebraic expressions in , so the whole equation becomes algebraic.      It eliminates the initial conditions so you only need to find the general solution.    Actually, it is the opposite: the initial conditions are built directly into the derivative formulas and used in Step 1.      It converts the ODE into an integral equation, which is easier to evaluate numerically.    The Laplace transform is defined by an integral, but the result is an algebraic equation in , not another integral equation.      It works only for homogeneous equations, where the right-hand side is zero.    The Laplace transform method works for both homogeneous and non-homogeneous equations. The right-hand side just gets transformed along with everything else.     "
+},
+{
+  "id": "ex-laplace-ivp-mc2",
+  "level": "2",
+  "url": "sec-laplace-ivp-example.html#ex-laplace-ivp-mc2",
+  "type": "Checkpoint",
+  "number": "4.3.3",
+  "title": "",
+  "body": "  At which step in the Laplace transform method are the initial conditions used?      Step 1, when substituting the derivative formulas and .    Correct! The values and are plugged in during the transform step, so by the time you reach Steps 2 and 3 the initial conditions are already incorporated.      Step 2, when solving for using partial fractions.    By Step 2 the initial conditions are already baked into the algebraic equation from Step 1. Partial fractions just decompose .      Step 3, when applying the inverse Laplace transform to find .    By Step 3 the initial conditions have already been used. The inverse transform just reads off from the table.      They are not used; the Laplace transform method only finds the general solution.    The Laplace transform method finds the particular solution directly, with initial conditions built in from the start.     "
+},
+{
+  "id": "video-laplace-ivp-example",
+  "level": "2",
+  "url": "sec-laplace-ivp-example.html#video-laplace-ivp-example",
+  "type": "Figure",
+  "number": "4.3.4",
+  "title": "",
+  "body": " This video goes through the content of this page (there is an incorrect constant for the PFD that has been fixed in these notes).   "
+},
+{
+  "id": "sec-laplace-ivp-activity",
+  "level": "1",
+  "url": "sec-laplace-ivp-activity.html",
+  "type": "Section",
+  "number": "4.3.3",
+  "title": "Solving an IVP: Practice",
+  "body": " Solving an IVP: Practice  Now it is your turn to work through the three steps! Use the formulas from and the Laplace table as needed.    Solve the IVP , ,   Work through the three steps to solve this initial value problem using the Laplace transform.     Step 1a: Substitute the Derivative Formulas   Taking of both sides and applying linearity on the left and Formula A on the right: Using the derivative formulas from with and , which of the following is the correct result?         Correct! Substituting and gives exactly this.         Check the sign of . The formula gives , so the constant should be , not .         It looks like the wrong initial conditions were used. Here and , so .         The term , not . Check the sign in the derivative formula.        Step 1b: Solve for   Using the result from the previous part, , which of the following is the correct expression for ?         Correct! Collecting terms gives , and dividing by gives this expression.         Check the signs when moving terms to the right side. moves to the right as , not .         The first term on the right side needs to keep its in the denominator when dividing by . It becomes .         Don't forget to divide every term by . The term becomes , not just .        Step 2: Partial Fraction Decomposition   Dividing by gives: The first term needs a partial fraction decomposition since it involves a linear factor and an irreducible quadratic, as in . The decomposition gives:   Solving for the PFD coefficients (can skim, reference for homework)  The correct form is . Clearing denominators: Expanding and matching coefficients: So , , , giving , , .  Substituting back into the expression for :       Step 3: Apply the Inverse Laplace Transform   Apply to to find .     matches Formula A . For , notice and the 3 is already in the numerator, so it matches Formula D with directly, no rewriting needed.    Applying linearity and reading off the table:         This video goes through the content of this page.     "
+},
+{
+  "id": "act-laplace-ivp-second",
+  "level": "2",
+  "url": "sec-laplace-ivp-activity.html#act-laplace-ivp-second",
+  "type": "Activity",
+  "number": "4.3.1",
+  "title": "Solve the IVP <span class=\"process-math\">\\(y'' + 9y = 9\\text{,}\\)<\/span> <span class=\"process-math\">\\(y(0) = 1\\text{,}\\)<\/span> <span class=\"process-math\">\\(y'(0) = -3\\)<\/span>.",
+  "body": " Solve the IVP , ,   Work through the three steps to solve this initial value problem using the Laplace transform.     Step 1a: Substitute the Derivative Formulas   Taking of both sides and applying linearity on the left and Formula A on the right: Using the derivative formulas from with and , which of the following is the correct result?         Correct! Substituting and gives exactly this.         Check the sign of . The formula gives , so the constant should be , not .         It looks like the wrong initial conditions were used. Here and , so .         The term , not . Check the sign in the derivative formula.        Step 1b: Solve for   Using the result from the previous part, , which of the following is the correct expression for ?         Correct! Collecting terms gives , and dividing by gives this expression.         Check the signs when moving terms to the right side. moves to the right as , not .         The first term on the right side needs to keep its in the denominator when dividing by . It becomes .         Don't forget to divide every term by . The term becomes , not just .        Step 2: Partial Fraction Decomposition   Dividing by gives: The first term needs a partial fraction decomposition since it involves a linear factor and an irreducible quadratic, as in . The decomposition gives:   Solving for the PFD coefficients (can skim, reference for homework)  The correct form is . Clearing denominators: Expanding and matching coefficients: So , , , giving , , .  Substituting back into the expression for :       Step 3: Apply the Inverse Laplace Transform   Apply to to find .     matches Formula A . For , notice and the 3 is already in the numerator, so it matches Formula D with directly, no rewriting needed.    Applying linearity and reading off the table:     "
+},
+{
+  "id": "video-laplace-ivp-activity",
+  "level": "2",
+  "url": "sec-laplace-ivp-activity.html#video-laplace-ivp-activity",
+  "type": "Figure",
+  "number": "4.3.1",
+  "title": "",
+  "body": " This video goes through the content of this page.   "
+},
+{
+  "id": "exercises-4-3",
+  "level": "1",
+  "url": "exercises-4-3.html",
+  "type": "Exercises",
+  "number": "4.3.4",
+  "title": "Exercises for Section 4.3",
+  "body": " Exercises for Section 4.3   Use Laplace transforms to solve each of the following initial value problems, following the three steps: transform, solve for the transformed function, then invert. Several of the inverse transforms you will need were already computed in the exercises for Section 4.2, and you may use those results directly!      Use Laplace transforms to solve the following initial value problem. After solving for and factoring the denominator, you may use your result from to finish the problem.    Transforming and solving gives , which is exactly . Therefore        Use Laplace transforms to solve the following initial value problem. After solving for , you may use your result from to finish the problem.    The right-hand side is not zero this time: apply Formula D to transform . Since both initial conditions are zero, the derivative formulas simplify nicely.    Transforming gives , so , which is exactly . Therefore        Use Laplace transforms to solve the following initial value problem. After solving for , one of the two terms is exactly , and you may use your result from that exercise for it.    Transforming and solving for gives Use on the first term; the second term matches Formula E directly.    Using for the first term and Formula E for the second:        Use Laplace transforms to solve the following initial value problem. After solving for and factoring the denominator, you may use your result from to finish the problem.    Apply Formula A to transform the right-hand side. Collecting terms gives ; factor before dividing.    Transforming gives , so , which is exactly . Therefore      "
+},
+{
+  "id": "ex-4-3-1",
+  "level": "2",
+  "url": "exercises-4-3.html#ex-4-3-1",
+  "type": "Exercise",
+  "number": "4.3.4.1",
+  "title": "",
+  "body": "  Use Laplace transforms to solve the following initial value problem. After solving for and factoring the denominator, you may use your result from to finish the problem.    Transforming and solving gives , which is exactly . Therefore    "
+},
+{
+  "id": "ex-4-3-2",
+  "level": "2",
+  "url": "exercises-4-3.html#ex-4-3-2",
+  "type": "Exercise",
+  "number": "4.3.4.2",
+  "title": "",
+  "body": "  Use Laplace transforms to solve the following initial value problem. After solving for , you may use your result from to finish the problem.    The right-hand side is not zero this time: apply Formula D to transform . Since both initial conditions are zero, the derivative formulas simplify nicely.    Transforming gives , so , which is exactly . Therefore    "
+},
+{
+  "id": "ex-4-3-3",
+  "level": "2",
+  "url": "exercises-4-3.html#ex-4-3-3",
+  "type": "Exercise",
+  "number": "4.3.4.3",
+  "title": "",
+  "body": "  Use Laplace transforms to solve the following initial value problem. After solving for , one of the two terms is exactly , and you may use your result from that exercise for it.    Transforming and solving for gives Use on the first term; the second term matches Formula E directly.    Using for the first term and Formula E for the second:    "
+},
+{
+  "id": "ex-4-3-4",
+  "level": "2",
+  "url": "exercises-4-3.html#ex-4-3-4",
+  "type": "Exercise",
+  "number": "4.3.4.4",
+  "title": "",
+  "body": "  Use Laplace transforms to solve the following initial value problem. After solving for and factoring the denominator, you may use your result from to finish the problem.    Apply Formula A to transform the right-hand side. Collecting terms gives ; factor before dividing.    Transforming gives , so , which is exactly . Therefore    "
+},
+{
+  "id": "sec-laplace-formula-reference",
+  "level": "1",
+  "url": "sec-laplace-formula-reference.html",
+  "type": "Section",
+  "number": "4.4",
+  "title": "Laplace Transform Formula Reference",
+  "body": " Laplace Transform Formula Reference  The following formulas are referenced throughout this chapter. Each is named by a letter for easy lookup.   Formula A:     Formula B:     Formula C:     Formula D:     Formula E:     Formula H:     Formula I:     Formula J:    "
+},
+{
+  "id": "formula-A",
+  "level": "2",
+  "url": "sec-laplace-formula-reference.html#formula-A",
+  "type": "Fact",
+  "number": "4.4.1",
+  "title": "Formula A: <span class=\"process-math\">\\(\\mathcal{L}\\{1\\}\\)<\/span>.",
+  "body": " Formula A:   "
+},
+{
+  "id": "formula-B",
+  "level": "2",
+  "url": "sec-laplace-formula-reference.html#formula-B",
+  "type": "Fact",
+  "number": "4.4.2",
+  "title": "Formula B: <span class=\"process-math\">\\(\\mathcal{L}\\{e^{at}\\}\\)<\/span>.",
+  "body": " Formula B:   "
+},
+{
+  "id": "formula-C",
+  "level": "2",
+  "url": "sec-laplace-formula-reference.html#formula-C",
+  "type": "Fact",
+  "number": "4.4.3",
+  "title": "Formula C: <span class=\"process-math\">\\(\\mathcal{L}\\{t^n\\}\\)<\/span>.",
+  "body": " Formula C:   "
+},
+{
+  "id": "formula-D",
+  "level": "2",
+  "url": "sec-laplace-formula-reference.html#formula-D",
+  "type": "Fact",
+  "number": "4.4.4",
+  "title": "Formula D: <span class=\"process-math\">\\(\\mathcal{L}\\{\\sin(at)\\}\\)<\/span>.",
+  "body": " Formula D:   "
+},
+{
+  "id": "formula-E",
+  "level": "2",
+  "url": "sec-laplace-formula-reference.html#formula-E",
+  "type": "Fact",
+  "number": "4.4.5",
+  "title": "Formula E: <span class=\"process-math\">\\(\\mathcal{L}\\{\\cos(at)\\}\\)<\/span>.",
+  "body": " Formula E:   "
+},
+{
+  "id": "formula-H",
+  "level": "2",
+  "url": "sec-laplace-formula-reference.html#formula-H",
+  "type": "Fact",
+  "number": "4.4.6",
+  "title": "Formula H: <span class=\"process-math\">\\(\\mathcal{L}\\{t^n e^{at}\\}\\)<\/span>.",
+  "body": " Formula H:   "
+},
+{
+  "id": "formula-I",
+  "level": "2",
+  "url": "sec-laplace-formula-reference.html#formula-I",
+  "type": "Fact",
+  "number": "4.4.7",
+  "title": "Formula I: <span class=\"process-math\">\\(\\mathcal{L}\\{e^{at}\\sin(bt)\\}\\)<\/span>.",
+  "body": " Formula I:   "
+},
+{
+  "id": "formula-J",
+  "level": "2",
+  "url": "sec-laplace-formula-reference.html#formula-J",
+  "type": "Fact",
+  "number": "4.4.8",
+  "title": "Formula J: <span class=\"process-math\">\\(\\mathcal{L}\\{e^{at}\\cos(bt)\\}\\)<\/span>.",
+  "body": " Formula J:   "
+},
+{
   "id": "backmatter-2",
   "level": "1",
   "url": "backmatter-2.html",
