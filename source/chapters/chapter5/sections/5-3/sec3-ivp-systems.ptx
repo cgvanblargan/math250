@@ -9,19 +9,24 @@
 
   <p>
     We now know how to find the general solution to a homogeneous system. As always, the
-    general solution describes every solution at once. But in applications (like our
+    general solution gives every possible solution. But in applications (like our
     rabbits and foxes), we usually know where the system starts, and we want the one
-    specific solution matching that start.
+    specific solution solving the initial value problem.
   </p>
 
   <observation xml:id="obs-two-conditions">
     <p>
       The general solution <m>c_1\mathbf{y} + c_2\mathbf{z}</m> has <em>two</em> unknown
       constants. So if we're given <em>two</em> initial conditions, the values of
-      <m>x_1(0)</m> and <m>x_2(0)</m>, we can solve for <m>c_1</m> and <m>c_2</m> and pin
-      down the one particular solution that satisfies them. This is just like second-order
+      <m>x_1(0)</m> and <m>x_2(0)</m>, we can solve for <m>c_1</m> and <m>c_2</m> and find
+      the one particular solution that satisfies them. This is just like second-order
       equations, where the two constants in the general solution required two initial
       conditions.
+    </p>
+    <p>
+      (It turns out that linear independence of the solutions <m>\mathbf{y}</m> and
+      <m>\mathbf{z}</m> guarantees there is a unique solution for <m>c_1</m> and
+      <m>c_2</m>.)
     </p>
   </observation>
 
@@ -39,6 +44,10 @@
       \mathbf{z}(t) = \begin{bmatrix} 1 \\ 6 \end{bmatrix} e^{-5t}</me>
     are both solutions. (You could verify this yourself with the process from
     <xref ref="sec-verifying-solutions-systems"/>!)
+  </p>
+
+  <p>In the following activity, we repeat the same process covered in the previous two pages. Feel free to 
+    go through it, skim, or skip the warm-up depending on how much practice you want with it!
   </p>
 
   <activity xml:id="act-warmup-general-solution">
@@ -93,7 +102,7 @@
        ═══════════════════════════════════════════════════════════ -->
 
   <p>
-    Now for the new part: using initial conditions to find the particular solution.
+    Now it is time for the main example of this page. We will use initial conditions to find the particular solution.
   </p>
 
   <example xml:id="ex-ivp-system">
@@ -109,21 +118,33 @@
         From the warm-up (where we already checked <m>W \neq 0</m>!), the general solution is
         <me>\mathbf{x}(t) = \begin{bmatrix} x_1 \\ x_2 \end{bmatrix}
           = \begin{bmatrix} c_1 e^{5t} + c_2 e^{-5t} \\ c_1 e^{5t} + 6c_2 e^{-5t} \end{bmatrix}.</me>
-        We plug in <m>t = 0</m> and use the initial conditions. Remember that
-        <m>e^{0} = 1</m>, so all the exponentials disappear:
+        By plugging in <m>t = 0</m> and using the initial conditions, we get the system:
         <md>
-          <mrow>x_1(0) = 7 \amp\implies 7 = c_1 + c_2</mrow>
-          <mrow>x_2(0) = -3 \amp\implies -3 = c_1 + 6c_2</mrow>
+          <mrow>7 \amp= c_1 + c_2</mrow>
+          <mrow>-3 \amp= c_1 + 6c_2</mrow>
         </md>
+        <solution>
+        <title>Work for getting the system (read if stuck)</title>
+        <p>
+          Plugging <m>t = 0</m> into the first component of the general solution:
+          <me>x_1(0) = c_1 e^{5 \cdot 0} + c_2 e^{-5 \cdot 0}
+            = c_1 e^{0} + c_2 e^{0}
+            = c_1 + c_2,</me>
+          since <m>e^{0} = 1</m>. Setting this equal to the initial condition
+          <m>x_1(0) = 7</m> gives <m>7 = c_1 + c_2</m>.
+        </p>
+        <p>
+          Similarly, for the second component:
+          <me>x_2(0) = c_1 e^{5 \cdot 0} + 6c_2 e^{-5 \cdot 0}
+            = c_1 e^{0} + 6c_2 e^{0}
+            = c_1 + 6c_2,</me>
+          and setting this equal to <m>x_2(0) = -3</m> gives <m>-3 = c_1 + 6c_2</m>.
+        </p>
+      </solution>
         This is two equations in the two unknowns <m>c_1</m> and <m>c_2</m>. Solving the
-        system (algebra in the dropdown below) gives:
+        system gives:
         <me>c_1 = 9, \qquad c_2 = -2.</me>
-        Substituting these back into the general solution, the particular solution is
-        <me>\mathbf{x}(t) = \begin{bmatrix} 9 e^{5t} - 2 e^{-5t} \\ 9 e^{5t} - 12 e^{-5t} \end{bmatrix},</me>
-        or written out by components, <m>x_1(t) = 9e^{5t} - 2e^{-5t}</m> and
-        <m>x_2(t) = 9e^{5t} - 12e^{-5t}</m>.
-      </p>
-      <solution>
+         <solution>
         <title>Algebra (can skim)</title>
         <p>
           We solve the system
@@ -140,13 +161,19 @@
           <me>7 = c_1 + (-2) \implies c_1 = 9.</me>
         </p>
       </solution>
+        Substituting these back into the general solution, the particular solution is
+        <me>\mathbf{x}(t) = \begin{bmatrix} 9 e^{5t} - 2 e^{-5t} \\ 9 e^{5t} - 12 e^{-5t} \end{bmatrix},</me>
+        or written out by components, <m>x_1(t) = 9e^{5t} - 2e^{-5t}</m> and
+        <m>x_2(t) = 9e^{5t} - 12e^{-5t}</m>.
+      </p>
+     
     </solution>
   </example>
 
   <!-- ═══════════════════════════════════════════════════════════
        ACTIVITY: SET UP THE SYSTEM (MC)
        ═══════════════════════════════════════════════════════════ -->
-
+<p>We end with a quick checkpoint: </p>
   <activity xml:id="act-ivp-setup">
     <title>Setting Up the Constants</title>
     <statement>

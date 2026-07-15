@@ -10,13 +10,14 @@
   <p>
     We found two solutions to a system on the last page, and hinted that they can be combined
     to build the general solution. To make that precise, we need two more tools from linear
-    algebra: the <em>determinant</em> and <em>linear independence</em>.
+    algebra: the determinant and linear independence.
   </p>
 
   <p>
-    Keep the following in mind: in a linear algebra course, these ideas get weeks of
-    development and hold a lot of theory. We only need a working understanding for ODEs, so we will 
-    not be going too much into the theory behind everything. 
+    Keep in mind that in a linear algebra course, these ideas get weeks of
+    development and carry a lot of theory. We only need a working understanding for ODEs, so we
+    won't go deep into the theory. If you haven't taken a linear algebra or matrices course,
+    then you may find this section a little dense.
   </p>
 
   <!-- ═══════════════════════════════════════════════════════════
@@ -61,9 +62,9 @@
     In general there is a lot to unpack with linear independence, but with just two vectors,
     <m>\mathbf{x}</m> and <m>\mathbf{y}</m> are linearly independent exactly when they are
     <alert>not multiples of each other</alert>. And when that happens, the linear combinations
-    <m>c_1\mathbf{x} + c_2\mathbf{y}</m> don't just trace out a single line: they sweep out
-    the <em>entire plane</em>. Every vector in <m>\mathbb{R}^2</m> can be built out of two
-    linearly independent vectors.
+    <m>c_1\mathbf{x} + c_2\mathbf{y}</m> realize every vector in the plane as you vary over
+    all <m>c_1</m> and <m>c_2</m>. That is, every vector in <m>\mathbb{R}^2</m> can be built
+    out of two linearly independent vectors.
   </p>
 
   <p>
@@ -77,7 +78,7 @@
       <m>\det(A) \neq 0</m>.
     </p>
   </fact>
-<p>We will apply this idea in the following example.  </p>
+<p>We will apply this idea in the following example.</p>
   <!-- ═══════════════════════════════════════════════════════════
        EXAMPLE: COMPUTE A DETERMINANT
        ═══════════════════════════════════════════════════════════ -->
@@ -174,8 +175,9 @@
        ═══════════════════════════════════════════════════════════ -->
 
   <p>
-    Let's return to solutions of systems. As before, we are only going to scratch the surface of the underlying theory. 
-    Most of our efforts instead will be put towards applying these in future sections!  
+    Let's return to solutions of systems. As before, we are only going to scratch the surface
+    of the underlying theory. Instead, most of our effort will go towards applying these ideas
+    in future sections!
   </p>
 
   <fact xml:id="fact-superposition-systems">
@@ -187,7 +189,8 @@
         <mrow>x_1' \amp= p_{11}(t)x_1 + p_{12}(t)x_2</mrow>
         <mrow>x_2' \amp= p_{21}(t)x_1 + p_{22}(t)x_2</mrow>
       </md>
-      then any linear combination:
+      (written in vector form as <m>\mathbf{x}' = P(t)\mathbf{x}</m>), then any linear
+      combination:
       <me>c_1\mathbf{x} + c_2\mathbf{y}</me>
       is also a solution.
     </p>
@@ -310,8 +313,8 @@
   </definition>
 
   <p>
-    Notice the two solutions become the <em>columns</em> of the matrix. And finally, we get to our main theorem
- of the section by combining the previous results!
+    Notice the two solutions become the <em>columns</em> of the matrix. And finally, we get
+    to our main theorem of the section by combining the previous results!
   </p>
 
   <theorem xml:id="thm-wronskian-general-solution">

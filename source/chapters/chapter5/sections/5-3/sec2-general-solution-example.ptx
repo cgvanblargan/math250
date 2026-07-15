@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <section xml:id="sec-general-solution-example" xmlns:xi="http://www.w3.org/2001/XInclude">
-  <title>Building the General Solution</title>
+  <title>Example Building the General Solution</title>
 
   <!-- ═══════════════════════════════════════════════════════════
        RECAP BLOCK
        ═══════════════════════════════════════════════════════════ -->
 
   <p>
-    Time to put the last page to work. Here is the full process for building the general
-    solution to a homogeneous linear system:
+    We will now work through a full example using the results we just established. Here is a
+    summary of the process for finding the general solution to a homogeneous linear system:
   </p>
 
   <assemblage xml:id="recap-general-solution-process">
@@ -24,8 +24,8 @@
         </li>
         <li>
           <p>
-            Compute the Wronskian <m>W</m>: the determinant of the matrix whose
-            <em>columns</em> are the two solutions.
+            Compute the Wronskian <m>W</m> (the determinant of the matrix whose
+            <em>columns</em> are the two solutions).
           </p>
         </li>
         <li>
@@ -39,14 +39,14 @@
   </assemblage>
 
   <p>
-    The example below walks through these three steps in order.
+    The activity below walks through these three steps in order.
   </p>
 
   <!-- ═══════════════════════════════════════════════════════════
-       MAIN EXAMPLE
+       MAIN ACTIVITY
        ═══════════════════════════════════════════════════════════ -->
 
-  <example xml:id="ex-general-solution-system">
+  <activity xml:id="act-general-solution-system">
     <title>The General Solution to a System</title>
     <introduction>
       <p>
@@ -100,33 +100,71 @@
     <task>
       <statement>
         <p>
-          Use the Wronskian to show that <m>\mathbf{y}</m> and <m>\mathbf{z}</m> are
-          linearly independent.
+          Compute the Wronskian <m>W(\mathbf{y}, \mathbf{z})</m>. Are the solutions
+          linearly independent?
         </p>
       </statement>
-      <hint>
-        <p>
-          Place the two solutions as the columns of a matrix, then take the determinant:
-          <me>W = \det\left( \begin{bmatrix} 3e^{5t} \amp 2e^{-5t} \\ 3e^{5t} \amp 7e^{-5t} \end{bmatrix} \right),
-            \qquad
-            \det \begin{bmatrix} a \amp b \\ c \amp d \end{bmatrix} = ad - bc.</me>
-        </p>
-      </hint>
-      <solution>
-        <p>
-          Computing the determinant:
-          <md>
-            <mrow>W \amp= 3e^{5t} \cdot 7e^{-5t} - 2e^{-5t} \cdot 3e^{5t}</mrow>
-            <mrow>\amp= 21e^{0} - 6e^{0}</mrow>
-            <mrow>\amp= 21 - 6 = 15.</mrow>
-          </md>
-          Notice the exponentials cancel: <m>e^{5t} \cdot e^{-5t} = e^{0} = 1</m>.
-          Since <m>W = 15 \neq 0</m>, the solutions <m>\mathbf{y}</m> and <m>\mathbf{z}</m>
-          are linearly independent.
-        </p>
-      </solution>
+      <choices randomize="yes">
+        <choice correct="yes">
+          <statement>
+            <p>
+              <m>W = 15</m>, which is not <m>0</m>, so the solutions are linearly
+              independent.
+            </p>
+          </statement>
+          <feedback>
+            <p>
+              Correct! Placing the solutions as the columns and computing:
+              <me>W = 3e^{5t} \cdot 7e^{-5t} - 2e^{-5t} \cdot 3e^{5t}
+                = 21e^{0} - 6e^{0} = 21 - 6 = 15.</me>
+              The exponentials cancel since <m>e^{5t} \cdot e^{-5t} = e^{0} = 1</m>.
+              Since <m>W = 15 \neq 0</m>, the solutions are linearly independent.
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement>
+            <p>
+              <m>W = 27</m>, which is not <m>0</m>, so the solutions are linearly
+              independent.
+            </p>
+          </statement>
+          <feedback>
+            <p>
+              Recheck the arithmetic: the determinant is <m>ad - bc</m>, with a
+              <em>minus</em> sign. Here that's
+              <m>3e^{5t} \cdot 7e^{-5t} - 2e^{-5t} \cdot 3e^{5t} = 21 - 6 = 15</m>, not
+              <m>21 + 6 = 27</m>. The conclusion is right, though: since <m>W \neq 0</m>,
+              the solutions are linearly independent.
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement>
+            <p>
+              <m>W = 15e^{10t}</m>, which is never <m>0</m>, so the solutions are linearly
+              independent.
+            </p>
+          </statement>
+          <feedback>
+            <p>
+              Careful with the exponentials: when multiplying, the exponents
+              <em>add</em>, so <m>e^{5t} \cdot e^{-5t} = e^{5t + (-5t)} = e^{0} = 1</m>.
+              The exponentials cancel completely, leaving <m>W = 21 - 6 = 15</m>. The
+              conclusion is right, though: the solutions are linearly independent.
+            </p>
+          </feedback>
+        </choice>
+      </choices>
     </task>
-    <conclusion>
+    <task>
+      <statement>
+        <p>
+          Write down the general solution to the system.
+        </p>
+      </statement>
+   
+    <solution>
       <p>
         Since the Wronskian is nonzero, our theorem from the last page applies: the general
         solution to the system is
@@ -140,89 +178,22 @@
         <m>x_2(t) = 3c_1 e^{5t} + 7c_2 e^{-5t}</m> solve the original system simultaneously,
         for any constants <m>c_1</m> and <m>c_2</m>.
       </p>
-    </conclusion>
-  </example>
+    </solution>
+     </task>
+  </activity>
 
   <!-- ═══════════════════════════════════════════════════════════
        NOTE: THE WRONSKIAN OFTEN INVOLVES t
        ═══════════════════════════════════════════════════════════ -->
 
   <p>
-    In our example, the exponentials canceled and the Wronskian came out to a constant.
+    In our activity, the exponentials canceled and the Wronskian came out to a constant.
     That won't always happen: often <m>W</m> involves <m>t</m>. For example, you may find
     <me>W(\mathbf{y}, \mathbf{z}) = 12e^{-3t}.</me>
     Since <m>e^{-3t}</m> is <em>never</em> <m>0</m>, we have <m>12e^{-3t} \neq 0</m> for any
     <m>t</m>, and we can still conclude the solutions are linearly independent. A Wronskian
     that depends on <m>t</m> is perfectly fine, as long as it's never zero.
   </p>
-
-  <!-- ═══════════════════════════════════════════════════════════
-       ACTIVITY: WRONSKIAN COMPUTATION (MC)
-       ═══════════════════════════════════════════════════════════ -->
-
-  <activity xml:id="act-wronskian-computation">
-    <title>Wronskian Checkpoint</title>
-    <statement>
-      <p>
-        Suppose a homogeneous linear system has the two solutions
-        <me>\mathbf{y}(t) = \begin{bmatrix} 2 \\ 1 \end{bmatrix} e^{-t}
-          \quad \text{and} \quad
-          \mathbf{z}(t) = \begin{bmatrix} 1 \\ 2 \end{bmatrix} e^{-2t}.</me>
-        Compute the Wronskian <m>W(\mathbf{y}, \mathbf{z})</m>. Are the solutions linearly
-        independent?
-      </p>
-    </statement>
-    <choices randomize="yes">
-      <choice correct="yes">
-        <statement>
-          <p>
-            <m>W = 3e^{-3t}</m>, which is never <m>0</m>, so the solutions are linearly
-            independent.
-          </p>
-        </statement>
-        <feedback>
-          <p>
-            Correct!
-            <m>W = 2e^{-t} \cdot 2e^{-2t} - 1e^{-2t} \cdot 1e^{-t} = 4e^{-3t} - e^{-3t} = 3e^{-3t}</m>.
-            Even though <m>W</m> depends on <m>t</m>, the exponential <m>e^{-3t}</m> is never
-            <m>0</m>, so <m>W \neq 0</m> and the solutions are linearly independent.
-          </p>
-        </feedback>
-      </choice>
-      <choice>
-        <statement>
-          <p>
-            <m>W = 3e^{-3t}</m>, but since <m>W</m> depends on <m>t</m>, we cannot conclude
-            the solutions are linearly independent.
-          </p>
-        </statement>
-        <feedback>
-          <p>
-            The computation is right, but a <m>t</m>-dependent Wronskian is fine! The
-            question is whether <m>W</m> can ever equal <m>0</m>. Since <m>e^{-3t}</m> is
-            never <m>0</m>, we have <m>W = 3e^{-3t} \neq 0</m> for every <m>t</m>, and the
-            solutions are linearly independent.
-          </p>
-        </feedback>
-      </choice>
-      <choice>
-        <statement>
-          <p>
-            <m>W = 5e^{-3t}</m>, which is never <m>0</m>, so the solutions are linearly
-            independent.
-          </p>
-        </statement>
-        <feedback>
-          <p>
-            Recheck the arithmetic: the determinant is
-            <m>2e^{-t} \cdot 2e^{-2t} - 1e^{-2t} \cdot 1e^{-t}</m>, which gives
-            <m>4e^{-3t} - e^{-3t} = 3e^{-3t}</m>: subtract, don't add! The conclusion is
-            right, though: the solutions are linearly independent.
-          </p>
-        </feedback>
-      </choice>
-    </choices>
-  </activity>
 
   <!-- ═══════════════════════════════════════════════════════════
        ACTIVITY: WRITE THE GENERAL SOLUTION (MC)
@@ -232,11 +203,12 @@
     <title>General Solution Checkpoint</title>
     <statement>
       <p>
-        Continuing the previous checkpoint: we now know
-        <m>\mathbf{y}(t) = \begin{bmatrix} 2 \\ 1 \end{bmatrix} e^{-t}</m> and
-        <m>\mathbf{z}(t) = \begin{bmatrix} 1 \\ 2 \end{bmatrix} e^{-2t}</m>
-        are linearly independent solutions. Which of the following is the general solution
-        to the system, written as a single vector?
+        Suppose a homogeneous linear system has the linearly independent solutions
+        <me>\mathbf{y}(t) = \begin{bmatrix} 2 \\ 1 \end{bmatrix} e^{-t}
+          \quad \text{and} \quad
+          \mathbf{z}(t) = \begin{bmatrix} 1 \\ 2 \end{bmatrix} e^{-2t}.</me>
+        Which of the following is the general solution to the system, written as a single
+        vector?
       </p>
     </statement>
     <choices randomize="yes">
