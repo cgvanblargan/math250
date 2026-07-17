@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-5-4" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Eigenvalues and Eigenvectors</title>
+
+  <introduction>
+    <p>
+     Before we can starting finding solutions to systems ourselves, we need to learn about one more
+      linear algebra topic. In this section, we will learn about eigenvalues and eigenvectors. As before, this will be 
+      bit of a crash course in the topic. 
+    </p>
+  </introduction>
+
+  <xi:include href="./5-4/sec1-intro-eigenvectors.ptx"/>
+  <xi:include href="./5-4/sec2-finding-eigen.ptx"/>
+
+</section>

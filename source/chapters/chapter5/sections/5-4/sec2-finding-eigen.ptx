@@ -1,0 +1,485 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-finding-eigen" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Finding Eigenvalues and Eigenvectors</title>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       INTRO
+       ═══════════════════════════════════════════════════════════ -->
+
+   <p>
+    So far we have verified whether a given vector was an eigenvector of a matrix (and from that we could see the
+    eigenvalue). But without already being given the eigenvector, we still have a way of finding the eigenvalues!
+    Again, we will borrow some facts from linear algebra, and won't have time to fully justify all of it.
+  </p>
+
+
+
+  <fact xml:id="fact-eigenvalue-determinant">
+    <title>Computing Eigenvalues</title>
+    <p>
+      <m>\lambda</m> is an eigenvalue of <m>A</m> exactly when <m>\lambda</m> satisfies:
+      <me>\det(A - \lambda I) = 0.</me>
+    </p>
+  </fact>
+
+  <proof> <title> Justification on why solving <m>\det(A - \lambda I) = 0 </m> finds the eigenvalues (can skim) </title>
+      <p>
+    Notice that
+    <m>A\mathbf{v} = \lambda\mathbf{v}</m> is equivalent to:
+    <me>(A - \lambda I)\mathbf{v} = \mathbf{0}.</me>
+    So <m>\lambda</m> is an eigenvalue exactly when this equation has a <em>non-zero</em>
+    solution <m>\mathbf{v}</m>.</p>
+
+    <p>  A standard result from linear algebra says this happens
+    exactly when the determinant of the matrix <m>A - \lambda I</m> is zero.
+  </p>
+     </proof>
+
+  <p>
+    To find <m>A - \lambda I</m>, we note that subtracting <m>\lambda I</m> just subtracts <m>\lambda</m>
+    along the main diagonal of <m>A</m>:
+    <md>
+      <mrow>A - \lambda I
+        \amp= \begin{bmatrix} a \amp b \\ c \amp d \end{bmatrix}
+          - \lambda \begin{bmatrix} 1 \amp 0 \\ 0 \amp 1 \end{bmatrix}</mrow>
+      <mrow>\amp= \begin{bmatrix} a \amp b \\ c \amp d \end{bmatrix}
+          - \begin{bmatrix} \lambda \amp 0 \\ 0 \amp \lambda \end{bmatrix}</mrow>
+      <mrow>\amp= \begin{bmatrix} a - \lambda \amp b \\ c \amp d - \lambda \end{bmatrix}.</mrow>
+    </md>
+    So the steps for finding eigenvalues and eigenvectors are:
+    <ol>
+      <li>
+        <p>
+          Subtract <m>\lambda</m> along the diagonal to compute <m>A - \lambda I</m>.
+        </p>
+      </li>
+      <li>
+        <p>
+           Take the determinant of <m>A - \lambda I</m>.
+        </p>
+      </li>
+      <li>
+        <p>
+          Set the determinant equal to <m>0</m>, and solve for <m>\lambda</m>.
+        </p>
+      </li>
+      <li>
+        <p>
+          Last, find the eigenvectors
+    that go with each eigenvalue.
+        </p>
+      </li>
+    </ol>
+  </p>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       EXAMPLE: FINDING THE EIGENVALUES
+       ═══════════════════════════════════════════════════════════ -->
+
+<p>First we do an example with steps 1-3 to find the eigenvalues of a matrix. </p>
+  <example xml:id="ex-finding-eigenvalues">
+    <title>Finding the Eigenvalues</title>
+    <statement>
+      <p>
+        Find the eigenvalues of
+        <m>A = \begin{bmatrix} 4 \amp 2 \\ 3 \amp -1 \end{bmatrix}</m>.
+      </p>
+    </statement>
+    <solution>
+      <p>
+        We will break this up into two steps. Step 1 is to compute <m>\det(A - \lambda I)</m>. Step 2
+        is to set it equal to <m>0</m> and solve for <m>\lambda</m>.
+      </p>
+      <solution> <title>Step 1: Computing <m>\det(A - \lambda I)</m> </title>
+      <p>
+        Subtracting <m>\lambda</m> along
+        the diagonal and computing the determinant:
+        <md>
+          <mrow>\det(A - \lambda I)
+            \amp= \begin{vmatrix} 4 - \lambda \amp 2 \\ 3 \amp -1 - \lambda \end{vmatrix}</mrow>
+          <mrow>\amp= (4 - \lambda)(-1 - \lambda) - 2 \cdot 3</mrow>
+          <mrow>\amp= -4 - 3\lambda + \lambda^2 - 6</mrow>
+          <mrow>\amp= \lambda^2 - 3\lambda - 10.</mrow>
+        </md>
+      </p>
+    </solution>
+      <p>
+        In step one, we found that <m>\det(A - \lambda I) = \lambda^2 - 3\lambda - 10</m>, a quadratic in <m>\lambda</m>.
+        Now we solve <m>\det(A - \lambda I) = 0</m>.
+      </p>
+      <solution> <title>Step 2: Solving <m>\det(A - \lambda I) = 0</m> </title>
+      <p>
+        Setting the quadratic equal to <m>0</m> and factoring:
+        <me>\lambda^2 - 3\lambda - 10 = (\lambda - 5)(\lambda + 2) = 0.</me>
+        So the eigenvalues are <m>\lambda = 5</m> and <m>\lambda = -2</m>.
+      </p>
+    </solution>
+    </solution>
+  </example>
+
+  <p>
+    Notice that <m>\lambda = -2</m> is exactly the eigenvalue we confirmed in
+    <xref ref="exploration-confirm-eigenvalue"/>; this time we found it from scratch, along
+    with a second eigenvalue <m>\lambda = 5</m> that we didn't know about before. Also
+    notice that <m>\det(A - \lambda I)</m> came out as a quadratic in
+    <m>\lambda</m>. That will always happen for a <m>2 \times 2</m> matrix, so we can
+    expect (at most) two eigenvalues from this process.
+  </p>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       FROM EIGENVALUES TO EIGENVECTORS
+       ═══════════════════════════════════════════════════════════ -->
+
+  <p>
+    Now, how do we find the eigenvector that goes with each eigenvalue? We return to the
+    second form of the definition:
+    <me>(A - \lambda I)\mathbf{v} = \mathbf{0},</me>
+    but this time <m>\lambda</m> is a known number, and the unknown is the vector
+    <m>\mathbf{v} = \begin{bmatrix} v_1 \\ v_2 \end{bmatrix}</m>. Plugging in the
+    eigenvalue turns this into a system of equations for <m>v_1</m> and <m>v_2</m> that we
+    can solve. Let's do <m>\lambda = 5</m> together.
+  </p>
+
+  <example xml:id="ex-eigenvector-lambda5">
+    <title>Finding an Eigenvector for <m>\lambda = 5</m></title>
+    <statement>
+      <p>
+        Find an eigenvector of
+        <m>A = \begin{bmatrix} 4 \amp 2 \\ 3 \amp -1 \end{bmatrix}</m>
+        associated with the eigenvalue <m>\lambda = 5</m>.
+      </p>
+    </statement>
+    <solution>
+      <p>
+        We will break this up into two steps. Step 1 will come from solving <m>(A - 5I)\mathbf{v} = \mathbf{0}</m>. Step 2
+        involves solving for a specific eigenvector.
+      </p>
+      <solution> <title>Step 1: Solving <m>(A - 5I)\mathbf{v} = \mathbf{0}</m> </title>
+      <p>
+        We solve <m>(A - 5I)\mathbf{v} = \mathbf{0}</m>. Subtracting <m>5</m> along the
+        diagonal:
+        <me>\begin{bmatrix} 4 - 5 \amp 2 \\ 3 \amp -1 - 5 \end{bmatrix}
+          = \begin{bmatrix} -1 \amp 2 \\ 3 \amp -6 \end{bmatrix}.
+          </me>
+        Which means we need to solve the matrix-vector equation:
+        <me>\begin{bmatrix} -1 \amp 2 \\ 3 \amp -6 \end{bmatrix}
+          \begin{bmatrix} v_1 \\ v_2 \end{bmatrix}
+          = \begin{bmatrix} 0 \\ 0 \end{bmatrix}.</me>
+        Converting to a system of equations (from each row of the equation above):
+        <md>
+          <mrow>-v_1 + 2v_2 \amp= 0</mrow>
+          <mrow>3v_1 - 6v_2 \amp= 0.</mrow>
+        </md>
+        Notice that the second equation is just <m>-3</m> times the first! So, both
+        equations are equivalent, and so the solutions can be described just by the first equation:
+        <me>-v_1 + 2v_2 = 0.</me>
+      </p>
+    </solution>
+      <p>
+        In step one, we discovered that eigenvectors for <m>A</m> satisfy the relationship
+        <me>-v_1 + 2v_2 = 0.</me>
+        Now we will find a specific eigenvector.
+      </p>
+      <solution> <title>Step 2: Finding a specific eigenvector </title>
+      <p>
+        We can rewrite <m>-v_1 + 2v_2 = 0</m> as
+        <me>2v_2 = v_1.</me>
+        Notice that there are infinitely many solutions to this. We can fix either component and solve for the other.
+        Let's set <m>v_1 = 1</m>. Then
+        <m>2v_2 = v_1 = 1</m> gives <m>v_2 = \frac{1}{2}</m>, and:
+        <me>\lambda = 5 \implies \mathbf{v} = \begin{bmatrix} 1 \\ 1/2 \end{bmatrix}.</me>
+        Notice, any non-zero multiple also gives a correct answer, for example:
+        <m>\begin{bmatrix} 2 \\ 1 \end{bmatrix}</m>,
+        <m>\begin{bmatrix} 10 \\ 5 \end{bmatrix}</m>, and
+        <m>\begin{bmatrix} -1 \\ -1/2 \end{bmatrix}</m> all work. (In fact,
+        <m>\begin{bmatrix} 2 \\ 1 \end{bmatrix}</m> is arguably the nicest, since it avoids
+        fractions.)
+      </p>
+    </solution>
+    </solution>
+  </example>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       OBSERVATION: TWO THINGS TO NOTICE
+       ═══════════════════════════════════════════════════════════ -->
+
+  <observation xml:id="obs-eigenvector-process">
+    <title>Two Things to Notice From the Example</title>
+    <p>
+      <ul>
+        <li><p>
+          <alert>The equations will be redundant.</alert> When <m>\lambda</m> really is an
+          eigenvalue, the two equations in the system will always be equivalent (this follows from
+          theory in linear algebra we won't go into). So, double check they are in fact multiples of each other, and then
+          choose just one equation to find an eigenvector.
+        </p></li>
+        <li><p>
+          <alert>You get to make a choice of fixing either <m>v_1</m> or <m>v_2</m>.</alert> In the previous example, we chose
+          <m>v_1 = 1</m>, which determined a specific value for <m>v_2</m>. We could've chosen any other non-zero
+          number for <m>v_1</m>. Alternatively, we could've fixed <m>v_2</m> first, instead.
+        </p></li>
+      </ul>
+    </p>
+  </observation>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       ACTIVITY: EIGENVECTOR FOR LAMBDA = -2 (MULTI-PART)
+       ═══════════════════════════════════════════════════════════ -->
+
+  <p>
+    Now you can try finding an eigenvector associated with the other eigenvalue, <m>\lambda = -2</m>! The following
+    activity walks through the same process, one step at a time.
+  </p>
+
+  <activity xml:id="act-eigenvector-lambda-neg2">
+    <title>Finding an Eigenvector for <m>\lambda = -2</m></title>
+    <introduction>
+      <p>
+        We will find an eigenvector of
+        <m>A = \begin{bmatrix} 4 \amp 2 \\ 3 \amp -1 \end{bmatrix}</m>
+        associated with the eigenvalue <m>\lambda = -2</m>, by solving
+        <m>(A - (-2) I)\mathbf{v} = \mathbf{0}</m>.
+      </p>
+    </introduction>
+
+    <task xml:id="task-neg2-matrix">
+      <title>Compute <m>A - (-2)I</m></title>
+      <statement>
+        <p>
+          What is the matrix <m>A - (-2)I</m>? (Careful: subtracting <m>-2</m> means
+          <em>adding</em> <m>2</m>!)
+        </p>
+      </statement>
+      <choices randomize="yes">
+        <choice correct="yes">
+          <statement>
+            <p>
+              <m>A - (-2)I = \begin{bmatrix} 6 \amp 2 \\ 3 \amp 1 \end{bmatrix}</m>
+            </p>
+          </statement>
+          <feedback>
+            <p>
+              Correct! Subtracting <m>-2</m> along the diagonal adds <m>2</m> to the
+              diagonal entries: <m>4 - (-2) = 6</m> and <m>-1 - (-2) = 1</m>. The
+              off-diagonal entries are untouched.
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement>
+            <p>
+              <m>A - (-2)I = \begin{bmatrix} 2 \amp 2 \\ 3 \amp -3 \end{bmatrix}</m>
+            </p>
+          </statement>
+          <feedback>
+            <p>
+              Watch the double negative! This matrix comes from subtracting <m>+2</m> along
+              the diagonal, but here <m>\lambda = -2</m>, so the diagonal entries are
+              <m>4 - (-2) = 4 + 2 = 6</m> and <m>-1 - (-2) = -1 + 2 = 1</m>.
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement>
+            <p>
+              <m>A - (-2)I = \begin{bmatrix} 6 \amp 4 \\ 5 \amp 1 \end{bmatrix}</m>
+            </p>
+          </statement>
+          <feedback>
+            <p>
+              Careful: <m>\lambda I = \begin{bmatrix} \lambda \amp 0 \\ 0 \amp \lambda \end{bmatrix}</m>
+              only has entries on the <em>diagonal</em>, so only the diagonal entries of
+              <m>A</m> change. The off-diagonal entries <m>2</m> and <m>3</m> should stay
+              the same.
+            </p>
+          </feedback>
+        </choice>
+      </choices>
+    </task>
+
+    <task xml:id="task-neg2-system">
+      <title>Convert to a System of Equations</title>
+      <statement>
+        <p>
+          When solving
+          <m>\begin{bmatrix} 6 \amp 2 \\ 3 \amp 1 \end{bmatrix}
+            \begin{bmatrix} v_1 \\ v_2 \end{bmatrix}
+            = \begin{bmatrix} 0 \\ 0 \end{bmatrix}</m>,
+          what does the system of equations become?
+        </p>
+      </statement>
+      <choices randomize="yes">
+        <choice correct="yes">
+          <statement>
+            <p>
+              <md>
+                <mrow>6v_1 + 2v_2 \amp= 0</mrow>
+                <mrow>3v_1 + v_2 \amp= 0</mrow>
+              </md>
+            </p>
+          </statement>
+          <feedback>
+            <p>
+              Correct! Each <em>row</em> of the matrix gives one equation: the top row
+              gives <m>6v_1 + 2v_2 = 0</m>, and the bottom row gives <m>3v_1 + v_2 = 0</m>.
+              As expected, the equations are redundant: the first is just <m>2</m> times
+              the second.
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement>
+            <p>
+              <md>
+                <mrow>6v_1 + 3v_2 \amp= 0</mrow>
+                <mrow>2v_1 + v_2 \amp= 0</mrow>
+              </md>
+            </p>
+          </statement>
+          <feedback>
+            <p>
+              Close, but this uses the <em>columns</em> of the matrix. Each equation comes
+              from a <em>row</em>: multiply across the row and down the vector, so the top
+              row gives <m>6v_1 + 2v_2 = 0</m>.
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement>
+            <p>
+              <md>
+                <mrow>6v_1 + 2v_2 \amp= v_1</mrow>
+                <mrow>3v_1 + v_2 \amp= v_2</mrow>
+              </md>
+            </p>
+          </statement>
+          <feedback>
+            <p>
+              Careful with the right-hand side: we are solving
+              <m>(A - (-2)I)\mathbf{v} = \mathbf{0}</m>, and the <m>\lambda\mathbf{v}</m>
+              part has already been moved to the left side inside <m>A - (-2)I</m>. So the
+              right-hand side of both equations is just <m>0</m>.
+            </p>
+          </feedback>
+        </choice>
+      </choices>
+    </task>
+
+    <task xml:id="task-neg2-eigenvector">
+      <title>Find a Specific Eigenvector</title>
+      <statement>
+        <p>
+          Since the two equations are redundant, we can just use the <em>first</em>
+          equation: <m>6v_1 + 2v_2 = 0</m>. This time (unlike the example, where we fixed
+          <m>v_1</m>) let's fix the <em>second</em> component. Choosing <m>v_2 = 3</m>,
+          what is the resulting eigenvector?
+        </p>
+      </statement>
+      <choices randomize="yes">
+        <choice correct="yes">
+          <statement>
+            <p>
+              <m>\mathbf{v} = \begin{bmatrix} -1 \\ 3 \end{bmatrix}</m>
+            </p>
+          </statement>
+          <feedback>
+            <p>
+              Correct! With <m>v_2 = 3</m>, the equation becomes <m>6v_1 + 6 = 0</m>, so
+              <m>v_1 = -1</m>. Notice this is <m>-1</m> times the eigenvector
+              <m>\begin{bmatrix} 1 \\ -3 \end{bmatrix}</m> we confirmed back on the
+              previous page. Both are perfectly valid eigenvectors, since any non-zero
+              multiple of an eigenvector is also an eigenvector!
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement>
+            <p>
+              <m>\mathbf{v} = \begin{bmatrix} 1 \\ 3 \end{bmatrix}</m>
+            </p>
+          </statement>
+          <feedback>
+            <p>
+              Close, but watch the sign when solving. With <m>v_2 = 3</m>, the equation is
+              <m>6v_1 + 2 \cdot 3 = 0</m>, so <m>6v_1 = -6</m> and <m>v_1 = -1</m>, not
+              <m>+1</m>. You can also check directly:
+              <m>A\begin{bmatrix} 1 \\ 3 \end{bmatrix} = \begin{bmatrix} 10 \\ 0 \end{bmatrix}</m>,
+              which is not a multiple of <m>\begin{bmatrix} 1 \\ 3 \end{bmatrix}</m>.
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement>
+            <p>
+              <m>\mathbf{v} = \begin{bmatrix} 3 \\ -1 \end{bmatrix}</m>
+            </p>
+          </statement>
+          <feedback>
+            <p>
+              It looks like the components got swapped! We fixed the <em>second</em>
+              component <m>v_2 = 3</m>, and solving <m>6v_1 + 6 = 0</m> gives the
+              <em>first</em> component <m>v_1 = -1</m>. Checking directly:
+              <m>A\begin{bmatrix} 3 \\ -1 \end{bmatrix} = \begin{bmatrix} 10 \\ 10 \end{bmatrix}</m>,
+              which is not a multiple of <m>\begin{bmatrix} 3 \\ -1 \end{bmatrix}</m>.
+            </p>
+          </feedback>
+        </choice>
+      </choices>
+    </task>
+  </activity>
+
+  <p>
+    Putting it all together, we now know everything eigen-related about this matrix:
+    <me>\lambda_1 = -2 \text{ with } \mathbf{v}_1 = \begin{bmatrix} 1 \\ -3 \end{bmatrix},
+      \qquad
+      \lambda_2 = 5 \text{ with } \mathbf{v}_2 = \begin{bmatrix} 2 \\ 1 \end{bmatrix}.</me>
+    (Here we chose <m>\mathbf{v}_1 = \begin{bmatrix} 1 \\ -3 \end{bmatrix}</m> rather than the
+    <m>\begin{bmatrix} -1 \\ 3 \end{bmatrix}</m> from the activity; since one is a multiple of the other, either
+    is a fine choice.) Hold onto this matrix and these answers; they are about to make a reappearance when we
+    return to differential equations in the next section.
+  </p>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       KEY TAKEAWAYS
+       ═══════════════════════════════════════════════════════════ -->
+
+  <conclusion>
+    <title>Key Takeaways</title>
+    <p>
+      <ul>
+        <li><p>
+          <alert>Solve for eigenvalues first:</alert> solve <m>\det(A - \lambda I) = 0</m>. For a
+          <m>2 \times 2</m> matrix this is a quadratic in <m>\lambda</m>, so expect two
+          eigenvalues.
+        </p></li>
+        <li><p>
+          <alert>Then find the eigenvectors:</alert> for each eigenvalue, plug it into
+          <m>(A - \lambda I)\mathbf{v} = \mathbf{0}</m>, convert to a system of equations,
+          and solve for the ratio between <m>v_1</m> and <m>v_2</m>.
+        </p></li>
+        <li><p>
+          <alert>The two equations when finding eigenvectors are redundant:</alert> the two equations in the system will
+          always be multiples of each other when <m>\lambda</m> is an eigenvalue. So, you can just choose one of the equations (coming from the rows)
+           to solve for an eigenvector.
+        </p></li>
+        <li><p>
+          <alert>Fix a convenient value for either <m>v_1</m> or <m>v_2</m>:</alert> choose any non-zero value for one of the components, such as <m>v_1 = 1</m>,
+           which will determine the other component. This will give you one specific eigenvector (there are infinitely many).
+        </p></li>
+      </ul>
+    </p>
+  </conclusion>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       VIDEO + QUESTION FORM
+       ═══════════════════════════════════════════════════════════ -->
+
+  <figure xml:id="video-finding-eigen">
+    <caption>This video goes through the content of this page.</caption>
+    <video youtube="-2JKRedCFok" width="100%" preview="default"/>
+  </figure>
+
+  <interactive xml:id="question-form-5-4-2" iframe="question-form.html?section=5.4.2" width="100%" aspect="2:1"/>
+
+</section>

@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-eigenvalue-method-main-idea" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>The Main Idea of the Eigenvalue Method</title>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       SETUP: THE SYSTEMS WE WILL SOLVE
+       ═══════════════════════════════════════════════════════════ -->
+
+  <p>
+    Recall from <xref ref="def-first-order-linear-system"/> that a first-order linear
+    system has the form
+    <md>
+      <mrow>x_1' \amp= p_{11}(t)x_1 + p_{12}(t)x_2 + f_1(t)</mrow>
+      <mrow>x_2' \amp= p_{21}(t)x_1 + p_{22}(t)x_2 + f_2(t),</mrow>
+    </md>
+    which we can write more compactly as the matrix equation
+    <m>\frac{d\mathbf{x}}{dt} = \mathbf{P}(t)\mathbf{x} + \mathbf{f}(t)</m>
+    (see <xref ref="fact-matrix-equation-form"/>).
+  </p>
+
+  <p>
+    In this section, we focus on the case where all the coefficients
+    <m>p_{ij}</m> are constants, and the system is homogeneous, meaning
+    <m>\mathbf{f}(t) = \mathbf{0}</m>. That is, we will solve systems of the form:
+    <md>
+      <mrow>x_1' \amp= ax_1 + bx_2</mrow>
+      <mrow>x_2' \amp= cx_1 + dx_2,</mrow>
+    </md>
+    or in matrix form,
+    <me>\frac{d\mathbf{x}}{dt} = A\mathbf{x},
+      \qquad \text{where }
+      A = \begin{bmatrix} a \amp b \\ c \amp d \end{bmatrix}
+      \text{ is a constant matrix.}</me>
+  </p>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       MOTIVATION: SOMETHING WITH e?
+       ═══════════════════════════════════════════════════════════ -->
+
+  <p>
+    Let's explore how we might try to solve <m>\frac{d\mathbf{x}}{dt} = A\mathbf{x}</m>. Let's think
+    about what happened with just a single function. The equation
+    <me>\frac{dy}{dt} = ky</me>
+    has solutions <m>y(t) = Ce^{kt}</m>. So for our system, which has a similar structure
+    (the derivative equals constant times function), it's natural to guess that the solution is
+    <q>something with an <m>e</m> in it.</q> Let's try:
+    <me>\mathbf{x}(t) = \mathbf{v}e^{\lambda t},</me>
+    where <m>\mathbf{v}</m> is a constant vector and <m>\lambda</m> is a constant number.
+    Written out, this guess is:
+    <me>\mathbf{x}(t) = \begin{bmatrix} v_1 e^{\lambda t} \\ v_2 e^{\lambda t} \end{bmatrix}.</me>
+  </p>
+
+  <p>
+    It turns out that this guess works, as long as <m>\mathbf{v}</m> and <m>\lambda</m>
+    are an eigenvector-eigenvalue pair for <m>A</m>! 
+  </p>
+
+  <theorem xml:id="thm-eigenvector-solution">
+    <title>Eigenvector Solutions</title>
+    <statement>
+      <p>
+        Suppose <m>\lambda</m> is an eigenvalue of <m>A</m> with associated eigenvector
+        <m>\mathbf{v}</m>. Then
+        <me>\mathbf{x}(t) = \mathbf{v}e^{\lambda t}</me>
+        is a solution of <m>\dfrac{d\mathbf{x}}{dt} = A\mathbf{x}</m>.
+      </p>
+    </statement>
+  </theorem>
+
+  <proof>
+    <title>Justification on why <m>\mathbf{v}e^{\lambda t}</m> is a solution</title>
+    <p>
+      We plug the guess <m>\mathbf{x}(t) = \mathbf{v}e^{\lambda t}</m> into both sides of
+      <m>\frac{d\mathbf{x}}{dt} = A\mathbf{x}</m> and check that they match.
+    </p>
+    <p>
+      For the left-hand side, since <m>\mathbf{v}</m> is a constant vector, differentiating
+      each component brings down a factor of <m>\lambda</m> from the chain rule:
+      <me>\frac{d\mathbf{x}}{dt}
+        = \frac{d}{dt}\begin{bmatrix} v_1 e^{\lambda t} \\ v_2 e^{\lambda t} \end{bmatrix}
+        = \begin{bmatrix} \lambda v_1 e^{\lambda t} \\ \lambda v_2 e^{\lambda t} \end{bmatrix}
+        = \lambda\mathbf{v}e^{\lambda t}.</me>
+    </p>
+    <p>
+      For the right-hand side, since <m>e^{\lambda t}</m> is a scalar, we can pull it out
+      of the matrix product, and then use the eigenvector property
+      <m>A\mathbf{v} = \lambda\mathbf{v}</m>:
+      <me>A\mathbf{x} = A\left(\mathbf{v}e^{\lambda t}\right)
+        = \left(A\mathbf{v}\right)e^{\lambda t}
+        = \lambda\mathbf{v}e^{\lambda t}.</me>
+    </p>
+    <p>
+      Both sides came out to <m>\lambda\mathbf{v}e^{\lambda t}</m>, so
+      <m>\mathbf{x}(t) = \mathbf{v}e^{\lambda t}</m> satisfies the equation.
+    </p>
+  </proof>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       ACTIVITY: MATCHING EIGENVALUES AND EIGENVECTORS
+       ═══════════════════════════════════════════════════════════ -->
+
+  <p>
+    Let's put this fact together with our work from the last section. There, we found the
+    eigenvalues and eigenvectors of
+    <m>A = \begin{bmatrix} 4 \amp 2 \\ 3 \amp -1 \end{bmatrix}</m>:
+    <me>\lambda_1 = -2 \text{ with } \mathbf{v}_1 = \begin{bmatrix} 1 \\ -3 \end{bmatrix},
+      \qquad
+      \lambda_2 = 5 \text{ with } \mathbf{v}_2 = \begin{bmatrix} 2 \\ 1 \end{bmatrix}.</me>
+  </p>
+
+  <activity xml:id="act-eigen-pairing">
+    <title>Eigenvalues and Eigenvectors Go Together</title>
+    <statement>
+      <p>
+        Using the eigenvalues and eigenvectors above, which of the following are solutions
+        of <m>\dfrac{d\mathbf{x}}{dt} = \begin{bmatrix} 4 \amp 2 \\ 3 \amp -1 \end{bmatrix}\mathbf{x}</m>?
+        Select <em>all</em> that apply.
+      </p>
+    </statement>
+    <choices multiple-correct="yes" randomize="yes">
+      <choice correct="yes">
+        <statement>
+          <p>
+            <m>\mathbf{x}(t) = \begin{bmatrix} 1 \\ -3 \end{bmatrix}e^{-2t}</m>
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            Correct! The eigenvector <m>\begin{bmatrix} 1 \\ -3 \end{bmatrix}</m> is paired
+            with <em>its own</em> eigenvalue <m>\lambda_1 = -2</m>, so
+            <xref ref="thm-eigenvector-solution"/> says this is a solution.
+          </p>
+        </feedback>
+      </choice>
+      <choice correct="yes">
+        <statement>
+          <p>
+            <m>\mathbf{x}(t) = \begin{bmatrix} 2 \\ 1 \end{bmatrix}e^{5t}</m>
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            Correct! The eigenvector <m>\begin{bmatrix} 2 \\ 1 \end{bmatrix}</m> is paired
+            with <em>its own</em> eigenvalue <m>\lambda_2 = 5</m>, so
+            <xref ref="thm-eigenvector-solution"/> says this is a solution.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            <m>\mathbf{x}(t) = \begin{bmatrix} 1 \\ -3 \end{bmatrix}e^{5t}</m>
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            Careful: the eigenvector and the eigenvalue must <em>go together</em>. The
+            eigenvector <m>\begin{bmatrix} 1 \\ -3 \end{bmatrix}</m> belongs to
+            <m>\lambda_1 = -2</m>, not to <m>5</m>. Pairing it with the wrong eigenvalue
+            does not give a solution.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            <m>\mathbf{x}(t) = \begin{bmatrix} 2 \\ 1 \end{bmatrix}e^{-2t}</m>
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            Careful: the eigenvector and the eigenvalue must <em>go together</em>. The
+            eigenvector <m>\begin{bmatrix} 2 \\ 1 \end{bmatrix}</m> belongs to
+            <m>\lambda_2 = 5</m>, not to <m>-2</m>. Pairing it with the wrong eigenvalue
+            does not give a solution.
+          </p>
+        </feedback>
+      </choice>
+    </choices>
+  </activity>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       THE THREE CASES
+       ═══════════════════════════════════════════════════════════ -->
+
+  <p>
+    So each eigenvalue-eigenvector pair yields a solution. Recall that the eigenvalues come from solving
+    <me>\det(A - \lambda I) = 0,</me>
+    which is called the <term>characteristic equation</term> of <m>A</m>. For a
+    <m>2 \times 2</m> matrix, the characteristic equation is a quadratic in <m>\lambda</m>:
+    <me>\lambda^2 + b\lambda + c = 0.</me>
+    From our experience with quadratics (remember the second-order ODEs in Chapter 3!),
+    there are three possibilities for the roots.
+  </p>
+
+  <observation xml:id="obs-three-cases">
+    <title>The Three Cases of Eigenvalues for <m>2 \times 2</m> Matrices</title>
+    <p>
+      The eigenvalues of a <m>2 \times 2</m> matrix <m>A</m> fall into one of three cases:
+      <ol>
+        <li>
+          <p>
+            two distinct real eigenvalues,
+          </p>
+        </li>
+        <li>
+          <p>
+            two complex conjugate eigenvalues,
+          </p>
+        </li>
+        <li>
+          <p>
+            one repeated real eigenvalue.
+          </p>
+        </li>
+      </ol>
+      <alert>Each of these three cases corresponds to a strategy used to solve
+      <m>\frac{d\mathbf{x}}{dt} = A\mathbf{x}</m>.</alert>
+    </p>
+  </observation>
+
+  <p>
+    In this section, we will cover the strategies for the first two cases: distinct real
+    eigenvalues and complex conjugate eigenvalues. We start with the case of
+     two distinct real eigenvalues on the next page.
+  </p>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       KEY TAKEAWAYS
+       ═══════════════════════════════════════════════════════════ -->
+
+  <conclusion>
+    <title>Key Takeaways</title>
+    <p>
+      <ul>
+        <li><p>
+          <alert>The systems we are solving:</alert> first-order, homogeneous, linear
+          systems with constant coefficients, <m>\frac{d\mathbf{x}}{dt} = A\mathbf{x}</m>,
+          where <m>A</m> is a constant matrix.
+        </p></li>
+        <li><p>
+          <alert>The main idea:</alert> if <m>\lambda</m> is an eigenvalue of <m>A</m> with
+          eigenvector <m>\mathbf{v}</m>, then <m>\mathbf{x}(t) = \mathbf{v}e^{\lambda t}</m>
+          is a solution. This is why we learned to find eigenvalues and eigenvectors!
+        </p></li>
+        <li><p>
+          <alert>Three cases:</alert> the characteristic equation
+          <m>\det(A - \lambda I) = 0</m> is a quadratic, so the eigenvalues are either
+          distinct real, complex conjugates, or one repeated real number. Each case has its
+          own solution strategy.
+        </p></li>
+      </ul>
+    </p>
+  </conclusion>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       VIDEO + QUESTION FORM
+       ═══════════════════════════════════════════════════════════ -->
+
+  <figure xml:id="video-eigenvalue-method-main-idea">
+    <caption>This video goes through the content of this page.</caption>
+    <video youtube="Ahucuj1YHko" width="100%" preview="default"/>
+  </figure>
+
+  <interactive xml:id="question-form-5-5-1" iframe="question-form.html?section=5.5.1" width="100%" aspect="2:1"/>
+
+</section>

@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-intro-eigenvectors" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Introduction to Eigenvectors</title>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       INTRO + REASSURANCE
+       ═══════════════════════════════════════════════════════════ -->
+
+  <p>
+    In the last section, we saw that two linearly independent solutions of a system can be
+    combined into the general solution. But now our goal is to actually find solutions in the first place.
+  </p>
+
+  <p>
+    To do this, we need to understand some basics about eigenvalues and
+    eigenvectors. This page is pure linear algebra, but we will apply it to differential equations in the next section.
+    As before, we are only skimming a topic that one would spend a few weeks on
+    in a linear algebra course. We'll build just the working understanding we
+    need!
+  </p>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       DEFINITION: EIGENVALUES AND EIGENVECTORS
+       ═══════════════════════════════════════════════════════════ -->
+
+  <definition xml:id="def-eigenvalue-eigenvector">
+    <title>Eigenvalues and Eigenvectors</title>
+    <statement>
+      <p>
+        We say that <m>\lambda</m> is an <term>eigenvalue</term> of a matrix <m>A</m> if
+        there is a <em>non-zero</em> vector <m>\mathbf{v}</m>, called an associated
+        <term>eigenvector</term> for <m>\lambda</m>, where:
+        <me>A\mathbf{v} = \lambda \mathbf{v}.</me>
+        This is equivalent to:
+        <me>(A - \lambda I)\mathbf{v} = \mathbf{0},</me>
+        where <m>I = \begin{bmatrix} 1 \amp 0 \\ 0 \amp 1 \end{bmatrix}</m> is the identity
+        matrix.
+      </p>
+    </statement>
+  </definition>
+
+  <p>
+    That is, multiplying <m>\mathbf{v}</m> (the eigenvector) by the matrix <m>A</m> has the same effect as
+    multiplying <m>\mathbf{v}</m> by the single number <m>\lambda</m> (the eigenvalue).
+  </p>
+
+  <p>
+    One important observation is that if <m>\mathbf{v}</m> is an eigenvector,
+    then so is any non-zero scalar multiple <m>c\mathbf{v}</m>.</p>
+    <proof> <title> Justification on why non-zero multiples of eigenvectors are still eigenvectors </title>
+    <p> The check is quick:
+    <me>A(c\mathbf{v}) = c(A\mathbf{v}) = c(\lambda \mathbf{v}) = \lambda (c\mathbf{v}).</me>
+    So <m>c\mathbf{v}</m> satisfies the same equation with the same eigenvalue
+    <m>\lambda</m>. Eigenvectors are never unique.
+  </p>
+  </proof>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       EXPLORATION: CONFIRMING AN EIGENVALUE
+       ═══════════════════════════════════════════════════════════ -->
+
+  <p>
+    Okay, let's try to make sure we understand this definition a bit better! </p>
+
+  <exploration xml:id="exploration-confirm-eigenvalue">
+    <title>Confirming an Eigenvalue</title>
+<introduction>
+
+<p> Suppose someone claims that <m>\lambda = -2</m>
+    is an eigenvalue of
+    <m>A = \begin{bmatrix} 4 \amp 2 \\ 3 \amp -1 \end{bmatrix}</m>
+    with eigenvector
+    <m>\mathbf{v} = \begin{bmatrix} 1 \\ -3 \end{bmatrix}</m>.
+    How would we confirm that? Recall that the definition says to check whether
+    <m>A\mathbf{v} = \lambda \mathbf{v}</m> for some number <m>\lambda</m>.
+  </p> </introduction>
+    <task xml:id="task-compute-av">
+      <title>Compute <m>A\mathbf{v}</m></title>
+      <statement>
+        <p>
+          Using the matrix-vector product from earlier in the chapter, compute:
+          <me>A\mathbf{v} = \begin{bmatrix} 4 \amp 2 \\ 3 \amp -1 \end{bmatrix}
+            \begin{bmatrix} 1 \\ -3 \end{bmatrix}.</me>
+        </p>
+      </statement>
+      <choices randomize="yes">
+        <choice correct="yes">
+          <statement>
+            <p>
+              <m>A\mathbf{v} = \begin{bmatrix} -2 \\ 6 \end{bmatrix}</m>
+            </p>
+          </statement>
+          <feedback>
+            <p>
+              Correct! The first component is <m>4 \cdot 1 + 2 \cdot (-3) = 4 - 6 = -2</m>,
+              and the second is <m>3 \cdot 1 + (-1)(-3) = 3 + 3 = 6</m>.
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement>
+            <p>
+              <m>A\mathbf{v} = \begin{bmatrix} 10 \\ 6 \end{bmatrix}</m>
+            </p>
+          </statement>
+          <feedback>
+            <p>
+              Watch the signs! The second component of <m>\mathbf{v}</m> is <m>-3</m>, not
+              <m>3</m>. The first component of <m>A\mathbf{v}</m> should be
+              <m>4 \cdot 1 + 2 \cdot (-3) = 4 - 6 = -2</m>.
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement>
+            <p>
+              <m>A\mathbf{v} = \begin{bmatrix} -2 \\ 0 \end{bmatrix}</m>
+            </p>
+          </statement>
+          <feedback>
+            <p>
+              The first component is right, but check the second: it uses the
+              <em>bottom row</em> of <m>A</m>, giving
+              <m>3 \cdot 1 + (-1)(-3) = 3 + 3 = 6</m>. The two negatives multiply to a
+              positive.
+            </p>
+          </feedback>
+        </choice>
+      </choices>
+    </task>
+
+    <task xml:id="task-interpret-av">
+      <title>Compare <m>A\mathbf{v}</m> to <m>\mathbf{v}</m></title>
+      <statement>
+        <p>
+          From the previous task,
+          <m>A\mathbf{v} = \begin{bmatrix} -2 \\ 6 \end{bmatrix}</m>.
+          Now check whether it is a scalar multiple of the vector
+          <m>\mathbf{v}</m> we started with. </p>
+      </statement>
+      <solution> <title> Verifying whether v is an eigenvector</title>
+        <p>
+          Yes! It is a scalar multiple of the vector we started with:
+          <me>A\mathbf{v} = \begin{bmatrix} -2 \\ 6 \end{bmatrix}
+            = \underbrace{-2}_{\lambda}\begin{bmatrix} 1 \\ -3 \end{bmatrix} = -2\mathbf{v}.</me>
+          This is exactly the eigenvalue equation <m>A\mathbf{v} = \lambda\mathbf{v}</m>
+          with <m>\lambda = -2</m>. Notice that both components scaled by the same
+          factor: <m>1 \mapsto -2</m> and <m>-3 \mapsto 6</m> are each "multiply by
+          <m>-2</m>."
+        </p>
+      </solution>
+    </task>
+
+    <conclusion>
+      <p>
+        This computation confirms that <m>\mathbf{v} = \begin{bmatrix} 1 \\ -3 \end{bmatrix}</m> is an eigenvector of <m>A</m>, with
+        an eigenvalue of <m>\lambda = -2</m>.
+      </p>
+    </conclusion>
+  </exploration>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       ACTIVITY: IS IT AN EIGENVECTOR? (MC)
+       ═══════════════════════════════════════════════════════════ -->
+
+  <p>
+    The idea in the exploration was that <m>A\mathbf{v}</m> came out as a multiple of
+    <m>\mathbf{v}</m>, with both components scaling by the <em>same</em> number. Let's do a quick
+    check that you understand this in the following question.
+  </p>
+
+  <activity xml:id="act-eigenvector-or-not">
+    <title>Is There an Eigenvalue?</title>
+    <statement>
+      <p> Suppose that for some matrix <m>A</m> and the vector <m>\mathbf{v} = \begin{bmatrix} 1 \\ 2 \end{bmatrix}</m>, we
+    found
+    <m>A\mathbf{v} = \begin{bmatrix} 3 \\ 5 \end{bmatrix}</m>.
+      </p>
+
+    <p>
+        Is there an eigenvalue <m>\lambda</m> for which
+        <m>\mathbf{v} = \begin{bmatrix} 1 \\ 2 \end{bmatrix}</m> is an associated
+        eigenvector? That is, does <m>A\mathbf{v} = \lambda\mathbf{v}</m> hold for some
+        <m>\lambda</m>?
+      </p>
+    </statement>
+    <choices randomize="yes">
+      <choice correct="yes">
+        <statement>
+          <p>
+            No, there is no such <m>\lambda</m>.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            Correct! For <m>\mathbf{v}</m> to be an eigenvector, <m>A\mathbf{v}</m> must be
+            a multiple of <m>\mathbf{v}</m>, meaning both components scale by the same
+            factor. The first component suggests <m>\lambda = 3</m>, but
+            <m>3\begin{bmatrix} 1 \\ 2 \end{bmatrix} = \begin{bmatrix} 3 \\ 6 \end{bmatrix}
+            \neq \begin{bmatrix} 3 \\ 5 \end{bmatrix}</m>. No single number works for both
+            components, so <m>\mathbf{v}</m> is not an eigenvector of this matrix.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            Yes, with <m>\lambda = 3</m>.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            Careful: <m>\lambda = 3</m> matches the <em>first</em> component only. Checking
+            the whole vector,
+            <m>3\begin{bmatrix} 1 \\ 2 \end{bmatrix} = \begin{bmatrix} 3 \\ 6 \end{bmatrix}</m>,
+            but we were told <m>A\mathbf{v} = \begin{bmatrix} 3 \\ 5 \end{bmatrix}</m>. The
+            second components don't agree, so <m>A\mathbf{v} \neq 3\mathbf{v}</m>. The
+            eigenvalue equation must hold in <em>every</em> component at once.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            Yes, with <m>\lambda = \frac{5}{2}</m>.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            Careful: <m>\lambda = \frac{5}{2}</m> matches the <em>second</em> component
+            only. Checking the whole vector,
+            <m>\frac{5}{2}\begin{bmatrix} 1 \\ 2 \end{bmatrix}
+              = \begin{bmatrix} 5/2 \\ 5 \end{bmatrix}</m>,
+            which doesn't match
+            <m>A\mathbf{v} = \begin{bmatrix} 3 \\ 5 \end{bmatrix}</m> in the first
+            component. The eigenvalue equation must hold in <em>every</em> component at
+            once, with one single <m>\lambda</m>.
+          </p>
+        </feedback>
+      </choice>
+    </choices>
+  </activity>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       KEY TAKEAWAYS
+       ═══════════════════════════════════════════════════════════ -->
+
+  <conclusion>
+    <title>Key Takeaways</title>
+    <p>
+      <ul>
+        <li><p>
+          <alert>The definition:</alert> <m>\lambda</m> is an eigenvalue of <m>A</m> with
+          associated (non-zero) eigenvector <m>\mathbf{v}</m> when
+          <m>A\mathbf{v} = \lambda\mathbf{v}</m>
+        </p></li>
+        <li><p>
+          <alert>Multiples of both components:</alert> for <m>\mathbf{v}</m> to be an
+          eigenvector, <m>A\mathbf{v}</m> must scale every component of
+          <m>\mathbf{v}</m> by the same single number <m>\lambda</m>.
+        </p></li>
+        <li><p>
+          <alert>Eigenvectors aren't unique:</alert> any non-zero scalar multiple
+          <m>c\mathbf{v}</m> of an eigenvector is also an eigenvector, with the same
+          eigenvalue.
+        </p></li>
+      </ul>
+    </p>
+  </conclusion>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       VIDEO + QUESTION FORM
+       ═══════════════════════════════════════════════════════════ -->
+
+  <figure xml:id="video-intro-eigenvectors">
+    <caption>This video goes through the content of this page.</caption>
+    <video youtube="Klw7DmLiirE" width="100%" preview="default"/>
+  </figure>
+
+  <interactive xml:id="question-form-5-4-1" iframe="question-form.html?section=5.4.1" width="100%" aspect="2:1"/>
+
+</section>

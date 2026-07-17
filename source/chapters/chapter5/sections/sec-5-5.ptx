@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-5-5" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>The Eigenvalue Method</title>
+
+  <introduction>
+    <p>
+      We now combine eigenvalues and eigenvectors with our earlier theory of general
+      solutions to actually solve systems of ODEs from scratch.
+    </p>
+  </introduction>
+
+  <xi:include href="./5-5/sec1-main-idea.ptx"/>
+  <xi:include href="./5-5/sec2-two-real-eigenvalues.ptx"/>
+  <xi:include href="./5-5/sec3-complex-eigen.ptx"/>
+  <xi:include href="./5-5/sec4-complex-case.ptx"/>
+  <xi:include href="./5-5/sec5-complex-harder-example.ptx"/>
+
+</section>

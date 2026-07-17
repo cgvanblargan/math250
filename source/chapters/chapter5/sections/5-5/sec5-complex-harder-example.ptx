@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-complex-harder-example" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Complex Eigenvalues: A Harder Example</title>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       INTRO
+       ═══════════════════════════════════════════════════════════ -->
+
+  <p>
+    On the last page, the eigenvector <m>\begin{bmatrix} 1 \\ -i \end{bmatrix}</m> had
+    fairly simple entries. In general, the entries of the eigenvector can be full complex
+    numbers like <m>2 + i</m>, and multiplying them out takes a little bit more work. The strategy from
+    <xref ref="thm-complex-strategy"/> is exactly the same, but there is more involved algebra in
+    step 2.
+  </p>
+
+<p>Before we do the main example on this page, let's make sure you are comfortable with the relevant complex algebra. </p>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       WARM-UP ACTIVITY: FOILING WITH i
+       ═══════════════════════════════════════════════════════════ -->
+
+  <p>
+    The messy part is multiplying an entry like <m>2 + i</m> into
+    <m>\cos(3t) + i\sin(3t)</m>. Let's warm up with exactly that computation, in two
+    parts.
+  </p>
+
+  <activity xml:id="act-foil-complex-entry">
+    <title>FOILing a Complex Entry</title>
+    <introduction>
+      <p>
+        We will expand and simplify the product
+        <m>(2 + i)\left(\cos(3t) + i\sin(3t)\right)</m>.
+      </p>
+    </introduction>
+
+    <task xml:id="task-foil-expand">
+      <title>FOIL Without Simplifying</title>
+      <statement>
+        <p>
+          First, FOIL (expand out) the product <m>(2 + i)\left(\cos(3t) + i\sin(3t)\right)</m> into four terms, keeping any <m>i^2</m> as is.
+          Which of the following is correct?
+        </p>
+      </statement>
+      <choices randomize="yes">
+        <choice correct="yes">
+          <statement>
+            <p>
+              <m>2\cos(3t) + 2i\sin(3t) + i\cos(3t) + i^2\sin(3t)</m>
+            </p>
+          </statement>
+          <feedback>
+            <p>
+              Correct! The four FOIL terms are: First <m>2 \cdot \cos(3t)</m>, Outer
+              <m>2 \cdot i\sin(3t)</m>, Inner <m>i \cdot \cos(3t)</m>, and Last
+              <m>i \cdot i\sin(3t) = i^2\sin(3t)</m>.
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement>
+            <p>
+              <m>2\cos(3t) + i^2\sin(3t)</m>
+            </p>
+          </statement>
+          <feedback>
+            <p>
+              This has the First and Last terms, but FOIL has four terms! The Outer term
+              <m>2 \cdot i\sin(3t)</m> and the Inner term <m>i \cdot \cos(3t)</m> are
+              missing.
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement>
+            <p>
+              <m>2\cos(3t) + 2i\sin(3t) + i\cos(3t) + i\sin(3t)</m>
+            </p>
+          </statement>
+          <feedback>
+            <p>
+              Careful with the Last term: it is <m>i \cdot i\sin(3t)</m>, and the two
+              factors of <m>i</m> multiply together to give <m>i^2\sin(3t)</m>, not
+              <m>i\sin(3t)</m>.
+            </p>
+          </feedback>
+        </choice>
+      </choices>
+    </task>
+
+    <task xml:id="task-foil-simplify">
+      <title>Simplify with <m>i^2 = -1</m></title>
+      <statement>
+        <p>
+          Now substitute <m>i^2 = -1</m> into
+          <m>2\cos(3t) + 2i\sin(3t) + i\cos(3t) + i^2\sin(3t)</m>
+          and group the terms with an <m>i</m> separately from the terms without. Which of
+          the following is correct?
+        </p>
+      </statement>
+      <choices randomize="yes">
+        <choice correct="yes">
+          <statement>
+            <p>
+              <m>\left(2\cos(3t) - \sin(3t)\right) + i\left(2\sin(3t) + \cos(3t)\right)</m>
+            </p>
+          </statement>
+          <feedback>
+            <p>
+              Correct! Since <m>i^2 = -1</m>, the last term becomes <m>-\sin(3t)</m>,
+              which has no <m>i</m>, so it joins <m>2\cos(3t)</m> in the real part. The
+              terms with a single <m>i</m>, namely <m>2i\sin(3t)</m> and
+              <m>i\cos(3t)</m>, group into the imaginary part.
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement>
+            <p>
+              <m>\left(2\cos(3t) + \sin(3t)\right) + i\left(2\sin(3t) + \cos(3t)\right)</m>
+            </p>
+          </statement>
+          <feedback>
+            <p>
+              Watch the sign: substituting <m>i^2 = -1</m> into <m>i^2\sin(3t)</m> gives
+              <m>-\sin(3t)</m>, so the real part is <m>2\cos(3t) - \sin(3t)</m>.
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement>
+            <p>
+              <m>\left(2\cos(3t) - \sin(3t)\right) + i\left(2\sin(3t) - \cos(3t)\right)</m>
+            </p>
+          </statement>
+          <feedback>
+            <p>
+              The real part is right, but check the imaginary part: the terms with a
+              single <m>i</m> are <m>+2i\sin(3t)</m> and <m>+i\cos(3t)</m>, both with
+              plus signs, so the imaginary part is <m>2\sin(3t) + \cos(3t)</m>.
+            </p>
+          </feedback>
+        </choice>
+      </choices>
+    </task>
+  </activity>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       MAIN EXAMPLE
+       ═══════════════════════════════════════════════════════════ -->
+
+  <p>
+    Now we are ready for the example below!
+  </p>
+
+  <example xml:id="ex-complex-harder">
+    <title>A Harder Example with Complex Eigenvalues</title>
+    <statement>
+      <p>
+        Find the general solution of the equation
+        <m>\dfrac{d\mathbf{x}}{dt} = A\mathbf{x}</m>, where <m>A</m> has eigenvalues
+        <m>\lambda_1 = 2 + 3i</m> and <m>\lambda_2 = 2 - 3i</m> with corresponding
+        eigenvectors
+        <me>\mathbf{v}_1 = \begin{bmatrix} 2 + i \\ 3 - 2i \end{bmatrix}
+          \qquad \text{and} \qquad
+          \mathbf{v}_2 = \begin{bmatrix} 2 - i \\ 3 + 2i \end{bmatrix}.</me>
+      </p>
+    </statement>
+    <solution>
+      <p>
+        We follow the three steps. Step 1: the complex-valued solution is
+        <me>\mathbf{x}(t) = \mathbf{v}_1 e^{\lambda_1 t}
+          = \begin{bmatrix} 2 + i \\ 3 - 2i \end{bmatrix}e^{(2 + 3i)t}.</me>
+        (Using <m>\lambda_2</m> and <m>\mathbf{v}_2</m> also works. Just make sure the
+        eigenvalue and eigenvector go together!)
+      </p>
+      <p>
+        Step 2: we apply Euler's formula to the exponential,
+        <me>e^{(2 + 3i)t} = e^{2t}\left(\cos(3t) + i\sin(3t)\right),</me>
+        so
+        <me>\mathbf{x}(t)
+          = e^{2t}\begin{bmatrix} (2 + i)\left(\cos(3t) + i\sin(3t)\right) \\
+            (3 - 2i)\left(\cos(3t) + i\sin(3t)\right) \end{bmatrix}.</me>
+        Each component needs to be FOILed out and simplified, as in the warm-up. The
+        details are in the dropdowns.
+      </p>
+      <solution> <title>Details: FOILing the first component</title>
+      <p>
+        This is exactly the warm-up computation:
+        <md>
+          <mrow>(2 + i)\left(\cos(3t) + i\sin(3t)\right)
+            \amp= 2\cos(3t) + 2i\sin(3t) + i\cos(3t) + i^2\sin(3t)</mrow>
+          <mrow>\amp= \left(2\cos(3t) - \sin(3t)\right) + i\left(2\sin(3t) + \cos(3t)\right).</mrow>
+        </md>
+      </p>
+      </solution>
+      <solution> <title>Details: FOILing the second component</title>
+      <p>
+        Same process, watching the signs from the <m>-2i</m>:
+        <md>
+          <mrow>(3 - 2i)\left(\cos(3t) + i\sin(3t)\right)
+            \amp= 3\cos(3t) + 3i\sin(3t) - 2i\cos(3t) - 2i^2\sin(3t)</mrow>
+          <mrow>\amp= \left(3\cos(3t) + 2\sin(3t)\right) + i\left(3\sin(3t) - 2\cos(3t)\right).</mrow>
+        </md>
+        Note the term <m>-2i^2\sin(3t) = -2(-1)\sin(3t) = +2\sin(3t)</m>, which is real.
+      </p>
+      </solution>
+      <p>
+        Putting the FOILed components back in:
+        <me>\mathbf{x}(t)
+          = e^{2t}\begin{bmatrix}
+            \left(2\cos(3t) - \sin(3t)\right) + i\left(2\sin(3t) + \cos(3t)\right) \\
+            \left(3\cos(3t) + 2\sin(3t)\right) + i\left(3\sin(3t) - 2\cos(3t)\right)
+          \end{bmatrix}.</me>
+        Now separating the real and imaginary parts:
+        <me>\mathbf{x}(t)
+          = \underbrace{e^{2t}\begin{bmatrix} 2\cos(3t) - \sin(3t) \\ 3\cos(3t) + 2\sin(3t) \end{bmatrix}}_{\mathbf{y}}
+          + i\underbrace{e^{2t}\begin{bmatrix} 2\sin(3t) + \cos(3t) \\ 3\sin(3t) - 2\cos(3t) \end{bmatrix}}_{\mathbf{z}}.</me>
+        Step 3: the general solution is
+        <me>\mathbf{x}(t) = c_1\mathbf{y} + c_2\mathbf{z}
+          = c_1 e^{2t}\begin{bmatrix} 2\cos(3t) - \sin(3t) \\ 3\cos(3t) + 2\sin(3t) \end{bmatrix}
+          + c_2 e^{2t}\begin{bmatrix} 2\sin(3t) + \cos(3t) \\ 3\sin(3t) - 2\cos(3t) \end{bmatrix}.</me>
+        Once again, there is no <m>i</m> anywhere in the final answer.
+      </p>
+    </solution>
+  </example>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       KEY TAKEAWAYS
+       ═══════════════════════════════════════════════════════════ -->
+
+  <conclusion>
+    <title>Key Takeaways</title>
+    <p>
+      <ul>
+        <li><p>
+          <alert>Same three steps:</alert> messier eigenvectors don't change the strategy,
+          only the amount of algebra in step 2.
+        </p></li>
+        <li><p>
+          <alert>FOIL each component:</alert> multiply each eigenvector entry into
+          <m>\cos(qt) + i\sin(qt)</m>, substitute <m>i^2 = -1</m>, and group the terms with
+          an <m>i</m> separately from the terms without.
+        </p></li>
+        <li><p>
+          <alert>Only one pair is needed:</alert> either eigenvalue-eigenvector pair works,
+          as long as the eigenvalue and eigenvector go together.
+        </p></li>
+      </ul>
+    </p>
+  </conclusion>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       VIDEO + QUESTION FORM
+       ═══════════════════════════════════════════════════════════ -->
+
+  <figure xml:id="video-complex-harder-example">
+    <caption>This video goes through the content of this page.</caption>
+    <video youtube="h0LTbmWstco" width="100%" preview="default"/>
+  </figure>
+
+  <interactive xml:id="question-form-5-5-5" iframe="question-form.html?section=5.5.5" width="100%" aspect="2:1"/>
+
+</section>

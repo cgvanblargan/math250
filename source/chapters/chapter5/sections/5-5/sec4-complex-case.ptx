@@ -1,0 +1,344 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-complex-case" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>The Case of Complex Conjugate Eigenvalues</title>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       RECAP
+       ═══════════════════════════════════════════════════════════ -->
+
+  <p>
+    On the last page, we found that our system
+    <md>
+      <mrow>x_1' \amp= 4x_1 - 3x_2</mrow>
+      <mrow>x_2' \amp= 3x_1 + 4x_2</mrow>
+    </md>
+    has a solution
+    <m>\begin{bmatrix} 1 \\ -i \end{bmatrix}e^{(4 + 3i)t}</m>, but it is complex-valued,
+    and we need two real solutions <m>\mathbf{y}(t)</m> and <m>\mathbf{z}(t)</m>. Extracting them
+    requires some complex algebra, so let's warm up with the two things we will need.
+  </p>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       CHECKPOINT 1: SPLITTING THE EXPONENTIAL
+       ═══════════════════════════════════════════════════════════ -->
+
+  <activity xml:id="act-exponent-rule-complex">
+    <title>Splitting the Exponential</title>
+    <statement>
+      <p>
+        Our solution involves <m>e^{(4 + 3i)t} = e^{4t + (3t)i}</m>.
+        Based on the exponent rules that hold for real numbers, which of the following
+        would you expect to be true?
+      </p>
+    </statement>
+    <choices randomize="yes">
+      <choice correct="yes">
+        <statement>
+          <p>
+            <m>e^{4t + (3t)i} = e^{4t}e^{(3t)i}</m>
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            Correct! The exponent rule <m>e^{a + b} = e^{a}e^{b}</m> carries over to
+            complex numbers, with <m>a = 4t</m> and <m>b = (3t)i</m>. A sum in the
+            exponent splits into a product of exponentials.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            <m>e^{4t + (3t)i} = e^{4t} + e^{(3t)i}</m>
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            Careful: the exponent rule is <m>e^{a + b} = e^{a}e^{b}</m>. A sum in the
+            exponent becomes a product of exponentials, not a sum. For instance,
+            with real numbers, <m>e^{1 + 1} = e^2 = e \cdot e</m>, which is not
+            <m>e + e</m>.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            <m>e^{4t + (3t)i} = e^{4t}e^{3t}e^{i}</m>
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            Careful: <m>(3t)i</m> is a single <em>product</em>, not a sum, so it cannot be
+            split into separate exponentials. The exponent rule
+            <m>e^{a + b} = e^{a}e^{b}</m> only splits at the <m>+</m> sign, giving
+            <m>e^{4t}e^{(3t)i}</m>.
+          </p>
+        </feedback>
+      </choice>
+    </choices>
+  </activity>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       EULER'S FORMULA
+       ═══════════════════════════════════════════════════════════ -->
+
+  <p>
+    The checkpoint leaves us with the factor <m>e^{(3t)i}</m>, an exponential with an
+    imaginary exponent. Euler's formula, which we actually used back in Chapter 3
+    for complex roots of characteristic equations, gives us a useful way of re-writing this expression.
+  </p>
+
+  <fact xml:id="fact-eulers-formula">
+    <title>Euler's Formula</title>
+    <p>
+      For any <m>\theta</m>:
+      <me>e^{i\theta} = \cos(\theta) + i\sin(\theta).</me>
+      In particular, for a complex eigenvalue <m>\lambda = p + qi</m>:
+      <me>e^{(p + qi)t} = e^{pt}e^{(qt)i} = e^{pt}\left(\cos(qt) + i\sin(qt)\right).</me>
+    </p>
+  </fact>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       CHECKPOINT 2: DISTRIBUTING WITH i
+       ═══════════════════════════════════════════════════════════ -->
+
+  <p>
+    Applying Euler's formula with <m>\theta = 3t</m> to the expression we just simplified
+    in the checkpoint:
+    <me>e^{(4 + 3i)t} = e^{4t}e^{(3t)i} = e^{4t}\left(\cos(3t) + i\sin(3t)\right).</me>
+    Expressions like <m>\cos(3t) + i\sin(3t)</m> will
+    need to be multiplied into the components of the eigenvector. One more warm-up before the main example!
+  </p>
+
+  <activity xml:id="act-foil-with-i">
+    <title>Multiplying Out with <m>i</m></title>
+    <statement>
+      <p>
+        Distribute and simplify
+        <m>(-i)\left(\cos(3t) + i\sin(3t)\right)</m>. Which of the following is the
+        correct result?
+      </p>
+    </statement>
+    <choices randomize="yes">
+      <choice correct="yes">
+        <statement>
+          <p>
+            <m>\sin(3t) - i\cos(3t)</m>
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            Correct! Distributing,
+            <m>(-i)\cos(3t) + (-i)(i)\sin(3t) = -i\cos(3t) - i^2\sin(3t)</m>, and since
+            <m>i^2 = -1</m>, the last term is <m>+\sin(3t)</m>. Collecting the real part
+            first: <m>\sin(3t) - i\cos(3t)</m>.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            <m>-\sin(3t) - i\cos(3t)</m>
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            Watch the <m>i^2</m>! Distributing gives
+            <m>-i\cos(3t) - i^2\sin(3t)</m>, and <m>i^2 = -1</m>, so the last term is
+            <m>-(-1)\sin(3t) = +\sin(3t)</m>, not <m>-\sin(3t)</m>. The two negatives
+            cancel.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            <m>-i\cos(3t) + i\sin(3t)</m>
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            Careful when distributing: the second term is
+            <m>(-i)(i\sin(3t)) = -i^2\sin(3t)</m>. The two factors of <m>i</m> multiply
+            together, and <m>-i^2 = 1</m>, so this term is <m>+\sin(3t)</m>, with no
+            <m>i</m> left in it at all.
+          </p>
+        </feedback>
+      </choice>
+    </choices>
+  </activity>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       STRATEGY BLOCK
+       ═══════════════════════════════════════════════════════════ -->
+
+  <p>
+    Now that we have established the relevant complex algebra tricks, let's take a look at the full strategy for 
+    solving systems of ODEs with complex eigenvalues.
+  </p>
+
+  <theorem xml:id="thm-complex-strategy">
+    <title>The Eigenvalue Method for Complex Conjugate Eigenvalues</title>
+    <statement>
+      <p>
+      To solve <m>\frac{d\mathbf{x}}{dt} = A\mathbf{x}</m> when <m>A</m> has complex
+      conjugate eigenvalues <m>\lambda_1, \lambda_2</m> with corresponding eigenvectors
+      <m>\mathbf{v}_1, \mathbf{v}_2</m>:
+      <ol>
+        <li>
+          <p>
+            Write down the complex-valued solution <m>\mathbf{v}_1 e^{\lambda_1 t}</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Apply Euler's formula and separate into real and imaginary parts:
+            <me>\mathbf{v}_1 e^{\lambda_1 t} = \mathbf{y} + i\mathbf{z},</me>
+            where <m>\mathbf{y}</m> and <m>\mathbf{z}</m> contain no <m>i</m> at all. Then
+            it must be that <m>\mathbf{y}</m> and <m>\mathbf{z}</m> are themselves
+            real-valued solutions, and they are linearly independent.
+          </p>
+        </li>
+        <li>
+          <p>
+            The general solution (for all real-valued solutions) is
+            <me>\mathbf{x}(t) = c_1\mathbf{y} + c_2\mathbf{z}.</me>
+          </p>
+        </li>
+      </ol>
+      </p>
+    </statement>
+  </theorem>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       MAIN EXAMPLE
+       ═══════════════════════════════════════════════════════════ -->
+<p>Alright, we can finally
+ solve the system in the example below! </p>
+  <example xml:id="ex-complex-general-solution">
+    <title>Solving a System with Complex Conjugate Eigenvalues</title>
+    <statement>
+      <p>
+        Find the general solution of the system
+        <md>
+          <mrow>x_1' \amp= 4x_1 - 3x_2</mrow>
+          <mrow>x_2' \amp= 3x_1 + 4x_2.</mrow>
+        </md>
+        You may use the eigenvalue and eigenvector we found on the last page:
+        <m>\lambda_1 = 4 + 3i</m> with
+        <m>\mathbf{v}_1 = \begin{bmatrix} 1 \\ -i \end{bmatrix}</m>.
+      </p>
+    </statement>
+    <solution>
+      <p>
+        We follow the three steps. Step 1 is quick: the complex-valued solution is
+        <me>\mathbf{x}(t) = \mathbf{v}_1 e^{\lambda_1 t}
+          = \begin{bmatrix} 1 \\ -i \end{bmatrix}e^{(4 + 3i)t}.</me>
+        Step 2 is where the work happens, so we break it into two parts, with the details
+        of each in a dropdown.
+      </p>
+      <solution> <title>Details for Step 2a: Apply Euler's formula and multiply out</title>
+      <p>
+        We apply Euler's formula to the exponential:
+        <me>e^{(4 + 3i)t} = e^{4t}\left(\cos(3t) + i\sin(3t)\right),</me>
+        so
+        <me>\mathbf{x}(t)
+          = e^{4t}\begin{bmatrix} 1 \\ -i \end{bmatrix}\left(\cos(3t) + i\sin(3t)\right)
+          = e^{4t}\begin{bmatrix} \cos(3t) + i\sin(3t) \\ -i\cos(3t) - i^2\sin(3t) \end{bmatrix}.</me>
+        Using <m>i^2 = -1</m>, the second component becomes
+        <m>\sin(3t) - i\cos(3t)</m>.
+      </p>
+      </solution>
+      <p>
+        Step 2a leaves us with
+        <me>\mathbf{x}(t)
+          = e^{4t}\begin{bmatrix} \cos(3t) + i\sin(3t) \\ \sin(3t) - i\cos(3t) \end{bmatrix},</me>
+        which no longer has any <m>i</m> in the exponent, so we can separate the
+        components.
+      </p>
+      <solution> <title>Details for Step 2b: Separate into real and imaginary parts</title>
+      <p>
+        We separate everything with an <m>i</m> from everything without:
+        <me>\mathbf{x}(t)
+          = e^{4t}\begin{bmatrix} \cos(3t) + i\sin(3t) \\ \sin(3t) - i\cos(3t) \end{bmatrix}
+          = \underbrace{e^{4t}\begin{bmatrix} \cos(3t) \\ \sin(3t) \end{bmatrix}}_{\mathbf{y}}
+          + i\underbrace{e^{4t}\begin{bmatrix} \sin(3t) \\ -\cos(3t) \end{bmatrix}}_{\mathbf{z}}.</me>
+      </p>
+      </solution>
+      <p>
+        Step 2b identifies our two real-valued solutions:
+        <me>\mathbf{y} = e^{4t}\begin{bmatrix} \cos(3t) \\ \sin(3t) \end{bmatrix},
+          \qquad
+          \mathbf{z} = e^{4t}\begin{bmatrix} \sin(3t) \\ -\cos(3t) \end{bmatrix}.</me>
+        Step 3: the general solution is
+        <me>\mathbf{x}(t) = c_1\mathbf{y} + c_2\mathbf{z}
+          = c_1 e^{4t}\begin{bmatrix} \cos(3t) \\ \sin(3t) \end{bmatrix}
+          + c_2 e^{4t}\begin{bmatrix} \sin(3t) \\ -\cos(3t) \end{bmatrix}.</me>
+        Notice there is no <m>i</m> anywhere in the final answer!
+      </p>
+    </solution>
+  </example>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       NOTE: ANSWERS CAN VARY
+       ═══════════════════════════════════════════════════════════ -->
+
+  <note xml:id="note-complex-answers-vary">
+    <title>Answers Can Look Very Different</title>
+    <p>
+      We only used one eigenvalue-eigenvector pair, <m>\lambda_1</m> and
+      <m>\mathbf{v}_1</m>; the conjugate pair <m>\lambda_2</m> and <m>\mathbf{v}_2</m> is
+      never needed (though using it instead also works). Because of this choice, and
+      because eigenvectors themselves are only determined up to a multiple, correct answers
+      for <m>\mathbf{y}</m> and <m>\mathbf{z}</m> can look quite different from each other.
+      If your answer doesn't match a friend's, that alone doesn't mean either of you is
+      wrong!
+    </p>
+  </note>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       KEY TAKEAWAYS
+       ═══════════════════════════════════════════════════════════ -->
+
+  <conclusion>
+    <title>Key Takeaways</title>
+    <p>
+      <ul>
+        <li><p>
+          <alert>Euler's formula removes <m>i</m> from the exponent:</alert> for
+          <m>\lambda = p + qi</m>, we have
+          <m>e^{(p+qi)t} = e^{pt}(\cos(qt) + i\sin(qt))</m>.
+        </p></li>
+        <li><p>
+          <alert>The three steps:</alert> write the complex solution
+          <m>\mathbf{v}_1 e^{\lambda_1 t}</m>, separate it into real and imaginary parts
+          <m>\mathbf{y} + i\mathbf{z}</m> using Euler's formula, and form the general
+          solution <m>\mathbf{x}(t) = c_1\mathbf{y} + c_2\mathbf{z}</m>.
+        </p></li>
+        <li><p>
+          <alert>Simplify with <m>i^2 = -1</m>:</alert> when multiplying out the
+          components, terms with two factors of <m>i</m> become real.
+        </p></li>
+        <li><p>
+          <alert>No <m>i</m> in the final answer:</alert> the general solution
+          <m>c_1\mathbf{y} + c_2\mathbf{z}</m> is entirely real-valued. There should be no <m>i</m>
+          appearing in your final answer.
+        </p></li>
+      </ul>
+    </p>
+  </conclusion>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       VIDEO + QUESTION FORM
+       ═══════════════════════════════════════════════════════════ -->
+
+  <figure xml:id="video-complex-case">
+    <caption>This video goes through the content of this page.</caption>
+    <video youtube="KAa9G_8jfqI" width="100%" preview="default"/>
+  </figure>
+
+  <interactive xml:id="question-form-5-5-4" iframe="question-form.html?section=5.5.4" width="100%" aspect="2:1"/>
+
+</section>

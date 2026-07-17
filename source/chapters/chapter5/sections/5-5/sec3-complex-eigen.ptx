@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-complex-eigen" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Complex Eigenvalues and Eigenvectors</title>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       INTRO
+       ═══════════════════════════════════════════════════════════ -->
+
+  <p>
+    We now turn to the second case: complex conjugate eigenvalues. The process for
+    finding complex eigenvalues and eigenvectors is exactly the same as before, but the arithmetic is a little messier
+    as it involves the imaginary
+    number <m>i</m>. We will see that to actually solve systems of ODEs where the matrix has complex eigenvalues, 
+    there is a complication we will have to deal with!
+  </p>
+
+  <p>
+    Let's look at the system
+    <md>
+      <mrow>x_1' \amp= 4x_1 - 3x_2</mrow>
+      <mrow>x_2' \amp= 3x_1 + 4x_2,</mrow>
+    </md>
+    which has coefficient matrix
+    <m>A = \begin{bmatrix} 4 \amp -3 \\ 3 \amp 4 \end{bmatrix}</m>.
+    As always, to solve we begin with finding the eigenvalues and eigenvectors of the matrix <m> A </m>.
+  </p>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       EXAMPLE: FINDING COMPLEX EIGENVALUES
+       ═══════════════════════════════════════════════════════════ -->
+
+  <example xml:id="ex-complex-eigenvalues">
+    <title>Finding Complex Eigenvalues</title>
+    <statement>
+      <p>
+        Find the eigenvalues of
+        <m>A = \begin{bmatrix} 4 \amp -3 \\ 3 \amp 4 \end{bmatrix}</m>.
+      </p>
+    </statement>
+    <solution> <title>Reference for homework (can skim first time reading)</title>
+      <p>
+        As always, we solve the characteristic equation <m>\det(A - \lambda I) = 0</m>.
+        Subtracting <m>\lambda</m> along the diagonal and computing the determinant:
+        <md>
+          <mrow>\det(A - \lambda I)
+            \amp= \begin{vmatrix} 4 - \lambda \amp -3 \\ 3 \amp 4 - \lambda \end{vmatrix}</mrow>
+          <mrow>\amp= (4 - \lambda)(4 - \lambda) - (-3)(3)</mrow>
+          <mrow>\amp= (4 - \lambda)^2 + 9.</mrow>
+        </md>
+        Now we solve <m>(4 - \lambda)^2 + 9 = 0</m>. We could expand this out and use the
+        quadratic formula, but it's faster to isolate the square:
+        <md>
+          <mrow>(4 - \lambda)^2 \amp= -9</mrow>
+          <mrow>4 - \lambda \amp= \pm\sqrt{-9} = \pm 3i</mrow>
+          <mrow>\lambda \amp= 4 \pm 3i.</mrow>
+        </md>
+        A negative number under the square root means the eigenvalues are <em>complex</em>, just like the complex roots of
+        characteristic equations back in Chapter 3. Here we get the complex conjugate pair:
+        <me>\lambda_1 = 4 + 3i, \qquad \lambda_2 = 4 - 3i.</me>
+      </p>
+    </solution>
+  </example>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       EXAMPLE: FINDING A COMPLEX EIGENVECTOR
+       ═══════════════════════════════════════════════════════════ -->
+
+  <p>
+    Next, we find an eigenvector for <m>\lambda_1 = 4 + 3i</m>, following the same process
+    as in the real case: plug the eigenvalue into
+    <m>(A - \lambda I)\mathbf{v} = \mathbf{0}</m> and solve.
+  </p>
+
+  <example xml:id="ex-complex-eigenvector">
+    <title>Finding a Complex Eigenvector</title>
+    <statement>
+      <p>
+        Find an eigenvector of
+        <m>A = \begin{bmatrix} 4 \amp -3 \\ 3 \amp 4 \end{bmatrix}</m>
+        associated with the eigenvalue <m>\lambda_1 = 4 + 3i</m>.
+      </p>
+    </statement>
+    <solution> <title>Reference for homework (can skim first time reading)</title>
+      <p>
+        We solve <m>\left(A - (4 + 3i)I\right)\mathbf{v}_1 = \mathbf{0}</m>. Subtracting
+        <m>4 + 3i</m> along the diagonal, the diagonal entries become
+        <m>4 - (4 + 3i) = -3i</m>, so writing
+        <m>\mathbf{v}_1 = \begin{bmatrix} a \\ b \end{bmatrix}</m>:
+        <me>\begin{bmatrix} -3i \amp -3 \\ 3 \amp -3i \end{bmatrix}
+          \begin{bmatrix} a \\ b \end{bmatrix}
+          = \begin{bmatrix} 0 \\ 0 \end{bmatrix}.</me>
+        Converting to a system of equations:
+        <md>
+          <mrow>-3ia - 3b \amp= 0</mrow>
+          <mrow>3a - 3ib \amp= 0.</mrow>
+        </md>
+        Both equations give the same relationship. From the first,
+        <m>-3b = 3ia</m>, so <m>b = -ia</m>. (Solving the second gives
+        <m>3a = 3ib</m>, so <m>a = ib</m>; multiplying both sides by <m>-i</m> gives
+        <m>-ia = -i^2 b = b</m>, the same relationship.)
+      </p>
+      <p>
+        As in the real case, we get to fix a convenient value. Choosing <m>a = 1</m> gives
+        <m>b = -i</m>, and:
+        <me>\lambda_1 = 4 + 3i \implies \mathbf{v}_1 = \begin{bmatrix} 1 \\ -i \end{bmatrix}.</me>
+        As always, any non-zero (possibly complex) multiple of this eigenvector also works.
+      </p>
+    </solution>
+  </example>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       NOTE: THE ROWS ARE STILL MULTIPLES
+       ═══════════════════════════════════════════════════════════ -->
+
+  <note xml:id="note-complex-redundancy">
+    <title>The Rows are Still Multiples of Each Other</title>
+    <p>
+      In the real case, we could see that the two equations were redundant: one
+      row of <m>A - \lambda I</m> was visibly a multiple of the other. That is still true
+      here, but it's harder to see visually, because the multiplier is now
+      a complex number. In the matrix
+      <m>\begin{bmatrix} -3i \amp -3 \\ 3 \amp -3i \end{bmatrix}</m>
+      above, the first row is <m>-i</m> times the second:
+      <me>-i \cdot 3 = -3i, \qquad -i \cdot (-3i) = 3i^2 = -3.</me>
+      You don't need to verify they are multiples of each other, but instead just trust the theory: when <m>\lambda</m>
+      really is an eigenvalue, the two equations will be redundant, so you can just use one
+      of them. 
+    </p>
+  </note>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       FACT: CONJUGATE EIGENVECTORS
+       ═══════════════════════════════════════════════════════════ -->
+
+  <p>
+    We still need an eigenvector for the other eigenvalue, <m>\lambda_2 = 4 - 3i</m>. We
+    could run the same computation again, but there is a shortcut.
+  </p>
+
+  <fact xml:id="fact-conjugate-eigenvectors">
+    <title>Conjugate Eigenvalues Have Conjugate Eigenvectors</title>
+    <p>
+      Suppose a matrix <m>A</m> has complex conjugate eigenvalues. If
+      <m>\mathbf{v}_1</m> is an eigenvector for <m>\lambda_1</m>, then the eigenvector
+      <m>\mathbf{v}_2</m> for <m>\lambda_2</m> can be taken to be the complex conjugate of
+      <m>\mathbf{v}_1</m> (that is, replace <m>i</m> with <m>-i</m> in every entry).
+    </p>
+  </fact>
+
+  <p>
+    In our example, we found <m>\lambda_1 = 4 + 3i</m> with
+    <m>\mathbf{v}_1 = \begin{bmatrix} 1 \\ -i \end{bmatrix}</m>. Taking conjugates, the
+    fact gives us:
+    <me>\lambda_2 = 4 - 3i \implies \mathbf{v}_2 = \begin{bmatrix} 1 \\ i \end{bmatrix}.</me>
+  </p>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       ACTIVITY: WHICH IS A SOLUTION?
+       ═══════════════════════════════════════════════════════════ -->
+
+  <p>
+    We now have two eigenvalue-eigenvector pairs, so the machinery from earlier in this
+    section still runs.
+  </p>
+
+  <activity xml:id="act-complex-solution">
+    <title>A Solution, With a Catch</title>
+    <statement>
+      <p>
+        Applying <xref ref="thm-eigenvector-solution"/> to the pair
+        <m>\lambda_1 = 4 + 3i</m> with
+        <m>\mathbf{v}_1 = \begin{bmatrix} 1 \\ -i \end{bmatrix}</m>, what solution of
+        <m>\dfrac{d\mathbf{x}}{dt} = \begin{bmatrix} 4 \amp -3 \\ 3 \amp 4 \end{bmatrix}\mathbf{x}</m>
+        do we get, and are there any issues with it?
+      </p>
+    </statement>
+    <choices randomize="yes">
+      <choice correct="yes">
+        <statement>
+          <p>
+            We get <m>\mathbf{x}(t) = \begin{bmatrix} 1 \\ -i \end{bmatrix}e^{(4 + 3i)t}</m>,
+            but there is an issue: this solution is <em>complex-valued</em>, while
+            <m>x_1(t)</m> and <m>x_2(t)</m> should be real.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            Correct! The theorem pairs the eigenvector with its own eigenvalue in
+            <m>\mathbf{v}e^{\lambda t}</m>, so this really is a solution. But it involves
+            <m>i</m>, both in the vector and in the exponent, so it is complex-valued. We
+            still need to extract <em>real</em> solutions from it.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            We get <m>\mathbf{x}(t) = \begin{bmatrix} 1 \\ -i \end{bmatrix}e^{(4 + 3i)t}</m>,
+            and there are no issues; this is a fine final answer.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            The solution is right, but look closely at it: it involves the imaginary number
+            <m>i</m>, both in the vector and in the exponent. The functions <m>x_1(t)</m>
+            and <m>x_2(t)</m> in our system are supposed to be <em>real</em>-valued, so a
+            complex-valued answer isn't the final word; we still need to extract real
+            solutions from it.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            We get <m>\mathbf{x}(t) = \begin{bmatrix} 1 \\ i \end{bmatrix}e^{(4 + 3i)t}</m>,
+            but there is an issue: this solution is <em>complex-valued</em>, while
+            <m>x_1(t)</m> and <m>x_2(t)</m> should be real.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            The issue is identified correctly, but the solution itself is wrong: the
+            eigenvector <m>\begin{bmatrix} 1 \\ i \end{bmatrix}</m> belongs to
+            <m>\lambda_2 = 4 - 3i</m>, not to <m>4 + 3i</m>. Eigenvalues and eigenvectors
+            must go together, and the conjugate pairs look very similar, so match them
+            carefully.
+          </p>
+        </feedback>
+      </choice>
+    </choices>
+  </activity>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       NOTE: BUT THESE SOLUTIONS ARE COMPLEX!
+       ═══════════════════════════════════════════════════════════ -->
+
+  <note xml:id="note-complex-solutions-teaser">
+    <title>But These Solutions are Complex!</title>
+    <p>
+      The solutions we just found, such as
+      <m>\begin{bmatrix} 1 \\ -i \end{bmatrix}e^{(4 + 3i)t}</m>, are complex-valued. But
+      the functions <m>x_1(t)</m> and <m>x_2(t)</m> in our system are supposed to be
+      <em>real</em>-valued! On the next page, we will fix this using Euler's formula, which
+      will let us split the complex solution into its real and imaginary parts:
+      <me>\mathbf{v}e^{\lambda t} = \mathbf{y} + i\mathbf{z}.</me>
+      It turns out that <m>\mathbf{y}</m> and <m>\mathbf{z}</m> are themselves
+      real-valued solutions, and they are exactly the two independent solutions we
+      need to build the general solution.
+    </p>
+  </note>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       KEY TAKEAWAYS
+       ═══════════════════════════════════════════════════════════ -->
+
+  <conclusion>
+    <title>Key Takeaways</title>
+    <p>
+      <ul>
+        <li><p>
+          <alert>Same process, but with complex numbers:</alert> complex eigenvalues and eigenvectors
+          are found exactly as before; a negative number under the square root in the
+          characteristic equation signals complex conjugate eigenvalues.
+        </p></li>
+        <li><p>
+          <alert>The redundancy is still there:</alert> the two equations for the
+          eigenvector are still multiples of each other, but the multiplier is complex and
+          hard to see visually (you don't need to confirm it).
+        </p></li>
+        <li><p>
+          <alert>The solutions immediately obtained are complex-valued:</alert> each pair still gives a solution
+          <m>\mathbf{v}e^{\lambda t}</m>, but it involves <m>i</m>. We learn how to extract real-valued
+          solutions on the next page.
+        </p></li>
+      </ul>
+    </p>
+  </conclusion>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       VIDEO + QUESTION FORM
+       ═══════════════════════════════════════════════════════════ -->
+
+  <figure xml:id="video-complex-eigen">
+    <caption>This video goes through the content of this page.</caption>
+    <video youtube="-xSACWiYzyU" width="100%" preview="default"/>
+  </figure>
+
+  <interactive xml:id="question-form-5-5-3" iframe="question-form.html?section=5.5.3" width="100%" aspect="2:1"/>
+
+</section>

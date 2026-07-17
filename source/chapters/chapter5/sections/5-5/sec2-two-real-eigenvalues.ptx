@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-two-real-eigenvalues" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>The Case of Two Distinct Real Eigenvalues</title>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       RECAP: TWO PAIRS, TWO SOLUTIONS
+       ═══════════════════════════════════════════════════════════ -->
+
+  <p>
+    Suppose our matrix <m>A</m> falls into the first case, where it has two distinct, real
+    eigenvalues <m>\lambda_1</m> and <m>\lambda_2</m>, with corresponding eigenvectors
+    <m>\mathbf{v}_1</m> and <m>\mathbf{v}_2</m>. Then <xref ref="thm-eigenvector-solution"/>
+    gives us two solutions to <m>\frac{d\mathbf{x}}{dt} = A\mathbf{x}</m>:
+    <me>\mathbf{z}(t) = \mathbf{v}_1 e^{\lambda_1 t}
+      \quad \text{and} \quad
+      \mathbf{y}(t) = \mathbf{v}_2 e^{\lambda_2 t}.</me>
+  </p>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       LINEAR ALGEBRA FACT + THE CHAIN TO SUPERPOSITION
+       ═══════════════════════════════════════════════════════════ -->
+
+  <p>
+    To make use of these two solutions, we need one more fact, which we borrow from linear
+    algebra (we won't justify it here).
+  </p>
+
+  <fact xml:id="fact-distinct-eigenvectors-independent">
+    <title>Eigenvectors From Distinct Eigenvalues are Linearly Independent</title>
+    <p>
+      Suppose <m>A</m> has two real distinct eigenvalues <m>\lambda_1</m> and
+      <m>\lambda_2</m>, and that <m>\mathbf{v}_1</m> and <m>\mathbf{v}_2</m> are
+      corresponding eigenvectors. Then <m>\mathbf{v}_1</m> and <m>\mathbf{v}_2</m> are
+      linearly independent vectors.
+    </p>
+  </fact>
+
+  <p>
+    Since <m>\mathbf{v}_1</m> and <m>\mathbf{v}_2</m> are
+    linearly independent, one can show that the Wronskian of our two solutions is never
+    zero:
+    <me>W(\mathbf{z}, \mathbf{y}) \neq 0.</me>
+    And by <xref ref="thm-wronskian-general-solution"/>, two solutions with non-zero
+    Wronskian combine, through superposition, into the general solution:
+    <me>c_1 \mathbf{z} + c_2 \mathbf{y}.</me>
+    Putting all the pieces together gives us the main theorem of this case.
+  </p>
+
+  <theorem xml:id="thm-two-real-eigenvalues">
+    <title>The Eigenvalue Method for Two Distinct Real Eigenvalues</title>
+    <statement>
+      <p>
+        Suppose <m>A</m> is a <m>2 \times 2</m> matrix with two distinct, real eigenvalues
+        <m>\lambda_1, \lambda_2</m> with corresponding eigenvectors
+        <m>\mathbf{v}_1, \mathbf{v}_2</m>. Then the general solution of
+        <me>\frac{d\mathbf{x}}{dt} = A\mathbf{x}</me>
+        is
+        <me>\mathbf{x}(t) = c_1\mathbf{v}_1 e^{\lambda_1 t} + c_2\mathbf{v}_2 e^{\lambda_2 t}.</me>
+      </p>
+    </statement>
+  </theorem>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       WORKED EXAMPLE
+       ═══════════════════════════════════════════════════════════ -->
+
+  <p>
+    Now let's do a quick example applying this theorem. Luckily, we have previously found the eigenvalues and eigenvectors
+     to the matrix we will use!
+  </p>
+
+  <example xml:id="ex-solve-two-real">
+    <title>Solving a System with Two Distinct Real Eigenvalues</title>
+    <statement>
+      <p>
+        Find the general solution of the system
+        <md>
+          <mrow>x_1' \amp= 4x_1 + 2x_2</mrow>
+          <mrow>x_2' \amp= 3x_1 - x_2.</mrow>
+        </md>
+        You may use the eigenvalues and eigenvectors of the coefficient matrix
+        <m>A = \begin{bmatrix} 4 \amp 2 \\ 3 \amp -1 \end{bmatrix}</m>, which we found in
+        the last section:
+        <me>\lambda_1 = -2 \text{ with } \mathbf{v}_1 = \begin{bmatrix} 1 \\ -3 \end{bmatrix},
+          \qquad
+          \lambda_2 = 5 \text{ with } \mathbf{v}_2 = \begin{bmatrix} 2 \\ 1 \end{bmatrix}.</me>
+      </p>
+    </statement>
+    <hint>
+      <p>
+        Remember the two steps:
+        <ol>
+          <li>
+            <p>
+              Plug each eigenvalue-eigenvector pair into <m>\mathbf{v}e^{\lambda t}</m> to
+              get two solutions.
+            </p>
+          </li>
+          <li>
+            <p>
+              Apply superposition to get the general solution.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </hint>
+    <solution>
+      <p>
+        First, each eigenvalue-eigenvector pair gives a solution:
+        <md>
+          <mrow>\lambda_1 = -2 \text{ with } \mathbf{v}_1 = \begin{bmatrix} 1 \\ -3 \end{bmatrix}
+            \amp\implies
+            \mathbf{z}(t) = \begin{bmatrix} 1 \\ -3 \end{bmatrix}e^{-2t}</mrow>
+          <mrow>\lambda_2 = 5 \text{ with } \mathbf{v}_2 = \begin{bmatrix} 2 \\ 1 \end{bmatrix}
+            \amp\implies
+            \mathbf{y}(t) = \begin{bmatrix} 2 \\ 1 \end{bmatrix}e^{5t}.</mrow>
+        </md>
+        Second, since the eigenvalues are distinct and real, superposition gives the
+        general solution:
+        <me>\mathbf{x}(t) = c_1\begin{bmatrix} 1 \\ -3 \end{bmatrix}e^{-2t}
+          + c_2\begin{bmatrix} 2 \\ 1 \end{bmatrix}e^{5t}.</me>
+      </p>
+    </solution>
+  </example>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       ACTIVITY: ASSEMBLE A GENERAL SOLUTION
+       ═══════════════════════════════════════════════════════════ -->
+
+  <p>
+    Now you try assembling a general solution. It should be quick once the eigenvalues and eigenvectors are established!
+  </p>
+
+  <activity xml:id="act-assemble-general-solution">
+    <title>Assembling the General Solution</title>
+    <statement>
+      <p>
+        Suppose a matrix <m>B</m> has eigenvalues and eigenvectors
+        <me>\lambda_1 = 3 \text{ with } \mathbf{v}_1 = \begin{bmatrix} 1 \\ 2 \end{bmatrix},
+          \qquad
+          \lambda_2 = -1 \text{ with } \mathbf{v}_2 = \begin{bmatrix} 1 \\ -1 \end{bmatrix}.</me>
+        What is the general solution of
+        <m>\dfrac{d\mathbf{x}}{dt} = B\mathbf{x}</m>?
+      </p>
+    </statement>
+    <choices randomize="yes">
+      <choice correct="yes">
+        <statement>
+          <p>
+            <m>\mathbf{x}(t) = c_1\begin{bmatrix} 1 \\ 2 \end{bmatrix}e^{3t}
+              + c_2\begin{bmatrix} 1 \\ -1 \end{bmatrix}e^{-t}</m>
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            Correct! Each eigenvector is paired with its own eigenvalue, and the two
+            solutions are combined with the arbitrary constants <m>c_1</m> and <m>c_2</m>,
+            exactly as in <xref ref="thm-two-real-eigenvalues"/>.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            <m>\mathbf{x}(t) = c_1\begin{bmatrix} 1 \\ 2 \end{bmatrix}e^{-t}
+              + c_2\begin{bmatrix} 1 \\ -1 \end{bmatrix}e^{3t}</m>
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            Careful: the eigenvalues and eigenvectors got mismatched. The eigenvector
+            <m>\begin{bmatrix} 1 \\ 2 \end{bmatrix}</m> belongs to <m>\lambda_1 = 3</m>,
+            so it should be paired with <m>e^{3t}</m>, not <m>e^{-t}</m>. Remember:
+            eigenvalues and eigenvectors must go together!
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            <m>\mathbf{x}(t) = \begin{bmatrix} 1 \\ 2 \end{bmatrix}e^{3t}
+              + \begin{bmatrix} 1 \\ -1 \end{bmatrix}e^{-t}</m>
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            Close, but this is just <em>one particular</em> solution. The general solution
+            must describe <em>all</em> solutions, which requires the arbitrary constants
+            <m>c_1</m> and <m>c_2</m> in front of each piece.
+          </p>
+        </feedback>
+      </choice>
+    </choices>
+  </activity>
+
+  <p>
+    As we have seen before, the general solution can also be combined into a single vector by
+    expanding out the components. For example, the answer above can be written as
+    <m>\mathbf{x}(t) = \begin{bmatrix} c_1 e^{3t} + c_2 e^{-t} \\ 2c_1 e^{3t} - c_2 e^{-t} \end{bmatrix}</m>.
+  </p>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       KEY TAKEAWAYS
+       ═══════════════════════════════════════════════════════════ -->
+
+  <conclusion>
+    <title>Key Takeaways</title>
+    <p>
+      <ul>
+        <li><p>
+          <alert>Two pairs give two solutions:</alert> with two distinct real eigenvalues,
+          the pairs <m>(\lambda_1, \mathbf{v}_1)</m> and <m>(\lambda_2, \mathbf{v}_2)</m>
+          give the two solutions <m>\mathbf{v}_1 e^{\lambda_1 t}</m> and
+          <m>\mathbf{v}_2 e^{\lambda_2 t}</m>.
+        </p></li>
+        <li><p>
+          <alert>The general solution:</alert> since eigenvectors from distinct eigenvalues
+          are linearly independent, the Wronskian is non-zero and superposition gives
+          <m>\mathbf{x}(t) = c_1\mathbf{v}_1 e^{\lambda_1 t} + c_2\mathbf{v}_2 e^{\lambda_2 t}</m>.
+        </p></li>
+        <li><p>
+          <alert>Keep the pairs together:</alert> each eigenvector must be matched with its
+          own eigenvalue in the exponent.
+        </p></li>
+      </ul>
+    </p>
+  </conclusion>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       VIDEO + QUESTION FORM
+       ═══════════════════════════════════════════════════════════ -->
+
+  <figure xml:id="video-two-real-eigenvalues">
+    <caption>This video goes through the content of this page.</caption>
+    <video youtube="H_vxyFtBgVc" width="100%" preview="default"/>
+  </figure>
+
+  <interactive xml:id="question-form-5-5-2" iframe="question-form.html?section=5.5.2" width="100%" aspect="2:1"/>
+
+</section>
