@@ -4960,6 +4960,879 @@ var ptx_lunr_docs = [
   "body": " Formula J:   "
 },
 {
+  "id": "sec-matrices-crash-course",
+  "level": "1",
+  "url": "sec-matrices-crash-course.html",
+  "type": "Section",
+  "number": "5.1.1",
+  "title": "Basics of Matrices and Vectors",
+  "body": " Basics of Matrices and Vectors   In this chapter we will learn how to solve systems of differential equations, where several unknown functions interact with each other. It turns out that a useful way to organize systems of ODEs is with matrices , so we start with a crash course. If you have seen matrices before, this page will be a quick review. If not, you'll need to spend some extra time with the next few pages before moving on to the next section!    Matrix   A matrix is an array of numbers, with rows and columns. We can write , where is the entry in the th row and th column.    When reading subscripts and sizes, notice the first index tells you the row, and the second tells you the column.  Consider the matrix  has rows and columns, so is a matrix.  For the entries: is the entry in the first row, first column. The entry in the first row, second column is , and the entry in the second row, first column is . Rows first!    Size and Entry Practice   Consider the matrix What is the size of (in the form ), and what is the entry ?       is , and .    Correct! Rows first: has rows and columns, and is the entry in the third row, second column, which is .       is , and .    The size is right, but check the entry: sits in the third row, first column, so it is . The entry is in the third row, second column.       is , and .    Careful, rows come first in the size! has rows and columns, so it is . And means third row, second column.       is , and does not exist.    This is what happens if the row and column counts get swapped. Rows first: has rows and columns, so it is , and (third row, second column) does exist.       Let's quickly discuss matrix addition . Adding works just as you'd expect it to: just add component-wise. Same with subtraction. The only requirement for addition is that and must have the same dimensions (number of rows and columns) as each other.   Adding Two Matrices  Both matrices below are , so we may add them: The result is again a matrix.    Now we will look at scalar multiplication , which is a product , where is a scalar (meaning just a number, not a matrix). Computing also works as you might guess: just multiply by each component of .   Multiplying a Matrix by a Scalar  With the scalar and the matrix below:    When we tie this back to differential equations, we will use functions as scalars, like . For example, Notice we can also write the scalar as the second factor: We will use this way of writing things a bunch when we solve systems later in the chapter!   In addition to matrices, we will also need a good grasp on vectors . If you have seen them in physics or multivariate calculus, you may have been introduced to them as something with length and direction. In this course, we are mainly just considering them as lists of numbers (as we do in linear algebra).   Vectors   A vector is a finite list of numbers. It can be represented as an matrix, called a column vector , or as a matrix, called a row vector .    There are several ways to express a vector. In this class, we will commonly write them as column vectors.   Column and Row Vectors  The column vector is a matrix, so it has components. Other common notations for this same vector are and .  The row vector is a matrix, so it has components.     This video goes through the content of this page.     "
+},
+{
+  "id": "def-matrix",
+  "level": "2",
+  "url": "sec-matrices-crash-course.html#def-matrix",
+  "type": "Definition",
+  "number": "5.1.1",
+  "title": "Matrix.",
+  "body": " Matrix   A matrix is an array of numbers, with rows and columns. We can write , where is the entry in the th row and th column.   "
+},
+{
+  "id": "act-matrix-size-entry",
+  "level": "2",
+  "url": "sec-matrices-crash-course.html#act-matrix-size-entry",
+  "type": "Activity",
+  "number": "5.1.1",
+  "title": "Size and Entry Practice.",
+  "body": " Size and Entry Practice   Consider the matrix What is the size of (in the form ), and what is the entry ?       is , and .    Correct! Rows first: has rows and columns, and is the entry in the third row, second column, which is .       is , and .    The size is right, but check the entry: sits in the third row, first column, so it is . The entry is in the third row, second column.       is , and .    Careful, rows come first in the size! has rows and columns, so it is . And means third row, second column.       is , and does not exist.    This is what happens if the row and column counts get swapped. Rows first: has rows and columns, so it is , and (third row, second column) does exist.     "
+},
+{
+  "id": "ex-matrix-addition",
+  "level": "2",
+  "url": "sec-matrices-crash-course.html#ex-matrix-addition",
+  "type": "Example",
+  "number": "5.1.2",
+  "title": "Adding Two Matrices.",
+  "body": " Adding Two Matrices  Both matrices below are , so we may add them: The result is again a matrix.  "
+},
+{
+  "id": "ex-scalar-multiplication",
+  "level": "2",
+  "url": "sec-matrices-crash-course.html#ex-scalar-multiplication",
+  "type": "Example",
+  "number": "5.1.3",
+  "title": "Multiplying a Matrix by a Scalar.",
+  "body": " Multiplying a Matrix by a Scalar  With the scalar and the matrix below:   "
+},
+{
+  "id": "def-vector",
+  "level": "2",
+  "url": "sec-matrices-crash-course.html#def-vector",
+  "type": "Definition",
+  "number": "5.1.4",
+  "title": "Vectors.",
+  "body": " Vectors   A vector is a finite list of numbers. It can be represented as an matrix, called a column vector , or as a matrix, called a row vector .   "
+},
+{
+  "id": "ex-column-row-vectors",
+  "level": "2",
+  "url": "sec-matrices-crash-course.html#ex-column-row-vectors",
+  "type": "Example",
+  "number": "5.1.5",
+  "title": "Column and Row Vectors.",
+  "body": " Column and Row Vectors  The column vector is a matrix, so it has components. Other common notations for this same vector are and .  The row vector is a matrix, so it has components.  "
+},
+{
+  "id": "video-matrices-crash-course",
+  "level": "2",
+  "url": "sec-matrices-crash-course.html#video-matrices-crash-course",
+  "type": "Figure",
+  "number": "5.1.6",
+  "title": "",
+  "body": " This video goes through the content of this page.   "
+},
+{
+  "id": "sec-dot-product-matrix-vector",
+  "level": "1",
+  "url": "sec-dot-product-matrix-vector.html",
+  "type": "Section",
+  "number": "5.1.2",
+  "title": "The Dot Product and the Matrix-Vector Product",
+  "body": " The Dot Product and the Matrix-Vector Product   Now that we know what matrices and vectors are, we need to learn how to multiply them together. First we need to understand the dot product between two vectors.    Dot Product   The dot product between vectors and is equal to:      For example, Notice that the dot product gives a scalar , not another vector! We multiply the matching components together, then add everything up.  We can also write the dot product with column vectors. The process is exactly the same, and the components are even allowed to be functions:   Also note that the two vectors must have the same number of components for the dot product to make sense. For instance, is not defined , since the first vector has components but the second has only .    Dot Product Practice   Compute the dot product            Correct! Multiply the matching components and add: . The components involve functions, but the process is exactly the same.           Close, but not quite! Multiplying the matching components is the right first step, but the dot product doesn't stop there: we then add everything up. The dot product gives a scalar, not a vector.           Watch the signs! The third pair of components is , so the last term should be subtracted.      Not defined.    Both vectors have components, so the dot product is defined here. It's fine for the components to be functions like : just multiply the matching components and add them up.       With the dot product in hand, we can now multiply a matrix by a vector.   Matrix-Vector Multiplication   Suppose is an matrix and has components. Then is a vector with components: where is the th row of (a row vector).    In other words: to compute , we use the rows of and the column , taking a dot product for each entry. For example, Here a matrix times a vector gave a vector. Notice how the sizes work: the number of columns of must match the number of components of , and the result has as many components as has rows .    Computing  Let Determine if the product is defined. If so, compute it.  Here is and is . The number of columns of matches the number of components of (both are ), so the product is defined, and the result will be . Taking the dot product of each row of with :      Is Defined?   Keep the same matrix from the example above, and let What happens when you compute ?       is not defined.    Correct! is , so its rows have only components, but has . The columns of don't match up with the rows of , so we can't take the dot products: the product is undefined.           This comes from dotting each row of with just the first two components of , but that leaves with nothing to pair with! Since the rows of have components and has , the dot products (and the product ) are not defined.       is defined, and the result is a vector.    Check the sizes again: is and is . For to be defined, the number of columns of (here ) must match the number of components of (here ). They don't match, so the product is not defined.      Alright, just one more page of matrices before we can finally get to some ODEs!    This video goes through the content of this page.     "
+},
+{
+  "id": "def-dot-product",
+  "level": "2",
+  "url": "sec-dot-product-matrix-vector.html#def-dot-product",
+  "type": "Definition",
+  "number": "5.1.1",
+  "title": "Dot Product.",
+  "body": " Dot Product   The dot product between vectors and is equal to:    "
+},
+{
+  "id": "act-dot-product-practice",
+  "level": "2",
+  "url": "sec-dot-product-matrix-vector.html#act-dot-product-practice",
+  "type": "Activity",
+  "number": "5.1.1",
+  "title": "Dot Product Practice.",
+  "body": " Dot Product Practice   Compute the dot product            Correct! Multiply the matching components and add: . The components involve functions, but the process is exactly the same.           Close, but not quite! Multiplying the matching components is the right first step, but the dot product doesn't stop there: we then add everything up. The dot product gives a scalar, not a vector.           Watch the signs! The third pair of components is , so the last term should be subtracted.      Not defined.    Both vectors have components, so the dot product is defined here. It's fine for the components to be functions like : just multiply the matching components and add them up.     "
+},
+{
+  "id": "def-matrix-vector-mult",
+  "level": "2",
+  "url": "sec-dot-product-matrix-vector.html#def-matrix-vector-mult",
+  "type": "Definition",
+  "number": "5.1.2",
+  "title": "Matrix-Vector Multiplication.",
+  "body": " Matrix-Vector Multiplication   Suppose is an matrix and has components. Then is a vector with components: where is the th row of (a row vector).   "
+},
+{
+  "id": "ex-matrix-vector-Ax",
+  "level": "2",
+  "url": "sec-dot-product-matrix-vector.html#ex-matrix-vector-Ax",
+  "type": "Example",
+  "number": "5.1.3",
+  "title": "Computing <span class=\"process-math\">\\(A\\mathbf{x}\\)<\/span>.",
+  "body": " Computing  Let Determine if the product is defined. If so, compute it.  Here is and is . The number of columns of matches the number of components of (both are ), so the product is defined, and the result will be . Taking the dot product of each row of with :   "
+},
+{
+  "id": "act-matrix-vector-Ay",
+  "level": "2",
+  "url": "sec-dot-product-matrix-vector.html#act-matrix-vector-Ay",
+  "type": "Activity",
+  "number": "5.1.2",
+  "title": "Is <span class=\"process-math\">\\(A\\mathbf{y}\\)<\/span> Defined?",
+  "body": " Is Defined?   Keep the same matrix from the example above, and let What happens when you compute ?       is not defined.    Correct! is , so its rows have only components, but has . The columns of don't match up with the rows of , so we can't take the dot products: the product is undefined.           This comes from dotting each row of with just the first two components of , but that leaves with nothing to pair with! Since the rows of have components and has , the dot products (and the product ) are not defined.       is defined, and the result is a vector.    Check the sizes again: is and is . For to be defined, the number of columns of (here ) must match the number of components of (here ). They don't match, so the product is not defined.     "
+},
+{
+  "id": "video-dot-product-matrix-vector",
+  "level": "2",
+  "url": "sec-dot-product-matrix-vector.html#video-dot-product-matrix-vector",
+  "type": "Figure",
+  "number": "5.1.4",
+  "title": "",
+  "body": " This video goes through the content of this page.   "
+},
+{
+  "id": "sec-matrix-multiplication",
+  "level": "1",
+  "url": "sec-matrix-multiplication.html",
+  "type": "Section",
+  "number": "5.1.3",
+  "title": "Matrix Multiplication",
+  "body": " Matrix Multiplication   The last operation we need is multiplying two matrices together. Unlike with matrix addition, you can't just multiply component-wise. The definition builds off of the matrix-vector product.    Matrix Multiplication   Suppose is an matrix and is a matrix. Then is an matrix where: where is the th column of .    In practice, we compute the entries of one at a time using dot products: So just like the matrix-vector product, we use the rows of and the columns of .   For example, let's multiply a matrix by a matrix (sizes match: columns on the left, rows on the right, so the result is ). Writing for the rows of the left matrix and for the columns of the right matrix: Each entry is one dot product: for instance, the entry in the first row, second column came from dotting the first row of the left matrix ( ) with the second column of the right matrix ( ).   Matrix multiplication is associative , but it is not commutative . Associative means we can move parentheses around: Not commutative means that in general,   Sometimes the product in the reversed order isn't even defined! Take the two matrices from the example above. We computed where was and was . But if we try the other order, , we would be multiplying a matrix by a matrix. Now the number of columns of the first matrix ( ) does not match the number of rows of the second ( ), so is not defined .  Even when both orders are defined, we still don't have commutativity. For example: but multiplying in the other order gives Both products are , but they are not equal! So be careful: the order of multiplication matters with matrices.    This video goes through the content of this page.     "
+},
+{
+  "id": "def-matrix-multiplication",
+  "level": "2",
+  "url": "sec-matrix-multiplication.html#def-matrix-multiplication",
+  "type": "Definition",
+  "number": "5.1.1",
+  "title": "Matrix Multiplication.",
+  "body": " Matrix Multiplication   Suppose is an matrix and is a matrix. Then is an matrix where: where is the th column of .   "
+},
+{
+  "id": "video-matrix-multiplication",
+  "level": "2",
+  "url": "sec-matrix-multiplication.html#video-matrix-multiplication",
+  "type": "Figure",
+  "number": "5.1.2",
+  "title": "",
+  "body": " This video goes through the content of this page.   "
+},
+{
+  "id": "sec-linear-systems-of-odes",
+  "level": "1",
+  "url": "sec-linear-systems-of-odes.html",
+  "type": "Section",
+  "number": "5.2.1",
+  "title": "Linear Systems of Differential Equations",
+  "body": " Linear Systems of Differential Equations   Now that we have some basic understanding of matrices, we have the tools to study systems of ODEs! So far in this course, every differential equation has had just one unknown function. But many real-world situations involve several quantities that affect each other.  For example, suppose an island has a population of rabbits, , and a population of foxes, . The foxes eat the rabbits, so each population affects how the other grows. A (simplified) model might look like: Looking at this a bit closer, we see the is the rate in, namely that the rabbits breed proportional to the population (which was a common model we saw at the very beginning of these notes). But then the is the rate out at which the foxes eat the rabbits. Meanwhile, says the fox population thrives when there are a lot of rabbits to eat ( ), but declines at rate equal to its population ( ), as larger fox populations create competition for food.  The catch is that we can't just solve for by itself, because its equation involves (and vice versa!). The two equations are tangled together. This is a system of differential equations, and we need to solve both equations simultaneously . In this section we'll set up the language for these systems, and over the rest of the chapter we'll learn how to solve them in certain cases.    First-Order Linear System   A first-order linear system with two functions and can be written in the form: where and are functions that solve both ODEs simultaneously.    Our rabbits and foxes are an example of a first-order linear system. Let's rewrite the system and label each coefficient: That is, , , , and . Here all the 's are constants, and there are no leftover terms, so .  Here is an example where the coefficients are functions of : So , , , , , and .   We collect the coefficients into a matrix and the functions into vectors:     The coefficient matrix is .    And , .     Continuing our example from above: the system has coefficient matrix and vectors Notice each entry of the coefficient matrix is the coefficient of in the equation for , and collects the leftover terms that don't involve or at all.   Matrix Form of a Linear System  The system above can be written as a matrix equation:    Why are these the same? Let's expand out the right-hand side using matrix-vector multiplication and addition: The left-hand side is . Setting the two sides equal component-by-component recovers exactly the two equations of our system! So the matrix equation is just a compact way to package the whole system at once.    Writing a System as a Matrix Equation   Write the system: as a matrix equation.    We need to be careful to match each coefficient to its correct function, so that it lands in the correct spot in the matrix. To make this clear, let's rewrite the system with every coefficient written out explicitly, including the ones that are or : Now every equation has an term, an term, and a leftover term, so we can just read off the entries:      Let's end with you trying one real quick!   Matrix Form Practice   Which matrix equation represents the system below?            Correct! The first equation has no term, so , and the second equation has no leftover term, so . The doesn't involve or , so it belongs in , not the matrix.           Careful with the ! The entry is the coefficient of in the first equation, but the is not multiplied by : it's a leftover term with no or attached. It belongs in the vector , and .           So close! Check the sign on : the second equation reads , so the coefficient is , not .           Rows first! The is the coefficient of in the second equation, so it goes in row , column : that is, . Here it's been placed in row , column instead.         Key Takeaways     A system of ODEs has multiple unknown functions whose equations are tangled together, so we must solve them simultaneously.    A first-order linear system is built from coefficients and leftover terms , where is the coefficient of in the equation for (rows first!).    Any such system can be packaged as the matrix equation .    When converting a system to matrix form, be careful to line up the coefficients correctly (some will be if a term doesn't explicitly show up in the system).       This video goes through the content of this page.     "
+},
+{
+  "id": "def-first-order-linear-system",
+  "level": "2",
+  "url": "sec-linear-systems-of-odes.html#def-first-order-linear-system",
+  "type": "Definition",
+  "number": "5.2.1",
+  "title": "First-Order Linear System.",
+  "body": " First-Order Linear System   A first-order linear system with two functions and can be written in the form: where and are functions that solve both ODEs simultaneously.   "
+},
+{
+  "id": "sec-linear-systems-of-odes-9",
+  "level": "2",
+  "url": "sec-linear-systems-of-odes.html#sec-linear-systems-of-odes-9",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "coefficient matrix "
+},
+{
+  "id": "fact-matrix-equation-form",
+  "level": "2",
+  "url": "sec-linear-systems-of-odes.html#fact-matrix-equation-form",
+  "type": "Fact",
+  "number": "5.2.2",
+  "title": "Matrix Form of a Linear System.",
+  "body": " Matrix Form of a Linear System  The system above can be written as a matrix equation:   "
+},
+{
+  "id": "ex-system-to-matrix-form",
+  "level": "2",
+  "url": "sec-linear-systems-of-odes.html#ex-system-to-matrix-form",
+  "type": "Example",
+  "number": "5.2.3",
+  "title": "Writing a System as a Matrix Equation.",
+  "body": " Writing a System as a Matrix Equation   Write the system: as a matrix equation.    We need to be careful to match each coefficient to its correct function, so that it lands in the correct spot in the matrix. To make this clear, let's rewrite the system with every coefficient written out explicitly, including the ones that are or : Now every equation has an term, an term, and a leftover term, so we can just read off the entries:    "
+},
+{
+  "id": "act-system-to-matrix-form",
+  "level": "2",
+  "url": "sec-linear-systems-of-odes.html#act-system-to-matrix-form",
+  "type": "Activity",
+  "number": "5.2.1",
+  "title": "Matrix Form Practice.",
+  "body": " Matrix Form Practice   Which matrix equation represents the system below?            Correct! The first equation has no term, so , and the second equation has no leftover term, so . The doesn't involve or , so it belongs in , not the matrix.           Careful with the ! The entry is the coefficient of in the first equation, but the is not multiplied by : it's a leftover term with no or attached. It belongs in the vector , and .           So close! Check the sign on : the second equation reads , so the coefficient is , not .           Rows first! The is the coefficient of in the second equation, so it goes in row , column : that is, . Here it's been placed in row , column instead.     "
+},
+{
+  "id": "video-linear-systems-of-odes",
+  "level": "2",
+  "url": "sec-linear-systems-of-odes.html#video-linear-systems-of-odes",
+  "type": "Figure",
+  "number": "5.2.4",
+  "title": "",
+  "body": " This video goes through the content of this page.   "
+},
+{
+  "id": "sec-verifying-solutions-systems",
+  "level": "1",
+  "url": "sec-verifying-solutions-systems.html",
+  "type": "Section",
+  "number": "5.2.2",
+  "title": "Verifying Solutions To a System",
+  "body": " Verifying Solutions To a System   Back in the very first chapter, before we could solve ODEs, we learned how to verify that a given function was a solution: plug it in and check that both sides match. We'll take the same first step with systems. Given a vector of functions, how do we check whether it solves the matrix equation ? As before, we just compute both sides and compare!  One note on notation regarding the next example: we'll name our candidate solutions and so their names are distinct from the component functions and .    Verifying Solutions   Consider the system:      Write the system as a matrix equation.    Every coefficient is present here (no missing terms!), and there are no leftover terms, so : Since is the zero vector, we usually just drop it and write       Verify that is a solution.  Let's do this one together. We need to check that , so we compute each side separately.  For the left-hand side, we differentiate each component:   For the right-hand side, we multiply: The two sides match, so is a solution!      Now it's your turn: verify that is also a solution. Work it out on paper before checking the solution below, and then use the checkpoint question that follows to confirm your computation.    Follow the same two steps: differentiate each component of to get (don't forget the chain rule!), then compute with matrix-vector multiplication. You're hoping the two results agree.    Differentiating (chain rule brings down a ): Multiplying: Both sides equal , so is a solution as well.       Checking Your Verification   When verifying in the last part, you computed both and . What vector did you get (for both)?           Correct! The chain rule brings a factor of out of each component of , and the matrix product gives and . The two sides agree, so is a solution.           Check your signs! Differentiating brings down a factor of , not . And on the matrix side, and : both negative.           This is just , which suggests the chain rule got skipped. Differentiating brings down the full factor of : .      The two sides did not match, so is not a solution.    They should match! Recompute carefully: the derivative side gives and , and the matrix side gives and , which are the same thing. A stray sign or a slipped chain rule is the usual culprit here.      We just found two different solutions to the same system. There are actually infinitely many more! Just like with second-order equations back in , we'll soon see how to combine solutions to build the general solution.    Key Takeaways     To verify that a vector of functions solves , compute both sides separately and check that they give the same vector.    The left-hand side is computed by differentiating each component (watch the chain rule!), and the right-hand side by matrix-vector multiplication.    A system can have several different solutions. Soon we will see how to combine them into the general solution.        This video goes through the content of this page.     "
+},
+{
+  "id": "ex-verify-solutions-system",
+  "level": "2",
+  "url": "sec-verifying-solutions-systems.html#ex-verify-solutions-system",
+  "type": "Example",
+  "number": "5.2.1",
+  "title": "Verifying Solutions.",
+  "body": " Verifying Solutions   Consider the system:      Write the system as a matrix equation.    Every coefficient is present here (no missing terms!), and there are no leftover terms, so : Since is the zero vector, we usually just drop it and write       Verify that is a solution.  Let's do this one together. We need to check that , so we compute each side separately.  For the left-hand side, we differentiate each component:   For the right-hand side, we multiply: The two sides match, so is a solution!      Now it's your turn: verify that is also a solution. Work it out on paper before checking the solution below, and then use the checkpoint question that follows to confirm your computation.    Follow the same two steps: differentiate each component of to get (don't forget the chain rule!), then compute with matrix-vector multiplication. You're hoping the two results agree.    Differentiating (chain rule brings down a ): Multiplying: Both sides equal , so is a solution as well.    "
+},
+{
+  "id": "act-verify-z-checkpoint",
+  "level": "2",
+  "url": "sec-verifying-solutions-systems.html#act-verify-z-checkpoint",
+  "type": "Activity",
+  "number": "5.2.1",
+  "title": "Checking Your Verification.",
+  "body": " Checking Your Verification   When verifying in the last part, you computed both and . What vector did you get (for both)?           Correct! The chain rule brings a factor of out of each component of , and the matrix product gives and . The two sides agree, so is a solution.           Check your signs! Differentiating brings down a factor of , not . And on the matrix side, and : both negative.           This is just , which suggests the chain rule got skipped. Differentiating brings down the full factor of : .      The two sides did not match, so is not a solution.    They should match! Recompute carefully: the derivative side gives and , and the matrix side gives and , which are the same thing. A stray sign or a slipped chain rule is the usual culprit here.     "
+},
+{
+  "id": "video-verifying-solutions-systems",
+  "level": "2",
+  "url": "sec-verifying-solutions-systems.html#video-verifying-solutions-systems",
+  "type": "Figure",
+  "number": "5.2.2",
+  "title": "",
+  "body": " This video goes through the content of this page.   "
+},
+{
+  "id": "sec-determinant-wronskian",
+  "level": "1",
+  "url": "sec-determinant-wronskian.html",
+  "type": "Section",
+  "number": "5.3.1",
+  "title": "The Determinant and the Wronskian",
+  "body": " The Determinant and the Wronskian   We found two solutions to a system on the last page, and hinted that they can be combined to build the general solution. To make that precise, we need two more tools from linear algebra: the determinant and linear independence.  Keep in mind that in a linear algebra course, these ideas get weeks of development and carry a lot of theory. We only need a working understanding for ODEs, so we won't go deep into the theory. If you haven't taken a linear algebra or matrices course, then you may find this section a little dense.    Determinant   If is a matrix in the form , then the determinant of is:     The straight bars mean we're taking the determinant of the matrix. There are a lot of important interpretations and consequences of the determinant. What we need is the connection to linear independence.    Linear Independence   Two vectors and are linearly independent if the only solution to: is when .    In general there is a lot to unpack with linear independence, but with just two vectors, and are linearly independent exactly when they are not multiples of each other . And when that happens, the linear combinations realize every vector in the plane as you vary over all and . That is, every vector in can be built out of two linearly independent vectors.  The determinant gives us a quick test for linear independence:   Determinant Test for Independence  The columns of a matrix are linearly independent if and only if .   We will apply this idea in the following example.    Computing a Determinant   Compute the determinant of . Are the columns linearly independent?    Using the formula: Since , the columns and are linearly independent.     Using the same process as the example, complete the following checkpoint.   Determinant Checkpoint   Compute the determinant of . Are the columns linearly independent?       , so the columns are not linearly independent.    Correct! , so the columns are not linearly independent. In fact, you can see it directly: the second column is exactly times the first column . They're multiples of each other!       , so the columns are linearly independent.    The determinant is right, but the conclusion is backwards! The test says the columns are linearly independent when . Here , so the columns are not independent. Indeed, the second column is times the first.       , so the columns are linearly independent.    Check the formula: it's , with a minus sign. Here that's , not . Since the determinant is , the columns are not linearly independent.       Let's return to solutions of systems. As before, we are only going to scratch the surface of the underlying theory. Instead, most of our effort will go towards applying these ideas in future sections!   The Principle of Superposition  With homogeneous linear systems, we still have a principle of superposition . That is, if and are solutions to: (written in vector form as ), then any linear combination: is also a solution.   (You can verify this by plugging into the system, just like we did for second-order equations.)  Let's connect this back to , where we verified that are both solutions to the homogeneous system . The principle of superposition lets us build many more solutions out of these two.   Superposition Checkpoint   Which of the following is an infinite family of solutions built from and ?           Correct! This is . By the principle of superposition, every choice of the constants and produces a solution, so this is infinitely many solutions all at once.           Look closely: these two vectors are not and ! Their components have been mixed together, and these mixed vectors are not solutions to the system, so superposition doesn't apply. Each solution keeps its own exponential in both components: is all , and is all .           Careful: the components of each vector have been flipped upside down! The solution has on top and on the bottom (and similarly for ). A flipped vector is generally not a solution anymore, so superposition only applies to the original and .      So from just two solutions, we instantly get infinitely many. This raises the question: when does give us all of the solutions?  It turns out this is when and are linearly independent. This is closely related to what we said above about vectors: two linearly independent vectors in are enough to build every vector in the plane through their linear combinations. The situation with solutions is analogous: two \"independent enough\" solutions are enough to build every solution. We won't go further into the theory here; the takeaway is that we need our two solutions to be linearly independent, and we need a way to check for that.   We will check linear independence using the Wronskian . It's exactly the determinant test from above, applied to our two solutions.   The Wronskian   Suppose and . The Wronskian , , is:     Notice the two solutions become the columns of the matrix. And finally, we get to our main theorem of the section by combining the previous results!   The Wronskian and the General Solution   If and are two solutions to a first-order, linear, homogeneous system such that: then the general solution is given by .    Let's apply the theorem to our two solutions from above. Recall they were Placing and as the columns and computing: Notice that involves here (that will often happen). The question is whether can ever be . Since is never  , we have for any . So the theorem applies: is the general solution (it captures all of the solutions to the system).  On the next page, we'll run this whole process from start to finish on a new system: verify two solutions, check the Wronskian, and write down the general solution.    This video goes through the content of this page.     "
+},
+{
+  "id": "def-determinant",
+  "level": "2",
+  "url": "sec-determinant-wronskian.html#def-determinant",
+  "type": "Definition",
+  "number": "5.3.1",
+  "title": "Determinant.",
+  "body": " Determinant   If is a matrix in the form , then the determinant of is:    "
+},
+{
+  "id": "def-linear-independence",
+  "level": "2",
+  "url": "sec-determinant-wronskian.html#def-linear-independence",
+  "type": "Definition",
+  "number": "5.3.2",
+  "title": "Linear Independence.",
+  "body": " Linear Independence   Two vectors and are linearly independent if the only solution to: is when .   "
+},
+{
+  "id": "fact-det-independence",
+  "level": "2",
+  "url": "sec-determinant-wronskian.html#fact-det-independence",
+  "type": "Fact",
+  "number": "5.3.3",
+  "title": "Determinant Test for Independence.",
+  "body": " Determinant Test for Independence  The columns of a matrix are linearly independent if and only if .  "
+},
+{
+  "id": "ex-determinant-independence",
+  "level": "2",
+  "url": "sec-determinant-wronskian.html#ex-determinant-independence",
+  "type": "Example",
+  "number": "5.3.4",
+  "title": "Computing a Determinant.",
+  "body": " Computing a Determinant   Compute the determinant of . Are the columns linearly independent?    Using the formula: Since , the columns and are linearly independent.   "
+},
+{
+  "id": "act-determinant-independence",
+  "level": "2",
+  "url": "sec-determinant-wronskian.html#act-determinant-independence",
+  "type": "Activity",
+  "number": "5.3.1",
+  "title": "Determinant Checkpoint.",
+  "body": " Determinant Checkpoint   Compute the determinant of . Are the columns linearly independent?       , so the columns are not linearly independent.    Correct! , so the columns are not linearly independent. In fact, you can see it directly: the second column is exactly times the first column . They're multiples of each other!       , so the columns are linearly independent.    The determinant is right, but the conclusion is backwards! The test says the columns are linearly independent when . Here , so the columns are not independent. Indeed, the second column is times the first.       , so the columns are linearly independent.    Check the formula: it's , with a minus sign. Here that's , not . Since the determinant is , the columns are not linearly independent.     "
+},
+{
+  "id": "fact-superposition-systems",
+  "level": "2",
+  "url": "sec-determinant-wronskian.html#fact-superposition-systems",
+  "type": "Fact",
+  "number": "5.3.5",
+  "title": "The Principle of Superposition.",
+  "body": " The Principle of Superposition  With homogeneous linear systems, we still have a principle of superposition . That is, if and are solutions to: (written in vector form as ), then any linear combination: is also a solution.  "
+},
+{
+  "id": "act-superposition-family",
+  "level": "2",
+  "url": "sec-determinant-wronskian.html#act-superposition-family",
+  "type": "Activity",
+  "number": "5.3.2",
+  "title": "Superposition Checkpoint.",
+  "body": " Superposition Checkpoint   Which of the following is an infinite family of solutions built from and ?           Correct! This is . By the principle of superposition, every choice of the constants and produces a solution, so this is infinitely many solutions all at once.           Look closely: these two vectors are not and ! Their components have been mixed together, and these mixed vectors are not solutions to the system, so superposition doesn't apply. Each solution keeps its own exponential in both components: is all , and is all .           Careful: the components of each vector have been flipped upside down! The solution has on top and on the bottom (and similarly for ). A flipped vector is generally not a solution anymore, so superposition only applies to the original and .     "
+},
+{
+  "id": "def-wronskian-systems",
+  "level": "2",
+  "url": "sec-determinant-wronskian.html#def-wronskian-systems",
+  "type": "Definition",
+  "number": "5.3.6",
+  "title": "The Wronskian.",
+  "body": " The Wronskian   Suppose and . The Wronskian , , is:    "
+},
+{
+  "id": "thm-wronskian-general-solution",
+  "level": "2",
+  "url": "sec-determinant-wronskian.html#thm-wronskian-general-solution",
+  "type": "Theorem",
+  "number": "5.3.7",
+  "title": "The Wronskian and the General Solution.",
+  "body": " The Wronskian and the General Solution   If and are two solutions to a first-order, linear, homogeneous system such that: then the general solution is given by .   "
+},
+{
+  "id": "video-determinant-wronskian",
+  "level": "2",
+  "url": "sec-determinant-wronskian.html#video-determinant-wronskian",
+  "type": "Figure",
+  "number": "5.3.8",
+  "title": "",
+  "body": " This video goes through the content of this page.   "
+},
+{
+  "id": "sec-general-solution-example",
+  "level": "1",
+  "url": "sec-general-solution-example.html",
+  "type": "Section",
+  "number": "5.3.2",
+  "title": "Example Building the General Solution",
+  "body": " Example Building the General Solution   We will now work through a full example using the results we just established. Here is a summary of the process for finding the general solution to a homogeneous linear system:   Recap: Building the General Solution     Have two solutions and to the homogeneous system (verifying them if needed).    Compute the Wronskian (the determinant of the matrix whose columns are the two solutions).    If , the solutions are linearly independent, and the general solution is .      The activity below walks through these three steps in order.    The General Solution to a System   Consider the system: We are given the two candidate solutions      Verify that and are both solutions.    Can skim or reference later if needed  This is the same verification process as the last section: compute the derivative of each candidate, compute times each candidate, and check they match.  For , differentiating gives while multiplying gives They match, so is a solution.  For , differentiating gives while multiplying gives They match as well, so is also a solution.      Compute the Wronskian . Are the solutions linearly independent?       , which is not , so the solutions are linearly independent.    Correct! Placing the solutions as the columns and computing: The exponentials cancel since . Since , the solutions are linearly independent.       , which is not , so the solutions are linearly independent.    Recheck the arithmetic: the determinant is , with a minus sign. Here that's , not . The conclusion is right, though: since , the solutions are linearly independent.       , which is never , so the solutions are linearly independent.    Careful with the exponentials: when multiplying, the exponents add , so . The exponentials cancel completely, leaving . The conclusion is right, though: the solutions are linearly independent.        Write down the general solution to the system.    Since the Wronskian is nonzero, our theorem from the last page applies: the general solution to the system is We can also combine everything into one big vector: Reading off the components, and solve the original system simultaneously, for any constants and .      In our activity, the exponentials canceled and the Wronskian came out to a constant. That won't always happen: often involves . For example, you may find Since is never  , we have for any , and we can still conclude the solutions are linearly independent. A Wronskian that depends on is perfectly fine, as long as it's never zero.    General Solution Checkpoint   Suppose a homogeneous linear system has the linearly independent solutions Which of the following is the general solution to the system, written as a single vector?           Correct! The general solution is . Distributing the constants and adding component-wise:            This is just : one particular solution, not the general solution. The general solution needs the arbitrary constants: . Without them, we only capture a single solution instead of all of them.           Careful when combining! The components of are (top) and (bottom), so the terms should be on top and on the bottom. Here they've been mixed up.           Check the exponentials: each solution keeps its own exponential in both components. The vector contributes to both the top and bottom, and contributes to both. Here the exponentials have been split across rows, which mixes up the two solutions.        This video goes through the content of this page.     "
+},
+{
+  "id": "act-general-solution-system",
+  "level": "2",
+  "url": "sec-general-solution-example.html#act-general-solution-system",
+  "type": "Activity",
+  "number": "5.3.1",
+  "title": "The General Solution to a System.",
+  "body": " The General Solution to a System   Consider the system: We are given the two candidate solutions      Verify that and are both solutions.    Can skim or reference later if needed  This is the same verification process as the last section: compute the derivative of each candidate, compute times each candidate, and check they match.  For , differentiating gives while multiplying gives They match, so is a solution.  For , differentiating gives while multiplying gives They match as well, so is also a solution.      Compute the Wronskian . Are the solutions linearly independent?       , which is not , so the solutions are linearly independent.    Correct! Placing the solutions as the columns and computing: The exponentials cancel since . Since , the solutions are linearly independent.       , which is not , so the solutions are linearly independent.    Recheck the arithmetic: the determinant is , with a minus sign. Here that's , not . The conclusion is right, though: since , the solutions are linearly independent.       , which is never , so the solutions are linearly independent.    Careful with the exponentials: when multiplying, the exponents add , so . The exponentials cancel completely, leaving . The conclusion is right, though: the solutions are linearly independent.        Write down the general solution to the system.    Since the Wronskian is nonzero, our theorem from the last page applies: the general solution to the system is We can also combine everything into one big vector: Reading off the components, and solve the original system simultaneously, for any constants and .    "
+},
+{
+  "id": "act-general-solution-vector",
+  "level": "2",
+  "url": "sec-general-solution-example.html#act-general-solution-vector",
+  "type": "Activity",
+  "number": "5.3.2",
+  "title": "General Solution Checkpoint.",
+  "body": " General Solution Checkpoint   Suppose a homogeneous linear system has the linearly independent solutions Which of the following is the general solution to the system, written as a single vector?           Correct! The general solution is . Distributing the constants and adding component-wise:            This is just : one particular solution, not the general solution. The general solution needs the arbitrary constants: . Without them, we only capture a single solution instead of all of them.           Careful when combining! The components of are (top) and (bottom), so the terms should be on top and on the bottom. Here they've been mixed up.           Check the exponentials: each solution keeps its own exponential in both components. The vector contributes to both the top and bottom, and contributes to both. Here the exponentials have been split across rows, which mixes up the two solutions.     "
+},
+{
+  "id": "video-general-solution-example",
+  "level": "2",
+  "url": "sec-general-solution-example.html#video-general-solution-example",
+  "type": "Figure",
+  "number": "5.3.1",
+  "title": "",
+  "body": " This video goes through the content of this page.   "
+},
+{
+  "id": "sec-ivp-systems",
+  "level": "1",
+  "url": "sec-ivp-systems.html",
+  "type": "Section",
+  "number": "5.3.3",
+  "title": "Initial Value Problems for Systems",
+  "body": " Initial Value Problems for Systems   We now know how to find the general solution to a homogeneous system. As always, the general solution gives every possible solution. But in applications (like our rabbits and foxes), we usually know where the system starts, and we want the one specific solution solving the initial value problem.   The general solution has two unknown constants. So if we're given two initial conditions, the values of and , we can solve for and and find the one particular solution that satisfies them. This is just like second-order equations, where the two constants in the general solution required two initial conditions.  (It turns out that linear independence of the solutions and guarantees there is a unique solution for and .)    Here's the system we'll work with on this page. Before the new material, let's redo the process from the last page on it. For the system one can show that are both solutions. (You could verify this yourself with the process from !)  In the following activity, we repeat the same process covered in the previous two pages. Feel free to go through it, skim, or skip the warm-up depending on how much practice you want with it!   Warm-Up: Find the General Solution    Compute the Wronskian to show and are linearly independent.    The solutions become the columns:     Computing: Since , the solutions are linearly independent.      Write the general solution, combining it into a single vector.    Since , the general solution is . Distribute the constants and add component-wise to get one vector.           Now it is time for the main example of this page. We will use initial conditions to find the particular solution.   Finding a Particular Solution   For the system above, find the particular solution where and .    From the warm-up (where we already checked !), the general solution is By plugging in and using the initial conditions, we get the system:   Work for getting the system (read if stuck)  Plugging into the first component of the general solution: since . Setting this equal to the initial condition gives .  Similarly, for the second component: and setting this equal to gives .  This is two equations in the two unknowns and . Solving the system gives:   Algebra (can skim)  We solve the system by elimination. Subtracting the second equation from the first cancels the 's: Then substituting into the first equation:   Substituting these back into the general solution, the particular solution is or written out by components, and .     We end with a quick checkpoint:   Setting Up the Constants   Suppose a system has general solution with initial conditions and . What system of equations do we get for and ? (You don't need to solve it!)       and     Correct! Plugging into the general solution makes every exponential equal , so the first component gives and the second gives . From here it's just algebra to find and .       and     Almost, but the initial conditions happen at the specific time , so we plug in everywhere. Since , the exponentials all disappear, leaving equations with only the constants: and .       and     Watch which condition goes with which component! pairs with the first component of the general solution, giving , and pairs with the second, giving . Here they've been swapped.       and     It looks like the exponentials got differentiated: the from only comes down if we take a derivative, and initial conditions here are on and themselves, not their derivatives. Plugging straight into the general solution gives everywhere: and .        This video goes through the content of this page.     "
+},
+{
+  "id": "obs-two-conditions",
+  "level": "2",
+  "url": "sec-ivp-systems.html#obs-two-conditions",
+  "type": "Observation",
+  "number": "5.3.1",
+  "title": "",
+  "body": " The general solution has two unknown constants. So if we're given two initial conditions, the values of and , we can solve for and and find the one particular solution that satisfies them. This is just like second-order equations, where the two constants in the general solution required two initial conditions.  (It turns out that linear independence of the solutions and guarantees there is a unique solution for and .)  "
+},
+{
+  "id": "act-warmup-general-solution",
+  "level": "2",
+  "url": "sec-ivp-systems.html#act-warmup-general-solution",
+  "type": "Activity",
+  "number": "5.3.1",
+  "title": "Warm-Up: Find the General Solution.",
+  "body": " Warm-Up: Find the General Solution    Compute the Wronskian to show and are linearly independent.    The solutions become the columns:     Computing: Since , the solutions are linearly independent.      Write the general solution, combining it into a single vector.    Since , the general solution is . Distribute the constants and add component-wise to get one vector.         "
+},
+{
+  "id": "ex-ivp-system",
+  "level": "2",
+  "url": "sec-ivp-systems.html#ex-ivp-system",
+  "type": "Example",
+  "number": "5.3.2",
+  "title": "Finding a Particular Solution.",
+  "body": " Finding a Particular Solution   For the system above, find the particular solution where and .    From the warm-up (where we already checked !), the general solution is By plugging in and using the initial conditions, we get the system:   Work for getting the system (read if stuck)  Plugging into the first component of the general solution: since . Setting this equal to the initial condition gives .  Similarly, for the second component: and setting this equal to gives .  This is two equations in the two unknowns and . Solving the system gives:   Algebra (can skim)  We solve the system by elimination. Subtracting the second equation from the first cancels the 's: Then substituting into the first equation:   Substituting these back into the general solution, the particular solution is or written out by components, and .   "
+},
+{
+  "id": "act-ivp-setup",
+  "level": "2",
+  "url": "sec-ivp-systems.html#act-ivp-setup",
+  "type": "Activity",
+  "number": "5.3.2",
+  "title": "Setting Up the Constants.",
+  "body": " Setting Up the Constants   Suppose a system has general solution with initial conditions and . What system of equations do we get for and ? (You don't need to solve it!)       and     Correct! Plugging into the general solution makes every exponential equal , so the first component gives and the second gives . From here it's just algebra to find and .       and     Almost, but the initial conditions happen at the specific time , so we plug in everywhere. Since , the exponentials all disappear, leaving equations with only the constants: and .       and     Watch which condition goes with which component! pairs with the first component of the general solution, giving , and pairs with the second, giving . Here they've been swapped.       and     It looks like the exponentials got differentiated: the from only comes down if we take a derivative, and initial conditions here are on and themselves, not their derivatives. Plugging straight into the general solution gives everywhere: and .     "
+},
+{
+  "id": "video-ivp-systems",
+  "level": "2",
+  "url": "sec-ivp-systems.html#video-ivp-systems",
+  "type": "Figure",
+  "number": "5.3.3",
+  "title": "",
+  "body": " This video goes through the content of this page.   "
+},
+{
+  "id": "sec-intro-eigenvectors",
+  "level": "1",
+  "url": "sec-intro-eigenvectors.html",
+  "type": "Section",
+  "number": "5.4.1",
+  "title": "Introduction to Eigenvectors",
+  "body": " Introduction to Eigenvectors   In the last section, we saw that two linearly independent solutions of a system can be combined into the general solution. But now our goal is to actually find solutions in the first place.  To do this, we need to understand some basics about eigenvalues and eigenvectors. This page is pure linear algebra, but we will apply it to differential equations in the next section. As before, we are only skimming a topic that one would spend a few weeks on in a linear algebra course. We'll build just the working understanding we need!    Eigenvalues and Eigenvectors   We say that is an eigenvalue of a matrix if there is a non-zero vector , called an associated eigenvector for , where: This is equivalent to: where is the identity matrix.    That is, multiplying (the eigenvector) by the matrix has the same effect as multiplying by the single number (the eigenvalue).  One important observation is that if is an eigenvector, then so is any non-zero scalar multiple .   Justification on why non-zero multiples of eigenvectors are still eigenvectors  The check is quick: So satisfies the same equation with the same eigenvalue . Eigenvectors are never unique.    Okay, let's try to make sure we understand this definition a bit better!   Confirming an Eigenvalue   Suppose someone claims that is an eigenvalue of with eigenvector . How would we confirm that? Recall that the definition says to check whether for some number .    Compute   Using the matrix-vector product from earlier in the chapter, compute:            Correct! The first component is , and the second is .           Watch the signs! The second component of is , not . The first component of should be .           The first component is right, but check the second: it uses the bottom row of , giving . The two negatives multiply to a positive.       Compare to   From the previous task, . Now check whether it is a scalar multiple of the vector we started with.    Verifying whether v is an eigenvector  Yes! It is a scalar multiple of the vector we started with: This is exactly the eigenvalue equation with . Notice that both components scaled by the same factor: and are each \"multiply by .\"     This computation confirms that is an eigenvector of , with an eigenvalue of .     The idea in the exploration was that came out as a multiple of , with both components scaling by the same number. Let's do a quick check that you understand this in the following question.   Is There an Eigenvalue?   Suppose that for some matrix and the vector , we found .  Is there an eigenvalue for which is an associated eigenvector? That is, does hold for some ?      No, there is no such .    Correct! For to be an eigenvector, must be a multiple of , meaning both components scale by the same factor. The first component suggests , but . No single number works for both components, so is not an eigenvector of this matrix.      Yes, with .    Careful: matches the first component only. Checking the whole vector, , but we were told . The second components don't agree, so . The eigenvalue equation must hold in every component at once.      Yes, with .    Careful: matches the second component only. Checking the whole vector, , which doesn't match in the first component. The eigenvalue equation must hold in every component at once, with one single .        Key Takeaways     The definition:  is an eigenvalue of with associated (non-zero) eigenvector when    Multiples of both components: for to be an eigenvector, must scale every component of by the same single number .   Eigenvectors aren't unique: any non-zero scalar multiple of an eigenvector is also an eigenvector, with the same eigenvalue.       This video goes through the content of this page.     "
+},
+{
+  "id": "def-eigenvalue-eigenvector",
+  "level": "2",
+  "url": "sec-intro-eigenvectors.html#def-eigenvalue-eigenvector",
+  "type": "Definition",
+  "number": "5.4.1",
+  "title": "Eigenvalues and Eigenvectors.",
+  "body": " Eigenvalues and Eigenvectors   We say that is an eigenvalue of a matrix if there is a non-zero vector , called an associated eigenvector for , where: This is equivalent to: where is the identity matrix.   "
+},
+{
+  "id": "sec-intro-eigenvectors-7",
+  "level": "2",
+  "url": "sec-intro-eigenvectors.html#sec-intro-eigenvectors-7",
+  "type": "Proof",
+  "number": "5.4.1.1",
+  "title": "Justification on why non-zero multiples of eigenvectors are still eigenvectors.",
+  "body": " Justification on why non-zero multiples of eigenvectors are still eigenvectors  The check is quick: So satisfies the same equation with the same eigenvalue . Eigenvectors are never unique.  "
+},
+{
+  "id": "exploration-confirm-eigenvalue",
+  "level": "2",
+  "url": "sec-intro-eigenvectors.html#exploration-confirm-eigenvalue",
+  "type": "Exploration",
+  "number": "5.4.1",
+  "title": "Confirming an Eigenvalue.",
+  "body": " Confirming an Eigenvalue   Suppose someone claims that is an eigenvalue of with eigenvector . How would we confirm that? Recall that the definition says to check whether for some number .    Compute   Using the matrix-vector product from earlier in the chapter, compute:            Correct! The first component is , and the second is .           Watch the signs! The second component of is , not . The first component of should be .           The first component is right, but check the second: it uses the bottom row of , giving . The two negatives multiply to a positive.       Compare to   From the previous task, . Now check whether it is a scalar multiple of the vector we started with.    Verifying whether v is an eigenvector  Yes! It is a scalar multiple of the vector we started with: This is exactly the eigenvalue equation with . Notice that both components scaled by the same factor: and are each \"multiply by .\"     This computation confirms that is an eigenvector of , with an eigenvalue of .   "
+},
+{
+  "id": "act-eigenvector-or-not",
+  "level": "2",
+  "url": "sec-intro-eigenvectors.html#act-eigenvector-or-not",
+  "type": "Activity",
+  "number": "5.4.2",
+  "title": "Is There an Eigenvalue?",
+  "body": " Is There an Eigenvalue?   Suppose that for some matrix and the vector , we found .  Is there an eigenvalue for which is an associated eigenvector? That is, does hold for some ?      No, there is no such .    Correct! For to be an eigenvector, must be a multiple of , meaning both components scale by the same factor. The first component suggests , but . No single number works for both components, so is not an eigenvector of this matrix.      Yes, with .    Careful: matches the first component only. Checking the whole vector, , but we were told . The second components don't agree, so . The eigenvalue equation must hold in every component at once.      Yes, with .    Careful: matches the second component only. Checking the whole vector, , which doesn't match in the first component. The eigenvalue equation must hold in every component at once, with one single .     "
+},
+{
+  "id": "video-intro-eigenvectors",
+  "level": "2",
+  "url": "sec-intro-eigenvectors.html#video-intro-eigenvectors",
+  "type": "Figure",
+  "number": "5.4.2",
+  "title": "",
+  "body": " This video goes through the content of this page.   "
+},
+{
+  "id": "sec-finding-eigen",
+  "level": "1",
+  "url": "sec-finding-eigen.html",
+  "type": "Section",
+  "number": "5.4.2",
+  "title": "Finding Eigenvalues and Eigenvectors",
+  "body": " Finding Eigenvalues and Eigenvectors   So far we have verified whether a given vector was an eigenvector of a matrix (and from that we could see the eigenvalue). But without already being given the eigenvector, we still have a way of finding the eigenvalues! Again, we will borrow some facts from linear algebra, and won't have time to fully justify all of it.   Computing Eigenvalues   is an eigenvalue of exactly when satisfies:     Justification on why solving finds the eigenvalues (can skim)  Notice that is equivalent to: So is an eigenvalue exactly when this equation has a non-zero solution .  A standard result from linear algebra says this happens exactly when the determinant of the matrix is zero.   To find , we note that subtracting just subtracts along the main diagonal of : So the steps for finding eigenvalues and eigenvectors are:   Subtract along the diagonal to compute .    Take the determinant of .    Set the determinant equal to , and solve for .    Last, find the eigenvectors that go with each eigenvalue.      First we do an example with steps 1-3 to find the eigenvalues of a matrix.   Finding the Eigenvalues   Find the eigenvalues of .    We will break this up into two steps. Step 1 is to compute . Step 2 is to set it equal to and solve for .   Step 1: Computing   Subtracting along the diagonal and computing the determinant:    In step one, we found that , a quadratic in . Now we solve .   Step 2: Solving   Setting the quadratic equal to and factoring: So the eigenvalues are and .     Notice that is exactly the eigenvalue we confirmed in ; this time we found it from scratch, along with a second eigenvalue that we didn't know about before. Also notice that came out as a quadratic in . That will always happen for a matrix, so we can expect (at most) two eigenvalues from this process.   Now, how do we find the eigenvector that goes with each eigenvalue? We return to the second form of the definition: but this time is a known number, and the unknown is the vector . Plugging in the eigenvalue turns this into a system of equations for and that we can solve. Let's do together.   Finding an Eigenvector for   Find an eigenvector of associated with the eigenvalue .    We will break this up into two steps. Step 1 will come from solving . Step 2 involves solving for a specific eigenvector.   Step 1: Solving   We solve . Subtracting along the diagonal: Which means we need to solve the matrix-vector equation: Converting to a system of equations (from each row of the equation above): Notice that the second equation is just times the first! So, both equations are equivalent, and so the solutions can be described just by the first equation:    In step one, we discovered that eigenvectors for satisfy the relationship Now we will find a specific eigenvector.   Step 2: Finding a specific eigenvector  We can rewrite as Notice that there are infinitely many solutions to this. We can fix either component and solve for the other. Let's set . Then gives , and: Notice, any non-zero multiple also gives a correct answer, for example: , , and all work. (In fact, is arguably the nicest, since it avoids fractions.)       Two Things to Notice From the Example     The equations will be redundant. When really is an eigenvalue, the two equations in the system will always be equivalent (this follows from theory in linear algebra we won't go into). So, double check they are in fact multiples of each other, and then choose just one equation to find an eigenvector.   You get to make a choice of fixing either or . In the previous example, we chose , which determined a specific value for . We could've chosen any other non-zero number for . Alternatively, we could've fixed first, instead.      Now you can try finding an eigenvector associated with the other eigenvalue, ! The following activity walks through the same process, one step at a time.   Finding an Eigenvector for   We will find an eigenvector of associated with the eigenvalue , by solving .    Compute   What is the matrix ? (Careful: subtracting means adding  !)           Correct! Subtracting along the diagonal adds to the diagonal entries: and . The off-diagonal entries are untouched.           Watch the double negative! This matrix comes from subtracting along the diagonal, but here , so the diagonal entries are and .           Careful: only has entries on the diagonal , so only the diagonal entries of change. The off-diagonal entries and should stay the same.       Convert to a System of Equations   When solving , what does the system of equations become?           Correct! Each row of the matrix gives one equation: the top row gives , and the bottom row gives . As expected, the equations are redundant: the first is just times the second.           Close, but this uses the columns of the matrix. Each equation comes from a row : multiply across the row and down the vector, so the top row gives .           Careful with the right-hand side: we are solving , and the part has already been moved to the left side inside . So the right-hand side of both equations is just .       Find a Specific Eigenvector   Since the two equations are redundant, we can just use the first equation: . This time (unlike the example, where we fixed ) let's fix the second component. Choosing , what is the resulting eigenvector?           Correct! With , the equation becomes , so . Notice this is times the eigenvector we confirmed back on the previous page. Both are perfectly valid eigenvectors, since any non-zero multiple of an eigenvector is also an eigenvector!           Close, but watch the sign when solving. With , the equation is , so and , not . You can also check directly: , which is not a multiple of .           It looks like the components got swapped! We fixed the second component , and solving gives the first component . Checking directly: , which is not a multiple of .       Putting it all together, we now know everything eigen-related about this matrix: (Here we chose rather than the from the activity; since one is a multiple of the other, either is a fine choice.) Hold onto this matrix and these answers; they are about to make a reappearance when we return to differential equations in the next section.    Key Takeaways     Solve for eigenvalues first: solve . For a matrix this is a quadratic in , so expect two eigenvalues.   Then find the eigenvectors: for each eigenvalue, plug it into , convert to a system of equations, and solve for the ratio between and .   The two equations when finding eigenvectors are redundant: the two equations in the system will always be multiples of each other when is an eigenvalue. So, you can just choose one of the equations (coming from the rows) to solve for an eigenvector.   Fix a convenient value for either or : choose any non-zero value for one of the components, such as , which will determine the other component. This will give you one specific eigenvector (there are infinitely many).       This video goes through the content of this page.     "
+},
+{
+  "id": "fact-eigenvalue-determinant",
+  "level": "2",
+  "url": "sec-finding-eigen.html#fact-eigenvalue-determinant",
+  "type": "Fact",
+  "number": "5.4.1",
+  "title": "Computing Eigenvalues.",
+  "body": " Computing Eigenvalues   is an eigenvalue of exactly when satisfies:   "
+},
+{
+  "id": "sec-finding-eigen-4",
+  "level": "2",
+  "url": "sec-finding-eigen.html#sec-finding-eigen-4",
+  "type": "Proof",
+  "number": "5.4.2.1",
+  "title": "Justification on why solving <span class=\"process-math\">\\(\\det(A - \\lambda I) = 0 \\)<\/span> finds the eigenvalues (can skim).",
+  "body": " Justification on why solving finds the eigenvalues (can skim)  Notice that is equivalent to: So is an eigenvalue exactly when this equation has a non-zero solution .  A standard result from linear algebra says this happens exactly when the determinant of the matrix is zero.  "
+},
+{
+  "id": "ex-finding-eigenvalues",
+  "level": "2",
+  "url": "sec-finding-eigen.html#ex-finding-eigenvalues",
+  "type": "Example",
+  "number": "5.4.2",
+  "title": "Finding the Eigenvalues.",
+  "body": " Finding the Eigenvalues   Find the eigenvalues of .    We will break this up into two steps. Step 1 is to compute . Step 2 is to set it equal to and solve for .   Step 1: Computing   Subtracting along the diagonal and computing the determinant:    In step one, we found that , a quadratic in . Now we solve .   Step 2: Solving   Setting the quadratic equal to and factoring: So the eigenvalues are and .    "
+},
+{
+  "id": "ex-eigenvector-lambda5",
+  "level": "2",
+  "url": "sec-finding-eigen.html#ex-eigenvector-lambda5",
+  "type": "Example",
+  "number": "5.4.3",
+  "title": "Finding an Eigenvector for <span class=\"process-math\">\\(\\lambda = 5\\)<\/span>.",
+  "body": " Finding an Eigenvector for   Find an eigenvector of associated with the eigenvalue .    We will break this up into two steps. Step 1 will come from solving . Step 2 involves solving for a specific eigenvector.   Step 1: Solving   We solve . Subtracting along the diagonal: Which means we need to solve the matrix-vector equation: Converting to a system of equations (from each row of the equation above): Notice that the second equation is just times the first! So, both equations are equivalent, and so the solutions can be described just by the first equation:    In step one, we discovered that eigenvectors for satisfy the relationship Now we will find a specific eigenvector.   Step 2: Finding a specific eigenvector  We can rewrite as Notice that there are infinitely many solutions to this. We can fix either component and solve for the other. Let's set . Then gives , and: Notice, any non-zero multiple also gives a correct answer, for example: , , and all work. (In fact, is arguably the nicest, since it avoids fractions.)    "
+},
+{
+  "id": "obs-eigenvector-process",
+  "level": "2",
+  "url": "sec-finding-eigen.html#obs-eigenvector-process",
+  "type": "Observation",
+  "number": "5.4.4",
+  "title": "Two Things to Notice From the Example.",
+  "body": " Two Things to Notice From the Example     The equations will be redundant. When really is an eigenvalue, the two equations in the system will always be equivalent (this follows from theory in linear algebra we won't go into). So, double check they are in fact multiples of each other, and then choose just one equation to find an eigenvector.   You get to make a choice of fixing either or . In the previous example, we chose , which determined a specific value for . We could've chosen any other non-zero number for . Alternatively, we could've fixed first, instead.    "
+},
+{
+  "id": "act-eigenvector-lambda-neg2",
+  "level": "2",
+  "url": "sec-finding-eigen.html#act-eigenvector-lambda-neg2",
+  "type": "Activity",
+  "number": "5.4.1",
+  "title": "Finding an Eigenvector for <span class=\"process-math\">\\(\\lambda = -2\\)<\/span>.",
+  "body": " Finding an Eigenvector for   We will find an eigenvector of associated with the eigenvalue , by solving .    Compute   What is the matrix ? (Careful: subtracting means adding  !)           Correct! Subtracting along the diagonal adds to the diagonal entries: and . The off-diagonal entries are untouched.           Watch the double negative! This matrix comes from subtracting along the diagonal, but here , so the diagonal entries are and .           Careful: only has entries on the diagonal , so only the diagonal entries of change. The off-diagonal entries and should stay the same.       Convert to a System of Equations   When solving , what does the system of equations become?           Correct! Each row of the matrix gives one equation: the top row gives , and the bottom row gives . As expected, the equations are redundant: the first is just times the second.           Close, but this uses the columns of the matrix. Each equation comes from a row : multiply across the row and down the vector, so the top row gives .           Careful with the right-hand side: we are solving , and the part has already been moved to the left side inside . So the right-hand side of both equations is just .       Find a Specific Eigenvector   Since the two equations are redundant, we can just use the first equation: . This time (unlike the example, where we fixed ) let's fix the second component. Choosing , what is the resulting eigenvector?           Correct! With , the equation becomes , so . Notice this is times the eigenvector we confirmed back on the previous page. Both are perfectly valid eigenvectors, since any non-zero multiple of an eigenvector is also an eigenvector!           Close, but watch the sign when solving. With , the equation is , so and , not . You can also check directly: , which is not a multiple of .           It looks like the components got swapped! We fixed the second component , and solving gives the first component . Checking directly: , which is not a multiple of .      "
+},
+{
+  "id": "video-finding-eigen",
+  "level": "2",
+  "url": "sec-finding-eigen.html#video-finding-eigen",
+  "type": "Figure",
+  "number": "5.4.5",
+  "title": "",
+  "body": " This video goes through the content of this page.   "
+},
+{
+  "id": "sec-eigenvalue-method-main-idea",
+  "level": "1",
+  "url": "sec-eigenvalue-method-main-idea.html",
+  "type": "Section",
+  "number": "5.5.1",
+  "title": "The Main Idea of the Eigenvalue Method",
+  "body": " The Main Idea of the Eigenvalue Method   Recall from that a first-order linear system has the form which we can write more compactly as the matrix equation (see ).  In this section, we focus on the case where all the coefficients are constants, and the system is homogeneous, meaning . That is, we will solve systems of the form: or in matrix form,    Let's explore how we might try to solve . Let's think about what happened with just a single function. The equation has solutions . So for our system, which has a similar structure (the derivative equals constant times function), it's natural to guess that the solution is something with an in it. Let's try: where is a constant vector and is a constant number. Written out, this guess is:   It turns out that this guess works, as long as and are an eigenvector-eigenvalue pair for !   Eigenvector Solutions   Suppose is an eigenvalue of with associated eigenvector . Then is a solution of .     Justification on why is a solution  We plug the guess into both sides of and check that they match.  For the left-hand side, since is a constant vector, differentiating each component brings down a factor of from the chain rule:   For the right-hand side, since is a scalar, we can pull it out of the matrix product, and then use the eigenvector property :   Both sides came out to , so satisfies the equation.    Let's put this fact together with our work from the last section. There, we found the eigenvalues and eigenvectors of :    Eigenvalues and Eigenvectors Go Together   Using the eigenvalues and eigenvectors above, which of the following are solutions of ? Select all that apply.           Correct! The eigenvector is paired with its own eigenvalue , so says this is a solution.           Correct! The eigenvector is paired with its own eigenvalue , so says this is a solution.           Careful: the eigenvector and the eigenvalue must go together . The eigenvector belongs to , not to . Pairing it with the wrong eigenvalue does not give a solution.           Careful: the eigenvector and the eigenvalue must go together . The eigenvector belongs to , not to . Pairing it with the wrong eigenvalue does not give a solution.       So each eigenvalue-eigenvector pair yields a solution. Recall that the eigenvalues come from solving which is called the characteristic equation of . For a matrix, the characteristic equation is a quadratic in : From our experience with quadratics (remember the second-order ODEs in Chapter 3!), there are three possibilities for the roots.   The Three Cases of Eigenvalues for Matrices  The eigenvalues of a matrix fall into one of three cases:   two distinct real eigenvalues,    two complex conjugate eigenvalues,    one repeated real eigenvalue.    Each of these three cases corresponds to a strategy used to solve .    In this section, we will cover the strategies for the first two cases: distinct real eigenvalues and complex conjugate eigenvalues. We start with the case of two distinct real eigenvalues on the next page.    Key Takeaways     The systems we are solving: first-order, homogeneous, linear systems with constant coefficients, , where is a constant matrix.   The main idea: if is an eigenvalue of with eigenvector , then is a solution. This is why we learned to find eigenvalues and eigenvectors!   Three cases: the characteristic equation is a quadratic, so the eigenvalues are either distinct real, complex conjugates, or one repeated real number. Each case has its own solution strategy.       This video goes through the content of this page.     "
+},
+{
+  "id": "thm-eigenvector-solution",
+  "level": "2",
+  "url": "sec-eigenvalue-method-main-idea.html#thm-eigenvector-solution",
+  "type": "Theorem",
+  "number": "5.5.1",
+  "title": "Eigenvector Solutions.",
+  "body": " Eigenvector Solutions   Suppose is an eigenvalue of with associated eigenvector . Then is a solution of .   "
+},
+{
+  "id": "sec-eigenvalue-method-main-idea-7",
+  "level": "2",
+  "url": "sec-eigenvalue-method-main-idea.html#sec-eigenvalue-method-main-idea-7",
+  "type": "Proof",
+  "number": "5.5.1.1",
+  "title": "Justification on why <span class=\"process-math\">\\(\\mathbf{v}e^{\\lambda t}\\)<\/span> is a solution.",
+  "body": " Justification on why is a solution  We plug the guess into both sides of and check that they match.  For the left-hand side, since is a constant vector, differentiating each component brings down a factor of from the chain rule:   For the right-hand side, since is a scalar, we can pull it out of the matrix product, and then use the eigenvector property :   Both sides came out to , so satisfies the equation.  "
+},
+{
+  "id": "act-eigen-pairing",
+  "level": "2",
+  "url": "sec-eigenvalue-method-main-idea.html#act-eigen-pairing",
+  "type": "Activity",
+  "number": "5.5.1",
+  "title": "Eigenvalues and Eigenvectors Go Together.",
+  "body": " Eigenvalues and Eigenvectors Go Together   Using the eigenvalues and eigenvectors above, which of the following are solutions of ? Select all that apply.           Correct! The eigenvector is paired with its own eigenvalue , so says this is a solution.           Correct! The eigenvector is paired with its own eigenvalue , so says this is a solution.           Careful: the eigenvector and the eigenvalue must go together . The eigenvector belongs to , not to . Pairing it with the wrong eigenvalue does not give a solution.           Careful: the eigenvector and the eigenvalue must go together . The eigenvector belongs to , not to . Pairing it with the wrong eigenvalue does not give a solution.     "
+},
+{
+  "id": "sec-eigenvalue-method-main-idea-10",
+  "level": "2",
+  "url": "sec-eigenvalue-method-main-idea.html#sec-eigenvalue-method-main-idea-10",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "characteristic equation "
+},
+{
+  "id": "obs-three-cases",
+  "level": "2",
+  "url": "sec-eigenvalue-method-main-idea.html#obs-three-cases",
+  "type": "Observation",
+  "number": "5.5.2",
+  "title": "The Three Cases of Eigenvalues for <span class=\"process-math\">\\(2 \\times 2\\)<\/span> Matrices.",
+  "body": " The Three Cases of Eigenvalues for Matrices  The eigenvalues of a matrix fall into one of three cases:   two distinct real eigenvalues,    two complex conjugate eigenvalues,    one repeated real eigenvalue.    Each of these three cases corresponds to a strategy used to solve .   "
+},
+{
+  "id": "video-eigenvalue-method-main-idea",
+  "level": "2",
+  "url": "sec-eigenvalue-method-main-idea.html#video-eigenvalue-method-main-idea",
+  "type": "Figure",
+  "number": "5.5.3",
+  "title": "",
+  "body": " This video goes through the content of this page.   "
+},
+{
+  "id": "sec-two-real-eigenvalues",
+  "level": "1",
+  "url": "sec-two-real-eigenvalues.html",
+  "type": "Section",
+  "number": "5.5.2",
+  "title": "The Case of Two Distinct Real Eigenvalues",
+  "body": " The Case of Two Distinct Real Eigenvalues   Suppose our matrix falls into the first case, where it has two distinct, real eigenvalues and , with corresponding eigenvectors and . Then gives us two solutions to :    To make use of these two solutions, we need one more fact, which we borrow from linear algebra (we won't justify it here).   Eigenvectors From Distinct Eigenvalues are Linearly Independent  Suppose has two real distinct eigenvalues and , and that and are corresponding eigenvectors. Then and are linearly independent vectors.   Since and are linearly independent, one can show that the Wronskian of our two solutions is never zero: And by , two solutions with non-zero Wronskian combine, through superposition, into the general solution: Putting all the pieces together gives us the main theorem of this case.   The Eigenvalue Method for Two Distinct Real Eigenvalues   Suppose is a matrix with two distinct, real eigenvalues with corresponding eigenvectors . Then the general solution of is      Now let's do a quick example applying this theorem. Luckily, we have previously found the eigenvalues and eigenvectors to the matrix we will use!   Solving a System with Two Distinct Real Eigenvalues   Find the general solution of the system You may use the eigenvalues and eigenvectors of the coefficient matrix , which we found in the last section:     Remember the two steps:   Plug each eigenvalue-eigenvector pair into to get two solutions.    Apply superposition to get the general solution.       First, each eigenvalue-eigenvector pair gives a solution: Second, since the eigenvalues are distinct and real, superposition gives the general solution:      Now you try assembling a general solution. It should be quick once the eigenvalues and eigenvectors are established!   Assembling the General Solution   Suppose a matrix has eigenvalues and eigenvectors What is the general solution of ?           Correct! Each eigenvector is paired with its own eigenvalue, and the two solutions are combined with the arbitrary constants and , exactly as in .           Careful: the eigenvalues and eigenvectors got mismatched. The eigenvector belongs to , so it should be paired with , not . Remember: eigenvalues and eigenvectors must go together!           Close, but this is just one particular solution. The general solution must describe all solutions, which requires the arbitrary constants and in front of each piece.      As we have seen before, the general solution can also be combined into a single vector by expanding out the components. For example, the answer above can be written as .    Key Takeaways     Two pairs give two solutions: with two distinct real eigenvalues, the pairs and give the two solutions and .   The general solution: since eigenvectors from distinct eigenvalues are linearly independent, the Wronskian is non-zero and superposition gives .   Keep the pairs together: each eigenvector must be matched with its own eigenvalue in the exponent.       This video goes through the content of this page.     "
+},
+{
+  "id": "fact-distinct-eigenvectors-independent",
+  "level": "2",
+  "url": "sec-two-real-eigenvalues.html#fact-distinct-eigenvectors-independent",
+  "type": "Fact",
+  "number": "5.5.1",
+  "title": "Eigenvectors From Distinct Eigenvalues are Linearly Independent.",
+  "body": " Eigenvectors From Distinct Eigenvalues are Linearly Independent  Suppose has two real distinct eigenvalues and , and that and are corresponding eigenvectors. Then and are linearly independent vectors.  "
+},
+{
+  "id": "thm-two-real-eigenvalues",
+  "level": "2",
+  "url": "sec-two-real-eigenvalues.html#thm-two-real-eigenvalues",
+  "type": "Theorem",
+  "number": "5.5.2",
+  "title": "The Eigenvalue Method for Two Distinct Real Eigenvalues.",
+  "body": " The Eigenvalue Method for Two Distinct Real Eigenvalues   Suppose is a matrix with two distinct, real eigenvalues with corresponding eigenvectors . Then the general solution of is    "
+},
+{
+  "id": "ex-solve-two-real",
+  "level": "2",
+  "url": "sec-two-real-eigenvalues.html#ex-solve-two-real",
+  "type": "Example",
+  "number": "5.5.3",
+  "title": "Solving a System with Two Distinct Real Eigenvalues.",
+  "body": " Solving a System with Two Distinct Real Eigenvalues   Find the general solution of the system You may use the eigenvalues and eigenvectors of the coefficient matrix , which we found in the last section:     Remember the two steps:   Plug each eigenvalue-eigenvector pair into to get two solutions.    Apply superposition to get the general solution.       First, each eigenvalue-eigenvector pair gives a solution: Second, since the eigenvalues are distinct and real, superposition gives the general solution:    "
+},
+{
+  "id": "act-assemble-general-solution",
+  "level": "2",
+  "url": "sec-two-real-eigenvalues.html#act-assemble-general-solution",
+  "type": "Activity",
+  "number": "5.5.1",
+  "title": "Assembling the General Solution.",
+  "body": " Assembling the General Solution   Suppose a matrix has eigenvalues and eigenvectors What is the general solution of ?           Correct! Each eigenvector is paired with its own eigenvalue, and the two solutions are combined with the arbitrary constants and , exactly as in .           Careful: the eigenvalues and eigenvectors got mismatched. The eigenvector belongs to , so it should be paired with , not . Remember: eigenvalues and eigenvectors must go together!           Close, but this is just one particular solution. The general solution must describe all solutions, which requires the arbitrary constants and in front of each piece.     "
+},
+{
+  "id": "video-two-real-eigenvalues",
+  "level": "2",
+  "url": "sec-two-real-eigenvalues.html#video-two-real-eigenvalues",
+  "type": "Figure",
+  "number": "5.5.4",
+  "title": "",
+  "body": " This video goes through the content of this page.   "
+},
+{
+  "id": "sec-complex-eigen",
+  "level": "1",
+  "url": "sec-complex-eigen.html",
+  "type": "Section",
+  "number": "5.5.3",
+  "title": "Complex Eigenvalues and Eigenvectors",
+  "body": " Complex Eigenvalues and Eigenvectors   We now turn to the second case: complex conjugate eigenvalues. The process for finding complex eigenvalues and eigenvectors is exactly the same as before, but the arithmetic is a little messier as it involves the imaginary number . We will see that to actually solve systems of ODEs where the matrix has complex eigenvalues, there is a complication we will have to deal with!  Let's look at the system which has coefficient matrix . As always, to solve we begin with finding the eigenvalues and eigenvectors of the matrix .    Finding Complex Eigenvalues   Find the eigenvalues of .    Reference for homework (can skim first time reading)  As always, we solve the characteristic equation . Subtracting along the diagonal and computing the determinant: Now we solve . We could expand this out and use the quadratic formula, but it's faster to isolate the square: A negative number under the square root means the eigenvalues are complex , just like the complex roots of characteristic equations back in Chapter 3. Here we get the complex conjugate pair:      Next, we find an eigenvector for , following the same process as in the real case: plug the eigenvalue into and solve.   Finding a Complex Eigenvector   Find an eigenvector of associated with the eigenvalue .    Reference for homework (can skim first time reading)  We solve . Subtracting along the diagonal, the diagonal entries become , so writing : Converting to a system of equations: Both equations give the same relationship. From the first, , so . (Solving the second gives , so ; multiplying both sides by gives , the same relationship.)  As in the real case, we get to fix a convenient value. Choosing gives , and: As always, any non-zero (possibly complex) multiple of this eigenvector also works.      The Rows are Still Multiples of Each Other  In the real case, we could see that the two equations were redundant: one row of was visibly a multiple of the other. That is still true here, but it's harder to see visually, because the multiplier is now a complex number. In the matrix above, the first row is times the second: You don't need to verify they are multiples of each other, but instead just trust the theory: when really is an eigenvalue, the two equations will be redundant, so you can just use one of them.    We still need an eigenvector for the other eigenvalue, . We could run the same computation again, but there is a shortcut.   Conjugate Eigenvalues Have Conjugate Eigenvectors  Suppose a matrix has complex conjugate eigenvalues. If is an eigenvector for , then the eigenvector for can be taken to be the complex conjugate of (that is, replace with in every entry).   In our example, we found with . Taking conjugates, the fact gives us:    We now have two eigenvalue-eigenvector pairs, so the machinery from earlier in this section still runs.   A Solution, With a Catch   Applying to the pair with , what solution of do we get, and are there any issues with it?      We get , but there is an issue: this solution is complex-valued , while and should be real.    Correct! The theorem pairs the eigenvector with its own eigenvalue in , so this really is a solution. But it involves , both in the vector and in the exponent, so it is complex-valued. We still need to extract real solutions from it.      We get , and there are no issues; this is a fine final answer.    The solution is right, but look closely at it: it involves the imaginary number , both in the vector and in the exponent. The functions and in our system are supposed to be real -valued, so a complex-valued answer isn't the final word; we still need to extract real solutions from it.      We get , but there is an issue: this solution is complex-valued , while and should be real.    The issue is identified correctly, but the solution itself is wrong: the eigenvector belongs to , not to . Eigenvalues and eigenvectors must go together, and the conjugate pairs look very similar, so match them carefully.        But These Solutions are Complex!  The solutions we just found, such as , are complex-valued. But the functions and in our system are supposed to be real -valued! On the next page, we will fix this using Euler's formula, which will let us split the complex solution into its real and imaginary parts: It turns out that and are themselves real-valued solutions, and they are exactly the two independent solutions we need to build the general solution.     Key Takeaways     Same process, but with complex numbers: complex eigenvalues and eigenvectors are found exactly as before; a negative number under the square root in the characteristic equation signals complex conjugate eigenvalues.   The redundancy is still there: the two equations for the eigenvector are still multiples of each other, but the multiplier is complex and hard to see visually (you don't need to confirm it).   The solutions immediately obtained are complex-valued: each pair still gives a solution , but it involves . We learn how to extract real-valued solutions on the next page.       This video goes through the content of this page.     "
+},
+{
+  "id": "ex-complex-eigenvalues",
+  "level": "2",
+  "url": "sec-complex-eigen.html#ex-complex-eigenvalues",
+  "type": "Example",
+  "number": "5.5.1",
+  "title": "Finding Complex Eigenvalues.",
+  "body": " Finding Complex Eigenvalues   Find the eigenvalues of .    Reference for homework (can skim first time reading)  As always, we solve the characteristic equation . Subtracting along the diagonal and computing the determinant: Now we solve . We could expand this out and use the quadratic formula, but it's faster to isolate the square: A negative number under the square root means the eigenvalues are complex , just like the complex roots of characteristic equations back in Chapter 3. Here we get the complex conjugate pair:    "
+},
+{
+  "id": "ex-complex-eigenvector",
+  "level": "2",
+  "url": "sec-complex-eigen.html#ex-complex-eigenvector",
+  "type": "Example",
+  "number": "5.5.2",
+  "title": "Finding a Complex Eigenvector.",
+  "body": " Finding a Complex Eigenvector   Find an eigenvector of associated with the eigenvalue .    Reference for homework (can skim first time reading)  We solve . Subtracting along the diagonal, the diagonal entries become , so writing : Converting to a system of equations: Both equations give the same relationship. From the first, , so . (Solving the second gives , so ; multiplying both sides by gives , the same relationship.)  As in the real case, we get to fix a convenient value. Choosing gives , and: As always, any non-zero (possibly complex) multiple of this eigenvector also works.   "
+},
+{
+  "id": "note-complex-redundancy",
+  "level": "2",
+  "url": "sec-complex-eigen.html#note-complex-redundancy",
+  "type": "Note",
+  "number": "5.5.3",
+  "title": "The Rows are Still Multiples of Each Other.",
+  "body": " The Rows are Still Multiples of Each Other  In the real case, we could see that the two equations were redundant: one row of was visibly a multiple of the other. That is still true here, but it's harder to see visually, because the multiplier is now a complex number. In the matrix above, the first row is times the second: You don't need to verify they are multiples of each other, but instead just trust the theory: when really is an eigenvalue, the two equations will be redundant, so you can just use one of them.  "
+},
+{
+  "id": "fact-conjugate-eigenvectors",
+  "level": "2",
+  "url": "sec-complex-eigen.html#fact-conjugate-eigenvectors",
+  "type": "Fact",
+  "number": "5.5.4",
+  "title": "Conjugate Eigenvalues Have Conjugate Eigenvectors.",
+  "body": " Conjugate Eigenvalues Have Conjugate Eigenvectors  Suppose a matrix has complex conjugate eigenvalues. If is an eigenvector for , then the eigenvector for can be taken to be the complex conjugate of (that is, replace with in every entry).  "
+},
+{
+  "id": "act-complex-solution",
+  "level": "2",
+  "url": "sec-complex-eigen.html#act-complex-solution",
+  "type": "Activity",
+  "number": "5.5.1",
+  "title": "A Solution, With a Catch.",
+  "body": " A Solution, With a Catch   Applying to the pair with , what solution of do we get, and are there any issues with it?      We get , but there is an issue: this solution is complex-valued , while and should be real.    Correct! The theorem pairs the eigenvector with its own eigenvalue in , so this really is a solution. But it involves , both in the vector and in the exponent, so it is complex-valued. We still need to extract real solutions from it.      We get , and there are no issues; this is a fine final answer.    The solution is right, but look closely at it: it involves the imaginary number , both in the vector and in the exponent. The functions and in our system are supposed to be real -valued, so a complex-valued answer isn't the final word; we still need to extract real solutions from it.      We get , but there is an issue: this solution is complex-valued , while and should be real.    The issue is identified correctly, but the solution itself is wrong: the eigenvector belongs to , not to . Eigenvalues and eigenvectors must go together, and the conjugate pairs look very similar, so match them carefully.     "
+},
+{
+  "id": "note-complex-solutions-teaser",
+  "level": "2",
+  "url": "sec-complex-eigen.html#note-complex-solutions-teaser",
+  "type": "Note",
+  "number": "5.5.5",
+  "title": "But These Solutions are Complex!",
+  "body": " But These Solutions are Complex!  The solutions we just found, such as , are complex-valued. But the functions and in our system are supposed to be real -valued! On the next page, we will fix this using Euler's formula, which will let us split the complex solution into its real and imaginary parts: It turns out that and are themselves real-valued solutions, and they are exactly the two independent solutions we need to build the general solution.  "
+},
+{
+  "id": "video-complex-eigen",
+  "level": "2",
+  "url": "sec-complex-eigen.html#video-complex-eigen",
+  "type": "Figure",
+  "number": "5.5.6",
+  "title": "",
+  "body": " This video goes through the content of this page.   "
+},
+{
+  "id": "sec-complex-case",
+  "level": "1",
+  "url": "sec-complex-case.html",
+  "type": "Section",
+  "number": "5.5.4",
+  "title": "The Case of Complex Conjugate Eigenvalues",
+  "body": " The Case of Complex Conjugate Eigenvalues   On the last page, we found that our system has a solution , but it is complex-valued, and we need two real solutions and . Extracting them requires some complex algebra, so let's warm up with the two things we will need.    Splitting the Exponential   Our solution involves . Based on the exponent rules that hold for real numbers, which of the following would you expect to be true?           Correct! The exponent rule carries over to complex numbers, with and . A sum in the exponent splits into a product of exponentials.           Careful: the exponent rule is . A sum in the exponent becomes a product of exponentials, not a sum. For instance, with real numbers, , which is not .           Careful: is a single product , not a sum, so it cannot be split into separate exponentials. The exponent rule only splits at the sign, giving .       The checkpoint leaves us with the factor , an exponential with an imaginary exponent. Euler's formula, which we actually used back in Chapter 3 for complex roots of characteristic equations, gives us a useful way of re-writing this expression.   Euler's Formula  For any : In particular, for a complex eigenvalue :     Applying Euler's formula with to the expression we just simplified in the checkpoint: Expressions like will need to be multiplied into the components of the eigenvector. One more warm-up before the main example!   Multiplying Out with   Distribute and simplify . Which of the following is the correct result?           Correct! Distributing, , and since , the last term is . Collecting the real part first: .           Watch the ! Distributing gives , and , so the last term is , not . The two negatives cancel.           Careful when distributing: the second term is . The two factors of multiply together, and , so this term is , with no left in it at all.       Now that we have established the relevant complex algebra tricks, let's take a look at the full strategy for solving systems of ODEs with complex eigenvalues.   The Eigenvalue Method for Complex Conjugate Eigenvalues   To solve when has complex conjugate eigenvalues with corresponding eigenvectors :   Write down the complex-valued solution .    Apply Euler's formula and separate into real and imaginary parts: where and contain no at all. Then it must be that and are themselves real-valued solutions, and they are linearly independent.    The general solution (for all real-valued solutions) is         Alright, we can finally solve the system in the example below!   Solving a System with Complex Conjugate Eigenvalues   Find the general solution of the system You may use the eigenvalue and eigenvector we found on the last page: with .    We follow the three steps. Step 1 is quick: the complex-valued solution is Step 2 is where the work happens, so we break it into two parts, with the details of each in a dropdown.   Details for Step 2a: Apply Euler's formula and multiply out  We apply Euler's formula to the exponential: so Using , the second component becomes .   Step 2a leaves us with which no longer has any in the exponent, so we can separate the components.   Details for Step 2b: Separate into real and imaginary parts  We separate everything with an from everything without:    Step 2b identifies our two real-valued solutions: Step 3: the general solution is Notice there is no anywhere in the final answer!      Answers Can Look Very Different  We only used one eigenvalue-eigenvector pair, and ; the conjugate pair and is never needed (though using it instead also works). Because of this choice, and because eigenvectors themselves are only determined up to a multiple, correct answers for and can look quite different from each other. If your answer doesn't match a friend's, that alone doesn't mean either of you is wrong!     Key Takeaways     Euler's formula removes from the exponent: for , we have .   The three steps: write the complex solution , separate it into real and imaginary parts using Euler's formula, and form the general solution .   Simplify with : when multiplying out the components, terms with two factors of become real.   No in the final answer: the general solution is entirely real-valued. There should be no appearing in your final answer.       This video goes through the content of this page.     "
+},
+{
+  "id": "act-exponent-rule-complex",
+  "level": "2",
+  "url": "sec-complex-case.html#act-exponent-rule-complex",
+  "type": "Activity",
+  "number": "5.5.1",
+  "title": "Splitting the Exponential.",
+  "body": " Splitting the Exponential   Our solution involves . Based on the exponent rules that hold for real numbers, which of the following would you expect to be true?           Correct! The exponent rule carries over to complex numbers, with and . A sum in the exponent splits into a product of exponentials.           Careful: the exponent rule is . A sum in the exponent becomes a product of exponentials, not a sum. For instance, with real numbers, , which is not .           Careful: is a single product , not a sum, so it cannot be split into separate exponentials. The exponent rule only splits at the sign, giving .     "
+},
+{
+  "id": "fact-eulers-formula",
+  "level": "2",
+  "url": "sec-complex-case.html#fact-eulers-formula",
+  "type": "Fact",
+  "number": "5.5.1",
+  "title": "Euler’s Formula.",
+  "body": " Euler's Formula  For any : In particular, for a complex eigenvalue :   "
+},
+{
+  "id": "act-foil-with-i",
+  "level": "2",
+  "url": "sec-complex-case.html#act-foil-with-i",
+  "type": "Activity",
+  "number": "5.5.2",
+  "title": "Multiplying Out with <span class=\"process-math\">\\(i\\)<\/span>.",
+  "body": " Multiplying Out with   Distribute and simplify . Which of the following is the correct result?           Correct! Distributing, , and since , the last term is . Collecting the real part first: .           Watch the ! Distributing gives , and , so the last term is , not . The two negatives cancel.           Careful when distributing: the second term is . The two factors of multiply together, and , so this term is , with no left in it at all.     "
+},
+{
+  "id": "thm-complex-strategy",
+  "level": "2",
+  "url": "sec-complex-case.html#thm-complex-strategy",
+  "type": "Theorem",
+  "number": "5.5.2",
+  "title": "The Eigenvalue Method for Complex Conjugate Eigenvalues.",
+  "body": " The Eigenvalue Method for Complex Conjugate Eigenvalues   To solve when has complex conjugate eigenvalues with corresponding eigenvectors :   Write down the complex-valued solution .    Apply Euler's formula and separate into real and imaginary parts: where and contain no at all. Then it must be that and are themselves real-valued solutions, and they are linearly independent.    The general solution (for all real-valued solutions) is       "
+},
+{
+  "id": "ex-complex-general-solution",
+  "level": "2",
+  "url": "sec-complex-case.html#ex-complex-general-solution",
+  "type": "Example",
+  "number": "5.5.3",
+  "title": "Solving a System with Complex Conjugate Eigenvalues.",
+  "body": " Solving a System with Complex Conjugate Eigenvalues   Find the general solution of the system You may use the eigenvalue and eigenvector we found on the last page: with .    We follow the three steps. Step 1 is quick: the complex-valued solution is Step 2 is where the work happens, so we break it into two parts, with the details of each in a dropdown.   Details for Step 2a: Apply Euler's formula and multiply out  We apply Euler's formula to the exponential: so Using , the second component becomes .   Step 2a leaves us with which no longer has any in the exponent, so we can separate the components.   Details for Step 2b: Separate into real and imaginary parts  We separate everything with an from everything without:    Step 2b identifies our two real-valued solutions: Step 3: the general solution is Notice there is no anywhere in the final answer!   "
+},
+{
+  "id": "note-complex-answers-vary",
+  "level": "2",
+  "url": "sec-complex-case.html#note-complex-answers-vary",
+  "type": "Note",
+  "number": "5.5.4",
+  "title": "Answers Can Look Very Different.",
+  "body": " Answers Can Look Very Different  We only used one eigenvalue-eigenvector pair, and ; the conjugate pair and is never needed (though using it instead also works). Because of this choice, and because eigenvectors themselves are only determined up to a multiple, correct answers for and can look quite different from each other. If your answer doesn't match a friend's, that alone doesn't mean either of you is wrong!  "
+},
+{
+  "id": "video-complex-case",
+  "level": "2",
+  "url": "sec-complex-case.html#video-complex-case",
+  "type": "Figure",
+  "number": "5.5.5",
+  "title": "",
+  "body": " This video goes through the content of this page.   "
+},
+{
+  "id": "sec-complex-harder-example",
+  "level": "1",
+  "url": "sec-complex-harder-example.html",
+  "type": "Section",
+  "number": "5.5.5",
+  "title": "Complex Eigenvalues: A Harder Example",
+  "body": " Complex Eigenvalues: A Harder Example   On the last page, the eigenvector had fairly simple entries. In general, the entries of the eigenvector can be full complex numbers like , and multiplying them out takes a little bit more work. The strategy from is exactly the same, but there is more involved algebra in step 2.  Before we do the main example on this page, let's make sure you are comfortable with the relevant complex algebra.   The messy part is multiplying an entry like into . Let's warm up with exactly that computation, in two parts.   FOILing a Complex Entry   We will expand and simplify the product .    FOIL Without Simplifying   First, FOIL (expand out) the product into four terms, keeping any as is. Which of the following is correct?           Correct! The four FOIL terms are: First , Outer , Inner , and Last .           This has the First and Last terms, but FOIL has four terms! The Outer term and the Inner term are missing.           Careful with the Last term: it is , and the two factors of multiply together to give , not .       Simplify with   Now substitute into and group the terms with an separately from the terms without. Which of the following is correct?           Correct! Since , the last term becomes , which has no , so it joins in the real part. The terms with a single , namely and , group into the imaginary part.           Watch the sign: substituting into gives , so the real part is .           The real part is right, but check the imaginary part: the terms with a single are and , both with plus signs, so the imaginary part is .        Now we are ready for the example below!   A Harder Example with Complex Eigenvalues   Find the general solution of the equation , where has eigenvalues and with corresponding eigenvectors     We follow the three steps. Step 1: the complex-valued solution is (Using and also works. Just make sure the eigenvalue and eigenvector go together!)  Step 2: we apply Euler's formula to the exponential, so Each component needs to be FOILed out and simplified, as in the warm-up. The details are in the dropdowns.   Details: FOILing the first component  This is exactly the warm-up computation:     Details: FOILing the second component  Same process, watching the signs from the : Note the term , which is real.   Putting the FOILed components back in: Now separating the real and imaginary parts: Step 3: the general solution is Once again, there is no anywhere in the final answer.      Key Takeaways     Same three steps: messier eigenvectors don't change the strategy, only the amount of algebra in step 2.   FOIL each component: multiply each eigenvector entry into , substitute , and group the terms with an separately from the terms without.   Only one pair is needed: either eigenvalue-eigenvector pair works, as long as the eigenvalue and eigenvector go together.       This video goes through the content of this page.     "
+},
+{
+  "id": "act-foil-complex-entry",
+  "level": "2",
+  "url": "sec-complex-harder-example.html#act-foil-complex-entry",
+  "type": "Activity",
+  "number": "5.5.1",
+  "title": "FOILing a Complex Entry.",
+  "body": " FOILing a Complex Entry   We will expand and simplify the product .    FOIL Without Simplifying   First, FOIL (expand out) the product into four terms, keeping any as is. Which of the following is correct?           Correct! The four FOIL terms are: First , Outer , Inner , and Last .           This has the First and Last terms, but FOIL has four terms! The Outer term and the Inner term are missing.           Careful with the Last term: it is , and the two factors of multiply together to give , not .       Simplify with   Now substitute into and group the terms with an separately from the terms without. Which of the following is correct?           Correct! Since , the last term becomes , which has no , so it joins in the real part. The terms with a single , namely and , group into the imaginary part.           Watch the sign: substituting into gives , so the real part is .           The real part is right, but check the imaginary part: the terms with a single are and , both with plus signs, so the imaginary part is .      "
+},
+{
+  "id": "ex-complex-harder",
+  "level": "2",
+  "url": "sec-complex-harder-example.html#ex-complex-harder",
+  "type": "Example",
+  "number": "5.5.1",
+  "title": "A Harder Example with Complex Eigenvalues.",
+  "body": " A Harder Example with Complex Eigenvalues   Find the general solution of the equation , where has eigenvalues and with corresponding eigenvectors     We follow the three steps. Step 1: the complex-valued solution is (Using and also works. Just make sure the eigenvalue and eigenvector go together!)  Step 2: we apply Euler's formula to the exponential, so Each component needs to be FOILed out and simplified, as in the warm-up. The details are in the dropdowns.   Details: FOILing the first component  This is exactly the warm-up computation:     Details: FOILing the second component  Same process, watching the signs from the : Note the term , which is real.   Putting the FOILed components back in: Now separating the real and imaginary parts: Step 3: the general solution is Once again, there is no anywhere in the final answer.   "
+},
+{
+  "id": "video-complex-harder-example",
+  "level": "2",
+  "url": "sec-complex-harder-example.html#video-complex-harder-example",
+  "type": "Figure",
+  "number": "5.5.2",
+  "title": "",
+  "body": " This video goes through the content of this page.   "
+},
+{
   "id": "backmatter-2",
   "level": "1",
   "url": "backmatter-2.html",
