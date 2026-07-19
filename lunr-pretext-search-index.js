@@ -5122,6 +5122,60 @@ var ptx_lunr_docs = [
   "body": " This video goes through the content of this page.   "
 },
 {
+  "id": "exercises-5-1",
+  "level": "1",
+  "url": "exercises-5-1.html",
+  "type": "Exercises",
+  "number": "5.1.4",
+  "title": "Exercises for Section 5.1",
+  "body": " Exercises for Section 5.1   These exercises cover the matrix and vector operations from this section, including matrix sizes and entries, addition and scalar multiplication, the dot product, and the matrix products.      Consider the matrix What is the size of (in the form )? Find the entries and .     is , with and . (Rows first!)       Write the following expression as a single vector.     First distribute each scalar into its vector, then add the two results component-wise.            Compute each dot product, or state that it is not defined.                                  Not defined: the first vector has components but the second has only .        Let Complete parts (a) through (d).     Find .           Find .           Find .    Each entry is one dot product: .           Find . Compare with your answer to part (c): what does this tell you about matrix multiplication?     . Since , matrix multiplication is not commutative.        Let      Find and .    Check the sizes first: is and has components, so is defined and has components. Similarly for .           Are the products and defined? Explain your answer.    No. has columns but has only components, so the rows of cannot be dotted with . The same size mismatch happens for (with columns) and (with components).      "
+},
+{
+  "id": "ex-5-1-1",
+  "level": "2",
+  "url": "exercises-5-1.html#ex-5-1-1",
+  "type": "Exercise",
+  "number": "5.1.4.1",
+  "title": "",
+  "body": "  Consider the matrix What is the size of (in the form )? Find the entries and .     is , with and . (Rows first!)   "
+},
+{
+  "id": "ex-5-1-2",
+  "level": "2",
+  "url": "exercises-5-1.html#ex-5-1-2",
+  "type": "Exercise",
+  "number": "5.1.4.2",
+  "title": "",
+  "body": "  Write the following expression as a single vector.     First distribute each scalar into its vector, then add the two results component-wise.        "
+},
+{
+  "id": "ex-5-1-3",
+  "level": "2",
+  "url": "exercises-5-1.html#ex-5-1-3",
+  "type": "Exercise",
+  "number": "5.1.4.3",
+  "title": "",
+  "body": "  Compute each dot product, or state that it is not defined.                                  Not defined: the first vector has components but the second has only .    "
+},
+{
+  "id": "ex-5-1-4",
+  "level": "2",
+  "url": "exercises-5-1.html#ex-5-1-4",
+  "type": "Exercise",
+  "number": "5.1.4.4",
+  "title": "",
+  "body": "  Let Complete parts (a) through (d).     Find .           Find .           Find .    Each entry is one dot product: .           Find . Compare with your answer to part (c): what does this tell you about matrix multiplication?     . Since , matrix multiplication is not commutative.    "
+},
+{
+  "id": "ex-5-1-5",
+  "level": "2",
+  "url": "exercises-5-1.html#ex-5-1-5",
+  "type": "Exercise",
+  "number": "5.1.4.5",
+  "title": "",
+  "body": "  Let      Find and .    Check the sizes first: is and has components, so is defined and has components. Similarly for .           Are the products and defined? Explain your answer.    No. has columns but has only components, so the rows of cannot be dotted with . The same size mismatch happens for (with columns) and (with components).    "
+},
+{
   "id": "sec-linear-systems-of-odes",
   "level": "1",
   "url": "sec-linear-systems-of-odes.html",
@@ -5219,6 +5273,51 @@ var ptx_lunr_docs = [
   "number": "5.2.2",
   "title": "",
   "body": " This video goes through the content of this page.   "
+},
+{
+  "id": "exercises-5-2",
+  "level": "1",
+  "url": "exercises-5-2.html",
+  "type": "Exercises",
+  "number": "5.2.3",
+  "title": "Exercises for Section 5.2",
+  "body": " Exercises for Section 5.2   These exercises practice writing a linear system in the matrix form and verifying whether a given vector of functions is a solution to a system.      Consider the system:      Identify , , , , , and .     , , , , , and .      Using part (a), write the system in the matrix form .             Write the given system in the form .     Some coefficients are ! Rewrite each equation with every term written out explicitly: , and so on.            Write the given system in the form .      The terms and don't involve or , so they belong in , not the matrix.       Consider the system      Determine whether is a solution.    Compute by differentiating each component, then compute by matrix-vector multiplication, and check that the two results match.    Differentiating: . Multiplying: The two sides match, so is a solution.      Determine whether is a solution.    It is not! Differentiating gives , but multiplying gives The two sides do not match, so is not a solution.      "
+},
+{
+  "id": "ex-5-2-1",
+  "level": "2",
+  "url": "exercises-5-2.html#ex-5-2-1",
+  "type": "Exercise",
+  "number": "5.2.3.1",
+  "title": "",
+  "body": "  Consider the system:      Identify , , , , , and .     , , , , , and .      Using part (a), write the system in the matrix form .         "
+},
+{
+  "id": "ex-5-2-2",
+  "level": "2",
+  "url": "exercises-5-2.html#ex-5-2-2",
+  "type": "Exercise",
+  "number": "5.2.3.2",
+  "title": "",
+  "body": "  Write the given system in the form .     Some coefficients are ! Rewrite each equation with every term written out explicitly: , and so on.        "
+},
+{
+  "id": "ex-5-2-3",
+  "level": "2",
+  "url": "exercises-5-2.html#ex-5-2-3",
+  "type": "Exercise",
+  "number": "5.2.3.3",
+  "title": "",
+  "body": "  Write the given system in the form .      The terms and don't involve or , so they belong in , not the matrix.   "
+},
+{
+  "id": "ex-5-2-4",
+  "level": "2",
+  "url": "exercises-5-2.html#ex-5-2-4",
+  "type": "Exercise",
+  "number": "5.2.3.4",
+  "title": "",
+  "body": "  Consider the system      Determine whether is a solution.    Compute by differentiating each component, then compute by matrix-vector multiplication, and check that the two results match.    Differentiating: . Multiplying: The two sides match, so is a solution.      Determine whether is a solution.    It is not! Differentiating gives , but multiplying gives The two sides do not match, so is not a solution.    "
 },
 {
   "id": "sec-determinant-wronskian",
@@ -5408,6 +5507,60 @@ var ptx_lunr_docs = [
   "number": "5.3.3",
   "title": "",
   "body": " This video goes through the content of this page.   "
+},
+{
+  "id": "exercises-5-3",
+  "level": "1",
+  "url": "exercises-5-3.html",
+  "type": "Exercises",
+  "number": "5.3.4",
+  "title": "Exercises for Section 5.3",
+  "body": " Exercises for Section 5.3   These exercises go through: verifying solutions, computing the Wronskian to check linear independence, building the general solution, and (in the last two problems) using initial conditions to find a particular solution.      Compute the determinant of each matrix, and determine whether its columns are linearly independent.           , so the columns are not linearly independent. (Indeed, the second column is times the first.)            , so the columns are linearly independent.        Consider the system and candidate solutions:      Verify that and are both solutions.    Both and equal , and both and equal , so each is a solution.      Compute the Wronskian. Are the solutions linearly independent?    The solutions become the columns: . Remember .     . Since for all values of , the solutions are linearly independent.      Write the general solution, combining it into a single vector.             Consider the system and candidate solutions:      Verify that and are both solutions.    Both and equal , and both and equal , so each is a solution.      Compute the Wronskian. Are the solutions linearly independent?     . Here involves , but since is never , we have for all values of : the solutions are linearly independent.      Write the general solution, combining it into a single vector.             Find the particular solution of the indicated linear system that satisfies the initial conditions and .     First check the Wronskian and write the general solution as a single vector. Then plug in (every exponential becomes ) and use the initial conditions to get two equations in and .    The general solution is . Plugging in gives the system and , which has solution , . The particular solution is        Find the particular solution of the indicated linear system that satisfies the initial conditions and .     The general solution is . Plugging in gives and , which has solution , . The particular solution is      "
+},
+{
+  "id": "ex-5-3-1",
+  "level": "2",
+  "url": "exercises-5-3.html#ex-5-3-1",
+  "type": "Exercise",
+  "number": "5.3.4.1",
+  "title": "",
+  "body": "  Compute the determinant of each matrix, and determine whether its columns are linearly independent.           , so the columns are not linearly independent. (Indeed, the second column is times the first.)            , so the columns are linearly independent.    "
+},
+{
+  "id": "ex-5-3-2",
+  "level": "2",
+  "url": "exercises-5-3.html#ex-5-3-2",
+  "type": "Exercise",
+  "number": "5.3.4.2",
+  "title": "",
+  "body": "  Consider the system and candidate solutions:      Verify that and are both solutions.    Both and equal , and both and equal , so each is a solution.      Compute the Wronskian. Are the solutions linearly independent?    The solutions become the columns: . Remember .     . Since for all values of , the solutions are linearly independent.      Write the general solution, combining it into a single vector.         "
+},
+{
+  "id": "ex-5-3-3",
+  "level": "2",
+  "url": "exercises-5-3.html#ex-5-3-3",
+  "type": "Exercise",
+  "number": "5.3.4.3",
+  "title": "",
+  "body": "  Consider the system and candidate solutions:      Verify that and are both solutions.    Both and equal , and both and equal , so each is a solution.      Compute the Wronskian. Are the solutions linearly independent?     . Here involves , but since is never , we have for all values of : the solutions are linearly independent.      Write the general solution, combining it into a single vector.         "
+},
+{
+  "id": "ex-5-3-4",
+  "level": "2",
+  "url": "exercises-5-3.html#ex-5-3-4",
+  "type": "Exercise",
+  "number": "5.3.4.4",
+  "title": "",
+  "body": "  Find the particular solution of the indicated linear system that satisfies the initial conditions and .     First check the Wronskian and write the general solution as a single vector. Then plug in (every exponential becomes ) and use the initial conditions to get two equations in and .    The general solution is . Plugging in gives the system and , which has solution , . The particular solution is    "
+},
+{
+  "id": "ex-5-3-5",
+  "level": "2",
+  "url": "exercises-5-3.html#ex-5-3-5",
+  "type": "Exercise",
+  "number": "5.3.4.5",
+  "title": "",
+  "body": "  Find the particular solution of the indicated linear system that satisfies the initial conditions and .     The general solution is . Plugging in gives and , which has solution , . The particular solution is    "
 },
 {
   "id": "sec-intro-eigenvectors",
