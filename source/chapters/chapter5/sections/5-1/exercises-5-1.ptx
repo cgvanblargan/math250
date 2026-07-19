@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<exercises xml:id="exercises-5-1">
+  <title>Exercises for Section 5.1</title>
+
+  <introduction>
+    <p>
+      These exercises cover the matrix and vector operations from this section, including matrix sizes and
+      entries, addition and scalar multiplication, the dot product, and the matrix products.
+    </p>
+  </introduction>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       Q1: Size and entry notation
+       ═══════════════════════════════════════════════════════════ -->
+
+  <exercise xml:id="ex-5-1-1">
+    <statement>
+      <p>
+        Consider the matrix
+        <me>A = \begin{bmatrix} 4 \amp -2 \amp 0 \\ 1 \amp 6 \amp -5 \end{bmatrix}.</me>
+        What is the size of <m>A</m> (in the form <m>m \times n</m>)? Find the entries
+        <m>a_{12}</m> and <m>a_{23}</m>.
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <m>A</m> is <m>2 \times 3</m>, with <m>a_{12} = -2</m> and <m>a_{23} = -5</m>.
+        (Rows first!)
+      </p>
+    </answer>
+  </exercise>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       Q2: Scalar multiplication with a function scalar
+       ═══════════════════════════════════════════════════════════ -->
+
+  <exercise xml:id="ex-5-1-2">
+    <statement>
+      <p>
+        Write the following expression as a single vector.
+        <me>e^{3t} \begin{bmatrix} 2 \\ -1 \\ 4 \end{bmatrix}
+          + 5e^{-2t} \begin{bmatrix} 1 \\ 3 \\ 0 \end{bmatrix}</me>
+      </p>
+    </statement>
+    <hint>
+      <p>
+        First distribute each scalar into its vector, then add the two results
+        component-wise.
+      </p>
+    </hint>
+    <answer>
+      <p>
+        <me>\begin{bmatrix} 2e^{3t} \\ -e^{3t} \\ 4e^{3t} \end{bmatrix}
+          + \begin{bmatrix} 5e^{-2t} \\ 15e^{-2t} \\ 0 \end{bmatrix}
+          = \begin{bmatrix} 2e^{3t} + 5e^{-2t} \\ -e^{3t} + 15e^{-2t} \\ 4e^{3t} \end{bmatrix}</me>
+      </p>
+    </answer>
+  </exercise>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       Q3: Dot products (numbers, functions, and undefined)
+       ═══════════════════════════════════════════════════════════ -->
+
+  <exercise xml:id="ex-5-1-3">
+    <introduction>
+      <p>
+        Compute each dot product, or state that it is not defined.
+      </p>
+    </introduction>
+
+    <task xml:id="ex-5-1-3a">
+      <statement>
+        <p>
+          <m>(2, -1, 3) \cdot (4, 0, -2)</m>
+        </p>
+      </statement>
+      <answer>
+        <p>
+          <m>2 \cdot 4 + (-1) \cdot 0 + 3 \cdot (-2) = 8 + 0 - 6 = 2</m>
+        </p>
+      </answer>
+    </task>
+
+    <task xml:id="ex-5-1-3b">
+      <statement>
+        <p>
+          <m>\begin{bmatrix} e^t \\ 5 \end{bmatrix} \cdot \begin{bmatrix} t \\ 2 \end{bmatrix}</m>
+        </p>
+      </statement>
+      <answer>
+        <p>
+          <m>te^t + 10</m>
+        </p>
+      </answer>
+    </task>
+
+    <task xml:id="ex-5-1-3c">
+      <statement>
+        <p>
+          <m>(1, 0, -2, 6) \cdot (3, 5, 1)</m>
+        </p>
+      </statement>
+      <answer>
+        <p>
+          Not defined: the first vector has <m>4</m> components but the second has only <m>3</m>.
+        </p>
+      </answer>
+    </task>
+  </exercise>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       Q4: Matrix arithmetic (addition, scalar mult, AB vs BA)
+       ═══════════════════════════════════════════════════════════ -->
+
+  <exercise xml:id="ex-5-1-4">
+    <introduction>
+      <p>
+        Let
+        <me>A = \begin{bmatrix} 7 \amp -9 \\ 2 \amp 5 \end{bmatrix}
+          \quad \text{and} \quad
+          B = \begin{bmatrix} 9 \amp -2 \\ 3 \amp 1 \end{bmatrix}.</me>
+        Complete parts (a) through (d).
+      </p>
+    </introduction>
+
+    <task xml:id="ex-5-1-4a">
+      <statement>
+        <p>
+          Find <m>4A + 6B</m>.
+        </p>
+      </statement>
+      <answer>
+        <p>
+          <m>4A + 6B = \begin{bmatrix} 82 \amp -48 \\ 26 \amp 26 \end{bmatrix}</m>
+        </p>
+      </answer>
+    </task>
+
+    <task xml:id="ex-5-1-4b">
+      <statement>
+        <p>
+          Find <m>6A - 4B</m>.
+        </p>
+      </statement>
+      <answer>
+        <p>
+          <m>6A - 4B = \begin{bmatrix} 6 \amp -46 \\ 0 \amp 26 \end{bmatrix}</m>
+        </p>
+      </answer>
+    </task>
+
+    <task xml:id="ex-5-1-4c">
+      <statement>
+        <p>
+          Find <m>AB</m>.
+        </p>
+      </statement>
+      <hint>
+        <p>
+          Each entry is one dot product:
+          <m>(AB)_{ij} = (i\text{th row of } A) \cdot (j\text{th col of } B)</m>.
+        </p>
+      </hint>
+      <answer>
+        <p>
+          <m>AB = \begin{bmatrix} 36 \amp -23 \\ 33 \amp 1 \end{bmatrix}</m>
+        </p>
+      </answer>
+    </task>
+
+    <task xml:id="ex-5-1-4d">
+      <statement>
+        <p>
+          Find <m>BA</m>. Compare with your answer to part (c): what does this tell you
+          about matrix multiplication?
+        </p>
+      </statement>
+      <answer>
+        <p>
+          <m>BA = \begin{bmatrix} 59 \amp -91 \\ 23 \amp -22 \end{bmatrix}</m>.
+          Since <m>AB \neq BA</m>, matrix multiplication is not commutative.
+        </p>
+      </answer>
+    </task>
+  </exercise>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       Q5: Matrix-vector products, defined and undefined
+       ═══════════════════════════════════════════════════════════ -->
+
+  <exercise xml:id="ex-5-1-5">
+    <introduction>
+      <p>
+        Let
+        <me>A = \begin{bmatrix} 7 \amp 0 \amp -6 \\ 5 \amp -4 \amp 8 \end{bmatrix},
+          \quad
+          B = \begin{bmatrix} 6 \amp 5 \\ -9 \amp 0 \\ 5 \amp -7 \end{bmatrix},
+          \quad
+          \mathbf{x} = \begin{bmatrix} 5t \\ e^{-t} \end{bmatrix},
+          \quad
+          \mathbf{y} = \begin{bmatrix} t^4 \\ \sin t \\ \cos t \end{bmatrix}.</me>
+      </p>
+    </introduction>
+
+    <task xml:id="ex-5-1-5a">
+      <statement>
+        <p>
+          Find <m>A\mathbf{y}</m> and <m>B\mathbf{x}</m>.
+        </p>
+      </statement>
+      <hint>
+        <p>
+          Check the sizes first: <m>A</m> is <m>2 \times 3</m> and <m>\mathbf{y}</m> has
+          <m>3</m> components, so <m>A\mathbf{y}</m> is defined and has <m>2</m> components.
+          Similarly for <m>B\mathbf{x}</m>.
+        </p>
+      </hint>
+      <answer>
+        <p>
+          <m>A\mathbf{y} = \begin{bmatrix} 7t^4 - 6\cos t \\ 5t^4 - 4\sin t + 8\cos t \end{bmatrix},
+            \qquad
+            B\mathbf{x} = \begin{bmatrix} 30t + 5e^{-t} \\ -45t \\ 25t - 7e^{-t} \end{bmatrix}</m>
+        </p>
+      </answer>
+    </task>
+
+    <task xml:id="ex-5-1-5b">
+      <statement>
+        <p>
+          Are the products <m>A\mathbf{x}</m> and <m>B\mathbf{y}</m> defined?
+          Explain your answer.
+        </p>
+      </statement>
+      <answer>
+        <p>
+          No. <m>A</m> has <m>3</m> columns but <m>\mathbf{x}</m> has only <m>2</m>
+          components, so the rows of <m>A</m> cannot be dotted with <m>\mathbf{x}</m>.
+          The same size mismatch happens for <m>B</m> (with <m>2</m> columns) and
+          <m>\mathbf{y}</m> (with <m>3</m> components).
+        </p>
+      </answer>
+    </task>
+  </exercise>
+
+  <interactive xml:id="question-form-5-1-ex" iframe="question-form.html?section=5.1 exercises" width="100%" aspect="2:1"/>
+
+</exercises>

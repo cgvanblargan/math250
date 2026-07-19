@@ -11,7 +11,7 @@
   </introduction>
 
   <xi:include href="./5-2/sec1-linear-systems-of-odes.ptx"/>
-<xi:include href="./5-2/sec2-verifying-solutions-systems.ptx"/>
-  
+  <xi:include href="./5-2/sec2-verifying-solutions-systems.ptx"/>
+  <xi:include href="./5-2/exercises-5-2.ptx"/>
 
 </section>

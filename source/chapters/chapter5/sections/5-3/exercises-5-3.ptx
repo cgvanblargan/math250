@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<exercises xml:id="exercises-5-3">
+  <title>Exercises for Section 5.3</title>
+
+  <introduction>
+    <p>
+      These exercises go through: verifying solutions, computing the
+      Wronskian to check linear independence, building the general solution, and (in the last
+      two problems) using initial conditions to find a particular solution.
+    </p>
+  </introduction>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       Q1: Determinant / independence warm-up
+       ═══════════════════════════════════════════════════════════ -->
+
+  <exercise xml:id="ex-5-3-1">
+    <introduction>
+      <p>
+        Compute the determinant of each matrix, and determine whether its columns are
+        linearly independent.
+      </p>
+    </introduction>
+
+    <task xml:id="ex-5-3-1a">
+      <statement>
+        <p>
+          <m>\begin{bmatrix} 3 \amp 6 \\ 2 \amp 4 \end{bmatrix}</m>
+        </p>
+      </statement>
+      <answer>
+        <p>
+          <m>\det = 3 \cdot 4 - 6 \cdot 2 = 0</m>, so the columns are not linearly
+          independent. (Indeed, the second column is <m>2</m> times the first.)
+        </p>
+      </answer>
+    </task>
+
+    <task xml:id="ex-5-3-1b">
+      <statement>
+        <p>
+          <m>\begin{bmatrix} 2 \amp -1 \\ 5 \amp 3 \end{bmatrix}</m>
+        </p>
+      </statement>
+      <answer>
+        <p>
+          <m>\det = 2 \cdot 3 - (-1) \cdot 5 = 11 \neq 0</m>, so the columns are linearly
+          independent.
+        </p>
+      </answer>
+    </task>
+  </exercise>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       Q2: Verify, Wronskian, general solution (constant W)
+       ═══════════════════════════════════════════════════════════ -->
+
+  <exercise xml:id="ex-5-3-2">
+    <introduction>
+      <p>
+        Consider the system and candidate solutions:
+        <me>\mathbf{x}' = \begin{bmatrix} 5 \amp -2 \\ 8 \amp -5 \end{bmatrix} \mathbf{x};
+          \qquad
+          \mathbf{x}_1 = e^{3t}\begin{bmatrix} 3 \\ 3 \end{bmatrix},
+          \quad
+          \mathbf{x}_2 = e^{-3t}\begin{bmatrix} 1 \\ 4 \end{bmatrix}</me>
+      </p>
+    </introduction>
+
+    <task xml:id="ex-5-3-2a">
+      <statement>
+        <p>
+          Verify that <m>\mathbf{x}_1</m> and <m>\mathbf{x}_2</m> are both solutions.
+        </p>
+      </statement>
+      <answer>
+        <p>
+          Both <m>\mathbf{x}_1'</m> and <m>\mathbf{P}\mathbf{x}_1</m> equal
+          <m>\begin{bmatrix} 9e^{3t} \\ 9e^{3t} \end{bmatrix}</m>, and both
+          <m>\mathbf{x}_2'</m> and <m>\mathbf{P}\mathbf{x}_2</m> equal
+          <m>\begin{bmatrix} -3e^{-3t} \\ -12e^{-3t} \end{bmatrix}</m>, so each is a solution.
+        </p>
+      </answer>
+    </task>
+
+    <task xml:id="ex-5-3-2b">
+      <statement>
+        <p>
+          Compute the Wronskian. Are the solutions linearly independent?
+        </p>
+      </statement>
+      <hint>
+        <p>
+          The solutions become the columns:
+          <m>W = \det\left( \begin{bmatrix} 3e^{3t} \amp e^{-3t} \\ 3e^{3t} \amp 4e^{-3t} \end{bmatrix} \right)</m>.
+          Remember <m>e^{3t} \cdot e^{-3t} = e^0 = 1</m>.
+        </p>
+      </hint>
+      <answer>
+        <p>
+          <m>W = 3e^{3t} \cdot 4e^{-3t} - e^{-3t} \cdot 3e^{3t} = 12 - 3 = 9</m>.
+          Since <m>W \neq 0</m> for all values of <m>t</m>, the solutions are linearly
+          independent.
+        </p>
+      </answer>
+    </task>
+
+    <task xml:id="ex-5-3-2c">
+      <statement>
+        <p>
+          Write the general solution, combining it into a single vector.
+        </p>
+      </statement>
+      <answer>
+        <p>
+          <me>\mathbf{x}(t)
+            = c_1 e^{3t}\begin{bmatrix} 3 \\ 3 \end{bmatrix}
+            + c_2 e^{-3t}\begin{bmatrix} 1 \\ 4 \end{bmatrix}
+            = \begin{bmatrix} 3c_1 e^{3t} + c_2 e^{-3t} \\ 3c_1 e^{3t} + 4c_2 e^{-3t} \end{bmatrix}</me>
+        </p>
+      </answer>
+    </task>
+  </exercise>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       Q3: Verify, Wronskian, general solution (W involves t)
+       ═══════════════════════════════════════════════════════════ -->
+
+  <exercise xml:id="ex-5-3-3">
+    <introduction>
+      <p>
+        Consider the system and candidate solutions:
+        <me>\mathbf{x}' = \begin{bmatrix} 6 \amp -3 \\ 12 \amp -7 \end{bmatrix} \mathbf{x};
+          \qquad
+          \mathbf{x}_1 = \begin{bmatrix} 3e^{2t} \\ 4e^{2t} \end{bmatrix},
+          \quad
+          \mathbf{x}_2 = \begin{bmatrix} e^{-3t} \\ 3e^{-3t} \end{bmatrix}</me>
+      </p>
+    </introduction>
+
+    <task xml:id="ex-5-3-3a">
+      <statement>
+        <p>
+          Verify that <m>\mathbf{x}_1</m> and <m>\mathbf{x}_2</m> are both solutions.
+        </p>
+      </statement>
+      <answer>
+        <p>
+          Both <m>\mathbf{x}_1'</m> and <m>\mathbf{P}\mathbf{x}_1</m> equal
+          <m>\begin{bmatrix} 6e^{2t} \\ 8e^{2t} \end{bmatrix}</m>, and both
+          <m>\mathbf{x}_2'</m> and <m>\mathbf{P}\mathbf{x}_2</m> equal
+          <m>\begin{bmatrix} -3e^{-3t} \\ -9e^{-3t} \end{bmatrix}</m>, so each is a solution.
+        </p>
+      </answer>
+    </task>
+
+    <task xml:id="ex-5-3-3b">
+      <statement>
+        <p>
+          Compute the Wronskian. Are the solutions linearly independent?
+        </p>
+      </statement>
+      <answer>
+        <p>
+          <m>W = 3e^{2t} \cdot 3e^{-3t} - e^{-3t} \cdot 4e^{2t} = 9e^{-t} - 4e^{-t} = 5e^{-t}</m>.
+          Here <m>W</m> involves <m>t</m>, but since <m>e^{-t}</m> is never <m>0</m>, we
+          have <m>W \neq 0</m> for all values of <m>t</m>: the solutions are linearly
+          independent.
+        </p>
+      </answer>
+    </task>
+
+    <task xml:id="ex-5-3-3c">
+      <statement>
+        <p>
+          Write the general solution, combining it into a single vector.
+        </p>
+      </statement>
+      <answer>
+        <p>
+          <me>\mathbf{x}(t)
+            = c_1 \begin{bmatrix} 3e^{2t} \\ 4e^{2t} \end{bmatrix}
+            + c_2 \begin{bmatrix} e^{-3t} \\ 3e^{-3t} \end{bmatrix}
+            = \begin{bmatrix} 3c_1 e^{2t} + c_2 e^{-3t} \\ 4c_1 e^{2t} + 3c_2 e^{-3t} \end{bmatrix}</me>
+        </p>
+      </answer>
+    </task>
+  </exercise>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       Q4: IVP for a system
+       ═══════════════════════════════════════════════════════════ -->
+
+  <exercise xml:id="ex-5-3-4">
+    <statement>
+      <p>
+        Find the particular solution of the indicated linear system that satisfies the
+        initial conditions <m>x_1(0) = 5</m> and <m>x_2(0) = 14</m>.
+        <me>\mathbf{x}' = \begin{bmatrix} 7 \amp -2 \\ 16 \amp -5 \end{bmatrix} \mathbf{x};
+          \qquad
+          \mathbf{x}_1 = e^{3t}\begin{bmatrix} 1 \\ 2 \end{bmatrix},
+          \quad
+          \mathbf{x}_2 = e^{-t}\begin{bmatrix} 1 \\ 4 \end{bmatrix}</me>
+      </p>
+    </statement>
+    <hint>
+      <p>
+        First check the Wronskian and write the general solution as a single vector. Then
+        plug in <m>t = 0</m> (every exponential becomes <m>1</m>) and use the initial
+        conditions to get two equations in <m>c_1</m> and <m>c_2</m>.
+      </p>
+    </hint>
+    <answer>
+      <p>
+        The general solution is
+        <m>\mathbf{x}(t) = \begin{bmatrix} c_1 e^{3t} + c_2 e^{-t} \\ 2c_1 e^{3t} + 4c_2 e^{-t} \end{bmatrix}</m>.
+        Plugging in <m>t = 0</m> gives the system
+        <m>5 = c_1 + c_2</m> and <m>14 = 2c_1 + 4c_2</m>, which has solution
+        <m>c_1 = 3</m>, <m>c_2 = 2</m>. The particular solution is
+        <me>x_1(t) = 3e^{3t} + 2e^{-t}, \qquad x_2(t) = 6e^{3t} + 8e^{-t}.</me>
+      </p>
+    </answer>
+  </exercise>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       Q5: IVP for a system (second practice)
+       ═══════════════════════════════════════════════════════════ -->
+
+  <exercise xml:id="ex-5-3-5">
+    <statement>
+      <p>
+        Find the particular solution of the indicated linear system that satisfies the
+        initial conditions <m>x_1(0) = 5</m> and <m>x_2(0) = 0</m>.
+        <me>\mathbf{x}' = \begin{bmatrix} 12 \amp -4 \\ 24 \amp -10 \end{bmatrix} \mathbf{x};
+          \qquad
+          \mathbf{x}_1 = \begin{bmatrix} 4e^{6t} \\ 6e^{6t} \end{bmatrix},
+          \quad
+          \mathbf{x}_2 = \begin{bmatrix} e^{-4t} \\ 4e^{-4t} \end{bmatrix}</me>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        The general solution is
+        <m>\mathbf{x}(t) = \begin{bmatrix} 4c_1 e^{6t} + c_2 e^{-4t} \\ 6c_1 e^{6t} + 4c_2 e^{-4t} \end{bmatrix}</m>.
+        Plugging in <m>t = 0</m> gives
+        <m>5 = 4c_1 + c_2</m> and <m>0 = 6c_1 + 4c_2</m>, which has solution
+        <m>c_1 = 2</m>, <m>c_2 = -3</m>. The particular solution is
+        <me>x_1(t) = 8e^{6t} - 3e^{-4t}, \qquad x_2(t) = 12e^{6t} - 12e^{-4t}.</me>
+      </p>
+    </answer>
+  </exercise>
+
+  <interactive xml:id="question-form-5-3-ex" iframe="question-form.html?section=5.3 exercises" width="100%" aspect="2:1"/>
+
+</exercises>

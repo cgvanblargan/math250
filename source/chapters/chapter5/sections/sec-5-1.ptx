@@ -12,5 +12,6 @@
   <xi:include href="./5-1/sec1-matrices-crash-course.ptx"/>
   <xi:include href="./5-1/sec2-dot-product-matrix-vector.ptx"/>
   <xi:include href="./5-1/sec3-matrix-multiplication.ptx"/>
+  <xi:include href="./5-1/exercises-5-1.ptx"/>
 
 </section>

@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<exercises xml:id="exercises-5-2">
+  <title>Exercises for Section 5.2</title>
+
+  <introduction>
+    <p>
+      These exercises practice writing a linear system in
+      the matrix form <m>\mathbf{x}' = \mathbf{P}(t)\mathbf{x} + \mathbf{f}(t)</m> and
+      verifying whether a given vector of functions is a solution to a system.
+    </p>
+  </introduction>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       Q1: Identify the coefficients p_ij and f_i
+       ═══════════════════════════════════════════════════════════ -->
+
+  <exercise xml:id="ex-5-2-1">
+    <introduction>
+      <p>
+        Consider the system:
+        <md>
+          <mrow>x_1' \amp= t\,x_1 - 4x_2 + \cos t</mrow>
+          <mrow>x_2' \amp= 5x_1 + e^{2t} x_2</mrow>
+        </md>
+      </p>
+    </introduction>
+
+    <task xml:id="ex-5-2-1a">
+      <statement>
+        <p>
+          Identify <m>p_{11}(t)</m>, <m>p_{12}(t)</m>, <m>p_{21}(t)</m>,
+          <m>p_{22}(t)</m>, <m>f_1(t)</m>, and <m>f_2(t)</m>.
+        </p>
+      </statement>
+      <answer>
+        <p>
+          <m>p_{11}(t) = t</m>, <m>p_{12}(t) = -4</m>, <m>p_{21}(t) = 5</m>,
+          <m>p_{22}(t) = e^{2t}</m>, <m>f_1(t) = \cos t</m>, and <m>f_2(t) = 0</m>.
+        </p>
+      </answer>
+    </task>
+
+    <task xml:id="ex-5-2-1b">
+      <statement>
+        <p>
+          Using part (a), write the system in the matrix form
+          <m>\mathbf{x}' = \mathbf{P}(t)\mathbf{x} + \mathbf{f}(t)</m>.
+        </p>
+      </statement>
+      <answer>
+        <p>
+          <me>\begin{bmatrix} x_1' \\ x_2' \end{bmatrix}
+            = \begin{bmatrix} t \amp -4 \\ 5 \amp e^{2t} \end{bmatrix}
+            \begin{bmatrix} x_1 \\ x_2 \end{bmatrix}
+            + \begin{bmatrix} \cos t \\ 0 \end{bmatrix}</me>
+        </p>
+      </answer>
+    </task>
+  </exercise>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       Q2: Matrix form, hidden zero coefficients
+       ═══════════════════════════════════════════════════════════ -->
+
+  <exercise xml:id="ex-5-2-2">
+    <statement>
+      <p>
+        Write the given system in the form
+        <m>\mathbf{x}' = \mathbf{P}(t)\mathbf{x} + \mathbf{f}(t)</m>.
+        <md>
+          <mrow>x' \amp= -7y</mrow>
+          <mrow>y' \amp= 9x</mrow>
+        </md>
+      </p>
+    </statement>
+    <hint>
+      <p>
+        Some coefficients are <m>0</m>! Rewrite each equation with every term written out
+        explicitly: <m>x' = 0x + (-7)y</m>, and so on.
+      </p>
+    </hint>
+    <answer>
+      <p>
+        <me>\begin{bmatrix} x' \\ y' \end{bmatrix}
+          = \begin{bmatrix} 0 \amp -7 \\ 9 \amp 0 \end{bmatrix}
+          \begin{bmatrix} x \\ y \end{bmatrix}
+          + \begin{bmatrix} 0 \\ 0 \end{bmatrix}</me>
+      </p>
+    </answer>
+  </exercise>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       Q3: Matrix form with forcing terms
+       ═══════════════════════════════════════════════════════════ -->
+
+  <exercise xml:id="ex-5-2-3">
+    <statement>
+      <p>
+        Write the given system in the form
+        <m>\mathbf{x}' = \mathbf{P}(t)\mathbf{x} + \mathbf{f}(t)</m>.
+        <md>
+          <mrow>x' \amp= 8x + 4y + 9e^t</mrow>
+          <mrow>y' \amp= 8x - y - t^2</mrow>
+        </md>
+      </p>
+    </statement>
+    <answer>
+      <p>
+        <me>\begin{bmatrix} x' \\ y' \end{bmatrix}
+          = \begin{bmatrix} 8 \amp 4 \\ 8 \amp -1 \end{bmatrix}
+          \begin{bmatrix} x \\ y \end{bmatrix}
+          + \begin{bmatrix} 9e^t \\ -t^2 \end{bmatrix}</me>
+        The terms <m>9e^t</m> and <m>-t^2</m> don't involve <m>x</m> or <m>y</m>, so they
+        belong in <m>\mathbf{f}(t)</m>, not the matrix.
+      </p>
+    </answer>
+  </exercise>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       Q4: Verify a solution and a non-solution
+       ═══════════════════════════════════════════════════════════ -->
+
+  <exercise xml:id="ex-5-2-4">
+    <introduction>
+      <p>
+        Consider the system
+        <me>\mathbf{x}' = \begin{bmatrix} 1 \amp 2 \\ 3 \amp 2 \end{bmatrix} \mathbf{x}.</me>
+      </p>
+    </introduction>
+
+    <task xml:id="ex-5-2-4a">
+      <statement>
+        <p>
+          Determine whether
+          <m>\mathbf{y}(t) = \begin{bmatrix} 2 \\ 3 \end{bmatrix} e^{4t}</m>
+          is a solution.
+        </p>
+      </statement>
+      <hint>
+        <p>
+          Compute <m>\dfrac{d\mathbf{y}}{dt}</m> by differentiating each component, then
+          compute <m>\mathbf{P}\mathbf{y}</m> by matrix-vector multiplication, and check that
+          the two results match.
+        </p>
+      </hint>
+      <answer>
+        <p>
+          Differentiating:
+          <m>\dfrac{d\mathbf{y}}{dt} = \begin{bmatrix} 8e^{4t} \\ 12e^{4t} \end{bmatrix}</m>.
+          Multiplying:
+          <me>\mathbf{P}\mathbf{y}
+            = \begin{bmatrix} 1 \amp 2 \\ 3 \amp 2 \end{bmatrix}
+            \begin{bmatrix} 2e^{4t} \\ 3e^{4t} \end{bmatrix}
+            = \begin{bmatrix} (2 + 6)e^{4t} \\ (6 + 6)e^{4t} \end{bmatrix}
+            = \begin{bmatrix} 8e^{4t} \\ 12e^{4t} \end{bmatrix}.</me>
+          The two sides match, so <m>\mathbf{y}(t)</m> is a solution.
+        </p>
+      </answer>
+    </task>
+
+    <task xml:id="ex-5-2-4b">
+      <statement>
+        <p>
+          Determine whether
+          <m>\mathbf{z}(t) = \begin{bmatrix} 1 \\ 2 \end{bmatrix} e^{-t}</m>
+          is a solution.
+        </p>
+      </statement>
+      <answer>
+        <p>
+          It is not! Differentiating gives
+          <m>\dfrac{d\mathbf{z}}{dt} = \begin{bmatrix} -e^{-t} \\ -2e^{-t} \end{bmatrix}</m>,
+          but multiplying gives
+          <me>\mathbf{P}\mathbf{z}
+            = \begin{bmatrix} 1 \amp 2 \\ 3 \amp 2 \end{bmatrix}
+            \begin{bmatrix} e^{-t} \\ 2e^{-t} \end{bmatrix}
+            = \begin{bmatrix} 5e^{-t} \\ 7e^{-t} \end{bmatrix}.</me>
+          The two sides do not match, so <m>\mathbf{z}(t)</m> is not a solution.
+        </p>
+      </answer>
+    </task>
+  </exercise>
+
+  <interactive xml:id="question-form-5-2-ex" iframe="question-form.html?section=5.2 exercises" width="100%" aspect="2:1"/>
+
+</exercises>

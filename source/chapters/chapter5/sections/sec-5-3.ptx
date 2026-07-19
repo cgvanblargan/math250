@@ -13,6 +13,7 @@
   <xi:include href="./5-3/sec1-determinant-wronskian.ptx"/>
   <xi:include href="./5-3/sec2-general-solution-example.ptx"/>
   <xi:include href="./5-3/sec3-ivp-systems.ptx"/>
+  <xi:include href="./5-3/exercises-5-3.ptx"/>
 
   
 
