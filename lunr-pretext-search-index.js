@@ -5689,6 +5689,51 @@ var ptx_lunr_docs = [
   "body": " This video goes through the content of this page.   "
 },
 {
+  "id": "exercises-5-4",
+  "level": "1",
+  "url": "exercises-5-4.html",
+  "type": "Exercises",
+  "number": "5.4.3",
+  "title": "Exercises for Section 5.4",
+  "body": " Exercises for Section 5.4   These exercises go through: computing eigenvalues from the characteristic equation , and finding the eigenvectors that go with them. In the last two problems, the eigenvalues come out complex; there, just find the eigenvalues (we'll pick up the matching eigenvectors in Section 5.5, once we have more practice with complex numbers).      Consider the matrix      Find the eigenvalues of .     , so the eigenvalues are and .      Find an eigenvector associated with each eigenvalue from the previous part.    For : solving gives , so . Choosing : For : solving gives , so . Choosing :         Consider the matrix      Find the eigenvalues of .     , so the eigenvalues are and .      Find an eigenvector associated with each eigenvalue from the previous part.    For : solving gives , so . Choosing : For : solving gives , so . Choosing :         Find the eigenvalues of . (We will find the associated eigenvectors in the next section, once we've had more practice with complex arithmetic.)    As always, first compute to get a quadratic in . But this time it won't factor nicely, so you will want to use the quadratic formula.     . By the quadratic formula, So the eigenvalues are and .       Find the eigenvalues of . (As in the last problem, we'll find the eigenvectors in the next section.)    Compute . Notice the diagonal entries of are both , so the resulting quadratic has no (linear) term. You can solve it directly without the quadratic formula, but the quadratic formula always works if preferred.     . Setting this equal to gives , so The eigenvalues are and .     "
+},
+{
+  "id": "ex-5-4-1",
+  "level": "2",
+  "url": "exercises-5-4.html#ex-5-4-1",
+  "type": "Exercise",
+  "number": "5.4.3.1",
+  "title": "",
+  "body": "  Consider the matrix      Find the eigenvalues of .     , so the eigenvalues are and .      Find an eigenvector associated with each eigenvalue from the previous part.    For : solving gives , so . Choosing : For : solving gives , so . Choosing :     "
+},
+{
+  "id": "ex-5-4-2",
+  "level": "2",
+  "url": "exercises-5-4.html#ex-5-4-2",
+  "type": "Exercise",
+  "number": "5.4.3.2",
+  "title": "",
+  "body": "  Consider the matrix      Find the eigenvalues of .     , so the eigenvalues are and .      Find an eigenvector associated with each eigenvalue from the previous part.    For : solving gives , so . Choosing : For : solving gives , so . Choosing :     "
+},
+{
+  "id": "ex-5-4-3",
+  "level": "2",
+  "url": "exercises-5-4.html#ex-5-4-3",
+  "type": "Exercise",
+  "number": "5.4.3.3",
+  "title": "",
+  "body": "  Find the eigenvalues of . (We will find the associated eigenvectors in the next section, once we've had more practice with complex arithmetic.)    As always, first compute to get a quadratic in . But this time it won't factor nicely, so you will want to use the quadratic formula.     . By the quadratic formula, So the eigenvalues are and .   "
+},
+{
+  "id": "ex-5-4-4",
+  "level": "2",
+  "url": "exercises-5-4.html#ex-5-4-4",
+  "type": "Exercise",
+  "number": "5.4.3.4",
+  "title": "",
+  "body": "  Find the eigenvalues of . (As in the last problem, we'll find the eigenvectors in the next section.)    Compute . Notice the diagonal entries of are both , so the resulting quadratic has no (linear) term. You can solve it directly without the quadratic formula, but the quadratic formula always works if preferred.     . Setting this equal to gives , so The eigenvalues are and .   "
+},
+{
   "id": "sec-eigenvalue-method-main-idea",
   "level": "1",
   "url": "sec-eigenvalue-method-main-idea.html",
@@ -5984,6 +6029,69 @@ var ptx_lunr_docs = [
   "number": "5.5.2",
   "title": "",
   "body": " This video goes through the content of this page.   "
+},
+{
+  "id": "exercises-5-5",
+  "level": "1",
+  "url": "exercises-5-5.html",
+  "type": "Exercises",
+  "number": "5.5.6",
+  "title": "Exercises for Section 5.5",
+  "body": " Exercises for Section 5.5   These exercises go through: assembling general solutions from real eigenvalue-eigenvector pairs, finding eigenvectors for complex eigenvalues and applying Euler's formula to build real-valued solutions, and (in the last problem) working through a full application from start to finish for a population modelling question.  In most of the questions, you have already found the eigenvalues in 5.4 (and this is linked in each question where this happens)      Write the general solution of , where is the matrix from . You may use the eigenvalues and eigenvectors you found there.    Since the eigenvalues are distinct and real,        Write the general solution of , where is the matrix from . You may use the eigenvalues and eigenvectors you found there. Then, write your answer again as a single vector, by combining the components.    Since the eigenvalues are distinct and real,        Recall from that has eigenvalue (along with its conjugate , which we won't need).     Find an eigenvector associated with .    The two equations will still be redundant, even with complex numbers, so you only need one of them.    Subtracting along the diagonal: Using the top row: . Choosing gives , so       Use your eigenvector to write the general solution of .    Forming and multiplying out each component: So the real and imaginary parts give two real-valued solutions, and the general solution is         Recall from that has eigenvalue (along with its conjugate , which we won't need).     Find an eigenvector associated with .    Subtracting along the diagonal: Using the top row: , so . Choosing gives       Use your eigenvector to write the general solution of .    Notice this time has no real part, so there's no -type factor out front, just the oscillating part.    Forming and multiplying out each component: So the real and imaginary parts give the general solution         Suppose a matrix has eigenvalue with associated eigenvector . Find the general solution of .    This time both components of have two terms, so each one takes a full FOIL to multiply out.    Multiplying out and :  Taking the real and imaginary parts (and remembering the overall factor of from the real part of ), the general solution is        Recall the rabbit-and-fox population model from . Suppose a (different) island has rabbit population and fox population satisfying: or in matrix form, where and .     Find the eigenvalues and corresponding eigenvectors of .     , so and .  For : solving gives , so . Choosing : .  For : solving gives , so . Choosing : .      Write the general solution .    Since the eigenvalues are distinct and real,       Suppose and . Find the particular solution, then compute and interpret what it means for the two populations.    Once you have the particular solution, think about which exponential term, or , dominates as .    Plugging in : and , which gives and . So the particular solution is As , the terms die out, while the terms grow without bound, so does not exist (both populations grow unboundedly). In this scenario, both the rabbit and fox populations grow without bound, with the ratio approaching as .      Now suppose instead and . Find the particular solution, then compute and interpret what it means for the two populations. How does this compare to the previous part?    Plugging in : and , which gives and . So the particular solution is This time there is no term at all (since ), so as , Both populations die out. This is a striking contrast to the previous part: starting from a slightly different initial population, instead of both populations exploding, they instead go extinct together (while maintaining the ratio the whole time). This happens because this particular initial condition lies exactly along the eigenvector , so only the decaying term is present, with no growing term to eventually take over.      "
+},
+{
+  "id": "ex-5-5-1",
+  "level": "2",
+  "url": "exercises-5-5.html#ex-5-5-1",
+  "type": "Exercise",
+  "number": "5.5.6.1",
+  "title": "",
+  "body": "  Write the general solution of , where is the matrix from . You may use the eigenvalues and eigenvectors you found there.    Since the eigenvalues are distinct and real,    "
+},
+{
+  "id": "ex-5-5-2",
+  "level": "2",
+  "url": "exercises-5-5.html#ex-5-5-2",
+  "type": "Exercise",
+  "number": "5.5.6.2",
+  "title": "",
+  "body": "  Write the general solution of , where is the matrix from . You may use the eigenvalues and eigenvectors you found there. Then, write your answer again as a single vector, by combining the components.    Since the eigenvalues are distinct and real,    "
+},
+{
+  "id": "ex-5-5-3",
+  "level": "2",
+  "url": "exercises-5-5.html#ex-5-5-3",
+  "type": "Exercise",
+  "number": "5.5.6.3",
+  "title": "",
+  "body": "  Recall from that has eigenvalue (along with its conjugate , which we won't need).     Find an eigenvector associated with .    The two equations will still be redundant, even with complex numbers, so you only need one of them.    Subtracting along the diagonal: Using the top row: . Choosing gives , so       Use your eigenvector to write the general solution of .    Forming and multiplying out each component: So the real and imaginary parts give two real-valued solutions, and the general solution is     "
+},
+{
+  "id": "ex-5-5-4",
+  "level": "2",
+  "url": "exercises-5-5.html#ex-5-5-4",
+  "type": "Exercise",
+  "number": "5.5.6.4",
+  "title": "",
+  "body": "  Recall from that has eigenvalue (along with its conjugate , which we won't need).     Find an eigenvector associated with .    Subtracting along the diagonal: Using the top row: , so . Choosing gives       Use your eigenvector to write the general solution of .    Notice this time has no real part, so there's no -type factor out front, just the oscillating part.    Forming and multiplying out each component: So the real and imaginary parts give the general solution     "
+},
+{
+  "id": "ex-5-5-5",
+  "level": "2",
+  "url": "exercises-5-5.html#ex-5-5-5",
+  "type": "Exercise",
+  "number": "5.5.6.5",
+  "title": "",
+  "body": "  Suppose a matrix has eigenvalue with associated eigenvector . Find the general solution of .    This time both components of have two terms, so each one takes a full FOIL to multiply out.    Multiplying out and :  Taking the real and imaginary parts (and remembering the overall factor of from the real part of ), the general solution is    "
+},
+{
+  "id": "ex-5-5-6",
+  "level": "2",
+  "url": "exercises-5-5.html#ex-5-5-6",
+  "type": "Exercise",
+  "number": "5.5.6.6",
+  "title": "",
+  "body": "  Recall the rabbit-and-fox population model from . Suppose a (different) island has rabbit population and fox population satisfying: or in matrix form, where and .     Find the eigenvalues and corresponding eigenvectors of .     , so and .  For : solving gives , so . Choosing : .  For : solving gives , so . Choosing : .      Write the general solution .    Since the eigenvalues are distinct and real,       Suppose and . Find the particular solution, then compute and interpret what it means for the two populations.    Once you have the particular solution, think about which exponential term, or , dominates as .    Plugging in : and , which gives and . So the particular solution is As , the terms die out, while the terms grow without bound, so does not exist (both populations grow unboundedly). In this scenario, both the rabbit and fox populations grow without bound, with the ratio approaching as .      Now suppose instead and . Find the particular solution, then compute and interpret what it means for the two populations. How does this compare to the previous part?    Plugging in : and , which gives and . So the particular solution is This time there is no term at all (since ), so as , Both populations die out. This is a striking contrast to the previous part: starting from a slightly different initial population, instead of both populations exploding, they instead go extinct together (while maintaining the ratio the whole time). This happens because this particular initial condition lies exactly along the eigenvector , so only the decaying term is present, with no growing term to eventually take over.    "
 },
 {
   "id": "backmatter-2",

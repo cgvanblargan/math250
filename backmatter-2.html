@@ -102,14 +102,14 @@ eBookConfig.allow_pairs = false;
 eBookConfig.enableScratchAC = false;
 eBookConfig.build_info = "";
 eBookConfig.python3 = null;
-eBookConfig.runestone_version = '8.1.14';
+eBookConfig.runestone_version = '8.1.16';
 eBookConfig.jobehost = '';
 eBookConfig.proxyuri_runs = '';
 eBookConfig.proxyuri_files = '';
 eBookConfig.enable_chatcodes =  false;
 </script>
 <!--*** Runestone Services ***-->
-<script src="_static/prefix-runtime.cb5af2e851de3574.bundle.js"></script><script src="_static/prefix-926.5c7038c8ef173faf.bundle.js"></script><script src="_static/prefix-runestone.f51cd4153b45055d.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-926.229729d09512acc9.css">
+<script src="_static/prefix-runtime.279b1f0077454c32.bundle.js"></script><script src="_static/prefix-926.5c7038c8ef173faf.bundle.js"></script><script src="_static/prefix-runestone.db8001875cb726c2.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-926.229729d09512acc9.css">
 <link rel="stylesheet" type="text/css" href="_static/prefix-runestone.66fa8a682a32c0ac.css">
 <script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script>
@@ -377,6 +377,7 @@ eBookConfig.enable_chatcodes =  false;
 <ul class="structural toc-item-list">
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-intro-eigenvectors.html" class="internal"><span class="codenumber">5.4.1</span> <span class="title">Introduction to Eigenvectors</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-finding-eigen.html" class="internal"><span class="codenumber">5.4.2</span> <span class="title">Finding Eigenvalues and Eigenvectors</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="exercises-5-4.html" class="internal"><span class="codenumber">5.4.3</span> <span class="title">Exercises for Section 5.4</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-section">
@@ -387,6 +388,7 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-complex-eigen.html" class="internal"><span class="codenumber">5.5.3</span> <span class="title">Complex Eigenvalues and Eigenvectors</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-complex-case.html" class="internal"><span class="codenumber">5.5.4</span> <span class="title">The Case of Complex Conjugate Eigenvalues</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-complex-harder-example.html" class="internal"><span class="codenumber">5.5.5</span> <span class="title">Complex Eigenvalues: A Harder Example</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="exercises-5-5.html" class="internal"><span class="codenumber">5.5.6</span> <span class="title">Exercises for Section 5.5</span></a></div></li>
 </ul>
 </li>
 </ul>
@@ -2182,7 +2184,301 @@ x_1(t) = 8e^{6t} - 3e^{-4t}, \qquad x_2(t) = 12e^{6t} - 12e^{-4t}.
 <div class="autopermalink" data-description="Paragraph"><a href="#ex-5-3-5-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Answer 5.3.4.5.1"><a href="#ex-5-3-5-2" title="Copy heading and permalink for Answer 5.3.4.5.1" aria-label="Copy heading and permalink for Answer 5.3.4.5.1">🔗</a></div>
-</div></details></div></article><div class="autopermalink" data-description="Appendix A: Answers to Exercises"><a href="#backmatter-2" title="Copy heading and permalink for Appendix A: Answers to Exercises" aria-label="Copy heading and permalink for Appendix A: Answers to Exercises">🔗</a></div></section></div>
+</div></details></div></article><h3 class="heading hide-type" title="Exercises 5.4.3: Exercises for Section 5.4">
+<span class="codenumber">5.4</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Eigenvalues and Eigenvectors</span><br><span class="codenumber">5.4.3</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Exercises for Section 5.4</span>
+</h3>
+<article class="exercise-like"><h4 class="heading"><span class="codenumber">5.4.3.1<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<article class="exercise-like"><h5 class="heading hide-type" title="Task 5.4.3.1.a"><span class="codenumber">5.4.3.1.a</span></h5>
+<div class="solutions"><details class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para">
+<span class="process-math">\(\det(A - \lambda I) = (3-\lambda)^2 - 16 = \lambda^2 - 6\lambda - 7
+= (\lambda - 7)(\lambda + 1)\text{,}\)</span> so the eigenvalues are <span class="process-math">\(\lambda_1 = 7\)</span> and <span class="process-math">\(\lambda_2 = -1\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex-5-4-1a-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 5.4.3.1.a.1"><a href="#ex-5-4-1a-2" title="Copy heading and permalink for Answer 5.4.3.1.a.1" aria-label="Copy heading and permalink for Answer 5.4.3.1.a.1">🔗</a></div>
+</div></details></div></article><article class="exercise-like"><h5 class="heading hide-type" title="Task 5.4.3.1.b"><span class="codenumber">5.4.3.1.b</span></h5>
+<div class="solutions"><details class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para logical">
+<div class="para">For <span class="process-math">\(\lambda_1 = 7\text{:}\)</span> solving <span class="process-math">\((A - 7I)\mathbf{v} = \mathbf{0}\)</span> gives <span class="process-math">\(-4v_1 + 4v_2 = 0\text{,}\)</span> so <span class="process-math">\(v_1 = v_2\text{.}\)</span> Choosing <span class="process-math">\(v_1 = 1\text{:}\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\mathbf{v}_1 = \begin{bmatrix} 1 \\ 1 \end{bmatrix}.
+\end{equation*}
+</div>
+<div class="para">For <span class="process-math">\(\lambda_2 = -1\text{:}\)</span> solving <span class="process-math">\((A + I)\mathbf{v} = \mathbf{0}\)</span> gives <span class="process-math">\(4v_1 + 4v_2 = 0\text{,}\)</span> so <span class="process-math">\(v_1 = -v_2\text{.}\)</span> Choosing <span class="process-math">\(v_1 = 1\text{:}\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\mathbf{v}_2 = \begin{bmatrix} 1 \\ -1 \end{bmatrix}.
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-5-4-1b-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 5.4.3.1.b.1"><a href="#ex-5-4-1b-2" title="Copy heading and permalink for Answer 5.4.3.1.b.1" aria-label="Copy heading and permalink for Answer 5.4.3.1.b.1">🔗</a></div>
+</div></details></div></article></article><article class="exercise-like"><h4 class="heading"><span class="codenumber">5.4.3.2<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<article class="exercise-like"><h5 class="heading hide-type" title="Task 5.4.3.2.a"><span class="codenumber">5.4.3.2.a</span></h5>
+<div class="solutions"><details class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para">
+<span class="process-math">\(\det(A - \lambda I) = -\lambda(4-\lambda) + 3 = \lambda^2 - 4\lambda + 3
+= (\lambda - 3)(\lambda - 1)\text{,}\)</span> so the eigenvalues are <span class="process-math">\(\lambda_1 = 3\)</span> and <span class="process-math">\(\lambda_2 = 1\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex-5-4-2a-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 5.4.3.2.a.1"><a href="#ex-5-4-2a-2" title="Copy heading and permalink for Answer 5.4.3.2.a.1" aria-label="Copy heading and permalink for Answer 5.4.3.2.a.1">🔗</a></div>
+</div></details></div></article><article class="exercise-like"><h5 class="heading hide-type" title="Task 5.4.3.2.b"><span class="codenumber">5.4.3.2.b</span></h5>
+<div class="solutions"><details class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para logical">
+<div class="para">For <span class="process-math">\(\lambda_1 = 3\text{:}\)</span> solving <span class="process-math">\((A - 3I)\mathbf{v} = \mathbf{0}\)</span> gives <span class="process-math">\(-3v_1 + 3v_2 = 0\text{,}\)</span> so <span class="process-math">\(v_1 = v_2\text{.}\)</span> Choosing <span class="process-math">\(v_1 = 1\text{:}\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\mathbf{v}_1 = \begin{bmatrix} 1 \\ 1 \end{bmatrix}.
+\end{equation*}
+</div>
+<div class="para">For <span class="process-math">\(\lambda_2 = 1\text{:}\)</span> solving <span class="process-math">\((A - I)\mathbf{v} = \mathbf{0}\)</span> gives <span class="process-math">\(-v_1 + 3v_2 = 0\text{,}\)</span> so <span class="process-math">\(v_1 = 3v_2\text{.}\)</span> Choosing <span class="process-math">\(v_2 = 1\text{:}\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\mathbf{v}_2 = \begin{bmatrix} 3 \\ 1 \end{bmatrix}.
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-5-4-2b-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 5.4.3.2.b.1"><a href="#ex-5-4-2b-2" title="Copy heading and permalink for Answer 5.4.3.2.b.1" aria-label="Copy heading and permalink for Answer 5.4.3.2.b.1">🔗</a></div>
+</div></details></div></article></article><article class="exercise-like"><h4 class="heading"><span class="codenumber">5.4.3.3<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="solutions"><details class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para logical">
+<div class="para">
+<span class="process-math">\(\det(A - \lambda I) = (1-\lambda)(3-\lambda) - (-2)(5) = \lambda^2 - 4\lambda
++ 13\text{.}\)</span> By the quadratic formula,</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\lambda = \frac{4 \pm \sqrt{16 - 52}}{2} = \frac{4 \pm \sqrt{-36}}{2}
+= \frac{4 \pm 6i}{2} = 2 \pm 3i.
+\end{equation*}
+</div>
+<div class="para">So the eigenvalues are <span class="process-math">\(\lambda = 2 + 3i\)</span> and <span class="process-math">\(\lambda = 2 - 3i\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-5-4-3-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 5.4.3.3.1"><a href="#ex-5-4-3-3" title="Copy heading and permalink for Answer 5.4.3.3.1" aria-label="Copy heading and permalink for Answer 5.4.3.3.1">🔗</a></div>
+</div></details></div></article><article class="exercise-like"><h4 class="heading"><span class="codenumber">5.4.3.4<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="solutions"><details class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para logical">
+<div class="para">
+<span class="process-math">\(\det(A - \lambda I) = (0-\lambda)(0-\lambda) - (-4)(4) = \lambda^2 + 16\text{.}\)</span> Setting this equal to <span class="process-math">\(0\)</span> gives <span class="process-math">\(\lambda^2 = -16\text{,}\)</span> so</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\lambda = \pm\sqrt{-16} = \pm 4i.
+\end{equation*}
+</div>
+<div class="para">The eigenvalues are <span class="process-math">\(\lambda = 4i\)</span> and <span class="process-math">\(\lambda = -4i\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-5-4-4-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 5.4.3.4.1"><a href="#ex-5-4-4-3" title="Copy heading and permalink for Answer 5.4.3.4.1" aria-label="Copy heading and permalink for Answer 5.4.3.4.1">🔗</a></div>
+</div></details></div></article><h3 class="heading hide-type" title="Exercises 5.5.6: Exercises for Section 5.5">
+<span class="codenumber">5.5</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">The Eigenvalue Method</span><br><span class="codenumber">5.5.6</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Exercises for Section 5.5</span>
+</h3>
+<article class="exercise-like"><h4 class="heading"><span class="codenumber">5.5.6.1<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="solutions"><details class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para logical">
+<div class="para">Since the eigenvalues are distinct and real,</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\mathbf{x}(t) = c_1\begin{bmatrix} 1 \\ 1 \end{bmatrix}e^{7t}
++ c_2\begin{bmatrix} 1 \\ -1 \end{bmatrix}e^{-t}.
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-5-5-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 5.5.6.1.1"><a href="#ex-5-5-1-2" title="Copy heading and permalink for Answer 5.5.6.1.1" aria-label="Copy heading and permalink for Answer 5.5.6.1.1">🔗</a></div>
+</div></details></div></article><article class="exercise-like"><h4 class="heading"><span class="codenumber">5.5.6.2<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="solutions"><details class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para logical">
+<div class="para">Since the eigenvalues are distinct and real,</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\mathbf{x}(t) = c_1\begin{bmatrix} 1 \\ 1 \end{bmatrix}e^{3t}
++ c_2\begin{bmatrix} 3 \\ 1 \end{bmatrix}e^{t}
+= \begin{bmatrix} c_1 e^{3t} + 3c_2 e^{t} \\ c_1 e^{3t} + c_2 e^{t} \end{bmatrix}.
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-5-5-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 5.5.6.2.1"><a href="#ex-5-5-2-2" title="Copy heading and permalink for Answer 5.5.6.2.1" aria-label="Copy heading and permalink for Answer 5.5.6.2.1">🔗</a></div>
+</div></details></div></article><article class="exercise-like"><h4 class="heading"><span class="codenumber">5.5.6.3<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<article class="exercise-like"><h5 class="heading hide-type" title="Task 5.5.6.3.a"><span class="codenumber">5.5.6.3.a</span></h5>
+<div class="solutions"><details class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para logical">
+<div class="para">Subtracting <span class="process-math">\(2+3i\)</span> along the diagonal:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+A - (2+3i)I = \begin{bmatrix} -1-3i \amp -2 \\ 5 \amp 1-3i \end{bmatrix}.
+\end{equation*}
+</div>
+<div class="para">Using the top row: <span class="process-math">\((-1-3i)v_1 - 2v_2 = 0\text{.}\)</span> Choosing <span class="process-math">\(v_1 = 2\)</span> gives <span class="process-math">\(v_2 = -1-3i\text{,}\)</span> so</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\mathbf{v} = \begin{bmatrix} 2 \\ -1-3i \end{bmatrix}.
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-5-5-3a-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 5.5.6.3.a.1"><a href="#ex-5-5-3a-3" title="Copy heading and permalink for Answer 5.5.6.3.a.1" aria-label="Copy heading and permalink for Answer 5.5.6.3.a.1">🔗</a></div>
+</div></details></div></article><article class="exercise-like"><h5 class="heading hide-type" title="Task 5.5.6.3.b"><span class="codenumber">5.5.6.3.b</span></h5>
+<div class="solutions"><details class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para logical">
+<div class="para">Forming <span class="process-math">\(\mathbf{v}e^{(2+3i)t} = e^{2t}\begin{bmatrix} 2 \\ -1-3i \end{bmatrix}
+(\cos 3t + i\sin 3t)\)</span> and multiplying out each component:</div>
+<div class="displaymath process-math">
+\begin{align*}
+2(\cos 3t + i \sin 3t) \amp= 2\cos 3t + i(2\sin 3t)\\
+(-1-3i)(\cos 3t + i \sin 3t) \amp= (3\sin 3t - \cos 3t) + i(-\sin 3t - 3\cos 3t)
+\end{align*}
+</div>
+<div class="para">So the real and imaginary parts give two real-valued solutions, and the general solution is</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\mathbf{x}(t) = e^{2t}\left[
+c_1\begin{bmatrix} 2\cos 3t \\ 3\sin 3t - \cos 3t \end{bmatrix}
++ c_2\begin{bmatrix} 2\sin 3t \\ -\sin 3t - 3\cos 3t \end{bmatrix}
+\right].
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-5-5-3b-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 5.5.6.3.b.1"><a href="#ex-5-5-3b-2" title="Copy heading and permalink for Answer 5.5.6.3.b.1" aria-label="Copy heading and permalink for Answer 5.5.6.3.b.1">🔗</a></div>
+</div></details></div></article></article><article class="exercise-like"><h4 class="heading"><span class="codenumber">5.5.6.4<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<article class="exercise-like"><h5 class="heading hide-type" title="Task 5.5.6.4.a"><span class="codenumber">5.5.6.4.a</span></h5>
+<div class="solutions"><details class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para logical">
+<div class="para">Subtracting <span class="process-math">\(4i\)</span> along the diagonal:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+A - 4iI = \begin{bmatrix} -4i \amp -4 \\ 4 \amp -4i \end{bmatrix}.
+\end{equation*}
+</div>
+<div class="para">Using the top row: <span class="process-math">\(-4iv_1 - 4v_2 = 0\text{,}\)</span> so <span class="process-math">\(v_2 = -iv_1\text{.}\)</span> Choosing <span class="process-math">\(v_1 = 1\)</span> gives</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\mathbf{v} = \begin{bmatrix} 1 \\ -i \end{bmatrix}.
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-5-5-4a-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 5.5.6.4.a.1"><a href="#ex-5-5-4a-2" title="Copy heading and permalink for Answer 5.5.6.4.a.1" aria-label="Copy heading and permalink for Answer 5.5.6.4.a.1">🔗</a></div>
+</div></details></div></article><article class="exercise-like"><h5 class="heading hide-type" title="Task 5.5.6.4.b"><span class="codenumber">5.5.6.4.b</span></h5>
+<div class="solutions"><details class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para logical">
+<div class="para">Forming <span class="process-math">\(\mathbf{v}e^{4it} = \begin{bmatrix} 1 \\ -i \end{bmatrix}
+(\cos 4t + i\sin 4t)\)</span> and multiplying out each component:</div>
+<div class="displaymath process-math">
+\begin{align*}
+1 \cdot (\cos 4t + i \sin 4t) \amp= \cos 4t + i\sin 4t\\
+-i(\cos 4t + i \sin 4t) \amp= \sin 4t - i\cos 4t
+\end{align*}
+</div>
+<div class="para">So the real and imaginary parts give the general solution</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\mathbf{x}(t) = c_1\begin{bmatrix} \cos 4t \\ \sin 4t \end{bmatrix}
++ c_2\begin{bmatrix} \sin 4t \\ -\cos 4t \end{bmatrix}.
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-5-5-4b-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 5.5.6.4.b.1"><a href="#ex-5-5-4b-3" title="Copy heading and permalink for Answer 5.5.6.4.b.1" aria-label="Copy heading and permalink for Answer 5.5.6.4.b.1">🔗</a></div>
+</div></details></div></article></article><article class="exercise-like"><h4 class="heading"><span class="codenumber">5.5.6.5<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="solutions"><details class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para logical">
+<div class="para">Multiplying out <span class="process-math">\((1-i)(\cos 2t + i\sin 2t)\)</span> and <span class="process-math">\((3+i)(\cos 2t + i\sin 2t)\text{:}\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{align*}
+(1-i)(\cos 2t + i \sin 2t)
+\amp= \cos 2t + i\sin 2t - i\cos 2t - i^2 \sin 2t\\
+\amp= (\cos 2t + \sin 2t) + i(\sin 2t - \cos 2t)
+\end{align*}
+</div>
+<div class="displaymath process-math">
+\begin{align*}
+(3+i)(\cos 2t + i \sin 2t)
+\amp= 3\cos 2t + 3i\sin 2t + i\cos 2t + i^2 \sin 2t\\
+\amp= (3\cos 2t - \sin 2t) + i(3\sin 2t + \cos 2t)
+\end{align*}
+</div>
+<div class="para">Taking the real and imaginary parts (and remembering the overall factor of <span class="process-math">\(e^{-t}\)</span> from the real part of <span class="process-math">\(\lambda\)</span>), the general solution is</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\mathbf{x}(t) = e^{-t}\left[
+c_1\begin{bmatrix} \cos 2t + \sin 2t \\ 3\cos 2t - \sin 2t \end{bmatrix}
++ c_2\begin{bmatrix} \sin 2t - \cos 2t \\ 3\sin 2t + \cos 2t \end{bmatrix}
+\right].
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-5-5-5-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 5.5.6.5.1"><a href="#ex-5-5-5-3" title="Copy heading and permalink for Answer 5.5.6.5.1" aria-label="Copy heading and permalink for Answer 5.5.6.5.1">🔗</a></div>
+</div></details></div></article><article class="exercise-like"><h4 class="heading"><span class="codenumber">5.5.6.6<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<article class="exercise-like"><h5 class="heading hide-type" title="Task 5.5.6.6.a"><span class="codenumber">5.5.6.6.a</span></h5>
+<div class="solutions"><details class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para">
+<span class="process-math">\(\det(A - \lambda I) = (2-\lambda)(-2-\lambda) - (-1)(3) = \lambda^2 - 1
+= (\lambda-1)(\lambda+1)\text{,}\)</span> so <span class="process-math">\(\lambda_1 = 1\)</span> and <span class="process-math">\(\lambda_2 = -1\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex-5-5-6a-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para">For <span class="process-math">\(\lambda_1 = 1\text{:}\)</span> solving <span class="process-math">\((A - I)\mathbf{v} = \mathbf{0}\)</span> gives <span class="process-math">\(v_1 - v_2 = 0\text{,}\)</span> so <span class="process-math">\(v_1 = v_2\text{.}\)</span> Choosing <span class="process-math">\(v_1 = 1\text{:}\)</span> <span class="process-math">\(\mathbf{v}_1 = \begin{bmatrix} 1 \\ 1 \end{bmatrix}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex-5-5-6a-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para">For <span class="process-math">\(\lambda_2 = -1\text{:}\)</span> solving <span class="process-math">\((A + I)\mathbf{v} = \mathbf{0}\)</span> gives <span class="process-math">\(3v_1 - v_2 = 0\text{,}\)</span> so <span class="process-math">\(v_2 = 3v_1\text{.}\)</span> Choosing <span class="process-math">\(v_1 = 1\text{:}\)</span> <span class="process-math">\(\mathbf{v}_2 = \begin{bmatrix} 1 \\ 3 \end{bmatrix}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex-5-5-6a-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 5.5.6.6.a.1"><a href="#ex-5-5-6a-2" title="Copy heading and permalink for Answer 5.5.6.6.a.1" aria-label="Copy heading and permalink for Answer 5.5.6.6.a.1">🔗</a></div>
+</div></details></div></article><article class="exercise-like"><h5 class="heading hide-type" title="Task 5.5.6.6.b"><span class="codenumber">5.5.6.6.b</span></h5>
+<div class="solutions"><details class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para logical">
+<div class="para">Since the eigenvalues are distinct and real,</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\mathbf{x}(t) = c_1\begin{bmatrix} 1 \\ 1 \end{bmatrix}e^{t}
++ c_2\begin{bmatrix} 1 \\ 3 \end{bmatrix}e^{-t}
+= \begin{bmatrix} c_1 e^{t} + c_2 e^{-t} \\ c_1 e^{t} + 3c_2 e^{-t} \end{bmatrix}.
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-5-5-6b-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 5.5.6.6.b.1"><a href="#ex-5-5-6b-2" title="Copy heading and permalink for Answer 5.5.6.6.b.1" aria-label="Copy heading and permalink for Answer 5.5.6.6.b.1">🔗</a></div>
+</div></details></div></article><article class="exercise-like"><h5 class="heading hide-type" title="Task 5.5.6.6.c"><span class="codenumber">5.5.6.6.c</span></h5>
+<div class="solutions"><details class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para logical">
+<div class="para">Plugging in <span class="process-math">\(t=0\text{:}\)</span> <span class="process-math">\(c_1 + c_2 = 5\)</span> and <span class="process-math">\(c_1 + 3c_2 = 7\text{,}\)</span> which gives <span class="process-math">\(c_1 = 4\)</span> and <span class="process-math">\(c_2 = 1\text{.}\)</span> So the particular solution is</div>
+<div class="displaymath process-math">
+\begin{equation*}
+R(t) = 4e^{t} + e^{-t}, \qquad F(t) = 4e^{t} + 3e^{-t}.
+\end{equation*}
+</div>
+<div class="para">As <span class="process-math">\(t \to \infty\text{,}\)</span> the <span class="process-math">\(e^{-t}\)</span> terms die out, while the <span class="process-math">\(e^{t}\)</span> terms grow without bound, so <span class="process-math">\(\displaystyle\lim_{t\to\infty}\mathbf{x}(t)\)</span> does not exist (both populations grow unboundedly). In this scenario, both the rabbit and fox populations grow without bound, with the ratio <span class="process-math">\(R(t):F(t)\)</span> approaching <span class="process-math">\(1:1\)</span> as <span class="process-math">\(t \to \infty\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-5-5-6c-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 5.5.6.6.c.1"><a href="#ex-5-5-6c-3" title="Copy heading and permalink for Answer 5.5.6.6.c.1" aria-label="Copy heading and permalink for Answer 5.5.6.6.c.1">🔗</a></div>
+</div></details></div></article><article class="exercise-like"><h5 class="heading hide-type" title="Task 5.5.6.6.d"><span class="codenumber">5.5.6.6.d</span></h5>
+<div class="solutions"><details class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para logical">
+<div class="para">Plugging in <span class="process-math">\(t=0\text{:}\)</span> <span class="process-math">\(c_1 + c_2 = 1\)</span> and <span class="process-math">\(c_1 + 3c_2 = 3\text{,}\)</span> which gives <span class="process-math">\(c_1 = 0\)</span> and <span class="process-math">\(c_2 = 1\text{.}\)</span> So the particular solution is</div>
+<div class="displaymath process-math">
+\begin{equation*}
+R(t) = e^{-t}, \qquad F(t) = 3e^{-t}.
+\end{equation*}
+</div>
+<div class="para">This time there is no <span class="process-math">\(e^{t}\)</span> term at all (since <span class="process-math">\(c_1 = 0\)</span>), so as <span class="process-math">\(t \to \infty\text{,}\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\lim_{t\to\infty}\mathbf{x}(t) = \begin{bmatrix} 0 \\ 0 \end{bmatrix}.
+\end{equation*}
+</div>
+<div class="para">Both populations die out. This is a striking contrast to the previous part: starting from a slightly different initial population, instead of both populations exploding, they instead go extinct together (while maintaining the ratio <span class="process-math">\(R:F = 1:3\)</span> the whole time). This happens because this particular initial condition lies exactly along the eigenvector <span class="process-math">\(\mathbf{v}_2 = \begin{bmatrix} 1 \\ 3 \end{bmatrix}\text{,}\)</span> so only the decaying <span class="process-math">\(e^{-t}\)</span> term is present, with no growing <span class="process-math">\(e^{t}\)</span> term to eventually take over.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-5-5-6d-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Answer 5.5.6.6.d.1"><a href="#ex-5-5-6d-2" title="Copy heading and permalink for Answer 5.5.6.6.d.1" aria-label="Copy heading and permalink for Answer 5.5.6.6.d.1">🔗</a></div>
+</div></details></div></article></article><div class="autopermalink" data-description="Appendix A: Answers to Exercises"><a href="#backmatter-2" title="Copy heading and permalink for Appendix A: Answers to Exercises" aria-label="Copy heading and permalink for Appendix A: Answers to Exercises">🔗</a></div></section></div>
 <div id="ptx-content-footer" class="ptx-content-footer">
 <a class="previous-button button" href="backmatter.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="back-colophon.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
 </div></main>
