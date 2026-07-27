@@ -13,5 +13,6 @@
 
   <xi:include href="./5-4/sec1-intro-eigenvectors.ptx"/>
   <xi:include href="./5-4/sec2-finding-eigen.ptx"/>
+  <xi:include href="./5-4/exercises-5-4.ptx"/>
 
 </section>

@@ -1,0 +1,349 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<exercises xml:id="exercises-5-5">
+  <title>Exercises for Section 5.5</title>
+
+ <introduction>
+    <p>
+      These exercises go through: assembling general solutions from real eigenvalue-eigenvector
+      pairs, finding eigenvectors for complex eigenvalues and applying Euler's formula to build
+      real-valued solutions, and (in the last problem) working through a full application from
+      start to finish for a population modelling question.
+    </p>
+    <p><alert>In most of the questions, you have already found the eigenvalues in 5.4</alert> (and this is linked in each question where this happens) </p>
+  </introduction>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       Q1: Real distinct eigenvalues, easy (reuses ex-5-4-1)
+       ═══════════════════════════════════════════════════════════ -->
+
+  <exercise xml:id="ex-5-5-1">
+    <statement>
+      <p>
+        Write the general solution of <m>\dfrac{d\mathbf{x}}{dt} = A\mathbf{x}</m>, where
+        <m>A = \begin{bmatrix} 3 \amp 4 \\ 4 \amp 3 \end{bmatrix}</m> is the matrix from
+        <xref ref="ex-5-4-1"/>. You may use the eigenvalues and eigenvectors you found
+        there.
+      </p>
+    </statement>
+    <answer>
+      <p>
+        Since the eigenvalues are distinct and real,
+        <me>\mathbf{x}(t) = c_1\begin{bmatrix} 1 \\ 1 \end{bmatrix}e^{7t}
+          + c_2\begin{bmatrix} 1 \\ -1 \end{bmatrix}e^{-t}.</me>
+      </p>
+    </answer>
+  </exercise>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       Q2: Real distinct eigenvalues, medium (reuses ex-5-4-2)
+       ═══════════════════════════════════════════════════════════ -->
+
+  <exercise xml:id="ex-5-5-2">
+    <statement>
+      <p>
+        Write the general solution of <m>\dfrac{d\mathbf{x}}{dt} = A\mathbf{x}</m>, where
+        <m>A = \begin{bmatrix} 0 \amp 3 \\ -1 \amp 4 \end{bmatrix}</m> is the matrix from
+        <xref ref="ex-5-4-2"/>. You may use the eigenvalues and eigenvectors you found
+        there. Then, write your answer again as a single vector, by combining the
+        components.
+      </p>
+    </statement>
+    <answer>
+      <p>
+        Since the eigenvalues are distinct and real,
+        <me>\mathbf{x}(t) = c_1\begin{bmatrix} 1 \\ 1 \end{bmatrix}e^{3t}
+          + c_2\begin{bmatrix} 3 \\ 1 \end{bmatrix}e^{t}
+          = \begin{bmatrix} c_1 e^{3t} + 3c_2 e^{t} \\ c_1 e^{3t} + c_2 e^{t} \end{bmatrix}.</me>
+      </p>
+    </answer>
+  </exercise>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       Q3: Complex eigenvalues, tied to ex-5-4-3 (quadratic formula matrix)
+       ═══════════════════════════════════════════════════════════ -->
+
+  <exercise xml:id="ex-5-5-3">
+    <introduction>
+      <p>
+        Recall from <xref ref="ex-5-4-3"/> that
+        <m>A = \begin{bmatrix} 1 \amp -2 \\ 5 \amp 3 \end{bmatrix}</m> has eigenvalue
+        <m>\lambda = 2 + 3i</m> (along with its conjugate <m>2 - 3i</m>, which we won't
+        need).
+      </p>
+    </introduction>
+
+    <task xml:id="ex-5-5-3a">
+      <statement>
+        <p>
+          Find an eigenvector associated with <m>\lambda = 2 + 3i</m>.
+        </p>
+      </statement>
+      <hint>
+        <p>
+          The two equations will still be redundant, even with complex numbers, so you
+          only need one of them.
+        </p>
+      </hint>
+      <answer>
+        <p>
+          Subtracting <m>2+3i</m> along the diagonal:
+          <me>A - (2+3i)I = \begin{bmatrix} -1-3i \amp -2 \\ 5 \amp 1-3i \end{bmatrix}.</me>
+          Using the top row: <m>(-1-3i)v_1 - 2v_2 = 0</m>. Choosing <m>v_1 = 2</m> gives
+          <m>v_2 = -1-3i</m>, so
+          <me>\mathbf{v} = \begin{bmatrix} 2 \\ -1-3i \end{bmatrix}.</me>
+        </p>
+      </answer>
+    </task>
+
+    <task xml:id="ex-5-5-3b">
+      <statement>
+        <p>
+          Use your eigenvector to write the general solution of
+          <m>\dfrac{d\mathbf{x}}{dt} = A\mathbf{x}</m>.
+        </p>
+      </statement>
+      <answer>
+        <p>
+          Forming <m>\mathbf{v}e^{(2+3i)t} = e^{2t}\begin{bmatrix} 2 \\ -1-3i \end{bmatrix}
+            (\cos 3t + i\sin 3t)</m> and multiplying out each component:
+          <md>
+            <mrow>2(\cos 3t + i \sin 3t) \amp= 2\cos 3t + i(2\sin 3t)</mrow>
+            <mrow>(-1-3i)(\cos 3t + i \sin 3t) \amp= (3\sin 3t - \cos 3t) + i(-\sin 3t - 3\cos 3t)</mrow>
+          </md>
+          So the real and imaginary parts give two real-valued solutions, and the general
+          solution is
+          <me>\mathbf{x}(t) = e^{2t}\left[
+            c_1\begin{bmatrix} 2\cos 3t \\ 3\sin 3t - \cos 3t \end{bmatrix}
+            + c_2\begin{bmatrix} 2\sin 3t \\ -\sin 3t - 3\cos 3t \end{bmatrix}
+          \right].</me>
+        </p>
+      </answer>
+    </task>
+  </exercise>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       Q4: Complex eigenvalues, tied to ex-5-4-4 (no linear term matrix)
+       ═══════════════════════════════════════════════════════════ -->
+
+  <exercise xml:id="ex-5-5-4">
+    <introduction>
+      <p>
+        Recall from <xref ref="ex-5-4-4"/> that
+        <m>A = \begin{bmatrix} 0 \amp -4 \\ 4 \amp 0 \end{bmatrix}</m> has eigenvalue
+        <m>\lambda = 4i</m> (along with its conjugate <m>-4i</m>, which we won't need).
+      </p>
+    </introduction>
+
+    <task xml:id="ex-5-5-4a">
+      <statement>
+        <p>
+          Find an eigenvector associated with <m>\lambda = 4i</m>.
+        </p>
+      </statement>
+      <answer>
+        <p>
+          Subtracting <m>4i</m> along the diagonal:
+          <me>A - 4iI = \begin{bmatrix} -4i \amp -4 \\ 4 \amp -4i \end{bmatrix}.</me>
+          Using the top row: <m>-4iv_1 - 4v_2 = 0</m>, so <m>v_2 = -iv_1</m>. Choosing
+          <m>v_1 = 1</m> gives
+          <me>\mathbf{v} = \begin{bmatrix} 1 \\ -i \end{bmatrix}.</me>
+        </p>
+      </answer>
+    </task>
+
+    <task xml:id="ex-5-5-4b">
+      <statement>
+        <p>
+          Use your eigenvector to write the general solution of
+          <m>\dfrac{d\mathbf{x}}{dt} = A\mathbf{x}</m>.
+        </p>
+      </statement>
+      <hint>
+        <p>
+          Notice this time <m>\lambda</m> has no real part, so there's no <m>e^{2t}</m>-type
+          factor out front, just the oscillating part.
+        </p>
+      </hint>
+      <answer>
+        <p>
+          Forming <m>\mathbf{v}e^{4it} = \begin{bmatrix} 1 \\ -i \end{bmatrix}
+            (\cos 4t + i\sin 4t)</m> and multiplying out each component:
+          <md>
+            <mrow>1 \cdot (\cos 4t + i \sin 4t) \amp= \cos 4t + i\sin 4t</mrow>
+            <mrow>-i(\cos 4t + i \sin 4t) \amp= \sin 4t - i\cos 4t</mrow>
+          </md>
+          So the real and imaginary parts give the general solution
+          <me>\mathbf{x}(t) = c_1\begin{bmatrix} \cos 4t \\ \sin 4t \end{bmatrix}
+            + c_2\begin{bmatrix} \sin 4t \\ -\cos 4t \end{bmatrix}.</me>
+        </p>
+      </answer>
+    </task>
+  </exercise>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       Q5: Complex eigenvalues, standalone (given eigenpair, hardest FOIL)
+       ═══════════════════════════════════════════════════════════ -->
+
+  <exercise xml:id="ex-5-5-5">
+    <statement>
+      <p>
+        Suppose a matrix <m>A</m> has eigenvalue <m>\lambda = -1 + 2i</m> with associated
+        eigenvector <m>\mathbf{v} = \begin{bmatrix} 1-i \\ 3+i \end{bmatrix}</m>. Find the
+        general solution of <m>\dfrac{d\mathbf{x}}{dt} = A\mathbf{x}</m>.
+      </p>
+    </statement>
+    <hint>
+      <p>
+        This time both components of <m>\mathbf{v}</m> have two terms, so each one takes a
+        full FOIL to multiply out.
+      </p>
+    </hint>
+    <answer>
+      <p>
+        Multiplying out <m>(1-i)(\cos 2t + i\sin 2t)</m> and
+        <m>(3+i)(\cos 2t + i\sin 2t)</m>:
+        <md>
+          <mrow>(1-i)(\cos 2t + i \sin 2t)
+            \amp= \cos 2t + i\sin 2t - i\cos 2t - i^2 \sin 2t</mrow>
+          <mrow>
+            \amp= (\cos 2t + \sin 2t) + i(\sin 2t - \cos 2t)</mrow>
+        </md>
+        <md>
+          <mrow>(3+i)(\cos 2t + i \sin 2t)
+            \amp= 3\cos 2t + 3i\sin 2t + i\cos 2t + i^2 \sin 2t</mrow>
+          <mrow>
+            \amp= (3\cos 2t - \sin 2t) + i(3\sin 2t + \cos 2t)</mrow>
+        </md>
+        Taking the real and imaginary parts (and remembering the overall factor of
+        <m>e^{-t}</m> from the real part of <m>\lambda</m>), the general solution is
+        <me>\mathbf{x}(t) = e^{-t}\left[
+          c_1\begin{bmatrix} \cos 2t + \sin 2t \\ 3\cos 2t - \sin 2t \end{bmatrix}
+          + c_2\begin{bmatrix} \sin 2t - \cos 2t \\ 3\sin 2t + \cos 2t \end{bmatrix}
+        \right].</me>
+      </p>
+    </answer>
+  </exercise>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       Q6: Capstone: population application, worked from scratch
+       ═══════════════════════════════════════════════════════════ -->
+
+  <exercise xml:id="ex-5-5-6">
+    <introduction>
+      <p>
+        Recall the rabbit-and-fox population model from <xref ref="sec-linear-systems-of-odes"/>.
+        Suppose a (different) island has rabbit population <m>R(t)</m> and fox population
+        <m>F(t)</m> satisfying:
+        <md>
+          <mrow>R' \amp= 2R - F</mrow>
+          <mrow>F' \amp= 3R - 2F,</mrow>
+        </md>
+        or in matrix form, <m>\dfrac{d\mathbf{x}}{dt} = A\mathbf{x}</m> where
+        <m>\mathbf{x} = \begin{bmatrix} R \\ F \end{bmatrix}</m> and
+        <m>A = \begin{bmatrix} 2 \amp -1 \\ 3 \amp -2 \end{bmatrix}</m>.
+      </p>
+    </introduction>
+
+    <task xml:id="ex-5-5-6a">
+      <statement>
+        <p>
+          Find the eigenvalues and corresponding eigenvectors of <m>A</m>.
+        </p>
+      </statement>
+      <answer>
+        <p>
+          <m>\det(A - \lambda I) = (2-\lambda)(-2-\lambda) - (-1)(3) = \lambda^2 - 1
+            = (\lambda-1)(\lambda+1)</m>, so <m>\lambda_1 = 1</m> and
+          <m>\lambda_2 = -1</m>.
+        </p>
+        <p>
+          For <m>\lambda_1 = 1</m>: solving <m>(A - I)\mathbf{v} = \mathbf{0}</m> gives
+          <m>v_1 - v_2 = 0</m>, so <m>v_1 = v_2</m>. Choosing <m>v_1 = 1</m>:
+          <m>\mathbf{v}_1 = \begin{bmatrix} 1 \\ 1 \end{bmatrix}</m>.
+        </p>
+        <p>
+          For <m>\lambda_2 = -1</m>: solving <m>(A + I)\mathbf{v} = \mathbf{0}</m> gives
+          <m>3v_1 - v_2 = 0</m>, so <m>v_2 = 3v_1</m>. Choosing <m>v_1 = 1</m>:
+          <m>\mathbf{v}_2 = \begin{bmatrix} 1 \\ 3 \end{bmatrix}</m>.
+        </p>
+      </answer>
+    </task>
+
+    <task xml:id="ex-5-5-6b">
+      <statement>
+        <p>
+          Write the general solution <m>\mathbf{x}(t) = \begin{bmatrix} R(t) \\ F(t) \end{bmatrix}</m>.
+        </p>
+      </statement>
+      <answer>
+        <p>
+          Since the eigenvalues are distinct and real,
+          <me>\mathbf{x}(t) = c_1\begin{bmatrix} 1 \\ 1 \end{bmatrix}e^{t}
+            + c_2\begin{bmatrix} 1 \\ 3 \end{bmatrix}e^{-t}
+            = \begin{bmatrix} c_1 e^{t} + c_2 e^{-t} \\ c_1 e^{t} + 3c_2 e^{-t} \end{bmatrix}.</me>
+        </p>
+      </answer>
+    </task>
+
+    <task xml:id="ex-5-5-6c">
+      <statement>
+        <p>
+          Suppose <m>R(0) = 5</m> and <m>F(0) = 7</m>. Find the particular solution, then
+          compute <m>\displaystyle\lim_{t\to\infty}\mathbf{x}(t)</m> and interpret what it
+          means for the two populations.
+        </p>
+      </statement>
+      <hint>
+        <p>
+          Once you have the particular solution, think about which exponential term,
+          <m>e^{t}</m> or <m>e^{-t}</m>, dominates as <m>t \to \infty</m>.
+        </p>
+      </hint>
+      <answer>
+        <p>
+          Plugging in <m>t=0</m>: <m>c_1 + c_2 = 5</m> and <m>c_1 + 3c_2 = 7</m>, which
+          gives <m>c_1 = 4</m> and <m>c_2 = 1</m>. So the particular solution is
+          <me>R(t) = 4e^{t} + e^{-t}, \qquad F(t) = 4e^{t} + 3e^{-t}.</me>
+          As <m>t \to \infty</m>, the <m>e^{-t}</m> terms die out, while the <m>e^{t}</m>
+          terms grow without bound, so <m>\displaystyle\lim_{t\to\infty}\mathbf{x}(t)</m>
+          does not exist (both populations grow unboundedly). In this scenario, both the
+          rabbit and fox populations grow without bound, with the ratio
+          <m>R(t):F(t)</m> approaching <m>1:1</m> as <m>t \to \infty</m>.
+        </p>
+      </answer>
+    </task>
+
+    <task xml:id="ex-5-5-6d">
+      <statement>
+        <p>
+          Now suppose instead <m>R(0) = 1</m> and <m>F(0) = 3</m>. Find the particular
+          solution, then compute <m>\displaystyle\lim_{t\to\infty}\mathbf{x}(t)</m> and
+          interpret what it means for the two populations. How does this compare to the
+          previous part?
+        </p>
+      </statement>
+      <answer>
+        <p>
+          Plugging in <m>t=0</m>: <m>c_1 + c_2 = 1</m> and <m>c_1 + 3c_2 = 3</m>, which
+          gives <m>c_1 = 0</m> and <m>c_2 = 1</m>. So the particular solution is
+          <me>R(t) = e^{-t}, \qquad F(t) = 3e^{-t}.</me>
+          This time there is no <m>e^{t}</m> term at all (since <m>c_1 = 0</m>), so as
+          <m>t \to \infty</m>,
+          <me>\lim_{t\to\infty}\mathbf{x}(t) = \begin{bmatrix} 0 \\ 0 \end{bmatrix}.</me>
+          Both populations die out. This is a striking contrast to the previous part:
+          starting from a slightly different initial population, instead of both
+          populations exploding, they instead go extinct together (while maintaining the
+          ratio <m>R:F = 1:3</m> the whole time). This happens because this particular
+          initial condition lies exactly along the eigenvector
+          <m>\mathbf{v}_2 = \begin{bmatrix} 1 \\ 3 \end{bmatrix}</m>, so only the decaying
+          <m>e^{-t}</m> term is present, with no growing <m>e^{t}</m> term to eventually
+          take over.
+        </p>
+      </answer>
+    </task>
+  </exercise>
+
+  <interactive xml:id="question-form-5-5-ex" iframe="question-form.html?section=5.5 exercises" width="100%" aspect="2:1"/>
+
+</exercises>

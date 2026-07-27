@@ -15,5 +15,5 @@
   <xi:include href="./5-5/sec3-complex-eigen.ptx"/>
   <xi:include href="./5-5/sec4-complex-case.ptx"/>
   <xi:include href="./5-5/sec5-complex-harder-example.ptx"/>
-
+ <xi:include href="./5-5/exercises-5-5.ptx"/>
 </section>

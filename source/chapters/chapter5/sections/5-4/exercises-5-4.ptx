@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<exercises xml:id="exercises-5-4">
+  <title>Exercises for Section 5.4</title>
+
+  <introduction>
+    <p>
+      These exercises go through: computing eigenvalues from the characteristic equation
+      <m>\det(A - \lambda I) = 0</m>, and finding the eigenvectors that go with them. In
+      the last two problems, the eigenvalues come out complex; there, just find the
+      eigenvalues (we'll pick up the matching eigenvectors in Section 5.5, once we have
+      more practice with complex numbers).
+    </p>
+  </introduction>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       Q1: Real distinct eigenvalues, full eigenvalue + eigenvector
+       ═══════════════════════════════════════════════════════════ -->
+
+  <exercise xml:id="ex-5-4-1">
+    <introduction>
+      <p>
+        Consider the matrix
+        <me>A = \begin{bmatrix} 3 \amp 4 \\ 4 \amp 3 \end{bmatrix}.</me>
+      </p>
+    </introduction>
+
+    <task xml:id="ex-5-4-1a">
+      <statement>
+        <p>
+          Find the eigenvalues of <m>A</m>.
+        </p>
+      </statement>
+    
+      <answer>
+        <p>
+          <m>\det(A - \lambda I) = (3-\lambda)^2 - 16 = \lambda^2 - 6\lambda - 7
+            = (\lambda - 7)(\lambda + 1)</m>, so the eigenvalues are
+          <m>\lambda_1 = 7</m> and <m>\lambda_2 = -1</m>.
+        </p>
+      </answer>
+    </task>
+
+    <task xml:id="ex-5-4-1b">
+      <statement>
+        <p>
+          Find an eigenvector associated with each eigenvalue from the previous part.
+        </p>
+      </statement>
+    
+      <answer>
+        <p>
+          For <m>\lambda_1 = 7</m>: solving <m>(A - 7I)\mathbf{v} = \mathbf{0}</m> gives
+          <m>-4v_1 + 4v_2 = 0</m>, so <m>v_1 = v_2</m>. Choosing <m>v_1 = 1</m>:
+          <me>\mathbf{v}_1 = \begin{bmatrix} 1 \\ 1 \end{bmatrix}.</me>
+          For <m>\lambda_2 = -1</m>: solving <m>(A + I)\mathbf{v} = \mathbf{0}</m> gives
+          <m>4v_1 + 4v_2 = 0</m>, so <m>v_1 = -v_2</m>. Choosing <m>v_1 = 1</m>:
+          <me>\mathbf{v}_2 = \begin{bmatrix} 1 \\ -1 \end{bmatrix}.</me>
+        </p>
+      </answer>
+    </task>
+  </exercise>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       Q2: Real distinct eigenvalues, full eigenvalue + eigenvector
+       ═══════════════════════════════════════════════════════════ -->
+
+  <exercise xml:id="ex-5-4-2">
+    <introduction>
+      <p>
+        Consider the matrix
+        <me>A = \begin{bmatrix} 0 \amp 3 \\ -1 \amp 4 \end{bmatrix}.</me>
+      </p>
+    </introduction>
+
+    <task xml:id="ex-5-4-2a">
+      <statement>
+        <p>
+          Find the eigenvalues of <m>A</m>.
+        </p>
+      </statement>
+     
+      <answer>
+        <p>
+          <m>\det(A - \lambda I) = -\lambda(4-\lambda) + 3 = \lambda^2 - 4\lambda + 3
+            = (\lambda - 3)(\lambda - 1)</m>, so the eigenvalues are
+          <m>\lambda_1 = 3</m> and <m>\lambda_2 = 1</m>.
+        </p>
+      </answer>
+    </task>
+
+    <task xml:id="ex-5-4-2b">
+      <statement>
+        <p>
+          Find an eigenvector associated with each eigenvalue from the previous part.
+        </p>
+      </statement>
+      <answer>
+        <p>
+          For <m>\lambda_1 = 3</m>: solving <m>(A - 3I)\mathbf{v} = \mathbf{0}</m> gives
+          <m>-3v_1 + 3v_2 = 0</m>, so <m>v_1 = v_2</m>. Choosing <m>v_1 = 1</m>:
+          <me>\mathbf{v}_1 = \begin{bmatrix} 1 \\ 1 \end{bmatrix}.</me>
+          For <m>\lambda_2 = 1</m>: solving <m>(A - I)\mathbf{v} = \mathbf{0}</m> gives
+          <m>-v_1 + 3v_2 = 0</m>, so <m>v_1 = 3v_2</m>. Choosing <m>v_2 = 1</m>:
+          <me>\mathbf{v}_2 = \begin{bmatrix} 3 \\ 1 \end{bmatrix}.</me>
+        </p>
+      </answer>
+    </task>
+  </exercise>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       Q3: Complex eigenvalues, quadratic formula needed
+       ═══════════════════════════════════════════════════════════ -->
+
+  <exercise xml:id="ex-5-4-3">
+    <statement>
+      <p>
+        Find the eigenvalues of
+        <m>A = \begin{bmatrix} 1 \amp -2 \\ 5 \amp 3 \end{bmatrix}</m>. (We will find the
+        associated eigenvectors in the next section, once we've had more practice with
+        complex arithmetic.)
+      </p>
+    </statement>
+    <hint>
+      <p>
+        As always, first compute <m>\det(A - \lambda I)</m> to get a quadratic in <m>\lambda</m>. But this time
+        it won't factor nicely, so you will want to use the quadratic formula.
+      </p>
+    </hint>
+    <answer>
+      <p>
+        <m>\det(A - \lambda I) = (1-\lambda)(3-\lambda) - (-2)(5) = \lambda^2 - 4\lambda
+          + 13</m>. By the quadratic formula,
+        <me>\lambda = \frac{4 \pm \sqrt{16 - 52}}{2} = \frac{4 \pm \sqrt{-36}}{2}
+          = \frac{4 \pm 6i}{2} = 2 \pm 3i.</me>
+        So the eigenvalues are <m>\lambda = 2 + 3i</m> and <m>\lambda = 2 - 3i</m>.
+      </p>
+    </answer>
+  </exercise>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       Q4: Complex eigenvalues, no linear term
+       ═══════════════════════════════════════════════════════════ -->
+
+  <exercise xml:id="ex-5-4-4">
+    <statement>
+      <p>
+        Find the eigenvalues of
+        <m>A = \begin{bmatrix} 0 \amp -4 \\ 4 \amp 0 \end{bmatrix}</m>. (As in the last
+        problem, we'll find the eigenvectors in the next section.)
+      </p>
+    </statement>
+    <hint>
+      <p>
+        Compute <m>\det(A - \lambda I)</m>. Notice the diagonal entries of <m>A</m> are
+        both <m>0</m>, so the resulting quadratic has no <m>\lambda</m> (linear) term. You can
+        solve it directly without the quadratic formula, but the quadratic formula always works if preferred.
+      </p>
+    </hint>
+    <answer>
+      <p>
+        <m>\det(A - \lambda I) = (0-\lambda)(0-\lambda) - (-4)(4) = \lambda^2 + 16</m>.
+        Setting this equal to <m>0</m> gives <m>\lambda^2 = -16</m>, so
+        <me>\lambda = \pm\sqrt{-16} = \pm 4i.</me>
+        The eigenvalues are <m>\lambda = 4i</m> and <m>\lambda = -4i</m>.
+      </p>
+    </answer>
+  </exercise>
+
+  <interactive xml:id="question-form-5-4-ex" iframe="question-form.html?section=5.4 exercises" width="100%" aspect="2:1"/>
+
+</exercises>
